@@ -73,8 +73,8 @@ Manual way
 - Copy and paste resource pack to `development_resource_packs` folder
 - Done!
 
-> [!IMPORTANT] Where are development_*_packs folders located?
-> Their locations are different for each platform.
+> [!IMPORTANT]
+> Locations of `development_*_packs` folders are different for each platform.
 >
 > In Windows, they are typically located inside `C:\Users\{USER}\AppData\Local\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang`.
 >
@@ -92,7 +92,7 @@ Manual way
 ### Installation
 
 > [!IMPORTANT]
-> We'll assume you are using **npm** as package manager for Node.js.
+> We'll assume that you are using **npm** as a package manager for Node.js.
 
 Make sure that TypeScript is installed globally
 
