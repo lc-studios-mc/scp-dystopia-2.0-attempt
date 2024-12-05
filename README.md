@@ -15,14 +15,15 @@ It adds many popular concepts from SCP Foundation universe, including SCP object
 </div>
 
 > [!CAUTION]
-> This project is still in Alpha development stage.
-> Expect lack of features, and potential bugs.
->
-> <ins>You should **NOT** use this add-on in important projects now.</ins>
+> This repo is for SCP: Dystopia version 2.0 or later.
+> <ins>Versions prior to 2.0 are no longer supported.</ins>
+> 
+> **2.0 is like a remake, and still in alpha development stage.**
+> Expect lack of features and potential bugs.
 
 ## Introduction 🌟
 
-This Minecraft add-on contains many features based on concepts from SCP Foundation universe.
+This Minecraft add-on contains many exciting features based on concepts from SCP Foundation universe!
 
 For example,
 
@@ -30,11 +31,8 @@ For example,
 - Construction blocks
 - Furniture blocks
 - Door blocks
-- CCTV system
 
-But they are also in other SCP add-ons...
-
-__Here are the main points of SCP: Dystopia!__
+But what's the point of using SCP: Dystopia?
 
 - Compatibile ✅
   - SCP: Dystopia will stay fine even when you use it in conjunction with other complex add-ons (*in most cases*).
@@ -42,6 +40,8 @@ __Here are the main points of SCP: Dystopia!__
   - Unlike old add-ons that use entities for everything, SCP: Dystopia's core functionalities are written in optimized scripts.
 - Configurable 🔧
   - SCP: Dystopia provides many items to configure your SCP map, you can even make facility lockdown system!
+- Survival support 🪓 **(not yet)**
+  - We'll add survival support before the full 2.0 release.
 
 ## For Players 🕹️
 
