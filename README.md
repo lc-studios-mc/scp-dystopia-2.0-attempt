@@ -14,6 +14,8 @@ It adds many popular concepts from SCP Foundation universe, including SCP object
 
 </div>
 
-# Licensing
+# License
 
-This add-on and the source code are licensed under [Creative Commons Attribution-ShareAlike 4.0 License](https://creativecommons.org/licenses/by-sa/4.0/).
+This project is licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+
+[Read details](./LICENSE.md)
