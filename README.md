@@ -86,19 +86,37 @@ Manual way
 
 - Windows 10/11
 - Minecraft: Bedrock Edition
-- Node.js
-- npm
+- [Node.js](https://nodejs.org/) (Tested on v22.11.0)
+- npm (Tested on 10.9.0)
+- [Visual Studio Code](https://code.visualstudio.com/)
+  - Not necessary, but this project is configured for VSCode.
 
-### Installation
-
-> [!IMPORTANT]
-> We'll assume that you are using **npm** as a package manager for Node.js.
-
-Make sure that TypeScript is installed globally
+Run this in your terminal to make sure TypeScript is installed globally:
 
 ```powershell
 npm i typescript -g
 ```
+
+### Installation
+
+> [!NOTE]
+> We'll assume that you are using **npm** as a package manager for Node.js.
+
+1. Download [source code](https://github.com/lc-studios-mc/scp-dystopia/archive/refs/heads/main.zip)
+
+2. Extract it. The extracted folder (that directly contains files like `packages.json` and `tsconfig.json`) will be your project directory.
+
+3. Open terminal in your project directory
+
+4. Run this command to install packages:
+
+```powershell
+npm i
+```
+
+5. Wait for npm to finish installing packages...
+
+6. Done!
 
 ## License ⚖️
 
