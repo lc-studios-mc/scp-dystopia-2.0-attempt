@@ -15,11 +15,9 @@ It adds many popular concepts from SCP Foundation universe, including SCP object
 </div>
 
 > [!CAUTION]
-> This repo is for SCP: Dystopia version 2.0 and later.
-> <ins>Versions prior to 2.0 are no longer supported.</ins>
+> This repo is not ready until the release of SCP: Dystopia 2.0.0 Alpha 1.
 > 
-> **2.0 is like a remake, and still in alpha development stage.**
-> Expect lack of features and potential bugs.
+> It is planned to be released on `1:00 A.M. Sat, December 14, 2024 (UTC)`
 
 - [Introduction 🌟](#introduction-)
 - [For Players 🕹️](#for-players-️)
