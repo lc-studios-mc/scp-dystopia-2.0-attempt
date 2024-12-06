@@ -28,7 +28,9 @@ It adds many popular concepts from SCP Foundation universe, including SCP object
 - [For Developers 💻](#for-developers-)
   - [Prerequisites](#prerequisites-1)
   - [Installation](#installation-1)
-- [License ⚖️](#license-️)
+- [Additional Info](#additional-info)
+  - [License ⚖️](#license-️)
+  - [Credits 📝](#credits-)
 
 ## Introduction 🌟
 
@@ -127,8 +129,14 @@ npm i
 
 6. Done!
 
-## License ⚖️
+## Additional Info
+
+### License ⚖️
 
 This project is licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
 
 [Read details](./LICENSE.md)
+
+### Credits 📝
+
+See [CREDITS.md](./CREDITS.md)
