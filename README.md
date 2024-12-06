@@ -21,6 +21,15 @@ It adds many popular concepts from SCP Foundation universe, including SCP object
 > **2.0 is like a remake, and still in alpha development stage.**
 > Expect lack of features and potential bugs.
 
+- [Introduction 🌟](#introduction-)
+- [For Players 🕹️](#for-players-️)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [For Developers 💻](#for-developers-)
+  - [Prerequisites](#prerequisites-1)
+  - [Installation](#installation-1)
+- [License ⚖️](#license-️)
+
 ## Introduction 🌟
 
 This Minecraft add-on contains many exciting features based on concepts from SCP Foundation universe!
