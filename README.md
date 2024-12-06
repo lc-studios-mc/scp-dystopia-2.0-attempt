@@ -23,12 +23,12 @@ It adds many popular concepts from SCP Foundation universe, including SCP object
 
 - [Introduction 🌟](#introduction-)
 - [For Players 🕹️](#for-players-️)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
+  - [Prerequisites 📋](#prerequisites-)
+  - [Installation 🛠️](#installation-️)
 - [For Developers 💻](#for-developers-)
-  - [Prerequisites](#prerequisites-1)
-  - [Installation](#installation-1)
-- [Additional Info](#additional-info)
+  - [Prerequisites 📋](#prerequisites--1)
+  - [Installation 🛠️](#installation-️-1)
+- [Additional Info 📄](#additional-info-)
   - [License ⚖️](#license-️)
   - [Credits 📝](#credits-)
 
@@ -59,14 +59,14 @@ But what's the point of using SCP: Dystopia?
 > [!NOTE]
 > How-to-play guides and tutorials are not available yet.
 
-### Prerequisites
+### Prerequisites 📋
 
 - Minecraft: Bedrock Edition with custom add-on support (not marketplace!)
   - Windows 10/11
   - Android
   - iOS
 
-### Installation
+### Installation 🛠️
 
 **Standard way (Recommended)**
 
@@ -93,7 +93,7 @@ Manual way
 
 ## For Developers 💻
 
-### Prerequisites
+### Prerequisites 📋
 
 - Windows 10/11
 - Minecraft: Bedrock Edition
@@ -108,7 +108,7 @@ Run this in your terminal to make sure TypeScript is installed globally:
 npm i typescript -g
 ```
 
-### Installation
+### Installation 🛠️
 
 > [!NOTE]
 > We'll assume that you are using **npm** as a package manager for Node.js.
@@ -129,7 +129,7 @@ npm i
 
 6. Done!
 
-## Additional Info
+## Additional Info 📄
 
 ### License ⚖️
 
