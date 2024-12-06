@@ -15,7 +15,7 @@ It adds many popular concepts from SCP Foundation universe, including SCP object
 </div>
 
 > [!CAUTION]
-> This repo is for SCP: Dystopia version 2.0 or later.
+> This repo is for SCP: Dystopia version 2.0 and later.
 > <ins>Versions prior to 2.0 are no longer supported.</ins>
 > 
 > **2.0 is like a remake, and still in alpha development stage.**
