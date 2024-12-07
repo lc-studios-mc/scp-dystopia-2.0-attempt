@@ -7,19 +7,28 @@
 [![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/lc-studios-mc/scp-dystopia/total?style=for-the-badge)](https://github.com/lc-studios-mc/scp-dystopia/releases)
 [![GitHub last commit](https://img.shields.io/github/last-commit/lc-studios-mc/scp-dystopia?style=for-the-badge)](https://github.com/lc-studios-mc/scp-dystopia/commits/)
 [![Static Badge](https://img.shields.io/badge/Discord-%235865F2?style=for-the-badge&logo=discord&logoColor=%23ffffff)](https://discord.gg/K2mxsJ2trE)
+[![Static Badge](https://img.shields.io/badge/MCPEDL-%2300a52e?style=for-the-badge)](https://mcpedl.com/scp-dystopia-addon/)
 
 **SCP: Dystopia** is an add-on for [Minecraft: Bedrock Edition](https://www.minecraft.net/), based on the works of the [SCP Foundation](https://scp-wiki.wikidot.com/) community.
 
-It adds many popular concepts from SCP Foundation universe, including SCP objects and factions, recreated in a form of blocks, mobs, and items! 🧊
+It adds many popular concepts from SCP Foundation universe, including SCP objects and factions, recreated in Minecraft!
 
 </div>
 
-> [!CAUTION]
-> This repo is not ready until the release of SCP: Dystopia 2.0.0 Alpha 1.
-> 
-> It is planned to be released on `1:00 A.M. Sat, December 14, 2024 (UTC)`
+> [!IMPORTANT]
+> This repo is made for SCP: Dystopia 2.0 and later.
+> Versions prior to 2.0 are irrelevant here.
 
-- [Introduction 🌟](#introduction-)
+> [!CAUTION]
+> Version 2.0 is still far from complete.
+> That's why we're releasing early accesses.
+>
+> <ins>2.0 is like a remake. We're rewriting and redesigning so many things. It takes a long time to polish and re-add all the features from 1.8.</ins>
+>
+> For now, be careful when using it for your project, and expect lack of features.
+
+- [Introduction 👋](#introduction-)
+  - [Main features ✨](#main-features-)
 - [For Players 🕹️](#for-players-️)
   - [Prerequisites 📋](#prerequisites-)
   - [Installation 🛠️](#installation-️)
@@ -30,32 +39,31 @@ It adds many popular concepts from SCP Foundation universe, including SCP object
   - [License ⚖️](#license-️)
   - [Credits 📝](#credits-)
 
-## Introduction 🌟
+## Introduction 👋
 
-This Minecraft add-on contains many exciting features based on concepts from SCP Foundation universe!
+SCP: Dystopia is a Minecraft add-on that contains many exciting features based on concepts from SCP Foundation universe!
 
-For example,
+<div align="center">
 
-- SCP objects
-- Construction blocks
-- Furniture blocks
-- Door blocks
+<img src="./media/screenshot_1.webp" alt="Logo" title="SCP: Dystopia" height="100%" width="100%" />
 
-But what's the point of using SCP: Dystopia?
+(Ruined bunker that naturally spawns in overworld)
 
-- Compatibile ✅
-  - SCP: Dystopia will stay fine even when you use it in conjunction with other complex add-ons (*in most cases*).
-- Optimized 🚀
-  - Unlike old add-ons that use entities for everything, SCP: Dystopia's core functionalities are written in optimized scripts.
-- Configurable 🔧
-  - SCP: Dystopia provides many items to configure your SCP map, you can even make facility lockdown system!
-- Survival support 🪓 **(not yet)**
-  - We'll add survival support before the full 2.0 release.
+</div>
+
+### Main features ✨
+
+- SCP objects (<ins>WIP</ins>)
+- Construction blocks (<ins>WIP</ins>)
+- Furniture blocks (<ins>WIP</ins>)
+- Doors
+- CCTV (security camera) system
+- Facility lockdown system with infinite range
 
 ## For Players 🕹️
 
 > [!NOTE]
-> How-to-play guides and tutorials are not available yet.
+> How-to-play guides and tutorials are not ready yet.
 
 ### Prerequisites 📋
 
