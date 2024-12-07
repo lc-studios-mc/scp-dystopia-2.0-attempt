@@ -38,6 +38,7 @@ It adds many popular concepts from SCP Foundation universe, including SCP object
 - [Additional Info 📄](#additional-info-)
   - [License ⚖️](#license-️)
   - [Credits 📝](#credits-)
+  - [Versioning 🏷️](#versioning-️)
 
 ## Introduction 👋
 
@@ -146,3 +147,7 @@ This project is licensed under [CC BY-SA 4.0](https://creativecommons.org/licens
 ### Credits 📝
 
 See [CREDITS.md](./CREDITS.md)
+
+### Versioning 🏷️
+
+See [VERSIONING.md](./VERSIONING.md)
