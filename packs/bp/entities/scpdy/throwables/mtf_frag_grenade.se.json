@@ -1,0 +1,71 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "lc:scpdy_mtf_frag_grenade",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "timer": {
+        "minecraft:timer": {
+          "looping": false,
+          "randomInterval": false,
+          "time": 3.0,
+          "time_down_event": {
+            "event": "frag_grenade:explode",
+            "target": "self"
+          }
+        }
+      },
+      "explode": {
+        "minecraft:explode": {
+          "breaks_blocks": false,
+          "fuse_length": [0.0, 0.0],
+          "fuse_lit": true,
+          "power": 3.0
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": ["inanimate", "frag_grenade", "mtf_weapon", "scpdy_grenade"]
+      },
+      "minecraft:health": {
+        "value": 6,
+        "max": 6
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "all",
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:body_rotation_blocked": {},
+      "minecraft:collision_box": {
+        "width": 0.3,
+        "height": 0.3
+      },
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:physics": {}
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": ["timer"]
+        }
+      },
+      "frag_grenade:explode": {
+        "add": {
+          "component_groups": ["explode"]
+        }
+      }
+    }
+  }
+}

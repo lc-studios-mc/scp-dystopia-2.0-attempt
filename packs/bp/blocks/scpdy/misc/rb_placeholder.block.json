@@ -1,0 +1,18 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:block": {
+    "description": {
+      "identifier": "lc:scpdy_rb_placeholder",
+      "is_experimental": false
+    },
+    "components": {
+      "minecraft:creative_category": {
+        "group": "itemGroup.name.construction",
+        "category": "construction"
+      },
+      "minecraft:map_color": "#e7e7e7",
+      "minecraft:explosion_resistance": 30.0,
+      "minecraft:destroy_time": 0.5
+    }
+  }
+}

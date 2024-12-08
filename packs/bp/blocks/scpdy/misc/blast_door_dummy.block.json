@@ -1,0 +1,28 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:block": {
+    "description": {
+      "identifier": "lc:scpdy_blast_door_dummy"
+    },
+    "components": {
+      "minecraft:custom_components": ["scpdy:blast_door_dummy"],
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "scpdy_empty",
+          "render_method": "blend"
+        }
+      },
+      "minecraft:geometry": "minecraft:geometry.full_block",
+      "minecraft:loot": "loot_tables/empty.json",
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 6000.0
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 5.0
+      },
+      "minecraft:light_dampening": 1,
+      "minecraft:collision_box": true,  
+      "minecraft:selection_box": true
+    }
+  }
+}

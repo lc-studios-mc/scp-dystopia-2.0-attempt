@@ -1,0 +1,29 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "lc:scpdy_recipe_keycard_lvl_4_duplication"
+    },
+    "tags": ["crafting_table"],
+    "pattern": [
+      "KP"
+    ],
+    "key": {
+      "P": {
+        "item": "minecraft:paper"
+      },
+      "K": {
+        "item": "lc:scpdy_keycard_lvl_4"
+      }
+    },
+    "unlock": [
+      {
+        "item": "lc:scpdy_keycard_lvl_4"
+      }
+    ],
+    "result": {
+      "item": "lc:scpdy_keycard_lvl_4",
+      "count": 2
+    }
+  }
+}

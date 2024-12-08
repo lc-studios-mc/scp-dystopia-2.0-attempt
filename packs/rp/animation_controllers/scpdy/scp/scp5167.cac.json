@@ -1,0 +1,72 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.scpdy_scp5167.main": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "animations": [
+            "anim.idle"
+          ],
+          "transitions": [
+            {
+              "walk": "q.modified_move_speed > 0.1"
+            },
+            {
+              "attack": "q.is_delayed_attacking"
+            },
+            {
+              "scared": "v.is_health_low"
+            }
+          ],
+          "blend_transition": 0.25
+        },
+        "walk": {
+          "animations": [
+            "anim.walk"
+          ],
+          "transitions": [
+            {
+              "scared": "q.modified_move_speed <= 0.1 && v.is_health_low"
+            },
+            {
+              "default": "q.modified_move_speed <= 0.1"
+            },
+            {
+              "attack": "q.is_delayed_attacking"
+            }
+          ],
+          "blend_transition": 0.25
+        },
+        "attack": {
+          "animations": [
+            "anim.attack"
+          ],
+          "transitions": [
+            {
+              "default": "!q.is_delayed_attacking"
+            }
+          ],
+          "blend_transition": 0.25
+        },
+        "scared": {
+          "animations": [
+            "anim.scared"
+          ],
+          "transitions": [
+            {
+              "default": "!v.is_health_low"
+            },
+            {
+              "walk": "q.modified_move_speed > 0.1"
+            },
+            {
+              "attack": "q.is_delayed_attacking"
+            }
+          ],
+          "blend_transition": 0.2
+        }
+      }
+    }
+  }
+}

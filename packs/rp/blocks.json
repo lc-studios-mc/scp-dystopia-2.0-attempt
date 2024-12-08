@@ -1,0 +1,487 @@
+{
+  "format_version": "1.1.0",
+  // #region Uncategorized
+  "lc:scpdy_blast_door_dummy": {
+    "sound": "netherite"
+  },
+  "lc:scpdy_door_activator": {
+    "sound": "metal"
+  },
+  "lc:scpdy_floor_grate": {
+    "sound": "metal",
+    "textures": "scpdy_floor_grate"
+  },
+  "lc:scpdy_floor_grate_trap": {
+    "sound": "metal",
+    "textures": "scpdy_floor_grate_trap"
+  },
+  "lc:scpdy_landmine": {
+    "sound": "copper"
+  },
+  "lc:scpdy_razor_wire": {
+    "sound": "metal"
+  },
+  "lc:scpdy_rb_placeholder": {
+    "sound": "stone",
+    "textures": "scpdy_rb_placeholder"
+  },
+  "lc:scpdy_steel_beam": {
+    "sound": "metal"
+  },
+  "lc:scpdy_steel_beam_end": {
+    "sound": "metal"
+  },
+  "lc:scpdy_steel_truss": {
+    "sound": "metal"
+  },
+  "lc:scpdy_warehouse_light_1": {
+    "sound": "glass"
+  },
+  "lc:scpdy_warehouse_light_1_hanging": {
+    "sound": "metal"
+  },
+  // #endregion
+  // #region Decor
+  "lc:scpdy_decor_vent_1": {
+    "sound": "metal"
+  },
+  "lc:scpdy_decor_vent_2": {
+    "sound": "metal"
+  },
+  // #endregion
+  // #region Construction
+  "lc:scpdy_cst_black_checker_tiles": {
+    "sound": "stone",
+    "textures": "scpdy_cst_black_checker_tiles"
+  },
+  "lc:scpdy_cst_cushion": {
+    "sound": "cloth",
+    "textures": "scpdy_cst_cushion"
+  },
+  "lc:scpdy_cst_floor_tiles": {
+    "sound": "stone",
+    "textures": "scpdy_cst_floor_tiles"
+  },
+  "lc:scpdy_cst_generic_floor": {
+    "sound": "stone",
+    "textures": "scpdy_cst_generic_floor"
+  },
+  "lc:scpdy_cst_steel_block": {
+    "sound": "metal",
+    "textures": "scpdy_cst_steel_block"
+  },
+  "lc:scpdy_cst_treadplate": {
+    "sound": "metal",
+    "textures": {
+      "down": "scpdy_cst_treadplate_side",
+      "side": "scpdy_cst_treadplate_side",
+      "up": "scpdy_cst_treadplate_up"
+    }
+  },
+  "lc:scpdy_cst_concrete_black": {
+    "isotropic" : true,
+    "sound": "stone",
+    "textures": "scpdy_cst_concrete_black"
+  },
+  "lc:scpdy_cst_concrete_gray": {
+    "isotropic" : true,
+    "sound": "stone",
+    "textures": "scpdy_cst_concrete_gray"
+  },
+  "lc:scpdy_cst_exterior_bricks_middle": {
+    "sound": "stone",
+    "textures": "scpdy_cst_exterior_bricks_middle"
+  },
+  "lc:scpdy_cst_exterior_bricks_bottom": {
+    "sound": "stone",
+    "textures": {
+      "down": "scpdy_cst_concrete_black",
+      "side": "scpdy_cst_exterior_bricks_bottom",
+      "up": "scpdy_cst_concrete_gray"
+    }
+  },
+  "lc:scpdy_cst_exterior_bricks_top": {
+    "sound": "stone",
+    "textures": {
+      "down": "scpdy_cst_exterior_bricks_middle",
+      "side": "scpdy_cst_exterior_bricks_top",
+      "up": "scpdy_cst_exterior_bricks_middle"
+    }
+  },
+  "lc:scpdy_cst_facility_wall_middle": {
+    "sound": "stone",
+    "textures": "scpdy_cst_facility_wall_middle"
+  },
+  "lc:scpdy_cst_facility_wall_middle_2": {
+    "sound": "stone",
+    "textures": {
+      "down": "scpdy_cst_facility_wall_middle",
+      "side": "scpdy_cst_facility_wall_middle_2",
+      "up": "scpdy_cst_facility_wall_middle"
+    }
+  },
+  "lc:scpdy_cst_facility_wall_bottom": {
+    "sound": "stone",
+    "textures": {
+      "down": "scpdy_cst_facility_wall_middle",
+      "side": "scpdy_cst_facility_wall_bottom",
+      "up": "scpdy_cst_facility_wall_middle"
+    }
+  },
+  "lc:scpdy_cst_facility_wall_top": {
+    "sound": "stone",
+    "textures": {
+      "down": "scpdy_cst_facility_wall_middle",
+      "side": "scpdy_cst_facility_wall_top",
+      "up": "scpdy_cst_facility_wall_middle"
+    }
+  },
+  "lc:scpdy_cst_blue_wall": {
+    "isotropic": true,
+    "sound": "stone",
+    "textures": "scpdy_cst_blue_wall"
+  },
+  "lc:scpdy_cst_blue_wall_middle": {
+    "sound": "stone",
+    "textures": {
+      "down": "scpdy_cst_blue_wall",
+      "side": "scpdy_cst_blue_wall_middle",
+      "up": "scpdy_cst_blue_wall"
+    }
+  },
+  "lc:scpdy_cst_blue_wall_bottom_1": {
+    "sound": "stone",
+    "textures": {
+      "down": "scpdy_cst_blue_wall",
+      "side": "scpdy_cst_blue_wall_bottom_1",
+      "up": "scpdy_cst_blue_wall"
+    }
+  },
+  "lc:scpdy_cst_blue_wall_bottom_2": {
+    "sound": "stone",
+    "textures": {
+      "down": "scpdy_cst_blue_wall",
+      "side": "scpdy_cst_blue_wall_bottom_2",
+      "up": "scpdy_cst_blue_wall"
+    }
+  },
+  "lc:scpdy_cst_blue_wall_bottom_3": {
+    "sound": "stone",
+    "textures": {
+      "down": "scpdy_cst_blue_wall",
+      "side": "scpdy_cst_blue_wall_bottom_3",
+      "up": "scpdy_cst_blue_wall"
+    }
+  },
+  "lc:scpdy_cst_blue_wall_top": {
+    "sound": "stone",
+    "textures": {
+      "down": "scpdy_cst_blue_wall",
+      "side": "scpdy_cst_blue_wall_top",
+      "up": "scpdy_cst_blue_wall"
+    }
+  },
+  "lc:scpdy_cst_brown_wall_bottom": {
+    "sound": "stone",
+    "textures": {
+      "down": "scpdy_cst_facility_wall_middle",
+      "side": "scpdy_cst_brown_wall_bottom",
+      "up": "scpdy_cst_facility_wall_middle"
+    }
+  },
+  "lc:scpdy_cst_brown_wall_top": {
+    "sound": "stone",
+    "textures": {
+      "down": "scpdy_cst_facility_wall_middle",
+      "side": "scpdy_cst_brown_wall_top",
+      "up": "scpdy_cst_facility_wall_middle"
+    }
+  },
+  "lc:scpdy_cst_cyan_wall_bottom": {
+    "sound": "stone",
+    "textures": {
+      "down": "scpdy_cst_facility_wall_middle",
+      "side": "scpdy_cst_cyan_wall_bottom",
+      "up": "scpdy_cst_facility_wall_middle"
+    }
+  },
+  "lc:scpdy_cst_cyan_wall_top": {
+    "sound": "stone",
+    "textures": {
+      "down": "scpdy_cst_facility_wall_middle",
+      "side": "scpdy_cst_cyan_wall_top",
+      "up": "scpdy_cst_facility_wall_middle"
+    }
+  },
+  "lc:scpdy_cst_gray_wall_bottom": {
+    "sound": "stone",
+    "textures": {
+      "down": "scpdy_cst_facility_wall_middle",
+      "side": "scpdy_cst_gray_wall_bottom",
+      "up": "scpdy_cst_facility_wall_middle"
+    }
+  },
+  "lc:scpdy_cst_gray_wall_top": {
+    "sound": "stone",
+    "textures": {
+      "down": "scpdy_cst_facility_wall_middle",
+      "side": "scpdy_cst_gray_wall_top",
+      "up": "scpdy_cst_facility_wall_middle"
+    }
+  },
+  "lc:scpdy_cst_mint_wall_bottom": {
+    "sound": "stone",
+    "textures": {
+      "down": "scpdy_cst_facility_wall_middle",
+      "side": "scpdy_cst_mint_wall_bottom",
+      "up": "scpdy_cst_facility_wall_middle"
+    }
+  },
+  "lc:scpdy_cst_mint_wall_top": {
+    "sound": "stone",
+    "textures": {
+      "down": "scpdy_cst_facility_wall_middle",
+      "side": "scpdy_cst_mint_wall_top",
+      "up": "scpdy_cst_facility_wall_middle"
+    }
+  },
+  "lc:scpdy_cst_orange_wall_bottom": {
+    "sound": "stone",
+    "textures": {
+      "down": "scpdy_cst_facility_wall_middle",
+      "side": "scpdy_cst_orange_wall_bottom",
+      "up": "scpdy_cst_facility_wall_middle"
+    }
+  },
+  "lc:scpdy_cst_orange_wall_top": {
+    "sound": "stone",
+    "textures": {
+      "down": "scpdy_cst_facility_wall_middle",
+      "side": "scpdy_cst_orange_wall_top",
+      "up": "scpdy_cst_facility_wall_middle"
+    }
+  },
+  "lc:scpdy_cst_heavy_wall_1": {
+    "sound": "stone",
+    "textures": "scpdy_cst_heavy_wall_1"
+  },
+  "lc:scpdy_cst_heavy_wall_1_bottom": {
+    "sound": "stone",
+    "textures": {
+      "down": "scpdy_cst_heavy_wall_1",
+      "side": "scpdy_cst_heavy_wall_1_bottom",
+      "up": "scpdy_cst_heavy_wall_1"
+    }
+  },
+  "lc:scpdy_cst_heavy_wall_1_top": {
+    "sound": "stone",
+    "textures": {
+      "down": "scpdy_cst_heavy_wall_1",
+      "side": "scpdy_cst_heavy_wall_1_top",
+      "up": "scpdy_cst_heavy_wall_1"
+    }
+  },
+  "lc:scpdy_cst_heavy_wall_2": {
+    "sound": "stone",
+    "textures": "scpdy_cst_heavy_wall_2"
+  },
+  "lc:scpdy_cst_heavy_wall_2_bottom": {
+    "sound": "stone",
+    "textures": {
+      "down": "scpdy_cst_heavy_wall_2",
+      "side": "scpdy_cst_heavy_wall_2_bottom",
+      "up": "scpdy_cst_heavy_wall_2"
+    }
+  },
+  "lc:scpdy_cst_heavy_wall_2_top": {
+    "sound": "stone",
+    "textures": {
+      "down": "scpdy_cst_heavy_wall_2",
+      "side": "scpdy_cst_heavy_wall_2_top",
+      "up": "scpdy_cst_heavy_wall_2"
+    }
+  },
+  "lc:scpdy_cst_lamp_1": {
+    "sound": "glass",
+    "textures": "scpdy_cst_lamp_1"
+  },
+  "lc:scpdy_cst_lamp_2": {
+    "sound": "glass",
+    "textures": "scpdy_cst_lamp_2"
+  },
+  "lc:scpdy_cst_office_ceiling_1": {
+    "sound": "stone",
+    "textures": "scpdy_cst_office_ceiling_1"
+  },
+  "lc:scpdy_cst_office_ceiling_2": {
+    "sound": "stone",
+    "textures": "scpdy_cst_office_ceiling_2"
+  },
+  "lc:scpdy_cst_reinforced_panel_1": {
+    "sound": "metal",
+    "textures": "scpdy_cst_reinforced_panel_1"
+  },
+  "lc:scpdy_cst_reinforced_panel_2": {
+    "sound": "metal",
+    "textures": "scpdy_cst_reinforced_panel_2"
+  },
+  "lc:scpdy_cst_reinforced_panel_3": {
+    "sound": "metal",
+    "textures": "scpdy_cst_reinforced_panel_3"
+  },
+  // #endregion
+  // #region Control devices
+  "lc:scpdy_door_button": {
+    "sound": "copper"
+  },
+  "lc:scpdy_keycard_reader_lvl_0": {
+    "sound": "copper"
+  },
+  "lc:scpdy_keycard_reader_lvl_1": {
+    "sound": "copper"
+  },
+  "lc:scpdy_keycard_reader_lvl_2": {
+    "sound": "copper"
+  },
+  "lc:scpdy_keycard_reader_lvl_3": {
+    "sound": "copper"
+  },
+  "lc:scpdy_keycard_reader_lvl_4": {
+    "sound": "copper"
+  },
+  "lc:scpdy_keycard_reader_lvl_5": {
+    "sound": "copper"
+  },
+  "lc:scpdy_keycard_reader_o5": {
+    "sound": "copper"
+  },
+  // #endregion
+  // #region Doors
+  // #region Command doors
+  "lc:scpdy_command_door": {
+    "sound": "metal"
+  },
+  // #endregion
+  // #region Boolean doors
+  "lc:scpdy_boolean_door_1": {
+    "sound": "metal"
+  },
+  "lc:scpdy_boolean_door_2": {
+    "sound": "metal"
+  },
+  "lc:scpdy_boolean_door_3": {
+    "sound": "metal"
+  },
+  // #endregion
+  // #region Mechanical doors
+  "lc:scpdy_mechanical_door_1": {
+    "sound": "metal"
+  },
+  "lc:scpdy_mechanical_door_2": {
+    "sound": "metal"
+  },
+  "lc:scpdy_mechanical_door_3": {
+    "sound": "metal"
+  },
+  "lc:scpdy_mechanical_door_4": {
+    "sound": "metal"
+  },
+  "lc:scpdy_mechanical_door_5": {
+    "sound": "metal"
+  },
+  "lc:scpdy_mechanical_door_6": {
+    "sound": "metal"
+  },
+  "lc:scpdy_mechanical_door_7": {
+    "sound": "netherite"
+  },
+  // #endregion
+  // #region Standard Doors
+  "lc:scpdy_standard_door_1": {
+    "sound": "wood"
+  },
+  "lc:scpdy_standard_door_2": {
+    "sound": "metal"
+  },
+  // #endregion
+  // #region Lockdown Doors
+  "lc:scpdy_lockdown_door_n1": {
+    "sound": "netherite"
+  },
+  "lc:scpdy_lockdown_door_n2": {
+    "sound": "netherite"
+  },
+  "lc:scpdy_lockdown_door_n3": {
+    "sound": "netherite"
+  },
+  "lc:scpdy_lockdown_door_n4": {
+    "sound": "netherite"
+  },
+  "lc:scpdy_lockdown_door_n5": {
+    "sound": "netherite"
+  },
+  // #endregion
+  // #endregion
+  // #region Furniture
+  "lc:scpdy_connec_table_1": {
+    "sound": "stone"
+  },
+  "lc:scpdy_connec_table_2": {
+    "sound": "stone"
+  },
+  "lc:scpdy_office_chair_1": {
+    "sound": "stone"
+  },
+  "lc:scpdy_office_chair_2": {
+    "sound": "stone"
+  },
+  "lc:scpdy_office_chair_3": {
+    "sound": "stone"
+  },
+  "lc:scpdy_shelf_1": {
+    "sound": "stone"
+  },
+  "lc:scpdy_shelf_2": {
+    "sound": "stone"
+  },
+  // #endregion
+  // #region Lockdown alarm
+  "lc:scpdy_lockdown_alarm_n1": {
+    "sound": "glass"
+  },
+  "lc:scpdy_lockdown_alarm_n2": {
+    "sound": "glass"
+  },
+  "lc:scpdy_lockdown_alarm_n3": {
+    "sound": "glass"
+  },
+  "lc:scpdy_lockdown_alarm_n4": {
+    "sound": "glass"
+  },
+  "lc:scpdy_lockdown_alarm_n5": {
+    "sound": "glass"
+  },
+  // #endregion
+  // #region Lockdown panel
+  "lc:scpdy_lockdown_panel_n1": {
+    "sound": "copper"
+  },
+  "lc:scpdy_lockdown_panel_n2": {
+    "sound": "copper"
+  },
+  "lc:scpdy_lockdown_panel_n3": {
+    "sound": "copper"
+  },
+  "lc:scpdy_lockdown_panel_n4": {
+    "sound": "copper"
+  },
+  "lc:scpdy_lockdown_panel_n5": {
+    "sound": "copper"
+  },
+  // #endregion
+  // #region Minigame Blocks
+  "lc:scpdy_dash_block": {
+    "sound": "metal"
+  }
+  // #endregion
+}

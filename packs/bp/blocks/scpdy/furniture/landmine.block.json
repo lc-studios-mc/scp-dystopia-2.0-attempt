@@ -1,0 +1,55 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:block": {
+    "description": {
+      "identifier": "lc:scpdy_landmine",
+      "menu_category": {
+        "category": "construction",
+        "group": "itemGroup.name.sandstone"
+      },
+      "states": {
+        "lc:explode": [false, true]
+      }
+    },
+    "components": {
+      "minecraft:custom_components": ["scpdy:landmine"],
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "scpdy_landmine",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:geometry": "geometry.scpdy_landmine",
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 2.5 // https://minecraft.fandom.com/wiki/Explosion#Blast_resistance
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.5
+      },
+      "minecraft:light_dampening": 0,
+      "minecraft:collision_box": {
+        "origin": [-3, 0, -3],
+        "size": [6, 8, 6]
+      },
+      "minecraft:selection_box": {
+        "origin": [-3, 0, -3],
+        "size": [6, 2, 6]
+      },
+      "tag:dangerous": {},
+      "tag:explosive": {},
+      "tag:landmine": {}
+    },
+    "permutations": [
+      {
+        "condition": "q.block_state('lc:explode')",
+        "components": {
+          "minecraft:loot": "loot_tables/empty.json",
+          "minecraft:collision_box": {
+            "origin": [-3, 0, -3],
+            "size": [6, 4, 6]
+          }
+        }
+      }
+    ]
+  }
+}

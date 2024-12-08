@@ -1,0 +1,37 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "lc:scpdy_recipe_keycard_lvl_1"
+    },
+    "tags": ["crafting_table"],
+    "pattern": [
+      "PD",
+      "M "
+    ],
+    "key": {
+      "P": {
+        "item": "minecraft:paper"
+      },
+      "D": {
+        "item": "minecraft:dye",
+        "data": 11
+      },
+      "M": {
+        "item": "minecraft:coal"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:paper"
+      },
+      {
+        "item": "lc:scpdy_keycard_lvl_1"
+      }
+    ],
+    "result": {
+      "item": "lc:scpdy_keycard_lvl_1",
+      "count": 1
+    }
+  }
+}

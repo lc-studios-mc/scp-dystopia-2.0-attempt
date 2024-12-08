@@ -1,0 +1,39 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "lc:scpdy_scp001_proto_neutralized",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/scpdy/scp/scp001_proto/damaged"
+      },
+      "geometry": {
+        "default": "geometry.scpdy_scp001_proto"
+      },
+      "animations": {
+        // Animation controllers
+        "ctrl.main": "controller.animation.scpdy_scp001_proto_neutralized.main",
+        // Animations
+        "anim.general": "animation.scpdy_scp001_proto_neutralized.general",
+        "anim.move": "animation.scpdy_scp001_proto_neutralized.move",
+        "anim.getting_back": "animation.scpdy_scp001_proto_neutralized.getting_back"
+      },
+      "scripts": {
+        "animate": [
+          "ctrl.main"
+        ],
+        "initialize": [
+          "v.is_getting_back = false;"
+        ],
+        "pre_animation": [
+          "v.move = (Math.cos(q.modified_distance_moved * 50.17) * q.modified_move_speed / v.gliding_speed_value) * 57.3;",
+          "v.move_mul = 0.9;",
+          "v.is_getting_back = q.property('lc:is_getting_back');"
+        ]
+      },
+      "render_controllers": ["controller.render.scpdy.standard"]
+    }
+  }
+}

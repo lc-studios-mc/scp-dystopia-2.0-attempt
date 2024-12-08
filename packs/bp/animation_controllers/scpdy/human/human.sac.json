@@ -1,0 +1,49 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.scpdy.bp.human.low_health_trigger": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "low": "q.health < (q.max_health / 3)"
+            }
+          ]
+        },
+        "low": {
+          "on_entry": [
+            "@s human:on_low_health"
+          ],
+          "on_exit": [
+            "@s human:on_not_low_health"
+          ],
+          "transitions": [
+            {
+              "default": "!(q.health < (q.max_health / 3))"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.scpdy.bp.human.shoot_trigger": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "shoot": "v.attack_time" // This will function if mojang fixed "swing" property
+            }
+          ]
+        },
+        "shoot": {
+          "transitions": [
+            {
+              "default": "!v.attack_time"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.scpdy_blood.spread": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "animations": [
+            "anim.hide"
+          ],
+          "transitions": [
+            {
+              "spread_slow": "v.state == 1"
+            },
+            {
+              "spread_fast": "v.state == 2"
+            }
+          ]
+        },
+        "spread_slow": {
+          "animations": [
+            "anim.spread_slow"
+          ]
+        },
+        "spread_fast": {
+          "animations": [
+            "anim.spread_fast"
+          ]
+        }
+      }
+    }
+  }
+}

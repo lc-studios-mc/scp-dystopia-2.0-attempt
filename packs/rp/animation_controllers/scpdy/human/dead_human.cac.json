@@ -1,0 +1,77 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.scpdy_dead_human.main": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "death_1": "v.is_just_spawned && v.death_anim_index == 0"
+            },
+            {
+              "death_1_keep": "!v.is_just_spawned && v.death_anim_index == 0"
+            },
+            {
+              "death_2": "v.is_just_spawned && v.death_anim_index == 1"
+            },
+            {
+              "death_2_keep": "!v.is_just_spawned && v.death_anim_index == 1"
+            },
+            {
+              "death_3": "v.is_just_spawned && v.death_anim_index == 2"
+            },
+            {
+              "death_3_keep": "!v.is_just_spawned && v.death_anim_index == 2"
+            }
+          ]
+        },
+        "death_1": {
+          "animations": [
+            "anim.death_1"
+          ],
+          "transitions": [
+            {
+              "death_1_keep": "q.all_animations_finished"
+            }
+          ]
+        },
+        "death_1_keep": {
+          "animations": [
+            "anim.death_1_keep"
+          ]
+        },
+        "death_2": {
+          "animations": [
+            "anim.death_2"
+          ],
+          "transitions": [
+            {
+              "death_2_keep": "q.all_animations_finished"
+            }
+          ]
+        },
+        "death_2_keep": {
+          "animations": [
+            "anim.death_2_keep"
+          ]
+        },
+        "death_3": {
+          "animations": [
+            "anim.death_3"
+          ],
+          "transitions": [
+            {
+              "death_3_keep": "q.all_animations_finished"
+            }
+          ]
+        },
+        "death_3_keep": {
+          "animations": [
+            "anim.death_3_keep"
+          ]
+        }
+      }
+    }
+  }
+}

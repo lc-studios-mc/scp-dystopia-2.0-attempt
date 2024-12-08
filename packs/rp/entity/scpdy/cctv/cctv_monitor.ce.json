@@ -1,0 +1,20 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "lc:scpdy_cctv_monitor",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "default": "textures/scpdy/cctv/monitor"
+      },
+      "geometry": {
+        "default": "geometry.scpdy_cctv_monitor"
+      },
+      "render_controllers": [
+        "controller.render.scpdy.standard"
+      ]
+    }
+  }
+}

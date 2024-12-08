@@ -1,0 +1,174 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.scpdy.bp.unknown_core.s3.general": {
+      "animation_length": 1.0,
+      "loop": false,
+      "timeline": {
+        "0.1": ["@s unknown_core:set_can_be_damaged:false"]
+      }
+    },
+    "animation.scpdy.bp.unknown_core.s3.sword_slash_1": {
+      "animation_length": 2.2,
+      "loop": false,
+      "timeline": {
+        "0.46": [
+          "@s unknown_core:s3:add_shoot_sword_magic",
+          "/playsound scpdy.unknown_core.sword_woosh @a[r=100] ~ ~ ~ 1.8 1",
+          "/camerashake add @a[r=30] 0.3 0.3 positional"
+        ],
+        "0.66": ["@s unknown_core:s3:on_swing_sword"],
+        "0.8": ["@s unknown_core:s3:remove_shoot_sword_magic"],
+        "1.13": [
+          "@s unknown_core:s3:add_shoot_sword_magic",
+          "/playsound scpdy.unknown_core.sword_woosh @a[r=100] ~ ~ ~ 1.8 1",
+          "/camerashake add @a[r=30] 0.3 0.3 positional"
+        ],
+        "1.23": ["@s unknown_core:s3:on_swing_sword"],
+        "1.5": ["@s unknown_core:s3:remove_shoot_sword_magic"],
+        "2.13": ["@s unknown_core:s3:reset_state"]
+      }
+    },
+    "animation.scpdy.bp.unknown_core.s3.sword_slash_2": {
+      "animation_length": 4.3,
+      "loop": false,
+      "timeline": {
+        "0.63": [
+          "@s unknown_core:s3:add_shoot_sword_magic",
+          "/playsound scpdy.unknown_core.sword_woosh @a[r=100] ~ ~ ~ 1.8 1",
+          "/camerashake add @a[r=30] 0.3 0.3 positional"
+        ],
+        "0.73": ["@s unknown_core:s3:on_swing_sword"],
+        "1.0": ["@s unknown_core:s3:remove_shoot_sword_magic"],
+        "1.46": [
+          "@s unknown_core:s3:add_shoot_sword_magic",
+          "/playsound scpdy.unknown_core.sword_woosh @a[r=100] ~ ~ ~ 1.8 1",
+          "/camerashake add @a[r=30] 0.3 0.3 positional"
+        ],
+        "1.56": ["@s unknown_core:s3:on_swing_sword"],
+        "1.8": ["@s unknown_core:s3:remove_shoot_sword_magic"],
+        "2.83": [
+          "@s unknown_core:s3:add_shoot_sword_magic",
+          "/playsound scpdy.unknown_core.sword_woosh @a[r=100] ~ ~ ~ 1.8 1",
+          "/camerashake add @a[r=30] 0.3 0.3 positional"
+        ],
+        "2.93": ["@s unknown_core:s3:on_swing_sword"],
+        "3.2": ["@s unknown_core:s3:remove_shoot_sword_magic"],
+        "4.17": ["@s unknown_core:s3:reset_state"]
+      }
+    },
+    "animation.scpdy.bp.unknown_core.s3.fireball": {
+      "animation_length": 1.6,
+      "loop": false,
+      "timeline": {
+        "0.21": ["@s unknown_core:s3:add_shoot_fireball"],
+        "0.3": [
+          "/playsound scpdy.unknown_core.fireball @a[r=100] ~ ~ ~ 1.4 1.0",
+          "/camerashake add @a[r=30] 0.35 0.2 positional"
+        ],
+        "0.5": ["@s unknown_core:s3:remove_shoot_fireball"],
+        "0.8": ["@s unknown_core:s3:add_shoot_fireball"],
+        "0.9": [
+          "/playsound scpdy.unknown_core.fireball @a[r=100] ~ ~ ~ 1.4 1.0",
+          "/camerashake add @a[r=30] 0.35 0.2 positional"
+        ],
+        "1.1": ["@s unknown_core:s3:remove_shoot_fireball"],
+        "1.5": ["@s unknown_core:s3:reset_state"]
+      }
+    },
+    "animation.scpdy.bp.unknown_core.s3.expose_eye": {
+      "animation_length": 3.1,
+      "loop": false,
+      "timeline": {
+        "0.1": [
+          "@s unknown_core:set_can_be_damaged:true",
+          "/playsound scpdy.unknown_core.scream @a[r=100] ~ ~ ~ 2.0 1.0"
+        ],
+        "2.96": ["@s unknown_core:set_can_be_damaged:false", "@s unknown_core:s3:reset_state"]
+      }
+    },
+    "animation.scpdy.bp.unknown_core.s3.fire_meteorites": {
+      "animation_length": 3.3,
+      "loop": false,
+      "timeline": {
+        "0.94": [
+          "@s unknown_core:s3:fire_meteorite",
+          "/playsound scpdy.unknown_core.fireball @a[r=100] ~ ~ ~ 1.6 1.1",
+          "/camerashake add @a[r=30] 0.4 0.15 positional"
+        ],
+        "1.20": [
+          "@s unknown_core:s3:fire_meteorite",
+          "/playsound scpdy.unknown_core.fireball @a[r=100] ~ ~ ~ 1.6 1.1",
+          "/camerashake add @a[r=30] 0.4 0.15 positional"
+        ],
+        "1.46": [
+          "@s unknown_core:s3:fire_meteorite",
+          "/playsound scpdy.unknown_core.fireball @a[r=100] ~ ~ ~ 1.6 1.1",
+          "/camerashake add @a[r=30] 0.4 0.15 positional"
+        ],
+        "1.72": [
+          "@s unknown_core:s3:fire_meteorite",
+          "/playsound scpdy.unknown_core.fireball @a[r=100] ~ ~ ~ 1.6 1.1",
+          "/camerashake add @a[r=30] 0.4 0.15 positional"
+        ],
+        "1.98": [
+          "@s unknown_core:s3:fire_meteorite",
+          "/playsound scpdy.unknown_core.fireball @a[r=100] ~ ~ ~ 1.6 1.1",
+          "/camerashake add @a[r=30] 0.4 0.15 positional"
+        ],
+        "3.13": ["@s unknown_core:s3:reset_state"]
+      }
+    },
+    "animation.scpdy.bp.unknown_core.s3.summon_allies": {
+      "animation_length": 4.6,
+      "loop": false,
+      "timeline": {
+        "0.01": ["/playsound scpdy.unknown_core.prepare_summon_allies @a[r=100] ~ ~ ~ 1.5 1.0"],
+        "2.57": [
+          "@s unknown_core:s3:summon_allies",
+          "/playsound scpdy.unknown_core.summon_allies @a[r=100] ~ ~ ~ 1.5 1.0",
+          "/camerashake add @a[r=30] 0.17 0.25 positional"
+        ],
+        "4.54": ["@s unknown_core:s3:reset_state"]
+      }
+    },
+    "animation.scpdy.bp.unknown_core.s3.heal": {
+      "animation_length": 5.1,
+      "loop": false,
+      "timeline": {
+        "1.0": ["/effect @s regeneration 3 3 true"],
+        "5.0": ["@s unknown_core:s3:reset_state"]
+      }
+    },
+    "animation.scpdy.bp.unknown_core.s3.plasma_ultra": {
+      "animation_length": 6.6,
+      "loop": false,
+      "timeline": {
+        "0.01": [
+          "/playsound scpdy.unknown_core.plasma_ultra @a[r=100] ~ ~ ~ 2.0 1.0",
+          "/camerashake add @a[r=50] 0.2 2.9 positional"
+        ],
+        "2.90": ["@s unknown_core:s3:add_shoot_plasma_ultra"],
+        "3.00": ["/camerashake add @a[r=30] 0.6 2.0 positional"],
+        "4.88": ["@s unknown_core:s3:remove_shoot_plasma_ultra"],
+        "6.4": ["@s unknown_core:s3:reset_state"]
+      }
+    },
+    "animation.scpdy.bp.unknown_core.s3.defeat": {
+      "animation_length": 10.0,
+      "loop": false,
+      "timeline": {
+        "0.01": [
+          "@s unknown_core:set_can_be_damaged:false",
+          "@s unknown_core:set_update_script:false",
+          "@s unknown_core:s3:defeat",
+          "/playsound scpdy.unknown_core.hurt_heavy @a[r=100] ~ ~ ~ 1.9 1.0",
+          "/playsound scpdy.unknown_core.defeat @a[r=100] ~ ~ ~ 2.5 1.0",
+          "/camerashake add @a[r=30] 0.3 0.3 positional"
+        ],
+        "4.55": ["/playsound scpdy.unknown_core.retreat @a[r=100] ~ ~ ~ 2.0 1.0", "/weather clear"],
+        "6.8": ["@s unknown_core:on_defeat"]
+      }
+    }
+  }
+}

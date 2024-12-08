@@ -1,0 +1,30 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "lc:scpdy_recipe_ammo_pack_338magnum"
+    },
+    "tags": ["crafting_table"],
+    "ingredients": [
+      {
+        "item": "lc:scpdy_ammo_338magnum"
+      },
+      {
+        "item": "minecraft:leather"
+      }
+    ],
+    "unlock": [
+      {
+        "item": "lc:scpdy_ammo_pack_338magnum"
+      },
+      {
+        "item": "lc:scpdy_ammo_338magnum"
+      }
+    ],
+    "result": {
+      "item": "lc:scpdy_ammo_pack_338magnum",
+      "count": 1,
+      "data": 24
+    }
+  }
+}

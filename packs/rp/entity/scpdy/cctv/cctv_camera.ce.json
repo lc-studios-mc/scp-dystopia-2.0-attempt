@@ -1,0 +1,49 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "lc:scpdy_cctv_camera",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "default": "textures/scpdy/cctv/camera"
+      },
+      "geometry": {
+        "default": "geometry.scpdy_cctv_camera",
+        "invisible": "geometry.scpdy_empty"
+      },
+      "animations": {
+        // Animation controllers
+        "controller_default": "controller.animation.scpdy_cctv_camera",
+        // Animations
+        "head_rotation": "animation.scpdy_cctv_camera.head_rotation",
+        "active": "animation.scpdy_cctv_camera.active"
+      },
+      "scripts": {
+        "animate": [
+          "controller_default"
+        ],
+        "initialize": [
+          "v.lod_index = 0;",
+          "v.is_active = false;",
+          "v.head_rotation_x = q.property('lc:head_rotation_x');",
+          "v.head_rotation_y = q.property('lc:head_rotation_y');",
+          "v.head_rotation_x_modified = math.clamp(v.head_rotation_x, -50.0, 85.0);",
+          "v.head_rotation_y_modified = math.clamp(v.head_rotation_y, -85.0, 85.0);"
+        ],
+        "pre_animation": [
+          "v.lod_index = q.lod_index(0.85);",
+          "v.is_active = q.property('lc:is_active');",
+          "v.head_rotation_x = q.property('lc:head_rotation_x');",
+          "v.head_rotation_y = q.property('lc:head_rotation_y');",
+          "v.head_rotation_x_modified = math.lerp(v.head_rotation_x_modified, math.clamp(v.head_rotation_x, -50.0, 85.0), 6.0 * q.delta_time);",
+          "v.head_rotation_y_modified = math.lerp(v.head_rotation_y_modified, math.clamp(v.head_rotation_y, -85.0, 85.0), 6.0 * q.delta_time);"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.scpdy.cctv_camera"
+      ]
+    }
+  }
+}

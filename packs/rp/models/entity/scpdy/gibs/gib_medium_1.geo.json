@@ -1,0 +1,36 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.scpdy_gib_medium_1",
+				"texture_width": 128,
+				"texture_height": 128,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 1.5,
+				"visible_bounds_offset": [0, 0.25, 0]
+			},
+			"bones": [
+				{
+					"name": "root",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "gib",
+					"parent": "root",
+					"pivot": [0.22222, 1.44444, -0.61111],
+					"cubes": [
+						{"origin": [-1.5, 0, -2], "size": [3, 3, 3], "uv": [86, 75]},
+						{"origin": [-0.95, 0.5, 1], "size": [2, 2, 1], "pivot": [0.05, 1.5, 1.5], "rotation": [0, 0, -5], "uv": [89, 77]},
+						{"origin": [1.5, 1, -2], "size": [1, 1, 3], "uv": [88, 75]},
+						{"origin": [1.5, 2, -1], "size": [1, 1, 2], "uv": [89, 76]},
+						{"origin": [-0.75, 0, -3], "size": [2, 3, 1], "uv": [89, 77]},
+						{"origin": [-1, 3, -1.75], "size": [2, 1, 2], "pivot": [0, 3.5, -0.75], "rotation": [0, -10, 0], "uv": [88, 76]},
+						{"origin": [-2.5, 1, -2], "size": [1, 1, 3], "uv": [86, 75]},
+						{"origin": [-2.5, 0, -1.75], "size": [1, 1, 2], "uv": [87, 76]}
+					]
+				}
+			]
+		}
+	]
+}
