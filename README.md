@@ -61,19 +61,14 @@ SCP: Dystopia is a Minecraft add-on that contains many exciting features based o
 - CCTV (security camera) system
 - Facility lockdown system with infinite range
 
-## For Players 🕹️
-
-> [!NOTE]
-> How-to-play guides and tutorials are not ready yet.
-
-### Prerequisites 📋
+## Prerequisites 📋
 
 - Minecraft: Bedrock Edition with custom add-on support (not marketplace!)
   - Windows 10/11
   - Android
   - iOS
 
-### Installation 🛠️
+## Installation 🛠️
 
 **Standard way (Recommended)**
 
@@ -85,10 +80,10 @@ Manual way
 - Download archive with .zip extension
 - Unzip the downloaded file
 - Open the unzipped folder
-- Rename behavior pack (`bp`) to something more distinguishable
-- Copy and paste behavior pack to `development_behavior_packs` folder
-- Rename resource pack (`rp`) to something more distinguishable
-- Copy and paste resource pack to `development_resource_packs` folder
+- Rename behavior pack (`bp`) to somewhat more distinguishable
+- Copy and paste behavior pack into `development_behavior_packs` folder
+- Rename resource pack (`rp`) to somewhat more distinguishable
+- Copy and paste resource pack into `development_resource_packs` folder
 - Done!
 
 > [!IMPORTANT]
@@ -97,44 +92,6 @@ Manual way
 > In Windows, they are typically located inside `C:\Users\{USER}\AppData\Local\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang`.
 >
 > Please search on your own if you are not using Windows. 
-
-## For Developers 💻
-
-### Prerequisites 📋
-
-- Windows 10/11
-- Minecraft: Bedrock Edition
-- [Node.js](https://nodejs.org/) (Tested on v22.11.0)
-- npm (Tested on 10.9.0)
-- [Visual Studio Code](https://code.visualstudio.com/)
-  - Not necessary, but this project is configured for VSCode.
-
-Run this in your terminal to make sure TypeScript is installed globally:
-
-```powershell
-npm i typescript -g
-```
-
-### Installation 🛠️
-
-> [!NOTE]
-> We'll assume that you are using **npm** as a package manager for Node.js.
-
-1. Download [source code](https://github.com/lc-studios-mc/scp-dystopia/archive/refs/heads/main.zip)
-
-2. Extract it. The extracted folder (that directly contains files like `packages.json` and `tsconfig.json`) will be your project directory.
-
-3. Open terminal in your project directory
-
-4. Run this command to install packages:
-
-```powershell
-npm i
-```
-
-5. Wait for npm to finish installing packages...
-
-6. Done!
 
 ## Additional Info 📄
 
