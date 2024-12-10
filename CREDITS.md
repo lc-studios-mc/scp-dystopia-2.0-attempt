@@ -17,6 +17,7 @@ Big thanks 🤝
 - Blazik
   - `(2.0)` Model of Blast Door 1
   - `(2.0)` Texture of SCP-096
+  - `(2.0)` Texture of keycards
   
 - LLAMA BLA BLO
   - `(2.0)` Model of Glock-17
