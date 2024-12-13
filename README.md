@@ -27,13 +27,15 @@ It adds many popular concepts from SCP Foundation universe, including SCP object
 >
 > For now, be careful when using it for your project, and expect lack of features.
 
+### Table of Contents 🔍
+
 - [Introduction 👋](#introduction-)
   - [Main features ✨](#main-features-)
 - [Prerequisites 📋](#prerequisites-)
 - [Installation 🛠️](#installation-️)
-- [Additional Info 📄](#additional-info-)
+- [Additional Info 📌](#additional-info-)
   - [License ⚖️](#license-️)
-  - [Credits 📝](#credits-)
+  - [Credits 🤝](#credits-)
 
 ## Introduction 👋
 
@@ -67,35 +69,37 @@ SCP: Dystopia is a Minecraft add-on that contains many exciting features based o
 
 **Standard way (Recommended)**
 
-- Download archive with .mcaddon extension
-- Open the downloaded file with Minecraft
+- Download the add-on file with `.mcaddon` extension
+- Open the downloaded file in Minecraft
 - Done!
 
 Manual way
-- Download archive with .zip extension
+- Download the add-on file with `.zip` extension
 - Unzip the downloaded file
 - Open the unzipped folder
-- Rename behavior pack (`bp`) to somewhat more distinguishable
-- Copy and paste behavior pack into `behavior_packs` folder
-- Rename resource pack (`rp`) to somewhat more distinguishable
-- Copy and paste resource pack into `resource_packs` folder
+- Rename behavior pack folder (`bp`) to somewhat more distinguishable (we recommend `SCPDY_{VERSION}_BP`)
+- Copy and paste behavior pack into the `behavior_packs` folder that's located inside com.mojang folder
+- Rename resource pack folder (`rp`) to somewhat more distinguishable (we recommend `SCPDY_{VERSION}_RP`)
+- Copy and paste resource pack into the `resource_packs` folder that's located inside com.mojang folder
 - Done!
 
-> [!IMPORTANT]
-> Locations of `*_packs` folders are different for each platform.
+> The location of `com.mojang` folder is different on each platform.
 >
-> In Windows, they are typically located inside `C:\Users\{USER}\AppData\Local\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang`.
+> On Windows, it's typically located at `C:\Users\{USER}\AppData\Local\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang`
+> (replace `{USER}` with your username)
 >
-> Please search on your own if you are not using Windows. 
+> On iOS, it's located at `Files > Minecraft > games > com.mojang`
+>
+> For Android, please refer to [this page](https://mcpedl.com/how-to-install-minecraft-pe-mods-for-android/).
 
-## Additional Info 📄
+## Additional Info 📌
 
 ### License ⚖️
 
 This project is licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
 
-[Read details](./LICENSE.md)
+See [LICENSE.md](./LICENSE.md)
 
-### Credits 📝
+### Credits 🤝
 
 See [CREDITS.md](./CREDITS.md)
