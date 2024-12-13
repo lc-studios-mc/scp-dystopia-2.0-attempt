@@ -1,0 +1,14 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:structure_template_feature": {
+		"description": {
+			"identifier": "lc:scpdy_ruin_forest_2_feature"
+		},
+		"structure_name": "scpdy:ruin_forest_2",
+		"adjustment_radius": 4,
+		"facing_direction": "random",
+		"constraints": {
+			"grounded": {}
+		}
+	}
+}

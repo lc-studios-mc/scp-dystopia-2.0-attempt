@@ -1,0 +1,26 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.scpdy_gib_medium_5",
+				"texture_width": 128,
+				"texture_height": 128,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 1.5,
+				"visible_bounds_offset": [0, 0.25, 0]
+			},
+			"bones": [
+				{
+					"name": "gib",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-2, 0, -0.5], "size": [4, 1, 1], "uv": [111, 12]},
+						{"origin": [-1.4, 0.25, -0.75], "size": [1, 1, 1], "inflate": -0.075, "pivot": [-0.9, 0.75, -0.25], "rotation": [8.11325, 11.57823, -10.05318], "uv": [1, 1]},
+						{"origin": [0.65, -0.25, -0.25], "size": [1, 1, 1], "inflate": -0.15, "pivot": [1.15, 0.25, 0.25], "rotation": [-9.17053, 5.53549, 15.56966], "uv": [1, 1]}
+					]
+				}
+			]
+		}
+	]
+}

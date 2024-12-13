@@ -1,0 +1,84 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "lc:scpdy_unknown_core",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "default": "textures/scpdy/the_unknown/unknown_core/unknown_core"
+      },
+      "geometry": {
+        "default": "geometry.scpdy_unknown_core"
+      },
+      "animations": {
+        // Animation controllers
+        "ctrl.main": "controller.animation.scpdy_unknown_core.main",
+        "ctrl.s1": "controller.animation.scpdy_unknown_core.s1",
+        "ctrl.s2": "controller.animation.scpdy_unknown_core.s2",
+        "ctrl.s3": "controller.animation.scpdy_unknown_core.s3",
+        // Animations
+        "anim.s1.general": "animation.scpdy_unknown_core.s1.general",
+        "anim.s1.fireball": "animation.scpdy_unknown_core.s1.fireball",
+        "anim.s1.shield": "animation.scpdy_unknown_core.s1.shield",
+        "anim.s1.to_s2": "animation.scpdy_unknown_core.s1.to_s2",
+        "anim.s2.general": "animation.scpdy_unknown_core.s2.general",
+        "anim.s2.plasma_rapid": "animation.scpdy_unknown_core.s2.plasma_rapid",
+        "anim.s2.plasma_powerful": "animation.scpdy_unknown_core.s2.plasma_powerful",
+        "anim.s2.summon_allies": "animation.scpdy_unknown_core.s2.summon_allies",
+        "anim.s2.expose_eye": "animation.scpdy_unknown_core.s2.expose_eye",
+        "anim.s2.to_s3": "animation.scpdy_unknown_core.s2.to_s3",
+        "anim.s3.general": "animation.scpdy_unknown_core.s3.general",
+        "anim.s3.sword_slash_1": "animation.scpdy_unknown_core.s3.sword_slash_1",
+        "anim.s3.sword_slash_2": "animation.scpdy_unknown_core.s3.sword_slash_2",
+        "anim.s3.fireball": "animation.scpdy_unknown_core.s3.fireball",
+        "anim.s3.expose_eye": "animation.scpdy_unknown_core.s3.expose_eye",
+        "anim.s3.fire_meteorites": "animation.scpdy_unknown_core.s3.fire_meteorites",
+        "anim.s3.summon_allies": "animation.scpdy_unknown_core.s3.summon_allies",
+        "anim.s3.heal": "animation.scpdy_unknown_core.s3.heal",
+        "anim.s3.plasma_ultra": "animation.scpdy_unknown_core.s3.plasma_ultra",
+        "anim.s3.defeat": "animation.scpdy_unknown_core.s3.defeat"
+      },
+      "scripts": {
+        "animate": [
+          "ctrl.main"
+        ],
+        "initialize": [
+          "v.x_look = 0;",
+          "v.y_look = 0;",
+          "v.stage = 0;",
+          "v.s1_state = 0;",
+          "v.s2_state = 0;",
+          "v.s3_state = 0;",
+          "v.update_look = true;"
+        ],
+        "pre_animation": [
+          "v.stage = q.property('lc:stage');",
+          "v.s1_state = q.property('lc:s1_state');",
+          "v.s2_state = q.property('lc:s2_state');",
+          "v.s3_state = q.property('lc:s3_state');",
+          "v.x_look_new = q.target_x_rotation - this;",
+          "v.y_look_new = q.has_target ? (q.property('lc:combat_y_body_rot') - q.body_y_rotation) : q.target_y_rotation;",
+          "v.x_look = v.update_look ? math.lerp(v.x_look, v.x_look_new, 8.0 * q.delta_time) : v.x_look;",
+          "v.y_look = v.update_look ? math.lerprotate(v.y_look, v.y_look_new, 8.0 * q.delta_time) : v.y_look;"
+        ]
+      },
+      "particle_effects": {
+        "plasma_charge": "lc:scpdy_unknown_core_plasma_charge_emitter",
+        "plasma_blast_small": "lc:scpdy_unknown_core_plasma_blast_small_emitter",
+        "plasma_blast_large": "lc:scpdy_unknown_core_plasma_blast_large_emitter",
+        "plasma_ring": "lc:scpdy_unknown_core_plasma_ring_particle",
+        "thunder_beam": "lc:scpdy_unknown_core_thunder_beam_particle",
+        "sword_enpower": "lc:scpdy_unknown_core_sword_enpower_emitter",
+        "sword_magic": "lc:scpdy_unknown_core_sword_magic_emitter",
+        "heal": "lc:scpdy_unknown_core_heal_emitter",
+        "plasma_ultra": "lc:scpdy_unknown_core_plasma_ultra_emitter",
+        "plasma_ultra_charge": "lc:scpdy_unknown_core_plasma_ultra_charge_emitter",
+        "defeat_blast": "lc:scpdy_unknown_core_defeat_blast_emitter",
+        "defeat_retreat": "lc:scpdy_unknown_core_defeat_retreat_emitter"
+      },
+      "render_controllers": ["controller.render.scpdy.unknown_core"]
+    }
+  }
+}

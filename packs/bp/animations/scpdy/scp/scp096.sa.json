@@ -1,0 +1,40 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.scpdy.bp.scp096.ambient.calm": {
+      "animation_length": 8.0,
+      "loop": true,
+      "timeline": {
+        "0.1": ["/playsound scpdy.scp096.ambient_calm @a[r=20] ~ ~ ~ 3.0 1.0"]
+      }
+    },
+    "animation.scpdy.bp.scp096.ambient.angry": {
+      "animation_length": 1.6,
+      "loop": true,
+      "timeline": {
+        "0.1": ["/playsound scpdy.scp096.ambient_angry @a[r=50] ~ ~ ~ 7.0 1.0"]
+      }
+    },
+    "animation.scpdy.bp.scp096.ambient.angry_low": {
+      "animation_length": 1.8,
+      "loop": true,
+      "timeline": {
+        "0.1": ["/playsound scpdy.scp096.ambient_angry @a[r=50] ~ ~ ~ 7.5 0.95"]
+      }
+    },
+    "animation.scpdy.bp.scp096.script_update": {
+      "animation_length": 0.2,
+      "loop": true,
+      "timeline": {
+        "0.1": ["/scriptevent scpdy:scp096_update"]
+      }
+    },
+    "animation.scpdy.bp.scp096.attack_trigger": {
+      "animation_length": 1.0,
+      "loop": false,
+      "timeline": {
+        "0.1": ["@s scp096:on_attack"]
+      }
+    }
+  }
+}

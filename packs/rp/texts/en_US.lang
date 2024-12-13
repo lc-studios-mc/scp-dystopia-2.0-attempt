@@ -1,0 +1,508 @@
+## Item Groups
+
+itemGroup.name.stoneBrick=Decorative Stone §b+ SCP:DY Construction Blocks
+itemGroup.name.sandstone=Sandstone §b+ SCP:DY 3D Blocks
+
+## Action hints
+
+action.hint.exit.lc:scpdy_sittable_anchor=Sneak or jump to exit
+
+scpdy.action.interact.blastDoorPreview.changeRotation.true=Rotate 90°: True
+scpdy.action.interact.blastDoorPreview.changeRotation.false=Rotate 90°: False
+
+scpdy.action.interact.cctvCamera=Interact
+scpdy.action.interact.cctvMonitor=Use CCTV
+scpdy.action.interact.cctvServer=Configure CCTV
+
+scpdy.action.interact.gib.eat=Eat
+
+scpdy.action.interact.scp096.hideFace=Hide face
+scpdy.action.interact.scp096.removePaperBag=Remove face hider
+
+scpdy.actionHint.misc.accessGranted=§aACCESS GRANTED
+scpdy.actionHint.misc.accessDenied=§cACCESS DENIED
+
+scpdy.actionHint.doorActivator.redstoneDetectionOff=Redstone Detection: §cOFF
+scpdy.actionHint.doorActivator.redstoneDetectionOn=Redstone Detection: §aON
+
+scpdy.actionHint.controlDevice.changeMode0=Mode set to 0 §7-§f Mechanical Door activation
+scpdy.actionHint.controlDevice.changeMode1=Mode set to 1 §7-§f Open/Close the closest Blast Door
+scpdy.actionHint.controlDevice.changeMode2=Mode set to 2 §7-§f Place a redstone block 3 meters below
+scpdy.actionHint.controlDevice.changeMode3=Mode set to 3 §7-§f Place a redstone block 2 meters behind
+
+scpdy.actionHint.furniture.chair.tooFar=Too far from chair
+
+scpdy.actionHint.ammo.noMagInOffhand=§eNo loadable magazine in offhand...
+scpdy.actionHint.ammo.incorrectAmmo=§cIncorrect ammo type!
+scpdy.actionHint.ammo.magFullyLoaded=§aThe magazine is fully loaded
+scpdy.actionHint.ammoPack.noAmmoInInventory=§eNo ammo in inventory...
+scpdy.actionHint.ammoPack.full=§aThis ammo pack is full!
+
+scpdy.actionHint.gun.noMagInInventory=§cNo magazine
+scpdy.actionHint.gun.reloading=§e[RELOADING] %s
+
+scpdy.actionHint.scp096_1_wand.noValidEntity=§cNo valid entity in line of sight...
+scpdy.actionHint.scp096_1_wand.taggedEntity=§aTagged %s as SCP-096-1!
+scpdy.actionHint.scp096_1_wand.entityAlreadyTagged=§cThis entity is already tagged as SCP-096-1...
+
+## Messages
+
+scpdy.msg.misc.scriptInit=§7[SCP: Dystopia] Script Initialized
+scpdy.msg.misc.error=§cERROR: %s
+scpdy.msg.misc.somethingWentWrong=§cSomething went wrong.
+scpdy.msg.misc.wrongPassword=§cWrong password.
+scpdy.msg.misc.setNewPassword=§aSet new password!
+scpdy.msg.misc.removedPassword=§aRemoved password!
+scpdy.msg.misc.emptyString=§cEmpty string.
+scpdy.msg.misc.itemNotUsableForNow=§cSorry, this item is not usable in this version...
+
+scpdy.msg.warnOverriddenPlayerJson.line_1=§l§c[!] WARNING§r
+scpdy.msg.warnOverriddenPlayerJson.line_2=§eThank you for installing SCP: Dystopia!
+scpdy.msg.warnOverriddenPlayerJson.line_3=§eIt seems like that another add-on you're using now is overriding player-related behavior.
+scpdy.msg.warnOverriddenPlayerJson.line_4=§eSome features may not work as intended!
+
+scpdy.msg.blastDoorPreview.sneakAndInteractToCreate=§dSneak and interact the preview entity to create Blast Door.
+
+scpdy.msg.cctvLinker.guide=Interact CCTV Camera(s) and/or Monitor(s) to collect them. Interact a CCTV Server to link collected Camera(s) and/or Monitor(s) to it.
+scpdy.msg.cctvLinker.status.cameras=Number of collected Cameras: %s
+scpdy.msg.cctvLinker.status.monitors=Number of collected Monitors: %s
+scpdy.msg.cctvLinker.collectedCamera=§aCollected Camera (ID: %s)
+scpdy.msg.cctvLinker.collectedMonitor=§aCollected Monitor (ID: %s)
+scpdy.msg.cctvLinker.alreadyCollectedCamera=§eThis Camera is already collected (ID: %s)
+scpdy.msg.cctvLinker.alreadyCollectedMonitor=§eThis Monitor is already collected (ID: %s)
+scpdy.msg.cctvLinker.linkedCameras=§aLinked %s CCTV Cameras to CCTV Server!
+scpdy.msg.cctvLinker.linkedMonitors=§aLinked %s CCTV Monitors to CCTV Server!
+scpdy.msg.cctvLinker.skippedCameras=§eSkipped linking of %s CCTV Cameras.
+scpdy.msg.cctvLinker.skippedMonitors=§eSkipped linking of %s CCTV Monitors.
+scpdy.msg.cctvLinker.nothingToLink=§eThere is nothing to link to this CCTV Server.
+
+scpdy.msg.cctvMonitor.tooFarFromMonitor=§eToo far from the monitor.
+scpdy.msg.cctvMonitor.removedServerLink=§aRemoved CCTV Server link.
+scpdy.msg.cctvMonitor.cameraUnavailable=§cThe camera you selected is unavailable.
+
+scpdy.msg.cctvTablet.alreadyConnectedToServer=§eThis CCTV Tablet is already connected to a CCTV Server.
+scpdy.msg.cctvTablet.connectedToServer=§aConnected to CCTV Server (ID: %s)
+scpdy.msg.cctvTablet.removedServerLink=§aRemoved CCTV Server link.
+scpdy.msg.cctvTablet.cameraUnavailable=§cThe camera you selected is unavailable.
+
+scpdy.msg.config.onlyOpCanUse=§cYou need operator-level permissions to use this item!
+scpdy.msg.config.saved=§aSaved config!
+
+scpdy.msg.doorActivator.redstoneLagWarning=§eMech Door Activator with redstone detection enabled can cause significant lag when placed in large numbers within a simulated chunk.
+
+scpdy.msg.controlDevice.modeTip=§dYou can use wrench to change the mode of a Button or a Keycard Reader.
+scpdy.msg.controlDevice.rbPlaceholderIsAbsent=§eNo Redstone Block Placeholder was found at corresponding location.
+
+scpdy.msg.booleanDoor.clearanceAlreadySet=§cClearance level cannot be changed!
+
+scpdy.msg.lockdownSystem.setZone.lagWarn.line_1=§ePlease note that any lockdown system (e.g. Lockdown Doors and Alarms) has a delay between reading the latest state of its zone.
+scpdy.msg.lockdownSystem.setZone.lagWarn.line_2=This is to prevent them from slowing down the world.
+
+scpdy.msg.lockdownDoor.setZone.failed=§cFailed to set zone.
+scpdy.msg.lockdownDoor.setZone.success=§aSuccessfully set zone!
+
+scpdy.msg.lockdownAlarm.setZone.success=§aSuccessfully set zone!
+
+scpdy.msg.lockdownPanel.setZone.success=§aSuccessfully set zone!
+
+scpdy.msg.lockdownPanel.activate.activatedLockdown=§c%s - §lLOCKDOWN ACTIVATED
+scpdy.msg.lockdownPanel.activate.activatedLockdown.noZoneName=§cZone %s - §lLOCKDOWN ACTIVATED
+scpdy.msg.lockdownPanel.activate.startedDelayedLockdown=§c%s - §lLOCKDOWN STARTS IN %s SECONDS
+scpdy.msg.lockdownPanel.activate.startedDelayedLockdown.noZoneName=§cZone %s - §lLOCKDOWN STARTS IN %s SECONDS
+scpdy.msg.lockdownPanel.activate.deactivatedLockdown=§a%s - §lLOCKDOWN DEACTIVATED
+scpdy.msg.lockdownPanel.activate.deactivatedLockdown.noZoneName=§aZone %s - §lLOCKDOWN DEACTIVATED
+
+scpdy.msg.theUnknownWaveSpawner.peacefulNotSupported=§7[!] §l§cDifficulty must be higher than peaceful!
+scpdy.msg.theUnknownWaveSpawner.waveBreakStarted=§7[!] §l§fWave §e%s§f is over. Wave §e%s§f is starting soon...
+scpdy.msg.theUnknownWaveSpawner.waveXStarted=§7[!] §l§fWave §e%s§f started!
+scpdy.msg.theUnknownWaveSpawner.finished=§7[!] §l§aAll enemies have been defeated!
+scpdy.msg.theUnknownWaveSpawner.congratsSep1=§f--- CONGRATULATIONS! ---
+scpdy.msg.theUnknownWaveSpawner.congratsSep2=§f------------------------
+scpdy.msg.theUnknownWaveSpawner.playerScore=§aYour score was %s
+
+scpdy.msg.scp096.destroyer.invulnerableToKillCommands=§o§eSCP-096 in destroyer mode is §linvulnerable to kill commands
+
+## Forms
+
+scpdy.form.misc.cancel=Cancel
+scpdy.form.misc.close=Close
+scpdy.form.misc.yes=Yes
+scpdy.form.misc.no=No
+scpdy.form.misc.ok=OK
+scpdy.form.misc.none=None
+
+scpdy.form.blastDoorCreation.title=Blast Door Options
+scpdy.form.blastDoorCreation.redstoneDetectionToggle.label=Redstone detection
+scpdy.form.blastDoorCreation.facilityNetworkDropdown.label=Facility Network (Optional)
+scpdy.form.blastDoorCreation.facilityNetworkDropdown.option=Network %s
+scpdy.form.blastDoorCreation.submitButton=Confirm / Set Zone
+
+scpdy.form.blastDoorCreation.setZone.title=Set Zone
+scpdy.form.blastDoorCreation.setZone.facilityZoneDropdown.label=Facility Zone
+scpdy.form.blastDoorCreation.setZone.facilityZoneDropdown.option=Zone %s
+scpdy.form.blastDoorCreation.setZone.submitButton=Confirm
+
+scpdy.form.cctvMonitor.notLinkedToServer.title=CCTV Monitor
+scpdy.form.cctvMonitor.notLinkedToServer.body=§eThis CCTV Monitor is not linked to a CCTV Server.
+
+scpdy.form.cctvMonitor.failedToGetServer.title=CCTV Monitor
+scpdy.form.cctvMonitor.failedToGetServer.body=§cFailed to get server.
+scpdy.form.cctvMonitor.failedToGetServer.removeLinkButton=§4Remove CCTV Server link 
+
+scpdy.form.cctvMonitor.chooseCamera.title=CCTV Monitor
+scpdy.form.cctvMonitor.chooseCamera.body=Select the camera you want to use:
+scpdy.form.cctvMonitor.chooseCamera.button.cameraElement=%s: %s
+scpdy.form.cctvMonitor.chooseCamera.button.cameraElementError=%s: §cCONNECTION ERROR
+
+scpdy.form.cctvServer.locked.title=CCTV Server
+scpdy.form.cctvServer.locked.passwordField.label=Password
+scpdy.form.cctvServer.locked.passwordField.placeholder=Enter password
+scpdy.form.cctvServer.locked.submitButton=Unlock
+
+scpdy.form.cctvServer.main.title=CCTV Server
+scpdy.form.cctvServer.main.body= 
+scpdy.form.cctvServer.main.button.cameraList=Camera List
+scpdy.form.cctvServer.main.button.setPassword=Set Password
+scpdy.form.cctvServer.main.button.changePassword=Change Password 
+
+scpdy.form.cctvServer.cameraList.title=Cameras
+scpdy.form.cctvServer.cameraList.body=Number of connected cameras: %s
+scpdy.form.cctvServer.cameraList.button.noElement=No Camera
+scpdy.form.cctvServer.cameraList.button.cameraElement=%s: %s
+scpdy.form.cctvServer.cameraList.button.cameraElementError=%s: §cCONNECTION ERROR
+scpdy.form.cctvServer.cameraList.button.sortAZ=§2Sort (A-Z)
+scpdy.form.cctvServer.cameraList.button.sortZA=§2Sort (Z-A)
+scpdy.form.cctvServer.cameraList.button.sortByNearest=§2Sort (by nearest)
+scpdy.form.cctvServer.cameraList.button.sortByFarthest=§2Sort (by farthest)
+scpdy.form.cctvServer.cameraList.button.removeAllCameras=§4§lREMOVE ALL CAMERAS
+
+scpdy.form.cctvServer.editCamera.title=Camera %s
+scpdy.form.cctvServer.editCamera.body=Remove this camera?
+
+scpdy.form.cctvServer.setPassword.title1=Set Password
+scpdy.form.cctvServer.setPassword.title2=Change Password
+scpdy.form.cctvServer.setPassword.passwordField.label=New Password
+scpdy.form.cctvServer.setPassword.passwordField.placeholder=Enter new password
+scpdy.form.cctvServer.setPassword.submitButton=Confirm
+
+scpdy.form.cctvTablet.notLinkedToServer.title=CCTV Tablet
+scpdy.form.cctvTablet.notLinkedToServer.body=§eThis CCTV Tablet is not linked to a CCTV Server.
+
+scpdy.form.cctvTablet.failedToGetServer.title=CCTV Tablet
+scpdy.form.cctvTablet.failedToGetServer.body=§cFailed to get server.
+scpdy.form.cctvTablet.failedToGetServer.removeLinkButton=§4Remove CCTV Server link 
+
+scpdy.form.cctvTablet.chooseCamera.title=CCTV Tablet
+scpdy.form.cctvTablet.chooseCamera.body=Select the camera you want to use:
+scpdy.form.cctvTablet.chooseCamera.button.cameraElement=%s: %s
+scpdy.form.cctvTablet.chooseCamera.button.cameraElementError=%s: §cCONNECTION ERROR
+
+scpdy.form.config.title=SCP:DY Config Editor
+scpdy.form.config.submitButton=Save
+scpdy.form.config.prop.disableGore=Disable expensive gore effect
+scpdy.form.config.prop.advanced096Movement=Advanced SCP-096 movement
+scpdy.form.config.prop.playerBulletStopsEntity=Player bullet stops entity
+scpdy.form.config.prop.gunTacReloadTrigger=Gun tactical reload option
+scpdy.form.config.prop.gunTacReloadTrigger.0=None
+scpdy.form.config.prop.gunTacReloadTrigger.1=On hit block
+scpdy.form.config.prop.gunTacReloadTrigger.2=On swing arm in any way
+
+scpdy.form.booleanDoor.clearanceOption.title=Set Clearance Level
+scpdy.form.booleanDoor.clearanceOption.body=§cThis cannot be changed later!
+
+scpdy.form.lockdownDoor.setZone.title=Set facility zone
+scpdy.form.lockdownDoor.setZone.allowChangeToggle.label=Can change zone later
+scpdy.form.lockdownDoor.setZone.dropdown.label=Select zone
+scpdy.form.lockdownDoor.setZone.dropdown.option=Zone %s
+scpdy.form.lockdownDoor.setZone.submitButton=Set
+
+scpdy.form.lockdownAlarm.setZone.title=Set facility zone
+scpdy.form.lockdownAlarm.setZone.dropdown.label=Select zone
+scpdy.form.lockdownAlarm.setZone.dropdown.option=Zone %s
+scpdy.form.lockdownAlarm.setZone.submitButton=Set
+
+scpdy.form.lockdownPanel.setZone.title=Set facility zone
+scpdy.form.lockdownPanel.setZone.dropdown.label=Select zone
+scpdy.form.lockdownPanel.setZone.dropdown.option=Zone %s
+scpdy.form.lockdownPanel.setZone.submitButton=Set
+
+scpdy.form.lockdownPanel.activate.title=Lockdown Options
+scpdy.form.lockdownPanel.activate.delayField.label=Delay (in seconds)
+scpdy.form.lockdownPanel.activate.delayField.placeholder=No delay
+scpdy.form.lockdownPanel.activate.durationField.label=Duration (in seconds)
+scpdy.form.lockdownPanel.activate.durationField.placeholder=Infinity
+scpdy.form.lockdownPanel.activate.submitButton=§4§lACTIVATE
+
+scpdy.form.fnm.instructions.title=Facility Network Manager
+scpdy.form.fnm.instructions.body.line_1=§6Facility Networks§f are data objects that are saved directly into the world itself. This means that a facility network has infinite range within their world.
+scpdy.form.fnm.instructions.body.line_2=There are %s facility network slots, each of them has %s §6facility zone§f slots.
+scpdy.form.fnm.instructions.body.line_3=§bLockdown Door§f and §bAlarm§f are special blocks that can be connected to a facility zone.
+scpdy.form.fnm.instructions.body.line_4=Lockdown Doors will be locked or unlocked based on lockdown status of their zone.
+scpdy.form.fnm.instructions.body.line_5=Just like Lockdown Doors, Alarms will play alarm sounds and become red if lockdown is activated in their zone.
+scpdy.form.fnm.instructions.body.line_6=With this item, you can edit facility networks and zones in this world.
+scpdy.form.fnm.instructions.body.line_7=For details, please read the documentation at §a§oscp-dystopia.lc-studios.net§r§f
+
+scpdy.form.fnm.main.title=Facility Network Manager
+scpdy.form.fnm.main.body=Select a facility network to edit.
+scpdy.form.fnm.main.button=Network %s
+
+scpdy.form.fnm.selectNetworkAction.title=Facility Network %s
+scpdy.form.fnm.selectNetworkAction.body=Select which action to perform on this facility network.
+scpdy.form.fnm.selectNetworkAction.button1=Edit name
+scpdy.form.fnm.selectNetworkAction.button2=Show zone list
+
+scpdy.form.fnm.editNetworkName.title=Edit facility network name
+scpdy.form.fnm.editNetworkName.nameField.label=New name
+scpdy.form.fnm.editNetworkName.nameField.placeholder=Enter new name
+scpdy.form.fnm.editNetworkName.submitButton=Save
+
+scpdy.form.fnm.zoneList.title=Facility zone list
+scpdy.form.fnm.zoneList.body=Select which zone's name you want to change
+scpdy.form.fnm.zoneList.button=Zone %s
+
+scpdy.form.fnm.editZoneName.title=Edit facility zone name
+scpdy.form.fnm.editZoneName.nameField.label=New name
+scpdy.form.fnm.editZoneName.nameField.placeholder=Enter new name
+scpdy.form.fnm.editZoneName.submitButton=Save
+
+## Items
+
+item.lc:scpdy_config.name=Config (SCP: Dystopia 2.0+)
+item.lc:scpdy_config.interact=Edit Config
+item.lc:scpdy_facility_network_manager.name=Facility Network Manager
+item.lc:scpdy_wrench.name=Wrench (SCP: Dystopia 2.0+)
+
+item.lc:scpdy_ammo_9mm.name=9x19mm Bullet
+item.lc:scpdy_ammo_12shell.name=12 Gauge Shell
+item.lc:scpdy_ammo_50bmg.name=.50 BMG Bullet
+item.lc:scpdy_ammo_338magnum.name=.338 Magnum Bullet
+item.lc:scpdy_ammo_556mm.name=5.56x45mm Bullet
+item.lc:scpdy_ammo_762x51.name=7.62x51mm Bullet
+item.lc:scpdy_ammo_pack_9mm.name=Ammo Pack (9x19mm)
+item.lc:scpdy_ammo_pack_12shell.name=Ammo Pack (12 Gauge)
+item.lc:scpdy_ammo_pack_50bmg.name=Ammo Pack (.50 BMG)
+item.lc:scpdy_ammo_pack_338magnum.name=Ammo Pack (.338 Magnum)
+item.lc:scpdy_ammo_pack_556mm.name=Ammo Pack (5.56x45mm)
+item.lc:scpdy_ammo_pack_762x51.name=Ammo Pack (7.62x51mm)
+
+item.lc:scpdy_blast_door_1_preview_placer.name=Blast Door 1 (5x3)
+item.lc:scpdy_blast_door_2_preview_placer.name=Blast Door 2 (5x3)
+
+item.lc:scpdy_cctv_camera_placer.name=CCTV Camera
+item.lc:scpdy_cctv_linker.name=CCTV Linker
+item.lc:scpdy_cctv_monitor_placer.name=CCTV Monitor
+item.lc:scpdy_cctv_server_placer.name=CCTV Server
+item.lc:scpdy_cctv_tablet.name=CCTV Tablet
+
+item.lc:scpdy_keycard_lvl_0.name=SCP Keycard (Level 0)
+item.lc:scpdy_keycard_lvl_1.name=SCP Keycard (Level 1)
+item.lc:scpdy_keycard_lvl_2.name=SCP Keycard (Level 2)
+item.lc:scpdy_keycard_lvl_3.name=SCP Keycard (Level 3)
+item.lc:scpdy_keycard_lvl_4.name=SCP Keycard (Level 4)
+item.lc:scpdy_keycard_lvl_5.name=SCP Keycard (Level 5)
+item.lc:scpdy_keycard_o5.name=SCP Keycard (O5)
+
+item.lc:scpdy_scp096_1_wand.name=§dSCP-096-1 Wand
+item.lc:scpdy_scp096_paper_bag.name=SCP-096 Face Hider
+
+item.lc:scpdy_frag_grenade.name=Frag Grenade
+item.lc:scpdy_killer_sword.name=Killer Sword
+item.lc:scpdy_knife.name=Survival Knife
+item.lc:scpdy_pain_sword.name=Pain Sword
+item.lc:scpdy_slasher.name=Slasher
+item.lc:scpdy_void_sword.name=Void Sword
+
+item.lc:scpdy_gun_ar15_mag.name=AR-15 Magazine
+item.lc:scpdy_gun_glock17.name=Glock-17
+item.lc:scpdy_gun_glock17_mag.name=Glock-17 Magazine
+item.lc:scpdy_gun_gm6.name=GM6 LYNX
+item.lc:scpdy_gun_gm6_mag.name=GM6 LYNX Magazine
+item.lc:scpdy_gun_hk21.name=HK21
+item.lc:scpdy_gun_hk21_mag.name=HK21 Magazine
+item.lc:scpdy_gun_m4a1.name=M4A1
+item.lc:scpdy_gun_mp5sd.name=MP5-SD
+item.lc:scpdy_gun_mp5_mag.name=MP5 Magazine
+item.lc:scpdy_gun_spas12.name=SPAS-12
+item.lc:scpdy_gun_spas12_mag.name=SPAS-12 Tubular Magazine
+item.lc:scpdy_gun_t5000.name=T-5000
+item.lc:scpdy_gun_t5000_mag.name=T-5000 Magazine
+
+## Blocks
+
+tile.lc:scpdy_blast_door_dummy.name=Blast Door Barrier
+tile.lc:scpdy_floor_grate.name=Metal Floor Grate
+tile.lc:scpdy_floor_grate_trap.name=Metal Floor Grate (Trap)
+tile.lc:scpdy_landmine.name=Landmine
+tile.lc:scpdy_razor_wire.name=Razor Wire
+tile.lc:scpdy_rb_placeholder.name=Redstone Block Placeholder
+tile.lc:scpdy_steel_beam.name=Steel Beam
+tile.lc:scpdy_steel_beam_end.name=Steel Beam (End)
+tile.lc:scpdy_steel_truss.name=Steel Truss
+tile.lc:scpdy_warehouse_light_1.name=Warehouse Light 1
+tile.lc:scpdy_warehouse_light_1_hanging.name=Warehouse Light 1 (Hanging)
+
+tile.lc:scpdy_decor_vent_1.name=Decorative Vent 1
+tile.lc:scpdy_decor_vent_2.name=Decorative Vent 2
+
+tile.lc:scpdy_cst_black_checker_tiles.name=Black Checker Tiles
+tile.lc:scpdy_cst_cushion.name=Cushion
+tile.lc:scpdy_cst_floor_tiles.name=Floor Tiles
+tile.lc:scpdy_cst_generic_floor.name=Generic Floor
+tile.lc:scpdy_cst_steel_Block.name=Steel Block
+tile.lc:scpdy_cst_treadplate.name=Treadplate
+tile.lc:scpdy_cst_concrete_black.name=Black Facility Concrete
+tile.lc:scpdy_cst_concrete_gray.name=Gray Facility Concrete
+tile.lc:scpdy_cst_exterior_bricks_middle.name=Generic Exterior Bricks
+tile.lc:scpdy_cst_exterior_bricks_bottom.name=Exterior Bricks (Bottom)
+tile.lc:scpdy_cst_exterior_bricks_top.name=Exterior Bricks (Top)
+tile.lc:scpdy_cst_facility_wall_middle.name=Generic Facility Wall
+tile.lc:scpdy_cst_facility_wall_middle_2.name=Facility Wall (Middle)
+tile.lc:scpdy_cst_facility_wall_bottom.name=Facility Wall (Bottom)
+tile.lc:scpdy_cst_facility_wall_top.name=Facility Wall (Top)
+tile.lc:scpdy_cst_blue_wall.name=Generic Blue Wall
+tile.lc:scpdy_cst_blue_wall_middle.name=Blue Wall (Middle)
+tile.lc:scpdy_cst_blue_wall_bottom_1.name=Blue Wall (Bottom 1)
+tile.lc:scpdy_cst_blue_wall_bottom_2.name=Blue Wall (Bottom 2)
+tile.lc:scpdy_cst_blue_wall_bottom_3.name=Blue Wall (Bottom 3)
+tile.lc:scpdy_cst_blue_wall_top.name=Blue Wall (Top)
+tile.lc:scpdy_cst_brown_wall_bottom.name=Brown Facility Wall (Bottom)
+tile.lc:scpdy_cst_brown_wall_top.name=Brown Facility Wall (Top)
+tile.lc:scpdy_cst_cyan_wall_bottom.name=Cyan Facility Wall (Bottom)
+tile.lc:scpdy_cst_cyan_wall_top.name=Cyan Facility Wall (Top)
+tile.lc:scpdy_cst_gray_wall_bottom.name=Gray Facility Wall (Bottom)
+tile.lc:scpdy_cst_gray_wall_top.name=Gray Facility Wall (Top)
+tile.lc:scpdy_cst_mint_wall_bottom.name=Mint Facility Wall (Bottom)
+tile.lc:scpdy_cst_mint_wall_top.name=Mint Facility Wall (Top)
+tile.lc:scpdy_cst_orange_wall_bottom.name=Orange Facility Wall (Bottom)
+tile.lc:scpdy_cst_orange_wall_top.name=Orange Facility Wall (Top)
+tile.lc:scpdy_cst_heavy_wall_1.name=Generic Heavy Wall 1
+tile.lc:scpdy_cst_heavy_wall_1_bottom.name=Heavy Wall 1 (Bottom)
+tile.lc:scpdy_cst_heavy_wall_1_top.name=Heavy Wall 1 (Top)
+tile.lc:scpdy_cst_heavy_wall_2.name=Generic Heavy Wall 2
+tile.lc:scpdy_cst_heavy_wall_2_bottom.name=Heavy Wall 2 (Bottom)
+tile.lc:scpdy_cst_heavy_wall_2_top.name=Heavy Wall 2 (Top)
+tile.lc:scpdy_cst_lamp_1.name=Lamp 1
+tile.lc:scpdy_cst_lamp_2.name=Lamp 2
+tile.lc:scpdy_cst_office_ceiling_1.name=Office Ceiling 1
+tile.lc:scpdy_cst_office_ceiling_2.name=Office Ceiling 2
+tile.lc:scpdy_cst_reinforced_panel_1.name=Reinforced Panel 1
+tile.lc:scpdy_cst_reinforced_panel_2.name=Reinforced Panel 2
+tile.lc:scpdy_cst_reinforced_panel_3.name=Reinforced Panel 3
+
+tile.lc:scpdy_door_button.name=Button
+tile.lc:scpdy_keycard_reader_lvl_0.name=SCP Keycard Reader (Level 0)
+tile.lc:scpdy_keycard_reader_lvl_1.name=SCP Keycard Reader (Level 1)
+tile.lc:scpdy_keycard_reader_lvl_2.name=SCP Keycard Reader (Level 2)
+tile.lc:scpdy_keycard_reader_lvl_3.name=SCP Keycard Reader (Level 3)
+tile.lc:scpdy_keycard_reader_lvl_4.name=SCP Keycard Reader (Level 4)
+tile.lc:scpdy_keycard_reader_lvl_5.name=SCP Keycard Reader (Level 5)
+tile.lc:scpdy_keycard_reader_o5.name=SCP Keycard Reader (O5)
+
+tile.lc:scpdy_boolean_door_1.name=Boolean Door 1
+tile.lc:scpdy_boolean_door_2.name=Boolean Door 2
+tile.lc:scpdy_boolean_door_3.name=Boolean Door 3
+tile.lc:scpdy_command_door.name=§dCommand Door
+tile.lc:scpdy_lockdown_door_n1.name=§dLockdown Door (Network 1)
+tile.lc:scpdy_lockdown_door_n2.name=§dLockdown Door (Network 2)
+tile.lc:scpdy_lockdown_door_n3.name=§dLockdown Door (Network 3)
+tile.lc:scpdy_lockdown_door_n4.name=§dLockdown Door (Network 4)
+tile.lc:scpdy_lockdown_door_n5.name=§dLockdown Door (Network 5)
+tile.lc:scpdy_door_activator.name=Mech Door Activator
+tile.lc:scpdy_mechanical_door_1.name=Mechanical Door 1
+tile.lc:scpdy_mechanical_door_2.name=Mechanical Door 2
+tile.lc:scpdy_mechanical_door_3.name=Mechanical Door 3
+tile.lc:scpdy_mechanical_door_4.name=Mechanical Door 4
+tile.lc:scpdy_mechanical_door_5.name=Mechanical Door 5
+tile.lc:scpdy_mechanical_door_6.name=Mechanical Door 6
+tile.lc:scpdy_mechanical_door_7.name=O5 Mechanical Door
+tile.lc:scpdy_standard_door_1.name=Standard Door 1
+tile.lc:scpdy_standard_door_2.name=Standard Door 2
+
+tile.lc:scpdy_connec_table_1.name=Connec™ Table 1
+tile.lc:scpdy_connec_table_2.name=Connec™ Table 2
+
+tile.lc:scpdy_office_chair_1.name=Office Chair 1
+tile.lc:scpdy_office_chair_2.name=Office Chair 2
+tile.lc:scpdy_office_chair_3.name=Office Chair 3
+
+tile.lc:scpdy_shelf_1.name=Shelf 1 §e(+Variants)
+tile.lc:scpdy_shelf_2.name=Shelf 2 §e(+Variants)
+
+tile.lc:scpdy_lockdown_alarm_n1.name=§dLockdown Alarm (Network 1)
+tile.lc:scpdy_lockdown_alarm_n2.name=§dLockdown Alarm (Network 2)
+tile.lc:scpdy_lockdown_alarm_n3.name=§dLockdown Alarm (Network 3)
+tile.lc:scpdy_lockdown_alarm_n4.name=§dLockdown Alarm (Network 4)
+tile.lc:scpdy_lockdown_alarm_n5.name=§dLockdown Alarm (Network 5)
+
+tile.lc:scpdy_lockdown_panel_n1.name=§dLockdown Panel (Network 1)
+tile.lc:scpdy_lockdown_panel_n2.name=§dLockdown Panel (Network 2)
+tile.lc:scpdy_lockdown_panel_n3.name=§dLockdown Panel (Network 3)
+tile.lc:scpdy_lockdown_panel_n4.name=§dLockdown Panel (Network 4)
+tile.lc:scpdy_lockdown_panel_n5.name=§dLockdown Panel (Network 5)
+
+tile.lc:scpdy_dash_block.name=Dash Block
+
+## Entities
+
+entity.lc:scpdy_blast_door_1.name=Blast Door
+entity.lc:scpdy_blast_door_1_preview.name=Blast Door Preview
+entity.lc:scpdy_blast_door_2.name=Blast Door
+entity.lc:scpdy_blast_door_2_preview.name=Blast Door Preview
+
+entity.lc:scpdy_blood.name=Blood
+
+entity.lc:scpdy_cctv_camera.name=CCTV Camera
+entity.lc:scpdy_cctv_monitor.name=CCTV Monitor
+entity.lc:scpdy_cctv_server.name=CCTV Server
+
+entity.lc:scpdy_landmine_explosion.name=Landmine
+entity.lc:scpdy_50bmg_explosion.name=50 Cal
+
+entity.lc:scpdy_gib_small.name=Gib
+entity.lc:scpdy_gib_medium.name=Gib
+
+entity.lc:scpdy_f_tro.name=TRO
+item.spawn_egg.entity.lc:scpdy_f_tro.name=§7SCP:DY §8| §fFoundation TRO
+entity.lc:scpdy_f_tro_dead.name=Corpse
+entity.lc:scpdy_f_mtf_epsilon11.name=MTF Epsilon-11 Operator
+item.spawn_egg.entity.lc:scpdy_f_mtf_epsilon11.name=§7SCP:DY §8| §fMTF Epsilon-11 Operator
+entity.lc:scpdy_f_mtf_epsilon11_dead.name=Corpse
+
+entity.lc:scpdy_rb_placeholder_anchor.name=RB Placeholder Anchor
+entity.lc:scpdy_sittable_anchor.name=Sittable
+
+entity.lc:scpdy_bullet_m4a1.name=Bullet
+entity.lc:scpdy_bullet_mp5.name=Bullet
+entity.lc:scpdy_scriptable_bullet_large.name=Bullet
+entity.lc:scpdy_scriptable_bullet.name=Bullet
+
+entity.lc:scpdy_scp001_proto.name=SCP-001 Prototype
+item.spawn_egg.entity.lc:scpdy_scp001_proto.name=§7SCP:DY §8| §fSCP-001 "Prototype"
+entity.lc:scpdy_scp001_proto_weakened.name=SCP-001 Prototype
+entity.lc:scpdy_scp001_proto_singularity.name=Microsingularity
+entity.lc:scpdy_scp096.name=SCP-096
+item.spawn_egg.entity.lc:scpdy_scp096.name=§7SCP:DY §8| §fSCP-096
+entity.lc:scpdy_scp5167.name=SCP-5167
+item.spawn_egg.entity.lc:scpdy_scp5167.name=§7SCP:DY §8| §fSCP-5167
+
+item.spawn_egg.entity.lc:scpdy_unknown_zombie.name=Spawn Unknown Zombie
+entity.lc:scpdy_unknown_zombie.name=Unknown Zombie
+item.spawn_egg.entity.lc:scpdy_unknown_golem.name=Spawn Unknown Golem
+entity.lc:scpdy_unknown_golem.name=Unknown Golem
+item.spawn_egg.entity.lc:scpdy_unknown_spider.name=Spawn Unknown Spider
+entity.lc:scpdy_unknown_spider.name=Unknown Spider
+item.spawn_egg.entity.lc:scpdy_unknown_breeze.name=Spawn Unknown Breeze
+entity.lc:scpdy_unknown_breeze.name=Unknown Breeze
+item.spawn_egg.entity.lc:scpdy_unknown_core.name=Spawn Unknown Core
+entity.lc:scpdy_unknown_core.name=Unknown Core
+entity.lc:scpdy_unknown_core_fireball.name=Fireball
+entity.lc:scpdy_unknown_core_meteorite.name=Meteorite
+entity.lc:scpdy_unknown_core_plasma_small.name=Plasma
+entity.lc:scpdy_unknown_core_plasma_large.name=Plasma
+entity.lc:scpdy_unknown_core_plasma_ultra.name=Plasma
+entity.lc:scpdy_unknown_core_sword_magic.name=Magic
+entity.lc:scpdy_the_unknown_wave_spawner.name=The Unknown Wave Spawner
+
+entity.lc:scpdy_player_frag_grenade_thrown.name=Frag Grenade
+entity.lc:scpdy_player_frag_grenade_dropped.name=Frag Grenade
+entity.lc:scpdy_mtf_frag_grenade.name=Frag Grenade

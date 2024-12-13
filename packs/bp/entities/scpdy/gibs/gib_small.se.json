@@ -1,0 +1,198 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "lc:scpdy_gib_small",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "properties": {
+        "lc:remove": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        },
+        "lc:is_eatable": {
+          "type": "bool",
+          "default": false
+        }
+      },
+      "scripts": {
+        "animate": [
+          "ctrl.drop"
+        ]
+      },
+      "animations": {
+        "ctrl.drop": "controller.animation.scpdy.bp.gib_small.drop"
+      }
+    },
+    "component_groups": {
+      "var_0": {
+        "minecraft:variant": {
+          "value": 0
+        }
+      },
+      "var_1": {
+        "minecraft:variant": {
+          "value": 1
+        }
+      },
+      "pre_remove_timer": {
+        "minecraft:timer": {
+          "looping": false,
+          "randomInterval": true,
+          "time": [9.0, 12.0],
+          "time_down_event": {
+            "event": "gib:start_remove_timer",
+            "target": "self"
+          }
+        }
+      },
+      "remove_timer": {
+        "minecraft:timer": {
+          "looping": false,
+          "randomInterval": false,
+          "time": 0.6,
+          "time_down_event": {
+            "event": "despawn",
+            "target": "self"
+          }
+        }
+      },
+      "despawn": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": ["inanimate", "gib"]
+      },
+      "minecraft:knockback_resistance": {
+        "value": 0.1
+      },
+      "minecraft:health": {
+        "value": 2,
+        "max": 2
+      },
+      "minecraft:movement_sound_distance_offset": {
+        "value": 0.3
+      },
+      "minecraft:breathable": {
+        "breathes_solids": true,
+        "breathes_water": true,
+        "generates_bubbles": false
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "fall",
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:interact": {
+        "interactions": [
+          {
+            "on_interact": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  },
+                  {
+                    "test": "bool_property",
+                    "subject": "self",
+                    "domain": "lc:is_eatable"
+                  }
+                ]
+              }
+            },
+            "cooldown": 0.1,
+            "swing": true,
+            "interact_text": "scpdy.action.interact.gib.eat"
+          }
+        ]
+      },
+      "minecraft:body_rotation_blocked": {},
+      "minecraft:friction_modifier": {
+        "value": 1.08
+      },
+      "minecraft:collision_box": {
+        "width": 0.1,
+        "height": 0.1
+      },
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 30.0,
+          "max_dropped_ticks": 10,
+          "use_motion_prediction_hints": true
+        },
+        "conditional_values": [
+          {
+            "max_optimized_distance": 0.0,
+            "max_dropped_ticks": 0,
+            "use_motion_prediction_hints": true,
+            "conditional_values": [
+              {
+                "test": "on_ground",
+                "subject": "self",
+                "operator": "!="
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": ["pre_remove_timer"]
+        },
+        "trigger": "randomize_variant"
+      },
+      "randomize_variant": {
+        "randomize": [
+          {
+            "weight": 1,
+            "add": {
+              "component_groups": ["var_0"]
+            },
+            "set_property": {
+              "lc:is_eatable": true
+            }
+          },
+          {
+            "weight": 1,
+            "add": {
+              "component_groups": ["var_1"]
+            },
+            "set_property": {
+              "lc:is_eatable": true
+            }
+          }
+        ]
+      },
+      "gib:start_remove_timer": {
+        "add": {
+          "component_groups": ["remove_timer"]
+        },
+        "set_property": {
+          "lc:remove": true
+        }
+      },
+      "gib:eat": {},
+      "despawn": {
+        "add": {
+          "component_groups": ["despawn"]
+        }
+      }
+    }
+  }
+}

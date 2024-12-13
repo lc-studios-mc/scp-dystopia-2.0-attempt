@@ -1,0 +1,62 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "lc:scpdy_gun_t5000",
+      "materials": {
+        "fp_view": "entity_emissive_alpha",
+        "tp_view": "entity_emissive_alpha_one_sided"
+      },
+      "textures": {
+        "default": "textures/scpdy/items/weapons/guns/t5000_attachable"
+      },
+      "geometry": {
+        "fp_view": "geometry.scpdy_gun_t5000.fp",
+        "tp_view": "geometry.scpdy_gun_t5000.tp"
+      },
+      "animations": {
+        // Animation controllers
+        "ctrl.fp": "controller.animation.scpdy.gun.t5000.fp",
+        "ctrl.fp.offset": "controller.animation.scpdy.gun.t5000.fp.offset",
+        "ctrl.fp.scope": "controller.animation.scpdy.gun.t5000.fp.scope",
+        // Animations
+        "anim.fp.hidden": "animation.scpdy_gun_t5000.fp.hidden",
+        "anim.fp.offset_default": "animation.scpdy_gun_t5000.fp.offset_default",
+        "anim.fp.offset_ads": "animation.scpdy_gun_t5000.fp.offset_ads",
+        "anim.fp.offset_sprint": "animation.scpdy_gun_t5000.fp.offset_sprint",
+        "anim.fp.general": "animation.scpdy_gun_t5000.fp.general",
+        "anim.fp.pick": "animation.scpdy_gun_t5000.fp.pick",
+        "anim.fp.shoot": "animation.scpdy_gun_t5000.fp.shoot",
+        "anim.fp.shoot_boltaction": "animation.scpdy_gun_t5000.fp.shoot_boltaction",
+        "anim.fp.shoot_ads": "animation.scpdy_gun_t5000.fp.shoot_ads",
+        "anim.fp.shoot_boltaction_ads": "animation.scpdy_gun_t5000.fp.shoot_boltaction_ads",
+        "anim.fp.reload": "animation.scpdy_gun_t5000.fp.reload",
+        "anim.fp.scope_hidden": "animation.scpdy_gun_t5000.fp.scope_hidden",
+        "anim.fp.scope_shown": "animation.scpdy_gun_t5000.fp.scope_shown"
+      },
+      "scripts": {
+        "animate": [
+          "ctrl.fp",
+          "ctrl.fp.offset",
+          "ctrl.fp.scope"
+        ],
+        "pre_animation": [
+          "v.shoot_cooldown = q.cooldown_time_remaining('scpdy_gun_t5000_shoot');",
+          "v.shoot_boltaction_cooldown = q.cooldown_time_remaining('scpdy_gun_t5000_shoot_boltaction');",
+          "v.reload_cooldown = q.cooldown_time_remaining('scpdy_gun_t5000_reload');"
+        ]
+      },
+      "sound_effects": {
+        "boltaction": "scpdy.gun.t5000.boltaction"
+      },
+      "render_controllers": [
+        {
+          "controller.render.scpdy.3d_item.fp": "c.is_first_person"
+        },
+        {
+          "controller.render.scpdy.3d_item.tp": "!c.is_first_person"
+        }
+      ]
+    }
+  }
+}

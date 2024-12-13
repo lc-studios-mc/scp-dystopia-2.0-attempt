@@ -1,0 +1,29 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "lc:scpdy_facility_network_manager",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.equipment",
+        "is_hidden_in_commands": false
+      }
+    },
+    "components": {
+      "minecraft:custom_components": ["scpdy:facility_network_manager"],
+      "minecraft:icon": {
+        "textures": {
+          "default": "scpdy_facility_network_manager_icon"
+        }
+      },
+      "minecraft:display_name": {
+        "value": "item.lc:scpdy_facility_network_manager.name"
+      },
+      "minecraft:hover_text_color": "light_purple",
+      "minecraft:interact_button": "item.lc:scpdy_facility_network_manager.interact",
+      "minecraft:max_stack_size": 1,
+      "minecraft:hand_equipped": false,
+      "minecraft:allow_off_hand": false
+    }
+  }
+}

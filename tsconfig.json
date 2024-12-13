@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    // Type Checking
+    "noUncheckedIndexedAccess": true,
+    "strict": true,
+    "strictNullChecks": true,
+
+    // Modules
+    "baseUrl": "./",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "paths": {
+      "@augumentations/*": ["./src/augumentations/*"],
+      "@lib/*": ["./src/lib/*"],
+      "@server/*": ["./src/server/*"]
+    },
+    "rootDir": "./src/",
+    "typeRoots": [],
+
+    // Emit
+    "declaration": false,
+    "downlevelIteration": false,
+    "newLine": "crlf",
+    "noEmit": false,
+    "outDir": "./packs/bp/scripts/",
+
+    // Interop Constraints
+    "allowSyntheticDefaultImports": false,
+    "forceConsistentCasingInFileNames": true,
+    "preserveSymlinks": false,
+    "isolatedModules": false,
+    "verbatimModuleSyntax": false,
+
+    // Language and Environment
+    "target": "ES2023",
+    "lib": ["ES2023"],
+
+    // Output Formatting
+    "pretty": true
+  }
+}

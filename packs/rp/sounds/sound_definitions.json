@@ -1,0 +1,1101 @@
+{
+  "format_version": "1.20.20",
+  "sound_definitions": {
+    // #region Music
+    "scpdy.music.the_unknown_battle_1": {
+      "category": "music",
+      "max_distance": null,
+      "min_distance": null,
+      "sounds": [
+        {
+          "load_on_low_memory": true,
+          "name": "sounds/scpdy/music/the_unknown_battle_1",
+          "stream": true,
+          "volume": 0.88,
+          "interruptible": false
+        }
+      ]
+    },
+    "scpdy.music.the_unknown_battle_2": {
+      "category": "music",
+      "max_distance": null,
+      "min_distance": null,
+      "sounds": [
+        {
+          "load_on_low_memory": true,
+          "name": "sounds/scpdy/music/the_unknown_battle_2",
+          "stream": true,
+          "volume": 0.88,
+          "interruptible": false
+        }
+      ]
+    },
+    "scpdy.music.the_unknown_battle_3": {
+      "category": "music",
+      "max_distance": null,
+      "min_distance": null,
+      "sounds": [
+        {
+          "load_on_low_memory": true,
+          "name": "sounds/scpdy/music/the_unknown_battle_3",
+          "stream": true,
+          "volume": 1.0,
+          "interruptible": false
+        }
+      ]
+    },
+    // #endregion
+    "scpdy.interact.button.click": {
+      "category": "neutral",
+      "sounds": [
+        {
+          "name": "sounds/scpdy/interact/button_click",
+          "volume": 0.85
+        }
+      ]
+    },
+    "scpdy.interact.keycard_reader.accept": {
+      "category": "neutral",
+      "sounds": [
+        {
+          "name": "sounds/scpdy/interact/keycard_reader_accept",
+          "volume": 0.7
+        }
+      ]
+    },
+    "scpdy.interact.keycard_reader.deny": {
+      "category": "neutral",
+      "sounds": [
+        {
+          "name": "sounds/scpdy/interact/keycard_reader_deny",
+          "volume": 0.7
+        }
+      ]
+    },
+    "scpdy.interact.lever.flip": {
+      "category": "neutral",
+      "max_distance": 7.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/scpdy/interact/lever_flip",
+          "volume": 0.9
+        }
+      ]
+    },
+    "scpdy.blast_door_classic.open": {
+      "category": "hostile",
+      "max_distance": 30.0,
+      "min_distance": 5.0,
+      "sounds": [
+        "sounds/scpdy/blast_door/classic_open_1",
+        "sounds/scpdy/blast_door/classic_open_2",
+        "sounds/scpdy/blast_door/classic_open_3"
+      ]
+    },
+    "scpdy.blast_door_classic.close": {
+      "category": "hostile",
+      "max_distance": 30.0,
+      "min_distance": 5.0,
+      "sounds": [
+        "sounds/scpdy/blast_door/classic_close_1",
+        "sounds/scpdy/blast_door/classic_close_2",
+        "sounds/scpdy/blast_door/classic_close_3"
+      ]
+    },
+    "scpdy.door.classic_door_1.open": {
+      "__use_legacy_max_distance": "true",
+      "category": "hostile",
+      "max_distance": 15.0,
+      "min_distance": null,
+      "sounds": [
+        "sounds/scpdy/door/classic_door_1_open_1",
+        "sounds/scpdy/door/classic_door_1_open_2",
+        "sounds/scpdy/door/classic_door_1_open_3"
+      ]
+    },
+    "scpdy.door.classic_door_1.close": {
+      "__use_legacy_max_distance": "true",
+      "category": "hostile",
+      "max_distance": 15.0,
+      "min_distance": null,
+      "sounds": [
+        "sounds/scpdy/door/classic_door_1_close_1",
+        "sounds/scpdy/door/classic_door_1_close_2",
+        "sounds/scpdy/door/classic_door_1_close_3"
+      ]
+    },
+    "scpdy.door.classic_door_2.open": {
+      "__use_legacy_max_distance": "true",
+      "category": "hostile",
+      "max_distance": 15.0,
+      "min_distance": null,
+      "sounds": [
+        "sounds/scpdy/door/classic_door_2_open_1",
+        "sounds/scpdy/door/classic_door_2_open_2",
+        "sounds/scpdy/door/classic_door_2_open_3"
+      ]
+    },
+    "scpdy.door.classic_door_2.close": {
+      "__use_legacy_max_distance": "true",
+      "category": "hostile",
+      "max_distance": 15.0,
+      "min_distance": null,
+      "sounds": [
+        "sounds/scpdy/door/classic_door_2_close_1",
+        "sounds/scpdy/door/classic_door_2_close_2",
+        "sounds/scpdy/door/classic_door_2_close_3"
+      ]
+    },
+    "scpdy.door.classic_door_3.open": {
+      "__use_legacy_max_distance": "true",
+      "category": "hostile",
+      "max_distance": 15.0,
+      "min_distance": null,
+      "sounds": [
+        "sounds/scpdy/door/classic_door_3_open_1",
+        "sounds/scpdy/door/classic_door_3_open_2",
+        "sounds/scpdy/door/classic_door_3_open_3"
+      ]
+    },
+    "scpdy.door.classic_door_3.close": {
+      "__use_legacy_max_distance": "true",
+      "category": "hostile",
+      "max_distance": 15.0,
+      "min_distance": null,
+      "sounds": [
+        "sounds/scpdy/door/classic_door_3_close_1",
+        "sounds/scpdy/door/classic_door_3_close_2",
+        "sounds/scpdy/door/classic_door_3_close_3"
+      ]
+    },
+    "scpdy.door.futuristic_door.open": {
+      "__use_legacy_max_distance": "true",
+      "category": "hostile",
+      "max_distance": 15.0,
+      "min_distance": null,
+      "sounds": [
+        "sounds/scpdy/door/futuristic_door_open"
+      ]
+    },
+    "scpdy.door.futuristic_door.close": {
+      "__use_legacy_max_distance": "true",
+      "category": "hostile",
+      "max_distance": 15.0,
+      "min_distance": null,
+      "sounds": [
+        "sounds/scpdy/door/futuristic_door_close"
+      ]
+    },
+    "scpdy.door.lockdown_door.open": {
+      "category": "hostile",
+      "max_distance": 15.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/scpdy/door/lockdown_door_open",
+          "volume": 1.2
+        }
+      ]
+    },
+    "scpdy.door.lockdown_door.close": {
+      "category": "hostile",
+      "max_distance": 15.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/scpdy/door/lockdown_door_close",
+          "volume": 1.2
+        }
+      ]
+    },
+    "scpdy.door.standard_door.open": {
+      "__use_legacy_max_distance": "true",
+      "category": "hostile",
+      "max_distance": 10.0,
+      "min_distance": null,
+      "sounds": [
+        "sounds/scpdy/door/standard_door_open"
+      ]
+    },
+    "scpdy.door.standard_door.close": {
+      "__use_legacy_max_distance": "true",
+      "category": "hostile",
+      "max_distance": 10.0,
+      "min_distance": null,
+      "sounds": [
+        "sounds/scpdy/door/standard_door_close"
+      ]
+    },
+    "scpdy.door.standard_door.close_metal": {
+      "__use_legacy_max_distance": "true",
+      "category": "hostile",
+      "max_distance": 10.0,
+      "min_distance": null,
+      "sounds": [
+        "sounds/scpdy/door/standard_door_close",
+        "sounds/scpdy/door/standard_door_close_metal"
+      ]
+    },
+    // #region Gore
+    "scpdy.gore.explode": {
+      "category": "hostile",
+      "max_distance": 12.0,
+      "min_distance": null,
+      "sounds": [
+        "sounds/scpdy/gore/explode"
+      ]
+    },
+    "scpdy.gore.small": {
+      "category": "hostile",
+      "sounds": [
+        "sounds/scpdy/gore/small_1",
+        "sounds/scpdy/gore/small_2"
+      ]
+    },
+    "scpdy.gore.drop": {
+      "category": "hostile",
+      "sounds": [
+        "sounds/scpdy/gore/drop_1",
+        "sounds/scpdy/gore/drop_2",
+        "sounds/scpdy/gore/drop_3"
+      ]
+    },
+    "scpdy.gore.splash": {
+      "category": "hostile",
+      "max_distance": 6.0,
+      "min_distance": null,
+      "sounds": [
+        "sounds/scpdy/gore/splash"
+      ]
+    },
+    // #endregion
+    // #region Guns
+    "scpdy.gun.magazine.load_ammo": {
+      "category": "hostile",
+      "sounds": [
+        "sounds/scpdy/weapons/guns/mag_load_ammo_1",
+        "sounds/scpdy/weapons/guns/mag_load_ammo_2",
+        "sounds/scpdy/weapons/guns/mag_load_ammo_3"
+      ]
+    },
+    "scpdy.gun.magazine.equip": {
+      "category": "hostile",
+      "max_distance": 5.0,
+      "min_distance": 2.0,
+      "sounds": [
+        "sounds/scpdy/weapons/guns/equip_mag"
+      ]
+    },
+    "scpdy.gun.ammo_pack.load_ammo": {
+      "category": "hostile",
+      "sounds": [
+        "sounds/scpdy/weapons/guns/ammo_pack_load"
+      ]
+    },
+    "scpdy.gun.dry": {
+      "category": "hostile",
+      "max_distance": 13.0,
+      "min_distance": null,
+      "sounds": [
+        "sounds/scpdy/weapons/guns/dry"
+      ]
+    },
+    "scpdy.gun.glock17.shoot": {
+      "__use_legacy_max_distance": "true",
+      "category": "hostile",
+      "max_distance": 20.0,
+      "min_distance": 5.0,
+      "sounds": [
+        {
+          "name": "sounds/scpdy/weapons/guns/glock17/shoot",
+          "volume": 0.7
+        }
+      ]
+    },
+    "scpdy.gun.glock17.reload": {
+      "category": "music",
+      "sounds": [
+        "sounds/scpdy/weapons/guns/glock17/reload"
+      ]
+    },
+    "scpdy.gun.gm6.shoot_nearby": {
+      "category": "music",
+      "sounds": [
+        {
+          "name": "sounds/scpdy/weapons/guns/gm6/shoot_nearby",
+          "volume": 0.65
+        }
+      ]
+    },
+    "scpdy.gun.gm6.shoot_distant": {
+      "category": "music",
+      "sounds": [
+        "sounds/scpdy/weapons/guns/gm6/shoot_distant"
+      ]
+    },
+    "scpdy.gun.gm6.reload": {
+      "category": "music",
+      "sounds": [
+        "sounds/scpdy/weapons/guns/gm6/reload"
+      ]
+    },
+    "scpdy.gun.hk21.shoot": {
+      "category": "hostile",
+      "max_distance": 40.0,
+      "min_distance": null,
+      "sounds": [
+        "sounds/scpdy/weapons/guns/hk21/shoot"
+      ]
+    },
+    "scpdy.gun.hk21.reload": {
+      "category": "music",
+      "sounds": [
+        "sounds/scpdy/weapons/guns/hk21/reload"
+      ]
+    },
+    "scpdy.gun.m4a1.shoot": {
+      "category": "hostile",
+      "max_distance": 27.0,
+      "min_distance": 5.0,
+      "sounds": [
+        {
+          "name": "sounds/scpdy/weapons/guns/m4a1/shoot",
+          "volume": 0.87
+        }
+      ]
+    },
+    "scpdy.gun.m4a1.reload": {
+      "category": "music",
+      "sounds": [
+        "sounds/scpdy/weapons/guns/m4a1/reload"
+      ]
+    },
+    "scpdy.gun.m4a1.reload_tac": {
+      "category": "music",
+      "sounds": [
+        "sounds/scpdy/weapons/guns/m4a1/reload_tac"
+      ]
+    },
+    "scpdy.gun.mp5sd.shoot": {
+      "category": "hostile",
+      "max_distance": 18.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/scpdy/weapons/guns/mp5sd/shoot",
+          "volume": 0.9
+        }
+      ]
+    },
+    "scpdy.gun.mp5sd.reload": {
+      "category": "music",
+      "sounds": [
+        "sounds/scpdy/weapons/guns/mp5sd/reload"
+      ]
+    },
+    "scpdy.gun.mp5sd.reload_tac": {
+      "category": "music",
+      "sounds": [
+        "sounds/scpdy/weapons/guns/mp5sd/reload_tac"
+      ]
+    },
+    "scpdy.gun.spas12.shoot": {
+      "__use_legacy_max_distance": "true",
+      "category": "hostile",
+      "max_distance": 30.0,
+      "min_distance": 10.0,
+      "sounds": [
+        "sounds/scpdy/weapons/guns/spas12/shoot"
+      ]
+    },
+    "scpdy.gun.spas12.pump": {
+      "__use_legacy_max_distance": "true",
+      "category": "hostile",
+      "max_distance": 6.0,
+      "min_distance": 2.0,
+      "sounds": [
+        "sounds/scpdy/weapons/guns/spas12/pump"
+      ]
+    },
+    "scpdy.gun.spas12.reload": {
+      "__use_legacy_max_distance": "true",
+      "category": "hostile",
+      "max_distance": 6.0,
+      "min_distance": 2.0,
+      "sounds": [
+        "sounds/scpdy/weapons/guns/spas12/reload_1",
+        "sounds/scpdy/weapons/guns/spas12/reload_2",
+        "sounds/scpdy/weapons/guns/spas12/reload_3"
+      ]
+    },
+    "scpdy.gun.t5000.shoot_nearby": {
+      "category": "music",
+      "sounds": [
+        "sounds/scpdy/weapons/guns/t5000/shoot_nearby"
+      ]
+    },
+    "scpdy.gun.t5000.shoot_distant": {
+      "category": "music",
+      "sounds": [
+        "sounds/scpdy/weapons/guns/t5000/shoot_distant"
+      ]
+    },
+    "scpdy.gun.t5000.boltaction": {
+      "category": "music",
+      "sounds": [
+        "sounds/scpdy/weapons/guns/t5000/boltaction"
+      ]
+    },
+    "scpdy.gun.t5000.reload": {
+      "category": "music",
+      "sounds": [
+        "sounds/scpdy/weapons/guns/t5000/reload"
+      ]
+    },
+    // #endregion
+    // #region Frag Grenade
+    "scpdy.frag_grenade.hit": {
+      "category": "hostile",
+      "max_distance": 8.0,
+      "min_distance": null,
+      "sounds": [
+        "sounds/scpdy/weapons/frag_grenade/hit_1",
+        "sounds/scpdy/weapons/frag_grenade/hit_2",
+        "sounds/scpdy/weapons/frag_grenade/hit_3"
+      ]
+    },
+    "scpdy.frag_grenade.pick": {
+      "category": "hostile",
+      "max_distance": 5.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/scpdy/weapons/frag_grenade/pick",
+          "volume": 0.6
+        }
+      ]
+    },
+    "scpdy.frag_grenade.pull": {
+      "category": "hostile",
+      "max_distance": 5.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/scpdy/weapons/frag_grenade/pull",
+          "volume": 0.45
+        }
+      ]
+    },
+    "scpdy.frag_grenade.throw": {
+      "category": "hostile",
+      "max_distance": 8.0,
+      "min_distance": null,
+      "sounds": [
+        "sounds/scpdy/weapons/frag_grenade/throw"
+      ]
+    },
+    // #endregion
+    // #region Knife
+    "scpdy.knife.swing": {
+      "category": "hostile",
+      "max_distance": 6.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/scpdy/weapons/knife/swing",
+          "volume": 0.6
+        }
+      ]
+    },
+    // #endregion
+    // #region Slasher
+    "scpdy.slasher.idle": {
+      "category": "music",
+      "sounds": [
+        "sounds/scpdy/weapons/slasher/idle"
+      ]
+    },
+    "scpdy.slasher.chainsaw.start": {
+      "category": "hostile",
+      "max_distance": 20.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/scpdy/weapons/slasher/chainsaw_start",
+          "volume": 1.25
+        }
+      ]
+    },
+    "scpdy.slasher.chainsaw.start_2d": {
+      "category": "music",
+      "sounds": [
+        {
+          "name": "sounds/scpdy/weapons/slasher/chainsaw_start",
+          "volume": 1.25
+        }
+      ]
+    },
+    "scpdy.slasher.chainsaw.loop": {
+      "category": "hostile",
+      "max_distance": 20.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/scpdy/weapons/slasher/chainsaw_loop",
+          "volume": 1.25
+        }
+      ]
+    },
+    "scpdy.slasher.chainsaw.loop_2d": {
+      "category": "music",
+      "sounds": [
+        {
+          "name": "sounds/scpdy/weapons/slasher/chainsaw_loop",
+          "volume": 1.25
+        }
+      ]
+    },
+    "scpdy.slasher.chainsaw.finish": {
+      "category": "hostile",
+      "max_distance": 20.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/scpdy/weapons/slasher/chainsaw_finish",
+          "volume": 1.25
+        }
+      ]
+    },
+    "scpdy.slasher.chainsaw.finish_2d": {
+      "category": "music",
+      "sounds": [
+        {
+          "name": "sounds/scpdy/weapons/slasher/chainsaw_finish",
+          "volume": 1.25
+        }
+      ]
+    },
+    "scpdy.slasher.charge_loop": {
+      "category": "hostile",
+      "max_distance": 10.0,
+      "min_distance": null,
+      "sounds": [
+        "sounds/scpdy/weapons/slasher/charge_loop"
+      ]
+    },
+    "scpdy.slasher.critical": {
+      "category": "hostile",
+      "max_distance": 18.0,
+      "min_distance": null,
+      "sounds": [
+        "sounds/scpdy/weapons/slasher/critical"
+      ]
+    },
+    "scpdy.slasher.dash": {
+      "category": "hostile",
+      "max_distance": 10.0,
+      "min_distance": null,
+      "sounds": [
+        "sounds/scpdy/weapons/slasher/dash"
+      ]
+    },
+    "scpdy.slasher.slash": {
+      "category": "hostile",
+      "max_distance": 20.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/scpdy/weapons/slasher/slash",
+          "volume": 1.5
+        }
+      ]
+    },
+    "scpdy.slasher.slash_2d": {
+      "category": "music",
+      "sounds": [
+        {
+          "name": "sounds/scpdy/weapons/slasher/slash",
+          "volume": 1.5
+        }
+      ]
+    },
+    "scpdy.slasher.swing": {
+      "category": "hostile",
+      "max_distance": 11.0,
+      "min_distance": null,
+      "sounds": [
+        "sounds/scpdy/weapons/slasher/swing"
+      ]
+    },
+    // #endregion
+    // #region Projectile
+    "scpdy.projectile.bullet.ricochet": {
+      "category": "hostile",
+      "max_distance": 4.0,
+      "min_distance": null,
+      "sounds": [
+        "sounds/scpdy/projectile/ricochet_1",
+        "sounds/scpdy/projectile/ricochet_2",
+        "sounds/scpdy/projectile/ricochet_3",
+        "sounds/scpdy/projectile/ricochet_4"
+      ]
+    },
+    // #endregion
+    // #region SCP-001 Prototype
+    "scpdy.scp001_proto.ambient": {
+      "category": "hostile",
+      "max_distance": 12.0,
+      "min_distance": null,
+      "sounds": [
+        "sounds/scpdy/scp/scp001_proto/ambient_1",
+        "sounds/scpdy/scp/scp001_proto/ambient_2"
+      ]
+    },
+    "scpdy.scp001_proto.hurt": {
+      "category": "hostile",
+      "max_distance": 13.0,
+      "min_distance": null,
+      "sounds": [
+        "sounds/scpdy/scp/scp001_proto/hurt_1",
+        "sounds/scpdy/scp/scp001_proto/hurt_2"
+      ]
+    },
+    "scpdy.scp001_proto.death": {
+      "category": "hostile",
+      "max_distance": 16.0,
+      "min_distance": null,
+      "sounds": [
+        "sounds/scpdy/scp/scp001_proto/death"
+      ]
+    },
+    "scpdy.scp001_proto.jumpscare": {
+      "category": "hostile",
+      "max_distance": 14.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/scpdy/scp/scp001_proto/jumpscare",
+          "volume": 0.8
+        }
+      ]
+    },
+    "scpdy.scp001_proto.singularity": {
+      "category": "hostile",
+      "max_distance": 20.0,
+      "min_distance": null,
+      "sounds": [
+        "sounds/scpdy/scp/scp001_proto/singularity"
+      ]
+    },
+    // #endregion
+    // #region SCP-096
+    "scpdy.scp096.ambient_calm": {
+      "category": "hostile",
+      "max_distance": 15.0,
+      "min_distance": null,
+      "sounds": [
+        "sounds/scpdy/scp/scp096/ambient_calm_1",
+        "sounds/scpdy/scp/scp096/ambient_calm_2",
+        "sounds/scpdy/scp/scp096/ambient_calm_3",
+        "sounds/scpdy/scp/scp096/ambient_calm_4"
+      ]
+    },
+    "scpdy.scp096.ambient_angry": {
+      "category": "hostile",
+      "max_distance": 60.0,
+      "min_distance": null,
+      "sounds": [
+        "sounds/scpdy/scp/scp096/ambient_angry_1",
+        "sounds/scpdy/scp/scp096/ambient_angry_2",
+        "sounds/scpdy/scp/scp096/ambient_angry_3",
+        "sounds/scpdy/scp/scp096/ambient_angry_4",
+        "sounds/scpdy/scp/scp096/ambient_angry_5"
+      ]
+    },
+    "scpdy.scp096.attack": {
+      "category": "hostile",
+      "max_distance": 30.0,
+      "min_distance": null,
+      "sounds": [
+        "sounds/scpdy/scp/scp096/attack_1",
+        "sounds/scpdy/scp/scp096/attack_2"
+      ]
+    },
+    "scpdy.scp096.death": {
+      "category": "hostile",
+      "max_distance": 100.0,
+      "min_distance": null,
+      "sounds": [
+        "sounds/scpdy/scp/scp096/death"
+      ]
+    },
+    "scpdy.scp096.triggered_scream": {
+      "category": "hostile",
+      "max_distance": 90.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "load_on_low_memory": true,
+          "name": "sounds/scpdy/scp/scp096/triggered_scream",
+          "volume": 1.0
+        }
+      ]
+    },
+    "scpdy.scp096.triggered_destroyer": {
+      "category": "hostile",
+      "max_distance": 130.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "load_on_low_memory": true,
+          "name": "sounds/scpdy/scp/scp096/triggered_destroyer",
+          "volume": 1.0
+        }
+      ]
+    },
+    // #endregion
+    // #region SCP-5167
+    "scpdy.scp5167.ambient": {
+      "category": "hostile",
+      "max_distance": 15.0,
+      "min_distance": null,
+      "sounds": [
+        "sounds/scpdy/scp/scp5167/ambient_1",
+        "sounds/scpdy/scp/scp5167/ambient_2",
+        "sounds/scpdy/scp/scp5167/ambient_3"
+      ]
+    },
+    "scpdy.scp5167.attack": {
+      "category": "hostile",
+      "max_distance": 20.0,
+      "min_distance": null,
+      "sounds": [
+        "sounds/scpdy/scp/scp5167/attack"
+      ]
+    },
+    "scpdy.scp5167.death": {
+      "category": "hostile",
+      "max_distance": 20.0,
+      "min_distance": null,
+      "sounds": [
+        "sounds/scpdy/scp/scp5167/death"
+      ]
+    },
+    // #endregion
+    // #region The Unknown
+    "scpdy.unknown_golem.smash": {
+      "category": "hostile",
+      "max_distance": 20.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/item/mace/smash_ground_heavy",
+          "pitch": 0.8,
+          "volume": 1.1
+        }
+      ]
+    },
+    "scpdy.unknown_core.scream": {
+      "category": "hostile",
+      "max_distance": 60.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/scpdy/the_unknown/unknown_core/scream_1",
+          "volume": 1.2
+        },
+        {
+          "name": "sounds/scpdy/the_unknown/unknown_core/scream_2",
+          "volume": 1.2
+        },
+        {
+          "name": "sounds/scpdy/the_unknown/unknown_core/scream_3",
+          "volume": 1.2
+        },
+        {
+          "name": "sounds/scpdy/the_unknown/unknown_core/scream_4",
+          "volume": 1.2
+        }
+      ]
+    },
+    "scpdy.unknown_core.hurt_heavy": {
+      "category": "hostile",
+      "max_distance": 50.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/mob/wither/hurt1",
+          "pitch": 0.5,
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/mob/wither/hurt2",
+          "pitch": 0.5,
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/mob/wither/hurt3",
+          "pitch": 0.5,
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/mob/wither/hurt4",
+          "pitch": 0.5,
+          "volume": 1.0
+        }
+      ]
+    },
+    "scpdy.unknown_core.defeat": {
+      "category": "hostile",
+      "max_distance": 80.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "load_on_low_memory": true,
+          "name": "sounds/mob/wither/death",
+          "pitch": 0.55,
+          "volume": 1.1
+        }
+      ]
+    },
+    "scpdy.unknown_core.retreat": {
+      "category": "hostile",
+      "max_distance": 50.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/item/wind_charge/wind_burst1",
+          "pitch": 0.2,
+          "volume": 1.2
+        },
+        {
+          "name": "sounds/item/wind_charge/wind_burst2",
+          "pitch": 0.2,
+          "volume": 1.2
+        },
+        {
+          "name": "sounds/item/wind_charge/wind_burst3",
+          "pitch": 0.2,
+          "volume": 1.2
+        }
+      ]
+    },
+    "scpdy.unknown_core.block": {
+      "category": "hostile",
+      "max_distance": 20.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/mob/player/attack/weak1",
+          "volume": 0.5
+        },
+        {
+          "name": "sounds/mob/player/attack/weak2",
+          "volume": 0.5
+        },
+        {
+          "name": "sounds/mob/player/attack/weak3",
+          "volume": 0.5
+        },
+        {
+          "name": "sounds/mob/player/attack/weak4",
+          "volume": 0.5
+        }
+      ]
+    },
+    "scpdy.unknown_core.angry": {
+      "category": "hostile",
+      "max_distance": 25.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/mob/warden/agitated_1",
+          "volume": 1.1,
+          "pitch": 0.6
+        },
+        {
+          "name": "sounds/mob/warden/agitated_2",
+          "volume": 1.1,
+          "pitch": 0.6
+        },
+        {
+          "name": "sounds/mob/warden/agitated_3",
+          "volume": 1.1,
+          "pitch": 0.6
+        },
+        {
+          "name": "sounds/mob/warden/agitated_4",
+          "volume": 1.1,
+          "pitch": 0.6
+        },
+        {
+          "name": "sounds/mob/warden/agitated_5",
+          "volume": 1.1,
+          "pitch": 0.6
+        },
+        {
+          "name": "sounds/mob/warden/agitated_6",
+          "volume": 1.1,
+          "pitch": 0.6
+        }
+      ]
+    },
+    "scpdy.unknown_core.fireball": {
+      "category": "hostile",
+      "max_distance": 50.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/mob/wither/shoot",
+          "volume": 0.94,
+          "pitch": 0.6
+        }
+      ]
+    },
+    "scpdy.unknown_core.prepare_summon_allies": {
+      "category": "hostile",
+      "max_distance": 30.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/mob/wither/spawn",
+          "volume": 1.1,
+          "pitch": 0.6
+        }
+      ]
+    },
+    "scpdy.unknown_core.summon_allies": {
+      "category": "hostile",
+      "max_distance": 40.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/mob/evocation_illager/prepare_summon",
+          "volume": 1.2,
+          "pitch": 0.7
+        }
+      ]
+    },
+    "scpdy.unknown_core.plasma_rapid": {
+      "category": "hostile",
+      "max_distance": 30.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/scpdy/the_unknown/unknown_core/plasma_rapid",
+          "volume": 1.1
+        }
+      ]
+    },
+    "scpdy.unknown_core.plasma_powerful": {
+      "category": "hostile",
+      "max_distance": 50.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "load_on_low_memory": true,
+          "name": "sounds/scpdy/the_unknown/unknown_core/plasma_powerful",
+          "volume": 1.15
+        }
+      ]
+    },
+    "scpdy.unknown_core.plasma_ultra": {
+      "category": "hostile",
+      "max_distance": 50.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "load_on_low_memory": true,
+          "name": "sounds/scpdy/the_unknown/unknown_core/plasma_ultra",
+          "volume": 0.76
+        }
+      ]
+    },
+    "scpdy.unknown_core.thunder_beam": {
+      "category": "hostile",
+      "max_distance": 60.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/scpdy/the_unknown/unknown_core/thunder_beam",
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "scpdy.unknown_core.sword_enpower": {
+      "category": "hostile",
+      "max_distance": 50.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/scpdy/the_unknown/unknown_core/sword_enpower",
+          "load_on_low_memory": true
+        }
+      ]
+    },
+    "scpdy.unknown_core.sword_magic_fly": {
+      "category": "hostile",
+      "max_distance": 10.0,
+      "min_distance": null,
+      "sounds": [
+        {
+          "name": "sounds/scpdy/the_unknown/unknown_core/sword_magic_fly",
+          "volume": 0.65
+        }
+      ]
+    },
+    "scpdy.unknown_core.sword_woosh": {
+      "category": "hostile",
+      "max_distance": 50.0,
+      "min_distance": null,
+      "sounds": [
+        "sounds/scpdy/the_unknown/unknown_core/sword_woosh"
+      ]
+    },
+    // #endregion
+    // #region Misc
+    "scpdy.misc.alarm": {
+      "category": "hostile",
+      "max_distance": 22.0,
+      "min_distance": null,
+      "sounds": [
+        "sounds/scpdy/misc/alarm"
+      ]
+    },
+    "scpdy.misc.computer.hit": {
+      "category": "hostile",
+      "sounds": [
+        "sounds/scpdy/misc/computer_hit_1",
+        "sounds/scpdy/misc/computer_hit_2",
+        "sounds/scpdy/misc/computer_hit_3"
+      ]
+    },
+    "scpdy.misc.boom_1": {
+      "__use_legacy_max_distance": "true",
+      "category": "hostile",
+      "max_distance": 10.0,
+      "min_distance": 5.0,
+      "sounds": [
+        "sounds/scpdy/misc/boom_1"
+      ]
+    },
+    "scpdy.misc.monster.attack": {
+      "category": "hostile",
+      "max_distance": 10.0,
+      "min_distance": null,
+      "sounds": [
+        "sounds/scpdy/misc/monster_attack"
+      ]
+    },
+    "scpdy.misc.woosh": {
+      "category": "hostile",
+      "max_distance": 8.0,
+      "min_distance": null,
+      "sounds": [
+        "sounds/scpdy/misc/woosh"
+      ]
+    }
+    // #endregion
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "lc:scpdy_recipe_frag_grenade"
+    },
+    "tags": ["crafting_table"],
+    "pattern": [
+      "  I",
+      "AG ",
+      " A "
+    ],
+    "key": {
+      "G": {
+        "item": "minecraft:gunpowder"
+      },
+      "I": {
+        "item": "minecraft:iron_ingot"
+      },
+      "A": {
+        "item": "minecraft:arrow"
+      }
+    },
+    "unlock": [
+      {
+        "item": "lc:scpdy_frag_grenade"
+      },
+      {
+        "item": "minecraft:gunpowder"
+      }
+    ],
+    "result": {
+      "item": "lc:scpdy_frag_grenade",
+      "count": 2
+    }
+  }
+}

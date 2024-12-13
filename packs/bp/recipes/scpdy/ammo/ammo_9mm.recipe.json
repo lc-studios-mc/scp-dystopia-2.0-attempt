@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "lc:scpdy_recipe_ammo_9mm"
+    },
+    "tags": ["crafting_table"],
+    "pattern": [
+      "C",
+      "G"
+    ],
+    "key": {
+      "C": {
+        "item": "minecraft:copper_ingot"
+      },
+      "G": {
+        "item": "minecraft:gunpowder"
+      }
+    },
+    "unlock": [
+      {
+        "item": "lc:scpdy_ammo_9mm"
+      },
+      {
+        "item": "minecraft:gunpowder"
+      }
+    ],
+    "result": {
+      "item": "lc:scpdy_ammo_9mm",
+      "count": 4
+    }
+  }
+}

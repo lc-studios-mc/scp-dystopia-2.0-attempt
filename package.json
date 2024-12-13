@@ -1,0 +1,36 @@
+{
+  "name": "scp-dystopia-addon",
+  "private": true,
+  "scripts": {
+    "type-check": "node ./tasks/type-check.mjs",
+    "bundle": "node ./tasks/bundle.mjs",
+    "bundle:minify": "node ./tasks/bundle.mjs minify",
+    "bundle:watch": "node ./tasks/bundle-watch.mjs",
+    "remove-js": "node ./tasks/remove-js.mjs",
+    "sync-packs": "node ./tasks/sync-packs.mjs",
+    "sync-packs:watch": "node ./tasks/sync-packs.mjs watch",
+    "remove-mc-packs": "node ./tasks/remove-mc-packs.mjs",
+    "remove-mc-beta-packs": "node ./tasks/remove-mc-packs.mjs beta",
+    "create-dist": "node ./tasks/create-dist.mjs",
+    "remove-dist": "node ./tasks/remove-dist.mjs",
+    "depcruise": "npx depcruise src",
+    "dep-graph": "npx depcruise src --include-only \"^src\" --output-type dot | dot -T svg > ./dep-graph.svg"
+  },
+  "dependencies": {
+    "@minecraft/server": "1.17.0-beta.1.21.50-stable",
+    "@minecraft/server-ui": "1.3.0"
+  },
+  "devDependencies": {
+    "@minecraft/vanilla-data": "^1.21.50",
+    "@types/node": "^22.10.1",
+    "concurrently": "^9.1.0",
+    "dependency-cruiser": "^16.7.0",
+    "esbuild": "^0.24.0",
+    "fs-extra": "^11.2.0",
+    "glob": "^11.0.0",
+    "sane": "^5.0.1",
+    "sync-directory": "^6.0.5",
+    "tsc-alias": "^1.8.10",
+    "typescript": "^5.7.2"
+  }
+}

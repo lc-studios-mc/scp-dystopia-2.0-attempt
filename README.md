@@ -76,13 +76,13 @@ Manual way
 - Unzip the downloaded file
 - Open the unzipped folder
 - Rename behavior pack (`bp`) to somewhat more distinguishable
-- Copy and paste behavior pack into `development_behavior_packs` folder
+- Copy and paste behavior pack into `behavior_packs` folder
 - Rename resource pack (`rp`) to somewhat more distinguishable
-- Copy and paste resource pack into `development_resource_packs` folder
+- Copy and paste resource pack into `resource_packs` folder
 - Done!
 
 > [!IMPORTANT]
-> Locations of `development_*_packs` folders are different for each platform.
+> Locations of `*_packs` folders are different for each platform.
 >
 > In Windows, they are typically located inside `C:\Users\{USER}\AppData\Local\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang`.
 >

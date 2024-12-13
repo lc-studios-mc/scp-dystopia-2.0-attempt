@@ -1,0 +1,217 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:block": {
+    "description": {
+      "identifier": "lc:scpdy_lockdown_panel_n5",
+      "menu_category": {
+        "category": "construction",
+        "group": "itemGroup.name.construction"
+      },
+      "states": {
+        "lc:is_activated": [false, true],
+        "lc:is_zone_name_set": [false, true],
+        "lc:facility_zone_index": { "values": { "min": 0, "max": 9 } }
+      },
+      "traits": {
+        "minecraft:placement_direction": {
+          "enabled_states": ["minecraft:cardinal_direction"],
+          "y_rotation_offset": 180
+        }
+      }
+    },
+    "components": {
+      "minecraft:custom_components": ["scpdy:warn_lockdown_delay_on_place", "scpdy:lockdown_panel"],
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 30
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 2.5
+      },
+      "minecraft:light_dampening": 0,
+      "minecraft:light_emission": 9,
+      "minecraft:collision_box": {
+        "origin": [-8, 0, 6],
+        "size": [16, 16, 2]
+      },
+      "minecraft:selection_box": {
+        "origin": [-8, 0, 6],
+        "size": [16, 16, 2]
+      },
+      "minecraft:tick": {
+        "interval_range": [50, 90]
+      },
+      "tag:lockdown_panel": {}
+    },
+    "permutations": [
+      {
+        "condition": "q.block_state('lc:is_activated')",
+        "components": {
+          "minecraft:geometry": "geometry.scpdy_lockdown_panel_on"
+        }
+      },
+      {
+        "condition": "!q.block_state('lc:is_activated')",
+        "components": {
+          "minecraft:geometry": "geometry.scpdy_lockdown_panel_off"
+        }
+      },
+      // #region Zone textures
+      {
+        "condition": "q.block_state('lc:is_zone_name_set')",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "scpdy_lockdown_panel_named",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "!q.block_state('lc:is_zone_name_set') && q.block_state('lc:facility_zone_index') == 0",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "scpdy_lockdown_panel_zone_1",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "!q.block_state('lc:is_zone_name_set') && q.block_state('lc:facility_zone_index') == 1",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "scpdy_lockdown_panel_zone_2",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "!q.block_state('lc:is_zone_name_set') && q.block_state('lc:facility_zone_index') == 2",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "scpdy_lockdown_panel_zone_3",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "!q.block_state('lc:is_zone_name_set') && q.block_state('lc:facility_zone_index') == 3",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "scpdy_lockdown_panel_zone_4",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "!q.block_state('lc:is_zone_name_set') && q.block_state('lc:facility_zone_index') == 4",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "scpdy_lockdown_panel_zone_5",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "!q.block_state('lc:is_zone_name_set') && q.block_state('lc:facility_zone_index') == 5",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "scpdy_lockdown_panel_zone_6",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "!q.block_state('lc:is_zone_name_set') && q.block_state('lc:facility_zone_index') == 6",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "scpdy_lockdown_panel_zone_7",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "!q.block_state('lc:is_zone_name_set') && q.block_state('lc:facility_zone_index') == 7",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "scpdy_lockdown_panel_zone_8",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "!q.block_state('lc:is_zone_name_set') && q.block_state('lc:facility_zone_index') == 8",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "scpdy_lockdown_panel_zone_9",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "!q.block_state('lc:is_zone_name_set') && q.block_state('lc:facility_zone_index') == 9",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "scpdy_lockdown_panel_zone_10",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      // #endregion
+      // #region Facing directions
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'north'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 0, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'south'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 180, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'west'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 90, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'east'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 270, 0]
+          }
+        }
+      }
+      // #endregion
+    ]
+  }
+}

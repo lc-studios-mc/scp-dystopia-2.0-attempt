@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "lc:scpdy_recipe_mechanical_door_2"
+    },
+    "tags": ["crafting_table"],
+    "pattern": [
+      "D ",
+      "RI"
+    ],
+    "key": {
+      "D": {
+        "item": "minecraft:iron_door"
+      },
+      "I": {
+        "item": "minecraft:iron_nugget"
+      },
+      "R": {
+        "item": "minecraft:redstone"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:iron_door"
+      }
+    ],
+    "result": {
+      "item": "lc:scpdy_mechanical_door_2",
+      "count": 1
+    }
+  }
+}

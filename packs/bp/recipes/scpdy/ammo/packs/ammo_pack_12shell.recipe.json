@@ -1,0 +1,30 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "lc:scpdy_recipe_ammo_pack_12shell"
+    },
+    "tags": ["crafting_table"],
+    "ingredients": [
+      {
+        "item": "lc:scpdy_ammo_12shell"
+      },
+      {
+        "item": "minecraft:leather"
+      }
+    ],
+    "unlock": [
+      {
+        "item": "lc:scpdy_ammo_pack_12shell"
+      },
+      {
+        "item": "lc:scpdy_ammo_12shell"
+      }
+    ],
+    "result": {
+      "item": "lc:scpdy_ammo_pack_12shell",
+      "count": 1,
+      "data": 63
+    }
+  }
+}
