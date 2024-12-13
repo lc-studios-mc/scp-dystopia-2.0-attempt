@@ -36,6 +36,7 @@ It adds many popular concepts from SCP Foundation universe, including SCP object
 - [Additional Info 📌](#additional-info-)
   - [License ⚖️](#license-️)
   - [Credits 🤝](#credits-)
+  - [Attributions 📃](#attributions-)
 
 ## Introduction 👋
 
@@ -103,3 +104,7 @@ See [LICENSE.md](./LICENSE.md)
 ### Credits 🤝
 
 See [CREDITS.md](./CREDITS.md)
+
+### Attributions 📃
+
+See [ATTRIBUTIONS.md](./ATTRIBUTIONS.md)
