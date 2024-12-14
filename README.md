@@ -68,21 +68,25 @@ SCP: Dystopia is a Minecraft add-on that contains many exciting features based o
 
 ## Installation 🛠️
 
+> [!NOTE]
+> This guide is for players.
+> If you're a developer, please read [this page](./INSTALLATION_DEV.md).
+
 **Standard way (Recommended)**
 
-- Download the add-on file with `.mcaddon` extension
-- Open the downloaded file in Minecraft
-- Done!
+1. Download the add-on file with `.mcaddon` extension
+1. Open the downloaded file in Minecraft
+1. Done!
 
 Manual way
-- Download the add-on file with `.zip` extension
-- Unzip the downloaded file
-- Open the unzipped folder
-- Rename behavior pack folder (`bp`) to somewhat more distinguishable (we recommend `SCPDY_{VERSION}_BP`)
-- Copy and paste behavior pack into the `behavior_packs` folder that's located inside com.mojang folder
-- Rename resource pack folder (`rp`) to somewhat more distinguishable (we recommend `SCPDY_{VERSION}_RP`)
-- Copy and paste resource pack into the `resource_packs` folder that's located inside com.mojang folder
-- Done!
+1. Download the add-on file with `.zip` extension
+1. Unzip the downloaded file
+1. Open the unzipped folder
+1. Rename behavior pack folder (`bp`) to somewhat more distinguishable (we recommend `SCPDY_{VERSION}_BP`)
+1. Copy and paste behavior pack into the `behavior_packs` folder that's located inside com.mojang folder
+1. Rename resource pack folder (`rp`) to somewhat more distinguishable (we recommend `SCPDY_{VERSION}_RP`)
+1. Copy and paste resource pack into the `resource_packs` folder that's located inside com.mojang folder
+1. Done!
 
 > The location of `com.mojang` folder is different on each platform.
 >
