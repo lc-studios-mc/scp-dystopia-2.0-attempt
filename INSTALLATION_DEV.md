@@ -53,14 +53,15 @@ npm i
 
 Install [Minecraft Bedrock Edition Debugger](https://marketplace.visualstudio.com/items?itemName=mojang-studios.minecraft-debugger) on  your VSCode
 
-By default, the debugger won't work.
-You have to run this command:
+By default, the debugger won't work. You have to run a command to ensure that the Minecraft Bedrock Edition client can make "loopback" requests.
 
+Minecraft Bedrock Edition:
 ```powershell
-# If you use stable Minecraft
 CheckNetIsolation.exe LoopbackExempt -a -p=S-1-15-2-1958404141-86561845-1752920682-3514627264-368642714-62675701-733520436
+```
 
-# If you use Minecraft Preview
+Minecraft Bedrock Edition Preview:
+```powershell
 CheckNetIsolation.exe LoopbackExempt -a -p=S-1-15-2-424268864-5579737-879501358-346833251-474568803-887069379-4040235476
 ```
 
