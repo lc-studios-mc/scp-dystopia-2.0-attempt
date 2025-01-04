@@ -1,0 +1,15 @@
+node_modules/
+dist/
+unbundled_js_output/
+sync/
+
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+*.psd
+
+*.wav
+*.mp3
+
+*.bbmodel
