@@ -1,5 +1,15 @@
 {
   "name": "scp-dystopia",
+  "scripts": {
+    "typecheck": "npx tsc --noEmit",
+    "dev": "node ./tasks/build.mjs dev -w",
+    "dev-beta": "node ./tasks/build.mjs dev -w -b",
+    "dist": "node ./tasks/build.mjs dist",
+    "del-dev": "node ./tasks/delete.mjs dev",
+    "del-dev-beta": "node ./tasks/delete.mjs dev -b",
+    "del-dist": "node ./tasks/delete.mjs dist",
+    "depcruise": "npx depcruise src"
+  },
   "private": true,
   "repository": {
     "type": "git",
