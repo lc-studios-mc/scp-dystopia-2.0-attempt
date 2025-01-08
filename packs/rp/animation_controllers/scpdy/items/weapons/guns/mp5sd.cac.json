@@ -1,0 +1,141 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.scpdy.attachable.gun.mp5sd.fp.main": {
+      "initial_state": "pick",
+      "states": {
+        "pick": {
+          "animations": ["anim.fp.pick"],
+          "transitions": [
+            {
+              "general": "q.all_animations_finished"
+            },
+            {
+              "shoot_1": "v.cd_shoot_1 > 0"
+            },
+            {
+              "shoot_2": "v.cd_shoot_2 > 0"
+            },
+            {
+              "reload": "v.cd_reload > 0"
+            },
+            {
+              "reload_tac": "v.cd_reload_tac > 0"
+            }
+          ]
+        },
+        "general": {
+          "animations": ["anim.fp.general"],
+          "transitions": [
+            {
+              "pick": "v.cd_pick > 0"
+            },
+            {
+              "shoot_1": "v.cd_shoot_1 > 0"
+            },
+            {
+              "shoot_2": "v.cd_shoot_2 > 0"
+            },
+            {
+              "reload": "v.cd_reload > 0"
+            },
+            {
+              "reload_tac": "v.cd_reload_tac > 0"
+            }
+          ]
+        },
+        "shoot_1": {
+          "animations": ["anim.fp.shoot_1"],
+          "transitions": [
+            {
+              "shoot_2": "v.cd_shoot_2 > 0"
+            },
+            {
+              "pick": "v.cd_pick > 0"
+            },
+            {
+              "general": "v.cd_shoot_1 <= 0"
+            },
+            {
+              "reload": "v.cd_reload > 0"
+            },
+            {
+              "reload_tac": "v.cd_reload_tac > 0"
+            }
+
+          ]
+        },
+        "shoot_2": {
+          "animations": ["anim.fp.shoot_2"],
+          "transitions": [
+            {
+              "shoot_1": "v.cd_shoot_1 > 0"
+            },
+            {
+              "pick": "v.cd_pick > 0"
+            },
+            {
+              "general": "v.cd_shoot_2 <= 0"
+            },
+            {
+              "reload": "v.cd_reload > 0"
+            },
+            {
+              "reload_tac": "v.cd_reload_tac > 0"
+            }
+
+          ]
+        },
+        "reload": {
+          "animations": ["anim.fp.reload"],
+          "transitions": [
+            {
+              "pick": "v.cd_pick > 0"
+            },
+            {
+              "general": "v.cd_reload <= 0"
+            }
+          ]
+        },
+        "reload_tac": {
+          "animations": ["anim.fp.reload_tac"],
+          "transitions": [
+            {
+              "general": "v.cd_reload_tac <= 0"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.scpdy.attachable.gun.mp5sd.fp.aim": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "animations": ["anim.fp.aim"]
+        }
+      }
+    },
+    "controller.animation.scpdy.attachable.gun.mp5sd.fp.recoil": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "recoil": "v.recoil_weight > 0"
+            }
+          ],
+          "blend_transition": 0.2
+        },
+        "recoil": {
+          "animations": ["anim.fp.recoil"],
+          "transitions": [
+            {
+              "default": "v.recoil_weight <= 0"
+            }
+          ],
+          "blend_transition": 0.2
+        }
+      }
+    }
+  }
+}

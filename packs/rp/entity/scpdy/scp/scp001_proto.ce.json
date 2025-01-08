@@ -1,0 +1,53 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "lc:scpdy_scp001_proto",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "normal": "textures/scpdy/scp/scp001_proto/normal",
+        "damaged": "textures/scpdy/scp/scp001_proto/damaged"
+      },
+      "geometry": {
+        "default": "geometry.scpdy_scp001_proto"
+      },
+      "animations": {
+        // Animation controllers
+        "ctrl.main": "controller.animation.scpdy_scp001_proto.main",
+        "ctrl.open_mouth": "controller.animation.scpdy_scp001_proto.open_mouth",
+        // Animations
+        "anim.base_pose": "animation.scpdy_scp001_proto.base_pose",
+        "anim.general": "animation.scpdy_scp001_proto.general",
+        "anim.move": "animation.scpdy_scp001_proto.move",
+        "anim.melee_attack": "animation.scpdy_scp001_proto.melee_attack",
+        "anim.mouth_opened": "animation.scpdy_scp001_proto.mouth_opened",
+        "anim.look_at_target": "animation.scpdy_scp001_proto.look_at_target"
+      },
+      "scripts": {
+        "animate": [
+          "ctrl.main",
+          "ctrl.open_mouth",
+          "anim.look_at_target"
+        ],
+        "initialize": [
+          "v.is_meleeing = false;",
+          "v.is_mouth_opened = false;"
+        ],
+        "pre_animation": [
+          "v.move = (Math.cos(q.modified_distance_moved * 50.17) * q.modified_move_speed / v.gliding_speed_value) * 57.3;",
+          "v.move_mul = 0.9;",
+          "v.is_meleeing = q.property('lc:is_meleeing');",
+          "v.is_mouth_opened = q.property('lc:is_mouth_opened');",
+          "v.is_damaged = q.health < q.max_health / 4;"
+        ]
+      },
+      "render_controllers": ["controller.render.scpdy.scp001_proto"],
+      "spawn_egg": {
+        "base_color": "#c1a982",
+        "overlay_color": "#484134"
+      }
+    }
+  }
+}

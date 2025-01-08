@@ -1,0 +1,93 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.scpdy_unknown_core_meteorite.hidden": {
+			"loop": true,
+			"bones": {
+				"root": {
+					"scale": 0
+				}
+			}
+		},
+		"animation.scpdy_unknown_core_meteorite.ascend": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 1.5,
+			"bones": {
+				"meteorite": {
+					"rotation": {
+						"0.0": [-90, 0, 0],
+						"1.5": [-90, 720, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"1.5": [0, 500, 0]
+					},
+					"scale": {
+						"0.0": [0, 0, 0],
+						"0.0833": [1, 1, 1],
+						"1.2083": [1, 1, 1],
+						"1.5": [0, 0, 0]
+					}
+				}
+			},
+			"particle_effects": {
+				"0.0417": {
+					"effect": "spell",
+					"locator": "spell_locator",
+					"pre_effect_script": "v.go_down = true;"
+				},
+				"0.5417": {
+					"effect": "spell",
+					"locator": "spell_locator",
+					"pre_effect_script": "v.go_down = true;"
+				},
+				"1.0417": {
+					"effect": "spell",
+					"locator": "spell_locator",
+					"pre_effect_script": "v.go_down = true;"
+				}
+			}
+		},
+		"animation.scpdy_unknown_core_meteorite.ascended": {
+			"loop": true,
+			"bones": {
+				"root": {
+					"scale": 0
+				},
+				"meteorite": {
+					"rotation": [-90, 720, 0],
+					"position": [0, 500, 0],
+					"scale": 1
+				}
+			}
+		},
+		"animation.scpdy_unknown_core_meteorite.fall": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.6667,
+			"bones": {
+				"meteorite": {
+					"rotation": {
+						"0.0": [-90, 720, 0],
+						"0.6667": [-90, 0, 45]
+					},
+					"position": {
+						"0.0": [0, 500, 0],
+						"0.6667": [0, 7, 0]
+					},
+					"scale": {
+						"0.0": [0, 0, 0],
+						"0.2083": [1, 1, 1],
+						"0.6667": {"pre": [1, 1, 1], "post": [0, 0, 0]}
+					}
+				}
+			},
+			"particle_effects": {
+				"0.2083": {
+					"effect": "spell",
+					"locator": "spell_locator",
+					"pre_effect_script": "v.go_down = false;"
+				}
+			}
+		}
+	}
+}

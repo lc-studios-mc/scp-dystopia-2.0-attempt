@@ -1,0 +1,22 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.scpdy.scp096": {
+      "arrays": {
+        "textures": {
+          "Array.skins": [
+            "Texture.default",
+            "Texture.dmg_1",
+            "Texture.dmg_2",
+            "Texture.dmg_3"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [{ "*": "Material.default" }],
+      "textures": [
+        "Array.skins[v.damage_level]"
+      ]
+    }
+  }
+}

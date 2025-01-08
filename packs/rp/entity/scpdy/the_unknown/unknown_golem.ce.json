@@ -1,0 +1,43 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "lc:scpdy_unknown_golem",
+      "materials": {
+        "default": "entity"
+      },
+      "textures": {
+        "default": "textures/scpdy/the_unknown/unknown_golem"
+      },
+      "geometry": {
+        "default": "geometry.scpdy_unknown_golem"
+      },
+      "animations": {
+        // Animation controllers
+        "ctrl.main": "controller.animation.scpdy_unknown_golem.main",
+        // Animations
+        "anim.look_at_target": "animation.scpdy_unknown_golem.look_at_target",
+        "anim.general": "animation.scpdy_unknown_golem.general",
+        "anim.move": "animation.scpdy_unknown_golem.move",
+        "anim.attack": "animation.scpdy_unknown_golem.attack"
+      },
+      "scripts": {
+        "animate": [
+          "ctrl.main"
+        ],
+        "pre_animation": [
+          "v.move = (Math.cos(q.modified_distance_moved * 38.17) * q.modified_move_speed / v.gliding_speed_value) * 57.3;",
+          "v.move_mul = 1.0;"
+        ]
+      },
+      "sound_effects": {
+        "smash": "scpdy.unknown_golem.smash"
+      },
+      "spawn_egg": {
+        "base_color": "#362236",
+        "overlay_color": "#84634e"
+      },
+      "render_controllers": ["controller.render.scpdy.standard"]
+    }
+  }
+}

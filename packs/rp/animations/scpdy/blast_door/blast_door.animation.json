@@ -1,0 +1,13 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.scpdy_blast_door.rotation": {
+			"loop": true,
+			"bones": {
+				"root": {
+					"rotation": [0, "v.y_rot", 0]
+				}
+			}
+		}
+	}
+}

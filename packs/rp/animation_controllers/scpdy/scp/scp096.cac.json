@@ -1,0 +1,213 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.scpdy_scp096.main": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "idle": "v.state == 0"
+            },
+            {
+              "triggered": "v.state == 1"
+            },
+            {
+              "angry": "v.state == 2"
+            },
+            {
+              "calming": "v.state == 3"
+            }
+          ]
+        },
+        "idle": {
+          "animations": [
+            "anim.idle"
+          ],
+          "transitions": [
+            {
+              "triggered": "v.state == 1"
+            },
+            {
+              "angry": "v.state == 2"
+            },
+            {
+              "calming": "v.state == 3"
+            },
+            {
+              "walk_start": "q.modified_move_speed > 0.05"
+            }
+          ],
+          "blend_transition": 0.3
+        },
+        "walk_start": {
+          "animations": [
+            "anim.walk_start"
+          ],
+          "transitions": [
+            {
+              "triggered": "v.state == 1"
+            },
+            {
+              "idle": "q.modified_move_speed <= 0.05"
+            },
+            {
+              "angry": "v.state == 2"
+            },
+            {
+              "calming": "v.state == 3"
+            },
+            {
+              "walk_loop": "q.all_animations_finished"
+            }
+          ],
+          "blend_transition": 0.3
+        },
+        "walk_loop": {
+          "animations": [
+            "anim.walk_loop"
+          ],
+          "transitions": [
+            {
+              "triggered": "v.state == 1"
+            },
+            {
+              "idle": "q.modified_move_speed <= 0.05"
+            },
+            {
+              "angry": "v.state == 2"
+            },
+            {
+              "calming": "v.state == 3"
+            }
+          ],
+          "blend_transition": 0.3
+        },
+        "triggered": {
+          "animations": [
+            "anim.triggered"
+          ],
+          "transitions": [
+            {
+              "angry": "v.state == 2"
+            }
+          ],
+          "blend_transition": 0.3
+        },
+        "angry": {
+          "animations": [
+            "anim.angry_standing"
+          ],
+          "transitions": [
+            {
+              "calming": "v.state == 3"
+            },
+            {
+              "attacking": "q.is_delayed_attacking"
+            },
+            {
+              "flying": "(!q.is_on_ground && !q.is_in_water)"
+            },
+            {
+              "running": "q.is_moving"
+            }
+          ],
+          "blend_transition": 0.2
+        },
+        "running": {
+          "animations": [
+            "anim.angry_run"
+          ],
+          "transitions": [
+            {
+              "calming": "v.state == 3"
+            },
+            {
+              "attacking": "q.is_delayed_attacking"
+            },
+            {
+              "flying": "(!q.is_on_ground && !q.is_in_water)"
+            },
+            {
+              "angry": "!q.is_moving"
+            }
+          ],
+          "blend_transition": 0.2
+        },
+        "flying": {
+          "animations": [
+            "anim.angry_fly"
+          ],
+          "transitions": [
+            {
+              "calming": "v.state == 3"
+            },
+            {
+              "attacking": "q.is_delayed_attacking"
+            },
+            {
+              "running": "q.is_moving && (q.is_on_ground || q.is_in_water)"
+            },
+            {
+              "angry": "!q.is_moving && q.is_on_ground"
+            }
+          ],
+          "blend_transition": 0.2
+        },
+        "attacking": {
+          "animations": [
+            "anim.attack"
+          ],
+          "transitions": [
+            {
+              "angry": "!q.is_delayed_attacking && !q.is_moving && q.is_on_ground"
+            },
+            {
+              "running": "!q.is_delayed_attacking && q.is_moving && (q.is_on_ground || q.is_in_water)"
+            },
+            {
+              "flying": "!q.is_delayed_attacking && (!q.is_on_ground && !q.is_in_water)"
+            }
+          ],
+          "blend_transition": 0.2
+        },
+        "calming": {
+          "animations": [
+            "anim.calming"
+          ],
+          "transitions": [
+            {
+              "idle": "v.state == 0"
+            },
+            {
+              "angry": "v.state == 2"
+            }
+          ],
+          "blend_transition": 0.2
+        }
+      }
+    },
+    "controller.animation.scpdy_scp096.hide_face": {
+      "initial_state": "shown",
+      "states": {
+        "shown": {
+          "animations": [
+            "anim.show_face"
+          ],
+          "transitions": [
+            {
+              "hidden": "v.is_face_hidden"
+            }
+          ]
+        },
+        "hidden": {
+          "transitions": [
+            {
+              "shown": "!v.is_face_hidden"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
