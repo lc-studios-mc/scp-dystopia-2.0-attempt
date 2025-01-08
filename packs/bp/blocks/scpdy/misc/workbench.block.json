@@ -1,0 +1,85 @@
+{
+  "format_version": "1.21.50",
+  "minecraft:block": {
+    "description": {
+      "identifier": "lc:scpdy_workbench",
+      "menu_category": {
+        "category": "items",
+        "group": "itemGroup.name.items"
+      },
+      "traits": {
+        "minecraft:placement_direction": {
+          "enabled_states": ["minecraft:cardinal_direction"],
+          "y_rotation_offset": 180
+        }
+      }
+    },
+    "components": {
+      "minecraft:crafting_table": {
+        "crafting_tags": ["crafting_table", "dystopia_craftbench", "scpdy_workbench"],
+        "table_name": "tile.lc:scpdy_workbench.table_name"
+      },
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "scpdy_workbench",
+          "render_method": "opaque"
+        }
+      },
+      "minecraft:geometry": {
+        "identifier": "geometry.scpdy_workbench"
+      },
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 5.0
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.5
+      },
+      "minecraft:light_dampening": 5,
+      "minecraft:selection_box": {
+        "origin": [-8, 0, -8],
+        "size": [16, 14, 16]
+      },
+      "minecraft:collision_box": {
+        "origin": [-8, 0, -8],
+        "size": [16, 14, 16]
+      },
+      "tag:scpdy:workbench": {}
+    },
+    "permutations": [
+      // #region Facing directions
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'north'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 0, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'south'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 180, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'west'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 90, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'east'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 270, 0]
+          }
+        }
+      }
+      // #endregion
+    ]
+  }
+}

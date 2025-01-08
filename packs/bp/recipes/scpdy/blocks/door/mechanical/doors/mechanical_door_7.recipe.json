@@ -1,0 +1,40 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "lc:scpdy_recipe_mechanical_door_7"
+    },
+    "tags": ["crafting_table", "dystopia_craftbench", "scpdy_workbench"],
+    "pattern": [
+      "INI",
+      "MDM",
+      "IRI"
+    ],
+    "key": {
+      "D": {
+        "item": "minecraft:iron_door"
+      },
+      "I": {
+        "item": "minecraft:iron_ingot"
+      },
+      "M": {
+        "item": "minecraft:diamond"
+      },
+      "N": {
+        "item": "minecraft:netherite_ingot"
+      },
+      "R": {
+        "item": "minecraft:redstone"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:iron_door"
+      }
+    ],
+    "result": {
+      "item": "lc:scpdy_mechanical_door_7",
+      "count": 2
+    }
+  }
+}

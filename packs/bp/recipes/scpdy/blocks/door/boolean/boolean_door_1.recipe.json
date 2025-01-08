@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "lc:scpdy_recipe_boolean_door_1"
+    },
+    "tags": ["crafting_table", "dystopia_craftbench", "scpdy_workbench"],
+    "pattern": [
+      "DB",
+      "T "
+    ],
+    "key": {
+      "D": {
+        "item": "minecraft:iron_door"
+      },
+      "B": {
+        "item": "minecraft:stone_button"
+      },
+      "T": {
+        "item": "minecraft:redstone_torch"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:iron_door"
+      }
+    ],
+    "result": {
+      "item": "lc:scpdy_boolean_door_1",
+      "count": 1
+    }
+  }
+}

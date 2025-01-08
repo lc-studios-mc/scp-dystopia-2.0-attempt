@@ -1,0 +1,44 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.scpdy.bp.sittable_anchor.remove_on_invalid": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "invalid": "!q.relative_block_has_all_tags(0, 0, 0, 'sittable')"
+            }
+          ]
+        },
+        "invalid": {
+          "on_entry": [
+            "@s despawn"
+          ]
+        }
+      }
+    },
+    "controller.animation.scpdy.bp.sittable_anchor.remove_on_exit": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "has_rider": "q.has_rider"
+            }
+          ]
+        },
+        "has_rider": {
+          "on_exit": [
+            "@s despawn"
+          ],
+          "transitions": [
+            {
+              "default": "!q.has_rider"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "lc:scpdy_slasher_blade",
+      "menu_category": {
+        "category": "items",
+        "group": "itemGroup.name.items",
+        "is_hidden_in_commands": false
+      }
+    },
+    "components": {
+      "minecraft:icon": {
+        "textures": {
+          "default": "scpdy_slasher_blade"
+        }
+      },
+      "minecraft:display_name": {
+        "value": "item.lc:scpdy_slasher_blade.name"
+      },
+      "minecraft:damage": {
+        "value": 2
+      },
+      "minecraft:max_stack_size": 64,
+      "minecraft:hand_equipped": false,
+      "minecraft:allow_off_hand": false
+    }
+  }
+}

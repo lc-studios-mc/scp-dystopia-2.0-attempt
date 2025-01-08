@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "lc:scpdy_recipe_cst_gray_wall_bottom"
+    },
+    "tags": ["crafting_table", "dystopia_craftbench", "scpdy_workbench"],
+    "pattern": [
+      "W",
+      "D"
+    ],
+    "key": {
+      "W": {
+        "item": "lc:scpdy_cst_facility_wall_middle"
+      },
+      "D": {
+        "item": "minecraft:gray_dye"
+      }
+    },
+    "unlock": [
+      {
+        "item": "lc:scpdy_cst_facility_wall_middle"
+      },
+      {
+        "item": "lc:scpdy_cst_gray_wall_bottom"
+      }
+    ],
+    "result": {
+      "item": "lc:scpdy_cst_gray_wall_bottom",
+      "count": 1
+    }
+  }
+}

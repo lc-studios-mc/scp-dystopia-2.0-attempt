@@ -1,0 +1,12 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.scpdy.bp.unknown_core.script_update": {
+      "animation_length": 0.25,
+      "loop": true,
+      "timeline": {
+        "0.2": ["@s unknown_core:script_update"]
+      }
+    }
+  }
+}

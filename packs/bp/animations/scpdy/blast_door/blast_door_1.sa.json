@@ -1,0 +1,56 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.scpdy.bp.blast_door_1.stay_closed": {
+      "animation_length": 1.0,
+      "loop": false,
+      "timeline": {
+        "0.01": ["/scriptevent scpdy:blast_door_update_rotation_lock"],
+        "0.02": ["/fill ^2 ^2 ^0  ^-2 ^0 ^0 lc:scpdy_blast_door_dummy replace air"]
+      }
+    },
+    "animation.scpdy.bp.blast_door_1.stay_opened": {
+      "animation_length": 1.0,
+      "loop": false,
+      "timeline": {
+        "0.01": ["/scriptevent scpdy:blast_door_update_rotation_lock"],
+        "0.02": ["/fill ^2 ^2 ^0  ^-2 ^0 ^0 air replace lc:scpdy_blast_door_dummy"]
+      }
+    },
+    "animation.scpdy.bp.blast_door_1.open": {
+      "animation_length": 3.67,
+      "loop": false,
+      "timeline": {
+        "0.01": [
+          "/scriptevent scpdy:blast_door_update_rotation_lock",
+          "/playsound scpdy.blast_door_classic.open @a[r=40] ~ ~ ~ 1.2 1.0"
+        ],
+        "0.02": ["/camerashake add @a[r=8] 0.03 0.1 positional"],
+        "0.42": ["/fill ^0 ^2 ^0  ^-0 ^0 ^0 air replace lc:scpdy_blast_door_dummy"],
+        "1.81": ["/fill ^1 ^2 ^0  ^-1 ^0 ^0 air replace lc:scpdy_blast_door_dummy"],
+        "3.22": ["/fill ^2 ^2 ^0  ^-2 ^0 ^0 air replace lc:scpdy_blast_door_dummy"],
+        "3.5": ["/camerashake add @a[r=8] 0.05 0.15 positional"]
+      }
+    },
+    "animation.scpdy.bp.blast_door_1.close": {
+      "animation_length": 3.25,
+      "loop": false,
+      "timeline": {
+        "0.01": [
+          "/scriptevent scpdy:blast_door_update_rotation_lock",
+          "/playsound scpdy.blast_door_classic.close @a[r=40] ~ ~ ~ 1.2 1.0"
+        ],
+        "0.33": [
+          "/fill ^2 ^2 ^0  ^2 ^0 ^0 lc:scpdy_blast_door_dummy replace air",
+          "/fill ^-2 ^2 ^0  ^-2 ^0 ^0 lc:scpdy_blast_door_dummy replace air"
+        ],
+        "1.23": [
+          "/fill ^1 ^2 ^0  ^1 ^0 ^0 lc:scpdy_blast_door_dummy replace air",
+          "/fill ^-1 ^2 ^0  ^-1 ^0 ^0 lc:scpdy_blast_door_dummy replace air"
+        ],
+        "2.07": ["/fill ^0 ^2 ^0  ^0 ^0 ^0 lc:scpdy_blast_door_dummy replace air"],
+        "3.0": ["/camerashake add @a[r=8] 0.08 0.15 positional"]
+      }
+    }
+  }
+}

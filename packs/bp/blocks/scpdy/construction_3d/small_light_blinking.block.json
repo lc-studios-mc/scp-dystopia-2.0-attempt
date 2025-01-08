@@ -1,0 +1,116 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:block": {
+    "description": {
+      "identifier": "lc:scpdy_small_light_blinking",
+      "menu_category": {
+        "category": "construction",
+        "group": "itemGroup.name.sandstone"
+      },
+      "states": {
+        "lc:is_lit": [false, true]
+      },
+      "traits": {
+        "minecraft:placement_position": {
+          "enabled_states": ["minecraft:block_face"]
+        }
+      }
+    },
+    "components": {
+      "minecraft:custom_components": ["scpdy:blinking_light"],
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "scpdy_small_light",
+          "render_method": "opaque"
+        }
+      },
+      "minecraft:geometry": {
+        "identifier": "geometry.scpdy_small_light",
+        "bone_visibility": {
+          "on": "q.block_state('lc:is_lit')",
+          "off": "!q.block_state('lc:is_lit')"
+        }
+      },
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 2.5
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.4
+      },
+      "minecraft:light_dampening": 0,
+      "minecraft:collision_box": false,
+      "minecraft:selection_box": {
+        "origin": [-2, 6, 6],
+        "size": [4, 4, 2]
+      },
+      "minecraft:tick": {
+        "interval_range": [15, 70]
+      },
+      "tag:light": {}
+    },
+    "permutations": [
+      {
+        "condition": "!q.block_state('lc:is_lit')",
+        "components": {
+          "minecraft:light_emission": 0
+        }
+      },
+      {
+        "condition": "q.block_state('lc:is_lit')",
+        "components": {
+          "minecraft:light_emission": 14
+        }
+      },
+      // #region Facing directions
+      {
+        "condition": "q.block_state('minecraft:block_face') == 'up'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [90, 0, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:block_face') == 'down'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [-90, 0, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:block_face') == 'north'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 0, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:block_face') == 'south'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 180, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:block_face') == 'west'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 90, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:block_face') == 'east'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 270, 0]
+          }
+        }
+      }
+      // #endregion
+    ]
+  }
+}
