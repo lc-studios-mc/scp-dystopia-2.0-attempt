@@ -1,0 +1,14 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.scpdy_knife.fp_general": {
+			"loop": true,
+			"bones": {
+				"knife": {
+					"rotation": [-56.23967, 41.1514, -93.02264],
+					"position": [3.06809, 1.4575, 1.58316]
+				}
+			}
+		}
+	}
+}

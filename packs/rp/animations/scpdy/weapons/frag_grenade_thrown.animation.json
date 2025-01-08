@@ -1,0 +1,35 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.scpdy_frag_grenade_thrown.flying": {
+			"loop": true,
+			"animation_length": 0.3,
+			"bones": {
+				"root": {
+					"rotation": {
+						"0.0": [20, 0, 0],
+						"0.3": [20, 360, 0]
+					},
+					"position": [0, -1, 0]
+				},
+				"frag_grenade": {
+					"rotation": [-90, 0, 0],
+					"position": [0, -2.25, -3]
+				}
+			}
+		},
+		"animation.scpdy_frag_grenade_thrown.moving": {
+			"loop": true,
+			"animation_length": 2,
+			"anim_time_update": "q.modified_distance_moved * 0.35",
+			"bones": {
+				"root": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"2.0": [0, 360, 0]
+					}
+				}
+			}
+		}
+	}
+}

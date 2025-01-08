@@ -1,0 +1,55 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "lc:scpdy_gun_glock17",
+      "materials": {
+        "fp_view": "entity_emissive_alpha",
+        "tp_view": "entity_emissive_alpha_one_sided"
+      },
+      "textures": {
+        "default": "textures/scpdy/items/weapons/guns/glock17_attachable"
+      },
+      "geometry": {
+        "fp_view": "geometry.scpdy_gun_glock17.fp",
+        "tp_view": "geometry.scpdy_gun_glock17.tp"
+      },
+      "animations": {
+        // Animation controllers
+        "ctrl.fp": "controller.animation.scpdy.gun.glock17.fp",
+        "ctrl.fp.offset": "controller.animation.scpdy.gun.glock17.fp.offset",
+        // Animations
+        "anim.fp.hidden": "animation.scpdy_gun_glock17.fp.hidden",
+        "anim.fp.offset_default": "animation.scpdy_gun_glock17.fp.offset_default",
+        "anim.fp.offset_ads": "animation.scpdy_gun_glock17.fp.offset_ads",
+        "anim.fp.general": "animation.scpdy_gun_glock17.fp.general",
+        "anim.fp.general_sprint": "animation.scpdy_gun_glock17.fp.general_sprint",
+        "anim.fp.pick": "animation.scpdy_gun_glock17.fp.pick",
+        "anim.fp.shoot_1": "animation.scpdy_gun_glock17.fp.shoot_1",
+        "anim.fp.shoot_2": "animation.scpdy_gun_glock17.fp.shoot_2",
+        "anim.fp.reload": "animation.scpdy_gun_glock17.fp.reload",
+        "anim.fp.reload_tac": "animation.scpdy_gun_glock17.fp.reload_tac"
+      },
+      "scripts": {
+        "animate": [
+          "ctrl.fp",
+          "ctrl.fp.offset"
+        ],
+        "pre_animation": [
+          "v.shoot_cooldown_1 = q.cooldown_time_remaining('scpdy_gun_glock17_shoot_1');",
+          "v.shoot_cooldown_2 = q.cooldown_time_remaining('scpdy_gun_glock17_shoot_2');",
+          "v.reload_cooldown = q.cooldown_time_remaining('scpdy_gun_glock17_reload');",
+          "v.reload_tac_cooldown = q.cooldown_time_remaining('scpdy_gun_glock17_reload_tac');"
+        ]
+      },
+      "render_controllers": [
+        {
+          "controller.render.scpdy.3d_item.fp": "c.is_first_person"
+        },
+        {
+          "controller.render.scpdy.3d_item.tp": "!c.is_first_person"
+        }
+      ]
+    }
+  }
+}

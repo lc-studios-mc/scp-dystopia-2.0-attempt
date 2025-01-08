@@ -1,0 +1,77 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "lc:scpdy_gun_mp5sd",
+      "materials": {
+        "gun": "entity",
+        "fp_arms": "entity_alphatest"
+      },
+      "textures": {
+        "gun": "textures/scpdy/items/weapons/guns/mp5sd/tex",
+        "fp_arms": "textures/scpdy/fp_arms"
+      },
+      "geometry": {
+        "gun.fp": "geometry.scpdy_gun_mp5sd_attachable.fp",
+        "fp_arms": "geometry.scpdy_fp_arms",
+        "gun.tp": "geometry.scpdy_gun_mp5sd_attachable.tp"
+      },
+      "animations": {
+        // Animation Controllers
+        "ctrl.fp.main": "controller.animation.scpdy.attachable.gun.mp5sd.fp.main",
+        "ctrl.fp.aim": "controller.animation.scpdy.attachable.gun.mp5sd.fp.aim",
+        "ctrl.fp.recoil": "controller.animation.scpdy.attachable.gun.mp5sd.fp.recoil",
+        // Animations
+        "anim.fp.aim": "animation.scpdy_gun_mp5sd_attachable.fp.aim",
+        "anim.fp.general": "animation.scpdy_gun_mp5sd_attachable.fp.general",
+        "anim.fp.pick": "animation.scpdy_gun_mp5sd_attachable.fp.pick",
+        "anim.fp.recoil": "animation.scpdy_gun_mp5sd_attachable.fp.recoil",
+        "anim.fp.shoot_1": "animation.scpdy_gun_mp5sd_attachable.fp.shoot_1",
+        "anim.fp.shoot_2": "animation.scpdy_gun_mp5sd_attachable.fp.shoot_2",
+        "anim.fp.reload": "animation.scpdy_gun_mp5sd_attachable.fp.reload",
+        "anim.fp.reload_tac": "animation.scpdy_gun_mp5sd_attachable.fp.reload_tac"
+      },
+      "scripts": {
+        "animate": [
+          "ctrl.fp.main",
+          "ctrl.fp.aim",
+          "ctrl.fp.recoil"
+        ],
+        "initialize": [
+          "v.aim_anim_speed = 1.0;",
+          "v.aim_anim_time = 0;",
+          "v.aim_anim_length = 0.15;",
+          "v.recoil_weight = 0;",
+          "v.next_recoil_weight = 0;",
+          "v.added_recoil_per_shot = 0.4;"
+        ],
+        "pre_animation": [
+          "v.cd_pick = q.cooldown_time_remaining('scpdy_gun_mp5sd_pick');",
+          "v.cd_shoot_1 = q.cooldown_time_remaining('scpdy_gun_mp5sd_shoot_1');",
+          "v.cd_shoot_2 = q.cooldown_time_remaining('scpdy_gun_mp5sd_shoot_2');",
+          "v.cd_reload = q.cooldown_time_remaining('scpdy_gun_mp5sd_reload');",
+          "v.cd_reload_tac = q.cooldown_time_remaining('scpdy_gun_mp5sd_reload_tac');",
+
+          "v.dont_aim = v.cd_reload > 0 || v.cd_reload_tac > 0;",
+          "v.aim_anim_time = (v.dont_aim || !q.is_sneaking) && v.aim_anim_time > 0 ? (v.aim_anim_time - (q.delta_time * v.aim_anim_speed)) : !v.dont_aim && q.is_sneaking && v.aim_anim_time < v.aim_anim_length ? (v.aim_anim_time + (q.delta_time * v.aim_anim_speed)) : v.aim_anim_time;",
+          "v.is_ads = v.aim_anim_time >= v.aim_anim_length;",
+
+          "v.next_recoil_weight = v.is_ads ? 0 : v.next_recoil_weight > 0 ? v.next_recoil_weight - q.delta_time * 1.1 : 0;",
+          "v.recoil_weight = math.lerp(v.recoil_weight, v.next_recoil_weight, 4.0 * q.delta_time);"
+        ]
+      },
+      "render_controllers": [
+        {
+          "controller.render.scpdy.attachable.gun.fp": "c.is_first_person"
+        },
+        {
+          "controller.render.scpdy.attachable.fp_arms": "c.is_first_person"
+        },
+        {
+          "controller.render.scpdy.attachable.gun.tp": "!c.is_first_person"
+        }
+      ]
+    }
+  }
+}
+

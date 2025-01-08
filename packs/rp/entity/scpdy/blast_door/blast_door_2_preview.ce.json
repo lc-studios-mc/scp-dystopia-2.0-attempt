@@ -1,0 +1,30 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "lc:scpdy_blast_door_2_preview",
+      "materials": {
+        "default": "entity"
+      },
+      "textures": {
+        "default": "textures/scpdy/blast_door/door_2"
+      },
+      "geometry": {
+        "default": "geometry.scpdy_blast_door_2"
+      },
+      "animations": {
+        "anim.general": "animation.scpdy_blast_door_preview.general",
+        "anim.look_at_target": "animation.scpdy_blast_door_preview.look_at_target"
+      },
+      "scripts": {
+        "animate": [
+          "anim.general",
+          "anim.look_at_target"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.scpdy.blast_door_preview"
+      ]
+    }
+  }
+}

@@ -1,0 +1,7 @@
+[
+  {
+    "atlas_tile": "scpdy_dash_block_top_active",
+    "flipbook_texture": "textures/scpdy/blocks/minigame/dash_block/top_active",
+    "ticks_per_frame": 3
+  }
+]

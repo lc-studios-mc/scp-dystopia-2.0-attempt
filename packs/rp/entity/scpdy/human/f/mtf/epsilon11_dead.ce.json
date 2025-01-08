@@ -1,0 +1,43 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "lc:scpdy_f_mtf_epsilon11_dead",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/scpdy/human/f/mtf/epsilon11"
+      },
+      "geometry": {
+        "default": "geometry.scpdy_f_mtf_epsilon11_dead"
+      },
+      "animations": {
+        // Animation controllers
+        "ctrl.main": "controller.animation.scpdy_dead_human.main",
+        // Animations
+        "anim.death_1": "animation.scpdy_dead_human.death_1",
+        "anim.death_1_keep": "animation.scpdy_dead_human.death_1_keep",
+        "anim.death_2": "animation.scpdy_dead_human.death_2",
+        "anim.death_2_keep": "animation.scpdy_dead_human.death_2_keep",
+        "anim.death_3": "animation.scpdy_dead_human.death_3",
+        "anim.death_3_keep": "animation.scpdy_dead_human.death_3_keep"
+      },
+      "scripts": {
+        "scale": "0.9375",
+        "animate": [
+          "ctrl.main"
+        ],
+        "initialize": [
+          "v.death_anim_index = 0;",
+          "v.is_just_spawned = true;"
+        ],
+        "pre_animation": [
+          "v.death_anim_index = q.property('lc:death_anim_index');",
+          "v.is_just_spawned = q.property('lc:is_just_spawned');"
+        ]
+      },
+      "render_controllers": ["controller.render.scpdy.human.f_mtf_epsilon11"]
+    }
+  }
+}

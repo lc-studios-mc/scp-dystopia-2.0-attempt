@@ -1,0 +1,31 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.scpdy_unknown_core_fireball.particle": {
+			"loop": true,
+			"animation_length": 0.5,
+			"particle_effects": {
+				"0.0": {
+					"effect": "spell",
+					"locator": "spell"
+				}
+			}
+		},
+		"animation.scpdy_unknown_core_fireball.general": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.1875,
+			"bones": {
+				"bone": {
+					"rotation": [0, 0, "q.life_time * 700"],
+					"scale": {
+						"0.0": [0, 0, 0],
+						"0.1875": [1, 1, 1]
+					}
+				},
+				"facing": {
+					"rotation": ["q.target_x_rotation", "-q.target_y_rotation", 0]
+				}
+			}
+		}
+	}
+}
