@@ -1,0 +1,32 @@
+{
+  "format_version": "1.21.40",
+  "minecraft:item": {
+    "description": {
+      "identifier": "lc:scpdy_void_sword",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.equipment",
+        "is_hidden_in_commands": false
+      }
+    },
+    "components": {
+      "minecraft:custom_components": ["scpdy:remove_target_on_hit"],
+      "minecraft:max_stack_size": 1,
+      "minecraft:icon": {
+        "textures": {
+          "default": "scpdy_void_sword_icon"
+        }
+      },
+      "minecraft:can_destroy_in_creative": {
+        "value": false
+      },
+      "minecraft:hand_equipped": true,
+      "minecraft:allow_off_hand": false,
+      "minecraft:display_name": {
+        "value": "item.lc:scpdy_void_sword.name"
+      },
+      "minecraft:hover_text_color": "aqua",
+      "minecraft:glint": true
+    }
+  }
+}

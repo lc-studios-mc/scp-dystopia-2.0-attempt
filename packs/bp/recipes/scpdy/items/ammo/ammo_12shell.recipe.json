@@ -1,0 +1,37 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "lc:scpdy_recipe_ammo_12shell"
+    },
+    "tags": ["crafting_table", "dystopia_craftbench", "scpdy_workbench"],
+    "pattern": [
+      " N ",
+      "GCN",
+      "G  "
+    ],
+    "key": {
+      "N": {
+        "item": "minecraft:iron_nugget"
+      },
+      "C": {
+        "item": "minecraft:copper_ingot"
+      },
+      "G": {
+        "item": "minecraft:gunpowder"
+      }
+    },
+    "unlock": [
+      {
+        "item": "lc:scpdy_ammo_12shell"
+      },
+      {
+        "item": "minecraft:gunpowder"
+      }
+    ],
+    "result": {
+      "item": "lc:scpdy_ammo_12shell",
+      "count": 4
+    }
+  }
+}

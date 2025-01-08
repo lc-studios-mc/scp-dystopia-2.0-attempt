@@ -1,0 +1,39 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "lc:scpdy_recipe_keycard_reader_lvl_1"
+    },
+    "tags": ["crafting_table", "dystopia_craftbench", "scpdy_workbench"],
+    "pattern": [
+      "BR",
+      "IK"
+    ],
+    "key": {
+      "B": {
+        "item": "minecraft:stone_button"
+      },
+      "R": {
+        "item": "minecraft:redstone"
+      },
+      "I": {
+        "item": "minecraft:iron_ingot"
+      },
+      "K": {
+        "item": "lc:scpdy_keycard_lvl_1"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:redstone"
+      },
+      {
+        "item": "lc:scpdy_keycard_lvl_1"
+      }
+    ],
+    "result": {
+      "item": "lc:scpdy_keycard_reader_lvl_1",
+      "count": 2
+    }
+  }
+}

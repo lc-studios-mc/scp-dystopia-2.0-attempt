@@ -1,0 +1,40 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "lc:scpdy_recipe_keycard_o5"
+    },
+    "tags": ["crafting_table", "dystopia_craftbench", "scpdy_workbench"],
+    "pattern": [
+      "PDX",
+      "MMM"
+    ],
+    "key": {
+      "P": {
+        "item": "lc:scpdy_keycard_lvl_5"
+      },
+      "D": {
+        "item": "minecraft:dye",
+        "data": 5
+      },
+      "M": {
+        "item": "minecraft:diamond"
+      },
+      "X": {
+        "item": "minecraft:gold_ingot"
+      }
+    },
+    "unlock": [
+      {
+        "item": "lc:scpdy_keycard_lvl_5"
+      },
+      {
+        "item": "lc:scpdy_keycard_o5"
+      }
+    ],
+    "result": {
+      "item": "lc:scpdy_keycard_o5",
+      "count": 1
+    }
+  }
+}

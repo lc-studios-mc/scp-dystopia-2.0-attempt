@@ -1,0 +1,12 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.scpdy.bp.player_frag_grenade.countdown": {
+      "animation_length": 0.1,
+      "loop": true,
+      "timeline": {
+        "0.0": ["@s player_frag_grenade:countdown"]
+      }
+    }
+  }
+}

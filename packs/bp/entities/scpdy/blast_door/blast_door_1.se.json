@@ -1,0 +1,118 @@
+{
+  "format_version": "1.21.40",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "lc:scpdy_blast_door_1",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:snowball",
+      "scripts": {
+        "animate": ["ctrl.main", "ctrl.update_state"]
+      },
+      "animations": {
+        "ctrl.main": "controller.animation.scpdy.bp.blast_door.main",
+        "anim.open": "animation.scpdy.bp.blast_door_1.open",
+        "anim.close": "animation.scpdy.bp.blast_door_1.close",
+        "ctrl.update_state": "controller.animation.scpdy.bp.blast_door.update_state"
+      },
+      "properties": {
+        "lc:is_open": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        },
+        "lc:detect_redstone": {
+          "type": "bool",
+          "default": false
+        },
+        "lc:belongs_to_facility_network": {
+          "type": "bool",
+          "default": false
+        },
+        "lc:facility_network_index": {
+          "type": "int",
+          "range": [0, 4],
+          "default": 0
+        },
+        "lc:facility_zone_index": {
+          "type": "int",
+          "range": [0, 9],
+          "default": 0
+        }
+      }
+    },
+    "component_groups": {
+      "state_update_timer": {
+        "minecraft:timer": {
+          "looping": true,
+          "randomInterval": false,
+          "time": 1.0,
+          "time_down_event": {
+            "event": "blast_door:update_state",
+            "target": "self"
+          }
+        }
+      }
+    },
+    "components": {
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:type_family": {
+        "family": ["inanimate", "door", "blast_door", "scpdy_blast_door"]
+      },
+      "minecraft:health": {
+        "value": 50,
+        "max": 50
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "all",
+            "deals_damage": "no"
+          }
+        ]
+      },
+      "minecraft:physics": {
+        "has_collision": false,
+        "has_gravity": false
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:collision_box": {
+        "width": 0.3,
+        "height": 0.3
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 7,
+          "use_motion_prediction_hints": false
+        }
+      }
+    },
+    "events": {
+      "blast_door:open": {},
+      "blast_door:close": {},
+      "blast_door:switch": {},
+      "blast_door:add_state_update_timer": {
+        "add": {
+          "component_groups": ["state_update_timer"]
+        }
+      },
+      "blast_door:remove_state_update_timer": {
+        "remove": {
+          "component_groups": ["state_update_timer"]
+        }
+      },
+      "blast_door:update_state": {
+        "queue_command": {
+          "command": ["scriptevent scpdy:blast_door_update_state"]
+        }
+      }
+    }
+  }
+}

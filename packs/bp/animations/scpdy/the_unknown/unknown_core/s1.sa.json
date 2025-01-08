@@ -1,0 +1,57 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.scpdy.bp.unknown_core.s1.general": {
+      "animation_length": 1.0,
+      "loop": true
+    },
+    "animation.scpdy.bp.unknown_core.s1.fireball": {
+      "animation_length": 1.7,
+      "loop": false,
+      "timeline": {
+        "0.5": [
+          "@s unknown_core:s1:add_shoot_fireball"
+        ],
+        "0.6": [
+          "/playsound scpdy.unknown_core.fireball @a[r=100] ~ ~ ~ 1.4 1.0",
+          "/camerashake add @a[r=30] 0.35 0.2 positional"
+        ],
+        "0.7": [
+          "@s unknown_core:s1:remove_shoot_fireball"
+        ],
+        "1.63": [
+          "@s unknown_core:s1:reset_state"
+        ]
+      }
+    },
+    "animation.scpdy.bp.unknown_core.s1.shield": {
+      "animation_length": 5.1,
+      "loop": false,
+      "timeline": {
+        "0.2": ["/playsound scpdy.unknown_core.angry @a[r=100] ~ ~ ~ 1.2 1.0"],
+        "0.4": ["@s unknown_core:set_can_be_damaged:false"],
+        "4.5": ["@s unknown_core:set_can_be_damaged:true"],
+        "5.0": ["@s unknown_core:s1:reset_state"]
+      }
+    },
+    "animation.scpdy.bp.unknown_core.s1.to_s2": {
+      "animation_length": 9.1,
+      "loop": false,
+      "timeline": {
+        "0.01": [
+          "/playsound scpdy.unknown_core.hurt_heavy @a[r=100] ~ ~ ~ 1.5 1.0",
+          "/camerashake add @a[r=30] 0.3 0.3 positional",
+          "@s unknown_core:set_can_be_damaged:false",
+          "@s unknown_core:s1:remove_behavior_component_groups"
+        ],
+        "1.50": ["/playsound scpdy.unknown_core.angry @a[r=100] ~ ~ ~ 1.2 1.0"],
+        "7.18": [
+          "/playsound scpdy.unknown_core.scream @a[r=100] ~ ~ ~ 2.0 1.0",
+          "/camerashake add @a[r=30] 0.45 1.5 positional",
+          "/effect @s instant_health 2 255 true"
+        ],
+        "9.0": ["@s unknown_core:s1:to_s2"]
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.scpdy.bp.gib_small.drop": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "not_grounded": "!q.is_on_ground"
+            }
+          ]
+        },
+        "not_grounded": {
+          "on_exit": [
+            "/playsound scpdy.gore.drop @a[r=10] ~ ~ ~"
+          ],
+          "transitions": [
+            {
+              "default": "q.is_on_ground"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

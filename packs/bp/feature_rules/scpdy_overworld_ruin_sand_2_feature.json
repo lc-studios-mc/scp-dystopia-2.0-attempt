@@ -1,0 +1,33 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:feature_rules": {
+		"description": {
+			"identifier": "lc:scpdy_overworld_ruin_sand_2_feature",
+			"places_feature": "lc:scpdy_ruin_sand_2_feature"
+		},
+		"conditions": {
+			"placement_pass": "first_pass",
+			"minecraft:biome_filter": {
+				"test": "has_biome_tag",
+				"operator": "==",
+				"value": "desert"
+			}
+		},
+		"distribution": {
+			"iterations": 1,
+			"x": {
+				"extent": [0, 64],
+				"distribution": "uniform"
+			},
+			"y": "q.heightmap(v.worldx, v.worldz) - 1", 
+			"z": {
+				"extent": [0, 64],
+				"distribution": "uniform"
+			},
+			"scatter_chance": {
+				"numerator": 1,
+				"denominator": 70
+			}
+		}
+	}
+}

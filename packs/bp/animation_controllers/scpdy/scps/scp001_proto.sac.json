@@ -1,0 +1,27 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.scpdy.bp.scp001_proto.attack_trigger": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "attacking": "q.property('lc:is_meleeing')"
+            }
+          ]
+        },
+        "attacking": {
+          "animations": [
+            "anim.attack_trigger"
+          ],
+          "transitions": [
+            {
+              "default": "!q.property('lc:is_meleeing')"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

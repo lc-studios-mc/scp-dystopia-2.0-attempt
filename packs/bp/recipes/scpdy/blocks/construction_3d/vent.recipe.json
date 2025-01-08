@@ -1,0 +1,33 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "lc:scpdy_recipe_vent"
+    },
+    "tags": ["crafting_table", "dystopia_craftbench", "scpdy_workbench"],
+    "pattern": [
+      " C",
+      "D "
+    ],
+    "key": {
+      "C": {
+        "item": "minecraft:coal"
+      },
+      "D": {
+        "item": "minecraft:iron_trapdoor"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:iron_trapdoor"
+      },
+      {
+        "item": "lc:scpdy_vent"
+      }
+    ],
+    "result": {
+      "item": "lc:scpdy_vent",
+      "count": 2
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "lc:scpdy_gun_t5000_mag",
+      "menu_category": {
+        "category": "items",
+        "group": "itemGroup.name.items",
+        "is_hidden_in_commands": false
+      }
+    },
+    "components": {
+      "minecraft:custom_components": ["scpdy:mag", "scpdy:dont_get_durability_damage_on_hit"],
+      "minecraft:max_stack_size": 1,
+      "minecraft:icon": {
+        "textures": {
+          "default": "scpdy_gun_t5000_mag_icon"
+        }
+      },
+      "minecraft:hand_equipped": true,
+      "minecraft:allow_off_hand": true,
+      "minecraft:durability": {
+        "damage_chance": {
+          "min": 0,
+          "max": 0
+        },
+        "max_durability": 5
+      },
+      "minecraft:display_name": {
+        "value": "item.lc:scpdy_gun_t5000_mag.name"
+      },
+      "minecraft:glint": false,
+      "minecraft:tags": {
+        "tags": [
+          "mag",
+          "scpdy:mag",
+          "scpdy:ammo_loadable",
+          "ammo_type:338magnum"
+        ]
+      }
+    }
+  }
+}

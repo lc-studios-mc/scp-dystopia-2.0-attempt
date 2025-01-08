@@ -1,0 +1,29 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "lc:scpdy_cctv_linker",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.equipment",
+        "is_hidden_in_commands": false
+      }
+    },
+    "components": {
+      "minecraft:custom_components": ["scpdy:cctv_linker"],
+      "minecraft:max_stack_size": 1,
+      "minecraft:icon": {
+        "textures": {
+          "default": "scpdy_cctv_linker_icon"
+        }
+      },
+      "minecraft:hand_equipped": false,
+      "minecraft:allow_off_hand": false,
+      "minecraft:display_name": {
+        "value": "item.lc:scpdy_cctv_linker.name"
+      },
+      "minecraft:hover_text_color": "light_purple",
+      "minecraft:glint": true
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "lc:scpdy_recipe_hanging_lamp"
+    },
+    "tags": ["crafting_table", "dystopia_craftbench", "scpdy_workbench"],
+    "pattern": [
+      " S ",
+      " C ",
+      "CLC"
+    ],
+    "key": {
+      "S": {
+        "item": "minecraft:string"
+      },
+      "C": {
+        "item": "minecraft:copper_ingot"
+      },
+      "L": {
+        "item": "minecraft:lantern"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:lantern"
+      },
+      {
+        "item": "lc:scpdy_hanging_lamp"
+      }
+    ],
+    "result": {
+      "item": "lc:scpdy_hanging_lamp",
+      "count": 6
+    }
+  }
+}

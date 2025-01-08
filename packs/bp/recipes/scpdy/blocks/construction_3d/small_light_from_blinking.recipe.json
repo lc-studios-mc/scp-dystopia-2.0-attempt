@@ -1,0 +1,24 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "lc:scpdy_recipe_small_light_fron_blinking"
+    },
+    "tags": ["crafting_table", "dystopia_craftbench", "scpdy_workbench"],
+    "ingredients": [
+      {
+        "item": "lc:scpdy_small_light_blinking"
+      }
+    ],
+    "unlock": [
+      {
+        "item": "lc:scpdy_small_light_blinking"
+      }
+    ],
+    "result": {
+      "item": "lc:scpdy_small_light",
+      "count": 1
+    }
+  }
+}
+
