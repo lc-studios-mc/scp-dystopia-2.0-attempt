@@ -64,6 +64,13 @@ scpdy.msg.warnOverriddenPlayerJson.line_2=§eThank you for installing SCP: Dysto
 scpdy.msg.warnOverriddenPlayerJson.line_3=§eIt seems like that another add-on you're using now is overriding player-related behavior.
 scpdy.msg.warnOverriddenPlayerJson.line_4=§eSome features may not work as intended!
 
+scpdy.msg.alphanumericSignPlacement.error.empty=§cProvided string is empty.
+scpdy.msg.alphanumericSignPlacement.error.tooLong=§cProvided string is too long. (Max: 20)
+scpdy.msg.alphanumericSignPlacement.error.unsupportedChar=§cProvided string contains unsupported character(s).
+scpdy.msg.alphanumericSignPlacement.error.obstructed=§cPlacement was obstructed.
+scpdy.msg.alphanumericSignPlacement.error.tooFar=§cToo far from initial location.
+scpdy.msg.alphanumericSignPlacement.error.notEnoughToComplete=§cNot enough to complete.
+
 scpdy.msg.blastDoorPreview.sneakAndInteractToCreate=§dSneak and interact the preview entity to create Blast Door.
 
 scpdy.msg.cctvLinker.guide=Interact CCTV Camera(s) and/or Monitor(s) to collect them. Interact a CCTV Server to link collected Camera(s) and/or Monitor(s) to it.
@@ -133,6 +140,15 @@ scpdy.form.misc.yes=Yes
 scpdy.form.misc.no=No
 scpdy.form.misc.ok=OK
 scpdy.form.misc.none=None
+
+scpdy.form.alphanumericSignOptions.title=Placement Options
+scpdy.form.alphanumericSignOptions.textField.label=Text
+scpdy.form.alphanumericSignOptions.textField.placeholder=ASCII string
+scpdy.form.alphanumericSignOptions.spacing.label=Spacing
+scpdy.form.alphanumericSignOptions.color.label=Color
+scpdy.form.alphanumericSignOptions.color.white=§l§fWhite
+scpdy.form.alphanumericSignOptions.color.black=§l§0Black
+scpdy.form.alphanumericSignOptions.submit=Place
 
 scpdy.form.blastDoorCreation.title=Blast Door Options
 scpdy.form.blastDoorCreation.redstoneDetectionToggle.label=Redstone detection
@@ -505,6 +521,7 @@ tile.lc:scpdy_lockdown_panel_n5.name=§dLockdown Panel (Network 5)
 tile.lc:scpdy_dash_block.name=Dash Block
 
 ## blocks -> misc -> ...
+tile.lc:scpdy_alphanumeric_sign_placer.name=Alphanumeric Sign
 tile.lc:scpdy_blast_door_dummy.name=Blast Door Barrier
 tile.lc:scpdy_rb_placeholder.name=Redstone Block Placeholder
 tile.lc:scpdy_workbench.name=Workbench

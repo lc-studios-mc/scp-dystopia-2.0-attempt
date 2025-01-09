@@ -1,0 +1,62 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:block": {
+    "description": {
+      "identifier": "lc:scpdy_alphanumeric_sign_placer",
+      "menu_category": {
+        "category": "construction",
+        "group": "itemGroup.name.sandstone"
+      }
+    },
+    "components": {
+      "minecraft:custom_components": ["scpdy:alphanumeric_sign"],
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "scpdy_alphanumeric_chars_white",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:geometry": {
+        "identifier": "geometry.scpdy_alphabet_sign",
+        "bone_visibility": {
+          "a": true,
+          "b": false,
+          "c": false,
+          "d": false,
+          "e": false,
+          "f": false,
+          "g": false,
+          "h": false,
+          "i": false,
+          "j": false,
+          "k": false,
+          "l": false,
+          "m": false,
+          "n": false,
+          "o": false,
+          "p": false,
+          "q": false,
+          "r": false,
+          "s": false,
+          "t": false,
+          "u": false,
+          "v": false,
+          "w": false,
+          "x": false,
+          "y": false,
+          "z": false
+        }
+      },
+      "minecraft:loot": "loot_tables/empty.json",
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 0.0
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.0
+      },
+      "minecraft:light_dampening": 0,
+      "minecraft:collision_box": false,
+      "minecraft:selection_box": true
+    }
+  }
+}

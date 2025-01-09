@@ -453,6 +453,12 @@
     // #endregion
     // #endregion
     // #region blocks -> misc
+    "scpdy_alphanumeric_chars_white": {
+      "textures": "textures/scpdy/blocks/misc/alphanumeric_chars/white"
+    },
+    "scpdy_alphanumeric_chars_black": {
+      "textures": "textures/scpdy/blocks/misc/alphanumeric_chars/black"
+    },
     "scpdy_rb_placeholder": {
       "textures": "textures/scpdy/blocks/misc/rb_placeholder"
     },
