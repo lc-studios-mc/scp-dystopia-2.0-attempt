@@ -89,7 +89,7 @@ See [LICENSE-MIT](./LICENSE-MIT) for the full license text.
 All assets (images, audio, etc.) are licensed under CC-BY-SA.
 See [LICENSE-CC-BY-SA](./LICENSE-CC-BY-SA) for the full license text.
 
-> [!INFO]
+> [!IMPORTANT]
 > Until then, all source code and assets were licensed under CC-BY-SA.
 
 ## :mailbox: Contact
