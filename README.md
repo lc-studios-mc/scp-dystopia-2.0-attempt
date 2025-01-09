@@ -69,6 +69,14 @@ Contributions of all kinds are welcome:
 
 See [CONTRIBUTING.md](./.github/CONTRIBUTING.md) for instructions.
 
+## :pencil: Attributions
+
+See [ATTRIBUTIONS.md](./ATTRIBUTIONS.md)
+
+## :page_with_curl: Credits
+
+See [CREDITS.md](./CREDITS.md)
+
 ## :balance_scale: License
 
 Since January 7, 2025, this repository contains material under two different licenses.
