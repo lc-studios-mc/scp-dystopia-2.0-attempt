@@ -71,11 +71,11 @@ See [DEVELOPER.md](./DEVELOPER.md) for developer guide.
 
 ## :pencil: Attributions
 
-See [ATTRIBUTIONS.md](./ATTRIBUTIONS.md)
+See [ATTRIBUTIONS.md](./ATTRIBUTIONS.md) for attributions.
 
 ## :page_with_curl: Credits
 
-See [CREDITS.md](./CREDITS.md)
+See [CREDITS.md](./CREDITS.md) for credits.
 
 ## :balance_scale: License
 
