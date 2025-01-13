@@ -1,37 +1,33 @@
 {
-  "format_version": "1.20.10",
-  "minecraft:recipe_shaped": {
-    "description": {
-      "identifier": "lc:scpdy_recipe_razor_wire"
-    },
-    "tags": ["crafting_table", "dystopia_craftbench", "scpdy_workbench"],
-    "pattern": [
-      " NI",
-      "N N",
-      "INN"
-    ],
-    "key": {
-      "I": {
-        "item": "minecraft:iron_ingot"
-      },
-      "N": {
-        "item": "minecraft:iron_nugget"
-      }
-    },
-    "unlock": [
-      {
-        "item": "minecraft:iron_ingot"
-      },
-      {
-        "item": "minecraft:iron_nugget"
-      },
-      {
-        "item": "lc:scpdy_razor_wire"
-      }
-    ],
-    "result": {
-      "item": "lc:scpdy_razor_wire",
-      "count": 4
-    }
-  }
+	"format_version": "1.20.10",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "lc:scpdy_recipe_razor_wire"
+		},
+		"tags": ["crafting_table", "dystopia_craftbench", "scpdy_workbench"],
+		"pattern": [" NI", "N N", "INN"],
+		"key": {
+			"I": {
+				"item": "minecraft:iron_ingot"
+			},
+			"N": {
+				"item": "minecraft:iron_nugget"
+			}
+		},
+		"unlock": [
+			{
+				"item": "minecraft:iron_ingot"
+			},
+			{
+				"item": "minecraft:iron_nugget"
+			},
+			{
+				"item": "lc:scpdy_razor_wire"
+			}
+		],
+		"result": {
+			"item": "lc:scpdy_razor_wire",
+			"count": 4
+		}
+	}
 }

@@ -1,42 +1,40 @@
 {
-  "format_version": "1.10.0",
-  "minecraft:client_entity": {
-    "description": {
-      "identifier": "lc:scpdy_f_tro",
-      "materials": {
-        "default": "entity_alphatest"
-      },
-      "textures": {
-        "var0": "textures/scpdy/human/f/tro_0"
-      },
-      "geometry": {
-        "default": "geometry.scpdy_f_tro"
-      },
-      "animations": {
-        // Animation controllers
-        "ctrl.main": "controller.animation.scpdy_f_tro.main",
-        // Animations
-        "anim.idle": "animation.scpdy_f_tro.idle",
-        "anim.combat_base_pose": "animation.scpdy_f_tro.combat_base_pose",
-        "anim.combat": "animation.scpdy_f_tro.combat",
-        "anim.melee_attack": "animation.scpdy_f_tro.melee_attack",
-        "anim.walk_legs": "animation.scpdy_f_tro.walk_legs"
-      },
-      "scripts": {
-        "scale": "0.9375",
-        "animate": [
-          "ctrl.main"
-        ],
-        "pre_animation": [
-          "v.move = (Math.cos(q.modified_distance_moved * 38.17) * q.modified_move_speed / v.gliding_speed_value) * 57.3;",
-          "v.move_mul = 1.0;"
-        ]
-      },
-      "render_controllers": ["controller.render.scpdy.human.f_tro"],
-      "spawn_egg": {
-        "base_color": "#bbb9b2",
-        "overlay_color": "#615f5a"
-      }
-    }
-  }
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "lc:scpdy_f_tro",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"var0": "textures/scpdy/human/f/tro_0"
+			},
+			"geometry": {
+				"default": "geometry.scpdy_f_tro"
+			},
+			"animations": {
+				// Animation controllers
+				"ctrl.main": "controller.animation.scpdy_f_tro.main",
+				// Animations
+				"anim.idle": "animation.scpdy_f_tro.idle",
+				"anim.combat_base_pose": "animation.scpdy_f_tro.combat_base_pose",
+				"anim.combat": "animation.scpdy_f_tro.combat",
+				"anim.melee_attack": "animation.scpdy_f_tro.melee_attack",
+				"anim.walk_legs": "animation.scpdy_f_tro.walk_legs"
+			},
+			"scripts": {
+				"scale": "0.9375",
+				"animate": ["ctrl.main"],
+				"pre_animation": [
+					"v.move = (Math.cos(q.modified_distance_moved * 38.17) * q.modified_move_speed / v.gliding_speed_value) * 57.3;",
+					"v.move_mul = 1.0;"
+				]
+			},
+			"render_controllers": ["controller.render.scpdy.human.f_tro"],
+			"spawn_egg": {
+				"base_color": "#bbb9b2",
+				"overlay_color": "#615f5a"
+			}
+		}
+	}
 }

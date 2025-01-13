@@ -19,7 +19,7 @@
 				"extent": [0, 64],
 				"distribution": "uniform"
 			},
-			"y": "q.heightmap(v.worldx, v.worldz) - 1", 
+			"y": "q.heightmap(v.worldx, v.worldz) - 1",
 			"z": {
 				"extent": [0, 64],
 				"distribution": "uniform"

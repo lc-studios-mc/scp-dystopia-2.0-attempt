@@ -22,33 +22,33 @@ import "./uncategorized";
 import "./weapons";
 
 function onInitialize(): void {
-  world.sendMessage({ translate: "scpdy.msg.misc.scriptInit" });
+	world.sendMessage({ translate: "scpdy.msg.misc.scriptInit" });
 }
 
 function onPlayerInitialSpawn(player: Player): void {
-  if (isPlayerModificationAvailable(player)) return;
-  if (!player.addTag("scpdy_read_playerjson_warning")) return;
+	if (isPlayerModificationAvailable(player)) return;
+	if (!player.addTag("scpdy_read_playerjson_warning")) return;
 
-  system.runTimeout(() => {
-    player.playSound("note.pling");
-    player.sendMessage({
-      rawtext: [
-        { translate: "scpdy.msg.warnOverriddenPlayerJson.line_1" },
-        { text: "\n" },
-        { translate: "scpdy.msg.warnOverriddenPlayerJson.line_2" },
-        { text: "\n" },
-        { translate: "scpdy.msg.warnOverriddenPlayerJson.line_3" },
-        { text: "\n" },
-        { translate: "scpdy.msg.warnOverriddenPlayerJson.line_4" },
-      ],
-    });
-  }, 100);
+	system.runTimeout(() => {
+		player.playSound("note.pling");
+		player.sendMessage({
+			rawtext: [
+				{ translate: "scpdy.msg.warnOverriddenPlayerJson.line_1" },
+				{ text: "\n" },
+				{ translate: "scpdy.msg.warnOverriddenPlayerJson.line_2" },
+				{ text: "\n" },
+				{ translate: "scpdy.msg.warnOverriddenPlayerJson.line_3" },
+				{ text: "\n" },
+				{ translate: "scpdy.msg.warnOverriddenPlayerJson.line_4" },
+			],
+		});
+	}, 100);
 }
 
 world.afterEvents.worldInitialize.subscribe(onInitialize);
 
 world.afterEvents.playerSpawn.subscribe((event) => {
-  if (event.initialSpawn) {
-    onPlayerInitialSpawn(event.player);
-  }
+	if (event.initialSpawn) {
+		onPlayerInitialSpawn(event.player);
+	}
 });

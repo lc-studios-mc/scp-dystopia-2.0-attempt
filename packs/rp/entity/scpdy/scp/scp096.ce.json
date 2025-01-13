@@ -1,58 +1,51 @@
 {
-  "format_version": "1.10.0",
-  "minecraft:client_entity": {
-    "description": {
-      "identifier": "lc:scpdy_scp096",
-      "materials": {
-        "default": "entity_emissive_alpha"
-      },
-      "textures": {
-        "default": "textures/scpdy/scp/scp096/scp096",
-        "dmg_1": "textures/scpdy/scp/scp096/scp096_dmg_1",
-        "dmg_2": "textures/scpdy/scp/scp096/scp096_dmg_2",
-        "dmg_3": "textures/scpdy/scp/scp096/scp096_dmg_3"
-      },
-      "geometry": {
-        "default": "geometry.scpdy_scp096"
-      },
-      "animations": {
-        // Animation controllers
-        "ctrl.main": "controller.animation.scpdy_scp096.main",
-        "ctrl.hide_face": "controller.animation.scpdy_scp096.hide_face",
-        // Animations
-        "anim.show_face": "animation.scpdy_scp096.show_face",
-        "anim.idle": "animation.scpdy_scp096.idle",
-        "anim.walk_start": "animation.scpdy_scp096.walk_start",
-        "anim.walk_loop": "animation.scpdy_scp096.walk_loop",
-        "anim.triggered": "animation.scpdy_scp096.triggered",
-        "anim.angry_standing": "animation.scpdy_scp096.angry_standing",
-        "anim.angry_run": "animation.scpdy_scp096.angry_run",
-        "anim.angry_fly": "animation.scpdy_scp096.angry_fly",
-        "anim.attack": "animation.scpdy_scp096.attack",
-        "anim.calming": "animation.scpdy_scp096.calming"
-      },
-      "scripts": {
-        "animate": [
-          "ctrl.main",
-          "ctrl.hide_face"
-        ],
-        "initialize": [
-          "v.is_face_hidden = false;",
-          "v.state = 0;",
-          "v.body_rotation_y = 0;"
-        ],
-        "pre_animation": [
-          "v.damage_level = (q.health < q.max_health - 600) ? 3 : (q.health < q.max_health - 400) ? 2 : (q.health < q.max_health - 200) ? 1 : 0;",
-          "v.is_face_hidden = q.property('lc:is_face_hidden');",
-          "v.state = q.property('lc:state');",
-          "v.body_rotation_y = math.lerp(v.body_rotation_y, q.has_target ? q.property('lc:chase_body_y_rotation') - q.body_y_rotation : q.target_y_rotation, 4.0 * q.delta_time);"
-        ]
-      },
-      "render_controllers": ["controller.render.scpdy.scp096"],
-      "spawn_egg": {
-        "base_color": "#e3e3e3",
-        "overlay_color": "#570c0c"
-      }
-    }
-  }
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "lc:scpdy_scp096",
+			"materials": {
+				"default": "entity_emissive_alpha"
+			},
+			"textures": {
+				"default": "textures/scpdy/scp/scp096/scp096",
+				"dmg_1": "textures/scpdy/scp/scp096/scp096_dmg_1",
+				"dmg_2": "textures/scpdy/scp/scp096/scp096_dmg_2",
+				"dmg_3": "textures/scpdy/scp/scp096/scp096_dmg_3"
+			},
+			"geometry": {
+				"default": "geometry.scpdy_scp096"
+			},
+			"animations": {
+				// Animation controllers
+				"ctrl.main": "controller.animation.scpdy_scp096.main",
+				"ctrl.hide_face": "controller.animation.scpdy_scp096.hide_face",
+				// Animations
+				"anim.show_face": "animation.scpdy_scp096.show_face",
+				"anim.idle": "animation.scpdy_scp096.idle",
+				"anim.walk_start": "animation.scpdy_scp096.walk_start",
+				"anim.walk_loop": "animation.scpdy_scp096.walk_loop",
+				"anim.triggered": "animation.scpdy_scp096.triggered",
+				"anim.angry_standing": "animation.scpdy_scp096.angry_standing",
+				"anim.angry_run": "animation.scpdy_scp096.angry_run",
+				"anim.angry_fly": "animation.scpdy_scp096.angry_fly",
+				"anim.attack": "animation.scpdy_scp096.attack",
+				"anim.calming": "animation.scpdy_scp096.calming"
+			},
+			"scripts": {
+				"animate": ["ctrl.main", "ctrl.hide_face"],
+				"initialize": ["v.is_face_hidden = false;", "v.state = 0;", "v.body_rotation_y = 0;"],
+				"pre_animation": [
+					"v.damage_level = (q.health < q.max_health - 600) ? 3 : (q.health < q.max_health - 400) ? 2 : (q.health < q.max_health - 200) ? 1 : 0;",
+					"v.is_face_hidden = q.property('lc:is_face_hidden');",
+					"v.state = q.property('lc:state');",
+					"v.body_rotation_y = math.lerp(v.body_rotation_y, q.has_target ? q.property('lc:chase_body_y_rotation') - q.body_y_rotation : q.target_y_rotation, 4.0 * q.delta_time);"
+				]
+			},
+			"render_controllers": ["controller.render.scpdy.scp096"],
+			"spawn_egg": {
+				"base_color": "#e3e3e3",
+				"overlay_color": "#570c0c"
+			}
+		}
+	}
 }

@@ -1,40 +1,36 @@
 {
-  "format_version": "1.10.0",
-  "animation_controllers": {
-    "controller.animation.scpdy.bp.scp5167.health": {
-      "initial_state": "default",
-      "states": {
-        "default": {
-          "transitions": [
-            {
-              "fine": "q.health >= 18"
-            },
-            {
-              "low": "q.health < 18"
-            }
-          ]
-        },
-        "fine": {
-          "on_entry": [
-            "@s scp5167:health_fine"
-          ],
-          "transitions": [
-            {
-              "low": "q.health < 18"
-            }
-          ]
-        },
-        "low": {
-          "on_entry": [
-            "@s scp5167:health_low"
-          ],
-          "transitions": [
-            {
-              "fine": "q.health >= 18"
-            }
-          ]
-        }
-      }
-    }
-  }
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.scpdy.bp.scp5167.health": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"fine": "q.health >= 18"
+						},
+						{
+							"low": "q.health < 18"
+						}
+					]
+				},
+				"fine": {
+					"on_entry": ["@s scp5167:health_fine"],
+					"transitions": [
+						{
+							"low": "q.health < 18"
+						}
+					]
+				},
+				"low": {
+					"on_entry": ["@s scp5167:health_low"],
+					"transitions": [
+						{
+							"fine": "q.health >= 18"
+						}
+					]
+				}
+			}
+		}
+	}
 }

@@ -1,256 +1,256 @@
 {
-  "entity_sounds": {
-    "entities": {
-      "lc:scpdy_blood": {
-        "events": {
-          "hurt": "sound.none",
-          "death": "sound.none"
-        },
-        "pitch": [0.9, 1.1],
-        "volume": 0.8
-      },
-      "lc:scpdy_cctv_camera": {
-        "events": {
-          "hurt": "scpdy.misc.computer.hit",
-          "death": "scpdy.misc.computer.hit"
-        },
-        "pitch": [1.0, 1.0],
-        "volume": 1.0
-      },
-      "lc:scpdy_cctv_monitor": {
-        "events": {
-          "hurt": "scpdy.misc.computer.hit",
-          "death": "scpdy.misc.computer.hit"
-        },
-        "pitch": [1.0, 1.0],
-        "volume": 1.0
-      },
-      "lc:scpdy_cctv_server": {
-        "events": {
-          "hurt": "scpdy.misc.computer.hit",
-          "death": "scpdy.misc.computer.hit"
-        },
-        "pitch": [1.0, 1.0],
-        "volume": 1.0
-      },
-      "lc:scpdy_gib_small": {
-        "events": {
-          "hurt": "scpdy.gore.small",
-          "step": "scpdy.gore.drop",
-          "death": {
-            "sound": "scpdy.gore.splash",
-            "volume": 1.3
-          }
-        },
-        "pitch": [0.9, 1.1],
-        "volume": 0.8
-      },
-      "lc:scpdy_gib_medium": {
-        "events": {
-          "hurt": "scpdy.gore.splash",
-          "step": "scpdy.gore.drop",
-          "death": {
-            "sound": "scpdy.gore.splash",
-            "volume": 1.3
-          }
-        },
-        "pitch": [0.9, 1.1],
-        "volume": 1.0
-      },
-      "lc:scpdy_f_tro": {
-        "events": {
-          "shoot": {
-            "sound": "scpdy.gun.mp5sd.shoot",
-            "volume": 1.5
-          }
-        },
-        "pitch": [1.0, 1.0],
-        "volume": 1.0
-      },
-      "lc:scpdy_f_mtf_epsilon11": {
-        "events": {
-          "shoot": {
-            "sound": "scpdy.gun.m4a1.shoot",
-            "volume": 1.6
-          }
-        },
-        "pitch": [0.95, 1.05],
-        "volume": 1.0
-      },
-      "lc:scpdy_minigame_machine": {
-        "events": {
-          "hurt": "sound.none",
-          "death": "scpdy.misc.computer.hit"
-        },
-        "pitch": [1.0, 1.0],
-        "volume": 1.0
-      },
-      "lc:scpdy_scp001_proto": {
-        "events": {
-          "ambient": {
-            "sound": "scpdy.scp001_proto.ambient",
-            "volume": 1.3
-          },
-          "hurt": {
-            "sound": "scpdy.scp001_proto.hurt",
-            "pitch": [1.6, 1.8],
-            "volume": 1.4
-          },
-          "death": {
-            "sound": "scpdy.scp001_proto.death",
-            "volume": 1.5
-          }
-        },
-        "pitch": [0.9, 1.1],
-        "volume": 1.0
-      },
-      "lc:scpdy_scp001_proto_neutralized": {
-        "events": {
-          "ambient": {
-            "sound": "scpdy.scp001_proto.ambient",
-            "volume": 1.3
-          },
-          "hurt": {
-            "sound": "scpdy.scp001_proto.hurt",
-            "pitch": [1.2, 1.4],
-            "volume": 1.4
-          },
-          "death": {
-            "sound": "scpdy.scp001_proto.death",
-            "volume": 1.5
-          }
-        },
-        "pitch": [0.8, 0.9],
-        "volume": 1.0
-      },
-      "lc:scpdy_scp096": {
-        "events": {
-          "hurt": "sound.none",
-          "death": {
-            "sound": "scpdy.scp096.death",
-            "volume": 10.0
-          }
-        },
-        "pitch": [0.95, 1.05],
-        "volume": 1.0
-      },
-      "lc:scpdy_scp5167": {
-        "events": {
-          "ambient": "scpdy.scp5167.ambient",
-          "attack": {
-            "sound": "scpdy.scp5167.attack",
-            "pitch": [1.0, 1.0],
-            "volume": 10.0
-          },
-          "death": {
-            "sound": "scpdy.scp5167.death",
-            "volume": 8.0
-          }
-        },
-        "pitch": [0.9, 1.1],
-        "volume": 1.0
-      },
-      "lc:scpdy_unknown_zombie": {
-        "events": {
-          "ambient": "mob.zombie.say",
-          "death": "mob.zombie.death",
-          "hurt": "mob.zombie.hurt",
-          "step": {
-            "pitch": 0.5,
-            "sound": "mob.zombie.step",
-            "volume": 0.45
-          }
-        },
-        "pitch": [0.3, 0.5],
-        "volume": 1.3
-      },
-      "lc:scpdy_unknown_golem": {
-        "events": {
-          "ambient": "mob.irongolem.say",
-          "death": "mob.irongolem.death",
-          "hurt": "mob.irongolem.hit",
-          "step": {
-            "pitch": 1.0,
-            "sound": "mob.irongolem.walk",
-            "volume": 1.0
-          },
-          "attack": {
-            "pitch": 1.0,
-            "sound": "mob.irongolem.throw",
-            "volume": 1.0
-          }
-        },
-        "pitch": [0.3, 0.5],
-        "volume": 1.3
-      },
-      "lc:scpdy_unknown_spider": {
-        "events": {
-          "ambient": "mob.spider.say",
-          "death": "mob.spider.death",
-          "hurt": "mob.spider.say",
-          "step": {
-            "pitch": [0.9, 1.1],
-            "sound": "mob.spider.step",
-            "volume": 0.35
-          }
-        },
-        "pitch": [0.3, 0.5],
-        "volume": 1.2
-      },
-      "lc:scpdy_unknown_breeze": {
-        "events": {
-          "ambient": {
-            "pitch": [0.7, 1.1],
-            "sound": "mob.breeze.idle_ground",
-            "volume": [0.8, 1.0]
-          },
-          "ambient.in.air": {
-            "pitch": 1.0,
-            "sound": "mob.breeze.idle_air",
-            "volume": 1.0
-          },
-          "charge": {
-            "pitch": 1.0,
-            "sound": "mob.breeze.charge",
-            "volume": 1.0
-          },
-          "death": {
-            "pitch": 1.0,
-            "sound": "mob.breeze.death",
-            "volume": 1.0
-          },
-          "hurt": {
-            "pitch": 1.0,
-            "sound": "mob.breeze.hurt",
-            "volume": 1.0
-          },
-          "jump": {
-            "pitch": 1.0,
-            "sound": "mob.breeze.jump",
-            "volume": 1.0
-          },
-          "land": {
-            "pitch": 1.0,
-            "sound": "mob.breeze.land",
-            "volume": 1.0
-          },
-          "reflect": {
-            "pitch": 1.0,
-            "sound": "mob.breeze.deflect",
-            "volume": 1.0
-          },
-          "shoot": {
-            "pitch": [1.0, 1.2],
-            "sound": "mob.breeze.shoot",
-            "volume": 1.5
-          },
-          "step": {
-            "volume": 0.0
-          }
-        },
-        "pitch": [0.8, 1.2],
-        "volume": 1.0
-      }
-    }
-  }
+	"entity_sounds": {
+		"entities": {
+			"lc:scpdy_blood": {
+				"events": {
+					"hurt": "sound.none",
+					"death": "sound.none"
+				},
+				"pitch": [0.9, 1.1],
+				"volume": 0.8
+			},
+			"lc:scpdy_cctv_camera": {
+				"events": {
+					"hurt": "scpdy.misc.computer.hit",
+					"death": "scpdy.misc.computer.hit"
+				},
+				"pitch": [1.0, 1.0],
+				"volume": 1.0
+			},
+			"lc:scpdy_cctv_monitor": {
+				"events": {
+					"hurt": "scpdy.misc.computer.hit",
+					"death": "scpdy.misc.computer.hit"
+				},
+				"pitch": [1.0, 1.0],
+				"volume": 1.0
+			},
+			"lc:scpdy_cctv_server": {
+				"events": {
+					"hurt": "scpdy.misc.computer.hit",
+					"death": "scpdy.misc.computer.hit"
+				},
+				"pitch": [1.0, 1.0],
+				"volume": 1.0
+			},
+			"lc:scpdy_gib_small": {
+				"events": {
+					"hurt": "scpdy.gore.small",
+					"step": "scpdy.gore.drop",
+					"death": {
+						"sound": "scpdy.gore.splash",
+						"volume": 1.3
+					}
+				},
+				"pitch": [0.9, 1.1],
+				"volume": 0.8
+			},
+			"lc:scpdy_gib_medium": {
+				"events": {
+					"hurt": "scpdy.gore.splash",
+					"step": "scpdy.gore.drop",
+					"death": {
+						"sound": "scpdy.gore.splash",
+						"volume": 1.3
+					}
+				},
+				"pitch": [0.9, 1.1],
+				"volume": 1.0
+			},
+			"lc:scpdy_f_tro": {
+				"events": {
+					"shoot": {
+						"sound": "scpdy.gun.mp5sd.shoot",
+						"volume": 1.5
+					}
+				},
+				"pitch": [1.0, 1.0],
+				"volume": 1.0
+			},
+			"lc:scpdy_f_mtf_epsilon11": {
+				"events": {
+					"shoot": {
+						"sound": "scpdy.gun.m4a1.shoot",
+						"volume": 1.6
+					}
+				},
+				"pitch": [0.95, 1.05],
+				"volume": 1.0
+			},
+			"lc:scpdy_minigame_machine": {
+				"events": {
+					"hurt": "sound.none",
+					"death": "scpdy.misc.computer.hit"
+				},
+				"pitch": [1.0, 1.0],
+				"volume": 1.0
+			},
+			"lc:scpdy_scp001_proto": {
+				"events": {
+					"ambient": {
+						"sound": "scpdy.scp001_proto.ambient",
+						"volume": 1.3
+					},
+					"hurt": {
+						"sound": "scpdy.scp001_proto.hurt",
+						"pitch": [1.6, 1.8],
+						"volume": 1.4
+					},
+					"death": {
+						"sound": "scpdy.scp001_proto.death",
+						"volume": 1.5
+					}
+				},
+				"pitch": [0.9, 1.1],
+				"volume": 1.0
+			},
+			"lc:scpdy_scp001_proto_neutralized": {
+				"events": {
+					"ambient": {
+						"sound": "scpdy.scp001_proto.ambient",
+						"volume": 1.3
+					},
+					"hurt": {
+						"sound": "scpdy.scp001_proto.hurt",
+						"pitch": [1.2, 1.4],
+						"volume": 1.4
+					},
+					"death": {
+						"sound": "scpdy.scp001_proto.death",
+						"volume": 1.5
+					}
+				},
+				"pitch": [0.8, 0.9],
+				"volume": 1.0
+			},
+			"lc:scpdy_scp096": {
+				"events": {
+					"hurt": "sound.none",
+					"death": {
+						"sound": "scpdy.scp096.death",
+						"volume": 10.0
+					}
+				},
+				"pitch": [0.95, 1.05],
+				"volume": 1.0
+			},
+			"lc:scpdy_scp5167": {
+				"events": {
+					"ambient": "scpdy.scp5167.ambient",
+					"attack": {
+						"sound": "scpdy.scp5167.attack",
+						"pitch": [1.0, 1.0],
+						"volume": 10.0
+					},
+					"death": {
+						"sound": "scpdy.scp5167.death",
+						"volume": 8.0
+					}
+				},
+				"pitch": [0.9, 1.1],
+				"volume": 1.0
+			},
+			"lc:scpdy_unknown_zombie": {
+				"events": {
+					"ambient": "mob.zombie.say",
+					"death": "mob.zombie.death",
+					"hurt": "mob.zombie.hurt",
+					"step": {
+						"pitch": 0.5,
+						"sound": "mob.zombie.step",
+						"volume": 0.45
+					}
+				},
+				"pitch": [0.3, 0.5],
+				"volume": 1.3
+			},
+			"lc:scpdy_unknown_golem": {
+				"events": {
+					"ambient": "mob.irongolem.say",
+					"death": "mob.irongolem.death",
+					"hurt": "mob.irongolem.hit",
+					"step": {
+						"pitch": 1.0,
+						"sound": "mob.irongolem.walk",
+						"volume": 1.0
+					},
+					"attack": {
+						"pitch": 1.0,
+						"sound": "mob.irongolem.throw",
+						"volume": 1.0
+					}
+				},
+				"pitch": [0.3, 0.5],
+				"volume": 1.3
+			},
+			"lc:scpdy_unknown_spider": {
+				"events": {
+					"ambient": "mob.spider.say",
+					"death": "mob.spider.death",
+					"hurt": "mob.spider.say",
+					"step": {
+						"pitch": [0.9, 1.1],
+						"sound": "mob.spider.step",
+						"volume": 0.35
+					}
+				},
+				"pitch": [0.3, 0.5],
+				"volume": 1.2
+			},
+			"lc:scpdy_unknown_breeze": {
+				"events": {
+					"ambient": {
+						"pitch": [0.7, 1.1],
+						"sound": "mob.breeze.idle_ground",
+						"volume": [0.8, 1.0]
+					},
+					"ambient.in.air": {
+						"pitch": 1.0,
+						"sound": "mob.breeze.idle_air",
+						"volume": 1.0
+					},
+					"charge": {
+						"pitch": 1.0,
+						"sound": "mob.breeze.charge",
+						"volume": 1.0
+					},
+					"death": {
+						"pitch": 1.0,
+						"sound": "mob.breeze.death",
+						"volume": 1.0
+					},
+					"hurt": {
+						"pitch": 1.0,
+						"sound": "mob.breeze.hurt",
+						"volume": 1.0
+					},
+					"jump": {
+						"pitch": 1.0,
+						"sound": "mob.breeze.jump",
+						"volume": 1.0
+					},
+					"land": {
+						"pitch": 1.0,
+						"sound": "mob.breeze.land",
+						"volume": 1.0
+					},
+					"reflect": {
+						"pitch": 1.0,
+						"sound": "mob.breeze.deflect",
+						"volume": 1.0
+					},
+					"shoot": {
+						"pitch": [1.0, 1.2],
+						"sound": "mob.breeze.shoot",
+						"volume": 1.5
+					},
+					"step": {
+						"volume": 0.0
+					}
+				},
+				"pitch": [0.8, 1.2],
+				"volume": 1.0
+			}
+		}
+	}
 }

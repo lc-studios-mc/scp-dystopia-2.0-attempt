@@ -1,186 +1,186 @@
 {
-  "resource_pack_name": "scpdystopia",
-  "texture_name": "atlas.items",
-  "texture_data": {
-    // #region items
-    // #region items -> keycards
-    "scpdy_keycard_lvl_0": {
-      "textures": "textures/scpdy/items/keycards/keycard_lvl_0"
-    },
-    "scpdy_keycard_lvl_1": {
-      "textures": "textures/scpdy/items/keycards/keycard_lvl_1"
-    },
-    "scpdy_keycard_lvl_2": {
-      "textures": "textures/scpdy/items/keycards/keycard_lvl_2"
-    },
-    "scpdy_keycard_lvl_3": {
-      "textures": "textures/scpdy/items/keycards/keycard_lvl_3"
-    },
-    "scpdy_keycard_lvl_4": {
-      "textures": "textures/scpdy/items/keycards/keycard_lvl_4"
-    },
-    "scpdy_keycard_lvl_5": {
-      "textures": "textures/scpdy/items/keycards/keycard_lvl_5"
-    },
-    "scpdy_keycard_o5": {
-      "textures": "textures/scpdy/items/keycards/keycard_o5"
-    },
-    // #endregion
-    // #region items -> materials
-    "scpdy_slasher_blade": {
-      "textures": "textures/scpdy/items/materials/slasher_blade"
-    },
-    // #endregion
-    // #region items -> weapons
-    // #region items -> weapons -> guns
-    "scpdy_gun_ar15_mag_icon": {
-      "textures": "textures/scpdy/items/weapons/guns/ar15_mag_icon"
-    },
-    "scpdy_gun_glock17_icon": {
-      "textures": "textures/scpdy/items/weapons/guns/glock17_icon"
-    },
-    "scpdy_gun_glock17_mag_icon": {
-      "textures": "textures/scpdy/items/weapons/guns/glock17_mag_icon"
-    },
-    "scpdy_gun_gm6_icon": {
-      "textures": "textures/scpdy/items/weapons/guns/gm6_icon"
-    },
-    "scpdy_gun_gm6_mag_icon": {
-      "textures": "textures/scpdy/items/weapons/guns/gm6_mag_icon"
-    },
-    "scpdy_gun_hk21_icon": {
-      "textures": "textures/scpdy/items/weapons/guns/hk21_icon"
-    },
-    "scpdy_gun_hk21_mag_icon": {
-      "textures": "textures/scpdy/items/weapons/guns/hk21_mag_icon"
-    },
-    "scpdy_gun_m4a1_icon": {
-      "textures": "textures/scpdy/items/weapons/guns/m4a1_icon"
-    },
-    "scpdy_gun_mp5sd_icon": {
-      "textures": "textures/scpdy/items/weapons/guns/mp5sd/icon"
-    },
-    "scpdy_gun_mp5_mag_icon": {
-      "textures": "textures/scpdy/items/weapons/guns/mp5/mag"
-    },
-    "scpdy_gun_spas12_icon": {
-      "textures": "textures/scpdy/items/weapons/guns/spas12_icon"
-    },
-    "scpdy_gun_spas12_mag_icon": {
-      "textures": "textures/scpdy/items/weapons/guns/spas12_mag_icon"
-    },
-    "scpdy_gun_t5000_icon": {
-      "textures": "textures/scpdy/items/weapons/guns/t5000/icon"
-    },
-    "scpdy_gun_t5000_mag_icon": {
-      "textures": "textures/scpdy/items/weapons/guns/t5000/mag"
-    },
-    // #endregion
-    // #region items -> weapons -> melee
-    "scpdy_killer_sword_icon": {
-      "textures": "textures/scpdy/items/weapons/melee/killer_sword_icon"
-    },
-    "scpdy_knife_icon": {
-      "textures": "textures/scpdy/items/weapons/melee/knife_icon"
-    },
-    "scpdy_pain_sword_icon": {
-      "textures": "textures/scpdy/items/weapons/melee/pain_sword_icon"
-    },
-    "scpdy_slasher_icon": {
-      "textures": "textures/scpdy/items/weapons/melee/slasher_icon"
-    },
-    "scpdy_void_sword_icon": {
-      "textures": "textures/scpdy/items/weapons/melee/void_sword_icon"
-    },
-    // #endregion
-    // #region items -> weapons -> throwables
-    "scpdy_frag_grenade_icon": {
-      "textures": "textures/scpdy/items/weapons/throwables/frag_grenade_icon"
-    },
-    // #endregion
-    // #endregion
-    // #endregion
-    // #region Blast Door
-    "scpdy_blast_door_1_icon": {
-      "textures": "textures/scpdy/blast_door/door_1_icon"
-    },
-    "scpdy_blast_door_2_icon": {
-      "textures": "textures/scpdy/blast_door/door_2_icon"
-    },
-    // #endregion
-    // #region CCTV
-    "scpdy_cctv_camera_icon": {
-      "textures": "textures/scpdy/cctv/camera_icon"
-    },
-    "scpdy_cctv_linker_icon": {
-      "textures": "textures/scpdy/cctv/linker_icon"
-    },
-    "scpdy_cctv_monitor_icon": {
-      "textures": "textures/scpdy/cctv/monitor_icon"
-    },
-    "scpdy_cctv_server_icon": {
-      "textures": "textures/scpdy/cctv/server_icon"
-    },
-    "scpdy_cctv_tablet_icon": {
-      "textures": "textures/scpdy/cctv/tablet_icon"
-    },
-    // #endregion
-    // #region Ammo
-    "scpdy_ammo_9mm_icon": {
-      "textures": "textures/scpdy/ammo/9mm_icon"
-    },
-    "scpdy_ammo_12shell_icon": {
-      "textures": "textures/scpdy/ammo/12shell_icon"
-    },
-    "scpdy_ammo_50bmg_icon": {
-      "textures": "textures/scpdy/ammo/50bmg_icon"
-    },
-    "scpdy_ammo_338magnum_icon": {
-      "textures": "textures/scpdy/ammo/338magnum_icon"
-    },
-    "scpdy_ammo_556mm_icon": {
-      "textures": "textures/scpdy/ammo/556mm_icon"
-    },
-    "scpdy_ammo_762x51_icon": {
-      "textures": "textures/scpdy/ammo/762x51_icon"
-    },
-    "scpdy_ammo_pack_9mm_icon": {
-      "textures": "textures/scpdy/ammo/packs/pack_9mm_icon"
-    },
-    "scpdy_ammo_pack_12shell_icon": {
-      "textures": "textures/scpdy/ammo/packs/pack_12shell_icon"
-    },
-    "scpdy_ammo_pack_50bmg_icon": {
-      "textures": "textures/scpdy/ammo/packs/pack_50bmg_icon"
-    },
-    "scpdy_ammo_pack_338magnum_icon": {
-      "textures": "textures/scpdy/ammo/packs/pack_338magnum_icon"
-    },
-    "scpdy_ammo_pack_556mm_icon": {
-      "textures": "textures/scpdy/ammo/packs/pack_556mm_icon"
-    },
-    "scpdy_ammo_pack_762x51_icon": {
-      "textures": "textures/scpdy/ammo/packs/pack_762x51_icon"
-    },
-    // #endregion
-    // #region Utility
-    "scpdy_config_icon": {
-      "textures": "textures/scpdy/utility/config_icon"
-    },
-    "scpdy_facility_network_manager_icon": {
-      "textures": "textures/scpdy/utility/facility_network_manager_icon"
-    },
-    "scpdy_wrench_icon": {
-      "textures": "textures/scpdy/utility/wrench_icon"
-    },
-    // #endregion
-    // #region SCP-related items
-    "scpdy_scp096_1_wand_icon": {
-      "textures": "textures/scpdy/scp/scp096_1_wand_icon"
-    },
-    "scpdy_scp096_paper_bag": {
-      "textures": "textures/scpdy/scp/scp096_paper_bag_icon"
-    }
-    // #endregion
-  }
+	"resource_pack_name": "scpdystopia",
+	"texture_name": "atlas.items",
+	"texture_data": {
+		// #region items
+		// #region items -> keycards
+		"scpdy_keycard_lvl_0": {
+			"textures": "textures/scpdy/items/keycards/keycard_lvl_0"
+		},
+		"scpdy_keycard_lvl_1": {
+			"textures": "textures/scpdy/items/keycards/keycard_lvl_1"
+		},
+		"scpdy_keycard_lvl_2": {
+			"textures": "textures/scpdy/items/keycards/keycard_lvl_2"
+		},
+		"scpdy_keycard_lvl_3": {
+			"textures": "textures/scpdy/items/keycards/keycard_lvl_3"
+		},
+		"scpdy_keycard_lvl_4": {
+			"textures": "textures/scpdy/items/keycards/keycard_lvl_4"
+		},
+		"scpdy_keycard_lvl_5": {
+			"textures": "textures/scpdy/items/keycards/keycard_lvl_5"
+		},
+		"scpdy_keycard_o5": {
+			"textures": "textures/scpdy/items/keycards/keycard_o5"
+		},
+		// #endregion
+		// #region items -> materials
+		"scpdy_slasher_blade": {
+			"textures": "textures/scpdy/items/materials/slasher_blade"
+		},
+		// #endregion
+		// #region items -> weapons
+		// #region items -> weapons -> guns
+		"scpdy_gun_ar15_mag_icon": {
+			"textures": "textures/scpdy/items/weapons/guns/ar15_mag_icon"
+		},
+		"scpdy_gun_glock17_icon": {
+			"textures": "textures/scpdy/items/weapons/guns/glock17_icon"
+		},
+		"scpdy_gun_glock17_mag_icon": {
+			"textures": "textures/scpdy/items/weapons/guns/glock17_mag_icon"
+		},
+		"scpdy_gun_gm6_icon": {
+			"textures": "textures/scpdy/items/weapons/guns/gm6_icon"
+		},
+		"scpdy_gun_gm6_mag_icon": {
+			"textures": "textures/scpdy/items/weapons/guns/gm6_mag_icon"
+		},
+		"scpdy_gun_hk21_icon": {
+			"textures": "textures/scpdy/items/weapons/guns/hk21_icon"
+		},
+		"scpdy_gun_hk21_mag_icon": {
+			"textures": "textures/scpdy/items/weapons/guns/hk21_mag_icon"
+		},
+		"scpdy_gun_m4a1_icon": {
+			"textures": "textures/scpdy/items/weapons/guns/m4a1_icon"
+		},
+		"scpdy_gun_mp5sd_icon": {
+			"textures": "textures/scpdy/items/weapons/guns/mp5sd/icon"
+		},
+		"scpdy_gun_mp5_mag_icon": {
+			"textures": "textures/scpdy/items/weapons/guns/mp5/mag"
+		},
+		"scpdy_gun_spas12_icon": {
+			"textures": "textures/scpdy/items/weapons/guns/spas12_icon"
+		},
+		"scpdy_gun_spas12_mag_icon": {
+			"textures": "textures/scpdy/items/weapons/guns/spas12_mag_icon"
+		},
+		"scpdy_gun_t5000_icon": {
+			"textures": "textures/scpdy/items/weapons/guns/t5000/icon"
+		},
+		"scpdy_gun_t5000_mag_icon": {
+			"textures": "textures/scpdy/items/weapons/guns/t5000/mag"
+		},
+		// #endregion
+		// #region items -> weapons -> melee
+		"scpdy_killer_sword_icon": {
+			"textures": "textures/scpdy/items/weapons/melee/killer_sword_icon"
+		},
+		"scpdy_knife_icon": {
+			"textures": "textures/scpdy/items/weapons/melee/knife_icon"
+		},
+		"scpdy_pain_sword_icon": {
+			"textures": "textures/scpdy/items/weapons/melee/pain_sword_icon"
+		},
+		"scpdy_slasher_icon": {
+			"textures": "textures/scpdy/items/weapons/melee/slasher_icon"
+		},
+		"scpdy_void_sword_icon": {
+			"textures": "textures/scpdy/items/weapons/melee/void_sword_icon"
+		},
+		// #endregion
+		// #region items -> weapons -> throwables
+		"scpdy_frag_grenade_icon": {
+			"textures": "textures/scpdy/items/weapons/throwables/frag_grenade_icon"
+		},
+		// #endregion
+		// #endregion
+		// #endregion
+		// #region Blast Door
+		"scpdy_blast_door_1_icon": {
+			"textures": "textures/scpdy/blast_door/door_1_icon"
+		},
+		"scpdy_blast_door_2_icon": {
+			"textures": "textures/scpdy/blast_door/door_2_icon"
+		},
+		// #endregion
+		// #region CCTV
+		"scpdy_cctv_camera_icon": {
+			"textures": "textures/scpdy/cctv/camera_icon"
+		},
+		"scpdy_cctv_linker_icon": {
+			"textures": "textures/scpdy/cctv/linker_icon"
+		},
+		"scpdy_cctv_monitor_icon": {
+			"textures": "textures/scpdy/cctv/monitor_icon"
+		},
+		"scpdy_cctv_server_icon": {
+			"textures": "textures/scpdy/cctv/server_icon"
+		},
+		"scpdy_cctv_tablet_icon": {
+			"textures": "textures/scpdy/cctv/tablet_icon"
+		},
+		// #endregion
+		// #region Ammo
+		"scpdy_ammo_9mm_icon": {
+			"textures": "textures/scpdy/ammo/9mm_icon"
+		},
+		"scpdy_ammo_12shell_icon": {
+			"textures": "textures/scpdy/ammo/12shell_icon"
+		},
+		"scpdy_ammo_50bmg_icon": {
+			"textures": "textures/scpdy/ammo/50bmg_icon"
+		},
+		"scpdy_ammo_338magnum_icon": {
+			"textures": "textures/scpdy/ammo/338magnum_icon"
+		},
+		"scpdy_ammo_556mm_icon": {
+			"textures": "textures/scpdy/ammo/556mm_icon"
+		},
+		"scpdy_ammo_762x51_icon": {
+			"textures": "textures/scpdy/ammo/762x51_icon"
+		},
+		"scpdy_ammo_pack_9mm_icon": {
+			"textures": "textures/scpdy/ammo/packs/pack_9mm_icon"
+		},
+		"scpdy_ammo_pack_12shell_icon": {
+			"textures": "textures/scpdy/ammo/packs/pack_12shell_icon"
+		},
+		"scpdy_ammo_pack_50bmg_icon": {
+			"textures": "textures/scpdy/ammo/packs/pack_50bmg_icon"
+		},
+		"scpdy_ammo_pack_338magnum_icon": {
+			"textures": "textures/scpdy/ammo/packs/pack_338magnum_icon"
+		},
+		"scpdy_ammo_pack_556mm_icon": {
+			"textures": "textures/scpdy/ammo/packs/pack_556mm_icon"
+		},
+		"scpdy_ammo_pack_762x51_icon": {
+			"textures": "textures/scpdy/ammo/packs/pack_762x51_icon"
+		},
+		// #endregion
+		// #region Utility
+		"scpdy_config_icon": {
+			"textures": "textures/scpdy/utility/config_icon"
+		},
+		"scpdy_facility_network_manager_icon": {
+			"textures": "textures/scpdy/utility/facility_network_manager_icon"
+		},
+		"scpdy_wrench_icon": {
+			"textures": "textures/scpdy/utility/wrench_icon"
+		},
+		// #endregion
+		// #region SCP-related items
+		"scpdy_scp096_1_wand_icon": {
+			"textures": "textures/scpdy/scp/scp096_1_wand_icon"
+		},
+		"scpdy_scp096_paper_bag": {
+			"textures": "textures/scpdy/scp/scp096_paper_bag_icon"
+		}
+		// #endregion
+	}
 }

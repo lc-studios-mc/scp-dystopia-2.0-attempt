@@ -1,1 +1,1 @@
-import "./+openable_vent"
+import "./+openable_vent";

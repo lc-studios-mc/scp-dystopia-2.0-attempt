@@ -1,27 +1,25 @@
 {
-  "format_version": "1.10.0",
-  "minecraft:client_entity": {
-    "description": {
-      "identifier": "lc:scpdy_unknown_core_plasma_ultra",
-      "materials": {
-        "default": "breeze_wind"
-      },
-      "textures": {
-        "default": "textures/scpdy/the_unknown/unknown_core/plasma"
-      },
-      "geometry": {
-        "default": "geometry.scpdy_unknown_core_plasma"
-      },
-      "animations": {
-        "anim.general": "animation.scpdy_unknown_core_plasma.general"
-      },
-      "scripts": {
-        "scale": "1.65",
-        "animate": [
-          "anim.general"
-        ]
-      },
-      "render_controllers": ["controller.render.scpdy.unknown_core_plasma"]
-    }
-  }
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "lc:scpdy_unknown_core_plasma_ultra",
+			"materials": {
+				"default": "breeze_wind"
+			},
+			"textures": {
+				"default": "textures/scpdy/the_unknown/unknown_core/plasma"
+			},
+			"geometry": {
+				"default": "geometry.scpdy_unknown_core_plasma"
+			},
+			"animations": {
+				"anim.general": "animation.scpdy_unknown_core_plasma.general"
+			},
+			"scripts": {
+				"scale": "1.65",
+				"animate": ["anim.general"]
+			},
+			"render_controllers": ["controller.render.scpdy.unknown_core_plasma"]
+		}
+	}
 }

@@ -1,541 +1,541 @@
 {
-  "format_version": "1.21.40",
-  "minecraft:entity": {
-    "description": {
-      "identifier": "lc:scpdy_f_mtf_epsilon11",
-      "is_spawnable": true,
-      "is_summonable": true,
-      "is_experimental": false,
-      "scripts": {
-        "animate": [
-          "ctrl.low_health_trigger",
-          {
-            "ctrl.shoot_trigger": "q.facing_target_to_range_attack"
-          },
-          "ctrl.knife_stabbing",
-          "ctrl.frag_grenade_deploy",
-          "ctrl.hiding_scp096_face"
-        ]
-      },
-      "animations": {
-        "ctrl.low_health_trigger": "controller.animation.scpdy.bp.human.low_health_trigger",
-        "ctrl.shoot_trigger": "controller.animation.scpdy.bp.human.shoot_trigger",
-        "ctrl.knife_stabbing": "controller.animation.scpdy.bp.f_mtf_epsilon11.knife_stabbing",
-        "anim.knife_stabbing": "animation.scpdy.bp.f_mtf_epsilon11.knife_stabbing",
-        "ctrl.frag_grenade_deploy": "controller.animation.scpdy.bp.f_mtf_epsilon11.frag_grenade_deploy",
-        "anim.frag_grenade_deploy": "animation.scpdy.bp.f_mtf_epsilon11.frag_grenade_deploy",
-        "ctrl.hiding_scp096_face": "controller.animation.scpdy.bp.f_mtf_epsilon11.hiding_scp096_face",
-        "anim.hiding_scp096_face": "animation.scpdy.bp.f_mtf_epsilon11.hiding_scp096_face"
-      },
-      "properties": {
-        "lc:state": {
-          "type": "int",
-          "range": [
-            // 0: Idle
-            // 1: Rifle combat
-            // 2: Knife stab target
-            // 3: Drop grenade
-            // 4: Going to hide SCP-096's face
-            // 5: Hiding SCP-096's face
-            0, 5
-          ],
-          "default": 0,
-          "client_sync": true
-        },
-        "lc:can_deploy_frag_grenade": {
-          "type": "bool",
-          "default": true
-        }
-      }
-    },
-    "component_groups": {
-      "target_acquisition_triggers": {
-        "minecraft:on_target_acquired": {
-          "event": "f_mtf_epsilon11:on_target_acquired",
-          "target": "self"
-        },
-        "minecraft:on_target_escape": {
-          "event": "f_mtf_epsilon11:on_target_escape",
-          "target": "self"
-        }
-      },
-      "angry": {
-        "minecraft:angry": {
-          "duration": 9999,
-          "broadcast_anger": false,
-          "broadcast_anger_on_attack": true,
-          "broadcast_anger_on_being_attacked": true,
-          "broadcast_range": 40,
-          "broadcast_filters": ["mtf_epsilon11"],
-          "calm_event": {
-            "event": "f_mtf_epsilon11:on_target_escape",
-            "target": "self"
-          }
-        }
-      },
-      "rifle_combat": {
-        "minecraft:shooter": {
-          "def": "lc:scpdy_bullet_m4a1"
-        },
-        "minecraft:behavior.ranged_attack": {
-          "priority": 2,
-          "attack_radius": 30,
-          "attack_radius_min": 0,
-          "burst_interval": 0.1,
-          "burst_shots": 30,
-          "charge_charged_trigger": 0.0,
-          "charge_shoot_trigger": 1.0,
-          "swing": true,
-          "target_in_sight_time": 0.4,
-          "speed_multiplier": 1.0
-        }
-      },
-      "knife_range_sensor": {
-        "minecraft:target_nearby_sensor": {
-          "must_see": true,
-          "inside_range": 1.5,
-          "outside_range": 1.6,
-          "on_inside_range": {
-            "event": "f_mtf_epsilon11:on_target_inside_knife_range",
-            "target": "self"
-          }
-        }
-      },
-      "knife_stabbing": {
-        "minecraft:behavior.delayed_attack": {
-          "priority": 2,
-          "attack_duration": 100.0,
-          "reach_multiplier": 0.0,
-          "speed_multiplier": 0.0
-        }
-      },
-      "frag_grenade_deploying": {
-        "minecraft:behavior.delayed_attack": {
-          "priority": 0,
-          "attack_duration": 100.0,
-          "reach_multiplier": 0.0,
-          "speed_multiplier": 0.0
-        }
-      },
-      "gonna_hide_scp096_face": {
-        "minecraft:behavior.delayed_attack": {
-          "priority": 0,
-          "attack_duration": 100.0,
-          "reach_multiplier": 0.0,
-          "speed_multiplier": 1.1
-        }
-      },
-      "scp096_fh_range_sensor": {
-        "minecraft:target_nearby_sensor": {
-          "must_see": true,
-          "inside_range": 1.3,
-          "outside_range": 1.4,
-          "on_inside_range": {
-            "event": "f_mtf_epsilon11:on_target_inside_scp096_fh_range",
-            "target": "self"
-          }
-        }
-      },
-      "hiding_scp096_face": {
-        "minecraft:behavior.delayed_attack": {
-          "priority": 1,
-          "attack_duration": 100.0,
-          "reach_multiplier": 0.0,
-          "speed_multiplier": 0.0
-        }
-      },
-      "turn_into_corpse": {
-        "minecraft:transformation": {
-          "into": "lc:scpdy_f_mtf_epsilon11_dead"
-        }
-      }
-    },
-    "components": {
-      "minecraft:is_hidden_when_invisible": {},
-      "minecraft:type_family": {
-        "family": [
-          "mob",
-          "villager",
-          "human",
-          "scpdy_human",
-          "scp_foundation",
-          "scpf_combatant",
-          "mtf",
-          "mtf_epsilon11"
-        ]
-      },
-      "minecraft:knockback_resistance": {
-        "value": 0.1
-      },
-      "minecraft:experience_reward": {
-        "on_death": "q.last_hit_by_player ? 5 : 0"
-      },
-      "minecraft:health": {
-        "value": 63,
-        "max": 63
-      },
-      "minecraft:attack": {
-        "damage": 5
-      },
-      "minecraft:hurt_on_condition": {
-        "damage_conditions": [
-          {
-            "filters": {
-              "test": "in_lava",
-              "subject": "self",
-              "operator": "==",
-              "value": true
-            },
-            "cause": "lava",
-            "damage_per_tick": 4
-          }
-        ]
-      },
-      "minecraft:breathable": {
-        "total_supply": 20,
-        "suffocate_time": 0
-      },
-      "minecraft:behavior.float": {
-        "priority": 0
-      },
-      "minecraft:damage_sensor": {
-        "triggers": [
-          {
-            "on_damage": {
-              "filters": {
-                "all_of": [
-                  { "test": "is_family", "subject": "other", "value": "scp_foundation" },
-                  { "test": "is_family", "subject": "other", "operator": "!=", "value": "class_d" }
-                ]
-              }
-            },
-            "deals_damage": "no"
-          },
-          {
-            "on_damage": {
-              "filters": {
-                "all_of": [
-                  { "test": "is_family", "subject": "other", "value": "player" },
-                  { "test": "has_tag", "subject": "other", "value": "scpdy_faction_foundation" }
-                ]
-              }
-            },
-            "deals_damage": "no_but_side_effects_apply"
-          },
-          {
-            "on_damage": {
-              "filters": {
-                "all_of": [{ "test": "is_family", "subject": "damager", "value": "mtf_weapon" }]
-              }
-            },
-            "cause": "entity_explosion",
-            "damage_multiplier": 0.1
-          },
-          {
-            "on_damage": {
-              "filters": {
-                "all_of": [{ "test": "is_family", "subject": "damager", "value": "scpdy_grenade" }]
-              }
-            },
-            "cause": "entity_explosion",
-            "damage_multiplier": 3.0
-          }
-        ]
-      },
-      "minecraft:behavior.hurt_by_target": {
-        "priority": 3,
-        "entity_types": [
-          {
-            "filters": {
-              "all_of": [
-                {
-                  "test": "has_tag",
-                  "subject": "other",
-                  "operator": "!=",
-                  "value": "scpdy_faction_foundation"
-                },
-                {
-                  "test": "is_family",
-                  "subject": "other",
-                  "operator": "!=",
-                  "value": "scp_foundation"
-                },
-                {
-                  "test": "is_family",
-                  "subject": "other",
-                  "operator": "!=",
-                  "value": "scpdy_scp096"
-                }
-              ]
-            },
-            "max_dist": 40
-          }
-        ]
-      },
-      "minecraft:behavior.nearest_attackable_target": {
-        "priority": 3,
-        "attack_interval": 0.5,
-        "must_see": true,
-        "must_see_forget_duration": 20.0,
-        "reselect_targets": true,
-        "target_search_height": 25,
-        "target_invisible_multiplier": 1.0,
-        "target_sneak_visibility_multiplier": 0.45,
-        "entity_types": [
-          {
-            "filters": {
-              "all_of": [
-                { "test": "is_family", "subject": "other", "value": "player" },
-                { "test": "has_tag", "subject": "other", "value": "scpdy_faction_ci" }
-              ]
-            },
-            "max_dist": 40
-          },
-          {
-            "filters": {
-              "all_of": [
-                {
-                  "test": "is_family",
-                  "subject": "other",
-                  "operator": "!=",
-                  "value": "neutral_scp"
-                },
-                {
-                  "test": "is_family",
-                  "subject": "other",
-                  "operator": "!=",
-                  "value": "scpdy_scp096"
-                },
-                {
-                  "test": "is_family",
-                  "subject": "other",
-                  "operator": "!=",
-                  "value": "scpdy_scp173"
-                },
-                {
-                  "any_of": [
-                    { "test": "was_last_hurt_by", "subject": "other" },
-                    { "test": "is_family", "subject": "other", "value": "monster" },
-                    { "test": "is_family", "subject": "other", "value": "illager" },
-                    { "test": "is_family", "subject": "other", "value": "piglin" },
-                    { "test": "is_family", "subject": "other", "value": "hostile_scp" },
-                    { "test": "is_family", "subject": "other", "value": "chaos_insurgency" }
-                  ]
-                }
-              ]
-            },
-            "max_dist": 40
-          },
-          {
-            "filters": {
-              "all_of": [
-                { "test": "is_family", "subject": "other", "value": "scpdy_scp096" },
-                {
-                  "test": "bool_property",
-                  "subject": "other",
-                  "domain": "lc:is_face_hidden",
-                  "operator": "!="
-                }
-              ]
-            },
-            "reevaluate_description": true,
-            "max_dist": 30
-          }
-        ]
-      },
-      "minecraft:behavior.avoid_mob_type": {
-        "priority": 1,
-        "entity_types": [
-          {
-            "filters": {
-              "any_of": [
-                { "test": "has_component", "subject": "other", "value": "minecraft:explode" },
-                { "test": "is_family", "subject": "other", "value": "frag_grenade" },
-                { "test": "on_fire", "subject": "other" }
-              ]
-            },
-            "max_dist": 5,
-            "sprint_speed_multiplier": 1.35,
-            "walk_speed_multiplier": 1.1
-          },
-          {
-            "filters": {
-              "any_of": [
-                { "test": "is_family", "subject": "other", "value": "ravager" },
-                { "test": "is_family", "subject": "other", "value": "hoglin" },
-                { "test": "is_family", "subject": "other", "value": "zoglin" },
-                { "test": "is_family", "subject": "other", "value": "warden" }
-              ]
-            },
-            "max_dist": 12,
-            "sprint_speed_multiplier": 1.45,
-            "walk_speed_multiplier": 1.2
-          }
-        ]
-      },
-      "minecraft:follow_range": {
-        "value": 96,
-        "max": 96
-      },
-      "minecraft:behavior.random_look_around": {
-        "priority": 7
-      },
-      "minecraft:behavior.look_at_player": {
-        "priority": 8,
-        "look_distance": 6.0,
-        "probability": 0.03
-      },
-      "minecraft:behavior.random_stroll": {
-        "priority": 7,
-        "speed_multiplier": 0.7,
-        "xz_dist": 7
-      },
-      "minecraft:behavior.delayed_attack": {
-        // Dummy attacker component
-        "priority": 20,
-        "attack_duration": 100.0,
-        "reach_multiplier": 0.0,
-        "speed_multiplier": 0.0
-      },
-      "minecraft:navigation.walk": {
-        "avoid_damage_blocks": true,
-        "can_open_doors": true,
-        "can_path_over_water": true
-      },
-      "minecraft:annotation.open_door": {},
-      "minecraft:behavior.open_door": {
-        "priority": 6,
-        "close_door_after": true
-      },
-      "minecraft:movement.basic": {},
-      "minecraft:jump.static": {},
-      "minecraft:can_climb": {},
-      "minecraft:movement": {
-        "value": 0.3
-      },
-      "minecraft:water_movement": {
-        "drag_factor": 0.9
-      },
-      "minecraft:physics": {
-        "has_collision": true,
-        "has_gravity": true
-      },
-      "minecraft:pushable": {
-        "is_pushable": true,
-        "is_pushable_by_piston": true
-      },
-      "minecraft:collision_box": {
-        "width": 0.6,
-        "height": 1.9
-      },
-      "minecraft:nameable": {},
-      "minecraft:persistent": {},
-      "minecraft:conditional_bandwidth_optimization": {
-        "default_values": {
-          "max_optimized_distance": 70.0,
-          "max_dropped_ticks": 7,
-          "use_motion_prediction_hints": true
-        }
-      }
-    },
-    "events": {
-      // Empty events are listened by script.
-      "minecraft:entity_spawned": {
-        "add": {
-          "component_groups": ["target_acquisition_triggers"]
-        }
-      },
-      "human:on_low_health": {
-        "remove": {
-          "component_groups": []
-        },
-        "add": {
-          "component_groups": []
-        }
-      },
-      "human:on_not_low_health": {
-        "remove": {
-          "component_groups": []
-        },
-        "add": {
-          "component_groups": []
-        }
-      },
-      "human:turn_into_corpse": {
-        "add": {
-          "component_groups": ["turn_into_corpse"]
-        }
-      },
-      "human:gib": {},
-      "f_mtf_epsilon11:on_target_acquired": {
-        "add": {
-          "component_groups": ["angry"]
-        },
-        "trigger": "f_mtf_epsilon11:update_combat_mode"
-      },
-      "f_mtf_epsilon11:on_target_escape": {
-        "remove": {
-          "component_groups": ["angry"]
-        }
-      },
-      "f_mtf_epsilon11:update_combat_mode": {},
-      "f_mtf_epsilon11:add_rifle_combat": {
-        "add": {
-          "component_groups": ["rifle_combat", "knife_range_sensor"]
-        }
-      },
-      "f_mtf_epsilon11:remove_rifle_combat": {
-        "remove": {
-          "component_groups": ["rifle_combat", "knife_range_sensor"]
-        }
-      },
-      "f_mtf_epsilon11:on_target_inside_knife_range": {},
-      "f_mtf_epsilon11:add_knife_stabbing": {
-        "add": {
-          "component_groups": ["knife_stabbing"]
-        }
-      },
-      "f_mtf_epsilon11:remove_knife_stabbing": {
-        "remove": {
-          "component_groups": ["knife_stabbing"]
-        }
-      },
-      "f_mtf_epsilon11:knife_stab": {},
-      "f_mtf_epsilon11:on_finish_knife_stabbing": {},
-      "f_mtf_epsilon11:add_frag_grenade_deploying": {
-        "add": {
-          "component_groups": ["frag_grenade_deploying"]
-        }
-      },
-      "f_mtf_epsilon11:remove_frag_grenade_deploying": {
-        "remove": {
-          "component_groups": ["frag_grenade_deploying"]
-        }
-      },
-      "f_mtf_epsilon11:deploy_frag_grenade": {},
-      "f_mtf_epsilon11:on_finish_deploying_frag_grenade": {},
-      "f_mtf_epsilon11:add_gonna_hide_scp096_face": {
-        "add": {
-          "component_groups": ["gonna_hide_scp096_face", "scp096_fh_range_sensor"]
-        }
-      },
-      "f_mtf_epsilon11:remove_gonna_hide_scp096_face": {
-        "remove": {
-          "component_groups": ["gonna_hide_scp096_face", "scp096_fh_range_sensor"]
-        }
-      },
-      "f_mtf_epsilon11:on_target_inside_scp096_fh_range": {},
-      "f_mtf_epsilon11:add_hiding_scp096_face": {
-        "add": {
-          "component_groups": ["hiding_scp096_face"]
-        }
-      },
-      "f_mtf_epsilon11:remove_hiding_scp096_face": {
-        "remove": {
-          "component_groups": ["hiding_scp096_face"]
-        }
-      },
-      "f_mtf_epsilon11:hide_scp096_face": {}
-    }
-  }
+	"format_version": "1.21.40",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "lc:scpdy_f_mtf_epsilon11",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false,
+			"scripts": {
+				"animate": [
+					"ctrl.low_health_trigger",
+					{
+						"ctrl.shoot_trigger": "q.facing_target_to_range_attack"
+					},
+					"ctrl.knife_stabbing",
+					"ctrl.frag_grenade_deploy",
+					"ctrl.hiding_scp096_face"
+				]
+			},
+			"animations": {
+				"ctrl.low_health_trigger": "controller.animation.scpdy.bp.human.low_health_trigger",
+				"ctrl.shoot_trigger": "controller.animation.scpdy.bp.human.shoot_trigger",
+				"ctrl.knife_stabbing": "controller.animation.scpdy.bp.f_mtf_epsilon11.knife_stabbing",
+				"anim.knife_stabbing": "animation.scpdy.bp.f_mtf_epsilon11.knife_stabbing",
+				"ctrl.frag_grenade_deploy": "controller.animation.scpdy.bp.f_mtf_epsilon11.frag_grenade_deploy",
+				"anim.frag_grenade_deploy": "animation.scpdy.bp.f_mtf_epsilon11.frag_grenade_deploy",
+				"ctrl.hiding_scp096_face": "controller.animation.scpdy.bp.f_mtf_epsilon11.hiding_scp096_face",
+				"anim.hiding_scp096_face": "animation.scpdy.bp.f_mtf_epsilon11.hiding_scp096_face"
+			},
+			"properties": {
+				"lc:state": {
+					"type": "int",
+					"range": [
+						// 0: Idle
+						// 1: Rifle combat
+						// 2: Knife stab target
+						// 3: Drop grenade
+						// 4: Going to hide SCP-096's face
+						// 5: Hiding SCP-096's face
+						0, 5
+					],
+					"default": 0,
+					"client_sync": true
+				},
+				"lc:can_deploy_frag_grenade": {
+					"type": "bool",
+					"default": true
+				}
+			}
+		},
+		"component_groups": {
+			"target_acquisition_triggers": {
+				"minecraft:on_target_acquired": {
+					"event": "f_mtf_epsilon11:on_target_acquired",
+					"target": "self"
+				},
+				"minecraft:on_target_escape": {
+					"event": "f_mtf_epsilon11:on_target_escape",
+					"target": "self"
+				}
+			},
+			"angry": {
+				"minecraft:angry": {
+					"duration": 9999,
+					"broadcast_anger": false,
+					"broadcast_anger_on_attack": true,
+					"broadcast_anger_on_being_attacked": true,
+					"broadcast_range": 40,
+					"broadcast_filters": ["mtf_epsilon11"],
+					"calm_event": {
+						"event": "f_mtf_epsilon11:on_target_escape",
+						"target": "self"
+					}
+				}
+			},
+			"rifle_combat": {
+				"minecraft:shooter": {
+					"def": "lc:scpdy_bullet_m4a1"
+				},
+				"minecraft:behavior.ranged_attack": {
+					"priority": 2,
+					"attack_radius": 30,
+					"attack_radius_min": 0,
+					"burst_interval": 0.1,
+					"burst_shots": 30,
+					"charge_charged_trigger": 0.0,
+					"charge_shoot_trigger": 1.0,
+					"swing": true,
+					"target_in_sight_time": 0.4,
+					"speed_multiplier": 1.0
+				}
+			},
+			"knife_range_sensor": {
+				"minecraft:target_nearby_sensor": {
+					"must_see": true,
+					"inside_range": 1.5,
+					"outside_range": 1.6,
+					"on_inside_range": {
+						"event": "f_mtf_epsilon11:on_target_inside_knife_range",
+						"target": "self"
+					}
+				}
+			},
+			"knife_stabbing": {
+				"minecraft:behavior.delayed_attack": {
+					"priority": 2,
+					"attack_duration": 100.0,
+					"reach_multiplier": 0.0,
+					"speed_multiplier": 0.0
+				}
+			},
+			"frag_grenade_deploying": {
+				"minecraft:behavior.delayed_attack": {
+					"priority": 0,
+					"attack_duration": 100.0,
+					"reach_multiplier": 0.0,
+					"speed_multiplier": 0.0
+				}
+			},
+			"gonna_hide_scp096_face": {
+				"minecraft:behavior.delayed_attack": {
+					"priority": 0,
+					"attack_duration": 100.0,
+					"reach_multiplier": 0.0,
+					"speed_multiplier": 1.1
+				}
+			},
+			"scp096_fh_range_sensor": {
+				"minecraft:target_nearby_sensor": {
+					"must_see": true,
+					"inside_range": 1.3,
+					"outside_range": 1.4,
+					"on_inside_range": {
+						"event": "f_mtf_epsilon11:on_target_inside_scp096_fh_range",
+						"target": "self"
+					}
+				}
+			},
+			"hiding_scp096_face": {
+				"minecraft:behavior.delayed_attack": {
+					"priority": 1,
+					"attack_duration": 100.0,
+					"reach_multiplier": 0.0,
+					"speed_multiplier": 0.0
+				}
+			},
+			"turn_into_corpse": {
+				"minecraft:transformation": {
+					"into": "lc:scpdy_f_mtf_epsilon11_dead"
+				}
+			}
+		},
+		"components": {
+			"minecraft:is_hidden_when_invisible": {},
+			"minecraft:type_family": {
+				"family": [
+					"mob",
+					"villager",
+					"human",
+					"scpdy_human",
+					"scp_foundation",
+					"scpf_combatant",
+					"mtf",
+					"mtf_epsilon11"
+				]
+			},
+			"minecraft:knockback_resistance": {
+				"value": 0.1
+			},
+			"minecraft:experience_reward": {
+				"on_death": "q.last_hit_by_player ? 5 : 0"
+			},
+			"minecraft:health": {
+				"value": 63,
+				"max": 63
+			},
+			"minecraft:attack": {
+				"damage": 5
+			},
+			"minecraft:hurt_on_condition": {
+				"damage_conditions": [
+					{
+						"filters": {
+							"test": "in_lava",
+							"subject": "self",
+							"operator": "==",
+							"value": true
+						},
+						"cause": "lava",
+						"damage_per_tick": 4
+					}
+				]
+			},
+			"minecraft:breathable": {
+				"total_supply": 20,
+				"suffocate_time": 0
+			},
+			"minecraft:behavior.float": {
+				"priority": 0
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"on_damage": {
+							"filters": {
+								"all_of": [
+									{ "test": "is_family", "subject": "other", "value": "scp_foundation" },
+									{ "test": "is_family", "subject": "other", "operator": "!=", "value": "class_d" }
+								]
+							}
+						},
+						"deals_damage": "no"
+					},
+					{
+						"on_damage": {
+							"filters": {
+								"all_of": [
+									{ "test": "is_family", "subject": "other", "value": "player" },
+									{ "test": "has_tag", "subject": "other", "value": "scpdy_faction_foundation" }
+								]
+							}
+						},
+						"deals_damage": "no_but_side_effects_apply"
+					},
+					{
+						"on_damage": {
+							"filters": {
+								"all_of": [{ "test": "is_family", "subject": "damager", "value": "mtf_weapon" }]
+							}
+						},
+						"cause": "entity_explosion",
+						"damage_multiplier": 0.1
+					},
+					{
+						"on_damage": {
+							"filters": {
+								"all_of": [{ "test": "is_family", "subject": "damager", "value": "scpdy_grenade" }]
+							}
+						},
+						"cause": "entity_explosion",
+						"damage_multiplier": 3.0
+					}
+				]
+			},
+			"minecraft:behavior.hurt_by_target": {
+				"priority": 3,
+				"entity_types": [
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "has_tag",
+									"subject": "other",
+									"operator": "!=",
+									"value": "scpdy_faction_foundation"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"operator": "!=",
+									"value": "scp_foundation"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"operator": "!=",
+									"value": "scpdy_scp096"
+								}
+							]
+						},
+						"max_dist": 40
+					}
+				]
+			},
+			"minecraft:behavior.nearest_attackable_target": {
+				"priority": 3,
+				"attack_interval": 0.5,
+				"must_see": true,
+				"must_see_forget_duration": 20.0,
+				"reselect_targets": true,
+				"target_search_height": 25,
+				"target_invisible_multiplier": 1.0,
+				"target_sneak_visibility_multiplier": 0.45,
+				"entity_types": [
+					{
+						"filters": {
+							"all_of": [
+								{ "test": "is_family", "subject": "other", "value": "player" },
+								{ "test": "has_tag", "subject": "other", "value": "scpdy_faction_ci" }
+							]
+						},
+						"max_dist": 40
+					},
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"operator": "!=",
+									"value": "neutral_scp"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"operator": "!=",
+									"value": "scpdy_scp096"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"operator": "!=",
+									"value": "scpdy_scp173"
+								},
+								{
+									"any_of": [
+										{ "test": "was_last_hurt_by", "subject": "other" },
+										{ "test": "is_family", "subject": "other", "value": "monster" },
+										{ "test": "is_family", "subject": "other", "value": "illager" },
+										{ "test": "is_family", "subject": "other", "value": "piglin" },
+										{ "test": "is_family", "subject": "other", "value": "hostile_scp" },
+										{ "test": "is_family", "subject": "other", "value": "chaos_insurgency" }
+									]
+								}
+							]
+						},
+						"max_dist": 40
+					},
+					{
+						"filters": {
+							"all_of": [
+								{ "test": "is_family", "subject": "other", "value": "scpdy_scp096" },
+								{
+									"test": "bool_property",
+									"subject": "other",
+									"domain": "lc:is_face_hidden",
+									"operator": "!="
+								}
+							]
+						},
+						"reevaluate_description": true,
+						"max_dist": 30
+					}
+				]
+			},
+			"minecraft:behavior.avoid_mob_type": {
+				"priority": 1,
+				"entity_types": [
+					{
+						"filters": {
+							"any_of": [
+								{ "test": "has_component", "subject": "other", "value": "minecraft:explode" },
+								{ "test": "is_family", "subject": "other", "value": "frag_grenade" },
+								{ "test": "on_fire", "subject": "other" }
+							]
+						},
+						"max_dist": 5,
+						"sprint_speed_multiplier": 1.35,
+						"walk_speed_multiplier": 1.1
+					},
+					{
+						"filters": {
+							"any_of": [
+								{ "test": "is_family", "subject": "other", "value": "ravager" },
+								{ "test": "is_family", "subject": "other", "value": "hoglin" },
+								{ "test": "is_family", "subject": "other", "value": "zoglin" },
+								{ "test": "is_family", "subject": "other", "value": "warden" }
+							]
+						},
+						"max_dist": 12,
+						"sprint_speed_multiplier": 1.45,
+						"walk_speed_multiplier": 1.2
+					}
+				]
+			},
+			"minecraft:follow_range": {
+				"value": 96,
+				"max": 96
+			},
+			"minecraft:behavior.random_look_around": {
+				"priority": 7
+			},
+			"minecraft:behavior.look_at_player": {
+				"priority": 8,
+				"look_distance": 6.0,
+				"probability": 0.03
+			},
+			"minecraft:behavior.random_stroll": {
+				"priority": 7,
+				"speed_multiplier": 0.7,
+				"xz_dist": 7
+			},
+			"minecraft:behavior.delayed_attack": {
+				// Dummy attacker component
+				"priority": 20,
+				"attack_duration": 100.0,
+				"reach_multiplier": 0.0,
+				"speed_multiplier": 0.0
+			},
+			"minecraft:navigation.walk": {
+				"avoid_damage_blocks": true,
+				"can_open_doors": true,
+				"can_path_over_water": true
+			},
+			"minecraft:annotation.open_door": {},
+			"minecraft:behavior.open_door": {
+				"priority": 6,
+				"close_door_after": true
+			},
+			"minecraft:movement.basic": {},
+			"minecraft:jump.static": {},
+			"minecraft:can_climb": {},
+			"minecraft:movement": {
+				"value": 0.3
+			},
+			"minecraft:water_movement": {
+				"drag_factor": 0.9
+			},
+			"minecraft:physics": {
+				"has_collision": true,
+				"has_gravity": true
+			},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:collision_box": {
+				"width": 0.6,
+				"height": 1.9
+			},
+			"minecraft:nameable": {},
+			"minecraft:persistent": {},
+			"minecraft:conditional_bandwidth_optimization": {
+				"default_values": {
+					"max_optimized_distance": 70.0,
+					"max_dropped_ticks": 7,
+					"use_motion_prediction_hints": true
+				}
+			}
+		},
+		"events": {
+			// Empty events are listened by script.
+			"minecraft:entity_spawned": {
+				"add": {
+					"component_groups": ["target_acquisition_triggers"]
+				}
+			},
+			"human:on_low_health": {
+				"remove": {
+					"component_groups": []
+				},
+				"add": {
+					"component_groups": []
+				}
+			},
+			"human:on_not_low_health": {
+				"remove": {
+					"component_groups": []
+				},
+				"add": {
+					"component_groups": []
+				}
+			},
+			"human:turn_into_corpse": {
+				"add": {
+					"component_groups": ["turn_into_corpse"]
+				}
+			},
+			"human:gib": {},
+			"f_mtf_epsilon11:on_target_acquired": {
+				"add": {
+					"component_groups": ["angry"]
+				},
+				"trigger": "f_mtf_epsilon11:update_combat_mode"
+			},
+			"f_mtf_epsilon11:on_target_escape": {
+				"remove": {
+					"component_groups": ["angry"]
+				}
+			},
+			"f_mtf_epsilon11:update_combat_mode": {},
+			"f_mtf_epsilon11:add_rifle_combat": {
+				"add": {
+					"component_groups": ["rifle_combat", "knife_range_sensor"]
+				}
+			},
+			"f_mtf_epsilon11:remove_rifle_combat": {
+				"remove": {
+					"component_groups": ["rifle_combat", "knife_range_sensor"]
+				}
+			},
+			"f_mtf_epsilon11:on_target_inside_knife_range": {},
+			"f_mtf_epsilon11:add_knife_stabbing": {
+				"add": {
+					"component_groups": ["knife_stabbing"]
+				}
+			},
+			"f_mtf_epsilon11:remove_knife_stabbing": {
+				"remove": {
+					"component_groups": ["knife_stabbing"]
+				}
+			},
+			"f_mtf_epsilon11:knife_stab": {},
+			"f_mtf_epsilon11:on_finish_knife_stabbing": {},
+			"f_mtf_epsilon11:add_frag_grenade_deploying": {
+				"add": {
+					"component_groups": ["frag_grenade_deploying"]
+				}
+			},
+			"f_mtf_epsilon11:remove_frag_grenade_deploying": {
+				"remove": {
+					"component_groups": ["frag_grenade_deploying"]
+				}
+			},
+			"f_mtf_epsilon11:deploy_frag_grenade": {},
+			"f_mtf_epsilon11:on_finish_deploying_frag_grenade": {},
+			"f_mtf_epsilon11:add_gonna_hide_scp096_face": {
+				"add": {
+					"component_groups": ["gonna_hide_scp096_face", "scp096_fh_range_sensor"]
+				}
+			},
+			"f_mtf_epsilon11:remove_gonna_hide_scp096_face": {
+				"remove": {
+					"component_groups": ["gonna_hide_scp096_face", "scp096_fh_range_sensor"]
+				}
+			},
+			"f_mtf_epsilon11:on_target_inside_scp096_fh_range": {},
+			"f_mtf_epsilon11:add_hiding_scp096_face": {
+				"add": {
+					"component_groups": ["hiding_scp096_face"]
+				}
+			},
+			"f_mtf_epsilon11:remove_hiding_scp096_face": {
+				"remove": {
+					"component_groups": ["hiding_scp096_face"]
+				}
+			},
+			"f_mtf_epsilon11:hide_scp096_face": {}
+		}
+	}
 }

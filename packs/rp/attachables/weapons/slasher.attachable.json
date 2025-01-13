@@ -1,74 +1,68 @@
 {
-  "format_version": "1.10.0",
-  "minecraft:attachable": {
-    "description": {
-      "identifier": "lc:scpdy_slasher",
-      "materials": {
-        "fp_view": "entity_emissive_alpha",
-        "tp_view": "entity_emissive_alpha"
-      },
-      "textures": {
-        "default": "textures/scpdy/items/weapons/melee/slasher"
-      },
-      "geometry": {
-        "fp_view": "geometry.scpdy_slasher.fp",
-        "tp_view": "geometry.scpdy_slasher.tp"
-      },
-      "animations": {
-        // Animation controllers
-        "ctrl.fp": "controller.animation.scpdy.weapon.slasher.fp",
-        // Animations
-        "anim.fp.lowered": "animation.scpdy_slasher.fp.lowered",
-        "anim.fp.base": "animation.scpdy_slasher.fp.base",
-        "anim.fp.saw_cycle": "animation.scpdy_slasher.fp.saw_cycle",
-        "anim.fp.general": "animation.scpdy_slasher.fp.general",
-        "anim.fp.pick": "animation.scpdy_slasher.fp.pick",
-        "anim.fp.general_unusable": "animation.scpdy_slasher.fp.general_unusable",
-        "anim.fp.pick_unusable": "animation.scpdy_slasher.fp.pick_unusable",
-        "anim.fp.swing_1": "animation.scpdy_slasher.fp.swing_1",
-        "anim.fp.swing_2": "animation.scpdy_slasher.fp.swing_2",
-        "anim.fp.swing_3": "animation.scpdy_slasher.fp.swing_3",
-        "anim.fp.charge_start": "animation.scpdy_slasher.fp.charge_start",
-        "anim.fp.charge_hold": "animation.scpdy_slasher.fp.charge_hold",
-        "anim.fp.slash_start": "animation.scpdy_slasher.fp.slash_start",
-        "anim.fp.slash_hold": "animation.scpdy_slasher.fp.slash_hold",
-        "anim.fp.slash_finish": "animation.scpdy_slasher.fp.slash_finish"
-      },
-      "scripts": {
-        "animate": [
-          "ctrl.fp",
-          "anim.fp.saw_cycle"
-        ],
-        "initialize": [
-          "v.saw_cycle_speed = 0;",
-          "v.saw_cycle_anim_time = 0;"
-        ],
-        "pre_animation": [
-          "v.pick_cd = q.cooldown_time_remaining('scpdy_slasher_pick') > 0;",
-          "v.swing_cd_1 = q.cooldown_time_remaining('scpdy_slasher_swing_cd_1') > 0;",
-          "v.swing_cd_2 = q.cooldown_time_remaining('scpdy_slasher_swing_cd_2') > 0;",
-          "v.swing_cd_3 = q.cooldown_time_remaining('scpdy_slasher_swing_cd_3') > 0;",
-          "v.charge_start_cd = q.cooldown_time_remaining('scpdy_slasher_charge_start_cd') > 0;",
-          "v.charge_cancel_cd = q.cooldown_time_remaining('scpdy_slasher_charge_cancel_cd') > 0;",
-          "v.slash_start_cd = q.cooldown_time_remaining('scpdy_slasher_slash_start_cd') > 0;",
-          "v.slash_hold_cd = q.cooldown_time_remaining('scpdy_slasher_slash_hold_cd') > 0;",
-          "v.slash_finish_cd = q.cooldown_time_remaining('scpdy_slasher_slash_finish_cd') > 0;",
+	"format_version": "1.10.0",
+	"minecraft:attachable": {
+		"description": {
+			"identifier": "lc:scpdy_slasher",
+			"materials": {
+				"fp_view": "entity_emissive_alpha",
+				"tp_view": "entity_emissive_alpha"
+			},
+			"textures": {
+				"default": "textures/scpdy/items/weapons/melee/slasher"
+			},
+			"geometry": {
+				"fp_view": "geometry.scpdy_slasher.fp",
+				"tp_view": "geometry.scpdy_slasher.tp"
+			},
+			"animations": {
+				// Animation controllers
+				"ctrl.fp": "controller.animation.scpdy.weapon.slasher.fp",
+				// Animations
+				"anim.fp.lowered": "animation.scpdy_slasher.fp.lowered",
+				"anim.fp.base": "animation.scpdy_slasher.fp.base",
+				"anim.fp.saw_cycle": "animation.scpdy_slasher.fp.saw_cycle",
+				"anim.fp.general": "animation.scpdy_slasher.fp.general",
+				"anim.fp.pick": "animation.scpdy_slasher.fp.pick",
+				"anim.fp.general_unusable": "animation.scpdy_slasher.fp.general_unusable",
+				"anim.fp.pick_unusable": "animation.scpdy_slasher.fp.pick_unusable",
+				"anim.fp.swing_1": "animation.scpdy_slasher.fp.swing_1",
+				"anim.fp.swing_2": "animation.scpdy_slasher.fp.swing_2",
+				"anim.fp.swing_3": "animation.scpdy_slasher.fp.swing_3",
+				"anim.fp.charge_start": "animation.scpdy_slasher.fp.charge_start",
+				"anim.fp.charge_hold": "animation.scpdy_slasher.fp.charge_hold",
+				"anim.fp.slash_start": "animation.scpdy_slasher.fp.slash_start",
+				"anim.fp.slash_hold": "animation.scpdy_slasher.fp.slash_hold",
+				"anim.fp.slash_finish": "animation.scpdy_slasher.fp.slash_finish"
+			},
+			"scripts": {
+				"animate": ["ctrl.fp", "anim.fp.saw_cycle"],
+				"initialize": ["v.saw_cycle_speed = 0;", "v.saw_cycle_anim_time = 0;"],
+				"pre_animation": [
+					"v.pick_cd = q.cooldown_time_remaining('scpdy_slasher_pick') > 0;",
+					"v.swing_cd_1 = q.cooldown_time_remaining('scpdy_slasher_swing_cd_1') > 0;",
+					"v.swing_cd_2 = q.cooldown_time_remaining('scpdy_slasher_swing_cd_2') > 0;",
+					"v.swing_cd_3 = q.cooldown_time_remaining('scpdy_slasher_swing_cd_3') > 0;",
+					"v.charge_start_cd = q.cooldown_time_remaining('scpdy_slasher_charge_start_cd') > 0;",
+					"v.charge_cancel_cd = q.cooldown_time_remaining('scpdy_slasher_charge_cancel_cd') > 0;",
+					"v.slash_start_cd = q.cooldown_time_remaining('scpdy_slasher_slash_start_cd') > 0;",
+					"v.slash_hold_cd = q.cooldown_time_remaining('scpdy_slasher_slash_hold_cd') > 0;",
+					"v.slash_finish_cd = q.cooldown_time_remaining('scpdy_slasher_slash_finish_cd') > 0;",
 
-          // Saw cycle
-          "v.saw_cycle_anim_time = v.saw_cycle_anim_time + (q.delta_time * v.saw_cycle_speed);"
-        ]
-      },
-      "sound_effects": {
-        "idle": "scpdy.slasher.idle"
-      },
-      "render_controllers": [
-        {
-          "controller.render.scpdy.3d_item.fp": "c.is_first_person"
-        },
-        {
-          "controller.render.scpdy.3d_item.tp": "!c.is_first_person"
-        }
-      ]
-    }
-  }
+					// Saw cycle
+					"v.saw_cycle_anim_time = v.saw_cycle_anim_time + (q.delta_time * v.saw_cycle_speed);"
+				]
+			},
+			"sound_effects": {
+				"idle": "scpdy.slasher.idle"
+			},
+			"render_controllers": [
+				{
+					"controller.render.scpdy.3d_item.fp": "c.is_first_person"
+				},
+				{
+					"controller.render.scpdy.3d_item.tp": "!c.is_first_person"
+				}
+			]
+		}
+	}
 }

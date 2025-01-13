@@ -1,36 +1,36 @@
 {
-  "format_version": "1.21.10",
-  "minecraft:item": {
-    "description": {
-      "identifier": "lc:scpdy_config",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.equipment",
-        "is_hidden_in_commands": false
-      }
-    },
-    "components": {
-      "minecraft:custom_components": ["scpdy:config_item"],
-      "minecraft:icon": {
-        "textures": {
-          "default": "scpdy_config_icon"
-        }
-      },
-      "minecraft:display_name": {
-        "value": "item.lc:scpdy_config.name"
-      },
-      "minecraft:hover_text_color": "light_purple",
-      "minecraft:interact_button": "item.lc:scpdy_config.interact",
-      "minecraft:should_despawn": {
-        "value": false
-      },
-      "minecraft:max_stack_size": 1,
-      "minecraft:hand_equipped": true,
-      "minecraft:allow_off_hand": false,
-      "minecraft:use_modifiers": {
-        "movement_modifier": 1.0,
-        "use_duration": 3600
-      }
-    }
-  }
+	"format_version": "1.21.10",
+	"minecraft:item": {
+		"description": {
+			"identifier": "lc:scpdy_config",
+			"menu_category": {
+				"category": "equipment",
+				"group": "itemGroup.name.equipment",
+				"is_hidden_in_commands": false
+			}
+		},
+		"components": {
+			"minecraft:custom_components": ["scpdy:config_item"],
+			"minecraft:icon": {
+				"textures": {
+					"default": "scpdy_config_icon"
+				}
+			},
+			"minecraft:display_name": {
+				"value": "item.lc:scpdy_config.name"
+			},
+			"minecraft:hover_text_color": "light_purple",
+			"minecraft:interact_button": "item.lc:scpdy_config.interact",
+			"minecraft:should_despawn": {
+				"value": false
+			},
+			"minecraft:max_stack_size": 1,
+			"minecraft:hand_equipped": true,
+			"minecraft:allow_off_hand": false,
+			"minecraft:use_modifiers": {
+				"movement_modifier": 1.0,
+				"use_duration": 3600
+			}
+		}
+	}
 }

@@ -1,43 +1,37 @@
 {
-  "format_version": "1.10.0",
-  "animation_controllers": {
-    "controller.animation.scpdy_scp001_proto_neutralized.main": {
-      "initial_state": "default",
-      "states": {
-        "default": {
-          "animations": [
-            "anim.general"
-          ],
-          "transitions": [
-            {
-              "move": "q.modified_move_speed > 0.1"
-            },
-            {
-              "getting_back": "v.is_getting_back"
-            }
-          ],
-          "blend_transition": 0.15
-        },
-        "move": {
-          "animations": [
-            "anim.move"
-          ],
-          "transitions": [
-            {
-              "default": "q.modified_move_speed <= 0.1"
-            },
-            {
-              "getting_back": "v.is_getting_back"
-            }
-          ],
-          "blend_transition": 0.15
-        },
-        "getting_back": {
-          "animations": [
-            "anim.getting_back"
-          ]
-        }
-      }
-    }
-  }
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.scpdy_scp001_proto_neutralized.main": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": ["anim.general"],
+					"transitions": [
+						{
+							"move": "q.modified_move_speed > 0.1"
+						},
+						{
+							"getting_back": "v.is_getting_back"
+						}
+					],
+					"blend_transition": 0.15
+				},
+				"move": {
+					"animations": ["anim.move"],
+					"transitions": [
+						{
+							"default": "q.modified_move_speed <= 0.1"
+						},
+						{
+							"getting_back": "v.is_getting_back"
+						}
+					],
+					"blend_transition": 0.15
+				},
+				"getting_back": {
+					"animations": ["anim.getting_back"]
+				}
+			}
+		}
+	}
 }

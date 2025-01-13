@@ -8,29 +8,29 @@
 		"conditions": {
 			"placement_pass": "first_pass",
 			"minecraft:biome_filter": {
-        "any_of": [
-          {
-            "test": "has_biome_tag",
-            "operator": "==",
-            "value": "forest"
-          },
-          {
-            "test": "has_biome_tag",
-            "operator": "==",
-            "value": "dark_oak"
-          },
-          {
-            "test": "has_biome_tag",
-            "operator": "==",
-            "value": "birch"
-          },
-          {
-            "test": "has_biome_tag",
-            "operator": "==",
-            "value": "taiga"
-          }
-        ]
-      }
+				"any_of": [
+					{
+						"test": "has_biome_tag",
+						"operator": "==",
+						"value": "forest"
+					},
+					{
+						"test": "has_biome_tag",
+						"operator": "==",
+						"value": "dark_oak"
+					},
+					{
+						"test": "has_biome_tag",
+						"operator": "==",
+						"value": "birch"
+					},
+					{
+						"test": "has_biome_tag",
+						"operator": "==",
+						"value": "taiga"
+					}
+				]
+			}
 		},
 		"distribution": {
 			"iterations": 1,
@@ -38,7 +38,7 @@
 				"extent": [0, 64],
 				"distribution": "uniform"
 			},
-			"y": "q.heightmap(v.worldx, v.worldz) - 1", 
+			"y": "q.heightmap(v.worldx, v.worldz) - 1",
 			"z": {
 				"extent": [0, 64],
 				"distribution": "uniform"

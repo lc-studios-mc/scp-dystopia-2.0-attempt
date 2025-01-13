@@ -1,36 +1,36 @@
 {
-  "format_version": "1.13.0",
-  "minecraft:feature_rules": {
-    "description": {
-      "identifier": "lc:scpdy_overworld_underground_ruin_2_feature",
-      "places_feature": "lc:scpdy_underground_ruin_2_feature"
-    },
-    "conditions": {
-      "placement_pass": "first_pass",
-      "minecraft:biome_filter": {
-        "test": "has_biome_tag",
-        "operator": "==",
-        "value": "overworld"
-      }
-    },
-    "distribution": {
-      "iterations": 1,
-      "x": {
+	"format_version": "1.13.0",
+	"minecraft:feature_rules": {
+		"description": {
+			"identifier": "lc:scpdy_overworld_underground_ruin_2_feature",
+			"places_feature": "lc:scpdy_underground_ruin_2_feature"
+		},
+		"conditions": {
+			"placement_pass": "first_pass",
+			"minecraft:biome_filter": {
+				"test": "has_biome_tag",
+				"operator": "==",
+				"value": "overworld"
+			}
+		},
+		"distribution": {
+			"iterations": 1,
+			"x": {
 				"extent": [0, 64],
-        "distribution": "uniform"
-      },
-      "y": {
-        "extent": [11, 50],
-        "distribution": "uniform"
-      },
-      "z": {
+				"distribution": "uniform"
+			},
+			"y": {
+				"extent": [11, 50],
+				"distribution": "uniform"
+			},
+			"z": {
 				"extent": [0, 64],
-        "distribution": "uniform"
-      },
-      "scatter_chance": {
-        "numerator": 5,
-        "denominator": 100
-      }
-    }
-  }
+				"distribution": "uniform"
+			},
+			"scatter_chance": {
+				"numerator": 5,
+				"denominator": 100
+			}
+		}
+	}
 }

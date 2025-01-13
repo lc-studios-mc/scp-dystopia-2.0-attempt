@@ -1,140 +1,122 @@
 {
-  "format_version": "1.10.0",
-  "animation_controllers": {
-    "controller.animation.scpdy.gun.m4a1.fp": {
-      "initial_state": "default",
-      "states": {
-        "default": {
-          "animations": [
-            "anim.fp.hidden"
-          ],
-          "transitions": [
-            {
-              "pick": "true"
-            }
-          ]
-        },
-        "pick": {
-          "animations": [
-            "anim.fp.pick"
-          ],
-          "transitions": [
-            {
-              "general": "q.all_animations_finished"
-            },
-            {
-              "shoot_1": "v.shoot_cooldown_1 > 0"
-            },
-            {
-              "shoot_2": "v.shoot_cooldown_2 > 0"
-            }
-          ]
-        },
-        "general": {
-          "animations": [
-            "anim.fp.general"
-          ],
-          "transitions": [
-            {
-              "shoot_1": "v.shoot_cooldown_1 > 0"
-            },
-            {
-              "shoot_2": "v.shoot_cooldown_2 > 0"
-            },
-            {
-              "reload": "v.reload_cooldown > 0"
-            },
-            {
-              "reload_tac": "v.reload_tac_cooldown > 0"
-            }
-          ]
-        },
-        "shoot_1": {
-          "animations": [
-            "anim.fp.shoot_1"
-          ],
-          "transitions": [
-            {
-              "shoot_2": "v.shoot_cooldown_2 > 0"
-            },
-            {
-              "general": "v.shoot_cooldown_1 <= 0"
-            },
-            {
-              "reload": "v.reload_cooldown > 0"
-            },
-            {
-              "reload_tac": "v.reload_tac_cooldown > 0"
-            }
-          ]
-        },
-        "shoot_2": {
-          "animations": [
-            "anim.fp.shoot_2"
-          ],
-          "transitions": [
-            {
-              "shoot_1": "v.shoot_cooldown_1 > 0"
-            },
-            {
-              "general": "v.shoot_cooldown_2 <= 0"
-            },
-            {
-              "reload": "v.reload_cooldown > 0"
-            },
-            {
-              "reload_tac": "v.reload_tac_cooldown > 0"
-            }
-          ]
-        },
-        "reload": {
-          "animations": [
-            "anim.fp.reload"
-          ],
-          "transitions": [
-            {
-              "general": "v.reload_cooldown <= 0"
-            }
-          ]
-        },
-        "reload_tac": {
-          "animations": [
-            "anim.fp.reload_tac"
-          ],
-          "transitions": [
-            {
-              "general": "v.reload_tac_cooldown <= 0"
-            }
-          ]
-        }
-      }
-    },
-    "controller.animation.scpdy.gun.m4a1.fp.offset": {
-      "initial_state": "default",
-      "states": {
-        "default": {
-          "animations": [
-            "anim.fp.offset_default"
-          ],
-          "transitions": [
-            {
-              "ads": "q.is_sneaking"
-            }
-          ],
-          "blend_transition": 0.2
-        },
-        "ads": {
-          "animations": [
-            "anim.fp.offset_ads"
-          ],
-          "transitions": [
-            {
-              "default": "!q.is_sneaking"
-            }
-          ],
-          "blend_transition": 0.17
-        }
-      }
-    }
-  }
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.scpdy.gun.m4a1.fp": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": ["anim.fp.hidden"],
+					"transitions": [
+						{
+							"pick": "true"
+						}
+					]
+				},
+				"pick": {
+					"animations": ["anim.fp.pick"],
+					"transitions": [
+						{
+							"general": "q.all_animations_finished"
+						},
+						{
+							"shoot_1": "v.shoot_cooldown_1 > 0"
+						},
+						{
+							"shoot_2": "v.shoot_cooldown_2 > 0"
+						}
+					]
+				},
+				"general": {
+					"animations": ["anim.fp.general"],
+					"transitions": [
+						{
+							"shoot_1": "v.shoot_cooldown_1 > 0"
+						},
+						{
+							"shoot_2": "v.shoot_cooldown_2 > 0"
+						},
+						{
+							"reload": "v.reload_cooldown > 0"
+						},
+						{
+							"reload_tac": "v.reload_tac_cooldown > 0"
+						}
+					]
+				},
+				"shoot_1": {
+					"animations": ["anim.fp.shoot_1"],
+					"transitions": [
+						{
+							"shoot_2": "v.shoot_cooldown_2 > 0"
+						},
+						{
+							"general": "v.shoot_cooldown_1 <= 0"
+						},
+						{
+							"reload": "v.reload_cooldown > 0"
+						},
+						{
+							"reload_tac": "v.reload_tac_cooldown > 0"
+						}
+					]
+				},
+				"shoot_2": {
+					"animations": ["anim.fp.shoot_2"],
+					"transitions": [
+						{
+							"shoot_1": "v.shoot_cooldown_1 > 0"
+						},
+						{
+							"general": "v.shoot_cooldown_2 <= 0"
+						},
+						{
+							"reload": "v.reload_cooldown > 0"
+						},
+						{
+							"reload_tac": "v.reload_tac_cooldown > 0"
+						}
+					]
+				},
+				"reload": {
+					"animations": ["anim.fp.reload"],
+					"transitions": [
+						{
+							"general": "v.reload_cooldown <= 0"
+						}
+					]
+				},
+				"reload_tac": {
+					"animations": ["anim.fp.reload_tac"],
+					"transitions": [
+						{
+							"general": "v.reload_tac_cooldown <= 0"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.scpdy.gun.m4a1.fp.offset": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": ["anim.fp.offset_default"],
+					"transitions": [
+						{
+							"ads": "q.is_sneaking"
+						}
+					],
+					"blend_transition": 0.2
+				},
+				"ads": {
+					"animations": ["anim.fp.offset_ads"],
+					"transitions": [
+						{
+							"default": "!q.is_sneaking"
+						}
+					],
+					"blend_transition": 0.17
+				}
+			}
+		}
+	}
 }

@@ -1,14 +1,14 @@
 {
-  "format_version": "1.8.0",
-  "render_controllers": {
-    "controller.render.scpdy.attachable.fp_arms": {
-      "geometry": "Geometry.fp_arms",
-      "materials": [
-        {
-          "*": "Material.fp_arms"
-        }
-      ],
-      "textures": ["Texture.fp_arms"]
-    }
-  }
+	"format_version": "1.8.0",
+	"render_controllers": {
+		"controller.render.scpdy.attachable.fp_arms": {
+			"geometry": "Geometry.fp_arms",
+			"materials": [
+				{
+					"*": "Material.fp_arms"
+				}
+			],
+			"textures": ["Texture.fp_arms"]
+		}
+	}
 }

@@ -1,27 +1,25 @@
 {
-  "format_version": "1.10.0",
-  "minecraft:client_entity": {
-    "description": {
-      "identifier": "lc:scpdy_mtf_frag_grenade",
-      "materials": {
-        "default": "entity"
-      },
-      "textures": {
-        "default": "textures/scpdy/items/weapons/throwables/frag_grenade"
-      },
-      "geometry": {
-        "default": "geometry.scpdy_frag_grenade_thrown"
-      },
-      "animations": {
-        // Animations
-        "anim.moving": "animation.scpdy_frag_grenade_thrown.moving"
-      },
-      "scripts": {
-        "animate": [
-          "anim.moving"
-        ]
-      },
-      "render_controllers": ["controller.render.scpdy.frag_grenade_thrown"]
-    }
-  }
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "lc:scpdy_mtf_frag_grenade",
+			"materials": {
+				"default": "entity"
+			},
+			"textures": {
+				"default": "textures/scpdy/items/weapons/throwables/frag_grenade"
+			},
+			"geometry": {
+				"default": "geometry.scpdy_frag_grenade_thrown"
+			},
+			"animations": {
+				// Animations
+				"anim.moving": "animation.scpdy_frag_grenade_thrown.moving"
+			},
+			"scripts": {
+				"animate": ["anim.moving"]
+			},
+			"render_controllers": ["controller.render.scpdy.frag_grenade_thrown"]
+		}
+	}
 }

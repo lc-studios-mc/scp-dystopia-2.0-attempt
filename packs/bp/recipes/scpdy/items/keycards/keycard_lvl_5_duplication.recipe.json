@@ -1,29 +1,27 @@
 {
-  "format_version": "1.20.10",
-  "minecraft:recipe_shaped": {
-    "description": {
-      "identifier": "lc:scpdy_recipe_keycard_lvl_5_duplication"
-    },
-    "tags": ["crafting_table", "dystopia_craftbench", "scpdy_workbench"],
-    "pattern": [
-      "KP"
-    ],
-    "key": {
-      "P": {
-        "item": "minecraft:paper"
-      },
-      "K": {
-        "item": "lc:scpdy_keycard_lvl_5"
-      }
-    },
-    "unlock": [
-      {
-        "item": "lc:scpdy_keycard_lvl_5"
-      }
-    ],
-    "result": {
-      "item": "lc:scpdy_keycard_lvl_5",
-      "count": 2
-    }
-  }
+	"format_version": "1.20.10",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "lc:scpdy_recipe_keycard_lvl_5_duplication"
+		},
+		"tags": ["crafting_table", "dystopia_craftbench", "scpdy_workbench"],
+		"pattern": ["KP"],
+		"key": {
+			"P": {
+				"item": "minecraft:paper"
+			},
+			"K": {
+				"item": "lc:scpdy_keycard_lvl_5"
+			}
+		},
+		"unlock": [
+			{
+				"item": "lc:scpdy_keycard_lvl_5"
+			}
+		],
+		"result": {
+			"item": "lc:scpdy_keycard_lvl_5",
+			"count": 2
+		}
+	}
 }

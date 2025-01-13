@@ -1,306 +1,306 @@
 {
-  "format_version": "1.19.80",
-  "minecraft:entity": {
-    "description": {
-      "identifier": "lc:scpdy_scp5167",
-      "is_spawnable": true,
-      "is_summonable": true,
-      "is_experimental": false,
-      "scripts": {
-        "animate": ["ctrl.health"]
-      },
-      "animations": {
-        "ctrl.health": "controller.animation.scpdy.bp.scp5167.health"
-      }
-    },
-    "component_groups": {
-      "not_eager_to_kill": {
-        "minecraft:timer": {
-          "looping": false,
-          "randomInterval": true,
-          "time": [15, 30],
-          "time_down_event": {
-            "event": "scp5167:become_eager_to_kill",
-            "target": "self"
-          }
-        }
-      },
-      "eager_to_kill": {
-        "minecraft:timer": {
-          "looping": false,
-          "randomInterval": true,
-          "time": [5, 10],
-          "time_down_event": {
-            "event": "scp5167:stop_eager_to_kill",
-            "target": "self"
-          }
-        },
-        "minecraft:behavior.nearest_attackable_target": {
-          "priority": 4,
-          "must_see": true,
-          "reselect_targets": true,
-          "entity_types": [
-            {
-              "filters": { "test": "is_family", "subject": "other", "value": "player" },
-              "max_dist": 16
-            },
-            {
-              "filters": {
-                "all_of": [
-                  { "test": "is_family", "subject": "other", "operator": "!=", "value": "scp5167" },
-                  {
-                    "any_of": [
-                      { "test": "is_family", "subject": "other", "value": "human" },
-                      { "test": "is_family", "subject": "other", "value": "villager" },
-                      { "test": "is_family", "subject": "other", "value": "wandering_trader" },
-                      { "test": "is_family", "subject": "other", "value": "iron_golem" },
-                      { "test": "is_family", "subject": "other", "value": "snow_golem" },
-                      { "test": "is_family", "subject": "other", "value": "illager" },
-                      { "test": "is_family", "subject": "other", "value": "piglin" },
-                      { "test": "is_family", "subject": "other", "value": "wolf" },
-                      { "test": "is_family", "subject": "other", "value": "cat" },
-                      { "test": "is_family", "subject": "other", "value": "horse" },
-                      { "test": "is_family", "subject": "other", "value": "neutral_scp" },
-                      { "test": "is_family", "subject": "other", "value": "hostile_scp" }
-                    ]
-                  }
-                ]
-              },
-              "max_dist": 24
-            }
-          ]
-        }
-      },
-      "calm": {
-        "minecraft:type_family": {
-          "family": ["mob", "monster", "amogus", "neutral_scp", "scp", "scp5167", "scpdy_scp5167"]
-        },
-        "minecraft:on_target_acquired": {
-          "event": "scp5167:on_target_acquired",
-          "target": "self"
-        }
-      },
-      "chasing_target": {
-        "minecraft:type_family": {
-          "family": ["mob", "monster", "amogus", "hostile_scp", "scp", "scp5167", "scpdy_scp5167"]
-        },
-        "minecraft:on_target_escape": {
-          "event": "scp5167:on_target_escape",
-          "target": "self"
-        }
-      },
-      "fine": {
-        "minecraft:behavior.random_stroll": {
-          "priority": 7,
-          "xz_dist": 7,
-          "y_dist": 5,
-          "speed_multiplier": 0.6
-        },
-        "minecraft:behavior.delayed_attack": {
-          "priority": 3,
-          "attack_duration": 0.75,
-          "hit_delay_pct": 0.09,
-          "melee_fov": 90,
-          "reach_multiplier": 2.1,
-          "speed_multiplier": 1.1
-        }
-      },
-      "low": {
-        "minecraft:behavior.random_stroll": {
-          "priority": 2,
-          "interval": 30,
-          "xz_dist": 7,
-          "y_dist": 5,
-          "speed_multiplier": 1.3
-        },
-        "minecraft:behavior.avoid_mob_type": {
-          "priority": 0,
-          "remove_target": true,
-          "entity_types": [
-            {
-              "filters": {
-                "any_of": [
-                  { "test": "was_last_hurt_by", "subject": "other" },
-                  { "test": "is_family", "subject": "other", "value": "player" },
-                  { "test": "is_family", "subject": "other", "value": "iron_golem" },
-                  { "test": "is_family", "subject": "other", "value": "snow_golem" },
-                  { "test": "is_family", "subject": "other", "value": "neutral_scp" },
-                  { "test": "is_family", "subject": "other", "value": "hostile_scp" }
-                ]
-              },
-              "max_dist": 16,
-              "sprint_speed_multiplier": 1.3
-            }
-          ]
-        },
-        "minecraft:behavior.panic": {
-          "priority": 1,
-          "speed_multiplier": 1.2
-        }
-      }
-    },
-    "components": {
-      "minecraft:is_hidden_when_invisible": {},
-      "minecraft:experience_reward": {
-        "on_death": "q.last_hit_by_player ? 15 : 0"
-      },
-      "minecraft:health": {
-        "value": 96,
-        "max": 96
-      },
-      "minecraft:breathable": {
-        "breathes_water": true,
-        "generates_bubbles": false
-      },
-      "minecraft:hurt_on_condition": {
-        "damage_conditions": [
-          {
-            "filters": {
-              "test": "in_lava",
-              "subject": "self"
-            },
-            "cause": "lava",
-            "damage_per_tick": 4
-          }
-        ]
-      },
-      "minecraft:damage_sensor": {
-        "triggers": [
-          {
-            "cause": "all",
-            "deals_damage": true
-          }
-        ]
-      },
-      "minecraft:attack": {
-        "damage": 7
-      },
-      "minecraft:behavior.float": {
-        "priority": 0
-      },
-      "minecraft:behavior.hurt_by_target": {
-        "priority": 4,
-        "alert_same_type": true,
-        "entity_types": [
-          {
-            "filters": {
-              "all_of": [
-                {
-                  "test": "is_family",
-                  "subject": "other",
-                  "operator": "!=",
-                  "value": "scp5167"
-                }
-              ]
-            }
-          }
-        ]
-      },
-      "minecraft:behavior.nearest_prioritized_attackable_target": {
-        "priority": 4,
-        "must_see": false,
-        "reselect_targets": true,
-        "entity_types": [
-          {
-            "filters": {
-              "any_of": [{ "test": "was_last_hurt_by", "subject": "other" }]
-            },
-            "max_dist": 16
-          }
-        ]
-      },
-      "minecraft:follow_range": {
-        "value": 128
-      },
-      "minecraft:behavior.random_look_around": {
-        "priority": 8
-      },
-      "minecraft:behavior.look_at_player": {
-        "priority": 8,
-        "look_distance": 6.0,
-        "probability": 0.02
-      },
-      "minecraft:navigation.walk": {
-        "avoid_damage_blocks": true,
-        "can_open_doors": true,
-        "can_path_over_water": true,
-        "can_sink": false
-      },
-      "minecraft:movement.basic": {},
-      "minecraft:jump.static": {
-        "jump_power": 0.45
-      },
-      "minecraft:can_climb": {},
-      "minecraft:movement": {
-        "value": 0.3
-      },
-      "minecraft:annotation.open_door": {},
-      "minecraft:collision_box": {
-        "width": 0.6,
-        "height": 1.6
-      },
-      "minecraft:physics": {},
-      "minecraft:pushable": {
-        "is_pushable": true,
-        "is_pushable_by_piston": true
-      },
-      "minecraft:nameable": {},
-      "minecraft:conditional_bandwidth_optimization": {}
-    },
-    "events": {
-      "minecraft:entity_spawned": {
-        "add": {
-          "component_groups": ["not_eager_to_kill", "calm", "fine"]
-        }
-      },
-      "scp5167:become_eager_to_kill": {
-        "remove": {
-          "component_groups": ["not_eager_to_kill"]
-        },
-        "add": {
-          "component_groups": ["eager_to_kill"]
-        }
-      },
-      "scp5167:stop_eager_to_kill": {
-        "remove": {
-          "component_groups": ["eager_to_kill"]
-        },
-        "add": {
-          "component_groups": ["not_eager_to_kill"]
-        }
-      },
-      "scp5167:on_target_acquired": {
-        "remove": {
-          "component_groups": ["calm"]
-        },
-        "add": {
-          "component_groups": ["chasing_target"]
-        }
-      },
-      "scp5167:on_target_escape": {
-        "remove": {
-          "component_groups": ["chasing_target"]
-        },
-        "add": {
-          "component_groups": ["calm"]
-        }
-      },
-      "scp5167:health_low": {
-        "remove": {
-          "component_groups": ["fine"]
-        },
-        "add": {
-          "component_groups": ["low"]
-        }
-      },
-      "scp5167:health_fine": {
-        "remove": {
-          "component_groups": ["low"]
-        },
-        "add": {
-          "component_groups": ["fine"]
-        }
-      }
-    }
-  }
+	"format_version": "1.19.80",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "lc:scpdy_scp5167",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false,
+			"scripts": {
+				"animate": ["ctrl.health"]
+			},
+			"animations": {
+				"ctrl.health": "controller.animation.scpdy.bp.scp5167.health"
+			}
+		},
+		"component_groups": {
+			"not_eager_to_kill": {
+				"minecraft:timer": {
+					"looping": false,
+					"randomInterval": true,
+					"time": [15, 30],
+					"time_down_event": {
+						"event": "scp5167:become_eager_to_kill",
+						"target": "self"
+					}
+				}
+			},
+			"eager_to_kill": {
+				"minecraft:timer": {
+					"looping": false,
+					"randomInterval": true,
+					"time": [5, 10],
+					"time_down_event": {
+						"event": "scp5167:stop_eager_to_kill",
+						"target": "self"
+					}
+				},
+				"minecraft:behavior.nearest_attackable_target": {
+					"priority": 4,
+					"must_see": true,
+					"reselect_targets": true,
+					"entity_types": [
+						{
+							"filters": { "test": "is_family", "subject": "other", "value": "player" },
+							"max_dist": 16
+						},
+						{
+							"filters": {
+								"all_of": [
+									{ "test": "is_family", "subject": "other", "operator": "!=", "value": "scp5167" },
+									{
+										"any_of": [
+											{ "test": "is_family", "subject": "other", "value": "human" },
+											{ "test": "is_family", "subject": "other", "value": "villager" },
+											{ "test": "is_family", "subject": "other", "value": "wandering_trader" },
+											{ "test": "is_family", "subject": "other", "value": "iron_golem" },
+											{ "test": "is_family", "subject": "other", "value": "snow_golem" },
+											{ "test": "is_family", "subject": "other", "value": "illager" },
+											{ "test": "is_family", "subject": "other", "value": "piglin" },
+											{ "test": "is_family", "subject": "other", "value": "wolf" },
+											{ "test": "is_family", "subject": "other", "value": "cat" },
+											{ "test": "is_family", "subject": "other", "value": "horse" },
+											{ "test": "is_family", "subject": "other", "value": "neutral_scp" },
+											{ "test": "is_family", "subject": "other", "value": "hostile_scp" }
+										]
+									}
+								]
+							},
+							"max_dist": 24
+						}
+					]
+				}
+			},
+			"calm": {
+				"minecraft:type_family": {
+					"family": ["mob", "monster", "amogus", "neutral_scp", "scp", "scp5167", "scpdy_scp5167"]
+				},
+				"minecraft:on_target_acquired": {
+					"event": "scp5167:on_target_acquired",
+					"target": "self"
+				}
+			},
+			"chasing_target": {
+				"minecraft:type_family": {
+					"family": ["mob", "monster", "amogus", "hostile_scp", "scp", "scp5167", "scpdy_scp5167"]
+				},
+				"minecraft:on_target_escape": {
+					"event": "scp5167:on_target_escape",
+					"target": "self"
+				}
+			},
+			"fine": {
+				"minecraft:behavior.random_stroll": {
+					"priority": 7,
+					"xz_dist": 7,
+					"y_dist": 5,
+					"speed_multiplier": 0.6
+				},
+				"minecraft:behavior.delayed_attack": {
+					"priority": 3,
+					"attack_duration": 0.75,
+					"hit_delay_pct": 0.09,
+					"melee_fov": 90,
+					"reach_multiplier": 2.1,
+					"speed_multiplier": 1.1
+				}
+			},
+			"low": {
+				"minecraft:behavior.random_stroll": {
+					"priority": 2,
+					"interval": 30,
+					"xz_dist": 7,
+					"y_dist": 5,
+					"speed_multiplier": 1.3
+				},
+				"minecraft:behavior.avoid_mob_type": {
+					"priority": 0,
+					"remove_target": true,
+					"entity_types": [
+						{
+							"filters": {
+								"any_of": [
+									{ "test": "was_last_hurt_by", "subject": "other" },
+									{ "test": "is_family", "subject": "other", "value": "player" },
+									{ "test": "is_family", "subject": "other", "value": "iron_golem" },
+									{ "test": "is_family", "subject": "other", "value": "snow_golem" },
+									{ "test": "is_family", "subject": "other", "value": "neutral_scp" },
+									{ "test": "is_family", "subject": "other", "value": "hostile_scp" }
+								]
+							},
+							"max_dist": 16,
+							"sprint_speed_multiplier": 1.3
+						}
+					]
+				},
+				"minecraft:behavior.panic": {
+					"priority": 1,
+					"speed_multiplier": 1.2
+				}
+			}
+		},
+		"components": {
+			"minecraft:is_hidden_when_invisible": {},
+			"minecraft:experience_reward": {
+				"on_death": "q.last_hit_by_player ? 15 : 0"
+			},
+			"minecraft:health": {
+				"value": 96,
+				"max": 96
+			},
+			"minecraft:breathable": {
+				"breathes_water": true,
+				"generates_bubbles": false
+			},
+			"minecraft:hurt_on_condition": {
+				"damage_conditions": [
+					{
+						"filters": {
+							"test": "in_lava",
+							"subject": "self"
+						},
+						"cause": "lava",
+						"damage_per_tick": 4
+					}
+				]
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "all",
+						"deals_damage": true
+					}
+				]
+			},
+			"minecraft:attack": {
+				"damage": 7
+			},
+			"minecraft:behavior.float": {
+				"priority": 0
+			},
+			"minecraft:behavior.hurt_by_target": {
+				"priority": 4,
+				"alert_same_type": true,
+				"entity_types": [
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"operator": "!=",
+									"value": "scp5167"
+								}
+							]
+						}
+					}
+				]
+			},
+			"minecraft:behavior.nearest_prioritized_attackable_target": {
+				"priority": 4,
+				"must_see": false,
+				"reselect_targets": true,
+				"entity_types": [
+					{
+						"filters": {
+							"any_of": [{ "test": "was_last_hurt_by", "subject": "other" }]
+						},
+						"max_dist": 16
+					}
+				]
+			},
+			"minecraft:follow_range": {
+				"value": 128
+			},
+			"minecraft:behavior.random_look_around": {
+				"priority": 8
+			},
+			"minecraft:behavior.look_at_player": {
+				"priority": 8,
+				"look_distance": 6.0,
+				"probability": 0.02
+			},
+			"minecraft:navigation.walk": {
+				"avoid_damage_blocks": true,
+				"can_open_doors": true,
+				"can_path_over_water": true,
+				"can_sink": false
+			},
+			"minecraft:movement.basic": {},
+			"minecraft:jump.static": {
+				"jump_power": 0.45
+			},
+			"minecraft:can_climb": {},
+			"minecraft:movement": {
+				"value": 0.3
+			},
+			"minecraft:annotation.open_door": {},
+			"minecraft:collision_box": {
+				"width": 0.6,
+				"height": 1.6
+			},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:nameable": {},
+			"minecraft:conditional_bandwidth_optimization": {}
+		},
+		"events": {
+			"minecraft:entity_spawned": {
+				"add": {
+					"component_groups": ["not_eager_to_kill", "calm", "fine"]
+				}
+			},
+			"scp5167:become_eager_to_kill": {
+				"remove": {
+					"component_groups": ["not_eager_to_kill"]
+				},
+				"add": {
+					"component_groups": ["eager_to_kill"]
+				}
+			},
+			"scp5167:stop_eager_to_kill": {
+				"remove": {
+					"component_groups": ["eager_to_kill"]
+				},
+				"add": {
+					"component_groups": ["not_eager_to_kill"]
+				}
+			},
+			"scp5167:on_target_acquired": {
+				"remove": {
+					"component_groups": ["calm"]
+				},
+				"add": {
+					"component_groups": ["chasing_target"]
+				}
+			},
+			"scp5167:on_target_escape": {
+				"remove": {
+					"component_groups": ["chasing_target"]
+				},
+				"add": {
+					"component_groups": ["calm"]
+				}
+			},
+			"scp5167:health_low": {
+				"remove": {
+					"component_groups": ["fine"]
+				},
+				"add": {
+					"component_groups": ["low"]
+				}
+			},
+			"scp5167:health_fine": {
+				"remove": {
+					"component_groups": ["low"]
+				},
+				"add": {
+					"component_groups": ["fine"]
+				}
+			}
+		}
+	}
 }

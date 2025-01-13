@@ -1,48 +1,40 @@
 {
-  "format_version": "1.10.0",
-  "animation_controllers": {
-    "controller.animation.scpdy_f_tro.main": {
-      "initial_state": "idle",
-      "states": {
-        "idle": {
-          "animations": [
-            "anim.idle",
-            "anim.walk_legs"
-          ],
-          "transitions": [
-            {
-              "combat": "q.has_target"
-            }
-          ],
-          "blend_transition": 0.26
-        },
-        "combat": {
-          "animations": [
-            "anim.combat",
-            "anim.walk_legs"
-          ],
-          "transitions": [
-            {
-              "idle": "!q.has_target"
-            },
-            {
-              "melee_attack": "q.is_delayed_attacking"
-            }
-          ],
-          "blend_transition": 0.26
-        },
-        "melee_attack": {
-          "animations": [
-            "anim.melee_attack"
-          ],
-          "transitions": [
-            {
-              "combat": "q.all_animations_finished"
-            }
-          ],
-          "blend_transition": 0.26
-        }
-      }
-    }
-  }
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.scpdy_f_tro.main": {
+			"initial_state": "idle",
+			"states": {
+				"idle": {
+					"animations": ["anim.idle", "anim.walk_legs"],
+					"transitions": [
+						{
+							"combat": "q.has_target"
+						}
+					],
+					"blend_transition": 0.26
+				},
+				"combat": {
+					"animations": ["anim.combat", "anim.walk_legs"],
+					"transitions": [
+						{
+							"idle": "!q.has_target"
+						},
+						{
+							"melee_attack": "q.is_delayed_attacking"
+						}
+					],
+					"blend_transition": 0.26
+				},
+				"melee_attack": {
+					"animations": ["anim.melee_attack"],
+					"transitions": [
+						{
+							"combat": "q.all_animations_finished"
+						}
+					],
+					"blend_transition": 0.26
+				}
+			}
+		}
+	}
 }

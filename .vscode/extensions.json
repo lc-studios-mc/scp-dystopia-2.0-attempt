@@ -1,9 +1,8 @@
 {
-  "recommendations": [
-    "maptz.regionfolder",
-    "mojang-studios.minecraft-debugger",
-    "zz5840.minecraft-lang-colorizer",
-  ],
-  "unwantedRecommendations": [
-  ],
+	"recommendations": [
+		"maptz.regionfolder",
+		"mojang-studios.minecraft-debugger",
+		"zz5840.minecraft-lang-colorizer"
+	],
+	"unwantedRecommendations": []
 }

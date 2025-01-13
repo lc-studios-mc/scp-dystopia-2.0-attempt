@@ -1,167 +1,167 @@
 {
-  "format_version": "1.21.40",
-  "minecraft:entity": {
-    "description": {
-      "identifier": "lc:scpdy_unknown_golem",
-      // "is_spawnable": true,
-      "is_summonable": true,
-      "is_experimental": false
-    },
-    "components": {
-      "minecraft:is_hidden_when_invisible": {},
-      "minecraft:type_family": {
-        "family": ["mob", "monster", "golem", "the_unknown", "unknown_golem"]
-      },
-      "minecraft:knockback_resistance": {
-        "value": 1.0
-      },
-      "minecraft:health": {
-        "value": 100,
-        "max": 100
-      },
-      "minecraft:breathable": {
-        "breathes_lava": true,
-        "breathes_solids": true,
-        "breathes_water": true,
-        "generates_bubbles": false
-      },
-      "minecraft:attack": {
-        "damage": 18
-      },
-      "minecraft:fire_immune": {},
-      "minecraft:damage_sensor": {
-        "triggers": [
-          {
-            "on_damage": {
-              "filters": {
-                "test": "is_family",
-                "subject": "other",
-                "value": "the_unknown"
-              }
-            },
-            "deals_damage": "no"
-          }
-        ]
-      },
-      "minecraft:follow_range": {
-        "value": 64,
-        "max": 64
-      },
-      "minecraft:behavior.hurt_by_target": {
-        "priority": 3,
-        "entity_types": [
-          {
-            "filters": {
-              "test": "is_family",
-              "subject": "other",
-              "operator": "!=",
-              "value": "the_unknown"
-            }
-          }
-        ]
-      },
-      "minecraft:behavior.nearest_attackable_target": {
-        "priority": 2,
-        "reselect_targets": true,
-        "must_see_forget_duration": 120.0,
-        "entity_types": [
-          {
-            "filters": {
-              "all_of": [
-                {
-                  "test": "is_family",
-                  "subject": "other",
-                  "value": "player"
-                }
-              ]
-            },
-            "must_see": false,
-            "max_dist": 64
-          },
-          {
-            "filters": {
-              "all_of": [
-                {
-                  "test": "is_family",
-                  "subject": "other",
-                  "operator": "!=",
-                  "value": "the_unknown"
-                },
-                {
-                  "any_of": [
-                    { "test": "is_family", "subject": "other", "value": "player" },
-                    { "test": "is_family", "subject": "other", "value": "monster" },
-                    { "test": "is_family", "subject": "other", "value": "villager" },
-                    { "test": "is_family", "subject": "other", "value": "iron_golem" },
-                    { "test": "is_family", "subject": "other", "value": "snow_golem" },
-                    { "test": "is_family", "subject": "other", "value": "illager" },
-                    { "test": "is_family", "subject": "other", "value": "piglin" },
-                    { "test": "is_family", "subject": "other", "value": "hostile_scp" },
-                    { "test": "is_family", "subject": "other", "value": "human" },
-                    { "test": "is_family", "subject": "other", "value": "ravager" },
-                    { "test": "is_family", "subject": "other", "value": "wither" },
-                    { "test": "is_family", "subject": "other", "value": "warden" }
-                  ]
-                }
-              ]
-            },
-            "must_see": true,
-            "max_dist": 16
-          }
-        ]
-      },
-      "minecraft:behavior.delayed_attack": {
-        "priority": 3,
-        "attack_once": false,
-        "track_target": true,
-        "require_complete_path": false,
-        "random_stop_interval": 0,
-        "reach_multiplier": 2.3,
-        "speed_multiplier": 1.0,
-        "attack_duration": 1.8,
-        "hit_delay_pct": 0.4
-      },
-      "minecraft:behavior.random_stroll": {
-        "priority": 7,
-        "speed_multiplier": 0.8
-      },
-      "minecraft:behavior.look_at_player": {
-        "priority": 8,
-        "look_distance": 6,
-        "probability": 0.02
-      },
-      "minecraft:behavior.random_look_around": {
-        "priority": 9
-      },
-      "minecraft:movement": {
-        "value": 0.19
-      },
-      "minecraft:movement.basic": {},
-      "minecraft:jump.static": {},
-      "minecraft:can_climb": {},
-      "minecraft:navigation.walk": {
-        "can_path_over_water": false,
-        "avoid_water": true,
-        "avoid_damage_blocks": true
-      },
-      "minecraft:collision_box": {
-        "width": 1.4,
-        "height": 2.9
-      },
-      "minecraft:physics": {},
-      "minecraft:pushable": {
-        "is_pushable": true,
-        "is_pushable_by_piston": true
-      },
-      "minecraft:nameable": {},
-      "minecraft:conditional_bandwidth_optimization": {}
-    },
-    "events": {
-      "minecraft:entity_spawned": {
-        "queue_command": {
-          "command": ["particle lc:scpdy_unknown_monster_spawn_emitter ~ ~ ~"]
-        }
-      }
-    }
-  }
+	"format_version": "1.21.40",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "lc:scpdy_unknown_golem",
+			// "is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"components": {
+			"minecraft:is_hidden_when_invisible": {},
+			"minecraft:type_family": {
+				"family": ["mob", "monster", "golem", "the_unknown", "unknown_golem"]
+			},
+			"minecraft:knockback_resistance": {
+				"value": 1.0
+			},
+			"minecraft:health": {
+				"value": 100,
+				"max": 100
+			},
+			"minecraft:breathable": {
+				"breathes_lava": true,
+				"breathes_solids": true,
+				"breathes_water": true,
+				"generates_bubbles": false
+			},
+			"minecraft:attack": {
+				"damage": 18
+			},
+			"minecraft:fire_immune": {},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"on_damage": {
+							"filters": {
+								"test": "is_family",
+								"subject": "other",
+								"value": "the_unknown"
+							}
+						},
+						"deals_damage": "no"
+					}
+				]
+			},
+			"minecraft:follow_range": {
+				"value": 64,
+				"max": 64
+			},
+			"minecraft:behavior.hurt_by_target": {
+				"priority": 3,
+				"entity_types": [
+					{
+						"filters": {
+							"test": "is_family",
+							"subject": "other",
+							"operator": "!=",
+							"value": "the_unknown"
+						}
+					}
+				]
+			},
+			"minecraft:behavior.nearest_attackable_target": {
+				"priority": 2,
+				"reselect_targets": true,
+				"must_see_forget_duration": 120.0,
+				"entity_types": [
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "player"
+								}
+							]
+						},
+						"must_see": false,
+						"max_dist": 64
+					},
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"operator": "!=",
+									"value": "the_unknown"
+								},
+								{
+									"any_of": [
+										{ "test": "is_family", "subject": "other", "value": "player" },
+										{ "test": "is_family", "subject": "other", "value": "monster" },
+										{ "test": "is_family", "subject": "other", "value": "villager" },
+										{ "test": "is_family", "subject": "other", "value": "iron_golem" },
+										{ "test": "is_family", "subject": "other", "value": "snow_golem" },
+										{ "test": "is_family", "subject": "other", "value": "illager" },
+										{ "test": "is_family", "subject": "other", "value": "piglin" },
+										{ "test": "is_family", "subject": "other", "value": "hostile_scp" },
+										{ "test": "is_family", "subject": "other", "value": "human" },
+										{ "test": "is_family", "subject": "other", "value": "ravager" },
+										{ "test": "is_family", "subject": "other", "value": "wither" },
+										{ "test": "is_family", "subject": "other", "value": "warden" }
+									]
+								}
+							]
+						},
+						"must_see": true,
+						"max_dist": 16
+					}
+				]
+			},
+			"minecraft:behavior.delayed_attack": {
+				"priority": 3,
+				"attack_once": false,
+				"track_target": true,
+				"require_complete_path": false,
+				"random_stop_interval": 0,
+				"reach_multiplier": 2.3,
+				"speed_multiplier": 1.0,
+				"attack_duration": 1.8,
+				"hit_delay_pct": 0.4
+			},
+			"minecraft:behavior.random_stroll": {
+				"priority": 7,
+				"speed_multiplier": 0.8
+			},
+			"minecraft:behavior.look_at_player": {
+				"priority": 8,
+				"look_distance": 6,
+				"probability": 0.02
+			},
+			"minecraft:behavior.random_look_around": {
+				"priority": 9
+			},
+			"minecraft:movement": {
+				"value": 0.19
+			},
+			"minecraft:movement.basic": {},
+			"minecraft:jump.static": {},
+			"minecraft:can_climb": {},
+			"minecraft:navigation.walk": {
+				"can_path_over_water": false,
+				"avoid_water": true,
+				"avoid_damage_blocks": true
+			},
+			"minecraft:collision_box": {
+				"width": 1.4,
+				"height": 2.9
+			},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:nameable": {},
+			"minecraft:conditional_bandwidth_optimization": {}
+		},
+		"events": {
+			"minecraft:entity_spawned": {
+				"queue_command": {
+					"command": ["particle lc:scpdy_unknown_monster_spawn_emitter ~ ~ ~"]
+				}
+			}
+		}
+	}
 }

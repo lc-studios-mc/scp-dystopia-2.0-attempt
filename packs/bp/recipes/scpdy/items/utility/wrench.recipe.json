@@ -1,37 +1,33 @@
 {
-  "format_version": "1.20.10",
-  "minecraft:recipe_shaped": {
-    "description": {
-      "identifier": "lc:scpdy_wrench"
-    },
-    "tags": ["crafting_table", "dystopia_craftbench", "scpdy_workbench"],
-    "pattern": [
-      "I I",
-      " G ",
-      "I I"
-    ],
-    "key": {
-      "I": {
-        "item": "minecraft:iron_ingot"
-      },
-      "G": {
-        "item": "minecraft:gold_ingot"
-      }
-    },
-    "unlock": [
-      {
-        "item": "minecraft:iron_ingot"
-      },
-      {
-        "item": "minecraft:gold_ingot"
-      },
-      {
-        "item": "lc:scpdy_wrench"
-      }
-    ],
-    "result": {
-      "item": "lc:scpdy_wrench",
-      "count": 1
-    }
-  }
+	"format_version": "1.20.10",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "lc:scpdy_wrench"
+		},
+		"tags": ["crafting_table", "dystopia_craftbench", "scpdy_workbench"],
+		"pattern": ["I I", " G ", "I I"],
+		"key": {
+			"I": {
+				"item": "minecraft:iron_ingot"
+			},
+			"G": {
+				"item": "minecraft:gold_ingot"
+			}
+		},
+		"unlock": [
+			{
+				"item": "minecraft:iron_ingot"
+			},
+			{
+				"item": "minecraft:gold_ingot"
+			},
+			{
+				"item": "lc:scpdy_wrench"
+			}
+		],
+		"result": {
+			"item": "lc:scpdy_wrench",
+			"count": 1
+		}
+	}
 }

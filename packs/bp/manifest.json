@@ -1,41 +1,41 @@
 {
-  "format_version": 2,
-  "header": {
-    "description": "§l§cDEVELOPMENT BUILD§r \n§fRequired Experiments: §lBeta APIs§r \n§eIt's not guaranteed that this add-on works on versions other than 1.21.50.",
-    "name": "SCP: Dystopia §cDEV§r",
-    "uuid": "5368765d-325d-42c7-92ac-195e5ea02966",
-    "version": [9999, 9999, 9999],
-    "min_engine_version": [1, 21, 50]
-  },
-  "modules": [
-    {
-      "description": "Behavior pack",
-      "type": "data",
-      "uuid": "c163b8c9-3430-411b-aad8-f01b9dacf99d",
-      "version": [1, 0, 0]
-    },
-    {
-      "description": "Scripts",
-      "language": "javascript",
-      "type": "script",
-      "uuid": "5fa83869-172d-41dc-8fb0-bd98da2e9da6",
-      "version": [1, 0, 0],
-      "entry": "scripts/main.js"
-    }
-  ],
-  "dependencies": [
-    {
-      // Resource pack
-      "uuid": "807f0464-6ecc-42c5-8bc3-9ad7fd5dfb57",
-      "version": [9999, 9999, 9999]
-    },
-    {
-      "module_name": "@minecraft/server",
-      "version": "1.17.0-beta"
-    },
-    {
-      "module_name": "@minecraft/server-ui",
-      "version": "1.3.0"
-    }
-  ]
+	"format_version": 2,
+	"header": {
+		"description": "§l§cDEVELOPMENT BUILD§r \n§fRequired Experiments: §lBeta APIs§r \n§eIt's not guaranteed that this add-on works on versions other than 1.21.50.",
+		"name": "SCP: Dystopia §cDEV§r",
+		"uuid": "5368765d-325d-42c7-92ac-195e5ea02966",
+		"version": [9999, 9999, 9999],
+		"min_engine_version": [1, 21, 50]
+	},
+	"modules": [
+		{
+			"description": "Behavior pack",
+			"type": "data",
+			"uuid": "c163b8c9-3430-411b-aad8-f01b9dacf99d",
+			"version": [1, 0, 0]
+		},
+		{
+			"description": "Scripts",
+			"language": "javascript",
+			"type": "script",
+			"uuid": "5fa83869-172d-41dc-8fb0-bd98da2e9da6",
+			"version": [1, 0, 0],
+			"entry": "scripts/main.js"
+		}
+	],
+	"dependencies": [
+		{
+			// Resource pack
+			"uuid": "807f0464-6ecc-42c5-8bc3-9ad7fd5dfb57",
+			"version": [9999, 9999, 9999]
+		},
+		{
+			"module_name": "@minecraft/server",
+			"version": "1.17.0-beta"
+		},
+		{
+			"module_name": "@minecraft/server-ui",
+			"version": "1.3.0"
+		}
+	]
 }

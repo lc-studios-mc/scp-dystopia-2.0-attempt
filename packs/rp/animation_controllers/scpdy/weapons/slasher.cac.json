@@ -1,181 +1,161 @@
 {
-  "format_version": "1.10.0",
-  "animation_controllers": {
-    "controller.animation.scpdy.weapon.slasher.fp": {
-      "initial_state": "pick",
-      "states": {
-        "pick": {
-          "animations": [
-            "anim.fp.pick"
-          ],
-          "transitions": [
-            {
-              "general": "q.all_animations_finished"
-            },
-            {
-              "swing_1": "v.swing_cd_1"
-            },
-            {
-              "swing_2": "v.swing_cd_2"
-            },
-            {
-              "swing_3": "v.swing_cd_3"
-            },
-            {
-              "charge_start": "v.charge_start_cd"
-            }
-          ]
-        },
-        "general": {
-          "animations": [
-            "anim.fp.general"
-          ],
-          "transitions": [
-            {
-              "pick": "v.pick_cd"
-            },
-            {
-              "swing_1": "v.swing_cd_1"
-            },
-            {
-              "swing_2": "v.swing_cd_2"
-            },
-            {
-              "swing_3": "v.swing_cd_3"
-            },
-            {
-              "charge_start": "v.charge_start_cd"
-            }
-          ]
-        },
-        "swing_1": {
-          "animations": [
-            "anim.fp.swing_1"
-          ],
-          "transitions": [
-            {
-              "pick": "!v.swing_cd_1 || v.pick_cd"
-            },
-            {
-              "swing_2": "v.swing_cd_2"
-            },
-            {
-              "charge_start": "v.charge_start_cd"
-            }
-          ]
-        },
-        "swing_2": {
-          "animations": [
-            "anim.fp.swing_2"
-          ],
-          "transitions": [
-            {
-              "pick": "!v.swing_cd_2 || v.pick_cd"
-            },
-            {
-              "swing_3": "v.swing_cd_3"
-            },
-            {
-              "charge_start": "v.charge_start_cd"
-            }
-          ]
-        },
-        "swing_3": {
-          "animations": [
-            "anim.fp.swing_3"
-          ],
-          "transitions": [
-            {
-              "pick": "!v.swing_cd_3 || v.pick_cd"
-            },
-            {
-              "swing_2": "v.swing_cd_2"
-            },
-            {
-              "charge_start": "v.charge_start_cd"
-            }
-          ]
-        },
-        "charge_start": {
-          "animations": [
-            "anim.fp.charge_start"
-          ],
-          "transitions": [
-            {
-              "pick": "v.charge_cancel_cd || v.pick_cd"
-            },
-            {
-              "charge_hold": "q.all_animations_finished"
-            },
-            {
-              "slash_start": "v.slash_start_cd"
-            }
-          ]
-        },
-        "charge_hold": {
-          "animations": [
-            "anim.fp.charge_hold"
-          ],
-          "transitions": [
-            {
-              "pick": "v.charge_cancel_cd || v.pick_cd"
-            },
-            {
-              "slash_start": "v.slash_start_cd"
-            }
-          ]
-        },
-        "slash_start": {
-          "animations": [
-            "anim.fp.slash_start"
-          ],
-          "transitions": [
-            {
-              "pick": "v.pick_cd"
-            },
-            {
-              "charge_start": "v.charge_start_cd"
-            },
-            {
-              "slash_hold": "v.slash_hold_cd"
-            },
-            {
-              "slash_finish": "v.slash_finish_cd"
-            }
-          ],
-          "blend_transition": 0.17
-        },
-        "slash_hold": {
-          "animations": [
-            "anim.fp.slash_hold"
-          ],
-          "transitions": [
-            {
-              "pick": "v.pick_cd"
-            },
-            {
-              "charge_start": "v.charge_start_cd"
-            },
-            {
-              "slash_finish": "v.slash_finish_cd"
-            }
-          ]
-        },
-        "slash_finish": {
-          "animations": [
-            "anim.fp.slash_finish"
-          ],
-          "transitions": [
-            {
-              "charge_start": "v.charge_start_cd"
-            },
-            {
-              "pick": "q.all_animations_finished || v.pick_cd"
-            }
-          ],
-          "blend_transition": 0.15
-        }
-      }
-    }
-  }
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.scpdy.weapon.slasher.fp": {
+			"initial_state": "pick",
+			"states": {
+				"pick": {
+					"animations": ["anim.fp.pick"],
+					"transitions": [
+						{
+							"general": "q.all_animations_finished"
+						},
+						{
+							"swing_1": "v.swing_cd_1"
+						},
+						{
+							"swing_2": "v.swing_cd_2"
+						},
+						{
+							"swing_3": "v.swing_cd_3"
+						},
+						{
+							"charge_start": "v.charge_start_cd"
+						}
+					]
+				},
+				"general": {
+					"animations": ["anim.fp.general"],
+					"transitions": [
+						{
+							"pick": "v.pick_cd"
+						},
+						{
+							"swing_1": "v.swing_cd_1"
+						},
+						{
+							"swing_2": "v.swing_cd_2"
+						},
+						{
+							"swing_3": "v.swing_cd_3"
+						},
+						{
+							"charge_start": "v.charge_start_cd"
+						}
+					]
+				},
+				"swing_1": {
+					"animations": ["anim.fp.swing_1"],
+					"transitions": [
+						{
+							"pick": "!v.swing_cd_1 || v.pick_cd"
+						},
+						{
+							"swing_2": "v.swing_cd_2"
+						},
+						{
+							"charge_start": "v.charge_start_cd"
+						}
+					]
+				},
+				"swing_2": {
+					"animations": ["anim.fp.swing_2"],
+					"transitions": [
+						{
+							"pick": "!v.swing_cd_2 || v.pick_cd"
+						},
+						{
+							"swing_3": "v.swing_cd_3"
+						},
+						{
+							"charge_start": "v.charge_start_cd"
+						}
+					]
+				},
+				"swing_3": {
+					"animations": ["anim.fp.swing_3"],
+					"transitions": [
+						{
+							"pick": "!v.swing_cd_3 || v.pick_cd"
+						},
+						{
+							"swing_2": "v.swing_cd_2"
+						},
+						{
+							"charge_start": "v.charge_start_cd"
+						}
+					]
+				},
+				"charge_start": {
+					"animations": ["anim.fp.charge_start"],
+					"transitions": [
+						{
+							"pick": "v.charge_cancel_cd || v.pick_cd"
+						},
+						{
+							"charge_hold": "q.all_animations_finished"
+						},
+						{
+							"slash_start": "v.slash_start_cd"
+						}
+					]
+				},
+				"charge_hold": {
+					"animations": ["anim.fp.charge_hold"],
+					"transitions": [
+						{
+							"pick": "v.charge_cancel_cd || v.pick_cd"
+						},
+						{
+							"slash_start": "v.slash_start_cd"
+						}
+					]
+				},
+				"slash_start": {
+					"animations": ["anim.fp.slash_start"],
+					"transitions": [
+						{
+							"pick": "v.pick_cd"
+						},
+						{
+							"charge_start": "v.charge_start_cd"
+						},
+						{
+							"slash_hold": "v.slash_hold_cd"
+						},
+						{
+							"slash_finish": "v.slash_finish_cd"
+						}
+					],
+					"blend_transition": 0.17
+				},
+				"slash_hold": {
+					"animations": ["anim.fp.slash_hold"],
+					"transitions": [
+						{
+							"pick": "v.pick_cd"
+						},
+						{
+							"charge_start": "v.charge_start_cd"
+						},
+						{
+							"slash_finish": "v.slash_finish_cd"
+						}
+					]
+				},
+				"slash_finish": {
+					"animations": ["anim.fp.slash_finish"],
+					"transitions": [
+						{
+							"charge_start": "v.charge_start_cd"
+						},
+						{
+							"pick": "q.all_animations_finished || v.pick_cd"
+						}
+					],
+					"blend_transition": 0.15
+				}
+			}
+		}
+	}
 }

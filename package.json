@@ -1,34 +1,34 @@
 {
-  "name": "scp-dystopia",
-  "scripts": {
-    "typecheck": "npx tsc --noEmit",
-    "dev": "node ./tasks/build.mjs dev -w",
-    "dev-beta": "node ./tasks/build.mjs dev -w -b",
-    "dist": "node ./tasks/build.mjs dist",
-    "del-dev": "node ./tasks/delete.mjs dev",
-    "del-dev-beta": "node ./tasks/delete.mjs dev -b",
-    "del-dist": "node ./tasks/delete.mjs dist",
-    "depcruise": "npx depcruise src"
-  },
-  "private": true,
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lc-studios-mc/scp-dystopia.git"
-  },
-  "author": "Lucked Coronet",
-  "dependencies": {
-    "@minecraft/server": "1.17.0-beta.1.21.51-stable",
-    "@minecraft/server-ui": "1.3.0"
-  },
-  "devDependencies": {
-    "@types/glob": "^8.1.0",
-    "@types/node": "^22.10.5",
-    "chokidar": "^4.0.3",
-    "dependency-cruiser": "^16.8.0",
-    "esbuild": "^0.24.2",
-    "fs-extra": "^11.2.0",
-    "glob": "^11.0.0",
-    "typescript": "^5.7.2",
-    "yargs": "^17.7.2"
-  }
+	"name": "scp-dystopia",
+	"scripts": {
+		"typecheck": "npx tsc --noEmit",
+		"dev": "node ./tasks/build.mjs dev -w",
+		"dev-beta": "node ./tasks/build.mjs dev -w -b",
+		"dist": "node ./tasks/build.mjs dist",
+		"del-dev": "node ./tasks/delete.mjs dev",
+		"del-dev-beta": "node ./tasks/delete.mjs dev -b",
+		"del-dist": "node ./tasks/delete.mjs dist",
+		"depcruise": "npx depcruise src"
+	},
+	"private": true,
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/lc-studios-mc/scp-dystopia.git"
+	},
+	"author": "Lucked Coronet",
+	"dependencies": {
+		"@minecraft/server": "1.17.0-beta.1.21.51-stable",
+		"@minecraft/server-ui": "1.3.0"
+	},
+	"devDependencies": {
+		"@types/glob": "^8.1.0",
+		"@types/node": "^22.10.5",
+		"chokidar": "^4.0.3",
+		"dependency-cruiser": "^16.8.0",
+		"esbuild": "^0.24.2",
+		"fs-extra": "^11.2.0",
+		"glob": "^11.0.0",
+		"typescript": "^5.7.2",
+		"yargs": "^17.7.2"
+	}
 }

@@ -1,21 +1,21 @@
 {
-  "format_version": "1.8.0",
-  "animations": {
-    "animation.scpdy.bp.scp001_proto.attack_trigger": {
-      "animation_length": 1.0,
-      "loop": false,
-      "timeline": {
-        "0.18": ["@s scp001_proto:on_attack"],
-        "0.5": ["@s scp001_proto:on_attack"],
-        "0.9": ["@s scp001_proto:on_finish_melee"]
-      }
-    },
-    "animation.scpdy.bp.scp001_proto.script_update": {
-      "animation_length": 0.4,
-      "loop": true,
-      "timeline": {
-        "0.1": ["/scriptevent scpdy:scp001_proto_script_update"]
-      }
-    }
-  }
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.scpdy.bp.scp001_proto.attack_trigger": {
+			"animation_length": 1.0,
+			"loop": false,
+			"timeline": {
+				"0.18": ["@s scp001_proto:on_attack"],
+				"0.5": ["@s scp001_proto:on_attack"],
+				"0.9": ["@s scp001_proto:on_finish_melee"]
+			}
+		},
+		"animation.scpdy.bp.scp001_proto.script_update": {
+			"animation_length": 0.4,
+			"loop": true,
+			"timeline": {
+				"0.1": ["/scriptevent scpdy:scp001_proto_script_update"]
+			}
+		}
+	}
 }

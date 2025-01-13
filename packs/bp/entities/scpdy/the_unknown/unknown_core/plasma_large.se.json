@@ -1,87 +1,84 @@
 {
-  "format_version": "1.21.40",
-  "minecraft:entity": {
-    "description": {
-      "identifier": "lc:scpdy_unknown_core_plasma_large",
-      "is_spawnable": false,
-      "is_summonable": true,
-      "is_experimental": false,
-      "runtime_identifier": "minecraft:snowball"
-    },
-    "component_groups": {
-      "despawn": {
-        "minecraft:instant_despawn": {}
-      }
-    },
-    "components": {
-      "minecraft:type_family": {
-        "family": ["inanimate", "projectile", "unknown_core_plasma"]
-      },
-      "minecraft:health": {
-        "value": 20,
-        "max": 20
-      },
-      "minecraft:fire_immune": {},
-      "minecraft:collision_box": {
-        "width": 1.0,
-        "height": 1.0
-      },
-      "minecraft:projectile": {
-        "on_hit": {
-          "impact_damage": {
-            "damage": 8,
-            "knockback": false,
-            "semi_random_diff_damage": false,
-            "destroy_on_hit": false
-          },
-          "stick_in_ground": {
-            "shake_time": 0.1
-          }
-        },
-        "ignored_entities": [
-          "lc:scpdy_unknown_core",
-          "lc:scpdy_unknown_zombie"
-        ],
-        "power": 4.0,
-        "gravity": 0.0,
-        "inertia": 1.0,
-        "liquid_inertia": 1,
-        "uncertainty_base": 0,
-        "uncertainty_multiplier": 0,
-        "anchor": 1,
-        "offset": [0, 0, 0],
-        "reflect_on_hurt": false,
-        "catch_fire": false
-      },
-      "minecraft:timer": {
-        "looping": false,
-        "randomInterval": false,
-        "time": 3.0,
-        "time_down_event": {
-          "event": "despawn",
-          "target": "self"
-        }
-      },
-      "minecraft:physics": {},
-      "minecraft:dimension_bound": {},
-      "minecraft:pushable": {
-        "is_pushable": false,
-        "is_pushable_by_piston": false
-      },
-      "minecraft:conditional_bandwidth_optimization": {
-        "default_values": {
-          "max_optimized_distance": 80.0,
-          "max_dropped_ticks": 7,
-          "use_motion_prediction_hints": true
-        }
-      }
-    },
-    "events": {
-      "despawn": {
-        "add": {
-          "component_groups": ["despawn"]
-        }
-      }
-    }
-  }
+	"format_version": "1.21.40",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "lc:scpdy_unknown_core_plasma_large",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false,
+			"runtime_identifier": "minecraft:snowball"
+		},
+		"component_groups": {
+			"despawn": {
+				"minecraft:instant_despawn": {}
+			}
+		},
+		"components": {
+			"minecraft:type_family": {
+				"family": ["inanimate", "projectile", "unknown_core_plasma"]
+			},
+			"minecraft:health": {
+				"value": 20,
+				"max": 20
+			},
+			"minecraft:fire_immune": {},
+			"minecraft:collision_box": {
+				"width": 1.0,
+				"height": 1.0
+			},
+			"minecraft:projectile": {
+				"on_hit": {
+					"impact_damage": {
+						"damage": 8,
+						"knockback": false,
+						"semi_random_diff_damage": false,
+						"destroy_on_hit": false
+					},
+					"stick_in_ground": {
+						"shake_time": 0.1
+					}
+				},
+				"ignored_entities": ["lc:scpdy_unknown_core", "lc:scpdy_unknown_zombie"],
+				"power": 4.0,
+				"gravity": 0.0,
+				"inertia": 1.0,
+				"liquid_inertia": 1,
+				"uncertainty_base": 0,
+				"uncertainty_multiplier": 0,
+				"anchor": 1,
+				"offset": [0, 0, 0],
+				"reflect_on_hurt": false,
+				"catch_fire": false
+			},
+			"minecraft:timer": {
+				"looping": false,
+				"randomInterval": false,
+				"time": 3.0,
+				"time_down_event": {
+					"event": "despawn",
+					"target": "self"
+				}
+			},
+			"minecraft:physics": {},
+			"minecraft:dimension_bound": {},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": false
+			},
+			"minecraft:conditional_bandwidth_optimization": {
+				"default_values": {
+					"max_optimized_distance": 80.0,
+					"max_dropped_ticks": 7,
+					"use_motion_prediction_hints": true
+				}
+			}
+		},
+		"events": {
+			"despawn": {
+				"add": {
+					"component_groups": ["despawn"]
+				}
+			}
+		}
+	}
 }

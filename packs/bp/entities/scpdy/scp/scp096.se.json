@@ -1,505 +1,505 @@
 {
-  "format_version": "1.19.80",
-  "minecraft:entity": {
-    "description": {
-      "identifier": "lc:scpdy_scp096",
-      "is_spawnable": true,
-      "is_summonable": true,
-      "is_experimental": false,
-      "scripts": {
-        "animate": [
-          "ctrl.attack_trigger",
-          "anim.script_update",
-          {
-            "anim.ambient_calm": "q.property('lc:state') == 0"
-          },
-          {
-            "anim.ambient_angry": "q.property('lc:state') == 2 && q.health >= q.max_health - 600"
-          },
-          {
-            "anim.ambient_angry_low": "q.property('lc:state') == 2 && q.health < q.max_health - 600"
-          }
-        ]
-      },
-      "animations": {
-        "ctrl.attack_trigger": "controller.animation.scpdy.bp.scp096.attack_trigger",
-        "anim.attack_trigger": "animation.scpdy.bp.scp096.attack_trigger",
-        "anim.script_update": "animation.scpdy.bp.scp096.script_update",
-        "anim.ambient_calm": "animation.scpdy.bp.scp096.ambient.calm",
-        "anim.ambient_angry": "animation.scpdy.bp.scp096.ambient.angry",
-        "anim.ambient_angry_low": "animation.scpdy.bp.scp096.ambient.angry_low"
-      },
-      "properties": {
-        "lc:state": {
-          "type": "int",
-          "range": [0, 3],
-          "default": 0,
-          "client_sync": true
-        },
-        "lc:is_face_hidden": {
-          "type": "bool",
-          "default": false,
-          "client_sync": true
-        },
-        "lc:chase_body_y_rotation": {
-          "type": "float",
-          "range": [-180.0, 180.0],
-          "default": 0.0,
-          "client_sync": true
-        }
-      }
-    },
-    "component_groups": {
-      "collision_tall": {
-        "minecraft:collision_box": {
-          "width": 0.6,
-          "height": 2.9
-        }
-      },
-      "collision_short": {
-        "minecraft:collision_box": {
-          "width": 0.6,
-          "height": 1.9
-        }
-      },
-      "no_paper_bag": {
-        "minecraft:lookat": {
-          "search_radius": 100.0,
-          "set_target": true,
-          "filters": {
-            "all_of": [
-              {
-                "test": "is_family",
-                "subject": "other",
-                "operator": "!=",
-                "value": "inanimate"
-              },
-              {
-                "test": "is_family",
-                "subject": "other",
-                "operator": "!=",
-                "value": "mtf_epsilon11"
-              },
-              {
-                "test": "is_family",
-                "subject": "other",
-                "operator": "!=",
-                "value": "scpdy_scp096"
-              },
-              {
-                "test": "has_component",
-                "subject": "other",
-                "operator": "!=",
-                "value": "minecraft:projectile"
-              }
-            ]
-          }
-        },
-        "minecraft:type_family": {
-          "family": ["mob", "monster", "hostile_scp", "scp", "scp096", "scpdy_scp096"]
-        }
-      },
-      "paper_bagged": {
-        "minecraft:type_family": {
-          "family": ["mob", "monster", "neutral_scp", "scp", "scp096", "scpdy_scp096"]
-        }
-      },
-      "attacker_dummy": {
-        "minecraft:behavior.delayed_attack": {
-          "priority": 0,
-          "attack_duration": 10.0
-        }
-      },
-      "attacker_real": {
-        "minecraft:behavior.delayed_attack": {
-          "priority": 0,
-          "attack_duration": 0.48,
-          "hit_delay_pct": 0.1,
-          "min_path_time": 0.05,
-          "max_path_time": 0.4,
-          "melee_fov": 360,
-          "path_inner_boundary": 64,
-          "path_outer_boundary": 80,
-          "reach_multiplier": 3.0,
-          "speed_multiplier": 2.0
-        }
-      },
-      "calm": {
-        "minecraft:behavior.random_stroll": {
-          "priority": 6,
-          "speed_multiplier": 0.32
-        },
-        "minecraft:behavior.look_at_player": {
-          "priority": 7,
-          "look_distance": 6.0,
-          "probability": 0.02
-        },
-        "minecraft:behavior.random_look_around": {
-          "priority": 7
-        },
-        "minecraft:on_target_acquired": {
-          "event": "scp096:target_acquired_while_calm",
-          "target": "self"
-        },
-        "minecraft:variable_max_auto_step": {
-          "base_value": 1.0625,
-          "jump_prevented_value": 0.5625
-        }
-      },
-      "triggered_screaming": {
-        "minecraft:timer": {
-          "looping": false,
-          "randomInterval": false,
-          "time": 15.8,
-          "time_down_event": {
-            "event": "scp096:triggered_scream_complete",
-            "target": "self"
-          }
-        }
-      },
-      "angry_looking_for_target": {
-        "minecraft:timer": {
-          "looping": false,
-          "randomInterval": false,
-          "time": 30.0,
-          "time_down_event": {
-            "event": "scp096:start_trying_to_calm",
-            "target": "self"
-          }
-        },
-        "minecraft:behavior.run_around_like_crazy": {
-          "priority": 5,
-          "speed_multiplier": 1.5
-        },
-        "minecraft:behavior.random_look_around": {
-          "priority": 8
-        },
-        "minecraft:on_target_acquired": {
-          "event": "scp096:target_acquired_to_kill",
-          "target": "self"
-        },
-        "minecraft:environment_sensor": {
-          "triggers": [
-            {
-              "filters": {
-                "any_of": [{ "test": "has_target" }]
-              },
-              "event": "scp096:target_acquired_to_kill"
-            }
-          ]
-        },
-        "minecraft:variable_max_auto_step": {
-          "base_value": 1.0625,
-          "jump_prevented_value": 0.5625
-        }
-      },
-      "angry_chasing_target": {
-        "minecraft:on_target_escape": {
-          "event": "scp096:target_lost_while_chasing",
-          "target": "self"
-        },
-        "minecraft:variable_max_auto_step": {
-          "base_value": 2.0625,
-          "jump_prevented_value": 0.5625
-        },
-        "minecraft:body_rotation_blocked": {}
-      },
-      "trying_to_calm": {
-        "minecraft:timer": {
-          "looping": false,
-          "randomInterval": false,
-          "time": 4.7,
-          "time_down_event": {
-            "event": "scp096:become_calm",
-            "target": "self"
-          }
-        },
-        "minecraft:on_target_acquired": {
-          "event": "scp096:interrupt_trying_to_calm",
-          "target": "self"
-        },
-        "minecraft:variable_max_auto_step": {
-          "base_value": 1.0625,
-          "jump_prevented_value": 0.5625
-        }
-      }
-    },
-    "components": {
-      "minecraft:is_hidden_when_invisible": {},
-      "minecraft:knockback_resistance": {
-        "value": 0.5
-      },
-      "minecraft:health": {
-        "value": 114514,
-        "max": 114514
-      },
-      "minecraft:attack": {
-        "damage": 0
-      },
-      "minecraft:follow_range": {
-        "value": 9999,
-        "max": 9999
-      },
-      "minecraft:behavior.hurt_by_target": {
-        "priority": 2
-      },
-      "minecraft:behavior.nearest_attackable_target": {
-        "priority": 1,
-        "must_see": false,
-        "scan_interval": 10,
-        "reselect_targets": true,
-        "target_invisible_multiplier": 1.0,
-        "target_sneak_visibility_multiplier": 1.0,
-        "entity_types": [
-          {
-            "filters": {
-              "all_of": [
-                {
-                  "test": "has_tag",
-                  "subject": "other",
-                  "value": "scp096_1"
-                }
-              ]
-            },
-            "max_dist": 256,
-            "reevaluate_description": true
-          }
-        ]
-      },
-      "minecraft:damage_sensor": {
-        "triggers": [
-          {
-            "cause": "fall",
-            "deals_damage": false
-          }
-        ]
-      },
-      "minecraft:interact": {
-        "interactions": [
-          {
-            "on_interact": {
-              "filters": {
-                "all_of": [
-                  {
-                    "test": "bool_property",
-                    "subject": "self",
-                    "domain": "lc:is_face_hidden",
-                    "value": false
-                  },
-                  {
-                    "test": "is_family",
-                    "subject": "other",
-                    "value": "player"
-                  },
-                  {
-                    "test": "has_equipment",
-                    "domain": "hand",
-                    "subject": "other",
-                    "value": "lc:scpdy_scp096_paper_bag"
-                  }
-                ]
-              },
-              "event": "scp096:equip_paper_bag",
-              "target": "self"
-            },
-            "cooldown": 0.1,
-            "use_item": true,
-            "swing": true,
-            "interact_text": "scpdy.action.interact.scp096.hideFace"
-          },
-          {
-            "on_interact": {
-              "filters": {
-                "all_of": [
-                  {
-                    "test": "bool_property",
-                    "subject": "self",
-                    "domain": "lc:is_face_hidden",
-                    "value": true
-                  },
-                  {
-                    "test": "is_family",
-                    "subject": "other",
-                    "operator": "==",
-                    "value": "player"
-                  }
-                ]
-              },
-              "event": "scp096:remove_paper_bag",
-              "target": "self"
-            },
-            "cooldown": 0.1,
-            "swing": true,
-            "interact_text": "scpdy.action.interact.scp096.removePaperBag",
-            "spawn_items": { "table": "loot_tables/scpdy/entities/remove_scp096_paper_bag.json" }
-          }
-        ]
-      },
-      "minecraft:preferred_path": {
-        "max_fall_blocks": 384
-      },
-      "minecraft:break_blocks": {
-        "breakable_blocks": [
-          "minecraft:iron_door",
-          "minecraft:scaffolding",
-          "minecraft:fence",
-          "minecraft:fence_gate",
-          "minecraft:glass",
-          "minecraft:glass_pane",
-          "minecraft:stained_glass",
-          "minecraft:stained_glass_pane"
-        ]
-      },
-      "minecraft:navigation.generic": {
-        "can_walk": true,
-        "can_swim": true,
-        "can_break_doors": true,
-        "can_path_from_air": true,
-        "can_path_over_lava": true,
-        "can_path_over_water": true,
-        "can_walk_in_lava": true
-      },
-      "minecraft:movement.generic": {
-        "max_turn": 360.0
-      },
-      "minecraft:jump.static": {},
-      "minecraft:can_climb": {},
-      "minecraft:movement": {
-        "value": 0.1
-      },
-      "minecraft:underwater_movement": {
-        "value": 0.12
-      },
-      "minecraft:annotation.break_door": {
-        "break_time": 0.3,
-        "min_difficulty": "easy"
-      },
-      "minecraft:physics": {},
-      "minecraft:pushable": {
-        "is_pushable": true,
-        "is_pushable_by_piston": true
-      },
-      "minecraft:nameable": {},
-      "minecraft:persistent": {}
-    },
-    "events": {
-      "minecraft:entity_spawned": {
-        "add": {
-          "component_groups": ["collision_tall", "no_paper_bag", "attacker_dummy", "calm"]
-        }
-      },
-      "scp096:equip_paper_bag": {
-        "remove": {
-          "component_groups": ["no_paper_bag"]
-        },
-        "add": {
-          "component_groups": ["paper_bagged"]
-        },
-        "set_property": {
-          "lc:is_face_hidden": true
-        }
-      },
-      "scp096:remove_paper_bag": {
-        "remove": {
-          "component_groups": ["paper_bagged"]
-        },
-        "add": {
-          "component_groups": ["no_paper_bag"]
-        },
-        "set_property": {
-          "lc:is_face_hidden": false
-        }
-      },
-      "scp096:target_acquired_while_calm": {
-        "remove": {
-          "component_groups": ["attacker_dummy", "calm"]
-        },
-        "add": {
-          "component_groups": ["triggered_screaming"]
-        },
-        "set_property": {
-          "lc:state": 1
-        }
-      },
-      "scp096:triggered_scream_complete": {
-        "trigger": "scp096:become_angry"
-      },
-      "scp096:become_angry": {
-        "remove": {
-          "component_groups": [
-            "collision_tall",
-            "attacker_dummy",
-            "calm",
-            "triggered_screaming",
-            "angry_chasing_target",
-            "trying_to_calm"
-          ]
-        },
-        "add": {
-          "component_groups": ["collision_short", "attacker_real", "angry_looking_for_target"]
-        },
-        "set_property": {
-          "lc:state": 2
-        }
-      },
-      "scp096:target_acquired_to_kill": {
-        "remove": {
-          "component_groups": ["angry_looking_for_target"]
-        },
-        "add": {
-          "component_groups": ["angry_chasing_target"]
-        }
-      },
-      "scp096:target_lost_while_chasing": {
-        "remove": {
-          "component_groups": ["angry_chasing_target"]
-        },
-        "add": {
-          "component_groups": ["angry_looking_for_target"]
-        }
-      },
-      "scp096:start_trying_to_calm": {
-        "remove": {
-          "component_groups": ["angry_chasing_target", "angry_looking_for_target"]
-        },
-        "add": {
-          "component_groups": ["trying_to_calm"]
-        },
-        "set_property": {
-          "lc:state": 3
-        }
-      },
-      "scp096:interrupt_trying_to_calm": {
-        "trigger": "scp096:become_angry"
-      },
-      "scp096:become_calm": {
-        "remove": {
-          "component_groups": [
-            "collision_short",
-            "attacker_real",
-            "triggered_screaming",
-            "angry_looking_for_target",
-            "angry_chasing_target",
-            "trying_to_calm"
-          ]
-        },
-        "add": {
-          "component_groups": ["collision_tall", "attacker_dummy", "calm"]
-        },
-        "set_property": {
-          "lc:state": 0
-        }
-      },
-      "scp096:spawn_angry": {
-        "add": {
-          "component_groups": ["collision_short", "attacker_real", "angry_looking_for_target"]
-        },
-        "set_property": {
-          "lc:state": 2
-        }
-      },
-      "scp096:on_attack": {},
-      "scp096:force_remove": {}
-    }
-  }
+	"format_version": "1.19.80",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "lc:scpdy_scp096",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false,
+			"scripts": {
+				"animate": [
+					"ctrl.attack_trigger",
+					"anim.script_update",
+					{
+						"anim.ambient_calm": "q.property('lc:state') == 0"
+					},
+					{
+						"anim.ambient_angry": "q.property('lc:state') == 2 && q.health >= q.max_health - 600"
+					},
+					{
+						"anim.ambient_angry_low": "q.property('lc:state') == 2 && q.health < q.max_health - 600"
+					}
+				]
+			},
+			"animations": {
+				"ctrl.attack_trigger": "controller.animation.scpdy.bp.scp096.attack_trigger",
+				"anim.attack_trigger": "animation.scpdy.bp.scp096.attack_trigger",
+				"anim.script_update": "animation.scpdy.bp.scp096.script_update",
+				"anim.ambient_calm": "animation.scpdy.bp.scp096.ambient.calm",
+				"anim.ambient_angry": "animation.scpdy.bp.scp096.ambient.angry",
+				"anim.ambient_angry_low": "animation.scpdy.bp.scp096.ambient.angry_low"
+			},
+			"properties": {
+				"lc:state": {
+					"type": "int",
+					"range": [0, 3],
+					"default": 0,
+					"client_sync": true
+				},
+				"lc:is_face_hidden": {
+					"type": "bool",
+					"default": false,
+					"client_sync": true
+				},
+				"lc:chase_body_y_rotation": {
+					"type": "float",
+					"range": [-180.0, 180.0],
+					"default": 0.0,
+					"client_sync": true
+				}
+			}
+		},
+		"component_groups": {
+			"collision_tall": {
+				"minecraft:collision_box": {
+					"width": 0.6,
+					"height": 2.9
+				}
+			},
+			"collision_short": {
+				"minecraft:collision_box": {
+					"width": 0.6,
+					"height": 1.9
+				}
+			},
+			"no_paper_bag": {
+				"minecraft:lookat": {
+					"search_radius": 100.0,
+					"set_target": true,
+					"filters": {
+						"all_of": [
+							{
+								"test": "is_family",
+								"subject": "other",
+								"operator": "!=",
+								"value": "inanimate"
+							},
+							{
+								"test": "is_family",
+								"subject": "other",
+								"operator": "!=",
+								"value": "mtf_epsilon11"
+							},
+							{
+								"test": "is_family",
+								"subject": "other",
+								"operator": "!=",
+								"value": "scpdy_scp096"
+							},
+							{
+								"test": "has_component",
+								"subject": "other",
+								"operator": "!=",
+								"value": "minecraft:projectile"
+							}
+						]
+					}
+				},
+				"minecraft:type_family": {
+					"family": ["mob", "monster", "hostile_scp", "scp", "scp096", "scpdy_scp096"]
+				}
+			},
+			"paper_bagged": {
+				"minecraft:type_family": {
+					"family": ["mob", "monster", "neutral_scp", "scp", "scp096", "scpdy_scp096"]
+				}
+			},
+			"attacker_dummy": {
+				"minecraft:behavior.delayed_attack": {
+					"priority": 0,
+					"attack_duration": 10.0
+				}
+			},
+			"attacker_real": {
+				"minecraft:behavior.delayed_attack": {
+					"priority": 0,
+					"attack_duration": 0.48,
+					"hit_delay_pct": 0.1,
+					"min_path_time": 0.05,
+					"max_path_time": 0.4,
+					"melee_fov": 360,
+					"path_inner_boundary": 64,
+					"path_outer_boundary": 80,
+					"reach_multiplier": 3.0,
+					"speed_multiplier": 2.0
+				}
+			},
+			"calm": {
+				"minecraft:behavior.random_stroll": {
+					"priority": 6,
+					"speed_multiplier": 0.32
+				},
+				"minecraft:behavior.look_at_player": {
+					"priority": 7,
+					"look_distance": 6.0,
+					"probability": 0.02
+				},
+				"minecraft:behavior.random_look_around": {
+					"priority": 7
+				},
+				"minecraft:on_target_acquired": {
+					"event": "scp096:target_acquired_while_calm",
+					"target": "self"
+				},
+				"minecraft:variable_max_auto_step": {
+					"base_value": 1.0625,
+					"jump_prevented_value": 0.5625
+				}
+			},
+			"triggered_screaming": {
+				"minecraft:timer": {
+					"looping": false,
+					"randomInterval": false,
+					"time": 15.8,
+					"time_down_event": {
+						"event": "scp096:triggered_scream_complete",
+						"target": "self"
+					}
+				}
+			},
+			"angry_looking_for_target": {
+				"minecraft:timer": {
+					"looping": false,
+					"randomInterval": false,
+					"time": 30.0,
+					"time_down_event": {
+						"event": "scp096:start_trying_to_calm",
+						"target": "self"
+					}
+				},
+				"minecraft:behavior.run_around_like_crazy": {
+					"priority": 5,
+					"speed_multiplier": 1.5
+				},
+				"minecraft:behavior.random_look_around": {
+					"priority": 8
+				},
+				"minecraft:on_target_acquired": {
+					"event": "scp096:target_acquired_to_kill",
+					"target": "self"
+				},
+				"minecraft:environment_sensor": {
+					"triggers": [
+						{
+							"filters": {
+								"any_of": [{ "test": "has_target" }]
+							},
+							"event": "scp096:target_acquired_to_kill"
+						}
+					]
+				},
+				"minecraft:variable_max_auto_step": {
+					"base_value": 1.0625,
+					"jump_prevented_value": 0.5625
+				}
+			},
+			"angry_chasing_target": {
+				"minecraft:on_target_escape": {
+					"event": "scp096:target_lost_while_chasing",
+					"target": "self"
+				},
+				"minecraft:variable_max_auto_step": {
+					"base_value": 2.0625,
+					"jump_prevented_value": 0.5625
+				},
+				"minecraft:body_rotation_blocked": {}
+			},
+			"trying_to_calm": {
+				"minecraft:timer": {
+					"looping": false,
+					"randomInterval": false,
+					"time": 4.7,
+					"time_down_event": {
+						"event": "scp096:become_calm",
+						"target": "self"
+					}
+				},
+				"minecraft:on_target_acquired": {
+					"event": "scp096:interrupt_trying_to_calm",
+					"target": "self"
+				},
+				"minecraft:variable_max_auto_step": {
+					"base_value": 1.0625,
+					"jump_prevented_value": 0.5625
+				}
+			}
+		},
+		"components": {
+			"minecraft:is_hidden_when_invisible": {},
+			"minecraft:knockback_resistance": {
+				"value": 0.5
+			},
+			"minecraft:health": {
+				"value": 114514,
+				"max": 114514
+			},
+			"minecraft:attack": {
+				"damage": 0
+			},
+			"minecraft:follow_range": {
+				"value": 9999,
+				"max": 9999
+			},
+			"minecraft:behavior.hurt_by_target": {
+				"priority": 2
+			},
+			"minecraft:behavior.nearest_attackable_target": {
+				"priority": 1,
+				"must_see": false,
+				"scan_interval": 10,
+				"reselect_targets": true,
+				"target_invisible_multiplier": 1.0,
+				"target_sneak_visibility_multiplier": 1.0,
+				"entity_types": [
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "has_tag",
+									"subject": "other",
+									"value": "scp096_1"
+								}
+							]
+						},
+						"max_dist": 256,
+						"reevaluate_description": true
+					}
+				]
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "fall",
+						"deals_damage": false
+					}
+				]
+			},
+			"minecraft:interact": {
+				"interactions": [
+					{
+						"on_interact": {
+							"filters": {
+								"all_of": [
+									{
+										"test": "bool_property",
+										"subject": "self",
+										"domain": "lc:is_face_hidden",
+										"value": false
+									},
+									{
+										"test": "is_family",
+										"subject": "other",
+										"value": "player"
+									},
+									{
+										"test": "has_equipment",
+										"domain": "hand",
+										"subject": "other",
+										"value": "lc:scpdy_scp096_paper_bag"
+									}
+								]
+							},
+							"event": "scp096:equip_paper_bag",
+							"target": "self"
+						},
+						"cooldown": 0.1,
+						"use_item": true,
+						"swing": true,
+						"interact_text": "scpdy.action.interact.scp096.hideFace"
+					},
+					{
+						"on_interact": {
+							"filters": {
+								"all_of": [
+									{
+										"test": "bool_property",
+										"subject": "self",
+										"domain": "lc:is_face_hidden",
+										"value": true
+									},
+									{
+										"test": "is_family",
+										"subject": "other",
+										"operator": "==",
+										"value": "player"
+									}
+								]
+							},
+							"event": "scp096:remove_paper_bag",
+							"target": "self"
+						},
+						"cooldown": 0.1,
+						"swing": true,
+						"interact_text": "scpdy.action.interact.scp096.removePaperBag",
+						"spawn_items": { "table": "loot_tables/scpdy/entities/remove_scp096_paper_bag.json" }
+					}
+				]
+			},
+			"minecraft:preferred_path": {
+				"max_fall_blocks": 384
+			},
+			"minecraft:break_blocks": {
+				"breakable_blocks": [
+					"minecraft:iron_door",
+					"minecraft:scaffolding",
+					"minecraft:fence",
+					"minecraft:fence_gate",
+					"minecraft:glass",
+					"minecraft:glass_pane",
+					"minecraft:stained_glass",
+					"minecraft:stained_glass_pane"
+				]
+			},
+			"minecraft:navigation.generic": {
+				"can_walk": true,
+				"can_swim": true,
+				"can_break_doors": true,
+				"can_path_from_air": true,
+				"can_path_over_lava": true,
+				"can_path_over_water": true,
+				"can_walk_in_lava": true
+			},
+			"minecraft:movement.generic": {
+				"max_turn": 360.0
+			},
+			"minecraft:jump.static": {},
+			"minecraft:can_climb": {},
+			"minecraft:movement": {
+				"value": 0.1
+			},
+			"minecraft:underwater_movement": {
+				"value": 0.12
+			},
+			"minecraft:annotation.break_door": {
+				"break_time": 0.3,
+				"min_difficulty": "easy"
+			},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:nameable": {},
+			"minecraft:persistent": {}
+		},
+		"events": {
+			"minecraft:entity_spawned": {
+				"add": {
+					"component_groups": ["collision_tall", "no_paper_bag", "attacker_dummy", "calm"]
+				}
+			},
+			"scp096:equip_paper_bag": {
+				"remove": {
+					"component_groups": ["no_paper_bag"]
+				},
+				"add": {
+					"component_groups": ["paper_bagged"]
+				},
+				"set_property": {
+					"lc:is_face_hidden": true
+				}
+			},
+			"scp096:remove_paper_bag": {
+				"remove": {
+					"component_groups": ["paper_bagged"]
+				},
+				"add": {
+					"component_groups": ["no_paper_bag"]
+				},
+				"set_property": {
+					"lc:is_face_hidden": false
+				}
+			},
+			"scp096:target_acquired_while_calm": {
+				"remove": {
+					"component_groups": ["attacker_dummy", "calm"]
+				},
+				"add": {
+					"component_groups": ["triggered_screaming"]
+				},
+				"set_property": {
+					"lc:state": 1
+				}
+			},
+			"scp096:triggered_scream_complete": {
+				"trigger": "scp096:become_angry"
+			},
+			"scp096:become_angry": {
+				"remove": {
+					"component_groups": [
+						"collision_tall",
+						"attacker_dummy",
+						"calm",
+						"triggered_screaming",
+						"angry_chasing_target",
+						"trying_to_calm"
+					]
+				},
+				"add": {
+					"component_groups": ["collision_short", "attacker_real", "angry_looking_for_target"]
+				},
+				"set_property": {
+					"lc:state": 2
+				}
+			},
+			"scp096:target_acquired_to_kill": {
+				"remove": {
+					"component_groups": ["angry_looking_for_target"]
+				},
+				"add": {
+					"component_groups": ["angry_chasing_target"]
+				}
+			},
+			"scp096:target_lost_while_chasing": {
+				"remove": {
+					"component_groups": ["angry_chasing_target"]
+				},
+				"add": {
+					"component_groups": ["angry_looking_for_target"]
+				}
+			},
+			"scp096:start_trying_to_calm": {
+				"remove": {
+					"component_groups": ["angry_chasing_target", "angry_looking_for_target"]
+				},
+				"add": {
+					"component_groups": ["trying_to_calm"]
+				},
+				"set_property": {
+					"lc:state": 3
+				}
+			},
+			"scp096:interrupt_trying_to_calm": {
+				"trigger": "scp096:become_angry"
+			},
+			"scp096:become_calm": {
+				"remove": {
+					"component_groups": [
+						"collision_short",
+						"attacker_real",
+						"triggered_screaming",
+						"angry_looking_for_target",
+						"angry_chasing_target",
+						"trying_to_calm"
+					]
+				},
+				"add": {
+					"component_groups": ["collision_tall", "attacker_dummy", "calm"]
+				},
+				"set_property": {
+					"lc:state": 0
+				}
+			},
+			"scp096:spawn_angry": {
+				"add": {
+					"component_groups": ["collision_short", "attacker_real", "angry_looking_for_target"]
+				},
+				"set_property": {
+					"lc:state": 2
+				}
+			},
+			"scp096:on_attack": {},
+			"scp096:force_remove": {}
+		}
+	}
 }

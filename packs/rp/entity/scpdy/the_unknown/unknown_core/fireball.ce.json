@@ -1,32 +1,29 @@
 {
-  "format_version": "1.10.0",
-  "minecraft:client_entity": {
-    "description": {
-      "identifier": "lc:scpdy_unknown_core_fireball",
-      "materials": {
-        "default": "entity"
-      },
-      "textures": {
-        "default": "textures/blocks/missing_tile"
-      },
-      "geometry": {
-        "default": "geometry.scpdy_unknown_core_fireball"
-      },
-      "animations": {
-        // Animations
-        "anim.particle": "animation.scpdy_unknown_core_fireball.particle",
-        "anim.general": "animation.scpdy_unknown_core_fireball.general"
-      },
-      "scripts": {
-        "animate": [
-          "anim.general",
-          "anim.particle"
-        ]
-      },
-      "particle_effects": {
-        "spell": "lc:scpdy_unknown_core_fireball_spell_emitter"
-      },
-      "render_controllers": ["controller.render.scpdy.unknown_core_fireball"]
-    }
-  }
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "lc:scpdy_unknown_core_fireball",
+			"materials": {
+				"default": "entity"
+			},
+			"textures": {
+				"default": "textures/blocks/missing_tile"
+			},
+			"geometry": {
+				"default": "geometry.scpdy_unknown_core_fireball"
+			},
+			"animations": {
+				// Animations
+				"anim.particle": "animation.scpdy_unknown_core_fireball.particle",
+				"anim.general": "animation.scpdy_unknown_core_fireball.general"
+			},
+			"scripts": {
+				"animate": ["anim.general", "anim.particle"]
+			},
+			"particle_effects": {
+				"spell": "lc:scpdy_unknown_core_fireball_spell_emitter"
+			},
+			"render_controllers": ["controller.render.scpdy.unknown_core_fireball"]
+		}
+	}
 }

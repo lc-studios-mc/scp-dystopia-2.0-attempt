@@ -1,366 +1,320 @@
 {
-  "format_version": "1.10.0",
-  "animation_controllers": {
-    "controller.animation.scpdy.bp.unknown_core.main": {
-      "initial_state": "default",
-      "states": {
-        "default": {
-          "transitions": [
-            {
-              "s1": "q.property('lc:stage') == 1"
-            },
-            {
-              "s2": "q.property('lc:stage') == 2"
-            },
-            {
-              "s3": "q.property('lc:stage') == 3"
-            }
-          ]
-        },
-        "s1": {
-          "animations": [
-            "ctrl.s1"
-          ],
-          "transitions": [
-            {
-              "s2": "q.property('lc:stage') == 2"
-            },
-            {
-              "s3": "q.property('lc:stage') == 3"
-            }
-          ]
-        },
-        "s2": {
-          "animations": [
-            "ctrl.s2"
-          ],
-          "transitions": [
-            {
-              "s1": "q.property('lc:stage') == 1"
-            },
-            {
-              "s3": "q.property('lc:stage') == 3"
-            }
-          ]
-        },
-        "s3": {
-          "animations": [
-            "ctrl.s3"
-          ],
-          "transitions": [
-            {
-              "s1": "q.property('lc:stage') == 1"
-            },
-            {
-              "s2": "q.property('lc:stage') == 2"
-            }
-          ]
-        }
-      }
-    },
-    "controller.animation.scpdy.bp.unknown_core.s1": {
-      "initial_state": "general",
-      "states": {
-        "general": {
-          "animations": [
-            "anim.s1.general"
-          ],
-          "transitions": [
-            {
-              "fireball": "q.property('lc:s1_state') == 10"
-            },
-            {
-              "shield": "q.property('lc:s1_state') == 20"
-            },
-            {
-              "to_s2": "q.property('lc:s1_state') == 100"
-            }
-          ]
-        },
-        "fireball": {
-          "animations": [
-            "anim.s1.fireball"
-          ],
-          "transitions": [
-            {
-              "general": "q.property('lc:s1_state') == 0"
-            },
-            {
-              "to_s2": "q.property('lc:s1_state') == 100"
-            }
-          ]
-        },
-        "shield": {
-          "animations": [
-            "anim.s1.shield"
-          ],
-          "transitions": [
-            {
-              "general": "q.property('lc:s1_state') == 0"
-            },
-            {
-              "to_s2": "q.property('lc:s1_state') == 100"
-            }
-          ]
-        },
-        "to_s2": {
-          "animations": [
-            "anim.s1.to_s2"
-          ]
-        }
-      }
-    },
-    "controller.animation.scpdy.bp.unknown_core.s2": {
-      "initial_state": "general",
-      "states": {
-        "general": {
-          "animations": [
-            "anim.s2.general"
-          ],
-          "transitions": [
-            {
-              "plasma_rapid": "q.property('lc:s2_state') == 10"
-            },
-            {
-              "plasma_powerful": "q.property('lc:s2_state') == 20"
-            },
-            {
-              "summon_allies": "q.property('lc:s2_state') == 30"
-            },
-            {
-              "expose_eye": "q.property('lc:s2_state') == 40"
-            },
-            {
-              "to_s3": "q.property('lc:s2_state') == 100"
-            }
-          ]
-        },
-        "plasma_rapid": {
-          "animations": [
-            "anim.s2.plasma_rapid"
-          ],
-          "transitions": [
-            {
-              "general": "q.property('lc:s2_state') == 0"
-            },
-            {
-              "to_s3": "q.property('lc:s2_state') == 100"
-            }
-          ]
-        },
-        "plasma_powerful": {
-          "animations": [
-            "anim.s2.plasma_powerful"
-          ],
-          "transitions": [
-            {
-              "general": "q.property('lc:s2_state') == 0"
-            },
-            {
-              "to_s3": "q.property('lc:s2_state') == 100"
-            }
-          ]
-        },
-        "summon_allies": {
-          "animations": [
-            "anim.s2.summon_allies"
-          ],
-          "transitions": [
-            {
-              "general": "q.property('lc:s2_state') == 0"
-            },
-            {
-              "to_s3": "q.property('lc:s2_state') == 100"
-            }
-          ]
-        },
-        "expose_eye": {
-          "animations": [
-            "anim.s2.expose_eye"
-          ],
-          "transitions": [
-            {
-              "general": "q.property('lc:s2_state') == 0"
-            },
-            {
-              "to_s3": "q.property('lc:s2_state') == 100"
-            }
-          ]
-        },
-        "to_s3": {
-          "animations": [
-            "anim.s2.to_s3"
-          ]
-        }
-      }
-    },
-    "controller.animation.scpdy.bp.unknown_core.s3": {
-      "initial_state": "general",
-      "states": {
-        "general": {
-          "animations": [
-            "anim.s3.general"
-          ],
-          "transitions": [
-            {
-              "sword_slash_1": "q.property('lc:s3_state') == 10"
-            },
-            {
-              "sword_slash_2": "q.property('lc:s3_state') == 20"
-            },
-            {
-              "fireball": "q.property('lc:s3_state') == 30"
-            },
-            {
-              "expose_eye": "q.property('lc:s3_state') == 40"
-            },
-            {
-              "fire_meteorites": "q.property('lc:s3_state') == 50"
-            },
-            {
-              "summon_allies": "q.property('lc:s3_state') == 60"
-            },
-            {
-              "heal": "q.property('lc:s3_state') == 70"
-            },
-            {
-              "plasma_ultra": "q.property('lc:s3_state') == 80"
-            },
-            {
-              "defeat": "q.property('lc:s3_state') == 100"
-            }
-          ]
-        },
-        "sword_slash_1": {
-          "animations": [
-            "anim.s3.sword_slash_1"
-          ],
-          "transitions": [
-            {
-              "general": "q.property('lc:s3_state') == 0"
-            },
-            {
-              "defeat": "q.property('lc:s3_state') == 100"
-            }
-          ]
-        },
-        "sword_slash_2": {
-          "animations": [
-            "anim.s3.sword_slash_2"
-          ],
-          "transitions": [
-            {
-              "general": "q.property('lc:s3_state') == 0"
-            },
-            {
-              "defeat": "q.property('lc:s3_state') == 100"
-            }
-          ]
-        },
-        "fireball": {
-          "animations": [
-            "anim.s3.fireball"
-          ],
-          "transitions": [
-            {
-              "general": "q.property('lc:s3_state') == 0"
-            },
-            {
-              "defeat": "q.property('lc:s3_state') == 100"
-            }
-          ]
-        },
-        "expose_eye": {
-          "animations": [
-            "anim.s3.expose_eye"
-          ],
-          "transitions": [
-            {
-              "general": "q.property('lc:s3_state') == 0"
-            },
-            {
-              "defeat": "q.property('lc:s3_state') == 100"
-            }
-          ]
-        },
-        "fire_meteorites": {
-          "animations": [
-            "anim.s3.fire_meteorites"
-          ],
-          "transitions": [
-            {
-              "general": "q.property('lc:s3_state') == 0"
-            },
-            {
-              "defeat": "q.property('lc:s3_state') == 100"
-            }
-          ]
-        },
-        "summon_allies": {
-          "animations": [
-            "anim.s3.summon_allies"
-          ],
-          "transitions": [
-            {
-              "general": "q.property('lc:s3_state') == 0"
-            },
-            {
-              "defeat": "q.property('lc:s3_state') == 100"
-            }
-          ]
-        },
-        "heal": {
-          "animations": [
-            "anim.s3.heal"
-          ],
-          "transitions": [
-            {
-              "general": "q.property('lc:s3_state') == 0"
-            },
-            {
-              "defeat": "q.property('lc:s3_state') == 100"
-            }
-          ]
-        },
-        "plasma_ultra": {
-          "animations": [
-            "anim.s3.plasma_ultra"
-          ],
-          "transitions": [
-            {
-              "general": "q.property('lc:s3_state') == 0"
-            },
-            {
-              "defeat": "q.property('lc:s3_state') == 100"
-            }
-          ]
-        },
-        "defeat": {
-          "animations": [
-            "anim.s3.defeat"
-          ]
-        }
-      }
-    },
-    "controller.animation.scpdy.bp.unknown_core.script_update": {
-      "initial_state": "default",
-      "states": {
-        "default": {
-          "transitions": [
-            {
-              "tick": "q.property('lc:update_script')"
-            }
-          ]
-        },
-        "tick": {
-          "animations": ["anim.script_update"],
-          "transitions": [
-            {
-              "default": "!q.property('lc:update_script')"
-            }
-          ]
-        }
-      }      
-    }
-  }
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.scpdy.bp.unknown_core.main": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"s1": "q.property('lc:stage') == 1"
+						},
+						{
+							"s2": "q.property('lc:stage') == 2"
+						},
+						{
+							"s3": "q.property('lc:stage') == 3"
+						}
+					]
+				},
+				"s1": {
+					"animations": ["ctrl.s1"],
+					"transitions": [
+						{
+							"s2": "q.property('lc:stage') == 2"
+						},
+						{
+							"s3": "q.property('lc:stage') == 3"
+						}
+					]
+				},
+				"s2": {
+					"animations": ["ctrl.s2"],
+					"transitions": [
+						{
+							"s1": "q.property('lc:stage') == 1"
+						},
+						{
+							"s3": "q.property('lc:stage') == 3"
+						}
+					]
+				},
+				"s3": {
+					"animations": ["ctrl.s3"],
+					"transitions": [
+						{
+							"s1": "q.property('lc:stage') == 1"
+						},
+						{
+							"s2": "q.property('lc:stage') == 2"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.scpdy.bp.unknown_core.s1": {
+			"initial_state": "general",
+			"states": {
+				"general": {
+					"animations": ["anim.s1.general"],
+					"transitions": [
+						{
+							"fireball": "q.property('lc:s1_state') == 10"
+						},
+						{
+							"shield": "q.property('lc:s1_state') == 20"
+						},
+						{
+							"to_s2": "q.property('lc:s1_state') == 100"
+						}
+					]
+				},
+				"fireball": {
+					"animations": ["anim.s1.fireball"],
+					"transitions": [
+						{
+							"general": "q.property('lc:s1_state') == 0"
+						},
+						{
+							"to_s2": "q.property('lc:s1_state') == 100"
+						}
+					]
+				},
+				"shield": {
+					"animations": ["anim.s1.shield"],
+					"transitions": [
+						{
+							"general": "q.property('lc:s1_state') == 0"
+						},
+						{
+							"to_s2": "q.property('lc:s1_state') == 100"
+						}
+					]
+				},
+				"to_s2": {
+					"animations": ["anim.s1.to_s2"]
+				}
+			}
+		},
+		"controller.animation.scpdy.bp.unknown_core.s2": {
+			"initial_state": "general",
+			"states": {
+				"general": {
+					"animations": ["anim.s2.general"],
+					"transitions": [
+						{
+							"plasma_rapid": "q.property('lc:s2_state') == 10"
+						},
+						{
+							"plasma_powerful": "q.property('lc:s2_state') == 20"
+						},
+						{
+							"summon_allies": "q.property('lc:s2_state') == 30"
+						},
+						{
+							"expose_eye": "q.property('lc:s2_state') == 40"
+						},
+						{
+							"to_s3": "q.property('lc:s2_state') == 100"
+						}
+					]
+				},
+				"plasma_rapid": {
+					"animations": ["anim.s2.plasma_rapid"],
+					"transitions": [
+						{
+							"general": "q.property('lc:s2_state') == 0"
+						},
+						{
+							"to_s3": "q.property('lc:s2_state') == 100"
+						}
+					]
+				},
+				"plasma_powerful": {
+					"animations": ["anim.s2.plasma_powerful"],
+					"transitions": [
+						{
+							"general": "q.property('lc:s2_state') == 0"
+						},
+						{
+							"to_s3": "q.property('lc:s2_state') == 100"
+						}
+					]
+				},
+				"summon_allies": {
+					"animations": ["anim.s2.summon_allies"],
+					"transitions": [
+						{
+							"general": "q.property('lc:s2_state') == 0"
+						},
+						{
+							"to_s3": "q.property('lc:s2_state') == 100"
+						}
+					]
+				},
+				"expose_eye": {
+					"animations": ["anim.s2.expose_eye"],
+					"transitions": [
+						{
+							"general": "q.property('lc:s2_state') == 0"
+						},
+						{
+							"to_s3": "q.property('lc:s2_state') == 100"
+						}
+					]
+				},
+				"to_s3": {
+					"animations": ["anim.s2.to_s3"]
+				}
+			}
+		},
+		"controller.animation.scpdy.bp.unknown_core.s3": {
+			"initial_state": "general",
+			"states": {
+				"general": {
+					"animations": ["anim.s3.general"],
+					"transitions": [
+						{
+							"sword_slash_1": "q.property('lc:s3_state') == 10"
+						},
+						{
+							"sword_slash_2": "q.property('lc:s3_state') == 20"
+						},
+						{
+							"fireball": "q.property('lc:s3_state') == 30"
+						},
+						{
+							"expose_eye": "q.property('lc:s3_state') == 40"
+						},
+						{
+							"fire_meteorites": "q.property('lc:s3_state') == 50"
+						},
+						{
+							"summon_allies": "q.property('lc:s3_state') == 60"
+						},
+						{
+							"heal": "q.property('lc:s3_state') == 70"
+						},
+						{
+							"plasma_ultra": "q.property('lc:s3_state') == 80"
+						},
+						{
+							"defeat": "q.property('lc:s3_state') == 100"
+						}
+					]
+				},
+				"sword_slash_1": {
+					"animations": ["anim.s3.sword_slash_1"],
+					"transitions": [
+						{
+							"general": "q.property('lc:s3_state') == 0"
+						},
+						{
+							"defeat": "q.property('lc:s3_state') == 100"
+						}
+					]
+				},
+				"sword_slash_2": {
+					"animations": ["anim.s3.sword_slash_2"],
+					"transitions": [
+						{
+							"general": "q.property('lc:s3_state') == 0"
+						},
+						{
+							"defeat": "q.property('lc:s3_state') == 100"
+						}
+					]
+				},
+				"fireball": {
+					"animations": ["anim.s3.fireball"],
+					"transitions": [
+						{
+							"general": "q.property('lc:s3_state') == 0"
+						},
+						{
+							"defeat": "q.property('lc:s3_state') == 100"
+						}
+					]
+				},
+				"expose_eye": {
+					"animations": ["anim.s3.expose_eye"],
+					"transitions": [
+						{
+							"general": "q.property('lc:s3_state') == 0"
+						},
+						{
+							"defeat": "q.property('lc:s3_state') == 100"
+						}
+					]
+				},
+				"fire_meteorites": {
+					"animations": ["anim.s3.fire_meteorites"],
+					"transitions": [
+						{
+							"general": "q.property('lc:s3_state') == 0"
+						},
+						{
+							"defeat": "q.property('lc:s3_state') == 100"
+						}
+					]
+				},
+				"summon_allies": {
+					"animations": ["anim.s3.summon_allies"],
+					"transitions": [
+						{
+							"general": "q.property('lc:s3_state') == 0"
+						},
+						{
+							"defeat": "q.property('lc:s3_state') == 100"
+						}
+					]
+				},
+				"heal": {
+					"animations": ["anim.s3.heal"],
+					"transitions": [
+						{
+							"general": "q.property('lc:s3_state') == 0"
+						},
+						{
+							"defeat": "q.property('lc:s3_state') == 100"
+						}
+					]
+				},
+				"plasma_ultra": {
+					"animations": ["anim.s3.plasma_ultra"],
+					"transitions": [
+						{
+							"general": "q.property('lc:s3_state') == 0"
+						},
+						{
+							"defeat": "q.property('lc:s3_state') == 100"
+						}
+					]
+				},
+				"defeat": {
+					"animations": ["anim.s3.defeat"]
+				}
+			}
+		},
+		"controller.animation.scpdy.bp.unknown_core.script_update": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"tick": "q.property('lc:update_script')"
+						}
+					]
+				},
+				"tick": {
+					"animations": ["anim.script_update"],
+					"transitions": [
+						{
+							"default": "!q.property('lc:update_script')"
+						}
+					]
+				}
+			}
+		}
+	}
 }

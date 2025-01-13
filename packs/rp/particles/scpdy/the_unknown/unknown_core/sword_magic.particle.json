@@ -13,7 +13,7 @@
 				"spawn_rate": 7,
 				"max_particles": 100
 			},
-      "minecraft:emitter_local_space": {
+			"minecraft:emitter_local_space": {
 				"position": false,
 				"rotation": false
 			},

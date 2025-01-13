@@ -1,83 +1,79 @@
 {
-  "format_version": "1.10.0",
-  "animation_controllers": {
-    "controller.animation.scpdy.bp.blast_door.main": {
-      "initial_state": "default",
-      "states": {
-        "default": {
-          "transitions": [
-            {
-              "stay_opened": "q.property('lc:is_open')"
-            },
-            {
-              "stay_closed": "!q.property('lc:is_open')"
-            }
-          ]
-        },
-        "stay_closed": {
-          "on_entry": [
-            "/scriptevent scpdy:blast_door_update_location_lock",
-            "/fill ^2 ^2 ^0  ^-2 ^0 ^0 lc:scpdy_blast_door_dummy replace air"
-          ],
-          "transitions": [
-            {
-              "opening": "q.property('lc:is_open')"
-            }
-          ]
-        },
-        "stay_opened": {
-          "on_entry": [
-            "/scriptevent scpdy:blast_door_update_location_lock",
-            "/fill ^2 ^2 ^0  ^-2 ^0 ^0 air replace lc:scpdy_blast_door_dummy"
-          ],
-          "transitions": [
-            {
-              "closing": "!q.property('lc:is_open')"
-            }
-          ]
-        },
-        "closing": {
-          "animations": [
-            "anim.close"
-          ],
-          "transitions": [
-            {
-              "stay_closed": "q.all_animations_finished"
-            }
-          ]
-        },
-        "opening": {
-          "animations": [
-            "anim.open"
-          ],
-          "transitions": [
-            {
-              "stay_opened": "q.all_animations_finished"
-            }
-          ]
-        }
-      }
-    },
-    "controller.animation.scpdy.bp.blast_door.update_state": {
-      "initial_state": "default",
-      "states": {
-        "default": {
-          "transitions": [
-            {
-              "update": "q.property('lc:detect_redstone') || q.property('lc:belongs_to_facility_network')"
-            }
-          ]
-        },
-        "update": {
-          "on_entry": ["@s blast_door:add_state_update_timer"],
-          "on_exit": ["@s blast_door:remove_state_update_timer"],
-          "transitions": [
-            {
-              "default": "!q.property('lc:detect_redstone') && !q.property('lc:belongs_to_facility_network')"
-            }
-          ]
-        }
-      }
-    }
-  }
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.scpdy.bp.blast_door.main": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"stay_opened": "q.property('lc:is_open')"
+						},
+						{
+							"stay_closed": "!q.property('lc:is_open')"
+						}
+					]
+				},
+				"stay_closed": {
+					"on_entry": [
+						"/scriptevent scpdy:blast_door_update_location_lock",
+						"/fill ^2 ^2 ^0  ^-2 ^0 ^0 lc:scpdy_blast_door_dummy replace air"
+					],
+					"transitions": [
+						{
+							"opening": "q.property('lc:is_open')"
+						}
+					]
+				},
+				"stay_opened": {
+					"on_entry": [
+						"/scriptevent scpdy:blast_door_update_location_lock",
+						"/fill ^2 ^2 ^0  ^-2 ^0 ^0 air replace lc:scpdy_blast_door_dummy"
+					],
+					"transitions": [
+						{
+							"closing": "!q.property('lc:is_open')"
+						}
+					]
+				},
+				"closing": {
+					"animations": ["anim.close"],
+					"transitions": [
+						{
+							"stay_closed": "q.all_animations_finished"
+						}
+					]
+				},
+				"opening": {
+					"animations": ["anim.open"],
+					"transitions": [
+						{
+							"stay_opened": "q.all_animations_finished"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.scpdy.bp.blast_door.update_state": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"update": "q.property('lc:detect_redstone') || q.property('lc:belongs_to_facility_network')"
+						}
+					]
+				},
+				"update": {
+					"on_entry": ["@s blast_door:add_state_update_timer"],
+					"on_exit": ["@s blast_door:remove_state_update_timer"],
+					"transitions": [
+						{
+							"default": "!q.property('lc:detect_redstone') && !q.property('lc:belongs_to_facility_network')"
+						}
+					]
+				}
+			}
+		}
+	}
 }

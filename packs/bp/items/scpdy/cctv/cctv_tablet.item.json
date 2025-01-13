@@ -1,28 +1,28 @@
 {
-  "format_version": "1.21.0",
-  "minecraft:item": {
-    "description": {
-      "identifier": "lc:scpdy_cctv_tablet",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.equipment",
-        "is_hidden_in_commands": false
-      }
-    },
-    "components": {
-      "minecraft:custom_components": ["scpdy:cctv_tablet"],
-      "minecraft:max_stack_size": 1,
-      "minecraft:icon": {
-        "textures": {
-          "default": "scpdy_cctv_tablet_icon"
-        }
-      },
-      "minecraft:hand_equipped": false,
-      "minecraft:allow_off_hand": false,
-      "minecraft:display_name": {
-        "value": "item.lc:scpdy_cctv_tablet.name"
-      },
-      "minecraft:glint": false
-    }
-  }
+	"format_version": "1.21.0",
+	"minecraft:item": {
+		"description": {
+			"identifier": "lc:scpdy_cctv_tablet",
+			"menu_category": {
+				"category": "equipment",
+				"group": "itemGroup.name.equipment",
+				"is_hidden_in_commands": false
+			}
+		},
+		"components": {
+			"minecraft:custom_components": ["scpdy:cctv_tablet"],
+			"minecraft:max_stack_size": 1,
+			"minecraft:icon": {
+				"textures": {
+					"default": "scpdy_cctv_tablet_icon"
+				}
+			},
+			"minecraft:hand_equipped": false,
+			"minecraft:allow_off_hand": false,
+			"minecraft:display_name": {
+				"value": "item.lc:scpdy_cctv_tablet.name"
+			},
+			"minecraft:glint": false
+		}
+	}
 }

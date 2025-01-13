@@ -1,37 +1,37 @@
 {
-  "format_version": "1.13.0",
-  "minecraft:feature_rules": {
-    "description": {
-      "identifier": "lc:scpdy_overworld_bunker_3_feature",
-      "places_feature": "lc:scpdy_bunker_3_feature"
-    },
-    "conditions": {
-      "placement_pass": "first_pass",
-      "minecraft:biome_filter": {
-        "all_of": [
-          {
-            "test": "has_biome_tag",
-            "operator": "==",
-            "value": "savanna"
-          }
-        ]
-      }
-    },
-    "distribution": {
-      "iterations": 1,
-      "x": {
-        "extent": [0, 40],
-        "distribution": "uniform"
-      },
-      "y": "q.heightmap(v.worldx, v.worldz) - 12",
-      "z": {
-        "extent": [0, 40],
-        "distribution": "uniform"
-      },
-      "scatter_chance": {
-        "numerator": 2,
-        "denominator": 100
-      }
-    }
-  }
+	"format_version": "1.13.0",
+	"minecraft:feature_rules": {
+		"description": {
+			"identifier": "lc:scpdy_overworld_bunker_3_feature",
+			"places_feature": "lc:scpdy_bunker_3_feature"
+		},
+		"conditions": {
+			"placement_pass": "first_pass",
+			"minecraft:biome_filter": {
+				"all_of": [
+					{
+						"test": "has_biome_tag",
+						"operator": "==",
+						"value": "savanna"
+					}
+				]
+			}
+		},
+		"distribution": {
+			"iterations": 1,
+			"x": {
+				"extent": [0, 40],
+				"distribution": "uniform"
+			},
+			"y": "q.heightmap(v.worldx, v.worldz) - 12",
+			"z": {
+				"extent": [0, 40],
+				"distribution": "uniform"
+			},
+			"scatter_chance": {
+				"numerator": 2,
+				"denominator": 100
+			}
+		}
+	}
 }

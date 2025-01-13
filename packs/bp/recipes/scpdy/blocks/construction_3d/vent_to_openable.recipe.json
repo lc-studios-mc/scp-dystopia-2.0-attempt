@@ -1,23 +1,23 @@
 {
-  "format_version": "1.20.10",
-  "minecraft:recipe_shapeless": {
-    "description": {
-      "identifier": "lc:scpdy_recipe_vent_to_openable"
-    },
-    "tags": ["crafting_table", "dystopia_craftbench", "scpdy_workbench"],
-    "ingredients": [
-      {
-        "item": "lc:scpdy_vent"
-      }
-    ],
-    "unlock": [
-      {
-        "item": "lc:scpdy_vent"
-      }
-    ],
-    "result": {
-      "item": "lc:scpdy_vent_openable",
-      "count": 1
-    }
-  }
+	"format_version": "1.20.10",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "lc:scpdy_recipe_vent_to_openable"
+		},
+		"tags": ["crafting_table", "dystopia_craftbench", "scpdy_workbench"],
+		"ingredients": [
+			{
+				"item": "lc:scpdy_vent"
+			}
+		],
+		"unlock": [
+			{
+				"item": "lc:scpdy_vent"
+			}
+		],
+		"result": {
+			"item": "lc:scpdy_vent_openable",
+			"count": 1
+		}
+	}
 }

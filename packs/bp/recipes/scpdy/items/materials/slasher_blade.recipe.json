@@ -1,40 +1,36 @@
 {
-  "format_version": "1.20.10",
-  "minecraft:recipe_shaped": {
-    "description": {
-      "identifier": "lc:scpdy_slasher_blade"
-    },
-    "tags": ["crafting_table", "dystopia_craftbench", "scpdy_workbench"],
-    "pattern": [
-      "  I",
-      " IC",
-      "IS "
-    ],
-    "key": {
-      "I": {
-        "item": "minecraft:iron_ingot"
-      },
-      "C": {
-        "item": "minecraft:coal"
-      },
-      "S": {
-        "item": "minecraft:slime_ball"
-      }
-    },
-    "unlock": [
-      {
-        "item": "minecraft:iron_ingot"
-      },
-      {
-        "item": "minecraft:slime_ball"
-      },
-      {
-        "item": "lc:scpdy_slasher_blade"
-      }
-    ],
-    "result": {
-      "item": "lc:scpdy_slasher_blade",
-      "count": 1
-    }
-  }
+	"format_version": "1.20.10",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "lc:scpdy_slasher_blade"
+		},
+		"tags": ["crafting_table", "dystopia_craftbench", "scpdy_workbench"],
+		"pattern": ["  I", " IC", "IS "],
+		"key": {
+			"I": {
+				"item": "minecraft:iron_ingot"
+			},
+			"C": {
+				"item": "minecraft:coal"
+			},
+			"S": {
+				"item": "minecraft:slime_ball"
+			}
+		},
+		"unlock": [
+			{
+				"item": "minecraft:iron_ingot"
+			},
+			{
+				"item": "minecraft:slime_ball"
+			},
+			{
+				"item": "lc:scpdy_slasher_blade"
+			}
+		],
+		"result": {
+			"item": "lc:scpdy_slasher_blade",
+			"count": 1
+		}
+	}
 }

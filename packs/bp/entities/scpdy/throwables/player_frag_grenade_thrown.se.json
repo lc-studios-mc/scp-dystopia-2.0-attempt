@@ -1,92 +1,90 @@
 {
-  "format_version": "1.21.0",
-  "minecraft:entity": {
-    "description": {
-      "identifier": "lc:scpdy_player_frag_grenade_thrown",
-      "is_spawnable": false,
-      "is_summonable": true,
-      "is_experimental": false,
-      "runtime_identifier": "minecraft:snowball",
-      "scripts": {
-        "animate": [
-          "anim.countdown"
-        ]
-      },
-      "animations": {
-        "anim.countdown": "animation.scpdy.bp.player_frag_grenade.countdown"
-      },
-      "properties": {
-        "lc:ticks_until_explode": {
-          "type": "int",
-          "range": [0, 50],
-          "default": 50
-        }
-      }
-    },
-    "component_groups": {
-      "explode": {
-        "minecraft:explode": {
-          "breaks_blocks": false,
-          "fuse_length": [0.0, 0.0],
-          "fuse_lit": true,
-          "power": 2.5
-        }
-      }
-    },
-    "components": {
-      "minecraft:type_family": {
-        "family": ["projectile", "frag_grenade", "scpdy_grenade"]
-      },
-      "minecraft:projectile": {
-        "on_hit": {
-          "stick_in_ground": {
-            "shake_time": 0.1
-          }
-        },
-        "power": 1.0,
-        "gravity": 0.1,
-        "inertia": 1.0,
-        "uncertainty_base": 1.0,
-        "uncertainty_multiplier": 1.0,
-        "anchor": 1,
-        "offset": [0, -0.1, 0],
-        "reflect_on_hurt": false,
-        "catch_fire": false
-      },
-      "minecraft:pushable": {
-        "is_pushable": false,
-        "is_pushable_by_piston": false
-      },
-      "minecraft:collision_box": {
-        "width": 0.3,
-        "height": 0.3
-      },
-      "minecraft:physics": {}
-    },
-    "events": {
-      "frag_grenade:explode": {
-        "add": {
-          "component_groups": ["explode"]
-        }
-      },
-      "player_frag_grenade:countdown": {
-        "sequence": [
-          {
-            "filters": {
-              "test": "int_property",
-              "domain": "lc:ticks_until_explode",
-              "operator": "<=",
-              "value": 0
-            },
-            "trigger": "frag_grenade:explode"
-          },
-          {
-            "set_property": {
-              "lc:ticks_until_explode": "q.property('lc:ticks_until_explode') > 0 ? q.property('lc:ticks_until_explode') - 1 : 0"
-            }
-          }
-        ]
-      }
-    }
-  }
+	"format_version": "1.21.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "lc:scpdy_player_frag_grenade_thrown",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false,
+			"runtime_identifier": "minecraft:snowball",
+			"scripts": {
+				"animate": ["anim.countdown"]
+			},
+			"animations": {
+				"anim.countdown": "animation.scpdy.bp.player_frag_grenade.countdown"
+			},
+			"properties": {
+				"lc:ticks_until_explode": {
+					"type": "int",
+					"range": [0, 50],
+					"default": 50
+				}
+			}
+		},
+		"component_groups": {
+			"explode": {
+				"minecraft:explode": {
+					"breaks_blocks": false,
+					"fuse_length": [0.0, 0.0],
+					"fuse_lit": true,
+					"power": 2.5
+				}
+			}
+		},
+		"components": {
+			"minecraft:type_family": {
+				"family": ["projectile", "frag_grenade", "scpdy_grenade"]
+			},
+			"minecraft:projectile": {
+				"on_hit": {
+					"stick_in_ground": {
+						"shake_time": 0.1
+					}
+				},
+				"power": 1.0,
+				"gravity": 0.1,
+				"inertia": 1.0,
+				"uncertainty_base": 1.0,
+				"uncertainty_multiplier": 1.0,
+				"anchor": 1,
+				"offset": [0, -0.1, 0],
+				"reflect_on_hurt": false,
+				"catch_fire": false
+			},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": false
+			},
+			"minecraft:collision_box": {
+				"width": 0.3,
+				"height": 0.3
+			},
+			"minecraft:physics": {}
+		},
+		"events": {
+			"frag_grenade:explode": {
+				"add": {
+					"component_groups": ["explode"]
+				}
+			},
+			"player_frag_grenade:countdown": {
+				"sequence": [
+					{
+						"filters": {
+							"test": "int_property",
+							"domain": "lc:ticks_until_explode",
+							"operator": "<=",
+							"value": 0
+						},
+						"trigger": "frag_grenade:explode"
+					},
+					{
+						"set_property": {
+							"lc:ticks_until_explode": "q.property('lc:ticks_until_explode') > 0 ? q.property('lc:ticks_until_explode') - 1 : 0"
+						}
+					}
+				]
+			}
+		}
+	}
 }

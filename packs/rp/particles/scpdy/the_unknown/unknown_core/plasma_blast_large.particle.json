@@ -12,7 +12,7 @@
 			"minecraft:emitter_rate_instant": {
 				"num_particles": 70
 			},
-      "minecraft:emitter_local_space": {
+			"minecraft:emitter_local_space": {
 				"position": true,
 				"rotation": true
 			},
