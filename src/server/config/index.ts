@@ -1,1 +1,1 @@
-import "./+config_item";
+import "./configItem";

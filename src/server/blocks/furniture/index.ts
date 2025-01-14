@@ -1,0 +1,6 @@
+import "./connecTable";
+import "./hangingLamp";
+import "./landmine";
+import "./laptop";
+import "./razorWire";
+import "./shelf";

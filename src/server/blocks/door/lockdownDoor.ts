@@ -6,7 +6,7 @@ import {
 	FacilityZone,
 	getFacilityNetwork,
 	MAX_FACILITY_ZONE_COUNT,
-} from "../facilityNetwork/network";
+} from "@server/facilityNetwork/network";
 import { Player as UiPlayer } from "@minecraft/server-ui/node_modules/@minecraft/server";
 import { ModalFormData } from "@minecraft/server-ui";
 import { getClearanceLevel } from "@lib/utils/scpdyUtils";

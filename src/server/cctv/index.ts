@@ -1,5 +1,5 @@
-import "./+cctv_linker";
-import "./+cctv_tablet";
+import "./cctvLinker";
+import "./cctvTablet";
 import "./cctvCamera";
 import "./cctvMonitor";
 import "./cctvServer";

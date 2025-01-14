@@ -1,3 +1,3 @@
-import "./+ammo";
 import "./ammo";
+import "./ammoItem";
 import "./AmmoPack";

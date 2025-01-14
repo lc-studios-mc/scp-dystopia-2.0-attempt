@@ -1,5 +1,5 @@
 import * as mc from "@minecraft/server";
-import "./+mag";
+import "./mag";
 import { getContainerSlot } from "@lib/utils/miscUtils";
 
 export type EquipMagArgs = {

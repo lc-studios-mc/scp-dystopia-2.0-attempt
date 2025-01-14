@@ -1,5 +1,5 @@
 import * as mc from "@minecraft/server";
-import { tryPowerDoorActivator } from "@server/doorSystem/+door_activator";
+import { tryPowerDoorActivator } from "@server/blocks/door/doorActivator";
 import { switchClosestBlastDoor } from "@server/blastDoor/blastDoor";
 import { activateRbPlaceholder } from "./rbPlaceholder";
 
