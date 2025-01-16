@@ -1050,6 +1050,54 @@
 				"sounds/scpdy/misc/computer_hit_3"
 			]
 		},
+		"scpdy.misc.fart_1": {
+			"category": "hostile",
+			"max_distance": 5.0,
+			"min_distance": 1.0,
+			"sounds": ["sounds/scpdy/misc/fart_1"]
+		},
+		"scpdy.misc.fart_2": {
+			"category": "hostile",
+			"max_distance": 5.5,
+			"min_distance": 1.0,
+			"sounds": ["sounds/scpdy/misc/fart_2"]
+		},
+		"scpdy.misc.fart_3": {
+			"category": "hostile",
+			"max_distance": 6.0,
+			"min_distance": 1.0,
+			"sounds": ["sounds/scpdy/misc/fart_3"]
+		},
+		"scpdy.misc.fart_4": {
+			"category": "hostile",
+			"max_distance": 12.0,
+			"min_distance": 3.0,
+			"sounds": ["sounds/scpdy/misc/fart_4"]
+		},
+		"scpdy.misc.fart_5": {
+			"category": "hostile",
+			"max_distance": 8.0,
+			"min_distance": 2.0,
+			"sounds": ["sounds/scpdy/misc/fart_5"]
+		},
+		"scpdy.misc.fart_6": {
+			"category": "hostile",
+			"max_distance": 14.0,
+			"min_distance": 3.0,
+			"sounds": ["sounds/scpdy/misc/fart_6"]
+		},
+		"scpdy.misc.fart_7": {
+			"category": "hostile",
+			"max_distance": 17.0,
+			"min_distance": 4.0,
+			"sounds": ["sounds/scpdy/misc/fart_7"]
+		},
+		"scpdy.misc.fart_8": {
+			"category": "hostile",
+			"max_distance": 20.0,
+			"min_distance": 5.0,
+			"sounds": ["sounds/scpdy/misc/fart_8"]
+		},
 		"scpdy.misc.boom_1": {
 			"__use_legacy_max_distance": "true",
 			"category": "hostile",
@@ -1082,6 +1130,28 @@
 				{
 					"name": "sounds/scpdy/misc/small_light_on",
 					"volume": 0.8
+				}
+			]
+		},
+		"scpdy.misc.toilet_flush.hard": {
+			"category": "neutral",
+			"max_distance": 10.0,
+			"min_distance": null,
+			"sounds": [
+				{
+					"name": "sounds/scpdy/misc/toilet_flush_hard",
+					"load_on_low_memory": true
+				}
+			]
+		},
+		"scpdy.misc.toilet_flush.normal": {
+			"category": "neutral",
+			"max_distance": 10.0,
+			"min_distance": null,
+			"sounds": [
+				{
+					"name": "sounds/scpdy/misc/toilet_flush_normal",
+					"load_on_low_memory": true
 				}
 			]
 		},

@@ -6,6 +6,7 @@ itemGroup.name.sandstone=Sandstone §b+ SCP:DY 3D Blocks
 ## --- Action hints
 
 action.hint.exit.lc:scpdy_sittable_anchor=Sneak or jump to exit
+action.hint.exit.lc:scpdy_toilet_rideable=Sneak or jump to exit
 
 scpdy.action.interact.blastDoorPreview.changeRotation.true=Rotate 90°: True
 scpdy.action.interact.blastDoorPreview.changeRotation.false=Rotate 90°: False
@@ -31,6 +32,7 @@ scpdy.actionHint.controlDevice.changeMode2=Mode set to 2 §7-§f Place a redston
 scpdy.actionHint.controlDevice.changeMode3=Mode set to 3 §7-§f Place a redstone block 2 meters behind
 
 scpdy.actionHint.furniture.chair.tooFar=Too far from chair
+scpdy.actionHint.furniture.toilet.tooFar=Too far from toilet
 
 scpdy.actionHint.ammo.noLoadableInOffhand=§eNo loadable item in offhand
 scpdy.actionHint.ammo.wrongAmmoType=§cWrong ammo type
@@ -500,6 +502,7 @@ tile.lc:scpdy_file_cabinet.name=File Cabinet
 tile.lc:scpdy_hanging_lamp.name=Hanging Lamp
 tile.lc:scpdy_landmine.name=Landmine
 tile.lc:scpdy_laptop.name=Laptop
+tile.lc:scpdy_toilet.name=Toilet
 tile.lc:scpdy_warehouse_light_1_hanging.name=Warehouse Light 1 (Hanging)
 tile.lc:scpdy_warehouse_light_1.name=Warehouse Light 1
 
@@ -564,6 +567,7 @@ entity.lc:scpdy_f_tro_dead.name=Corpse
 ## entities -> misc -> ...
 entity.lc:scpdy_rb_placeholder_anchor.name=RB Placeholder Anchor
 entity.lc:scpdy_sittable_anchor.name=Sittable
+entity.lc:scpdy_toilet_rideable.name=Sittable
 
 ## entities -> projectiles -> ...
 entity.lc:scpdy_bullet_m4a1.name=Bullet

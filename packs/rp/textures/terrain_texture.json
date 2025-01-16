@@ -387,6 +387,9 @@
 		"scpdy_laptop": {
 			"textures": "textures/scpdy/blocks/furniture/laptop"
 		},
+		"scpdy_toilet": {
+			"textures": "textures/scpdy/blocks/furniture/toilet"
+		},
 		"scpdy_warehouse_light_1": {
 			"textures": "textures/scpdy/blocks/furniture/warehouse_light_1"
 		},

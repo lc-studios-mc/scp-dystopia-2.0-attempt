@@ -4,3 +4,4 @@ import "./landmine";
 import "./laptop";
 import "./razorWire";
 import "./shelf";
+import "./toilet";

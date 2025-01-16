@@ -14,6 +14,7 @@ Those who helped this project are listed here! :handshake:
   - Laptop block
   - Office Chair blocks
   - Shelf blocks
+  - Toilet block
 - Textures
   - Blue Wall blocks
   - Brown Facility Wall blocks
