@@ -1,124 +1,124 @@
 {
-  "format_version": "1.21.20",
-  "minecraft:block": {
-    "description": {
-      "identifier": "lc:scpdy_vent_openable",
-      "menu_category": {
-        "category": "construction",
-        "group": "itemGroup.name.sandstone"
-      },
-      "states": {
-        "lc:is_opened": [false, true]
-      },
-      "traits": {
-        "minecraft:placement_direction": {
-          "enabled_states": ["minecraft:facing_direction"],
-          "y_rotation_offset": 180
-        }
-      }
-    },
-    "components": {
-      "minecraft:custom_components": ["scpdy:openable_vent"],
-      "minecraft:material_instances": {
-        "*": {
-          "texture": "scpdy_vent",
-          "render_method": "alpha_test"
-        }
-      },
-      "minecraft:geometry": {
-        "identifier": "geometry.scpdy_vent",
-        "bone_visibility": {
-          "closed": "!q.block_state('lc:is_opened')",
-          "opened": "q.block_state('lc:is_opened')"
-        }
-      },
-      "minecraft:destructible_by_explosion": {
-        "explosion_resistance": 5.0
-      },
-      "minecraft:destructible_by_mining": {
-        "seconds_to_destroy": 1.0
-      },
-      "tag:vent": {}
-    },
-    "permutations": [
-      {
-        "condition": "!q.block_state('lc:is_opened')",
-        "components": {
-          "minecraft:light_dampening": 2,
-          "minecraft:collision_box": {
-            "origin": [-8, 0, -8],
-            "size": [16, 16, 1]
-          },
-          "minecraft:selection_box": {
-            "origin": [-8, 0, -8],
-            "size": [16, 16, 3]
-          }
-        }
-      },
-      {
-        "condition": "q.block_state('lc:is_opened')",
-        "components": {
-          "minecraft:light_dampening": 0,
-          "minecraft:collision_box": {
-            "origin": [-8, 15, -8],
-            "size": [16, 1, 16]
-          },
-          "minecraft:selection_box": {
-            "origin": [-8, 13, -8],
-            "size": [16, 3, 16]
-          }
-        }
-      },
-      // #region Facing directions
-      {
-        "condition": "q.block_state('minecraft:facing_direction') == 'down'",
-        "components": {
-          "minecraft:transformation": {
-            "rotation": [90, 0, 0]
-          }
-        }
-      },
-      {
-        "condition": "q.block_state('minecraft:facing_direction') == 'up'",
-        "components": {
-          "minecraft:transformation": {
-            "rotation": [-90, 0, 0]
-          }
-        }
-      },
-      {
-        "condition": "q.block_state('minecraft:facing_direction') == 'north'",
-        "components": {
-          "minecraft:transformation": {
-            "rotation": [0, 0, 0]
-          }
-        }
-      },
-      {
-        "condition": "q.block_state('minecraft:facing_direction') == 'south'",
-        "components": {
-          "minecraft:transformation": {
-            "rotation": [0, 180, 0]
-          }
-        }
-      },
-      {
-        "condition": "q.block_state('minecraft:facing_direction') == 'west'",
-        "components": {
-          "minecraft:transformation": {
-            "rotation": [0, 90, 0]
-          }
-        }
-      },
-      {
-        "condition": "q.block_state('minecraft:facing_direction') == 'east'",
-        "components": {
-          "minecraft:transformation": {
-            "rotation": [0, 270, 0]
-          }
-        }
-      }
-      // #endregion
-    ]
-  }
+	"format_version": "1.21.20",
+	"minecraft:block": {
+		"description": {
+			"identifier": "lc:scpdy_vent_openable",
+			"menu_category": {
+				"category": "construction",
+				"group": "itemGroup.name.sandstone"
+			},
+			"states": {
+				"lc:is_opened": [false, true]
+			},
+			"traits": {
+				"minecraft:placement_direction": {
+					"enabled_states": ["minecraft:facing_direction"],
+					"y_rotation_offset": 180
+				}
+			}
+		},
+		"components": {
+			"minecraft:custom_components": ["scpdy:openable_vent"],
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "scpdy_vent",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:geometry": {
+				"identifier": "geometry.scpdy_vent",
+				"bone_visibility": {
+					"closed": "!q.block_state('lc:is_opened')",
+					"opened": "q.block_state('lc:is_opened')"
+				}
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 5.0
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1.0
+			},
+			"tag:vent": {}
+		},
+		"permutations": [
+			{
+				"condition": "!q.block_state('lc:is_opened')",
+				"components": {
+					"minecraft:light_dampening": 2,
+					"minecraft:collision_box": {
+						"origin": [-8, 0, -8],
+						"size": [16, 16, 1]
+					},
+					"minecraft:selection_box": {
+						"origin": [-8, 0, -8],
+						"size": [16, 16, 3]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('lc:is_opened')",
+				"components": {
+					"minecraft:light_dampening": 0,
+					"minecraft:collision_box": {
+						"origin": [-8, 15, -8],
+						"size": [16, 1, 16]
+					},
+					"minecraft:selection_box": {
+						"origin": [-8, 13, -8],
+						"size": [16, 3, 16]
+					}
+				}
+			},
+			// #region Facing directions
+			{
+				"condition": "q.block_state('minecraft:facing_direction') == 'down'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [90, 0, 0]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:facing_direction') == 'up'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [-90, 0, 0]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:facing_direction') == 'north'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [0, 0, 0]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:facing_direction') == 'south'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [0, 180, 0]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:facing_direction') == 'west'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [0, 90, 0]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:facing_direction') == 'east'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [0, 270, 0]
+					}
+				}
+			}
+			// #endregion
+		]
+	}
 }

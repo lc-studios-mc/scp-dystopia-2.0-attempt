@@ -1,71 +1,71 @@
 {
-  "format_version": "1.21.20",
-  "minecraft:block": {
-    "description": {
-      "identifier": "lc:scpdy_connec_table_2",
-      "menu_category": {
-        "category": "construction",
-        "group": "itemGroup.name.sandstone"
-      },
-      "states": {
-        "lc:connects_n": [false, true],
-        "lc:connects_e": [false, true],
-        "lc:connects_s": [false, true],
-        "lc:connects_w": [false, true],
-        "lc:leg_nw": [true, false],
-        "lc:leg_sw": [true, false],
-        "lc:leg_ne": [true, false],
-        "lc:leg_se": [true, false]
-      }
-    },
-    "components": {
-      "minecraft:custom_components": ["scpdy:connec_table"],
-      "minecraft:material_instances": {
-        "*": {
-          "texture": "scpdy_connec_table_2",
-          "render_method": "opaque"
-        }
-      },
-      "minecraft:geometry": {
-        "identifier": "geometry.scpdy_connec_table",
-        "bone_visibility": {
-          // Connections
-          "con_n": "q.block_state('lc:connects_n')",
-          "con_e": "q.block_state('lc:connects_e')",
-          "con_s": "q.block_state('lc:connects_s')",
-          "con_w": "q.block_state('lc:connects_w')",
-          // Legs
-          "leg_nw": "q.block_state('lc:leg_nw')",
-          "leg_sw": "q.block_state('lc:leg_sw')",
-          "leg_ne": "q.block_state('lc:leg_ne')",
-          "leg_se": "q.block_state('lc:leg_se')"
-        }
-      },
-      "minecraft:destructible_by_explosion": {
-        "explosion_resistance": 7.5 // https://minecraft.fandom.com/wiki/Explosion#Blast_resistance
-      },
-      "minecraft:destructible_by_mining": {
-        "seconds_to_destroy": 0.4
-      },
-      "minecraft:light_dampening": 1,
-      "minecraft:collision_box": {
-        "origin": [-8, 13, -8],
-        "size": [16, 3, 16]
-      },
-      "minecraft:selection_box": {
-        "origin": [-8, 10, -8],
-        "size": [16, 6, 16]
-      },
-      "tag:scpdy:connec_table": {}
-    },
-    "permutations": [
-      {
-        "condition": "q.block_state('lc:leg_nw') && q.block_state('lc:leg_ne') && q.block_state('lc:leg_sw') && q.block_state('lc:leg_se')",
-        "components": {
-          "minecraft:collision_box": true,
-          "minecraft:selection_box": true
-        }
-      }
-    ]
-  }
+	"format_version": "1.21.20",
+	"minecraft:block": {
+		"description": {
+			"identifier": "lc:scpdy_connec_table_2",
+			"menu_category": {
+				"category": "construction",
+				"group": "itemGroup.name.sandstone"
+			},
+			"states": {
+				"lc:connects_n": [false, true],
+				"lc:connects_e": [false, true],
+				"lc:connects_s": [false, true],
+				"lc:connects_w": [false, true],
+				"lc:leg_nw": [true, false],
+				"lc:leg_sw": [true, false],
+				"lc:leg_ne": [true, false],
+				"lc:leg_se": [true, false]
+			}
+		},
+		"components": {
+			"minecraft:custom_components": ["scpdy:connec_table"],
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "scpdy_connec_table_2",
+					"render_method": "opaque"
+				}
+			},
+			"minecraft:geometry": {
+				"identifier": "geometry.scpdy_connec_table",
+				"bone_visibility": {
+					// Connections
+					"con_n": "q.block_state('lc:connects_n')",
+					"con_e": "q.block_state('lc:connects_e')",
+					"con_s": "q.block_state('lc:connects_s')",
+					"con_w": "q.block_state('lc:connects_w')",
+					// Legs
+					"leg_nw": "q.block_state('lc:leg_nw')",
+					"leg_sw": "q.block_state('lc:leg_sw')",
+					"leg_ne": "q.block_state('lc:leg_ne')",
+					"leg_se": "q.block_state('lc:leg_se')"
+				}
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 7.5 // https://minecraft.fandom.com/wiki/Explosion#Blast_resistance
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0.4
+			},
+			"minecraft:light_dampening": 1,
+			"minecraft:collision_box": {
+				"origin": [-8, 13, -8],
+				"size": [16, 3, 16]
+			},
+			"minecraft:selection_box": {
+				"origin": [-8, 10, -8],
+				"size": [16, 6, 16]
+			},
+			"tag:scpdy:connec_table": {}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('lc:leg_nw') && q.block_state('lc:leg_ne') && q.block_state('lc:leg_sw') && q.block_state('lc:leg_se')",
+				"components": {
+					"minecraft:collision_box": true,
+					"minecraft:selection_box": true
+				}
+			}
+		]
+	}
 }

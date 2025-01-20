@@ -1,89 +1,89 @@
 {
-  "format_version": "1.21.50",
-  "minecraft:block": {
-    "description": {
-      "identifier": "lc:scpdy_toilet",
-      "menu_category": {
-        "category": "construction",
-        "group": "itemGroup.name.sandstone"
-      },
-      "states": {
-        "lc:is_lid_open": [false, true]
-      },
-      "traits": {
-        "minecraft:placement_direction": {
-          "enabled_states": ["minecraft:cardinal_direction"],
-          "y_rotation_offset": 180
-        }
-      }
-    },
-    "components": {
-      "minecraft:custom_components": ["scpdy:toilet"],
-      "minecraft:material_instances": {
-        "*": {
-          "texture": "scpdy_toilet",
-          "render_method": "opaque"
-        }
-      },
-      "minecraft:geometry": {
-        "identifier": "geometry.scpdy_toilet",
-        "bone_visibility": {
-          "lid_opened": "q.block_state('lc:is_lid_open')",
-          "lid_closed": "!q.block_state('lc:is_lid_open')"
-        }
-      },
-      "minecraft:destructible_by_explosion": {
-        "explosion_resistance": 20.0 // https://minecraft.fandom.com/wiki/Explosion#Blast_resistance
-      },
-      "minecraft:destructible_by_mining": {
-        "seconds_to_destroy": 0.6
-      },
-      "minecraft:light_dampening": 2,
-      "minecraft:collision_box": {
-        "origin": [-5, 0, -6],
-        "size": [10, 8, 13]
-      },
-      "minecraft:selection_box": {
-        "origin": [-6, 0, -7],
-        "size": [12, 16, 15]
-      },
-      "tag:toilet": {}
-    },
-    "permutations": [
-      // #region Facing directions
-      {
-        "condition": "q.block_state('minecraft:cardinal_direction') == 'north'",
-        "components": {
-          "minecraft:transformation": {
-            "rotation": [0, 0, 0]
-          }
-        }
-      },
-      {
-        "condition": "q.block_state('minecraft:cardinal_direction') == 'south'",
-        "components": {
-          "minecraft:transformation": {
-            "rotation": [0, 180, 0]
-          }
-        }
-      },
-      {
-        "condition": "q.block_state('minecraft:cardinal_direction') == 'west'",
-        "components": {
-          "minecraft:transformation": {
-            "rotation": [0, 90, 0]
-          }
-        }
-      },
-      {
-        "condition": "q.block_state('minecraft:cardinal_direction') == 'east'",
-        "components": {
-          "minecraft:transformation": {
-            "rotation": [0, 270, 0]
-          }
-        }
-      }
-      // #endregion
-    ]
-  }
+	"format_version": "1.21.50",
+	"minecraft:block": {
+		"description": {
+			"identifier": "lc:scpdy_toilet",
+			"menu_category": {
+				"category": "construction",
+				"group": "itemGroup.name.sandstone"
+			},
+			"states": {
+				"lc:is_lid_open": [false, true]
+			},
+			"traits": {
+				"minecraft:placement_direction": {
+					"enabled_states": ["minecraft:cardinal_direction"],
+					"y_rotation_offset": 180
+				}
+			}
+		},
+		"components": {
+			"minecraft:custom_components": ["scpdy:toilet"],
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "scpdy_toilet",
+					"render_method": "opaque"
+				}
+			},
+			"minecraft:geometry": {
+				"identifier": "geometry.scpdy_toilet",
+				"bone_visibility": {
+					"lid_opened": "q.block_state('lc:is_lid_open')",
+					"lid_closed": "!q.block_state('lc:is_lid_open')"
+				}
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 20.0 // https://minecraft.fandom.com/wiki/Explosion#Blast_resistance
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0.6
+			},
+			"minecraft:light_dampening": 2,
+			"minecraft:collision_box": {
+				"origin": [-5, 0, -6],
+				"size": [10, 8, 13]
+			},
+			"minecraft:selection_box": {
+				"origin": [-6, 0, -7],
+				"size": [12, 16, 15]
+			},
+			"tag:toilet": {}
+		},
+		"permutations": [
+			// #region Facing directions
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'north'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [0, 0, 0]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'south'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [0, 180, 0]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'west'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [0, 90, 0]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'east'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [0, 270, 0]
+					}
+				}
+			}
+			// #endregion
+		]
+	}
 }

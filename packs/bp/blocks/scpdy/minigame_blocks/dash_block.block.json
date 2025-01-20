@@ -1,87 +1,87 @@
 {
-  "format_version": "1.21.20",
-  "minecraft:block": {
-    "description": {
-      "identifier": "lc:scpdy_dash_block",
-      "menu_category": {
-        "category": "construction",
-        "group": "itemGroup.name.construction"
-      },
-      "states": {
-        "lc:ticks_until_active_again": { "values": { "min": 0, "max": 15 } }
-      }
-    },
-    "components": {
-      "minecraft:custom_components": ["scpdy:dash_block"],
-      "minecraft:geometry": "minecraft:geometry.full_block",
-      "minecraft:map_color": "#4dc6e4",
-      "minecraft:light_dampening": 15,
-      "minecraft:tick": {
-        "interval_range": [2000, 2000]
-      },
-      "minecraft:destructible_by_explosion": {
-        "explosion_resistance": 30.0
-      },
-      "minecraft:destructible_by_mining": {
-        "seconds_to_destroy": 0.57
-      },
-      "tag:scpdy:dash_block": {}
-    },
-    "permutations": [
-      {
-        "condition": "q.block_state('lc:ticks_until_active_again') <= 0",
-        "components": {
-          "minecraft:light_emission": 10,
-          "minecraft:tick": {
-            "interval_range": [2000, 2000]
-          },
-          "minecraft:material_instances": {
-            "*": {
-              "texture": "scpdy_dash_block_top_active",
-              "render_method": "opaque"
-            },
-            "custom_sides": {
-              "texture": "scpdy_dash_block_side",
-              "render_method": "opaque"
-            },
-            "down": {
-              "texture": "scpdy_dash_block_bottom",
-              "render_method": "opaque"
-            },
-            "north": "custom_sides",
-            "south": "custom_sides",
-            "east": "custom_sides",
-            "west": "custom_sides"
-          }
-        }
-      },
-      {
-        "condition": "q.block_state('lc:ticks_until_active_again') > 0",
-        "components": {
-          "minecraft:light_emission": 0,
-          "minecraft:tick": {
-            "interval_range": [10, 10]
-          },
-          "minecraft:material_instances": {
-            "*": {
-              "texture": "scpdy_dash_block_top_inactive",
-              "render_method": "opaque"
-            },
-            "custom_sides": {
-              "texture": "scpdy_dash_block_side",
-              "render_method": "opaque"
-            },
-            "down": {
-              "texture": "scpdy_dash_block_bottom",
-              "render_method": "opaque"
-            },
-            "north": "custom_sides",
-            "south": "custom_sides",
-            "east": "custom_sides",
-            "west": "custom_sides"
-          }
-        }
-      }
-    ]
-  }
+	"format_version": "1.21.20",
+	"minecraft:block": {
+		"description": {
+			"identifier": "lc:scpdy_dash_block",
+			"menu_category": {
+				"category": "construction",
+				"group": "itemGroup.name.construction"
+			},
+			"states": {
+				"lc:ticks_until_active_again": { "values": { "min": 0, "max": 15 } }
+			}
+		},
+		"components": {
+			"minecraft:custom_components": ["scpdy:dash_block"],
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:map_color": "#4dc6e4",
+			"minecraft:light_dampening": 15,
+			"minecraft:tick": {
+				"interval_range": [2000, 2000]
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 30.0
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0.57
+			},
+			"tag:scpdy:dash_block": {}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('lc:ticks_until_active_again') <= 0",
+				"components": {
+					"minecraft:light_emission": 10,
+					"minecraft:tick": {
+						"interval_range": [2000, 2000]
+					},
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "scpdy_dash_block_top_active",
+							"render_method": "opaque"
+						},
+						"custom_sides": {
+							"texture": "scpdy_dash_block_side",
+							"render_method": "opaque"
+						},
+						"down": {
+							"texture": "scpdy_dash_block_bottom",
+							"render_method": "opaque"
+						},
+						"north": "custom_sides",
+						"south": "custom_sides",
+						"east": "custom_sides",
+						"west": "custom_sides"
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('lc:ticks_until_active_again') > 0",
+				"components": {
+					"minecraft:light_emission": 0,
+					"minecraft:tick": {
+						"interval_range": [10, 10]
+					},
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "scpdy_dash_block_top_inactive",
+							"render_method": "opaque"
+						},
+						"custom_sides": {
+							"texture": "scpdy_dash_block_side",
+							"render_method": "opaque"
+						},
+						"down": {
+							"texture": "scpdy_dash_block_bottom",
+							"render_method": "opaque"
+						},
+						"north": "custom_sides",
+						"south": "custom_sides",
+						"east": "custom_sides",
+						"west": "custom_sides"
+					}
+				}
+			}
+		]
+	}
 }

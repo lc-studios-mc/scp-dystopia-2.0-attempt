@@ -1,86 +1,86 @@
 {
-  "format_version": "1.21.20",
-  "minecraft:block": {
-    "description": {
-      "identifier": "lc:scpdy_door_activator",
-      "menu_category": {
-        "category": "construction",
-        "group": "itemGroup.name.construction"
-      },
-      "states": {
-        "lc:ticks_until_power_off": { "values": { "min": 0, "max": 15 } },
-        "lc:detect_redstone": [false, true]
-      }
-    },
-    "components": {
-      "minecraft:custom_components": ["scpdy:door_activator"],
-      "minecraft:material_instances": {
-        "*": {
-          "texture": "scpdy_door_activator_top_off",
-          "render_method": "opaque"
-        },
-        "custom_sides": {
-          "texture": "scpdy_door_activator_side",
-          "render_method": "opaque"
-        },
-        "down": {
-          "texture": "scpdy_door_activator_bottom",
-          "render_method": "opaque"
-        },
-        "north": "custom_sides",
-        "south": "custom_sides",
-        "east": "custom_sides",
-        "west": "custom_sides"
-      },
-      "minecraft:geometry": "minecraft:geometry.full_block",
-      "minecraft:map_color": "#4B4D4F",
-      "minecraft:light_dampening": 15,
-      "minecraft:tick": {
-        "interval_range": [2000, 2000]
-      },
-      "minecraft:destructible_by_explosion": {
-        "explosion_resistance": 30.0
-      },
-      "minecraft:destructible_by_mining": {
-        "seconds_to_destroy": 0.57
-      },
-      "tag:scpdy:door_activator": {}
-    },
-    "permutations": [
-      {
-        "condition": "q.block_state('lc:detect_redstone') && q.block_state('lc:ticks_until_power_off') <= 0",
-        "components": {
-          "minecraft:tick": {
-            "interval_range": [2, 3]
-          }
-        }
-      },
-      {
-        "condition": "q.block_state('lc:ticks_until_power_off') > 0",
-        "components": {
-          "minecraft:tick": {
-            "interval_range": [1, 1]
-          },
-          "minecraft:material_instances": {
-            "*": {
-              "texture": "scpdy_door_activator_top_on",
-              "render_method": "opaque"
-            },
-            "custom_sides": {
-              "texture": "scpdy_door_activator_side",
-              "render_method": "opaque"
-            },
-            "down": {
-              "texture": "scpdy_door_activator_bottom",
-              "render_method": "opaque"
-            },
-            "north": "custom_sides",
-            "south": "custom_sides",
-            "east": "custom_sides",
-            "west": "custom_sides"
-          }
-        }
-      }
-    ]
-  }
+	"format_version": "1.21.20",
+	"minecraft:block": {
+		"description": {
+			"identifier": "lc:scpdy_door_activator",
+			"menu_category": {
+				"category": "construction",
+				"group": "itemGroup.name.construction"
+			},
+			"states": {
+				"lc:ticks_until_power_off": { "values": { "min": 0, "max": 15 } },
+				"lc:detect_redstone": [false, true]
+			}
+		},
+		"components": {
+			"minecraft:custom_components": ["scpdy:door_activator"],
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "scpdy_door_activator_top_off",
+					"render_method": "opaque"
+				},
+				"custom_sides": {
+					"texture": "scpdy_door_activator_side",
+					"render_method": "opaque"
+				},
+				"down": {
+					"texture": "scpdy_door_activator_bottom",
+					"render_method": "opaque"
+				},
+				"north": "custom_sides",
+				"south": "custom_sides",
+				"east": "custom_sides",
+				"west": "custom_sides"
+			},
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:map_color": "#4B4D4F",
+			"minecraft:light_dampening": 15,
+			"minecraft:tick": {
+				"interval_range": [2000, 2000]
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 30.0
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0.57
+			},
+			"tag:scpdy:door_activator": {}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('lc:detect_redstone') && q.block_state('lc:ticks_until_power_off') <= 0",
+				"components": {
+					"minecraft:tick": {
+						"interval_range": [2, 3]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('lc:ticks_until_power_off') > 0",
+				"components": {
+					"minecraft:tick": {
+						"interval_range": [1, 1]
+					},
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "scpdy_door_activator_top_on",
+							"render_method": "opaque"
+						},
+						"custom_sides": {
+							"texture": "scpdy_door_activator_side",
+							"render_method": "opaque"
+						},
+						"down": {
+							"texture": "scpdy_door_activator_bottom",
+							"render_method": "opaque"
+						},
+						"north": "custom_sides",
+						"south": "custom_sides",
+						"east": "custom_sides",
+						"west": "custom_sides"
+					}
+				}
+			}
+		]
+	}
 }

@@ -1,19 +1,19 @@
 {
-  "format_version": "1.16.0",
-  "minecraft:block": {
-    "description": {
-      "identifier": "lc:scpdy_cst_steel_block",
-      "is_experimental": false
-    },
-    "components": {
-      "minecraft:creative_category": {
-        "group": "itemGroup.name.stoneBrick",
-        "category": "construction"
-      },
-      "minecraft:map_color": "#686868",
-      "minecraft:explosion_resistance": 45.0,
-      "minecraft:destroy_time": 0.7,
-      "tag:construction_block": {}
-    }
-  }
+	"format_version": "1.16.0",
+	"minecraft:block": {
+		"description": {
+			"identifier": "lc:scpdy_cst_steel_block",
+			"is_experimental": false
+		},
+		"components": {
+			"minecraft:creative_category": {
+				"group": "itemGroup.name.stoneBrick",
+				"category": "construction"
+			},
+			"minecraft:map_color": "#686868",
+			"minecraft:explosion_resistance": 45.0,
+			"minecraft:destroy_time": 0.7,
+			"tag:construction_block": {}
+		}
+	}
 }

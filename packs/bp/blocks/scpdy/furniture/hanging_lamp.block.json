@@ -1,75 +1,74 @@
 {
-  "format_version": "1.21.20",
-  "minecraft:block": {
-    "description": {
-      "identifier": "lc:scpdy_hanging_lamp",
-      "menu_category": {
-        "category": "construction",
-        "group": "itemGroup.name.sandstone"
-      },
-      "states": {
-        "lc:show_base": [true, false],
-        "lc:is_extension": [false, true]
-      }
-    },
-    "components": {
-      "minecraft:custom_components": ["scpdy:hanging_lamp"],
-      "minecraft:material_instances": {
-        "*": {
-          "texture": "scpdy_hanging_lamp",
-          "render_method": "opaque"
-        }
-      },
-      "minecraft:geometry": {
-        "identifier": "geometry.scpdy_hanging_lamp",
-        "bone_visibility": {
-          "top": "q.block_state('lc:show_base')",
-          "lamp": "!q.block_state('lc:is_extension')",
-          "lampshade": "!q.block_state('lc:is_extension')",
-          "on": "!q.block_state('lc:is_extension')",
-          "off": false,
-          "extend": "q.block_state('lc:is_extension')"
-        }
-      },
-      "minecraft:destructible_by_explosion": {
-        "explosion_resistance": 3.0
-      },
-      "minecraft:destructible_by_mining": {
-        "seconds_to_destroy": 0.5
-      },
-      "minecraft:light_dampening": 0,
-      "tag:lamp": {},
-      "tag:hanging_lamp": {}
-    },
-    "permutations": [
-      {
-        "condition": "!q.block_state('lc:is_extension')",
-        "components": {
-          "minecraft:light_emission": 15,
-          "minecraft:collision_box": {
-            "origin": [-6, 6, -6],
-            "size": [12, 3, 12]
-          },
-          "minecraft:selection_box": {
-            "origin": [-7, 5, -7],
-            "size": [14, 11, 14]
-          }
-        }
-      },
-      {
-        "condition": "q.block_state('lc:is_extension')",
-        "components": {
-          "minecraft:collision_box": {
-            "origin": [-1, 0, -1],
-            "size": [2, 16, 2]
-          },
-          "minecraft:selection_box": {
-            "origin": [-1, 0, -1],
-            "size": [2, 16, 2]
-          }
-        }
-      }
-    ]
-  }
+	"format_version": "1.21.20",
+	"minecraft:block": {
+		"description": {
+			"identifier": "lc:scpdy_hanging_lamp",
+			"menu_category": {
+				"category": "construction",
+				"group": "itemGroup.name.sandstone"
+			},
+			"states": {
+				"lc:show_base": [true, false],
+				"lc:is_extension": [false, true]
+			}
+		},
+		"components": {
+			"minecraft:custom_components": ["scpdy:hanging_lamp"],
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "scpdy_hanging_lamp",
+					"render_method": "opaque"
+				}
+			},
+			"minecraft:geometry": {
+				"identifier": "geometry.scpdy_hanging_lamp",
+				"bone_visibility": {
+					"top": "q.block_state('lc:show_base')",
+					"lamp": "!q.block_state('lc:is_extension')",
+					"lampshade": "!q.block_state('lc:is_extension')",
+					"on": "!q.block_state('lc:is_extension')",
+					"off": false,
+					"extend": "q.block_state('lc:is_extension')"
+				}
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 3.0
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0.5
+			},
+			"minecraft:light_dampening": 0,
+			"tag:lamp": {},
+			"tag:hanging_lamp": {}
+		},
+		"permutations": [
+			{
+				"condition": "!q.block_state('lc:is_extension')",
+				"components": {
+					"minecraft:light_emission": 15,
+					"minecraft:collision_box": {
+						"origin": [-6, 6, -6],
+						"size": [12, 3, 12]
+					},
+					"minecraft:selection_box": {
+						"origin": [-7, 5, -7],
+						"size": [14, 11, 14]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('lc:is_extension')",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [-1, 0, -1],
+						"size": [2, 16, 2]
+					},
+					"minecraft:selection_box": {
+						"origin": [-1, 0, -1],
+						"size": [2, 16, 2]
+					}
+				}
+			}
+		]
+	}
 }
-

@@ -1,117 +1,117 @@
 {
-  "format_version": "1.21.20",
-  "minecraft:block": {
-    "description": {
-      "identifier": "lc:scpdy_shelf_1",
-      "menu_category": {
-        "category": "construction",
-        "group": "itemGroup.name.sandstone"
-      },
-      "states": {
-        "lc:variant": [1, 0, 2, 3]
-      },
-      "traits": {
-        "minecraft:placement_direction": {
-          "enabled_states": ["minecraft:cardinal_direction"],
-          "y_rotation_offset": 180
-        }
-      }
-    },
-    "components": {
-      "minecraft:custom_components": ["scpdy:shelf"],
-      "minecraft:destructible_by_explosion": {
-        "explosion_resistance": 7.5 // https://minecraft.fandom.com/wiki/Explosion#Blast_resistance
-      },
-      "minecraft:destructible_by_mining": {
-        "seconds_to_destroy": 0.5
-      },
-      "minecraft:light_dampening": 1,
-      "minecraft:collision_box": true,
-      "minecraft:selection_box": true
-    },
-    "permutations": [
-      {
-        "condition": "q.block_state('lc:variant') == 0",
-        "components": {
-          "minecraft:material_instances": {
-            "*": {
-              "texture": "scpdy_shelf_1_empty",
-              "render_method": "alpha_test"
-            }
-          },
-          "minecraft:geometry": "geometry.scpdy_shelf_1_empty"
-        }
-      },
-      {
-        "condition": "q.block_state('lc:variant') == 1",
-        "components": {
-          "minecraft:material_instances": {
-            "*": {
-              "texture": "scpdy_shelf_1_books",
-              "render_method": "alpha_test"
-            }
-          },
-          "minecraft:geometry": "geometry.scpdy_shelf_1_books"
-        }
-      },
-      {
-        "condition": "q.block_state('lc:variant') == 2",
-        "components": {
-          "minecraft:material_instances": {
-            "*": {
-              "texture": "scpdy_shelf_1_painting",
-              "render_method": "alpha_test"
-            }
-          },
-          "minecraft:geometry": "geometry.scpdy_shelf_1_painting"
-        }
-      },
-      {
-        "condition": "q.block_state('lc:variant') == 3",
-        "components": {
-          "minecraft:material_instances": {
-            "*": {
-              "texture": "scpdy_shelf_1_plant",
-              "render_method": "alpha_test"
-            }
-          },
-          "minecraft:geometry": "geometry.scpdy_shelf_1_plant"
-        }
-      },
-      // #region Facing directions
-      {
-        "condition": "q.block_state('minecraft:cardinal_direction') == 'north'",
-        "components": {
-          "minecraft:transformation": {
-            "rotation": [0, 0, 0]
-          }
-        }
-      },
-      {
-        "condition": "q.block_state('minecraft:cardinal_direction') == 'south'",
-        "components": {
-          "minecraft:transformation": {
-            "rotation": [0, 180, 0]
-          }
-        }
-      },
-      {
-        "condition": "q.block_state('minecraft:cardinal_direction') == 'west'",
-        "components": {
-          "minecraft:transformation": {
-            "rotation": [0, 90, 0]
-          }
-        }
-      },
-      {
-        "condition": "q.block_state('minecraft:cardinal_direction') == 'east'",
-        "components": {
-          "minecraft:transformation": {
-            "rotation": [0, 270, 0]
-          }
-        }
-      }
-      // #endregion
-    ]
-  }
+	"format_version": "1.21.20",
+	"minecraft:block": {
+		"description": {
+			"identifier": "lc:scpdy_shelf_1",
+			"menu_category": {
+				"category": "construction",
+				"group": "itemGroup.name.sandstone"
+			},
+			"states": {
+				"lc:variant": [1, 0, 2, 3]
+			},
+			"traits": {
+				"minecraft:placement_direction": {
+					"enabled_states": ["minecraft:cardinal_direction"],
+					"y_rotation_offset": 180
+				}
+			}
+		},
+		"components": {
+			"minecraft:custom_components": ["scpdy:shelf"],
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 7.5 // https://minecraft.fandom.com/wiki/Explosion#Blast_resistance
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0.5
+			},
+			"minecraft:light_dampening": 1,
+			"minecraft:collision_box": true,
+			"minecraft:selection_box": true
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('lc:variant') == 0",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "scpdy_shelf_1_empty",
+							"render_method": "alpha_test"
+						}
+					},
+					"minecraft:geometry": "geometry.scpdy_shelf_1_empty"
+				}
+			},
+			{
+				"condition": "q.block_state('lc:variant') == 1",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "scpdy_shelf_1_books",
+							"render_method": "alpha_test"
+						}
+					},
+					"minecraft:geometry": "geometry.scpdy_shelf_1_books"
+				}
+			},
+			{
+				"condition": "q.block_state('lc:variant') == 2",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "scpdy_shelf_1_painting",
+							"render_method": "alpha_test"
+						}
+					},
+					"minecraft:geometry": "geometry.scpdy_shelf_1_painting"
+				}
+			},
+			{
+				"condition": "q.block_state('lc:variant') == 3",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "scpdy_shelf_1_plant",
+							"render_method": "alpha_test"
+						}
+					},
+					"minecraft:geometry": "geometry.scpdy_shelf_1_plant"
+				}
+			},
+			// #region Facing directions
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'north'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [0, 0, 0]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'south'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [0, 180, 0]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'west'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [0, 90, 0]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'east'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [0, 270, 0]
+					}
+				}
+			}
+			// #endregion
+		]
+	}
 }
