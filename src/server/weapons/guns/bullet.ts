@@ -267,7 +267,7 @@ mc.world.afterEvents.worldInitialize.subscribe(() => {
 });
 
 mc.world.afterEvents.entityLoad.subscribe((event) => {
-	if (FLYING_BULLET_MAP.has(event.entity.id)) return;
+	if (!FLYING_BULLET_MAP.has(event.entity.id)) return;
 	event.entity.remove();
 });
 
