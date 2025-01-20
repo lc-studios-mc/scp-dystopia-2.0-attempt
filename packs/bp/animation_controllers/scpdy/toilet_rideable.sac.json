@@ -27,9 +27,7 @@
 					]
 				},
 				"has_rider": {
-					"on_exit": [
-						"@s toilet_rideable:on_lost_rider"
-					],
+					"on_exit": ["@s toilet_rideable:on_lost_rider"],
 					"transitions": [
 						{
 							"default": "!q.has_rider"
