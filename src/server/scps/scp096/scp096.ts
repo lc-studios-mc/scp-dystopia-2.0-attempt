@@ -363,6 +363,8 @@ function onScp096Attack(scp096Entity: mc.Entity): void {
 }
 
 function onScp096Die(oldScp096Entity: mc.Entity, damageSource: mc.EntityDamageSource): void {
+	if (damageSource.cause === mc.EntityDamageCause.selfDestruct) return;
+
 	const dimension = oldScp096Entity.dimension;
 	const location = oldScp096Entity.location;
 	const velocity = oldScp096Entity.getVelocity();
