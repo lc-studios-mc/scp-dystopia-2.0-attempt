@@ -134,6 +134,20 @@
 				"pitch": [0.95, 1.05],
 				"volume": 1.0
 			},
+			"lc:scpdy_scp173": {
+				"events": {
+					"death": {
+						"sound": "scpdy.misc.fart_6",
+						"volume": 1.0
+					},
+					"step": {
+						"sound": "scpdy.scp173.move",
+						"volume": 1.4
+					}
+				},
+				"pitch": [1.0, 1.0],
+				"volume": 1.0
+			},
 			"lc:scpdy_scp5167": {
 				"events": {
 					"ambient": "scpdy.scp5167.ambient",

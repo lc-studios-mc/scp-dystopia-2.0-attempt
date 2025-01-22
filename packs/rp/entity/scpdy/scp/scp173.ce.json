@@ -1,0 +1,22 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "lc:scpdy_scp173",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/scpdy/scp/scp173/default"
+			},
+			"geometry": {
+				"default": "geometry.scpdy_scp173"
+			},
+			"render_controllers": ["controller.render.scpdy.scp173"],
+			"spawn_egg": {
+				"base_color": "#686456",
+				"overlay_color": "#8f2c24"
+			}
+		}
+	}
+}

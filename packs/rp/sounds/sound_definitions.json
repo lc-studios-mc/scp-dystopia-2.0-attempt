@@ -742,6 +742,41 @@
 			]
 		},
 		// #endregion
+		// #region SCP-173
+		"scpdy.scp173.attack": {
+			"category": "hostile",
+			"max_distance": 15.0,
+			"min_distance": 1.0,
+			"sounds": [
+				{
+					"name": "sounds/scpdy/scp/scp173/attack",
+					"load_on_low_memory": true
+				}
+			]
+		},
+		"scpdy.scp173.move": {
+			"category": "hostile",
+			"max_distance": 15.0,
+			"min_distance": 1.0,
+			"sounds": [
+				{
+					"name": "sounds/block/grindstone/grindstone1",
+					"pitch": 0.8,
+					"volume": 1.1
+				},
+				{
+					"name": "sounds/block/grindstone/grindstone2",
+					"pitch": 0.8,
+					"volume": 1.1
+				},
+				{
+					"name": "sounds/block/grindstone/grindstone3",
+					"pitch": 0.8,
+					"volume": 1.1
+				}
+			]
+		},
+		// #endregion
 		// #region SCP-5167
 		"scpdy.scp5167.ambient": {
 			"category": "hostile",

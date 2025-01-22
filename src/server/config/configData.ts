@@ -5,6 +5,7 @@ import { Player as UiPlayer } from "@minecraft/server-ui/node_modules/@minecraft
 export type ConfigData = {
 	disableGore: boolean;
 	advanced096Movement: boolean;
+	blinkingCameraFade: boolean;
 	bulletManipulatesTargetVelocity: boolean;
 	gunTacReloadOption: number;
 };
@@ -13,6 +14,7 @@ class _ConfigData implements ConfigData {
 	reset(): void {
 		this.disableGore = false;
 		this.advanced096Movement = true;
+		this.blinkingCameraFade = true;
 		this.bulletManipulatesTargetVelocity = true;
 		this.gunTacReloadOption = 2;
 	}
@@ -31,6 +33,14 @@ class _ConfigData implements ConfigData {
 
 	set advanced096Movement(value: boolean | undefined) {
 		world.setDynamicProperty("scpdyConfig_advanced096Movement", value);
+	}
+
+	get blinkingCameraFade(): boolean {
+		return world.getDynamicProperty("scpdyConfig_blinkingCameraFade") === true;
+	}
+
+	set blinkingCameraFade(value: boolean | undefined) {
+		world.setDynamicProperty("scpdyConfig_blinkingCameraFade", value);
 	}
 
 	get bulletManipulatesTargetVelocity(): boolean {
@@ -71,6 +81,7 @@ export async function showConfigEditorForm(player: Player): Promise<void> {
 			{ translate: "scpdy.form.config.prop.advanced096Movement" },
 			_CONFIG.advanced096Movement,
 		)
+		.toggle({ translate: "scpdy.form.config.prop.blinkingCameraFade" }, _CONFIG.blinkingCameraFade)
 		.toggle(
 			{ translate: "scpdy.form.config.prop.bulletManipulatesTargetVelocity" },
 			_CONFIG.bulletManipulatesTargetVelocity,
@@ -94,8 +105,9 @@ export async function showConfigEditorForm(player: Player): Promise<void> {
 
 	_CONFIG.disableGore = response.formValues[0] === true;
 	_CONFIG.advanced096Movement = response.formValues[1] === true;
-	_CONFIG.bulletManipulatesTargetVelocity = response.formValues[2] === true;
-	_CONFIG.gunTacReloadOption = response.formValues[3] as number;
+	_CONFIG.blinkingCameraFade = response.formValues[2] === true;
+	_CONFIG.bulletManipulatesTargetVelocity = response.formValues[3] === true;
+	_CONFIG.gunTacReloadOption = response.formValues[4] as number;
 
 	player.sendMessage({ translate: "scpdy.msg.config.saved" });
 }

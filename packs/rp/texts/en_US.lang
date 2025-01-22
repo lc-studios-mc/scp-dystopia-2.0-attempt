@@ -222,6 +222,7 @@ scpdy.form.config.title=SCP:DY Config Editor
 scpdy.form.config.submitButton=Save
 scpdy.form.config.prop.disableGore=Disable expensive gore effect
 scpdy.form.config.prop.advanced096Movement=Advanced SCP-096 movement
+scpdy.form.config.prop.blinkingCameraFade=Camera fades on blinking
 scpdy.form.config.prop.bulletManipulatesTargetVelocity=Player bullet can manipulate target velocity
 scpdy.form.config.prop.gunTacReloadTrigger=Gun tactical reload option
 scpdy.form.config.prop.gunTacReloadTrigger.0=None
@@ -582,6 +583,8 @@ entity.lc:scpdy_scp001_proto_weakened.name=SCP-001 Prototype
 entity.lc:scpdy_scp001_proto_singularity.name=Microsingularity
 entity.lc:scpdy_scp096.name=SCP-096
 item.spawn_egg.entity.lc:scpdy_scp096.name=§7SCP:DY §8| §fSCP-096
+entity.lc:scpdy_scp173.name=SCP-173
+item.spawn_egg.entity.lc:scpdy_scp173.name=§7SCP:DY §8| §fSCP-173
 entity.lc:scpdy_scp5167.name=SCP-5167
 item.spawn_egg.entity.lc:scpdy_scp5167.name=§7SCP:DY §8| §fSCP-5167
 
