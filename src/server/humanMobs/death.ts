@@ -4,6 +4,7 @@ import { isEntityDead } from "@lib/utils/entityUtils";
 import { spawnGoreExplosion } from "@server/gore/gibs";
 import * as vec3 from "@lib/utils/vec3";
 import { HUMAN_MOB_TYPE_ARRAY } from "./shared";
+import { SCP096_ENTITY_TYPE, SCP173_ENTITY_TYPE } from "@lib/sharedEntityTypes";
 
 function onHumanMobDie(
 	entity: mc.Entity,
@@ -18,11 +19,18 @@ function onHumanMobDie(
 		}
 	}
 
-	const isOverkill = damage > entity.getComponent("health")!.effectiveMax;
-	const explode =
-		cause === mc.EntityDamageCause.entityExplosion || cause === mc.EntityDamageCause.blockExplosion;
+	const isDamageBig = damage > Math.min(30, entity.getComponent("health")!.effectiveMax);
 
-	if (isOverkill || explode || damagingEntity?.matches({ families: ["scp096"] })) {
+	const isExplosionDamage = [
+		mc.EntityDamageCause.entityExplosion,
+		mc.EntityDamageCause.blockExplosion,
+	].includes(cause);
+
+	const shouldGoreExplode =
+		damagingEntity?.typeId !== SCP173_ENTITY_TYPE &&
+		(isDamageBig || isExplosionDamage || damagingEntity?.typeId === SCP096_ENTITY_TYPE);
+
+	if (shouldGoreExplode) {
 		spawnGoreExplosion(entity.dimension, vec3.add(entity.location, vec3.UP));
 		entity.remove();
 		return;
