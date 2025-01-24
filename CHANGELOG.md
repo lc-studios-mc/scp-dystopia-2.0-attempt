@@ -9,6 +9,8 @@ and the project does not follow [Semantic Versioning](https://semver.org/spec/v2
 
 ### Added
 
+- SCPs
+  - SCP-173
 - Blocks
   - Connec Tables
   - File Cabinet
