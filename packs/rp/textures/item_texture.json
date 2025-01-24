@@ -2,8 +2,70 @@
 	"resource_pack_name": "scpdystopia",
 	"texture_name": "atlas.items",
 	"texture_data": {
-		// #region items
-		// #region items -> keycards
+		// #region ammo
+		"scpdy_ammo_9mm_icon": {
+			"textures": "textures/scpdy/ammo/9mm_icon"
+		},
+		"scpdy_ammo_12shell_icon": {
+			"textures": "textures/scpdy/ammo/12shell_icon"
+		},
+		"scpdy_ammo_50bmg_icon": {
+			"textures": "textures/scpdy/ammo/50bmg_icon"
+		},
+		"scpdy_ammo_338magnum_icon": {
+			"textures": "textures/scpdy/ammo/338magnum_icon"
+		},
+		"scpdy_ammo_556mm_icon": {
+			"textures": "textures/scpdy/ammo/556mm_icon"
+		},
+		"scpdy_ammo_762x51_icon": {
+			"textures": "textures/scpdy/ammo/762x51_icon"
+		},
+		"scpdy_ammo_pack_9mm_icon": {
+			"textures": "textures/scpdy/ammo/packs/pack_9mm_icon"
+		},
+		"scpdy_ammo_pack_12shell_icon": {
+			"textures": "textures/scpdy/ammo/packs/pack_12shell_icon"
+		},
+		"scpdy_ammo_pack_50bmg_icon": {
+			"textures": "textures/scpdy/ammo/packs/pack_50bmg_icon"
+		},
+		"scpdy_ammo_pack_338magnum_icon": {
+			"textures": "textures/scpdy/ammo/packs/pack_338magnum_icon"
+		},
+		"scpdy_ammo_pack_556mm_icon": {
+			"textures": "textures/scpdy/ammo/packs/pack_556mm_icon"
+		},
+		"scpdy_ammo_pack_762x51_icon": {
+			"textures": "textures/scpdy/ammo/packs/pack_762x51_icon"
+		},
+		// #endregion
+		// #region blast_door
+		"scpdy_blast_door_1_icon": {
+			"textures": "textures/scpdy/blast_door/door_1_icon"
+		},
+		"scpdy_blast_door_2_icon": {
+			"textures": "textures/scpdy/blast_door/door_2_icon"
+		},
+		// #endregion
+		// #region cctv
+		"scpdy_cctv_camera_icon": {
+			"textures": "textures/scpdy/cctv/camera_icon"
+		},
+		"scpdy_cctv_linker_icon": {
+			"textures": "textures/scpdy/cctv/linker_icon"
+		},
+		"scpdy_cctv_monitor_icon": {
+			"textures": "textures/scpdy/cctv/monitor_icon"
+		},
+		"scpdy_cctv_server_icon": {
+			"textures": "textures/scpdy/cctv/server_icon"
+		},
+		"scpdy_cctv_tablet_icon": {
+			"textures": "textures/scpdy/cctv/tablet_icon"
+		},
+		// #endregion
+		// #region keycards
 		"scpdy_keycard_lvl_0": {
 			"textures": "textures/scpdy/items/keycards/keycard_lvl_0"
 		},
@@ -26,13 +88,32 @@
 			"textures": "textures/scpdy/items/keycards/keycard_o5"
 		},
 		// #endregion
-		// #region items -> materials
+		// #region materials
 		"scpdy_slasher_blade": {
 			"textures": "textures/scpdy/items/materials/slasher_blade"
 		},
 		// #endregion
-		// #region items -> weapons
-		// #region items -> weapons -> guns
+		// #region scp
+		"scpdy_scp096_1_wand_icon": {
+			"textures": "textures/scpdy/scp/scp096_1_wand_icon"
+		},
+		"scpdy_scp096_paper_bag": {
+			"textures": "textures/scpdy/scp/scp096_paper_bag_icon"
+		},
+		// #endregion
+		// #region utility
+		"scpdy_config_icon": {
+			"textures": "textures/scpdy/utility/config_icon"
+		},
+		"scpdy_facility_network_manager_icon": {
+			"textures": "textures/scpdy/utility/facility_network_manager_icon"
+		},
+		"scpdy_wrench_icon": {
+			"textures": "textures/scpdy/utility/wrench_icon"
+		},
+		// #endregion
+		// #region weapons
+		// #region weapons -> guns
 		"scpdy_gun_ar15_mag_icon": {
 			"textures": "textures/scpdy/items/weapons/guns/ar15_mag_icon"
 		},
@@ -76,7 +157,7 @@
 			"textures": "textures/scpdy/items/weapons/guns/t5000/mag"
 		},
 		// #endregion
-		// #region items -> weapons -> melee
+		// #region weapons -> melee
 		"scpdy_killer_sword_icon": {
 			"textures": "textures/scpdy/items/weapons/melee/killer_sword_icon"
 		},
@@ -93,94 +174,11 @@
 			"textures": "textures/scpdy/items/weapons/melee/void_sword_icon"
 		},
 		// #endregion
-		// #region items -> weapons -> throwables
+		// #region weapons -> throwables
 		"scpdy_frag_grenade_icon": {
 			"textures": "textures/scpdy/items/weapons/throwables/frag_grenade_icon"
-		},
-		// #endregion
-		// #endregion
-		// #endregion
-		// #region Blast Door
-		"scpdy_blast_door_1_icon": {
-			"textures": "textures/scpdy/blast_door/door_1_icon"
-		},
-		"scpdy_blast_door_2_icon": {
-			"textures": "textures/scpdy/blast_door/door_2_icon"
-		},
-		// #endregion
-		// #region CCTV
-		"scpdy_cctv_camera_icon": {
-			"textures": "textures/scpdy/cctv/camera_icon"
-		},
-		"scpdy_cctv_linker_icon": {
-			"textures": "textures/scpdy/cctv/linker_icon"
-		},
-		"scpdy_cctv_monitor_icon": {
-			"textures": "textures/scpdy/cctv/monitor_icon"
-		},
-		"scpdy_cctv_server_icon": {
-			"textures": "textures/scpdy/cctv/server_icon"
-		},
-		"scpdy_cctv_tablet_icon": {
-			"textures": "textures/scpdy/cctv/tablet_icon"
-		},
-		// #endregion
-		// #region Ammo
-		"scpdy_ammo_9mm_icon": {
-			"textures": "textures/scpdy/ammo/9mm_icon"
-		},
-		"scpdy_ammo_12shell_icon": {
-			"textures": "textures/scpdy/ammo/12shell_icon"
-		},
-		"scpdy_ammo_50bmg_icon": {
-			"textures": "textures/scpdy/ammo/50bmg_icon"
-		},
-		"scpdy_ammo_338magnum_icon": {
-			"textures": "textures/scpdy/ammo/338magnum_icon"
-		},
-		"scpdy_ammo_556mm_icon": {
-			"textures": "textures/scpdy/ammo/556mm_icon"
-		},
-		"scpdy_ammo_762x51_icon": {
-			"textures": "textures/scpdy/ammo/762x51_icon"
-		},
-		"scpdy_ammo_pack_9mm_icon": {
-			"textures": "textures/scpdy/ammo/packs/pack_9mm_icon"
-		},
-		"scpdy_ammo_pack_12shell_icon": {
-			"textures": "textures/scpdy/ammo/packs/pack_12shell_icon"
-		},
-		"scpdy_ammo_pack_50bmg_icon": {
-			"textures": "textures/scpdy/ammo/packs/pack_50bmg_icon"
-		},
-		"scpdy_ammo_pack_338magnum_icon": {
-			"textures": "textures/scpdy/ammo/packs/pack_338magnum_icon"
-		},
-		"scpdy_ammo_pack_556mm_icon": {
-			"textures": "textures/scpdy/ammo/packs/pack_556mm_icon"
-		},
-		"scpdy_ammo_pack_762x51_icon": {
-			"textures": "textures/scpdy/ammo/packs/pack_762x51_icon"
-		},
-		// #endregion
-		// #region Utility
-		"scpdy_config_icon": {
-			"textures": "textures/scpdy/utility/config_icon"
-		},
-		"scpdy_facility_network_manager_icon": {
-			"textures": "textures/scpdy/utility/facility_network_manager_icon"
-		},
-		"scpdy_wrench_icon": {
-			"textures": "textures/scpdy/utility/wrench_icon"
-		},
-		// #endregion
-		// #region SCP-related items
-		"scpdy_scp096_1_wand_icon": {
-			"textures": "textures/scpdy/scp/scp096_1_wand_icon"
-		},
-		"scpdy_scp096_paper_bag": {
-			"textures": "textures/scpdy/scp/scp096_paper_bag_icon"
 		}
+		// #endregion
 		// #endregion
 	}
 }
