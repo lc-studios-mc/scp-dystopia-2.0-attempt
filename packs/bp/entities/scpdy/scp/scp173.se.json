@@ -161,14 +161,6 @@
 					},
 					{
 						"on_damage": {
-							"filters": { "test": "has_damage", "value": "fatal" },
-							"event": "scp173:on_fatal"
-						},
-						"cause": "all",
-						"deals_damage": "no_but_side_effects_apply"
-					},
-					{
-						"on_damage": {
 							"event": "scp173:shake"
 						},
 						"cause": "all",
