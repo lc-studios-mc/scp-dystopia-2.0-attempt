@@ -331,6 +331,10 @@ item.lc:scpdy_slasher_blade.name=Slasher Blade
 ## items -> scp -> ...
 item.lc:scpdy_scp096_1_wand.name=§dSCP-096-1 Wand
 item.lc:scpdy_scp096_paper_bag.name=SCP-096 Face Hider
+item.lc:scpdy_scp427_1_flesh_cooked.name=Cooked Optimized-Human Meat
+item.lc:scpdy_scp427_1_flesh_raw.name=Raw Optimized-Human Meat
+item.lc:scpdy_scp427_open.name=SCP-427
+item.lc:scpdy_scp427.name=SCP-427
 
 ## items -> utility -> ...
 item.lc:scpdy_config.name=Config (SCP: Dystopia 2.0+)
@@ -585,6 +589,8 @@ entity.lc:scpdy_scp096.name=SCP-096
 item.spawn_egg.entity.lc:scpdy_scp096.name=§7SCP:DY §8| §fSCP-096
 entity.lc:scpdy_scp173.name=SCP-173
 item.spawn_egg.entity.lc:scpdy_scp173.name=§7SCP:DY §8| §fSCP-173
+entity.lc:scpdy_scp427_1.name=SCP-427-1
+item.spawn_egg.entity.lc:scpdy_scp427_1.name=§7SCP:DY §8| §fSCP-427-1 (Flesh Beast)
 entity.lc:scpdy_scp5167.name=SCP-5167
 item.spawn_egg.entity.lc:scpdy_scp5167.name=§7SCP:DY §8| §fSCP-5167
 

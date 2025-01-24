@@ -1,0 +1,16 @@
+{
+	"format_version": "1.20.10",
+	"minecraft:recipe_furnace": {
+		"description": {
+			"identifier": "lc:scpdy_furnace_scp427_1_flesh"
+		},
+		"unlock": [
+			{
+				"item": "lc:scpdy_scp427_1_flesh_raw"
+			}
+		],
+		"tags": ["furnace", "smoker", "campfire", "soul_campfire"],
+		"input": "lc:scpdy_scp427_1_flesh_raw",
+		"output": "lc:scpdy_scp427_1_flesh_cooked"
+	}
+}

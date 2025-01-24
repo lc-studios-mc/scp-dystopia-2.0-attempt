@@ -1,0 +1,49 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "lc:scpdy_scp427_1",
+			"materials": {
+				"default": "entity"
+			},
+			"textures": {
+				"default": "textures/scpdy/scp/scp427/scp427_1"
+			},
+			"geometry": {
+				"default": "geometry.scpdy_scp427_1"
+			},
+			"animations": {
+				// Animation controllers
+				"ctrl.main": "controller.animation.scpdy_scp427_1.main",
+				// Animations
+				"anim.idle": "animation.scpdy_scp427_1.idle",
+				"anim.attack": "animation.scpdy_scp427_1.attack",
+				"anim.chainsaw_stun": "animation.scpdy_scp427_1.chainsaw_stun",
+				"anim.look_at_target": "animation.scpdy_scp427_1.look_at_target",
+				"anim.move.arms": "animation.scpdy_scp427_1.move.arms",
+				"anim.move.legs": "animation.scpdy_scp427_1.move.legs"
+			},
+			"scripts": {
+				"scale": "0.96",
+				"animate": [
+					"ctrl.main",
+					"anim.attack"
+				],
+				"initialize": [
+					"v.chainsaw_stun_tick = 0;"
+				],
+				"pre_animation": [
+					"v.chainsaw_stun_tick = q.property('lc:chainsaw_stun_tick');",
+					"v.attack_anim_time = v.attack_time / 2;",
+					"v.move = (math.cos(q.modified_distance_moved * 38.17) * q.modified_move_speed / v.gliding_speed_value) * 57.3;",
+					"v.move_mul = 1.0;"
+				]
+			},
+			"render_controllers": ["controller.render.scpdy.standard"],
+			"spawn_egg": {
+				"base_color": "#dd9d87",
+				"overlay_color": "#c54a42"
+			}
+		}
+	}
+}

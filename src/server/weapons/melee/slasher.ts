@@ -6,6 +6,7 @@ import { isEntityDead } from "@lib/utils/entityUtils";
 import { getModifiedDamageNumber } from "@lib/utils/entityUtils";
 import { AdvancedItem, AdvancedItemBaseConstructorArgs } from "@server/advancedItem/AdvancedItem";
 import { registerAdvancedItemProfile } from "@server/advancedItem/profileRegistry";
+import * as scp427_1_module from "@server/scps/scp427/scp427_1";
 
 const SLASH_TARGET_EXCLUDED_FAMILIES: string[] = ["projectile", "inanimate", "wind_charge"];
 const SLASH_TARGET_EXCLUDED_TYPES: string[] = [
@@ -471,6 +472,9 @@ class Slasher extends AdvancedItem {
 			for (let i = 0; i < hitEntities.length; i++) {
 				try {
 					const entity = hitEntities[i]!;
+
+					scp427_1_module.chainsawStun(entity);
+
 					const damaged = entity.applyDamage(16, {
 						cause: mc.EntityDamageCause.entityAttack,
 						damagingEntity: this.player,
@@ -601,6 +605,8 @@ class Slasher extends AdvancedItem {
 
 			this.player.runCommandAsync("camerashake add @s 0.09 0.13 rotational");
 
+			scp427_1_module.chainsawStun(slashData.lockonTarget);
+
 			try {
 				const damaged = slashData.lockonTarget.applyDamage(1, {
 					cause: mc.EntityDamageCause.override,
@@ -634,10 +640,10 @@ class Slasher extends AdvancedItem {
 					targetHealthComp.currentValue <= 0
 						? "§c"
 						: targetHealthComp.currentValue <= 30
-							? mc.system.currentTick % 2 === 0
-								? "§b"
-								: "§d"
-							: "§e";
+						? mc.system.currentTick % 2 === 0
+							? "§b"
+							: "§d"
+						: "§e";
 
 				const currentHealth = Math.floor(targetHealthComp.currentValue);
 				const maxHealth = Math.floor(targetHealthComp.effectiveMax);

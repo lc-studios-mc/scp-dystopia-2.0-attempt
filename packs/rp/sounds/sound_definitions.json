@@ -786,6 +786,17 @@
 			]
 		},
 		// #endregion
+		// #region SCP-427
+		"scpdy.scp427.heartbeat": {
+			"category": "music",
+			"sounds": [
+				{
+					"name": "sounds/scpdy/scp427/heartbeat",
+					"load_on_low_memory": true
+				}
+			]
+		},
+		// #endregion
 		// #region SCP-5167
 		"scpdy.scp5167.ambient": {
 			"category": "hostile",

@@ -1,0 +1,46 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.scpdy_scp427_1.main": {
+			"initial_state": "idle",
+			"states": {
+				"idle": {
+					"animations": ["anim.idle", "anim.look_at_target"],
+					"transitions": [
+						{
+							"walk": "q.modified_move_speed > 0.07"
+						},
+						{
+							"chainsaw_stun": "v.chainsaw_stun_tick > 0"
+						}
+					],
+					"blend_transition": 0.15
+				},
+				"walk": {
+					"animations": ["anim.move.arms", "anim.move.legs", "anim.look_at_target"],
+					"transitions": [
+						{
+							"idle": "q.modified_move_speed <= 0.07"
+						},
+						{
+							"chainsaw_stun": "v.chainsaw_stun_tick > 0"
+						}
+					],
+					"blend_transition": 0.15
+				},
+				"chainsaw_stun": {
+					"animations": ["anim.chainsaw_stun"],
+					"transitions": [
+						{
+							"idle": "v.chainsaw_stun_tick <= 0 && q.modified_move_speed <= 0.07"
+						},
+						{
+							"walk": "v.chainsaw_stun_tick <= 0 && q.modified_move_speed > 0.07"
+						}
+					],
+					"blend_transition": 0.2
+				}
+			}
+		}
+	}
+}

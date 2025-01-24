@@ -100,6 +100,18 @@
 		"scpdy_scp096_paper_bag": {
 			"textures": "textures/scpdy/scp/scp096_paper_bag_icon"
 		},
+		"scpdy_scp427_closed": {
+			"textures": "textures/scpdy/scp/scp427/closed"
+		},
+		"scpdy_scp427_open": {
+			"textures": "textures/scpdy/scp/scp427/open"
+		},
+		"scpdy_scp427_1_flesh_cooked": {
+			"textures": "textures/scpdy/scp/scp427/scp427_1_flesh_cooked"
+		},
+		"scpdy_scp427_1_flesh_raw": {
+			"textures": "textures/scpdy/scp/scp427/scp427_1_flesh_raw"
+		},
 		// #endregion
 		// #region utility
 		"scpdy_config_icon": {
