@@ -110,6 +110,15 @@
 				}
 			]
 		},
+		"scpdy.interact.pick_item.2": {
+			"category": "neutral",
+			"sounds": [
+				{
+					"name": "sounds/scpdy/interact/pick_item_2",
+					"volume": 0.9
+				}
+			]
+		},
 		"scpdy.blast_door_classic.open": {
 			"category": "hostile",
 			"max_distance": 30.0,
