@@ -90,6 +90,7 @@
 				"condition": "q.block_state('lc:is_lower_part') && q.block_state('lc:door_open_progress') == 0",
 				"components": {
 					"minecraft:geometry": "geometry.scpdy_mechanical_door_s2_lower_f0",
+					"minecraft:light_dampening": 15,
 					"minecraft:collision_box": {
 						"origin": [-8, 0, -1],
 						"size": [16, 16, 2]
@@ -104,6 +105,7 @@
 				"condition": "q.block_state('lc:is_lower_part') && q.block_state('lc:door_open_progress') == 1",
 				"components": {
 					"minecraft:geometry": "geometry.scpdy_mechanical_door_s2_lower_f1",
+					"minecraft:light_dampening": 12,
 					"minecraft:collision_box": {
 						"origin": [-8, 0, -1],
 						"size": [16, 16, 2]
@@ -118,6 +120,7 @@
 				"condition": "q.block_state('lc:is_lower_part') && q.block_state('lc:door_open_progress') == 2",
 				"components": {
 					"minecraft:geometry": "geometry.scpdy_mechanical_door_s2_lower_f2",
+					"minecraft:light_dampening": 6,
 					"minecraft:collision_box": {
 						"origin": [-8, 0, -1],
 						"size": [16, 16, 2]
@@ -132,6 +135,7 @@
 				"condition": "q.block_state('lc:is_lower_part') && q.block_state('lc:door_open_progress') == 3",
 				"components": {
 					"minecraft:geometry": "geometry.scpdy_mechanical_door_s2_lower_f3",
+					"minecraft:light_dampening": 3,
 					"minecraft:collision_box": {
 						"origin": [-8, 0, -1],
 						"size": [16, 16, 2]
@@ -295,6 +299,7 @@
 				"condition": "!q.block_state('lc:is_lower_part') && q.block_state('lc:door_open_progress') == 0",
 				"components": {
 					"minecraft:geometry": "geometry.scpdy_mechanical_door_s2_upper_f0",
+					"minecraft:light_dampening": 15,
 					"minecraft:collision_box": {
 						"origin": [-8, 0, -1],
 						"size": [16, 16, 2]
@@ -309,6 +314,7 @@
 				"condition": "!q.block_state('lc:is_lower_part') && q.block_state('lc:door_open_progress') == 1",
 				"components": {
 					"minecraft:geometry": "geometry.scpdy_mechanical_door_s2_upper_f1",
+					"minecraft:light_dampening": 12,
 					"minecraft:collision_box": {
 						"origin": [-8, 0, -1],
 						"size": [16, 16, 2]
@@ -323,6 +329,7 @@
 				"condition": "!q.block_state('lc:is_lower_part') && q.block_state('lc:door_open_progress') == 2",
 				"components": {
 					"minecraft:geometry": "geometry.scpdy_mechanical_door_s2_upper_f2",
+					"minecraft:light_dampening": 6,
 					"minecraft:collision_box": {
 						"origin": [-8, 0, -1],
 						"size": [16, 16, 2]
@@ -337,6 +344,7 @@
 				"condition": "!q.block_state('lc:is_lower_part') && q.block_state('lc:door_open_progress') == 3",
 				"components": {
 					"minecraft:geometry": "geometry.scpdy_mechanical_door_s2_upper_f3",
+					"minecraft:light_dampening": 3,
 					"minecraft:collision_box": {
 						"origin": [-8, 0, -1],
 						"size": [16, 16, 2]

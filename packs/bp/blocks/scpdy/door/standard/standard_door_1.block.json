@@ -43,6 +43,7 @@
 				"condition": "q.block_state('lc:is_lower_part') && !q.block_state('lc:is_opened')",
 				"components": {
 					"minecraft:geometry": "geometry.scpdy_standard_door_lower_closed",
+					"minecraft:light_dampening": 14,
 					"minecraft:collision_box": {
 						"origin": [-8, 0, -1],
 						"size": [16, 16, 2]
@@ -68,6 +69,7 @@
 				"condition": "!q.block_state('lc:is_lower_part') && !q.block_state('lc:is_opened')",
 				"components": {
 					"minecraft:geometry": "geometry.scpdy_standard_door_upper_closed",
+					"minecraft:light_dampening": 3,
 					"minecraft:collision_box": {
 						"origin": [-8, 0, -1],
 						"size": [16, 16, 2]
