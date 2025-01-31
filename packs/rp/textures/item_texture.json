@@ -115,13 +115,13 @@
 		// #endregion
 		// #region utility
 		"scpdy_config_icon": {
-			"textures": "textures/scpdy/utility/config_icon"
+			"textures": "textures/scpdy/items/utility/config_icon"
 		},
 		"scpdy_facility_network_manager_icon": {
-			"textures": "textures/scpdy/utility/facility_network_manager_icon"
+			"textures": "textures/scpdy/items/utility/facility_network_manager_icon"
 		},
 		"scpdy_wrench_icon": {
-			"textures": "textures/scpdy/utility/wrench_icon"
+			"textures": "textures/scpdy/items/utility/wrench_icon"
 		},
 		// #endregion
 		// #region weapons
