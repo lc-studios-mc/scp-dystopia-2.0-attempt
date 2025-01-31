@@ -28,6 +28,7 @@
 		"fs-extra": "^11.2.0",
 		"sync-directory": "^6.0.5",
 		"typescript": "^5.7.2",
-		"yargs": "^17.7.2"
+		"yargs": "^17.7.2",
+		"yesno": "^0.4.0"
 	}
 }
