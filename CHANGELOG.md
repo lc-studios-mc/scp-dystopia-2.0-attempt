@@ -11,6 +11,7 @@ and the project does not follow [Semantic Versioning](https://semver.org/spec/v2
 
 - SCPs
   - SCP-173
+  - SCP-427
 - Blocks
   - Connec Tables
   - File Cabinet
