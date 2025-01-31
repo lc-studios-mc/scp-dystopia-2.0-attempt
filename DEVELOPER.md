@@ -178,56 +178,34 @@ Commands are explained in [Useful Commands](#️keyboard-useful-commands) sectio
 npm scripts
 
 ```bash
-# Check any compilation-level TypeScript errors
+# Check TypeScript errors
 npm run typecheck
 
-# Start watching for file changes in packs and src to generate development build
+# Generate dev build at local Minecraft installation and watch for src file changes
 npm run dev
 
-# Same as dev, but in Minecraft Preview
-npm run dev-beta
+# Same as 'dev', but for Minecraft Preview
+npm run devb
 
 # Generate production build at .\dist
 npm run dist
 
-# Delete development build in Minecraft
-npm run del-dev
-
-# Delete development build in Minecraft Preview
-npm run del-dev-beta
-
-# Delete dist foldewr
-npm run del-dist
-
-# Run dependency-cruiser to check dependency-related issues
+# Run dependency-cruiser to check dependency issues
 npm run depcruise
 ```
 
 **Building the add-on:**
 
 ```pwsh
-# Generate development build at ...\com.mojang\development_*_packs
+# Generate development build inside ...\com.mojang\development_*_packs
 #
 # [ Available options ]
-# -w --watch    — Watch for file changes in packs and src to automatically update the build.
-# -b --beta-mc  — Change the build destination to Minecraft Preview
-node ./tasks/build.mjs dev
+# -w --watch   — Watch for src file changes and automatically update the build
+# -b --beta    — Change the build destination to Minecraft Preview
+node ./scripts/build.mjs dev
 
 # Generate production build at .\dist
-node ./tasks/build.mjs dist
-```
-
-**Deleting the build:**
-
-```pwsh
-# Delete development build at ...\com.mojang\development_*_packs
-#
-# [ Available options ]
-# -b --beta-mc  — Delete the build in Minecraft Preview
-node ./tasks/delete.mjs dev
-
-# Delete dist folder
-node ./tasks/delete.mjs dist
+node ./scripts/build.mjs dist
 ```
 
 ## :microscope: Debugging
