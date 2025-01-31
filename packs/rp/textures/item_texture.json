@@ -4,40 +4,40 @@
 	"texture_data": {
 		// #region ammo
 		"scpdy_ammo_9mm_icon": {
-			"textures": "textures/scpdy/ammo/9mm_icon"
+			"textures": "textures/scpdy/items/ammo/9mm_icon"
 		},
 		"scpdy_ammo_12shell_icon": {
-			"textures": "textures/scpdy/ammo/12shell_icon"
+			"textures": "textures/scpdy/items/ammo/12shell_icon"
 		},
 		"scpdy_ammo_50bmg_icon": {
-			"textures": "textures/scpdy/ammo/50bmg_icon"
+			"textures": "textures/scpdy/items/ammo/50bmg_icon"
 		},
 		"scpdy_ammo_338magnum_icon": {
-			"textures": "textures/scpdy/ammo/338magnum_icon"
+			"textures": "textures/scpdy/items/ammo/338magnum_icon"
 		},
 		"scpdy_ammo_556mm_icon": {
-			"textures": "textures/scpdy/ammo/556mm_icon"
+			"textures": "textures/scpdy/items/ammo/556mm_icon"
 		},
 		"scpdy_ammo_762x51_icon": {
-			"textures": "textures/scpdy/ammo/762x51_icon"
+			"textures": "textures/scpdy/items/ammo/762x51_icon"
 		},
 		"scpdy_ammo_pack_9mm_icon": {
-			"textures": "textures/scpdy/ammo/packs/pack_9mm_icon"
+			"textures": "textures/scpdy/items/ammo/packs/pack_9mm_icon"
 		},
 		"scpdy_ammo_pack_12shell_icon": {
-			"textures": "textures/scpdy/ammo/packs/pack_12shell_icon"
+			"textures": "textures/scpdy/items/ammo/packs/pack_12shell_icon"
 		},
 		"scpdy_ammo_pack_50bmg_icon": {
-			"textures": "textures/scpdy/ammo/packs/pack_50bmg_icon"
+			"textures": "textures/scpdy/items/ammo/packs/pack_50bmg_icon"
 		},
 		"scpdy_ammo_pack_338magnum_icon": {
-			"textures": "textures/scpdy/ammo/packs/pack_338magnum_icon"
+			"textures": "textures/scpdy/items/ammo/packs/pack_338magnum_icon"
 		},
 		"scpdy_ammo_pack_556mm_icon": {
-			"textures": "textures/scpdy/ammo/packs/pack_556mm_icon"
+			"textures": "textures/scpdy/items/ammo/packs/pack_556mm_icon"
 		},
 		"scpdy_ammo_pack_762x51_icon": {
-			"textures": "textures/scpdy/ammo/packs/pack_762x51_icon"
+			"textures": "textures/scpdy/items/ammo/packs/pack_762x51_icon"
 		},
 		// #endregion
 		// #region blast_door
