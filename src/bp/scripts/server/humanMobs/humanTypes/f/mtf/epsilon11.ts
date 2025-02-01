@@ -2,7 +2,7 @@ import * as mc from "@minecraft/server";
 import { isEntityDead } from "@lib/utils/entityUtils";
 import { ensureType } from "@lib/utils/miscUtils";
 import * as vec3 from "@lib/utils/vec3";
-import { SCP096_ENTITY_TYPE } from "@lib/sharedEntityTypes";
+import { SCP096_ENTITY_TYPE } from "@server/scps/scp096/shared";
 import { HUMAN_MOB_TYPES } from "@server/humanMobs/shared";
 
 const PROP_ID = {

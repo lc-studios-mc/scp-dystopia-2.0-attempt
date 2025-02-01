@@ -4,7 +4,7 @@ import { randomFloat, randomInt } from "@lib/utils/mathUtils";
 import { ensureType } from "@lib/utils/miscUtils";
 import { CONFIG } from "@server/config/configData";
 import { SCP096_1_TAG, SCP096_ENTITY_TYPE } from "./shared";
-import { SCP173_ENTITY_TYPE } from "@lib/sharedEntityTypes";
+import { SCP173_ENTITY_TYPE } from "@server/scps/scp173/shared";
 
 function onUpdateScp096(scp096Entity: mc.Entity): void {
 	const scp096State = scp096Entity.getProperty("lc:state") as number;

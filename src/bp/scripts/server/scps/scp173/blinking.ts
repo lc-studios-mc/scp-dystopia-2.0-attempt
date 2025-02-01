@@ -1,5 +1,5 @@
 import * as mc from "@minecraft/server";
-import { SCP173_ENTITY_TYPE } from "@lib/sharedEntityTypes";
+import { SCP173_ENTITY_TYPE } from "./shared";
 import { CONFIG } from "@server/config/configData";
 
 const BLINK_START_TICK = 50;

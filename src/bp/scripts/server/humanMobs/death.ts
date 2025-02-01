@@ -4,7 +4,8 @@ import { isEntityDead } from "@lib/utils/entityUtils";
 import { spawnGoreExplosion } from "@server/gore/gibs";
 import * as vec3 from "@lib/utils/vec3";
 import { HUMAN_MOB_TYPE_ARRAY } from "./shared";
-import { SCP096_ENTITY_TYPE, SCP173_ENTITY_TYPE } from "@lib/sharedEntityTypes";
+import { SCP096_ENTITY_TYPE } from "@server/scps/scp096/shared";
+import { SCP173_ENTITY_TYPE } from "@server/scps/scp173/shared";
 
 function onHumanMobDie(
 	entity: mc.Entity,

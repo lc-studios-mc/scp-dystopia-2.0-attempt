@@ -1,6 +1,6 @@
 import * as mc from "@minecraft/server";
 import { isBlinkTime } from "./blinking";
-import { SCP173_ENTITY_TYPE } from "@lib/sharedEntityTypes";
+import { SCP173_ENTITY_TYPE } from "./shared";
 
 mc.world.afterEvents.dataDrivenEntityTrigger.subscribe(
 	(event) => {
