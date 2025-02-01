@@ -150,10 +150,8 @@ class Slasher extends AdvancedItem {
 		this.cancelSlash();
 	}
 
-	isUsable(): boolean {
-		const slasherItem = this.playerMainhand.getItem();
-		if (!slasherItem || slasherItem.typeId !== this.profile.itemTypeId) return false;
-		const durabilityComp = slasherItem.getComponent("durability")!;
+	isUsable(event: mc.ItemStartUseAfterEvent): boolean {
+		const durabilityComp = event.itemStack.getComponent("durability")!;
 		if (durabilityComp.damage >= durabilityComp.maxDurability - 1) return false;
 		return true;
 	}
