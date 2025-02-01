@@ -117,7 +117,7 @@ class AmmoPack extends AdvancedItem {
 
 	onRemove(): void {}
 
-	canBeUsed(): boolean {
+	isUsable(): boolean {
 		return true;
 	}
 

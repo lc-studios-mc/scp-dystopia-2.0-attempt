@@ -79,12 +79,12 @@ class MP5SD extends AdvancedItem {
 					x: 0.0,
 					y: -0.12,
 					z: 1.3,
-				}
+			  }
 			: {
 					x: 0.13,
 					y: 0.0,
 					z: 1.6,
-				};
+			  };
 
 		// Get location relative to player head
 		const muzzleLoc = vec3.add(
@@ -117,7 +117,7 @@ class MP5SD extends AdvancedItem {
 				: (0.01 +
 						Math.min(0.15, (ads ? 0.02 : 0.03) * shotsFired) +
 						Math.min(0.1, vec3.length(this.player.getVelocity()) / 4)) *
-					0.23;
+				  0.23;
 
 		const shootBulletVelocity: mc.Vector3 = vec3
 			.chain(vec3.FORWARD)
@@ -176,12 +176,12 @@ class MP5SD extends AdvancedItem {
 							x: 0.05,
 							y: 0.02,
 							z: 0.67,
-						}
+					  }
 					: {
 							x: 0.3,
 							y: -0.1,
 							z: 1.0,
-						},
+					  },
 			);
 
 			const viewDirection = this.player.getViewDirection();
@@ -234,8 +234,8 @@ class MP5SD extends AdvancedItem {
 					? this.aimTick + 1
 					: AIM_DURATION
 				: this.aimTick > 0
-					? this.aimTick - 1
-					: 0;
+				? this.aimTick - 1
+				: 0;
 		}
 
 		const isADS = this.aimTick >= AIM_DURATION;
@@ -418,7 +418,7 @@ class MP5SD extends AdvancedItem {
 		this.player.onScreenDisplay.setHudVisibility(mc.HudVisibility.Reset, [mc.HudElement.Crosshair]);
 	}
 
-	canBeUsed(): boolean {
+	isUsable(): boolean {
 		const itemStack = this.playerMainhand.getItem();
 
 		if (!itemStack) return false;

@@ -84,12 +84,12 @@ class T5000 extends AdvancedItem {
 					x: 0.0,
 					y: -0.1,
 					z: 1.3,
-				}
+			  }
 			: {
 					x: 0.13,
 					y: 0.026,
 					z: 1.2,
-				};
+			  };
 
 		// Get location relative to player head
 		const muzzleLoc = vec3.add(
@@ -198,8 +198,8 @@ class T5000 extends AdvancedItem {
 					? this.aimTick + 1
 					: AIM_DURATION
 				: this.aimTick > 0
-					? this.aimTick - 1
-					: 0;
+				? this.aimTick - 1
+				: 0;
 		}
 
 		const isADS = this.aimTick >= AIM_DURATION;
@@ -372,7 +372,7 @@ class T5000 extends AdvancedItem {
 		this.player.onScreenDisplay.setHudVisibility(mc.HudVisibility.Reset, [mc.HudElement.Crosshair]);
 	}
 
-	canBeUsed(): boolean {
+	isUsable(): boolean {
 		const itemStack = this.playerMainhand.getItem();
 
 		if (!itemStack) return false;

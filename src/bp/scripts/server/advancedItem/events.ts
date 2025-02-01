@@ -142,7 +142,7 @@ mc.world.afterEvents.itemStartUse.subscribe((event) => {
 		ADVANCED_ITEM_MAP.set(event.source, advancedItemWrapper);
 	}
 
-	if (!advancedItemWrapper.advancedItem.canBeUsed()) return;
+	if (!advancedItemWrapper.advancedItem.isUsable(event)) return;
 
 	advancedItemWrapper.fields.isBeingUsed = true;
 	advancedItemWrapper.advancedItem.onStartUse(event);

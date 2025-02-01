@@ -95,7 +95,7 @@ export abstract class AdvancedItem {
 
 	abstract onRemove(): void;
 
-	abstract canBeUsed(): boolean;
+	abstract isUsable(event: mc.ItemStartUseAfterEvent): boolean;
 
 	abstract onStartUse(event: mc.ItemStartUseAfterEvent): void;
 
