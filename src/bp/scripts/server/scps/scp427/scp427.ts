@@ -37,13 +37,11 @@ mc.world.beforeEvents.worldInitialize.subscribe((event) => {
 	});
 });
 
-playerLoop.subscribe((player) => {
+playerLoop.subscribe((player, { healthComp, mainhandSlot }) => {
 	if (mc.system.currentTick % SCP427_TICK_INTERVAL !== 0) return; // Delay to reduce lags
 	if ([mc.GameMode.creative, mc.GameMode.spectator].includes(player.getGameMode())) return;
 
 	scp427CurrentTick++;
-
-	const healthComp = player.getComponent("health")!;
 
 	if (healthComp.currentValue <= 0) return;
 
@@ -119,8 +117,6 @@ playerLoop.subscribe((player) => {
 		}
 	}
 
-	const equippableComp = player.getComponent("equippable")!;
-	const mainhandSlot = equippableComp.getEquipmentSlot(mc.EquipmentSlot.Mainhand);
 	const isHoldingOpenScp427 =
 		mainhandSlot.hasItem() && mainhandSlot.typeId === SCP427_OPEN_ITEM_TYPE_ID;
 
