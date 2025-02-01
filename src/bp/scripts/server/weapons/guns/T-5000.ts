@@ -372,16 +372,12 @@ class T5000 extends AdvancedItem {
 		this.player.onScreenDisplay.setHudVisibility(mc.HudVisibility.Reset, [mc.HudElement.Crosshair]);
 	}
 
-	isUsable(): boolean {
-		const itemStack = this.playerMainhand.getItem();
-
-		if (!itemStack) return false;
-
+	isUsable(event: mc.ItemStartUseAfterEvent): boolean {
 		if (this.currentTick < PICK_DURATION) return false;
 		if (this.tryReloadingNextTick) return false;
 		if (this.boltCycleData) return false;
 		if (this.reloadData) return false;
-		if (this.getIsBoltCycleNeeded(itemStack)) return false;
+		if (this.getIsBoltCycleNeeded(event.itemStack)) return false;
 		if (this.player.getItemCooldown(COOLDOWN_IDS.shoot) > 0) return false;
 
 		return true;
