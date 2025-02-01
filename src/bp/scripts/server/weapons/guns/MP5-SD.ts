@@ -419,10 +419,6 @@ class MP5SD extends AdvancedItem {
 	}
 
 	isUsable(): boolean {
-		const itemStack = this.playerMainhand.getItem();
-
-		if (!itemStack) return false;
-
 		if (this.currentTick < PICK_DURATION) return false;
 		if (this.tryReloadingNextTick) return false;
 		if (this.reloadData) return false;
