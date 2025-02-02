@@ -4,9 +4,9 @@
 		"description": {
 			"identifier": "lc:scpdy_gun_m4a1",
 			"menu_category": {
-				"category": "equipment",
-				"group": "itemGroup.name.equipment",
-				"is_hidden_in_commands": false
+				"category": "none",
+				"group": "itemGroup.name.items",
+				"is_hidden_in_commands": true
 			}
 		},
 		"components": {

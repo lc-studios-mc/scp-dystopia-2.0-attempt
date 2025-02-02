@@ -4,9 +4,9 @@
 		"description": {
 			"identifier": "lc:scpdy_gun_ar15_mag",
 			"menu_category": {
-				"category": "items",
+				"category": "none",
 				"group": "itemGroup.name.items",
-				"is_hidden_in_commands": false
+				"is_hidden_in_commands": true
 			}
 		},
 		"components": {
