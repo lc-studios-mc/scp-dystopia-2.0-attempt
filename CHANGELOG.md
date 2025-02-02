@@ -18,6 +18,7 @@ and the project does not follow [Semantic Versioning](https://semver.org/spec/v2
   - Hanging Lamp
   - Laptop
   - Small Light
+  - Toilet
   - Vent
 - Items
   - Ammo
