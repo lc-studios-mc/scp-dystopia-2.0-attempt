@@ -8,6 +8,7 @@ import { getAmmoDisplayText } from "./shared";
 import { shootBullet } from "./bullet";
 import * as commonBulletHitEvents from "./commonBulletHitEvents";
 import { randomFloat } from "@lib/utils/mathUtils";
+import { CONFIG } from "@server/config/configData";
 
 /**
  * Set of variables to use during bolt cycle
@@ -419,16 +420,19 @@ class T5000 extends AdvancedItem {
 	onStopUse(event: mc.ItemStopUseAfterEvent): void {}
 
 	onSwingArm(): void {
+		if (CONFIG.gunTacReloadOption !== 2) return;
 		if (this.tryReloadingNextTick) return;
 		this.tryReloadingNextTick = true;
 	}
 
 	onHitEntity(event: mc.EntityHitEntityAfterEvent): void {
+		if (CONFIG.gunTacReloadOption !== 1) return;
 		if (this.tryReloadingNextTick) return;
 		this.tryReloadingNextTick = true;
 	}
 
 	onHitBlock(event: mc.EntityHitBlockAfterEvent): void {
+		if (CONFIG.gunTacReloadOption !== 1) return;
 		if (this.tryReloadingNextTick) return;
 		this.tryReloadingNextTick = true;
 	}
