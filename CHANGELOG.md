@@ -30,6 +30,7 @@ and the project does not follow [Semantic Versioning](https://semver.org/spec/v2
 ### Changed
 
 - SCP-096 can now be killed by `/kill` command
+- Sped up Slasher third-person animations
 
 ## [2.0.0 Alpha 1] - 2024-12-14
 
