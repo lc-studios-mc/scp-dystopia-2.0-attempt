@@ -27,7 +27,7 @@ and the project does not follow [Semantic Versioning](https://semver.org/spec/v2
   - T-5000 Sniper Rifle
 - Recipes for many blocks and items
 
-### Changes
+### Changed
 
 - SCP-096 can now be killed by `/kill` command
 
