@@ -224,10 +224,10 @@ scpdy.form.config.prop.disableGore=Disable expensive gore effect
 scpdy.form.config.prop.advanced096Movement=Advanced SCP-096 movement
 scpdy.form.config.prop.blinkingCameraFade=Camera fades on blinking
 scpdy.form.config.prop.bulletManipulatesTargetVelocity=Player bullet can manipulate target velocity
-scpdy.form.config.prop.gunTacReloadTrigger=Gun tactical reload option
+scpdy.form.config.prop.gunTacReloadTrigger=Gun tac-reload trigger
 scpdy.form.config.prop.gunTacReloadTrigger.0=None
-scpdy.form.config.prop.gunTacReloadTrigger.1=On hit block
-scpdy.form.config.prop.gunTacReloadTrigger.2=On swing arm in any way
+scpdy.form.config.prop.gunTacReloadTrigger.1=On hit block or entity
+scpdy.form.config.prop.gunTacReloadTrigger.2=Arm swing (player.json)
 
 scpdy.form.booleanDoor.clearanceOption.title=Set Clearance Level
 scpdy.form.booleanDoor.clearanceOption.body=§cThis cannot be changed later!
