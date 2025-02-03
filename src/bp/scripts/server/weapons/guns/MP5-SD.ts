@@ -32,6 +32,11 @@ const COOLDOWN_IDS = {
 	reloadTac: "scpdy_gun_mp5sd_reload_tac",
 } as const;
 
+registerAdvancedItemProfile({
+	itemTypeId: "lc:scpdy_gun_mp5sd",
+	createInstance: (args) => new MP5SD(args),
+});
+
 /**
  * MP5-SD submachine gun
  */
@@ -62,162 +67,6 @@ class MP5SD extends AdvancedItem {
 			magItemTypeId: MAG_ITEM_TYPE_ID,
 			force: false,
 		});
-	}
-
-	private playSoundAtHead(soundId: string, options?: mc.WorldSoundOptions): void {
-		this.player.dimension.playSound(
-			soundId,
-			vec3.add(this.player.getHeadLocation(), this.player.getViewDirection()),
-			options,
-		);
-	}
-
-	private getMuzzleLocation(ads: boolean): mc.Vector3 {
-		// Amount of movement in each direction
-		const move: Partial<mc.Vector3> = ads
-			? {
-					x: 0.0,
-					y: -0.12,
-					z: 1.3,
-			  }
-			: {
-					x: 0.13,
-					y: 0.0,
-					z: 1.6,
-			  };
-
-		// Get location relative to player head
-		const muzzleLoc = vec3.add(
-			vec3.getRelativeToHead(this.player.getHeadLocation(), this.player.getViewDirection(), move),
-			this.player.getVelocity(),
-		);
-
-		return muzzleLoc;
-	}
-
-	private shoot(ads: boolean) {
-		const shotsFired = this.shotsFired;
-
-		this.player.startItemCooldown(COOLDOWN_IDS.shootScript, 1.5);
-
-		// Play shoot animation
-		if (this.player.getItemCooldown(COOLDOWN_IDS.shoot1) > 0) {
-			this.player.startItemCooldown(COOLDOWN_IDS.shoot1, 0);
-			this.player.startItemCooldown(COOLDOWN_IDS.shoot2, 15);
-		} else {
-			this.player.startItemCooldown(COOLDOWN_IDS.shoot2, 0);
-			this.player.startItemCooldown(COOLDOWN_IDS.shoot1, 15);
-		}
-
-		// Shoot bullet
-
-		const bulletSpread =
-			shotsFired === 1
-				? 0
-				: (0.01 +
-						Math.min(0.15, (ads ? 0.02 : 0.03) * shotsFired) +
-						Math.min(0.1, vec3.length(this.player.getVelocity()) / 4)) *
-				  0.23;
-
-		const shootBulletVelocity: mc.Vector3 = vec3
-			.chain(vec3.FORWARD)
-			.scale(9.3)
-			.changeDir(this.player.getViewDirection())
-			.rotateRad(vec3.random(), randomFloat(-bulletSpread, bulletSpread))
-			.done();
-
-		shootBullet("default", {
-			dimension: this.player.dimension,
-			initialLocation: this.player.getHeadLocation(),
-			initialVelocity: shootBulletVelocity,
-			sourceEntity: this.player,
-			onHitBlock: [
-				commonBulletHitEvents.BREAK_GLASS_AND_END_SEQUENCE,
-				{
-					type: "spawnRicochet",
-				},
-				{
-					type: "removeBullet",
-				},
-			],
-			onHitEntity: [
-				{
-					type: "damageEntity",
-					damage: 2,
-					damageCause: mc.EntityDamageCause.override,
-					canDamageBeModified: true,
-					condition(event, hitEntity, sharedState) {
-						sharedState.stopCurrentEventSequence = true;
-
-						if (!mc.world.gameRules.pvp && hitEntity instanceof mc.Player) return false;
-
-						sharedState.stopCurrentEventSequence = false;
-
-						return true;
-					},
-				},
-				{
-					type: "removeBullet",
-				},
-			],
-		});
-
-		const muzzleLoc = this.getMuzzleLocation(ads);
-
-		this.player.dimension.spawnParticle("lc:scpdy_muzzle_smoke_emitter", muzzleLoc);
-
-		// Spawn empty casing drop particle
-		{
-			const particleLoc = vec3.getRelativeToHead(
-				this.player.getHeadLocation(),
-				this.player.getViewDirection(),
-				ads
-					? {
-							x: 0.05,
-							y: 0.02,
-							z: 0.67,
-					  }
-					: {
-							x: 0.3,
-							y: -0.1,
-							z: 1.0,
-					  },
-			);
-
-			const viewDirection = this.player.getViewDirection();
-			const rightDirection = vec3.cross(viewDirection, vec3.UP); // 右方向を計算
-
-			const particleDirection = vec3.add(
-				vec3.add(
-					vec3.scale(viewDirection, -randomFloat(1.3, 1.5)), // Go backwards
-					vec3.scale(rightDirection, randomFloat(0.6, 0.7)), // Go right
-				),
-				vec3.fromPartial({
-					x: randomFloat(-0.1, 0.1),
-					y: randomFloat(1.1, 1.3), // Go up
-					z: randomFloat(-0.1, 0.1),
-				}),
-			);
-
-			const molangVarMap = new mc.MolangVariableMap();
-			molangVarMap.setFloat("speed", 6);
-			molangVarMap.setVector3("direction", particleDirection);
-
-			this.player.dimension.spawnParticle(
-				"lc:scpdy_bullet_casing_drop_var0_particle",
-				particleLoc,
-				molangVarMap,
-			);
-		}
-
-		// Play sound
-		this.playSoundAtHead("scpdy.gun.mp5sd.shoot", {
-			volume: 1.4,
-			pitch: randomFloat(0.95, 1.05),
-		});
-
-		const camShakeAmount = Math.min(0.1, 0.01 + (ads ? 0.0005 : 0.001) * this.shotsFired);
-		this.player.runCommandAsync(`camerashake add @s ${camShakeAmount} 0.05 rotational`);
 	}
 
 	onTick(mainhandItemStack: mc.ItemStack): void {
@@ -471,9 +320,160 @@ class MP5SD extends AdvancedItem {
 		if (this.tryReloadingNextTick) return;
 		this.tryReloadingNextTick = true;
 	}
-}
 
-registerAdvancedItemProfile({
-	itemTypeId: "lc:scpdy_gun_mp5sd",
-	createInstance: (args) => new MP5SD(args),
-});
+	private playSoundAtHead(soundId: string, options?: mc.WorldSoundOptions): void {
+		this.player.dimension.playSound(
+			soundId,
+			vec3.add(this.player.getHeadLocation(), this.player.getViewDirection()),
+			options,
+		);
+	}
+
+	private getMuzzleLocation(ads: boolean): mc.Vector3 {
+		// Amount of movement in each direction
+		const move: Partial<mc.Vector3> = ads
+			? {
+					x: 0.0,
+					y: -0.12,
+					z: 1.3,
+			  }
+			: {
+					x: 0.13,
+					y: 0.0,
+					z: 1.6,
+			  };
+
+		// Get location relative to player head
+		const muzzleLoc = vec3.add(
+			vec3.getRelativeToHead(this.player.getHeadLocation(), this.player.getViewDirection(), move),
+			this.player.getVelocity(),
+		);
+
+		return muzzleLoc;
+	}
+
+	private shoot(ads: boolean) {
+		const shotsFired = this.shotsFired;
+
+		this.player.startItemCooldown(COOLDOWN_IDS.shootScript, 1.5);
+
+		// Play shoot animation
+		if (this.player.getItemCooldown(COOLDOWN_IDS.shoot1) > 0) {
+			this.player.startItemCooldown(COOLDOWN_IDS.shoot1, 0);
+			this.player.startItemCooldown(COOLDOWN_IDS.shoot2, 15);
+		} else {
+			this.player.startItemCooldown(COOLDOWN_IDS.shoot2, 0);
+			this.player.startItemCooldown(COOLDOWN_IDS.shoot1, 15);
+		}
+
+		// Shoot bullet
+
+		const bulletSpread =
+			shotsFired === 1
+				? 0
+				: (0.01 +
+						Math.min(0.15, (ads ? 0.02 : 0.03) * shotsFired) +
+						Math.min(0.1, vec3.length(this.player.getVelocity()) / 4)) *
+				  0.23;
+
+		const shootBulletVelocity: mc.Vector3 = vec3
+			.chain(vec3.FORWARD)
+			.scale(9.3)
+			.changeDir(this.player.getViewDirection())
+			.rotateRad(vec3.random(), randomFloat(-bulletSpread, bulletSpread))
+			.done();
+
+		shootBullet("default", {
+			dimension: this.player.dimension,
+			initialLocation: this.player.getHeadLocation(),
+			initialVelocity: shootBulletVelocity,
+			sourceEntity: this.player,
+			onHitBlock: [
+				commonBulletHitEvents.BREAK_GLASS_AND_END_SEQUENCE,
+				{
+					type: "spawnRicochet",
+				},
+				{
+					type: "removeBullet",
+				},
+			],
+			onHitEntity: [
+				{
+					type: "damageEntity",
+					damage: 2,
+					damageCause: mc.EntityDamageCause.override,
+					canDamageBeModified: true,
+					condition(event, hitEntity, sharedState) {
+						sharedState.stopCurrentEventSequence = true;
+
+						if (!mc.world.gameRules.pvp && hitEntity instanceof mc.Player) return false;
+
+						sharedState.stopCurrentEventSequence = false;
+
+						return true;
+					},
+				},
+				{
+					type: "removeBullet",
+				},
+			],
+		});
+
+		const muzzleLoc = this.getMuzzleLocation(ads);
+
+		this.player.dimension.spawnParticle("lc:scpdy_muzzle_smoke_emitter", muzzleLoc);
+
+		// Spawn empty casing drop particle
+		{
+			const particleLoc = vec3.getRelativeToHead(
+				this.player.getHeadLocation(),
+				this.player.getViewDirection(),
+				ads
+					? {
+							x: 0.05,
+							y: 0.02,
+							z: 0.67,
+					  }
+					: {
+							x: 0.3,
+							y: -0.1,
+							z: 1.0,
+					  },
+			);
+
+			const viewDirection = this.player.getViewDirection();
+			const rightDirection = vec3.cross(viewDirection, vec3.UP); // 右方向を計算
+
+			const particleDirection = vec3.add(
+				vec3.add(
+					vec3.scale(viewDirection, -randomFloat(1.3, 1.5)), // Go backwards
+					vec3.scale(rightDirection, randomFloat(0.6, 0.7)), // Go right
+				),
+				vec3.fromPartial({
+					x: randomFloat(-0.1, 0.1),
+					y: randomFloat(1.1, 1.3), // Go up
+					z: randomFloat(-0.1, 0.1),
+				}),
+			);
+
+			const molangVarMap = new mc.MolangVariableMap();
+			molangVarMap.setFloat("speed", 6);
+			molangVarMap.setVector3("direction", particleDirection);
+
+			this.player.dimension.spawnParticle(
+				"lc:scpdy_bullet_casing_drop_var0_particle",
+				particleLoc,
+				molangVarMap,
+			);
+		}
+
+		// Play sound
+		this.playSoundAtHead("scpdy.gun.mp5sd.shoot", {
+			volume: 1.4,
+			pitch: randomFloat(0.95, 1.05),
+		});
+
+		const camShakeAmount = Math.min(0.1, 0.01 + (ads ? 0.0005 : 0.001) * this.shotsFired);
+		this.player.runCommandAsync(`camerashake add @s ${camShakeAmount} 0.05 rotational`);
+	}
+}
