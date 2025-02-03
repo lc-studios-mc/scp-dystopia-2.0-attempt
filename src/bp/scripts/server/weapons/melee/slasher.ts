@@ -66,7 +66,7 @@ function playChainsawFinishSound(player: mc.Player): void {
 		if (player2 === player) continue;
 
 		player2.playSound("scpdy.slasher.chainsaw.finish", {
-			location: player2.getHeadLocation(),
+			location: player.getHeadLocation(),
 			volume: 1.7,
 		});
 	}
@@ -84,7 +84,7 @@ function playSlashSound(player: mc.Player): void {
 		if (player2 === player) continue;
 
 		player2.playSound("scpdy.slasher.slash", {
-			location: player2.getHeadLocation(),
+			location: player.getHeadLocation(),
 			volume: 3.0,
 		});
 	}
