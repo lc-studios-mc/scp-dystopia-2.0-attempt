@@ -239,6 +239,8 @@ class MP5SD extends AdvancedItem {
 		if (this.tryReloadingNextTick) {
 			this.tryReloadingNextTick = false;
 
+			if (this.reloadData) return;
+
 			// Reload should not start if inventory ammo count is 0 or mag is full
 			if (invAmmoCountNow <= 0) return;
 			if (magDurabilityComp.damage <= 0) return;
