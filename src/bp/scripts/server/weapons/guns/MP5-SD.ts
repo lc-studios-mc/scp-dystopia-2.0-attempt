@@ -8,6 +8,7 @@ import { getAmmoDisplayText } from "./shared";
 import { randomFloat } from "@lib/utils/mathUtils";
 import { shootBullet } from "./bullet";
 import * as commonBulletHitEvents from "./commonBulletHitEvents";
+import { CONFIG } from "@server/config/configData";
 
 /**
  * Set of variables to use during reload
@@ -307,16 +308,19 @@ class MP5SD extends AdvancedItem {
 	}
 
 	onSwingArm(): void {
+		if (CONFIG.gunTacReloadOption !== 2) return;
 		if (this.tryReloadingNextTick) return;
 		this.tryReloadingNextTick = true;
 	}
 
 	onHitEntity(event: mc.EntityHitEntityAfterEvent): void {
+		if (CONFIG.gunTacReloadOption !== 1) return;
 		if (this.tryReloadingNextTick) return;
 		this.tryReloadingNextTick = true;
 	}
 
 	onHitBlock(event: mc.EntityHitBlockAfterEvent): void {
+		if (CONFIG.gunTacReloadOption !== 1) return;
 		if (this.tryReloadingNextTick) return;
 		this.tryReloadingNextTick = true;
 	}
