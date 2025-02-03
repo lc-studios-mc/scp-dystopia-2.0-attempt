@@ -158,7 +158,7 @@ function onFinishAllWaves(waveSpawner: mc.Entity): void {
 			});
 		}
 
-		winners.sort((a, b) => a.score - b.score);
+		winners.sort((a, b) => b.score - a.score);
 
 		const congratulationMsg: mc.RawMessage = {
 			rawtext: [
@@ -230,7 +230,7 @@ function onTickWaveBattle(waveSpawner: mc.Entity): void {
 					x: waveSpawner.location.x,
 					y: Math.floor(waveSpawner.location.y) + 1.6,
 					z: waveSpawner.location.z,
-				}
+			  }
 			: waveSpawner.location;
 
 	const spawnedMob = waveSpawner.dimension.spawnEntity(enemyTypeId, spawnLoc);
