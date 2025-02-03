@@ -607,6 +607,7 @@ class Slasher extends AdvancedItem {
 
 			try {
 				const damaged = slashData.lockonTarget.applyDamage(1, {
+					damagingEntity: this.player,
 					cause: mc.EntityDamageCause.override,
 				});
 
