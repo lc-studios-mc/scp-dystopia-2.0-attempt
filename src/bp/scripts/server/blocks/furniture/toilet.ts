@@ -37,7 +37,12 @@ function onUpdateToiletRideableEntity(entity: mc.Entity): void {
 	const lastRiderPitch = entity.getDynamicProperty("lastRiderPitch");
 	const currentRiderPitch = rider.getRotation().x;
 
-	if (typeof lastRiderPitch === "number" && lastRiderPitch > -85 && currentRiderPitch < -85) {
+	const emitFart =
+		typeof lastRiderPitch === "number" &&
+		((lastRiderPitch < 80 && currentRiderPitch > 80) ||
+			(lastRiderPitch > -80 && currentRiderPitch < -80));
+
+	if (emitFart) {
 		const fartCount = (entity.getDynamicProperty("fartCount") as number) ?? 0;
 
 		const fartSoundId = FART_SOUND_ORDER[fartCount];
