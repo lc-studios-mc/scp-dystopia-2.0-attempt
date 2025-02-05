@@ -25,6 +25,14 @@ type ReloadData = {
 	tac: boolean;
 };
 
+type TPAnimationVariables = {
+	isADS: boolean;
+	wasADS: boolean;
+	ticksUntilADSTransitionEnd: number;
+	ticksUntilStopADS: number;
+	ticksUntilSpecialAnimTimeEnd: number;
+};
+
 const MAG_ITEM_TYPE_ID = "lc:scpdy_gun_t5000_mag";
 
 const PICK_DURATION = 15; // Total amount of tick required for item picking to finish
@@ -53,6 +61,14 @@ class T5000 extends AdvancedItem {
 	private boltCycleData?: BoltCycleData;
 	private reloadData?: ReloadData;
 
+	private tpAnimVars: TPAnimationVariables = {
+		isADS: false,
+		wasADS: false,
+		ticksUntilADSTransitionEnd: 0,
+		ticksUntilStopADS: 0,
+		ticksUntilSpecialAnimTimeEnd: 0,
+	};
+
 	/**
 	 * Enabling this flag will start gun reload on next tick if it meets condition
 	 */
@@ -73,9 +89,55 @@ class T5000 extends AdvancedItem {
 			magItemTypeId: MAG_ITEM_TYPE_ID,
 			force: false,
 		});
+
+		args.player.playAnimation("animation.scpdy_player.t5000.pick");
+		this.tpAnimVars.ticksUntilSpecialAnimTimeEnd = 8;
 	}
 
 	onTick(mainhandItemStack: mc.ItemStack): void {
+		this.onTick_1(mainhandItemStack);
+		this.onTick_TPAnim();
+	}
+
+	private onTick_TPAnim(): void {
+		if (this.tpAnimVars.ticksUntilSpecialAnimTimeEnd > 0)
+			this.tpAnimVars.ticksUntilSpecialAnimTimeEnd--;
+
+		if (this.tpAnimVars.ticksUntilADSTransitionEnd > 0)
+			this.tpAnimVars.ticksUntilADSTransitionEnd--;
+
+		if (this.tpAnimVars.ticksUntilStopADS > 0) {
+			this.tpAnimVars.ticksUntilStopADS--;
+
+			if (this.tpAnimVars.ticksUntilStopADS <= 0) this.tpAnimVars.isADS = false;
+			else if (!this.tpAnimVars.isADS) this.tpAnimVars.isADS = true;
+		}
+
+		if (this.tpAnimVars.isADS && !this.tpAnimVars.wasADS) {
+			this.playTPAnimIfNotDuringSpecialAnimTime("animation.scpdy_player.t5000.ready_to_aim");
+			this.tpAnimVars.ticksUntilADSTransitionEnd = 4;
+			this.tpAnimVars.wasADS = true;
+		} else if (!this.tpAnimVars.isADS && this.tpAnimVars.wasADS) {
+			this.playTPAnimIfNotDuringSpecialAnimTime("animation.scpdy_player.t5000.aim_to_ready");
+			this.tpAnimVars.ticksUntilADSTransitionEnd = 4;
+			this.tpAnimVars.wasADS = false;
+		}
+
+		if (this.tpAnimVars.ticksUntilADSTransitionEnd <= 0) {
+			this.playTPAnimIfNotDuringSpecialAnimTime(
+				this.tpAnimVars.isADS
+					? "animation.scpdy_player.t5000.aim"
+					: "animation.scpdy_player.t5000.ready",
+			);
+		}
+	}
+
+	private playTPAnimIfNotDuringSpecialAnimTime(id: string): void {
+		if (this.tpAnimVars.ticksUntilSpecialAnimTimeEnd > 0) return;
+		this.player.playAnimation(id);
+	}
+
+	private onTick_1(mainhandItemStack: mc.ItemStack): void {
 		const cdReload = this.player.getItemCooldown(COOLDOWN_IDS.reload);
 		const cdReloadTac = this.player.getItemCooldown(COOLDOWN_IDS.reloadTac);
 		const dontAim = cdReload > 0 || cdReloadTac > 0;
@@ -83,6 +145,8 @@ class T5000 extends AdvancedItem {
 		// Update aimTick
 		if (dontAim) {
 			this.aimTick = this.aimTick > 0 ? this.aimTick - 1 : 0;
+
+			if (this.tpAnimVars.isADS) this.tpAnimVars.ticksUntilStopADS = 1;
 		} else {
 			this.aimTick = this.player.isSneaking
 				? this.aimTick < AIM_DURATION
@@ -91,6 +155,15 @@ class T5000 extends AdvancedItem {
 				: this.aimTick > 0
 				? this.aimTick - 1
 				: 0;
+
+			if (this.tpAnimVars.ticksUntilSpecialAnimTimeEnd <= 0) {
+				if (this.player.isSneaking) {
+					this.tpAnimVars.isADS = true;
+					this.tpAnimVars.ticksUntilStopADS = 0;
+				} else if (this.tpAnimVars.isADS) {
+					this.tpAnimVars.ticksUntilStopADS = 1;
+				}
+			}
 		}
 
 		const isADS = this.aimTick >= AIM_DURATION;
@@ -148,6 +221,10 @@ class T5000 extends AdvancedItem {
 		if (this.boltCycleData) {
 			if (this.boltCycleData.tick === 0) {
 				this.player.startItemCooldown(COOLDOWN_IDS.boltCycle, 18);
+
+				this.player.playAnimation("animation.scpdy_player.t5000.bolt");
+				this.tpAnimVars.ticksUntilSpecialAnimTimeEnd = 20;
+				this.tpAnimVars.ticksUntilStopADS = 600;
 			}
 
 			if (this.boltCycleData.tick === 7) {
@@ -200,6 +277,9 @@ class T5000 extends AdvancedItem {
 			if (this.reloadData.tac) {
 				if (this.reloadData.tick === 0) {
 					this.player.startItemCooldown(COOLDOWN_IDS.reloadTac, 32);
+
+					this.player.playAnimation("animation.scpdy_player.t5000.reload_tac");
+					this.tpAnimVars.ticksUntilSpecialAnimTimeEnd = 32;
 				}
 
 				if (this.reloadData.tick === 20) {
@@ -221,6 +301,9 @@ class T5000 extends AdvancedItem {
 			} else {
 				if (this.reloadData.tick === 0) {
 					this.player.startItemCooldown(COOLDOWN_IDS.reload, 52);
+
+					this.player.playAnimation("animation.scpdy_player.t5000.reload");
+					this.tpAnimVars.ticksUntilSpecialAnimTimeEnd = 52;
 				}
 
 				if (this.reloadData.tick === 6) {
@@ -263,6 +346,7 @@ class T5000 extends AdvancedItem {
 
 	onRemove(): void {
 		this.player.onScreenDisplay.setHudVisibility(mc.HudVisibility.Reset, [mc.HudElement.Crosshair]);
+		this.player.playAnimation("animation.scpdy_player.t5000.remove");
 	}
 
 	isUsable(event: mc.ItemStartUseAfterEvent): boolean {
@@ -364,6 +448,10 @@ class T5000 extends AdvancedItem {
 		this.player.startItemCooldown(COOLDOWN_IDS.boltCycle, 0);
 		this.player.startItemCooldown(COOLDOWN_IDS.shoot, 5);
 
+		this.player.playAnimation("animation.scpdy_player.t5000.shoot");
+		this.tpAnimVars.ticksUntilSpecialAnimTimeEnd = 9;
+		this.tpAnimVars.ticksUntilStopADS = 600;
+
 		const bulletSpread = ads
 			? 0
 			: (0.1 + Math.min(0.5, vec3.length(this.player.getVelocity()))) * 0.5;
@@ -444,8 +532,3 @@ class T5000 extends AdvancedItem {
 		this.player.runCommandAsync("camerashake add @s 0.06 0.1 rotational");
 	}
 }
-
-registerAdvancedItemProfile({
-	itemTypeId: "lc:scpdy_gun_t5000",
-	createInstance: (args) => new T5000(args),
-});
