@@ -39,6 +39,11 @@ const COOLDOWN_IDS = {
 	reloadTac: "scpdy_gun_t5000_reload_tac",
 } as const;
 
+registerAdvancedItemProfile({
+	itemTypeId: "lc:scpdy_gun_t5000",
+	createInstance: (args) => new T5000(args),
+});
+
 /**
  * T-5000 sniper rifle
  */
@@ -68,121 +73,6 @@ class T5000 extends AdvancedItem {
 			magItemTypeId: MAG_ITEM_TYPE_ID,
 			force: false,
 		});
-	}
-
-	private getIsBoltCycleNeeded(itemStack: mc.ItemStack): boolean {
-		return itemStack.getDynamicProperty("isBoltCycleNeeded") === true;
-	}
-
-	private setIsBoltCycleNeeded(itemStack: mc.ItemStack, value?: boolean): void {
-		itemStack.setDynamicProperty("isBoltCycleNeeded", value);
-	}
-
-	private getMuzzleLocation(ads: boolean): mc.Vector3 {
-		// Amount of movement in each direction
-		const move: Partial<mc.Vector3> = ads
-			? {
-					x: 0.0,
-					y: -0.1,
-					z: 1.3,
-			  }
-			: {
-					x: 0.13,
-					y: 0.026,
-					z: 1.2,
-			  };
-
-		// Get location relative to player head
-		const muzzleLoc = vec3.add(
-			vec3.getRelativeToHead(this.player.getHeadLocation(), this.player.getViewDirection(), move),
-			this.player.getVelocity(),
-		);
-
-		return muzzleLoc;
-	}
-
-	private shoot(ads: boolean): void {
-		this.player.startItemCooldown(COOLDOWN_IDS.boltCycle, 0);
-		this.player.startItemCooldown(COOLDOWN_IDS.shoot, 5);
-
-		const bulletSpread = ads
-			? 0
-			: (0.1 + Math.min(0.5, vec3.length(this.player.getVelocity()))) * 0.5;
-
-		const shootBulletVelocity: mc.Vector3 = vec3
-			.chain(vec3.FORWARD)
-			.scale(15)
-			.changeDir(this.player.getViewDirection())
-			.rotateRad(vec3.random(), randomFloat(-bulletSpread, bulletSpread))
-			.done();
-
-		shootBullet("default", {
-			dimension: this.player.dimension,
-			initialLocation: this.player.getHeadLocation(),
-			initialVelocity: shootBulletVelocity,
-			sourceEntity: this.player,
-			onHitBlock: [
-				commonBulletHitEvents.BREAK_GLASS_AND_END_SEQUENCE,
-				{
-					type: "spawnRicochet",
-				},
-				{
-					type: "removeBullet",
-				},
-			],
-			onHitEntity: [
-				{
-					type: "damageEntity",
-					damage: 24,
-					damageCause: mc.EntityDamageCause.override,
-					canDamageBeModified: true,
-					knockbackPower: 1,
-					condition(event, hitEntity, sharedState) {
-						sharedState.stopCurrentEventSequence = true;
-
-						if (!mc.world.gameRules.pvp && hitEntity instanceof mc.Player) return false;
-
-						sharedState.stopCurrentEventSequence = false;
-
-						return true;
-					},
-				},
-				{
-					type: "removeBullet",
-				},
-			],
-		});
-
-		const muzzleLoc = this.getMuzzleLocation(ads);
-
-		this.player.dimension.spawnParticle("lc:scpdy_muzzle_flash_particle", muzzleLoc);
-
-		const soundListeners = this.player.dimension.getPlayers({
-			closest: 20,
-			location: this.player.location,
-			maxDistance: 80,
-		});
-
-		const soundOrigin = muzzleLoc;
-
-		for (let i = 0; i < soundListeners.length; i++) {
-			const listener = soundListeners[i]!;
-			const dist = vec3.distance(soundOrigin, listener.location);
-
-			if (dist < 40) {
-				listener.playSound("scpdy.gun.t5000.shoot_nearby", {
-					location: soundOrigin,
-					volume: 3.0,
-				});
-			} else {
-				listener.playSound("scpdy.gun.t5000.shoot_distant", {
-					location: soundOrigin,
-					volume: 5.0,
-				});
-			}
-		}
-
-		this.player.runCommandAsync("camerashake add @s 0.06 0.1 rotational");
 	}
 
 	onTick(mainhandItemStack: mc.ItemStack): void {
@@ -437,6 +327,121 @@ class T5000 extends AdvancedItem {
 		if (CONFIG.gunTacReloadOption !== 1) return;
 		if (this.tryReloadingNextTick) return;
 		this.tryReloadingNextTick = true;
+	}
+
+	private getIsBoltCycleNeeded(itemStack: mc.ItemStack): boolean {
+		return itemStack.getDynamicProperty("isBoltCycleNeeded") === true;
+	}
+
+	private setIsBoltCycleNeeded(itemStack: mc.ItemStack, value?: boolean): void {
+		itemStack.setDynamicProperty("isBoltCycleNeeded", value);
+	}
+
+	private getMuzzleLocation(ads: boolean): mc.Vector3 {
+		// Amount of movement in each direction
+		const move: Partial<mc.Vector3> = ads
+			? {
+					x: 0.0,
+					y: -0.1,
+					z: 1.3,
+			  }
+			: {
+					x: 0.13,
+					y: 0.026,
+					z: 1.2,
+			  };
+
+		// Get location relative to player head
+		const muzzleLoc = vec3.add(
+			vec3.getRelativeToHead(this.player.getHeadLocation(), this.player.getViewDirection(), move),
+			this.player.getVelocity(),
+		);
+
+		return muzzleLoc;
+	}
+
+	private shoot(ads: boolean): void {
+		this.player.startItemCooldown(COOLDOWN_IDS.boltCycle, 0);
+		this.player.startItemCooldown(COOLDOWN_IDS.shoot, 5);
+
+		const bulletSpread = ads
+			? 0
+			: (0.1 + Math.min(0.5, vec3.length(this.player.getVelocity()))) * 0.5;
+
+		const shootBulletVelocity: mc.Vector3 = vec3
+			.chain(vec3.FORWARD)
+			.scale(15)
+			.changeDir(this.player.getViewDirection())
+			.rotateRad(vec3.random(), randomFloat(-bulletSpread, bulletSpread))
+			.done();
+
+		shootBullet("default", {
+			dimension: this.player.dimension,
+			initialLocation: this.player.getHeadLocation(),
+			initialVelocity: shootBulletVelocity,
+			sourceEntity: this.player,
+			onHitBlock: [
+				commonBulletHitEvents.BREAK_GLASS_AND_END_SEQUENCE,
+				{
+					type: "spawnRicochet",
+				},
+				{
+					type: "removeBullet",
+				},
+			],
+			onHitEntity: [
+				{
+					type: "damageEntity",
+					damage: 24,
+					damageCause: mc.EntityDamageCause.override,
+					canDamageBeModified: true,
+					knockbackPower: 1,
+					condition(event, hitEntity, sharedState) {
+						sharedState.stopCurrentEventSequence = true;
+
+						if (!mc.world.gameRules.pvp && hitEntity instanceof mc.Player) return false;
+
+						sharedState.stopCurrentEventSequence = false;
+
+						return true;
+					},
+				},
+				{
+					type: "removeBullet",
+				},
+			],
+		});
+
+		const muzzleLoc = this.getMuzzleLocation(ads);
+
+		this.player.dimension.spawnParticle("lc:scpdy_muzzle_flash_particle", muzzleLoc);
+
+		const soundListeners = this.player.dimension.getPlayers({
+			closest: 20,
+			location: this.player.location,
+			maxDistance: 80,
+		});
+
+		const soundOrigin = muzzleLoc;
+
+		for (let i = 0; i < soundListeners.length; i++) {
+			const listener = soundListeners[i]!;
+			const dist = vec3.distance(soundOrigin, listener.location);
+
+			if (dist < 40) {
+				listener.playSound("scpdy.gun.t5000.shoot_nearby", {
+					location: soundOrigin,
+					volume: 3.0,
+				});
+			} else {
+				listener.playSound("scpdy.gun.t5000.shoot_distant", {
+					location: soundOrigin,
+					volume: 5.0,
+				});
+			}
+		}
+
+		this.player.runCommandAsync("camerashake add @s 0.06 0.1 rotational");
 	}
 }
 
