@@ -22,7 +22,7 @@
 
 <ins>My main priority is to restore all SCPs from v1.8.1.</ins>
 
-While that's the main thing, I'm also going to add other important aspects in SCP universe such as SCP Foundation staff, MTF units, and *Groups of Interest* (like Chaos Insurgency and GoC).
+While that's the main thing, I'm also going to add other important aspects in SCP universe such as SCP Foundation staff, MTF units, and *Groups of Interest* (like Chaos Insurgency and Global Occult Coalition).
 
 I'm also going to add decent survival support and lore behind those ruined facilities scattered around the world. But, they're very likely to be added after many other features are added.
 
