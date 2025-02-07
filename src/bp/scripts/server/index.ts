@@ -32,7 +32,7 @@ async function onPlayerInitialSpawn(player: Player): Promise<void> {
 		isWorldLeader = true;
 	}
 
-	await system.waitTicks(100);
+	await system.waitTicks(200);
 
 	if (player.addTag("scpdy_welcomed")) {
 		player.playSound("random.orb");
