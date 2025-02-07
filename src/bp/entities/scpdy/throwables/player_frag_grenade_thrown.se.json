@@ -16,8 +16,8 @@
 			"properties": {
 				"lc:ticks_until_explode": {
 					"type": "int",
-					"range": [0, 50],
-					"default": 50
+					"range": [0, 40],
+					"default": 40
 				}
 			}
 		},

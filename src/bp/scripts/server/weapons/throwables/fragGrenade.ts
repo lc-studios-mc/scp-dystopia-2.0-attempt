@@ -42,7 +42,7 @@ function throwFragGrenade(player: mc.Player, ticksSinceRemovedPin: number): void
 
 	grenadeEntity.setDynamicProperty("sourcePlayerId", player.id);
 
-	const ticksUntilExplode = Math.floor(Math.max(0, 50 - ticksSinceRemovedPin / 2));
+	const ticksUntilExplode = Math.floor(Math.max(0, 40 - ticksSinceRemovedPin / 1.75));
 
 	if (ticksUntilExplode > 0) {
 		grenadeEntity.applyImpulse(impulse);
