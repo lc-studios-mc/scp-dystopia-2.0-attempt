@@ -204,6 +204,12 @@
 			"minecraft:entity_spawned": {
 				"add": {
 					"component_groups": ["immobile", "eye_contact_sensor"]
+				},
+				"queue_command": {
+					"command": [
+						"playsound scpdy.scp173.spawn @a[r=25] ~~~ 1.5 1.0",
+						"particle minecraft:knockback_roar_particle ~~~"
+					]
 				}
 			},
 			"scp173:update_script": {},
