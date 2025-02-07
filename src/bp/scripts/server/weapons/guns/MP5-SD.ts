@@ -372,8 +372,12 @@ class MP5SD extends AdvancedItem {
 
 		this.player.playSound("scpdy.gun.trigger_click");
 
-		const magItemStack = this.playerOffhand.getItem()!;
-		const magDurabilityComp = magItemStack.getComponent("durability")!;
+		const magItemStack = this.playerOffhand.getItem();
+		if (!magItemStack) return;
+
+		const magDurabilityComp = magItemStack.getComponent("durability");
+		if (!magDurabilityComp) return;
+
 		const magAmmoCountNow = magDurabilityComp.maxDurability - magDurabilityComp.damage;
 
 		if (magAmmoCountNow <= 0) {
