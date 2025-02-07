@@ -1,7 +1,7 @@
 import * as mc from "@minecraft/server";
 import * as playerLoop from "@server/playerLoop";
 import * as profileRegistry from "./profileRegistry";
-import { AdvancedItem, AdvancedItemBaseConstructorArgs } from "./AdvancedItem";
+import { AdvancedItem, AdvancedItemBaseConstructorArgs, AdvancedItemProfile } from "./AdvancedItem";
 
 type AdvancedItemWrapper = {
 	fields: {
@@ -15,7 +15,7 @@ const ADVANCED_ITEM_MAP = new Map<mc.Player, AdvancedItemWrapper>();
 
 function createAdvancedItemWrapper(
 	player: mc.Player,
-	profile: profileRegistry.AdvancedItemProfile,
+	profile: AdvancedItemProfile,
 	fieldOverrides?: Partial<AdvancedItemWrapper["fields"]>,
 	playerComponents?: {
 		health?: mc.EntityHealthComponent;

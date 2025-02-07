@@ -1,5 +1,9 @@
 import * as mc from "@minecraft/server";
-import { AdvancedItemProfile } from "./profileRegistry";
+
+export type AdvancedItemProfile = {
+	itemTypeId: string;
+	createInstance: (args: AdvancedItemBaseConstructorArgs) => AdvancedItem;
+};
 
 /**
  * Set of read-only properties required for an {@link AdvancedItem} instance to initialize

@@ -1,9 +1,4 @@
-import { AdvancedItem, AdvancedItemBaseConstructorArgs } from "./AdvancedItem";
-
-export type AdvancedItemProfile = {
-	itemTypeId: string;
-	createInstance: (args: AdvancedItemBaseConstructorArgs) => AdvancedItem;
-};
+import { AdvancedItemProfile } from "./AdvancedItem";
 
 const ENTRIES = new Map<string, AdvancedItemProfile>();
 
