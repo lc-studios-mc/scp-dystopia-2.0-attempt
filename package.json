@@ -20,7 +20,6 @@
 	"devDependencies": {
 		"@types/node": "^22.10.5",
 		"chokidar": "^4.0.3",
-		"dependency-cruiser": "^16.8.0",
 		"esbuild": "^0.24.2",
 		"fs-extra": "^11.2.0",
 		"sync-directory": "^6.0.5",
