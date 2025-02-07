@@ -26,6 +26,7 @@ and the project does not follow [Semantic Versioning](https://semver.org/spec/v2
   - Ammo Packs
   - MP5-SD Submachine Gun
   - T-5000 Sniper Rifle
+  - Slasher Blade
 - Recipes for many blocks and items
 
 ### Fixed
@@ -37,6 +38,7 @@ and the project does not follow [Semantic Versioning](https://semver.org/spec/v2
 - Enable light dampening of door blocks
 - Made Frag Grenade blow faster
 - SCP-096 can now be killed by `/kill` command
+- Slasher will now lose durability when used
 - Sped up Slasher third-person animations
 
 ## [2.0.0 Alpha 1] - 2024-12-14
