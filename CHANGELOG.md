@@ -10,7 +10,7 @@ and the project does not follow [Semantic Versioning](https://semver.org/spec/v2
 ### Added
 
 - SCPs
-  - SCP-173
+  - SCP-173 :moyai:
   - SCP-427
 - Blocks
   - Alphanumeric Sign
@@ -30,10 +30,12 @@ and the project does not follow [Semantic Versioning](https://semver.org/spec/v2
 
 ### Fixed
 
-- Certain Slasher sound effects are now played at correct source location
+- Some Slasher sound effects were not playing at correct location
 
 ### Changed
 
+- Enable light dampening of door blocks
+- Made Frag Grenade blow faster
 - SCP-096 can now be killed by `/kill` command
 - Sped up Slasher third-person animations
 
