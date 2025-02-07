@@ -5,7 +5,7 @@
 		"dev": "node ./scripts/build.mjs dev --watch",
 		"devb": "node ./scripts/build.mjs dev --watch --beta",
 		"dist": "node ./scripts/build.mjs dist",
-		"depcruise": "npx depcruise src"
+		"madge": "npx madge -c --ts-config src/bp/tsconfig.json --extensions ts src/bp/scripts/"
 	},
 	"private": true,
 	"repository": {
