@@ -451,19 +451,19 @@
 			"sounds": ["sounds/scpdy/weapons/guns/t5000/shoot_distant"]
 		},
 		"scpdy.gun.t5000.bolt_close": {
-			"category": "music",
+			"category": "hostile",
 			"sounds": ["sounds/scpdy/weapons/guns/t5000/bolt_close"]
 		},
 		"scpdy.gun.t5000.bolt_open": {
-			"category": "music",
+			"category": "hostile",
 			"sounds": ["sounds/scpdy/weapons/guns/t5000/bolt_open"]
 		},
 		"scpdy.gun.t5000.mag_attach": {
-			"category": "music",
+			"category": "hostile",
 			"sounds": ["sounds/scpdy/weapons/guns/t5000/mag_attach"]
 		},
 		"scpdy.gun.t5000.mag_remove": {
-			"category": "music",
+			"category": "hostile",
 			"sounds": ["sounds/scpdy/weapons/guns/t5000/mag_remove"]
 		},
 		// #endregion

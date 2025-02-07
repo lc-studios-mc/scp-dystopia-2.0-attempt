@@ -49,12 +49,6 @@
 					"v.render_fp_arms = c.is_first_person && v.aim_anim_time < 1;"
 				]
 			},
-			"sound_effects": {
-				"bolt_close": "scpdy.gun.t5000.bolt_close",
-				"bolt_open": "scpdy.gun.t5000.bolt_open",
-				"mag_attach": "scpdy.gun.t5000.mag_attach",
-				"mag_remove": "scpdy.gun.t5000.mag_remove"
-			},
 			"render_controllers": [
 				{
 					"controller.render.scpdy.attachable.gun.fp": "v.render_fp_gun"

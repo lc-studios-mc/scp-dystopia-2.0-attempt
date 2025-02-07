@@ -227,8 +227,16 @@ class T5000 extends AdvancedItem {
 				this.tpAnimVars.ticksUntilStopADS = 600;
 			}
 
+			if (this.boltCycleData.tick === 3) {
+				this.playSoundAtHead("scpdy.gun.t5000.bolt_open");
+			}
+
 			if (this.boltCycleData.tick === 7) {
 				this.player.runCommandAsync("camerashake add @s 0.025 0.08 rotational");
+			}
+
+			if (this.boltCycleData.tick === 9) {
+				this.playSoundAtHead("scpdy.gun.t5000.bolt_close");
 			}
 
 			if (this.boltCycleData.tick === 12) {
@@ -282,6 +290,14 @@ class T5000 extends AdvancedItem {
 					this.tpAnimVars.ticksUntilSpecialAnimTimeEnd = 32;
 				}
 
+				if (this.reloadData.tick === 6) {
+					this.playSoundAtHead("scpdy.gun.t5000.mag_remove");
+				}
+
+				if (this.reloadData.tick === 18) {
+					this.playSoundAtHead("scpdy.gun.t5000.mag_attach");
+				}
+
 				if (this.reloadData.tick === 20) {
 					this.player.runCommandAsync("camerashake add @s 0.02 0.08 rotational");
 
@@ -306,16 +322,32 @@ class T5000 extends AdvancedItem {
 					this.tpAnimVars.ticksUntilSpecialAnimTimeEnd = 52;
 				}
 
+				if (this.reloadData.tick === 1) {
+					this.playSoundAtHead("scpdy.gun.t5000.bolt_open");
+				}
+
 				if (this.reloadData.tick === 6) {
 					this.player.runCommandAsync("camerashake add @s 0.01 0.1 rotational");
+				}
+
+				if (this.reloadData.tick === 14) {
+					this.playSoundAtHead("scpdy.gun.t5000.mag_remove");
 				}
 
 				if (this.reloadData.tick === 16) {
 					this.player.runCommandAsync("camerashake add @s 0.01 0.2 rotational");
 				}
 
+				if (this.reloadData.tick === 27) {
+					this.playSoundAtHead("scpdy.gun.t5000.mag_attach");
+				}
+
 				if (this.reloadData.tick === 28) {
 					this.player.runCommandAsync("camerashake add @s 0.015 0.1 rotational");
+				}
+
+				if (this.reloadData.tick === 36) {
+					this.playSoundAtHead("scpdy.gun.t5000.bolt_close");
 				}
 
 				if (this.reloadData.tick === 39) {
@@ -411,6 +443,14 @@ class T5000 extends AdvancedItem {
 		if (CONFIG.gunTacReloadOption !== 1) return;
 		if (this.tryReloadingNextTick) return;
 		this.tryReloadingNextTick = true;
+	}
+
+	private playSoundAtHead(soundId: string, options?: mc.WorldSoundOptions): void {
+		this.player.dimension.playSound(
+			soundId,
+			vec3.add(this.player.getHeadLocation(), this.player.getViewDirection()),
+			options,
+		);
 	}
 
 	private getIsBoltCycleNeeded(itemStack: mc.ItemStack): boolean {
