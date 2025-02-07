@@ -16,16 +16,19 @@
 
 </div>
 
-> [!NOTE]
-> Recently, I have restructured this repository, and finally wrote [contribution guides](./.github/CONTRIBUTING.md).
+## :placard: Roadmap
 
-## :warning: Project Status
+**Version 2.0.0 (full rework) is currenntly under development!**
 
-<ins>Version 2.0.0 (full rework) is under development!</ins>
+<ins>My main priority is to restore all SCPs from v1.8.1.</ins>
 
-You can see our progress in [development branch](https://github.com/lc-studios-mc/scp-dystopia/tree/develop).
+While that's the main thing, I'm also going to add other important aspects in SCP universe such as SCP Foundation staff, MTF units, and *Groups of Interest* (like Chaos Insurgency and GoC).
 
-Older versions (prior to 2.0.0) do not work well on modern Minecraft versions, and they are no longer supported.
+I'm also going to add decent survival support and lore behind those ruined facilities scattered around the world. But, they're very likely to be added after many other features are added.
+
+I won't make something like a big To-Do list during development, as I found it to be quite distracting for me.
+
+Thank you for reading! You can download the add-on from [here](https://github.com/lc-studios-mc/scp-dystopia/releases).
 
 ## :inbox_tray: Installation
 
