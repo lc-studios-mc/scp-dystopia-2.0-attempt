@@ -142,6 +142,9 @@ async function dev(args) {
 		platform: "neutral",
 		sourcemap: "linked",
 		sourceRoot: SRC_BP_PATH,
+		banner: {
+			js: `// Script is bundled using esbuild ${esbuild.version} — See original scripts at https://github.com/lc-studios-mc/scp-dystopia/tree/main/src/bp/scripts`,
+		},
 		plugins: [
 			{
 				name: "rebuild-notify",
@@ -212,6 +215,9 @@ async function dist() {
 			charset: "utf8",
 			format: "esm",
 			platform: "neutral",
+			banner: {
+				js: `// Script is bundled using esbuild ${esbuild.version} — See original scripts at https://github.com/lc-studios-mc/scp-dystopia/tree/main/src/bp/scripts`,
+			},
 		};
 
 		const bpScriptEsbuildResult = await esbuild.build(bpScriptEsbuildOptions);
