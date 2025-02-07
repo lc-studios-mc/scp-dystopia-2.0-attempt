@@ -61,10 +61,21 @@ scpdy.msg.misc.removedPassword=§aRemoved password!
 scpdy.msg.misc.emptyString=§cEmpty string.
 scpdy.msg.misc.itemNotUsableForNow=§cSorry, this item is not usable in this version...
 
+scpdy.msg.welcome.line_1=§l§7<<< §bWelcome to SCP: Dystopia §7>>>§r
+scpdy.msg.welcome.line_2=§6Keep in mind that you are currently playing an early access version.
+scpdy.msg.welcome.line_3=§6Enjoy! :)
+
+scpdy.msg.youAreNowLeader.line_1=§7You are now recognized as the World Leader as you joined the world first.
+scpdy.msg.youAreNowLeader.line_2=§7The §l§fConfig§r§7 item that you just received can be used to change various options.
+scpdy.msg.youAreNowLeader.line_3=§7You can always craft it in case you lose it.
+
+scpdy.msg.clearWorldLeaderId.line_1=§aCleared world leader ID.
+scpdy.msg.clearWorldLeaderId.line_2=World leader's entity ID was %s
+scpdy.msg.clearWorldLeaderId.line_3=Your entity ID is %s
+
 scpdy.msg.warnOverriddenPlayerJson.line_1=§l§c[!] WARNING§r
-scpdy.msg.warnOverriddenPlayerJson.line_2=§eThank you for installing SCP: Dystopia!
-scpdy.msg.warnOverriddenPlayerJson.line_3=§eIt seems like that another add-on you're using now is overriding player-related behavior.
-scpdy.msg.warnOverriddenPlayerJson.line_4=§eSome features may not work as intended!
+scpdy.msg.warnOverriddenPlayerJson.line_2=§eAnother add-on in this world is overriding player.json file.
+scpdy.msg.warnOverriddenPlayerJson.line_3=§eSome features may not work as intended!
 
 scpdy.msg.alphanumericSignPlacement.error.empty=§cProvided string is empty.
 scpdy.msg.alphanumericSignPlacement.error.tooLong=§cProvided string is too long. (Max: 20)
@@ -97,8 +108,8 @@ scpdy.msg.cctvTablet.connectedToServer=§aConnected to CCTV Server (ID: %s)
 scpdy.msg.cctvTablet.removedServerLink=§aRemoved CCTV Server link.
 scpdy.msg.cctvTablet.cameraUnavailable=§cThe camera you selected is unavailable.
 
-scpdy.msg.config.onlyOpCanUse=§cYou need operator-level permissions to use this item!
-scpdy.msg.config.saved=§aSaved config!
+scpdy.msg.config.restricted=§cOnly the world leader and players with operator-level permissions can use this item!
+scpdy.msg.config.saved=§aSaved changes!
 
 scpdy.msg.doorActivator.redstoneLagWarning=§eMech Door Activator with redstone detection enabled can cause significant lag when placed in large numbers within a simulated chunk.
 
