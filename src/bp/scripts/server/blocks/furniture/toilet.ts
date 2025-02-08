@@ -138,6 +138,12 @@ function onPlayerInteract(arg: mc.BlockComponentPlayerInteractEvent): void {
 			{ pitch: 1.2 },
 		);
 
+		if (!isLidOpen) {
+			player.onScreenDisplay.setActionBar({
+				translate: "scpdy.actionHint.furniture.toilet.sitHint",
+			});
+		}
+
 		return;
 	}
 
@@ -169,4 +175,10 @@ function onPlayerInteract(arg: mc.BlockComponentPlayerInteractEvent): void {
 	const rideableEntity = dimension.spawnEntity(rideableEntityTypeId, sitLoc);
 
 	rideableEntity.getComponent("rideable")!.addRider(player);
+
+	mc.system.runTimeout(() => {
+		player.onScreenDisplay.setActionBar({
+			translate: "scpdy.actionHint.furniture.toilet.fartHint",
+		});
+	}, 40);
 }

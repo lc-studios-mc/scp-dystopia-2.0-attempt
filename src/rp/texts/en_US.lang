@@ -33,6 +33,8 @@ scpdy.actionHint.controlDevice.changeMode3=Mode set to 3 §7-§f Place a redston
 
 scpdy.actionHint.furniture.chair.tooFar=Too far from chair
 scpdy.actionHint.furniture.toilet.tooFar=Too far from toilet
+scpdy.actionHint.furniture.toilet.sitHint=Sneak and interact to sit
+scpdy.actionHint.furniture.toilet.fartHint=Look 90 degrees down (or up) to fart
 
 scpdy.actionHint.ammo.noLoadableInOffhand=§eNo loadable item in offhand
 scpdy.actionHint.ammo.wrongAmmoType=§cWrong ammo type
