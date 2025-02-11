@@ -5,7 +5,7 @@
 		"name": "SCP: Dystopia §cDEV§r",
 		"uuid": "5368765d-325d-42c7-92ac-195e5ea02966",
 		"version": [9999, 9999, 9999],
-		"min_engine_version": [1, 21, 50]
+		"min_engine_version": [1, 21, 60]
 	},
 	"modules": [
 		{
@@ -31,7 +31,7 @@
 		},
 		{
 			"module_name": "@minecraft/server",
-			"version": "1.17.0-beta"
+			"version": "1.18.0-beta"
 		},
 		{
 			"module_name": "@minecraft/server-ui",
