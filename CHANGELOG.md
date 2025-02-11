@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and the project does not follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0 Alpha 2.1] - 2024-02-11
+
+### Fixed
+
+- Alphanumeric Sign block was not rendered properly in some Android devices
+
 ## [2.0.0 Alpha 2] - 2024-02-08
 
 ### Added
