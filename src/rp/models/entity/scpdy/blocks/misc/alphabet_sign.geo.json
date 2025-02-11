@@ -12,12 +12,12 @@
 			},
 			"bones": [
 				{
-					"name": "bb_main",
+					"name": "root",
 					"pivot": [0, 0, 0],
 					"cubes": [
 						{
-							"origin": [7, 0, 7],
-							"size": [1, 1, 1],
+							"origin": [-8, 0, -8],
+							"size": [16, 16, 8],
 							"uv": {
 								"north": {"uv": [0, 127], "uv_size": [1, 1]},
 								"east": {"uv": [0, 127], "uv_size": [1, 1]},
@@ -31,6 +31,7 @@
 				},
 				{
 					"name": "offset",
+					"parent": "root",
 					"pivot": [0, 8, 7.9]
 				},
 				{
@@ -536,13 +537,6 @@
 					"rotation_pivot": [0, 0, 0],
 					"scale_pivot": [0, 0, 0]
 				},
-				"thirdperson_lefthand": {
-					"rotation": [0, 0, 0],
-					"translation": [0, 0, 0],
-					"scale": [1, 1, 1],
-					"rotation_pivot": [0, 0, 0],
-					"scale_pivot": [0, 0, 0]
-				},
 				"firstperson_righthand": {
 					"rotation": [-1, 164, 0],
 					"translation": [2.5, 1.5, 2.25],
@@ -562,14 +556,8 @@
 					"translation": [0, 0, 0],
 					"scale": [1, 1, 1],
 					"rotation_pivot": [0, 0, 0],
-					"scale_pivot": [0, 0, 0]
-				},
-				"head": {
-					"rotation": [0, 0, 0],
-					"translation": [0, 0, 0],
-					"scale": [1, 1, 1],
-					"rotation_pivot": [0, 0, 0],
-					"scale_pivot": [0, 0, 0]
+					"scale_pivot": [0, 0, 0],
+					"fit_to_frame": true
 				},
 				"fixed": {
 					"rotation": [0, 0, 0],
