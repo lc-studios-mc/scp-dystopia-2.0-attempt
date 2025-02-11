@@ -14,7 +14,7 @@
 	},
 	"author": "Lucked Coronet",
 	"dependencies": {
-		"@minecraft/server": "1.17.0-beta.1.21.51-stable",
+		"@minecraft/server": "1.18.0-beta.1.21.60-stable",
 		"@minecraft/server-ui": "1.3.0"
 	},
 	"devDependencies": {
