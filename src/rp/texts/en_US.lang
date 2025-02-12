@@ -5,6 +5,7 @@ itemGroup.name.sandstone=Sandstone §b+ SCP:DY 3D Blocks
 lc:scpdy_itemGroup_meleeWeapons=§7SCP:DY §8| §fMelee Weapons
 lc:scpdy_itemGroup_ammo=§7SCP:DY §8| §fAmmo
 lc:scpdy_itemGroup_ammo_packs=§7SCP:DY §8| §fAmmo Packs
+lc:scpdy_itemGroup_blastDoors=§7SCP:DY §8| §fBlast Door
 lc:scpdy_itemGroup_cctv=§7SCP:DY §8| §fCCTV
 lc:scpdy_itemGroup_keycards=§7SCP:DY §8| §fKeycards
 lc:scpdy_itemGroup_guns=§7SCP:DY §8| §fGuns

@@ -68,6 +68,16 @@
 					},
 					{
 						"group_identifier": {
+							"icon": "lc:scpdy_blast_door_2_preview_placer",
+							"name": "lc:scpdy_itemGroup_blastDoors"
+						},
+						"items": [
+							"lc:scpdy_blast_door_1_preview_placer",
+							"lc:scpdy_blast_door_2_preview_placer"
+						]
+					},
+					{
+						"group_identifier": {
 							"icon": "lc:scpdy_cctv_camera_placer",
 							"name": "lc:scpdy_itemGroup_cctv"
 						},
