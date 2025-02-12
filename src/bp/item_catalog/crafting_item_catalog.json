@@ -40,6 +40,19 @@
 				"groups": [
 					{
 						"group_identifier": {
+							"icon": "lc:scpdy_cctv_camera_placer",
+							"name": "lc:scpdy_itemGroup_cctv"
+						},
+						"items": [
+							"lc:scpdy_cctv_camera_placer",
+							"lc:scpdy_cctv_linker",
+							"lc:scpdy_cctv_monitor_placer",
+							"lc:scpdy_cctv_server_placer",
+							"lc:scpdy_cctv_tablet"
+						]
+					},
+					{
+						"group_identifier": {
 							"icon": "lc:scpdy_keycard_lvl_3",
 							"name": "lc:scpdy_itemGroup_keycards"
 						},
