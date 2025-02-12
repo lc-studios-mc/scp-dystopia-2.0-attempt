@@ -20,7 +20,7 @@
 	"devDependencies": {
 		"@types/node": "^22.10.5",
 		"chokidar": "^4.0.3",
-		"esbuild": "^0.24.2",
+		"esbuild": "^0.25.0",
 		"fs-extra": "^11.2.0",
 		"madge": "^8.0.0",
 		"sync-directory": "^6.0.5",
