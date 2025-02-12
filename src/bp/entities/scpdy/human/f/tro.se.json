@@ -48,26 +48,26 @@
 			"ranged_combat_normal": {
 				"minecraft:behavior.ranged_attack": {
 					"priority": 1,
-					"attack_radius": 25,
+					"attack_radius": 22,
 					"attack_radius_min": 0,
 					"burst_interval": 0.09,
-					"burst_shots": 25,
+					"burst_shots": 30,
 					"charge_charged_trigger": 0.0,
-					"charge_shoot_trigger": 1.5,
+					"charge_shoot_trigger": 0.9,
 					"swing": true,
-					"target_in_sight_time": 0.4,
+					"target_in_sight_time": 0.3,
 					"speed_multiplier": 1.0
 				}
 			},
 			"ranged_combat_careful": {
 				"minecraft:behavior.ranged_attack": {
 					"priority": 1,
-					"attack_radius": 25,
-					"attack_radius_min": 5,
+					"attack_radius": 28,
+					"attack_radius_min": 3,
 					"burst_interval": 0.09,
-					"burst_shots": 25,
+					"burst_shots": 30,
 					"charge_charged_trigger": 0.0,
-					"charge_shoot_trigger": 1.5,
+					"charge_shoot_trigger": 0.9,
 					"swing": true,
 					"target_in_sight_time": 0.1,
 					"speed_multiplier": 1.1
