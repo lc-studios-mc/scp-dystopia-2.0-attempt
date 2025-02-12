@@ -5,7 +5,6 @@
 			"identifier": "lc:scpdy_scp096_1_wand",
 			"menu_category": {
 				"category": "equipment",
-				"group": "itemGroup.name.equipment",
 				"is_hidden_in_commands": false
 			}
 		},

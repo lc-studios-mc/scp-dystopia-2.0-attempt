@@ -106,6 +106,17 @@
 					},
 					{
 						"group_identifier": {
+							"icon": "lc:scpdy_scp427",
+							"name": "lc:scpdy_itemGroup_scp"
+						},
+						"items": [
+							"lc:scpdy_scp096_1_wand",
+							"lc:scpdy_scp096_paper_bag",
+							"lc:scpdy_scp427"
+						]
+					},
+					{
+						"group_identifier": {
 							"icon": "lc:scpdy_gun_mp5_mag",
 							"name": "lc:scpdy_itemGroup_gun_mags"
 						},
