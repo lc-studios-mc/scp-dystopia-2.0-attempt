@@ -34,6 +34,26 @@
 						]
 					}
 				]
+			},
+			{
+				"category_name": "items",
+				"groups": [
+					{
+						"group_identifier": {
+							"icon": "lc:scpdy_gun_mp5_mag",
+							"name": "lc:scpdy_itemGroup_gun_mags"
+						},
+						"items": [
+							// "lc:scpdy_gun_ar15_mag",
+							// "lc:scpdy_gun_glock17_mag",
+							// "lc:scpdy_gun_gm6_mag",
+							// "lc:scpdy_gun_hk21_mag",
+							"lc:scpdy_gun_mp5_mag",
+							// "lc:scpdy_gun_spas12_mag",
+							"lc:scpdy_gun_t5000_mag"
+						]
+					}
+				]
 			}
 		]
 	}
