@@ -5,7 +5,6 @@
 			"identifier": "lc:scpdy_knife",
 			"menu_category": {
 				"category": "equipment",
-				"group": "itemGroup.name.equipment",
 				"is_hidden_in_commands": false
 			}
 		},

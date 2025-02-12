@@ -1,0 +1,25 @@
+{
+	"format_version": "1.21.60",
+	"minecraft:crafting_items_catalog": {
+		"categories": [
+			{
+				"category_name": "equipment",
+				"groups": [
+					{
+						"group_identifier": {
+							"icon": "lc:scpdy_slasher",
+							"name": "lc:scpdy_itemGroup_meleeWeapons"
+						},
+						"items": [
+							"lc:scpdy_killer_sword",
+							"lc:scpdy_knife",
+							"lc:scpdy_pain_sword",
+							"lc:scpdy_slasher",
+							"lc:scpdy_void_sword"
+						]
+					}
+				]
+			}
+		]
+	}
+}

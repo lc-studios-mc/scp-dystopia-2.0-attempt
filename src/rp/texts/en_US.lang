@@ -2,6 +2,8 @@
 
 itemGroup.name.stoneBrick=Decorative Stone §b+ SCP:DY Construction Blocks
 itemGroup.name.sandstone=Sandstone §b+ SCP:DY 3D Blocks
+lc:scpdy_itemGroup_meleeWeapons=§7SCP:DY §8| §fMelee Weapons
+lc:scpdy_itemGroup_guns=§7SCP:DY §8| §fGuns
 
 ## --- Action hints
 
@@ -181,7 +183,7 @@ scpdy.form.cctvMonitor.notLinkedToServer.body=§eThis CCTV Monitor is not linked
 
 scpdy.form.cctvMonitor.failedToGetServer.title=CCTV Monitor
 scpdy.form.cctvMonitor.failedToGetServer.body=§cFailed to get server.
-scpdy.form.cctvMonitor.failedToGetServer.removeLinkButton=§4Remove CCTV Server link 
+scpdy.form.cctvMonitor.failedToGetServer.removeLinkButton=§4Remove CCTV Server link
 
 scpdy.form.cctvMonitor.chooseCamera.title=CCTV Monitor
 scpdy.form.cctvMonitor.chooseCamera.body=Select the camera you want to use:
@@ -194,10 +196,10 @@ scpdy.form.cctvServer.locked.passwordField.placeholder=Enter password
 scpdy.form.cctvServer.locked.submitButton=Unlock
 
 scpdy.form.cctvServer.main.title=CCTV Server
-scpdy.form.cctvServer.main.body= 
+scpdy.form.cctvServer.main.body=
 scpdy.form.cctvServer.main.button.cameraList=Camera List
 scpdy.form.cctvServer.main.button.setPassword=Set Password
-scpdy.form.cctvServer.main.button.changePassword=Change Password 
+scpdy.form.cctvServer.main.button.changePassword=Change Password
 
 scpdy.form.cctvServer.cameraList.title=Cameras
 scpdy.form.cctvServer.cameraList.body=Number of connected cameras: %s
@@ -224,7 +226,7 @@ scpdy.form.cctvTablet.notLinkedToServer.body=§eThis CCTV Tablet is not linked t
 
 scpdy.form.cctvTablet.failedToGetServer.title=CCTV Tablet
 scpdy.form.cctvTablet.failedToGetServer.body=§cFailed to get server.
-scpdy.form.cctvTablet.failedToGetServer.removeLinkButton=§4Remove CCTV Server link 
+scpdy.form.cctvTablet.failedToGetServer.removeLinkButton=§4Remove CCTV Server link
 
 scpdy.form.cctvTablet.chooseCamera.title=CCTV Tablet
 scpdy.form.cctvTablet.chooseCamera.body=Select the camera you want to use:
