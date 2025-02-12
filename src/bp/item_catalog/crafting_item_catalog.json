@@ -7,6 +7,21 @@
 				"groups": [
 					{
 						"group_identifier": {
+							"icon": "lc:scpdy_gun_mp5sd",
+							"name": "lc:scpdy_itemGroup_guns"
+						},
+						"items": [
+							// "lc:scpdy_gun_glock17",
+							// "lc:scpdy_gun_gm6",
+							// "lc:scpdy_gun_hk21",
+							// "lc:scpdy_gun_m4a1",
+							"lc:scpdy_gun_mp5sd",
+							// "lc:scpdy_gun_spas12",
+							"lc:scpdy_gun_t5000"
+						]
+					},
+					{
+						"group_identifier": {
 							"icon": "lc:scpdy_slasher",
 							"name": "lc:scpdy_itemGroup_meleeWeapons"
 						},
