@@ -54,6 +54,20 @@
 					},
 					{
 						"group_identifier": {
+							"icon": "lc:scpdy_ammo_pack_338magnum",
+							"name": "lc:scpdy_itemGroup_ammo_pack"
+						},
+						"items": [
+							"lc:scpdy_ammo_pack_9mm",
+							"lc:scpdy_ammo_pack_12shell",
+							"lc:scpdy_ammo_pack_50bmg",
+							"lc:scpdy_ammo_pack_338magnum",
+							"lc:scpdy_ammo_pack_556mm",
+							"lc:scpdy_ammo_pack_762x51"
+						]
+					},
+					{
+						"group_identifier": {
 							"icon": "lc:scpdy_cctv_camera_placer",
 							"name": "lc:scpdy_itemGroup_cctv"
 						},

@@ -5,7 +5,6 @@
 			"identifier": "lc:scpdy_ammo_pack_556mm",
 			"menu_category": {
 				"category": "items",
-				"group": "itemGroup.name.items",
 				"is_hidden_in_commands": false
 			}
 		},
