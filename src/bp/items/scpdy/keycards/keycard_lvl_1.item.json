@@ -5,7 +5,6 @@
 			"identifier": "lc:scpdy_keycard_lvl_1",
 			"menu_category": {
 				"category": "items",
-				"group": "itemGroup.name.items",
 				"is_hidden_in_commands": false
 			}
 		},

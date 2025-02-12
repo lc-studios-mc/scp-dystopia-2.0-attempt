@@ -40,6 +40,21 @@
 				"groups": [
 					{
 						"group_identifier": {
+							"icon": "lc:scpdy_keycard_lvl_3",
+							"name": "lc:scpdy_itemGroup_keycards"
+						},
+						"items": [
+							"lc:scpdy_keycard_lvl_0",
+							"lc:scpdy_keycard_lvl_1",
+							"lc:scpdy_keycard_lvl_2",
+							"lc:scpdy_keycard_lvl_3",
+							"lc:scpdy_keycard_lvl_4",
+							"lc:scpdy_keycard_lvl_5",
+							"lc:scpdy_keycard_o5"
+						]
+					},
+					{
+						"group_identifier": {
 							"icon": "lc:scpdy_gun_mp5_mag",
 							"name": "lc:scpdy_itemGroup_gun_mags"
 						},

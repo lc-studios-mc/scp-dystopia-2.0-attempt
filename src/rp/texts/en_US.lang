@@ -4,6 +4,7 @@ itemGroup.name.stoneBrick=Decorative Stone §b+ SCP:DY Construction Blocks
 itemGroup.name.sandstone=Sandstone §b+ SCP:DY 3D Blocks
 lc:scpdy_itemGroup_meleeWeapons=§7SCP:DY §8| §fMelee Weapons
 lc:scpdy_itemGroup_guns=§7SCP:DY §8| §fGuns
+lc:scpdy_itemGroup_keycards=§7SCP:DY §8| §fKeycards
 lc:scpdy_itemGroup_gun_mags=§7SCP:DY §8| §fGun Magazines
 
 ## --- Action hints
