@@ -1,19 +1,20 @@
 {
-	"format_version": "1.16.0",
+	"format_version": "1.21.60",
 	"minecraft:block": {
 		"description": {
 			"identifier": "lc:scpdy_cst_exterior_bricks_bottom",
-			"is_experimental": false
+			"menu_category": {
+				"category": "construction"
+			}
 		},
 		"components": {
-			"minecraft:creative_category": {
-				"group": "itemGroup.name.stoneBrick",
-				"category": "construction"
-			},
 			"minecraft:map_color": "#848484",
-			"minecraft:explosion_resistance": 30.0,
-			"minecraft:destroy_time": 0.6,
-			"tag:construction_block": {}
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 30
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1.5
+			}
 		}
 	}
 }

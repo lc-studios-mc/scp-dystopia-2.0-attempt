@@ -1,19 +1,20 @@
 {
-	"format_version": "1.16.0",
+	"format_version": "1.21.60",
 	"minecraft:block": {
 		"description": {
 			"identifier": "lc:scpdy_cst_reinforced_panel_3",
-			"is_experimental": false
+			"menu_category": {
+				"category": "construction"
+			}
 		},
 		"components": {
-			"minecraft:creative_category": {
-				"group": "itemGroup.name.stoneBrick",
-				"category": "construction"
-			},
 			"minecraft:map_color": "#565c5d",
-			"minecraft:explosion_resistance": 45.0,
-			"minecraft:destroy_time": 0.7,
-			"tag:construction_block": {}
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 45
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1.75
+			}
 		}
 	}
 }

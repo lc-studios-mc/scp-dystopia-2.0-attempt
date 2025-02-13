@@ -1,19 +1,20 @@
 {
-	"format_version": "1.16.0",
+	"format_version": "1.21.60",
 	"minecraft:block": {
 		"description": {
 			"identifier": "lc:scpdy_cst_blue_wall_middle",
-			"is_experimental": false
+			"menu_category": {
+				"category": "construction"
+			}
 		},
 		"components": {
-			"minecraft:creative_category": {
-				"group": "itemGroup.name.stoneBrick",
-				"category": "construction"
-			},
 			"minecraft:map_color": "#6b8183",
-			"minecraft:explosion_resistance": 9.0,
-			"minecraft:destroy_time": 0.5,
-			"tag:construction_block": {}
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 9
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1.25
+			}
 		}
 	}
 }
