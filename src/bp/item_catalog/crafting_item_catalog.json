@@ -103,6 +103,16 @@
 					},
 					{
 						"group_identifier": {
+							"icon": "lc:scpdy_standard_door_1",
+							"name": "lc:scpdy_itemGroup_standardDoors"
+						},
+						"items": [
+							"lc:scpdy_standard_door_1",
+							"lc:scpdy_standard_door_2"
+						]
+					},
+					{
+						"group_identifier": {
 							"icon": "lc:scpdy_boolean_door_1",
 							"name": "lc:scpdy_itemGroup_booleanDoors"
 						},
