@@ -55,7 +55,7 @@
 					{
 						"group_identifier": {
 							"icon": "lc:scpdy_ammo_pack_338magnum",
-							"name": "lc:scpdy_itemGroup_ammo_pack"
+							"name": "lc:scpdy_itemGroup_ammo_packs"
 						},
 						"items": [
 							"lc:scpdy_ammo_pack_9mm",
