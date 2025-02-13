@@ -20,6 +20,7 @@ lc:scpdy_itemGroup_commandDoors=§7SCP:DY §8| §fCommand Doors
 lc:scpdy_itemGroup_lockdownDoors=§7SCP:DY §8| §fLockdown Doors
 lc:scpdy_itemGroup_mechanicalDoors=§7SCP:DY §8| §fMechanical Doors
 lc:scpdy_itemGroup_standardDoors=§7SCP:DY §8| §fStandard Doors
+lc:scpdy_itemGroup_lockdownAlarms=§7SCP:DY §8| §fLockdown Alarms
 
 ## --- Action hints
 

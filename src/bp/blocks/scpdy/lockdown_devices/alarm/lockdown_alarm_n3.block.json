@@ -4,8 +4,7 @@
 		"description": {
 			"identifier": "lc:scpdy_lockdown_alarm_n3",
 			"menu_category": {
-				"category": "construction",
-				"group": "itemGroup.name.construction"
+				"category": "construction"
 			},
 			"states": {
 				"lc:is_activated": [false, true],
