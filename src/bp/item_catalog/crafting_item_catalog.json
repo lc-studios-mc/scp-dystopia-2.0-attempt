@@ -143,6 +143,19 @@
 							"name": "lc:scpdy_itemGroup_commandDoors"
 						},
 						"items": ["lc:scpdy_command_door"]
+					},
+					{
+						"group_identifier": {
+							"icon": "lc:scpdy_lockdown_door_n1",
+							"name": "lc:scpdy_itemGroup_lockdownDoors"
+						},
+						"items": [
+							"lc:scpdy_lockdown_door_n1",
+							"lc:scpdy_lockdown_door_n2",
+							"lc:scpdy_lockdown_door_n3",
+							"lc:scpdy_lockdown_door_n4",
+							"lc:scpdy_lockdown_door_n5"
+						]
 					}
 				]
 			},

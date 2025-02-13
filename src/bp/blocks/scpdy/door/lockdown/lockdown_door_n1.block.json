@@ -4,8 +4,7 @@
 		"description": {
 			"identifier": "lc:scpdy_lockdown_door_n1",
 			"menu_category": {
-				"category": "construction",
-				"group": "itemGroup.name.door"
+				"category": "construction"
 			},
 			"states": {
 				"lc:is_lower_part": [true, false],
