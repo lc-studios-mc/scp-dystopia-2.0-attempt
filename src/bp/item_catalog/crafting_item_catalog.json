@@ -100,6 +100,21 @@
 							"lc:scpdy_decor_vent_2",
 							"lc:scpdy_alphanumeric_sign_placer"
 						]
+					},
+					{
+						"group_identifier": {
+							"icon": "lc:scpdy_mechanical_door_1",
+							"name": "lc:scpdy_itemGroup_mechanicalDoors"
+						},
+						"items": [
+							"lc:scpdy_mechanical_door_1",
+							"lc:scpdy_mechanical_door_2",
+							"lc:scpdy_mechanical_door_3",
+							"lc:scpdy_mechanical_door_4",
+							"lc:scpdy_mechanical_door_5",
+							"lc:scpdy_mechanical_door_6",
+							"lc:scpdy_mechanical_door_7"
+						]
 					}
 				]
 			},
