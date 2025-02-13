@@ -136,6 +136,13 @@
 							"lc:scpdy_mechanical_door_6",
 							"lc:scpdy_mechanical_door_7"
 						]
+					},
+					{
+						"group_identifier": {
+							"icon": "lc:scpdy_command_door",
+							"name": "lc:scpdy_itemGroup_commandDoors"
+						},
+						"items": ["lc:scpdy_command_door"]
 					}
 				]
 			},
