@@ -4,8 +4,7 @@
 		"description": {
 			"identifier": "lc:scpdy_keycard_reader_o5",
 			"menu_category": {
-				"category": "construction",
-				"group": "itemGroup.name.construction"
+				"category": "items"
 			},
 			"states": {
 				"lc:ticks_until_power_off": { "values": { "min": 0, "max": 5 } },
