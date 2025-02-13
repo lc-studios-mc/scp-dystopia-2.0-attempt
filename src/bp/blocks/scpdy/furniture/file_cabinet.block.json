@@ -4,8 +4,7 @@
 		"description": {
 			"identifier": "lc:scpdy_file_cabinet",
 			"menu_category": {
-				"category": "construction",
-				"group": "itemGroup.name.sandstone"
+				"category": "construction"
 			},
 			"traits": {
 				"minecraft:placement_direction": {

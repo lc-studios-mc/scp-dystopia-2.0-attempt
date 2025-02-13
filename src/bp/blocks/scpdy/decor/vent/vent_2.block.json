@@ -4,8 +4,7 @@
 		"description": {
 			"identifier": "lc:scpdy_decor_vent_2",
 			"menu_category": {
-				"category": "construction",
-				"group": "itemGroup.name.sandstone"
+				"category": "construction"
 			},
 			"traits": {
 				"minecraft:placement_position": {

@@ -75,6 +75,31 @@
 							"lc:scpdy_vent",
 							"lc:scpdy_vent_openable"
 						]
+					},
+					{
+						"group_identifier": {
+							"icon": "lc:scpdy_hanging_lamp",
+							"name": "lc:scpdy_itemGroup_furnitureAndDecor"
+						},
+						"items": [
+							"lc:scpdy_hanging_lamp",
+							"lc:scpdy_file_cabinet",
+							"lc:scpdy_landmine",
+							"lc:scpdy_laptop",
+							"lc:scpdy_toilet",
+							"lc:scpdy_warehouse_light_1",
+							"lc:scpdy_warehouse_light_1_hanging",
+							"lc:scpdy_connec_table_1",
+							"lc:scpdy_connec_table_2",
+							"lc:scpdy_office_chair_1",
+							"lc:scpdy_office_chair_2",
+							"lc:scpdy_office_chair_3",
+							"lc:scpdy_shelf_1",
+							"lc:scpdy_shelf_2",
+							"lc:scpdy_decor_vent_1",
+							"lc:scpdy_decor_vent_2",
+							"lc:scpdy_alphanumeric_sign_placer"
+						]
 					}
 				]
 			},

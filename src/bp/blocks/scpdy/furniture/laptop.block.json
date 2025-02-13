@@ -4,8 +4,7 @@
 		"description": {
 			"identifier": "lc:scpdy_laptop",
 			"menu_category": {
-				"category": "construction",
-				"group": "itemGroup.name.sandstone"
+				"category": "construction"
 			},
 			"states": {
 				"lc:interaction": [0, 1, 2, 3],

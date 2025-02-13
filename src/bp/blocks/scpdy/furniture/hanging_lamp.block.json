@@ -4,8 +4,7 @@
 		"description": {
 			"identifier": "lc:scpdy_hanging_lamp",
 			"menu_category": {
-				"category": "construction",
-				"group": "itemGroup.name.sandstone"
+				"category": "construction"
 			},
 			"states": {
 				"lc:show_base": [true, false],

@@ -4,8 +4,7 @@
 		"description": {
 			"identifier": "lc:scpdy_toilet",
 			"menu_category": {
-				"category": "construction",
-				"group": "itemGroup.name.sandstone"
+				"category": "construction"
 			},
 			"states": {
 				"lc:is_lid_open": [false, true]

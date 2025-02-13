@@ -4,8 +4,7 @@
 		"description": {
 			"identifier": "lc:scpdy_connec_table_1",
 			"menu_category": {
-				"category": "construction",
-				"group": "itemGroup.name.sandstone"
+				"category": "construction"
 			},
 			"states": {
 				"lc:connects_n": [false, true],

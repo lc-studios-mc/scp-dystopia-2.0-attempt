@@ -4,8 +4,7 @@
 		"description": {
 			"identifier": "lc:scpdy_shelf_2",
 			"menu_category": {
-				"category": "construction",
-				"group": "itemGroup.name.sandstone"
+				"category": "construction"
 			},
 			"states": {
 				"lc:variant": [1, 0, 2, 3]
