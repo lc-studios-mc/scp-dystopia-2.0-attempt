@@ -4,8 +4,7 @@
 		"description": {
 			"identifier": "lc:scpdy_small_light_blinking",
 			"menu_category": {
-				"category": "construction",
-				"group": "itemGroup.name.sandstone"
+				"category": "construction"
 			},
 			"states": {
 				"lc:is_lit": [false, true]

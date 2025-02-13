@@ -57,6 +57,24 @@
 							"lc:scpdy_cst_lamp_1",
 							"lc:scpdy_cst_lamp_2"
 						]
+					},
+					{
+						"group_identifier": {
+							"icon": "lc:scpdy_steel_truss",
+							"name": "lc:scpdy_itemGroup_3dConstructionBlocks"
+						},
+						"items": [
+							"lc:scpdy_steel_truss",
+							"lc:scpdy_steel_beam",
+							"lc:scpdy_steel_beam_end",
+							"lc:scpdy_floor_grate",
+							"lc:scpdy_floor_grate_trap",
+							"lc:scpdy_razor_wire",
+							"lc:scpdy_small_light",
+							"lc:scpdy_small_light_blinking",
+							"lc:scpdy_vent",
+							"lc:scpdy_vent_openable"
+						]
 					}
 				]
 			},

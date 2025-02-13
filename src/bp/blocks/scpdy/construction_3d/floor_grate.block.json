@@ -4,8 +4,7 @@
 		"description": {
 			"identifier": "lc:scpdy_floor_grate",
 			"menu_category": {
-				"category": "construction",
-				"group": "itemGroup.name.sandstone"
+				"category": "construction"
 			}
 		},
 		"components": {
