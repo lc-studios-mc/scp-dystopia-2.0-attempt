@@ -25,13 +25,33 @@
 							"lc:scpdy_cst_concrete_gray",
 							"lc:scpdy_cst_office_ceiling_1",
 							"lc:scpdy_cst_office_ceiling_2",
-							"lc:scpdy_cst_exterior_bricks_bottom",
-							"lc:scpdy_cst_exterior_bricks_middle",
-							"lc:scpdy_cst_exterior_bricks_top",
+							"lc:scpdy_cst_lamp_1",
+							"lc:scpdy_cst_lamp_2"
+						]
+					},
+					{
+						"group_identifier": {
+							"icon": "lc:scpdy_cst_facility_wall_bottom",
+							"name": "lc:scpdy_itemGroup_constructionWallBlocks"
+						},
+						"items": [
 							"lc:scpdy_cst_facility_wall_bottom",
 							"lc:scpdy_cst_facility_wall_middle",
 							"lc:scpdy_cst_facility_wall_middle_2",
 							"lc:scpdy_cst_facility_wall_top",
+							"lc:scpdy_cst_brown_wall_bottom",
+							"lc:scpdy_cst_brown_wall_top",
+							"lc:scpdy_cst_cyan_wall_bottom",
+							"lc:scpdy_cst_cyan_wall_top",
+							"lc:scpdy_cst_gray_wall_bottom",
+							"lc:scpdy_cst_gray_wall_top",
+							"lc:scpdy_cst_mint_wall_bottom",
+							"lc:scpdy_cst_mint_wall_top",
+							"lc:scpdy_cst_orange_wall_bottom",
+							"lc:scpdy_cst_orange_wall_top",
+							"lc:scpdy_cst_exterior_bricks_bottom",
+							"lc:scpdy_cst_exterior_bricks_middle",
+							"lc:scpdy_cst_exterior_bricks_top",
 							"lc:scpdy_cst_heavy_wall_1",
 							"lc:scpdy_cst_heavy_wall_1_bottom",
 							"lc:scpdy_cst_heavy_wall_1_top",
@@ -43,19 +63,7 @@
 							"lc:scpdy_cst_blue_wall_bottom_2",
 							"lc:scpdy_cst_blue_wall_bottom_3",
 							"lc:scpdy_cst_blue_wall_middle",
-							"lc:scpdy_cst_blue_wall_top",
-							"lc:scpdy_cst_brown_wall_bottom",
-							"lc:scpdy_cst_brown_wall_top",
-							"lc:scpdy_cst_cyan_wall_bottom",
-							"lc:scpdy_cst_cyan_wall_top",
-							"lc:scpdy_cst_gray_wall_bottom",
-							"lc:scpdy_cst_gray_wall_top",
-							"lc:scpdy_cst_mint_wall_bottom",
-							"lc:scpdy_cst_mint_wall_top",
-							"lc:scpdy_cst_orange_wall_bottom",
-							"lc:scpdy_cst_orange_wall_top",
-							"lc:scpdy_cst_lamp_1",
-							"lc:scpdy_cst_lamp_2"
+							"lc:scpdy_cst_blue_wall_top"
 						]
 					},
 					{
