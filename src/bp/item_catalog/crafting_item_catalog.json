@@ -223,6 +223,65 @@
 				"groups": [
 					{
 						"group_identifier": {
+							"name": "lc:scpdy_itemGroup_buttons"
+						},
+						"items": ["lc:scpdy_door_button"]
+					},
+					{
+						"group_identifier": {
+							"icon": "lc:scpdy_keycard_reader_lvl_0",
+							"name": "lc:scpdy_itemGroup_keycardReaders"
+						},
+						"items": [
+							"lc:scpdy_keycard_reader_lvl_0",
+							"lc:scpdy_keycard_reader_lvl_1",
+							"lc:scpdy_keycard_reader_lvl_2",
+							"lc:scpdy_keycard_reader_lvl_3",
+							"lc:scpdy_keycard_reader_lvl_4",
+							"lc:scpdy_keycard_reader_lvl_5",
+							"lc:scpdy_keycard_reader_o5"
+						]
+					},
+					{
+						"group_identifier": {
+							"icon": "lc:scpdy_keycard_lvl_0",
+							"name": "lc:scpdy_itemGroup_keycards"
+						},
+						"items": [
+							"lc:scpdy_keycard_lvl_0",
+							"lc:scpdy_keycard_lvl_1",
+							"lc:scpdy_keycard_lvl_2",
+							"lc:scpdy_keycard_lvl_3",
+							"lc:scpdy_keycard_lvl_4",
+							"lc:scpdy_keycard_lvl_5",
+							"lc:scpdy_keycard_o5"
+						]
+					},
+					{
+						"group_identifier": {
+							"icon": "lc:scpdy_blast_door_1_preview_placer",
+							"name": "lc:scpdy_itemGroup_blastDoors"
+						},
+						"items": [
+							"lc:scpdy_blast_door_1_preview_placer",
+							"lc:scpdy_blast_door_2_preview_placer"
+						]
+					},
+					{
+						"group_identifier": {
+							"icon": "lc:scpdy_cctv_camera_placer",
+							"name": "lc:scpdy_itemGroup_cctv"
+						},
+						"items": [
+							"lc:scpdy_cctv_camera_placer",
+							"lc:scpdy_cctv_monitor_placer",
+							"lc:scpdy_cctv_server_placer",
+							"lc:scpdy_cctv_tablet",
+							"lc:scpdy_cctv_linker"
+						]
+					},
+					{
+						"group_identifier": {
 							"icon": "lc:scpdy_ammo_9mm",
 							"name": "lc:scpdy_itemGroup_ammo"
 						},
@@ -251,71 +310,6 @@
 					},
 					{
 						"group_identifier": {
-							"icon": "lc:scpdy_blast_door_1_preview_placer",
-							"name": "lc:scpdy_itemGroup_blastDoors"
-						},
-						"items": [
-							"lc:scpdy_blast_door_1_preview_placer",
-							"lc:scpdy_blast_door_2_preview_placer"
-						]
-					},
-					{
-						"group_identifier": {
-							"icon": "lc:scpdy_cctv_camera_placer",
-							"name": "lc:scpdy_itemGroup_cctv"
-						},
-						"items": [
-							"lc:scpdy_cctv_camera_placer",
-							"lc:scpdy_cctv_monitor_placer",
-							"lc:scpdy_cctv_server_placer",
-							"lc:scpdy_cctv_tablet",
-							"lc:scpdy_cctv_linker"
-						]
-					},
-					{
-						"group_identifier": {
-							"icon": "lc:scpdy_door_button",
-							"name": "lc:scpdy_itemGroup_controlDevices"
-						},
-						"items": [
-							"lc:scpdy_door_button",
-							"lc:scpdy_keycard_reader_lvl_0",
-							"lc:scpdy_keycard_reader_lvl_1",
-							"lc:scpdy_keycard_reader_lvl_2",
-							"lc:scpdy_keycard_reader_lvl_3",
-							"lc:scpdy_keycard_reader_lvl_4",
-							"lc:scpdy_keycard_reader_lvl_5",
-							"lc:scpdy_keycard_reader_o5"
-						]
-					},
-					{
-						"group_identifier": {
-							"icon": "lc:scpdy_keycard_lvl_0",
-							"name": "lc:scpdy_itemGroup_keycards"
-						},
-						"items": [
-							"lc:scpdy_keycard_lvl_0",
-							"lc:scpdy_keycard_lvl_1",
-							"lc:scpdy_keycard_lvl_2",
-							"lc:scpdy_keycard_lvl_3",
-							"lc:scpdy_keycard_lvl_4",
-							"lc:scpdy_keycard_lvl_5",
-							"lc:scpdy_keycard_o5"
-						]
-					},
-					{
-						"group_identifier": {
-							"icon": "lc:scpdy_scp427",
-							"name": "lc:scpdy_itemGroup_scp"
-						},
-						"items": [
-							"lc:scpdy_scp096_1_wand",
-							"lc:scpdy_scp096_paper_bag",
-							"lc:scpdy_scp427"
-						]
-					},
-					{
-						"group_identifier": {
 							"icon": "lc:scpdy_gun_mp5_mag",
 							"name": "lc:scpdy_itemGroup_gun_mags"
 						},
@@ -327,6 +321,17 @@
 							"lc:scpdy_gun_mp5_mag",
 							// "lc:scpdy_gun_spas12_mag",
 							"lc:scpdy_gun_t5000_mag"
+						]
+					},
+					{
+						"group_identifier": {
+							"icon": "lc:scpdy_scp427",
+							"name": "lc:scpdy_itemGroup_scp"
+						},
+						"items": [
+							"lc:scpdy_scp096_1_wand",
+							"lc:scpdy_scp096_paper_bag",
+							"lc:scpdy_scp427"
 						]
 					}
 				]
