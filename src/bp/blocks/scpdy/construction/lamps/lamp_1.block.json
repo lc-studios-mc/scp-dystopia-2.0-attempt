@@ -9,7 +9,7 @@
 		},
 		"components": {
 			"minecraft:map_color": "#eae8e2",
-			"minecraft:block_light_emission": 1,
+			"minecraft:light_emission": 15,
 			"minecraft:destructible_by_explosion": {
 				"explosion_resistance": 1.5
 			},
