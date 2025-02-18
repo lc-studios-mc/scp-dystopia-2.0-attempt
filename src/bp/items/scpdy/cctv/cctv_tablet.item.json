@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "lc:scpdy_cctv_tablet",
 			"menu_category": {
-				"category": "equipment",
+				"category": "items",
 				"is_hidden_in_commands": false
 			}
 		},
