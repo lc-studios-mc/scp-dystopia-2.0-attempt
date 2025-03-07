@@ -1,0 +1,16 @@
+{
+	"compilerOptions": {
+		"target": "ES2023",
+		"moduleDetection": "force",
+		"module": "Preserve",
+		"esModuleInterop": true,
+		"isolatedModules": true,
+		"skipLibCheck": true,
+
+		"alwaysStrict": true,
+		"strict": true,
+		"noUncheckedIndexedAccess": true,
+		"noImplicitOverride": true,
+		"strictNullChecks": true
+	}
+}
