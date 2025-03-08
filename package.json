@@ -1,11 +1,10 @@
 {
 	"name": "scp-dystopia",
 	"scripts": {
-		"typecheck": "npx tsc -p ./src/bp/tsconfig.json --noEmit",
-		"dev": "node ./scripts/build.mjs dev --watch",
-		"devb": "node ./scripts/build.mjs dev --watch --beta",
-		"dist": "node ./scripts/build.mjs dist",
-		"madge": "npx madge -c --ts-config src/bp/tsconfig.json --extensions ts src/bp/scripts/"
+		"typecheck": "tsc -p src/tsconfig.json --noEmit",
+		"dev": "tsx scripts/index.ts dev --watch",
+		"devb": "tsx scripts/index.ts dev --watch --beta",
+		"build": "tsx scripts/index.ts dist"
 	},
 	"private": true,
 	"repository": {
@@ -34,3 +33,4 @@
 		"yargs": "^17.7.2"
 	}
 }
+
