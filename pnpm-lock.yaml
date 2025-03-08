@@ -33,6 +33,9 @@ importers:
       fs-extra:
         specifier: ^11.2.0
         version: 11.3.0
+      json5:
+        specifier: ^2.2.3
+        version: 2.2.3
       madge:
         specifier: ^8.0.0
         version: 8.0.0(typescript@5.8.2)

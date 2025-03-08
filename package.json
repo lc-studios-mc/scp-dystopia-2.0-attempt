@@ -29,6 +29,7 @@
 		"chokidar": "^4.0.3",
 		"esbuild": "^0.25.0",
 		"fs-extra": "^11.2.0",
+		"json5": "^2.2.3",
 		"madge": "^8.0.0",
 		"sync-directory": "^6.0.5",
 		"tsx": "^4.19.3",
