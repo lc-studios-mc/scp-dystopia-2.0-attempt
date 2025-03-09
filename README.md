@@ -5,7 +5,7 @@
 <hr/>
 
 [![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/lc-studios-mc/scp-dystopia/total?style=for-the-badge)](https://github.com/lc-studios-mc/scp-dystopia/releases)
-![Static Badge](https://img.shields.io/badge/Minecraft_Version-1.21.50-blue?style=for-the-badge)
+![Static Badge](https://img.shields.io/badge/Minecraft_Version-1.21.60-blue?style=for-the-badge)
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/m/lc-studios-mc/scp-dystopia?style=for-the-badge)](https://github.com/lc-studios-mc/scp-dystopia/commits/main/)
 
 [![Static Badge](https://img.shields.io/badge/Discord-%235865F2?style=for-the-badge&logo=discord&logoColor=%23ffffff)](https://discord.gg/K2mxsJ2trE)
