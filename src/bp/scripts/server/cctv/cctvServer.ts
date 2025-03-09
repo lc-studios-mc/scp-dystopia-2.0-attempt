@@ -1,5 +1,4 @@
 import * as mc from "@minecraft/server";
-import { Player as UiPlayer } from "@minecraft/server-ui/node_modules/@minecraft/server";
 import { ActionFormData, ModalFormData } from "@minecraft/server-ui";
 import * as vec3 from "@lib/utils/vec3";
 import { ensureType } from "@lib/utils/miscUtils";
@@ -40,7 +39,8 @@ export async function showPasswordForm(player: mc.Player, cctvServer: mc.Entity)
 		.submitButton({
 			translate: "scpdy.form.cctvServer.locked.submitButton",
 		})
-		.show(<UiPlayer>player);
+		// @ts-expect-error
+		.show(player);
 
 	if (response.canceled) return false;
 	if (response.formValues === undefined) return false;
@@ -195,7 +195,8 @@ async function showMainMenu(player: mc.Player, cctvServer: mc.Entity): Promise<v
 						.body({ translate: "scpdy.form.cctvServer.editCamera.body" })
 						.button({ translate: "scpdy.form.misc.no" })
 						.button({ translate: "scpdy.form.misc.yes" })
-						.show(<UiPlayer>player);
+						// @ts-expect-error
+						.show(player);
 
 					if (response.selection === 1) {
 						cameraRefs.splice(cameraRefIndex, 1);
@@ -281,7 +282,8 @@ async function showMainMenu(player: mc.Player, cctvServer: mc.Entity): Promise<v
 			cameraListForm.button(button.label);
 		}
 
-		const response = await cameraListForm.show(<UiPlayer>player);
+		// @ts-expect-error
+		const response = await cameraListForm.show(player);
 
 		if (response.canceled || response.selection === undefined) {
 			mc.system.run(() => {
@@ -316,7 +318,8 @@ async function showMainMenu(player: mc.Player, cctvServer: mc.Entity): Promise<v
 			.submitButton({
 				translate: "scpdy.form.cctvServer.setPassword.submitButton",
 			})
-			.show(<UiPlayer>player);
+			// @ts-expect-error
+			.show(player);
 
 		if (response.canceled || response.formValues === undefined) {
 			mc.system.run(() => {
@@ -358,7 +361,8 @@ async function showMainMenu(player: mc.Player, cctvServer: mc.Entity): Promise<v
 					? "scpdy.form.cctvServer.main.button.setPassword"
 					: "scpdy.form.cctvServer.main.button.changePassword",
 		})
-		.show(<UiPlayer>player);
+		// @ts-expect-error
+		.show(player);
 
 	if (menuResponse.canceled) return;
 	if (menuResponse.selection === undefined) return;

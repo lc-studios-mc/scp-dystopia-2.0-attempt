@@ -1,5 +1,4 @@
 import * as mc from "@minecraft/server";
-import { Player as UiPlayer } from "@minecraft/server-ui/node_modules/@minecraft/server";
 import { ActionFormData, ModalFormData } from "@minecraft/server-ui";
 import {
 	FacilityNetwork,
@@ -18,7 +17,8 @@ async function showEditZoneNameForm(player: mc.Player, facilityZone: FacilityZon
 			facilityZone.name,
 		)
 		.submitButton({ translate: "scpdy.form.fnm.editZoneName.submitButton" })
-		.show(<UiPlayer>player);
+		// @ts-expect-error
+		.show(player);
 
 	if (response.canceled) return;
 	if (!response.formValues) return;
@@ -61,7 +61,8 @@ async function showZoneListForm(
 		formData.button(button.label);
 	}
 
-	const response = await formData.show(<UiPlayer>player);
+	// @ts-expect-error
+	const response = await formData.show(player);
 
 	if (response.canceled) return;
 	if (response.selection === undefined) return;
@@ -81,7 +82,8 @@ async function showEditNetworkNameForm(
 			facilityNetwork.name,
 		)
 		.submitButton({ translate: "scpdy.form.fnm.editNetworkName.submitButton" })
-		.show(<UiPlayer>player);
+		// @ts-expect-error
+		.show(player);
 
 	if (response.canceled) return;
 	if (!response.formValues) return;
@@ -109,7 +111,8 @@ async function showSelectNetworkActionForm(
 		.body({ translate: "scpdy.form.fnm.selectNetworkAction.body" })
 		.button({ translate: "scpdy.form.fnm.selectNetworkAction.button1" })
 		.button({ translate: "scpdy.form.fnm.selectNetworkAction.button2" })
-		.show(<UiPlayer>player);
+		// @ts-expect-error
+		.show(player);
 
 	if (response.canceled) return;
 
@@ -152,7 +155,8 @@ async function showManagerForm(player: mc.Player): Promise<void> {
 				],
 			})
 			.button({ translate: "scpdy.form.misc.ok" })
-			.show(<UiPlayer>player);
+			// @ts-expect-error
+			.show(player);
 
 		if (response.canceled) return;
 
@@ -186,7 +190,8 @@ async function showManagerForm(player: mc.Player): Promise<void> {
 		formData.button(button.label);
 	}
 
-	const response = await formData.show(<UiPlayer>player);
+	// @ts-expect-error
+	const response = await formData.show(player);
 
 	if (response.canceled) return;
 	if (response.selection === undefined) return;

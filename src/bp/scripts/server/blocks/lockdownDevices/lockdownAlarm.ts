@@ -5,7 +5,6 @@ import {
 	getFacilityNetwork,
 	MAX_FACILITY_ZONE_COUNT,
 } from "@server/facilityNetwork/network";
-import { Player as UiPlayer } from "@minecraft/server-ui/node_modules/@minecraft/server";
 import { ModalFormData } from "@minecraft/server-ui";
 import { isAirOrLiquid } from "@lib/utils/blockUtils";
 
@@ -45,7 +44,8 @@ async function showSetZoneForm(
 			),
 			0,
 		)
-		.show(<UiPlayer>player);
+		// @ts-expect-error
+		.show(player);
 
 	if (response.canceled) return;
 	if (!response.formValues) return;

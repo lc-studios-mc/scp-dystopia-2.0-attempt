@@ -3,7 +3,6 @@ import { isAirOrLiquid } from "@lib/utils/blockUtils";
 import { dropDoorItem } from "./shared";
 import { isWrench } from "@lib/utils/scpdyUtils";
 import { ActionFormData } from "@minecraft/server-ui";
-import { Player as UiPlayer } from "@minecraft/server-ui/node_modules/@minecraft/server";
 import { getClearanceLevel } from "@lib/utils/scpdyUtils";
 import { getDoorSoundInfo } from "./doorSounds";
 
@@ -230,7 +229,8 @@ function onPlayerInteract(arg: mc.BlockComponentPlayerInteractEvent): void {
 		.button("5")
 		.button("O5");
 
-	formData.show(<UiPlayer>player).then((response) => {
+	// @ts-expect-error
+	formData.show(player).then((response) => {
 		try {
 			if (response.canceled) return;
 			if (response.selection === undefined) return;

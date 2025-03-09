@@ -6,7 +6,6 @@ import {
 	MAX_FACILITY_ZONE_COUNT,
 } from "@server/facilityNetwork/network";
 import { ModalFormData } from "@minecraft/server-ui";
-import { Player as UiPlayer } from "@minecraft/server-ui/node_modules/@minecraft/server";
 import { isAirOrLiquid } from "@lib/utils/blockUtils";
 
 function getFacilityNetworkOfPanel(blockTypeId: string): FacilityNetwork {
@@ -104,7 +103,8 @@ async function showSetZoneForm(
 			),
 			0,
 		)
-		.show(<UiPlayer>player);
+		// @ts-expect-error
+		.show(player);
 
 	if (response.canceled) return;
 	if (!response.formValues) return;
@@ -211,7 +211,8 @@ function onPlayerInteract(arg: mc.BlockComponentPlayerInteractEvent) {
 			},
 		);
 
-	formData.show(<UiPlayer>arg.player).then((response) => {
+	// @ts-expect-error
+	formData.show(arg.player).then((response) => {
 		if (response.canceled) return;
 		if (!response.formValues) return;
 

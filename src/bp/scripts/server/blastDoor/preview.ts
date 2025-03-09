@@ -1,5 +1,4 @@
 import * as mc from "@minecraft/server";
-import { Player as UiPlayer } from "@minecraft/server-ui/node_modules/@minecraft/server";
 import { ModalFormData } from "@minecraft/server-ui";
 import {
 	getFacilityNetwork,
@@ -93,7 +92,8 @@ async function showCreationForm(previewEntity: mc.Entity, player: mc.Player): Pr
 
 	formData1.submitButton({ translate: "scpdy.form.blastDoorCreation.submitButton" });
 
-	const response1 = await formData1.show(<UiPlayer>player);
+	// @ts-expect-error
+	const response1 = await formData1.show(player);
 
 	if (response1.canceled) return;
 	if (!response1.formValues) return;
@@ -133,7 +133,8 @@ async function showCreationForm(previewEntity: mc.Entity, player: mc.Player): Pr
 
 		formData2.submitButton({ translate: "scpdy.form.blastDoorCreation.setZone.submitButton" });
 
-		const response2 = await formData2.show(<UiPlayer>player);
+		// @ts-expect-error
+		const response2 = await formData2.show(player);
 
 		if (response2.canceled) return;
 		if (!response2.formValues) return;

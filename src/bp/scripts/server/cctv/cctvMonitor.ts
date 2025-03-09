@@ -1,5 +1,4 @@
 import * as mc from "@minecraft/server";
-import { Player as UiPlayer } from "@minecraft/server-ui/node_modules/@minecraft/server";
 import { ActionFormData } from "@minecraft/server-ui";
 import * as vec3 from "@lib/utils/vec3";
 import * as cctvServerMod from "./cctvServer";
@@ -118,7 +117,8 @@ async function showCameraList(
 		cameraListForm.button(button.label);
 	}
 
-	const response = await cameraListForm.show(<UiPlayer>player);
+	// @ts-expect-error
+	const response = await cameraListForm.show(player);
 
 	if (response.canceled || response.selection === undefined) {
 		return;
@@ -142,7 +142,8 @@ function onInteract(player: mc.Player, cctvMonitor: mc.Entity): void {
 			.title({ translate: "scpdy.form.cctvMonitor.notLinkedToServer.title" })
 			.body({ translate: "scpdy.form.cctvMonitor.notLinkedToServer.body" })
 			.button({ translate: "scpdy.form.misc.close" })
-			.show(<UiPlayer>player);
+			// @ts-expect-error
+			.show(player);
 
 		return;
 	}
@@ -154,7 +155,8 @@ function onInteract(player: mc.Player, cctvMonitor: mc.Entity): void {
 			.title({ translate: "scpdy.form.cctvMonitor.failedToGetServer.title" })
 			.body({ translate: "scpdy.form.cctvMonitor.failedToGetServer.body" })
 			.button({ translate: "scpdy.form.cctvMonitor.failedToGetServer.removeLinkButton" })
-			.show(<UiPlayer>player)
+			// @ts-expect-error
+			.show(player)
 			.then((response) => {
 				if (response.canceled) return;
 

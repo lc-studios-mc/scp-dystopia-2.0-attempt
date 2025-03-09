@@ -1,6 +1,5 @@
 import * as mc from "@minecraft/server";
 import { ModalFormData } from "@minecraft/server-ui";
-import { Player as UiPlayer } from "@minecraft/server-ui/node_modules/@minecraft/server";
 import * as vec3 from "@lib/utils/vec3";
 import { isAirOrLiquid } from "@lib/utils/blockUtils";
 
@@ -36,7 +35,8 @@ async function showPlacementOptionsForm(player: mc.Player): Promise<PlacementOpt
 			(player.getDynamicProperty("lastAlphanumericSignColorSelection") as number) ?? 0,
 		)
 		.submitButton({ translate: "scpdy.form.alphanumericSignOptions.submit" })
-		.show(<UiPlayer>player);
+		// @ts-expect-error
+		.show(player);
 
 	if (response.canceled) return;
 	if (!response.formValues) return;

@@ -1,6 +1,5 @@
 import { Player, system, world } from "@minecraft/server";
 import { ModalFormData } from "@minecraft/server-ui";
-import { Player as UiPlayer } from "@minecraft/server-ui/node_modules/@minecraft/server";
 
 export type ConfigData = {
 	disableGore: boolean;
@@ -98,7 +97,8 @@ export async function showConfigEditorForm(player: Player): Promise<void> {
 
 		// Show
 
-		.show(<UiPlayer>player);
+		// @ts-expect-error
+		.show(player);
 
 	if (response.canceled) return;
 	if (!response.formValues) return;
