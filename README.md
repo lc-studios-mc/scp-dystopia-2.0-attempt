@@ -56,23 +56,6 @@ On Windows OS, they are located under:
 **Some devices do not allow you to do this.**
 In that case, please find other workaround. I don't know how.
 
-## :handshake: Contributing
-
-Contributions of all kinds are welcome:
-
-- Code
-- Artworks
-- Textures
-- 3D models
-- Sound design
-- ...
-
-See [CONTRIBUTING.md](./.github/CONTRIBUTING.md) for instructions.
-
-## :computer: Developer Guide
-
-See [DEVELOPER.md](./DEVELOPER.md) for developer guide.
-
 ## :pencil: Attributions
 
 See [ATTRIBUTIONS.md](./ATTRIBUTIONS.md) for attributions.
