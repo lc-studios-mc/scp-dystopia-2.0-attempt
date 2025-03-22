@@ -1,0 +1,26 @@
+{
+	"compilerOptions": {
+		"target": "ES2023",
+		"lib": ["ES2023"],
+		"rootDir": "./src/",
+		"paths": {
+			"@bp": ["./src/bp/*"],
+			"@rp": ["./src/rp/*"],
+			"@augumentations/*": ["./src/bp/scripts/augumentations/*"],
+			"@lib/*": ["./src/bp/scripts/lib/*"],
+			"@server/*": ["./src/bp/scripts/server/*"]
+		},
+		"moduleDetection": "force",
+		"skipLibCheck": true,
+		"allowJs": true,
+		"checkJs": true,
+
+		"strict": true,
+		"strictNullChecks": true,
+
+		"module": "Preserve",
+		"moduleResolution": "Bundler",
+		"noEmit": true
+	},
+	"include": ["./src/**/*"]
+}
