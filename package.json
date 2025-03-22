@@ -12,6 +12,7 @@
 		"url": "git+https://github.com/lc-studios-mc/scp-dystopia.git"
 	},
 	"author": "Lucked Coronet",
+	"packageManager": "pnpm@10.6.5",
 	"pnpm": {
 		"onlyBuiltDependencies": [
 			"esbuild"
