@@ -4,7 +4,8 @@
 		"typecheck": "tsc -p tsconfig.json --noEmit",
 		"dev": "ganban -c .ganbanrc.dev.mjs",
 		"devb": "ganban -c .ganbanrc.dev.mjs -b",
-		"build": "ganban -c .ganbanrc.optimize.mjs"
+		"build": "ganban -c .ganbanrc.optimize.mjs",
+		"rm-dist": "powershell.exe -Command \"rm -Recurse -Force dist\""
 	},
 	"private": true,
 	"repository": {
