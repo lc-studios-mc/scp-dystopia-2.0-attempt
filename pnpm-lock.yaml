@@ -15,8 +15,8 @@ importers:
         specifier: 1.3.0
         version: 1.3.0
       ganban:
-        specifier: ^0.1.3
-        version: 0.1.3(@types/node@22.13.9)(typescript@5.8.2)
+        specifier: ^0.1.4
+        version: 0.1.4(@types/node@22.13.9)(typescript@5.8.2)
       typescript:
         specifier: ^5.7.2
         version: 5.8.2
@@ -559,8 +559,8 @@ packages:
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
 
-  ganban@0.1.3:
-    resolution: {integrity: sha512-4JbIGncDiGvYbx0ugNyEM6ot6d02kDIgWdssv21hIOQzwVNMntjyJAnAVFZzGikIRRiK8TzTr0NpAcJngHg0Rw==}
+  ganban@0.1.4:
+    resolution: {integrity: sha512-0M3S3bFIQCqdJpw+kKpD233ya36xo//wtk01IH1xPFH74MzOp5sqn9nrHlf0rqFpFoj/8YwPXW3eK1K7POiAqw==}
     os: [win32]
     hasBin: true
 
@@ -1106,7 +1106,7 @@ snapshots:
   fsevents@2.3.3:
     optional: true
 
-  ganban@0.1.3(@types/node@22.13.9)(typescript@5.8.2):
+  ganban@0.1.4(@types/node@22.13.9)(typescript@5.8.2):
     dependencies:
       '@inquirer/prompts': 7.4.0(@types/node@22.13.9)
       chalk: 5.4.1
