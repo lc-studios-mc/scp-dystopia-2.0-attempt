@@ -18,5 +18,12 @@
 		"**/packs/**/*.json": "jsonc",
 		"package.json": "json",
 		"package-lock.json": "json"
-	}
+	},
+
+	// https://marketplace.visualstudio.com/items?itemName=BlueGlassBlock.better-json5
+	"json5.format.enable": true,
+	"json5.format.stringQuotes": "double",
+	"json5.format.keyQuotes": "none-double",
+	"json5.format.trailingCommas": "all",
+	"json5.format.keepLines": false
 }
