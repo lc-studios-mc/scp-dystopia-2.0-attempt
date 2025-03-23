@@ -11,16 +11,13 @@
 							"general": "q.all_animations_finished"
 						},
 						{
-							"swing_1": "v.swing_cd_1"
+							"swing_1": "v.swing_1"
 						},
 						{
-							"swing_2": "v.swing_cd_2"
+							"swing_2": "v.swing_2"
 						},
 						{
-							"swing_3": "v.swing_cd_3"
-						},
-						{
-							"charge_start": "v.charge_start_cd"
+							"charge_start": "v.charge_start"
 						}
 					]
 				},
@@ -28,33 +25,31 @@
 					"animations": ["anim.fp.general"],
 					"transitions": [
 						{
-							"pick": "v.pick_cd"
+							"pick": "v.pick"
 						},
 						{
-							"swing_1": "v.swing_cd_1"
+							"swing_1": "v.swing_1"
 						},
 						{
-							"swing_2": "v.swing_cd_2"
+							"swing_2": "v.swing_2"
 						},
 						{
-							"swing_3": "v.swing_cd_3"
-						},
-						{
-							"charge_start": "v.charge_start_cd"
+							"charge_start": "v.charge_start"
 						}
-					]
+					],
+					"blend_transition": 0.05
 				},
 				"swing_1": {
 					"animations": ["anim.fp.swing_1"],
 					"transitions": [
 						{
-							"pick": "!v.swing_cd_1 || v.pick_cd"
+							"pick": "!v.swing_1 || v.pick"
 						},
 						{
-							"swing_2": "v.swing_cd_2"
+							"swing_2": "v.swing_2"
 						},
 						{
-							"charge_start": "v.charge_start_cd"
+							"charge_start": "v.charge_start"
 						}
 					]
 				},
@@ -62,27 +57,13 @@
 					"animations": ["anim.fp.swing_2"],
 					"transitions": [
 						{
-							"pick": "!v.swing_cd_2 || v.pick_cd"
+							"pick": "!v.swing_2 || v.pick"
 						},
 						{
-							"swing_3": "v.swing_cd_3"
+							"swing_1": "v.swing_1"
 						},
 						{
-							"charge_start": "v.charge_start_cd"
-						}
-					]
-				},
-				"swing_3": {
-					"animations": ["anim.fp.swing_3"],
-					"transitions": [
-						{
-							"pick": "!v.swing_cd_3 || v.pick_cd"
-						},
-						{
-							"swing_2": "v.swing_cd_2"
-						},
-						{
-							"charge_start": "v.charge_start_cd"
+							"charge_start": "v.charge_start"
 						}
 					]
 				},
@@ -90,13 +71,16 @@
 					"animations": ["anim.fp.charge_start"],
 					"transitions": [
 						{
-							"pick": "v.charge_cancel_cd || v.pick_cd"
+							"pick": "v.charge_cancel || v.pick"
 						},
 						{
 							"charge_hold": "q.all_animations_finished"
 						},
 						{
-							"slash_start": "v.slash_start_cd"
+							"dash": "v.dash"
+						},
+						{
+							"slash_start": "v.slash_start"
 						}
 					]
 				},
@@ -104,10 +88,41 @@
 					"animations": ["anim.fp.charge_hold"],
 					"transitions": [
 						{
-							"pick": "v.charge_cancel_cd || v.pick_cd"
+							"pick": "v.charge_cancel || v.pick"
 						},
 						{
-							"slash_start": "v.slash_start_cd"
+							"dash": "v.dash"
+						},
+						{
+							"slash_start": "v.slash_start"
+						}
+					]
+				},
+				"dash": {
+					"animations": ["anim.fp.dash"],
+					"transitions": [
+						{
+							"pick": "v.pick"
+						},
+						{
+							"dash_slash_start": "v.slash_start"
+						}
+					]
+				},
+				"dash_slash_start": {
+					"animations": ["anim.fp.dash_slash_start"],
+					"transitions": [
+						{
+							"pick": "v.pick"
+						},
+						{
+							"charge_start": "v.charge_start"
+						},
+						{
+							"slash_hold": "q.all_animations_finished && v.slash_hold"
+						},
+						{
+							"slash_end": "q.all_animations_finished && v.slash_continue"
 						}
 					]
 				},
@@ -115,42 +130,41 @@
 					"animations": ["anim.fp.slash_start"],
 					"transitions": [
 						{
-							"pick": "v.pick_cd"
+							"pick": "v.pick"
 						},
 						{
-							"charge_start": "v.charge_start_cd"
+							"charge_start": "v.charge_start"
 						},
 						{
-							"slash_hold": "v.slash_hold_cd"
+							"slash_hold": "q.all_animations_finished && v.slash_hold"
 						},
 						{
-							"slash_finish": "v.slash_finish_cd"
+							"slash_end": "q.all_animations_finished && v.slash_continue"
 						}
-					],
-					"blend_transition": 0.17
+					]
 				},
 				"slash_hold": {
 					"animations": ["anim.fp.slash_hold"],
 					"transitions": [
 						{
-							"pick": "v.pick_cd"
+							"pick": "v.pick"
 						},
 						{
-							"charge_start": "v.charge_start_cd"
+							"charge_start": "v.charge_start"
 						},
 						{
-							"slash_finish": "v.slash_finish_cd"
+							"slash_end": "v.slash_end"
 						}
 					]
 				},
-				"slash_finish": {
-					"animations": ["anim.fp.slash_finish"],
+				"slash_end": {
+					"animations": ["anim.fp.slash_end"],
 					"transitions": [
 						{
-							"charge_start": "v.charge_start_cd"
+							"charge_start": "v.charge_start"
 						},
 						{
-							"pick": "q.all_animations_finished || v.pick_cd"
+							"pick": "q.all_animations_finished || v.pick"
 						}
 					],
 					"blend_transition": 0.15

@@ -18,42 +18,49 @@
 				// Animation controllers
 				"ctrl.fp": "controller.animation.scpdy.weapon.slasher.fp",
 				// Animations
-				"anim.fp.lowered": "animation.scpdy_slasher.fp.lowered",
-				"anim.fp.base": "animation.scpdy_slasher.fp.base",
-				"anim.fp.saw_cycle": "animation.scpdy_slasher.fp.saw_cycle",
-				"anim.fp.general": "animation.scpdy_slasher.fp.general",
+				"anim.fp.blade_cycle": "animation.scpdy_slasher.fp.blade_cycle",
 				"anim.fp.pick": "animation.scpdy_slasher.fp.pick",
-				"anim.fp.general_unusable": "animation.scpdy_slasher.fp.general_unusable",
-				"anim.fp.pick_unusable": "animation.scpdy_slasher.fp.pick_unusable",
+				"anim.fp.general": "animation.scpdy_slasher.fp.general",
 				"anim.fp.swing_1": "animation.scpdy_slasher.fp.swing_1",
 				"anim.fp.swing_2": "animation.scpdy_slasher.fp.swing_2",
-				"anim.fp.swing_3": "animation.scpdy_slasher.fp.swing_3",
 				"anim.fp.charge_start": "animation.scpdy_slasher.fp.charge_start",
 				"anim.fp.charge_hold": "animation.scpdy_slasher.fp.charge_hold",
+				"anim.fp.dash": "animation.scpdy_slasher.fp.dash",
+				"anim.fp.dash_slash_start": "animation.scpdy_slasher.fp.dash_slash_start",
 				"anim.fp.slash_start": "animation.scpdy_slasher.fp.slash_start",
 				"anim.fp.slash_hold": "animation.scpdy_slasher.fp.slash_hold",
-				"anim.fp.slash_finish": "animation.scpdy_slasher.fp.slash_finish"
+				"anim.fp.slash_end": "animation.scpdy_slasher.fp.slash_end",
+				"anim.tp.override": "animation.scpdy_slasher.tp.override"
 			},
 			"scripts": {
-				"animate": ["ctrl.fp", "anim.fp.saw_cycle"],
-				"initialize": ["v.saw_cycle_speed = 0;", "v.saw_cycle_anim_time = 0;"],
+				"animate": [
+					"ctrl.fp",
+					"anim.fp.blade_cycle",
+					{
+						"anim.tp.override": "!c.is_first_person"
+					}
+				],
+				"initialize": [
+					"v.blade_speed = 0;",
+					"v.blade_speed_a = 0;",
+					"v.blade_cycle_anim_time = 0;"
+				],
 				"pre_animation": [
-					"v.pick_cd = q.cooldown_time_remaining('scpdy_slasher_pick') > 0;",
-					"v.swing_cd_1 = q.cooldown_time_remaining('scpdy_slasher_swing_cd_1') > 0;",
-					"v.swing_cd_2 = q.cooldown_time_remaining('scpdy_slasher_swing_cd_2') > 0;",
-					"v.swing_cd_3 = q.cooldown_time_remaining('scpdy_slasher_swing_cd_3') > 0;",
-					"v.charge_start_cd = q.cooldown_time_remaining('scpdy_slasher_charge_start_cd') > 0;",
-					"v.charge_cancel_cd = q.cooldown_time_remaining('scpdy_slasher_charge_cancel_cd') > 0;",
-					"v.slash_start_cd = q.cooldown_time_remaining('scpdy_slasher_slash_start_cd') > 0;",
-					"v.slash_hold_cd = q.cooldown_time_remaining('scpdy_slasher_slash_hold_cd') > 0;",
-					"v.slash_finish_cd = q.cooldown_time_remaining('scpdy_slasher_slash_finish_cd') > 0;",
+					"v.pick = q.cooldown_time_remaining('scpdy_slasher_pick') > 0;",
+					"v.swing_1 = q.cooldown_time_remaining('scpdy_slasher_swing_cd_1') > 0;",
+					"v.swing_2 = q.cooldown_time_remaining('scpdy_slasher_swing_cd_2') > 0;",
+					"v.charge_start = q.cooldown_time_remaining('scpdy_slasher_charge_start_cd') > 0;",
+					"v.charge_cancel = q.cooldown_time_remaining('scpdy_slasher_charge_cancel_cd') > 0;",
+					"v.dash = q.cooldown_time_remaining('scpdy_slasher_dash_cd') > 0;",
+					"v.slash_start = q.cooldown_time_remaining('scpdy_slasher_slash_start_cd') > 0;",
+					"v.slash_continue = q.cooldown_time_remaining('scpdy_slasher_slash_continue_cd') > 0;",
+					"v.slash_hold = q.cooldown_time_remaining('scpdy_slasher_slash_hold_cd') > 0;",
+					"v.slash_end = q.cooldown_time_remaining('scpdy_slasher_slash_end_cd') > 0;",
 
 					// Saw cycle
-					"v.saw_cycle_anim_time = v.saw_cycle_anim_time + (q.delta_time * v.saw_cycle_speed);"
+					"v.blade_speed = Math.lerp(v.blade_speed, v.blade_speed_a, 3.4 * q.delta_time);",
+					"v.blade_cycle_anim_time = v.blade_cycle_anim_time + (q.delta_time * v.blade_speed);"
 				]
-			},
-			"sound_effects": {
-				"idle": "scpdy.slasher.idle"
 			},
 			"render_controllers": [
 				{

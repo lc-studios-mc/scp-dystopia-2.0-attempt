@@ -1,0 +1,47 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "lc:scpdy_slasher_beam_swing",
+			"materials": {
+				"default": "entity_emissive_alpha"
+			},
+			"textures": {
+				"default": "textures/scpdy/projectiles/slasher_beam/swing"
+			},
+			"geometry": {
+				"default": "geometry.scpdy_slasher_beam"
+			},
+			"animations": {
+				// Animations
+				"anim.general": "animation.scpdy_slasher_beam.general",
+				"anim.trail": "animation.scpdy_slasher_beam.trail_swing"
+			},
+			"scripts": {
+				"scale": "0.9",
+				"initialize": [
+					"v.is_visible = false;",
+					"v.rotation_x = 0;",
+					"v.rotation_y = 0;",
+					"v.rotation_z = 0;"
+				],
+				"pre_animation": [
+					"v.is_visible = q.property('lc:is_visible');",
+					"v.rotation_x = q.property('lc:rotation_x');",
+					"v.rotation_y = q.property('lc:rotation_y');",
+					"v.rotation_z = q.property('lc:rotation_z');"
+				],
+				"animate": [
+					"anim.general",
+					{
+						"anim.trail": "v.is_visible"
+					}
+				]
+			},
+			"particle_effects": {
+				"trail": "lc:scpdy_slasher_beam_trail_emitter"
+			},
+			"render_controllers": ["controller.render.scpdy.slasher_beam"]
+		}
+	}
+}

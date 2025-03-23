@@ -9,12 +9,15 @@
 			}
 		},
 		"components": {
-			"minecraft:custom_components": ["scpdy:slasher"],
+			"minecraft:custom_components": ["scpdy:dont_get_durability_damage_on_hit"],
 			"minecraft:max_stack_size": 1,
 			"minecraft:icon": {
 				"textures": {
 					"default": "scpdy_slasher_icon"
 				}
+			},
+			"minecraft:damage": {
+				"value": 7
 			},
 			"minecraft:can_destroy_in_creative": {
 				"value": false
@@ -24,7 +27,7 @@
 					"min": 0,
 					"max": 0
 				},
-				"max_durability": 600
+				"max_durability": 900
 			},
 			"minecraft:repairable": {
 				"repair_items": [

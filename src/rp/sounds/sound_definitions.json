@@ -521,34 +521,66 @@
 		},
 		// #endregion
 		// #region Slasher
-		"scpdy.slasher.idle": {
+		"scpdy.slasher.charge_loop": {
 			"category": "hostile",
-			"max_distance": 7.0,
-			"min_distance": 3.0,
+			"max_distance": 10.0,
+			"min_distance": null,
 			"sounds": [
 				{
-					"name": "sounds/scpdy/weapons/slasher/idle",
-					"volume": 0.8
+					"name": "sounds/scpdy/weapons/slasher/charge_loop",
+					"volume": 0.7
 				}
 			]
 		},
-		"scpdy.slasher.chainsaw.start": {
+		"scpdy.slasher.critical": {
+			"category": "hostile",
+			"max_distance": 18.0,
+			"min_distance": null,
+			"sounds": [
+				{
+					"name": "sounds/scpdy/weapons/slasher/critical",
+					"volume": 1.0
+				}
+			]
+		},
+		"scpdy.slasher.swing": {
+			"category": "hostile",
+			"max_distance": 11.0,
+			"min_distance": null,
+			"sounds": [
+				{
+					"name": "sounds/scpdy/weapons/slasher/swing",
+					"volume": 1.2
+				}
+			]
+		},
+		"scpdy.slasher.dash": {
+			"category": "hostile",
+			"max_distance": 10.0,
+			"min_distance": null,
+			"sounds": ["sounds/scpdy/weapons/slasher/dash"]
+		},
+		"scpdy.slasher.dash.2d": {
+			"category": "music",
+			"sounds": ["sounds/scpdy/weapons/slasher/dash"]
+		},
+		"scpdy.slasher.slash": {
 			"category": "hostile",
 			"max_distance": 20.0,
 			"min_distance": null,
 			"sounds": [
 				{
-					"name": "sounds/scpdy/weapons/slasher/chainsaw_start",
-					"volume": 1.25
+					"name": "sounds/scpdy/weapons/slasher/slash",
+					"volume": 1.3
 				}
 			]
 		},
-		"scpdy.slasher.chainsaw.start_2d": {
+		"scpdy.slasher.slash.2d": {
 			"category": "music",
 			"sounds": [
 				{
-					"name": "sounds/scpdy/weapons/slasher/chainsaw_start",
-					"volume": 1.25
+					"name": "sounds/scpdy/weapons/slasher/slash",
+					"volume": 1.3
 				}
 			]
 		},
@@ -563,7 +595,7 @@
 				}
 			]
 		},
-		"scpdy.slasher.chainsaw.loop_2d": {
+		"scpdy.slasher.chainsaw.loop.2d": {
 			"category": "music",
 			"sounds": [
 				{
@@ -583,7 +615,7 @@
 				}
 			]
 		},
-		"scpdy.slasher.chainsaw.finish_2d": {
+		"scpdy.slasher.chainsaw.finish.2d": {
 			"category": "music",
 			"sounds": [
 				{
@@ -591,50 +623,6 @@
 					"volume": 1.25
 				}
 			]
-		},
-		"scpdy.slasher.charge_loop": {
-			"category": "hostile",
-			"max_distance": 10.0,
-			"min_distance": null,
-			"sounds": ["sounds/scpdy/weapons/slasher/charge_loop"]
-		},
-		"scpdy.slasher.critical": {
-			"category": "hostile",
-			"max_distance": 18.0,
-			"min_distance": null,
-			"sounds": ["sounds/scpdy/weapons/slasher/critical"]
-		},
-		"scpdy.slasher.dash": {
-			"category": "hostile",
-			"max_distance": 10.0,
-			"min_distance": null,
-			"sounds": ["sounds/scpdy/weapons/slasher/dash"]
-		},
-		"scpdy.slasher.slash": {
-			"category": "hostile",
-			"max_distance": 20.0,
-			"min_distance": null,
-			"sounds": [
-				{
-					"name": "sounds/scpdy/weapons/slasher/slash",
-					"volume": 1.5
-				}
-			]
-		},
-		"scpdy.slasher.slash_2d": {
-			"category": "music",
-			"sounds": [
-				{
-					"name": "sounds/scpdy/weapons/slasher/slash",
-					"volume": 1.5
-				}
-			]
-		},
-		"scpdy.slasher.swing": {
-			"category": "hostile",
-			"max_distance": 11.0,
-			"min_distance": null,
-			"sounds": ["sounds/scpdy/weapons/slasher/swing"]
 		},
 		// #endregion
 		// #region Projectile
