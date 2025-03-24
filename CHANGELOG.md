@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and the project does not follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## Unreleased
+
+### Changed
+
+- Many Slasher actions are now significantly faster.
+- Slasher now shoots sword beams (amazing).
+
 ## [2.0.0 Alpha 2.2] - 2024-02-12
 
 ### Changed
