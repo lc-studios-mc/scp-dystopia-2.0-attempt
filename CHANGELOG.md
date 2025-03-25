@@ -4,6 +4,10 @@
 
 ## Unreleased
 
+### Added
+
+- Tool tier-based mining speeds of many blocks.
+
 ### Changed
 
 - Many Slasher actions are now significantly faster.
