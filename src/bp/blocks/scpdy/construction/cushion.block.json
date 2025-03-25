@@ -13,7 +13,11 @@
 				"explosion_resistance": 4
 			},
 			"minecraft:destructible_by_mining": {
-				"seconds_to_destroy": 1
+				"seconds_to_destroy": 0.8
+			},
+			"minecraft:redstone_conductivity": {
+				"redstone_conductor": true,
+				"allows_wire_to_step_down": false
 			}
 		}
 	}
