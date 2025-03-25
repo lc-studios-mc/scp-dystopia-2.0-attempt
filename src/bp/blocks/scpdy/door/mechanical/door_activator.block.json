@@ -1,11 +1,10 @@
 {
-	"format_version": "1.21.20",
+	"format_version": "1.21.60",
 	"minecraft:block": {
 		"description": {
 			"identifier": "lc:scpdy_door_activator",
 			"menu_category": {
-				"category": "construction",
-				"group": "itemGroup.name.construction"
+				"category": "construction"
 			},
 			"states": {
 				"lc:ticks_until_power_off": { "values": { "min": 0, "max": 15 } },
@@ -42,7 +41,45 @@
 				"explosion_resistance": 30.0
 			},
 			"minecraft:destructible_by_mining": {
-				"seconds_to_destroy": 0.57
+				"seconds_to_destroy": 5,
+				"item_specific_speeds": [
+					{
+						"item": {
+							"tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:wooden_tier')"
+						},
+						"destroy_speed": 0.6
+					},
+					{
+						"item": {
+							"tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:stone_tier')"
+						},
+						"destroy_speed": 0.45
+					},
+					{
+						"item": {
+							"tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:iron_tier')"
+						},
+						"destroy_speed": 0.3
+					},
+					{
+						"item": {
+							"tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:diamond_tier')"
+						},
+						"destroy_speed": 0.2
+					},
+					{
+						"item": {
+							"tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:netherite_tier')"
+						},
+						"destroy_speed": 0.15
+					},
+					{
+						"item": {
+							"tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:golden_tier')"
+						},
+						"destroy_speed": 0.1
+					}
+				]
 			},
 			"tag:scpdy:door_activator": {}
 		},
