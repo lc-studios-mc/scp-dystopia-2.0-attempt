@@ -4,8 +4,6 @@
 		"lib": ["ES2023"],
 		"rootDir": "./src/",
 		"paths": {
-			"@bp": ["./src/bp/*"],
-			"@rp": ["./src/rp/*"],
 			"@augumentations/*": ["./src/bp/scripts/augumentations/*"],
 			"@lib/*": ["./src/bp/scripts/lib/*"],
 			"@server/*": ["./src/bp/scripts/server/*"]
