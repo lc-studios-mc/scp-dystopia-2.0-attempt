@@ -284,12 +284,10 @@
 
 	// #region construction_3d
 	"lc:scpdy_floor_grate": {
-		"sound": "metal",
-		"textures": "scpdy_floor_grate"
+		"sound": "metal"
 	},
 	"lc:scpdy_floor_grate_trap": {
-		"sound": "metal",
-		"textures": "scpdy_floor_grate_trap"
+		"sound": "metal"
 	},
 	"lc:scpdy_razor_wire": {
 		"sound": "metal"
