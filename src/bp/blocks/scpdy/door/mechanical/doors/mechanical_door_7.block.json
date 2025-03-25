@@ -1,5 +1,5 @@
 {
-	"format_version": "1.21.20",
+	"format_version": "1.21.60",
 	"minecraft:block": {
 		"description": {
 			"identifier": "lc:scpdy_mechanical_door_7",
@@ -31,7 +31,21 @@
 				"explosion_resistance": 6000.0 // https://minecraft.fandom.com/wiki/Explosion#Blast_resistance
 			},
 			"minecraft:destructible_by_mining": {
-				"seconds_to_destroy": 4.0
+				"seconds_to_destroy": 60,
+				"item_specific_speeds": [
+					{
+						"item": {
+							"tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:diamond_tier')"
+						},
+						"destroy_speed": 0.5
+					},
+					{
+						"item": {
+							"tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:netherite_tier')"
+						},
+						"destroy_speed": 0.4
+					}
+				]
 			},
 			"minecraft:light_dampening": 0,
 			"minecraft:tick": {
