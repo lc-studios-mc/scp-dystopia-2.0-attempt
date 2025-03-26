@@ -6,12 +6,13 @@
 
 ### Added
 
+- Toilet Paper Roll.
+- Toilet Paper Holder.
 - Tool tier-based mining speeds of many blocks.
 
 ### Changed
 
-- Many Slasher actions are now significantly faster.
-- Slasher now shoots sword beams (amazing).
+- Slasher MK-II upgrade (faster actions and sword beams!).
 
 ### Fixed
 
