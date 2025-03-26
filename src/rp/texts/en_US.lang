@@ -84,9 +84,9 @@ scpdy.msg.misc.removedPassword=§aRemoved password!
 scpdy.msg.misc.emptyString=§cEmpty string.
 scpdy.msg.misc.itemNotUsableForNow=§cSorry, this item is not usable in this version...
 
-scpdy.msg.welcome.line_1=§l§7<<< §bWelcome to SCP: Dystopia §7>>>§r
-scpdy.msg.welcome.line_2=§6Keep in mind that you are currently playing an early access version.
-scpdy.msg.welcome.line_3=§6Enjoy! :)
+scpdy.msg.welcome.line_1=§l§7< §bSCP: Dystopia 2.0.0 Alpha 3 §7>§r
+scpdy.msg.welcome.line_2=§6The Slasher has received a huge upgrade in this version.
+scpdy.msg.welcome.line_3=§6Rip and tear! >:]
 
 scpdy.msg.youAreNowLeader.line_1=§7You are now recognized as the World Leader as you joined the world first.
 scpdy.msg.youAreNowLeader.line_2=§7The §l§fConfig§r§7 item that you just received can be used to change various options.
