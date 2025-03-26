@@ -12,6 +12,8 @@ function onPlayerInteract({
 	const holderHasPaperRoll = block.permutation.getState("lc:has_paper_roll") === true;
 
 	if (holderHasPaperRoll) {
+		if (!mc.world.gameRules.doTileDrops) return;
+
 		const dropItemStack = new mc.ItemStack(TOILET_PAPER_ROLL_ITEM_TYPE, 1);
 		dimension.spawnItem(dropItemStack, block.bottomCenter());
 
