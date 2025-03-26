@@ -1,2 +1,2 @@
-import "@augumentations/index";
+import "./aug";
 import "./server";
