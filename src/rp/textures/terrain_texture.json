@@ -17,6 +17,9 @@
 		"scpdy_cst_generic_floor": {
 			"textures": "textures/scpdy/blocks/construction/generic_floor"
 		},
+		"scpdy_cst_lead_block": {
+			"textures": "textures/scpdy/blocks/construction/lead_block"
+		},
 		"scpdy_cst_steel_block": {
 			"textures": "textures/scpdy/blocks/construction/steel_block"
 		},

@@ -17,6 +17,10 @@
 		"sound": "stone",
 		"textures": "scpdy_cst_generic_floor"
 	},
+	"lc:scpdy_cst_lead_block": {
+		"sound": "stone",
+		"textures": "scpdy_cst_lead_block"
+	},
 	"lc:scpdy_cst_steel_block": {
 		"sound": "metal",
 		"textures": "scpdy_cst_steel_block"

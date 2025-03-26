@@ -464,6 +464,7 @@ tile.lc:scpdy_cst_black_checker_tiles.name=Black Checker Tiles
 tile.lc:scpdy_cst_cushion.name=Cushion
 tile.lc:scpdy_cst_floor_tiles.name=Floor Tiles
 tile.lc:scpdy_cst_generic_floor.name=Generic Floor
+tile.lc:scpdy_cst_lead_block.name=Lead Block
 tile.lc:scpdy_cst_steel_Block.name=Steel Block
 tile.lc:scpdy_cst_treadplate.name=Treadplate
 
