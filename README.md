@@ -75,4 +75,4 @@ Dual licensed under [CC-BY-SA](./LICENSE-CC-BY-SA) (project itself and assets) a
 
 For bug reports, feature suggestions, and questions, please use our [Discord server](https://discord.gg/K2mxsJ2trE) (my user ID is `luckedcoronet45`).
 
-Our email address: info@lc-studios.net
+Email: info@lc-studios.net
