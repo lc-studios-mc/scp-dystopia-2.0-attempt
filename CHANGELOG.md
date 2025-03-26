@@ -15,6 +15,7 @@
 
 ### Fixed
 
+- Scripts do not work in 1.21.70.
 - Texture of Boolean Door 2 with clearance level of 1
 
 ## [2.0.0 Alpha 2.2] - 2024-02-12
