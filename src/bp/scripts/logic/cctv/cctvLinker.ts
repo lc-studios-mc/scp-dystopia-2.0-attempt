@@ -322,7 +322,7 @@ function onUseItem(arg: mc.ItemComponentUseEvent): void {
 	onUseCctvLinker(arg.source, arg.itemStack);
 }
 
-mc.world.beforeEvents.worldInitialize.subscribe((event) => {
+mc.system.beforeEvents.startup.subscribe((event) => {
 	event.itemComponentRegistry.registerCustomComponent("scpdy:cctv_linker", {
 		onUse: onUseItem,
 	});

@@ -18,7 +18,7 @@ mc.world.beforeEvents.playerLeave.subscribe(({ player }) => {
 	CALLBACK_EXTRA_ARGS_CACHE.delete(player);
 });
 
-mc.world.afterEvents.worldInitialize.subscribe(() => {
+mc.world.afterEvents.worldLoad.subscribe(() => {
 	mc.system.runInterval(loop, 1);
 });
 

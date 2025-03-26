@@ -33,7 +33,7 @@ function onUse(arg: mc.ItemComponentUseEvent): void {
 	}
 }
 
-mc.world.beforeEvents.worldInitialize.subscribe((event) => {
+mc.system.beforeEvents.startup.subscribe((event) => {
 	event.itemComponentRegistry.registerCustomComponent("scpdy:scp096_1_wand", {
 		onUse,
 	});

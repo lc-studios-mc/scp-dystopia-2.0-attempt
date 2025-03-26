@@ -27,7 +27,7 @@ function onStepOn(arg: mc.BlockComponentStepOnEvent): void {
 	dashDir.y = 0;
 	vec3.normalize(dashDir);
 
-	arg.entity.applyKnockback(dashDir.x, dashDir.z, 3, 0);
+	arg.entity.applyKnockback({ x: dashDir.x * 3, z: dashDir.z * 3 }, 0);
 
 	arg.entity.addEffect("speed", 50, {
 		amplifier: 1,
@@ -36,7 +36,7 @@ function onStepOn(arg: mc.BlockComponentStepOnEvent): void {
 	arg.block.setPermutation(arg.block.permutation.withState("lc:ticks_until_active_again", 15));
 }
 
-mc.world.beforeEvents.worldInitialize.subscribe((event) => {
+mc.system.beforeEvents.startup.subscribe((event) => {
 	event.blockComponentRegistry.registerCustomComponent("scpdy:dash_block", {
 		onTick,
 		onStepOn,

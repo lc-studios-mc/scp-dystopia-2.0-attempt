@@ -35,7 +35,6 @@ async function showPlacementOptionsForm(player: mc.Player): Promise<PlacementOpt
 			(player.getDynamicProperty("lastAlphanumericSignColorSelection") as number) ?? 0,
 		)
 		.submitButton({ translate: "scpdy.form.alphanumericSignOptions.submit" })
-		// @ts-expect-error
 		.show(player);
 
 	if (response.canceled) return;
@@ -354,7 +353,7 @@ function beforeOnPlayerPlace(arg: mc.BlockComponentPlayerPlaceBeforeEvent): void
 	asyncPlacement(arg.player, arg.block, arg.dimension, upOrDown, dir);
 }
 
-mc.world.beforeEvents.worldInitialize.subscribe((event) => {
+mc.system.beforeEvents.startup.subscribe((event) => {
 	event.blockComponentRegistry.registerCustomComponent("scpdy:alphanumeric_sign", {
 		beforeOnPlayerPlace,
 	});

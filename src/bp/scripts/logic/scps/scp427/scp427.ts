@@ -12,7 +12,7 @@ const SCP427_1_PROGRESS_COMPLETE_TICK = 250;
 
 let scp427CurrentTick = 0;
 
-mc.world.beforeEvents.worldInitialize.subscribe((event) => {
+mc.system.beforeEvents.startup.subscribe((event) => {
 	event.itemComponentRegistry.registerCustomComponent("scpdy:scp427", {
 		onUse(arg) {
 			if (!arg.itemStack) return;

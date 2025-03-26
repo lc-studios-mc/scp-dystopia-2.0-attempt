@@ -43,8 +43,8 @@ function onUpdate(scp001Entity: mc.Entity): void {
 		ticksUntilSigularity > 0
 			? ticksUntilSigularity - 1
 			: target.isOnGround
-				? randomInt(20, 30)
-				: randomInt(5, 10),
+			? randomInt(20, 30)
+			: randomInt(5, 10),
 	);
 
 	if (isLeadBlockingRay) return;
@@ -163,7 +163,7 @@ function onSingularityInhale(singularityEntity: mc.Entity): void {
 		}
 
 		if (entity instanceof mc.Player) {
-			entity.runCommandAsync("camerashake add @s 0.2 0.3 positional");
+			entity.runCommand("camerashake add @s 0.2 0.3 positional");
 
 			if ([mc.GameMode.creative, mc.GameMode.spectator].includes(entity.getGameMode())) continue;
 		}

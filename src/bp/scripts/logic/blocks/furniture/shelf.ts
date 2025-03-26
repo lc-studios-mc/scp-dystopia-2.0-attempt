@@ -29,7 +29,7 @@ function onPlayerInteract(args: mc.BlockComponentPlayerInteractEvent): void {
 	args.block.setPermutation(args.block.permutation.withState("lc:variant", newVariant));
 }
 
-mc.world.beforeEvents.worldInitialize.subscribe((event) => {
+mc.system.beforeEvents.startup.subscribe((event) => {
 	event.blockComponentRegistry.registerCustomComponent("scpdy:shelf", {
 		beforeOnPlayerPlace,
 		onPlayerInteract,

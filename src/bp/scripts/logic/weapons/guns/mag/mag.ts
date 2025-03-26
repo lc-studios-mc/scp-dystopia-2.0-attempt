@@ -25,7 +25,7 @@ function onUse(arg: mc.ItemComponentUseEvent): void {
 	player.startItemCooldown("scpdy_mag_swap", 5);
 }
 
-mc.world.beforeEvents.worldInitialize.subscribe((event) => {
+mc.system.beforeEvents.startup.subscribe((event) => {
 	event.itemComponentRegistry.registerCustomComponent("scpdy:mag", {
 		onUse,
 	});

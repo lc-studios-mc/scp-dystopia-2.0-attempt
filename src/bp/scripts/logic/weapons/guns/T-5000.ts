@@ -232,7 +232,7 @@ class T5000 extends AdvancedItem {
 			}
 
 			if (this.boltCycleData.tick === 7) {
-				this.player.runCommandAsync("camerashake add @s 0.025 0.08 rotational");
+				this.player.runCommand("camerashake add @s 0.025 0.08 rotational");
 			}
 
 			if (this.boltCycleData.tick === 9) {
@@ -240,7 +240,7 @@ class T5000 extends AdvancedItem {
 			}
 
 			if (this.boltCycleData.tick === 12) {
-				this.player.runCommandAsync("camerashake add @s 0.025 0.11 rotational");
+				this.player.runCommand("camerashake add @s 0.025 0.11 rotational");
 			}
 
 			if (this.boltCycleData.tick === 18) {
@@ -299,7 +299,7 @@ class T5000 extends AdvancedItem {
 				}
 
 				if (this.reloadData.tick === 20) {
-					this.player.runCommandAsync("camerashake add @s 0.02 0.08 rotational");
+					this.player.runCommand("camerashake add @s 0.02 0.08 rotational");
 
 					const reloadAmount = removeAmmo(
 						this.playerInventoryContainer,
@@ -327,7 +327,7 @@ class T5000 extends AdvancedItem {
 				}
 
 				if (this.reloadData.tick === 6) {
-					this.player.runCommandAsync("camerashake add @s 0.01 0.1 rotational");
+					this.player.runCommand("camerashake add @s 0.01 0.1 rotational");
 				}
 
 				if (this.reloadData.tick === 14) {
@@ -335,7 +335,7 @@ class T5000 extends AdvancedItem {
 				}
 
 				if (this.reloadData.tick === 16) {
-					this.player.runCommandAsync("camerashake add @s 0.01 0.2 rotational");
+					this.player.runCommand("camerashake add @s 0.01 0.2 rotational");
 				}
 
 				if (this.reloadData.tick === 27) {
@@ -343,7 +343,7 @@ class T5000 extends AdvancedItem {
 				}
 
 				if (this.reloadData.tick === 28) {
-					this.player.runCommandAsync("camerashake add @s 0.015 0.1 rotational");
+					this.player.runCommand("camerashake add @s 0.015 0.1 rotational");
 				}
 
 				if (this.reloadData.tick === 36) {
@@ -351,7 +351,7 @@ class T5000 extends AdvancedItem {
 				}
 
 				if (this.reloadData.tick === 39) {
-					this.player.runCommandAsync("camerashake add @s 0.02 0.2 rotational");
+					this.player.runCommand("camerashake add @s 0.02 0.2 rotational");
 				}
 
 				if (this.reloadData.tick === 44) {
@@ -569,6 +569,6 @@ class T5000 extends AdvancedItem {
 			}
 		}
 
-		this.player.runCommandAsync("camerashake add @s 0.06 0.1 rotational");
+		this.player.runCommand("camerashake add @s 0.06 0.1 rotational");
 	}
 }

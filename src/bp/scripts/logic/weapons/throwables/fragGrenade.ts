@@ -55,7 +55,7 @@ function turnThrownFragGrenadeIntoDropped(
 	thrownGrenadeEntity: mc.Entity,
 	keepVelocity: boolean,
 ): void {
-	if (!thrownGrenadeEntity.isValid()) return;
+	if (!thrownGrenadeEntity.isValid) return;
 
 	thrownGrenadeEntity.dimension.playSound("scpdy.frag_grenade.hit", thrownGrenadeEntity.location, {
 		volume: 1.15,

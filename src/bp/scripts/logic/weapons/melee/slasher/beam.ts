@@ -165,7 +165,7 @@ export const shootSlasherSwingBeam = (player: mc.Player): void => {
 
 	mc.system.runTimeout(() => {
 		try {
-			if (!entity.isValid()) return;
+			if (!entity.isValid) return;
 			if (vec3.length(entity.getVelocity()) <= 0.1) {
 				hitAndRemoveBeamEntity(
 					entity,
@@ -217,7 +217,7 @@ export const shootSlasherSlashBeam = (player: mc.Player): void => {
 
 	mc.system.runTimeout(() => {
 		try {
-			if (!entity.isValid()) return;
+			if (!entity.isValid) return;
 			if (vec3.length(entity.getVelocity()) <= 0.1) {
 				hitAndRemoveBeamEntity(
 					entity,
@@ -275,7 +275,7 @@ mc.world.afterEvents.projectileHitBlock.subscribe((event) => {
 
 		if (!isSwingBeam && !isSlashBeam) return;
 
-		if (event.projectile.getDynamicProperty("isTimedOut") === true && event.projectile.isValid()) {
+		if (event.projectile.getDynamicProperty("isTimedOut") === true && event.projectile.isValid) {
 			event.projectile.remove();
 			return;
 		}

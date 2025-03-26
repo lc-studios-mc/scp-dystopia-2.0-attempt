@@ -17,7 +17,6 @@ async function showEditZoneNameForm(player: mc.Player, facilityZone: FacilityZon
 			facilityZone.name,
 		)
 		.submitButton({ translate: "scpdy.form.fnm.editZoneName.submitButton" })
-		// @ts-expect-error
 		.show(player);
 
 	if (response.canceled) return;
@@ -61,7 +60,6 @@ async function showZoneListForm(
 		formData.button(button.label);
 	}
 
-	// @ts-expect-error
 	const response = await formData.show(player);
 
 	if (response.canceled) return;
@@ -82,7 +80,6 @@ async function showEditNetworkNameForm(
 			facilityNetwork.name,
 		)
 		.submitButton({ translate: "scpdy.form.fnm.editNetworkName.submitButton" })
-		// @ts-expect-error
 		.show(player);
 
 	if (response.canceled) return;
@@ -111,7 +108,6 @@ async function showSelectNetworkActionForm(
 		.body({ translate: "scpdy.form.fnm.selectNetworkAction.body" })
 		.button({ translate: "scpdy.form.fnm.selectNetworkAction.button1" })
 		.button({ translate: "scpdy.form.fnm.selectNetworkAction.button2" })
-		// @ts-expect-error
 		.show(player);
 
 	if (response.canceled) return;
@@ -155,7 +151,6 @@ async function showManagerForm(player: mc.Player): Promise<void> {
 				],
 			})
 			.button({ translate: "scpdy.form.misc.ok" })
-			// @ts-expect-error
 			.show(player);
 
 		if (response.canceled) return;
@@ -190,7 +185,6 @@ async function showManagerForm(player: mc.Player): Promise<void> {
 		formData.button(button.label);
 	}
 
-	// @ts-expect-error
 	const response = await formData.show(player);
 
 	if (response.canceled) return;
@@ -203,7 +197,7 @@ function onUse(args: mc.ItemComponentUseEvent): void {
 	showManagerForm(args.source);
 }
 
-mc.world.beforeEvents.worldInitialize.subscribe((event) => {
+mc.system.beforeEvents.startup.subscribe((event) => {
 	event.itemComponentRegistry.registerCustomComponent("scpdy:facility_network_manager", {
 		onUse,
 	});

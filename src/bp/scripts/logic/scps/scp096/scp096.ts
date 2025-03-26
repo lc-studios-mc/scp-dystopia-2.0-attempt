@@ -336,30 +336,15 @@ function onScp096Attack(scp096Entity: mc.Entity): void {
 			}
 		}
 
-		// const attackFailCount =
-		//   ensureType(target.getDynamicProperty("scp096AttackFailCount"), "number") ?? 0;
+		const attackFailCount =
+			ensureType(target.getDynamicProperty("scp096AttackFailCount"), "number") ?? 0;
 
-		// if (attackFailCount > 69) {
-		//   explode(target);
-		//   return;
-		// }
-
-		// target.setDynamicProperty("scp096AttackFailCount", attackFailCount + 1);
-
-		const scale = target.getComponent("scale");
-
-		if (!scale) {
+		if (attackFailCount > 69) {
 			explode(target);
 			return;
 		}
 
-		const nextScale = scale.value - 0.07;
-
-		if (nextScale > 0.05) {
-			scale.value = nextScale;
-		} else {
-			explode(target);
-		}
+		target.setDynamicProperty("scp096AttackFailCount", attackFailCount + 1);
 	}
 }
 

@@ -4,7 +4,7 @@ import { SCP173_ENTITY_TYPE } from "./shared";
 
 mc.world.afterEvents.dataDrivenEntityTrigger.subscribe(
 	(event) => {
-		if (!event.entity.isValid()) return;
+		if (!event.entity.isValid) return;
 
 		const isMobile = event.entity.getProperty("lc:is_mobile") === true;
 

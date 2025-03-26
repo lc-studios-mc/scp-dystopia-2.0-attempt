@@ -38,7 +38,7 @@ mc.world.afterEvents.dataDrivenEntityTrigger.subscribe(
 	(event) => {
 		const { entity } = event;
 
-		if (!entity.isValid()) return;
+		if (!entity.isValid) return;
 		if (vec3.length(entity.getVelocity()) > 1.5) return;
 
 		const chainsawStunTick = entity.getProperty("lc:chainsaw_stun_tick") as number;

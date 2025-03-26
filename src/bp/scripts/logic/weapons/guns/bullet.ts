@@ -255,7 +255,7 @@ mc.world.afterEvents.projectileHitEntity.subscribe((hitEvent) => {
 	}
 });
 
-mc.world.afterEvents.worldInitialize.subscribe(() => {
+mc.world.afterEvents.worldLoad.subscribe(() => {
 	const scriptableBullets = getEntitiesInAllDimensions({
 		families: ["scriptable_bullet"],
 	});

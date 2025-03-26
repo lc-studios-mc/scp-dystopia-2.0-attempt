@@ -229,15 +229,14 @@ function onPlayerInteract(arg: mc.BlockComponentPlayerInteractEvent): void {
 		.button("5")
 		.button("O5");
 
-	// @ts-expect-error
 	formData.show(player).then((response) => {
 		try {
 			if (response.canceled) return;
 			if (response.selection === undefined) return;
 
-			if (!lowerPartBlock.isValid()) throw lowerPartBlock;
+			if (!lowerPartBlock.isValid) throw lowerPartBlock;
 			if (lowerPartBlock.typeId !== lowerPartBlockTypeId) throw lowerPartBlock;
-			if (!upperPartBlock.isValid()) throw upperPartBlock;
+			if (!upperPartBlock.isValid) throw upperPartBlock;
 
 			const selection = Number(response.selection);
 
@@ -282,7 +281,7 @@ function onPlayerDestroy(arg: mc.BlockComponentPlayerDestroyEvent): void {
 	otherPartBlock.setType("minecraft:air");
 }
 
-mc.world.beforeEvents.worldInitialize.subscribe((event) => {
+mc.system.beforeEvents.startup.subscribe((event) => {
 	event.blockComponentRegistry.registerCustomComponent("scpdy:boolean_door", {
 		onPlace,
 		onTick,

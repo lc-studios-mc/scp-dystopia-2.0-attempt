@@ -28,7 +28,7 @@ mc.world.afterEvents.dataDrivenEntityTrigger.subscribe(
 );
 
 function onUpdateToiletRideableEntity(entity: mc.Entity): void {
-	if (!entity.isValid()) return;
+	if (!entity.isValid) return;
 
 	const rider = entity.getComponent("rideable")!.getRiders()[0];
 
@@ -96,7 +96,7 @@ function onToiletRideableEntityLostRider(entity: mc.Entity): void {
 	entity.remove();
 }
 
-mc.world.beforeEvents.worldInitialize.subscribe((event) => {
+mc.system.beforeEvents.startup.subscribe((event) => {
 	event.blockComponentRegistry.registerCustomComponent("scpdy:toilet", {
 		onPlayerInteract,
 	});

@@ -32,7 +32,7 @@ function onStepOff(arg: mc.BlockComponentStepOnEvent): void {
 	} catch {}
 }
 
-mc.world.beforeEvents.worldInitialize.subscribe((event) => {
+mc.system.beforeEvents.startup.subscribe((event) => {
 	event.blockComponentRegistry.registerCustomComponent("scpdy:razor_wire", {
 		onStepOn,
 		onStepOff,

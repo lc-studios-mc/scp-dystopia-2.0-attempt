@@ -80,7 +80,7 @@ function onPlayerDestroy(arg: mc.BlockComponentPlayerDestroyEvent): void {
 	updateConnections(arg.block, arg.destroyedBlockPermutation.type.id);
 }
 
-mc.world.beforeEvents.worldInitialize.subscribe((event) => {
+mc.system.beforeEvents.startup.subscribe((event) => {
 	event.blockComponentRegistry.registerCustomComponent("scpdy:connec_table", {
 		onPlace,
 		onPlayerDestroy,

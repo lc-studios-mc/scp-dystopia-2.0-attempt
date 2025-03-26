@@ -103,7 +103,6 @@ async function showSetZoneForm(
 			),
 			0,
 		)
-		// @ts-expect-error
 		.show(player);
 
 	if (response.canceled) return;
@@ -159,6 +158,8 @@ function beforeOnPlayerPlace(arg: mc.BlockComponentPlayerPlaceBeforeEvent): void
 }
 
 function onPlayerInteract(arg: mc.BlockComponentPlayerInteractEvent) {
+	if (!arg.player) return;
+
 	const correctPerm = arg.block.permutation;
 
 	const isActivated = correctPerm.getState("lc:is_activated") === true;
@@ -211,7 +212,6 @@ function onPlayerInteract(arg: mc.BlockComponentPlayerInteractEvent) {
 			},
 		);
 
-	// @ts-expect-error
 	formData.show(arg.player).then((response) => {
 		if (response.canceled) return;
 		if (!response.formValues) return;
@@ -278,7 +278,7 @@ function onTick(arg: mc.BlockComponentTickEvent) {
 	}
 }
 
-mc.world.beforeEvents.worldInitialize.subscribe((event) => {
+mc.system.beforeEvents.startup.subscribe((event) => {
 	event.blockComponentRegistry.registerCustomComponent("scpdy:lockdown_panel", {
 		beforeOnPlayerPlace,
 		onPlayerInteract,

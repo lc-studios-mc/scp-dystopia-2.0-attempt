@@ -39,7 +39,6 @@ export async function showPasswordForm(player: mc.Player, cctvServer: mc.Entity)
 		.submitButton({
 			translate: "scpdy.form.cctvServer.locked.submitButton",
 		})
-		// @ts-expect-error
 		.show(player);
 
 	if (response.canceled) return false;
@@ -195,7 +194,6 @@ async function showMainMenu(player: mc.Player, cctvServer: mc.Entity): Promise<v
 						.body({ translate: "scpdy.form.cctvServer.editCamera.body" })
 						.button({ translate: "scpdy.form.misc.no" })
 						.button({ translate: "scpdy.form.misc.yes" })
-						// @ts-expect-error
 						.show(player);
 
 					if (response.selection === 1) {
@@ -282,7 +280,6 @@ async function showMainMenu(player: mc.Player, cctvServer: mc.Entity): Promise<v
 			cameraListForm.button(button.label);
 		}
 
-		// @ts-expect-error
 		const response = await cameraListForm.show(player);
 
 		if (response.canceled || response.selection === undefined) {
@@ -318,7 +315,6 @@ async function showMainMenu(player: mc.Player, cctvServer: mc.Entity): Promise<v
 			.submitButton({
 				translate: "scpdy.form.cctvServer.setPassword.submitButton",
 			})
-			// @ts-expect-error
 			.show(player);
 
 		if (response.canceled || response.formValues === undefined) {
@@ -361,7 +357,6 @@ async function showMainMenu(player: mc.Player, cctvServer: mc.Entity): Promise<v
 					? "scpdy.form.cctvServer.main.button.setPassword"
 					: "scpdy.form.cctvServer.main.button.changePassword",
 		})
-		// @ts-expect-error
 		.show(player);
 
 	if (menuResponse.canceled) return;

@@ -13,7 +13,7 @@ function onUse(arg: mc.ItemComponentUseEvent): void {
 	player.playSound("note.bass");
 }
 
-mc.world.beforeEvents.worldInitialize.subscribe((event) => {
+mc.system.beforeEvents.startup.subscribe((event) => {
 	event.itemComponentRegistry.registerCustomComponent("scpdy:config_item", {
 		onUse,
 	});

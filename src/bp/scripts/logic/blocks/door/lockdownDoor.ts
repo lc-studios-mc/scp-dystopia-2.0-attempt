@@ -48,7 +48,6 @@ async function showSetZoneForm(
 			),
 			prevZoneIndex < 0 ? 0 : prevZoneIndex,
 		)
-		// @ts-expect-error
 		.show(player);
 
 	if (response.canceled) return;
@@ -272,7 +271,7 @@ function onPlayerDestroy(arg: mc.BlockComponentPlayerDestroyEvent): void {
 	otherPartBlock.setType("minecraft:air");
 }
 
-mc.world.beforeEvents.worldInitialize.subscribe((event) => {
+mc.system.beforeEvents.startup.subscribe((event) => {
 	event.blockComponentRegistry.registerCustomComponent("scpdy:lockdown_door", {
 		beforeOnPlayerPlace,
 		onPlace,

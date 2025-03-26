@@ -283,7 +283,7 @@ function onPlayerDie(player: mc.Player): void {
 	scoreboardObjective.addScore(player, -100);
 }
 
-mc.world.afterEvents.worldInitialize.subscribe(() => {
+mc.world.afterEvents.worldLoad.subscribe(() => {
 	for (const player of mc.world.getPlayers()) {
 		stopBattleMusic(player);
 	}

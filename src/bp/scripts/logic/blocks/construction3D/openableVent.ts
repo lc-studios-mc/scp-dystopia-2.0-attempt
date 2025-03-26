@@ -12,7 +12,7 @@ function onPlayerInteract(arg: mc.BlockComponentPlayerInteractEvent): void {
 	arg.block.setPermutation(arg.block.permutation.withState("lc:is_opened", !isOpened));
 }
 
-mc.world.beforeEvents.worldInitialize.subscribe((event) => {
+mc.system.beforeEvents.startup.subscribe((event) => {
 	event.blockComponentRegistry.registerCustomComponent("scpdy:openable_vent", {
 		onPlayerInteract,
 	});

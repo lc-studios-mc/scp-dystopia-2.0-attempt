@@ -74,7 +74,7 @@ function onUse(arg: mc.ItemComponentUseEvent): void {
 	arg.source.dimension.playSound(ammoTypeInfo.loadSoundId, arg.source.getHeadLocation());
 }
 
-mc.world.beforeEvents.worldInitialize.subscribe((event) => {
+mc.system.beforeEvents.startup.subscribe((event) => {
 	event.itemComponentRegistry.registerCustomComponent("scpdy:ammo", {
 		onUse,
 	});

@@ -85,7 +85,7 @@ async function onPlayerInitialSpawn(player: Player): Promise<void> {
 	});
 }
 
-world.afterEvents.worldInitialize.subscribe(onInitialize);
+world.afterEvents.worldLoad.subscribe(onInitialize);
 
 world.afterEvents.playerSpawn.subscribe((event) => {
 	if (event.initialSpawn) {

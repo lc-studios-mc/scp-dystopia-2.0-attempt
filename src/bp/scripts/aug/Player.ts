@@ -31,7 +31,10 @@ function applyImpulseNew(entity: Entity, vector: Vector3) {
 	const verticalStrength = y + previousVelocity.y * 0.9;
 
 	// Apply the knockback
-	entity.applyKnockback(directionX, directionZ, horizontalStrength, verticalStrength);
+	entity.applyKnockback(
+		{ x: directionX * horizontalStrength, z: directionZ * horizontalStrength },
+		verticalStrength,
+	);
 }
 
 /**
@@ -54,7 +57,7 @@ function clearVelocity(entity: Entity) {
 	}
 
 	// Apply the knockback
-	entity.applyKnockback(directionX, directionZ, horizontalNorm, 0);
+	entity.applyKnockback({ x: directionX * horizontalNorm, z: directionZ * horizontalNorm }, 0);
 }
 
 Player.prototype.applyImpulse = function (vector: Vector3) {

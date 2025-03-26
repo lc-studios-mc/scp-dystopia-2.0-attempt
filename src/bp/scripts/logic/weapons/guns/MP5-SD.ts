@@ -270,13 +270,13 @@ class MP5SD extends AdvancedItem {
 				}
 
 				if (this.reloadData.tick === 4) {
-					this.player.runCommandAsync("camerashake add @s 0.01 0.2 rotational");
+					this.player.runCommand("camerashake add @s 0.01 0.2 rotational");
 
 					this.playSoundAtHead("scpdy.gun.mp5sd.mag_remove", { volume: 1.2 });
 				}
 
 				if (this.reloadData.tick === 18) {
-					this.player.runCommandAsync("camerashake add @s 0.02 0.08 rotational");
+					this.player.runCommand("camerashake add @s 0.02 0.08 rotational");
 
 					this.playSoundAtHead("scpdy.gun.mp5sd.mag_attach", { volume: 1.2 });
 
@@ -302,25 +302,25 @@ class MP5SD extends AdvancedItem {
 				}
 
 				if (this.reloadData.tick === 2) {
-					this.player.runCommandAsync("camerashake add @s 0.01 0.1 rotational");
+					this.player.runCommand("camerashake add @s 0.01 0.1 rotational");
 
 					this.playSoundAtHead("scpdy.gun.mp5sd.ch_pull", { volume: 1.2 });
 				}
 
 				if (this.reloadData.tick === 10) {
-					this.player.runCommandAsync("camerashake add @s 0.01 0.2 rotational");
+					this.player.runCommand("camerashake add @s 0.01 0.2 rotational");
 
 					this.playSoundAtHead("scpdy.gun.mp5sd.mag_remove", { volume: 1.2 });
 				}
 
 				if (this.reloadData.tick === 27) {
-					this.player.runCommandAsync("camerashake add @s 0.015 0.1 rotational");
+					this.player.runCommand("camerashake add @s 0.015 0.1 rotational");
 
 					this.playSoundAtHead("scpdy.gun.mp5sd.mag_attach", { volume: 1.2 });
 				}
 
 				if (this.reloadData.tick === 37) {
-					this.player.runCommandAsync("camerashake add @s 0.02 0.1 rotational");
+					this.player.runCommand("camerashake add @s 0.02 0.1 rotational");
 
 					this.playSoundAtHead("scpdy.gun.mp5sd.ch_slap", { volume: 1.2 });
 
@@ -568,6 +568,6 @@ class MP5SD extends AdvancedItem {
 		});
 
 		const camShakeAmount = Math.min(0.1, 0.01 + (ads ? 0.0005 : 0.001) * this.shotsFired);
-		this.player.runCommandAsync(`camerashake add @s ${camShakeAmount} 0.05 rotational`);
+		this.player.runCommand(`camerashake add @s ${camShakeAmount} 0.05 rotational`);
 	}
 }

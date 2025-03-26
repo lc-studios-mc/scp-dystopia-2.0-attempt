@@ -61,7 +61,7 @@ function playerCameraBlinking(): void {
 	}
 }
 
-mc.world.afterEvents.worldInitialize.subscribe(() => {
+mc.world.afterEvents.worldLoad.subscribe(() => {
 	mc.system.runInterval(() => {
 		updateBlinkTimer();
 

@@ -439,7 +439,7 @@ class Slasher extends AdvancedItem {
 				const dashImpulse = this.getDashImpulse(this.player.inputInfo.getMovementVector().y);
 
 				if (this.player.isOnGround) {
-					this.player.applyKnockback(dashImpulse.x, dashImpulse.z, 4.2, 0.15);
+					this.player.applyKnockback({ x: dashImpulse.x * 4.2, z: dashImpulse.z * 4.2 }, 0.15);
 				} else {
 					this.player.applyImpulse(dashImpulse);
 				}
@@ -550,7 +550,7 @@ class Slasher extends AdvancedItem {
 				try {
 					const entity = slashInfo.lockon.entities[i]!;
 
-					if (!entity.isValid() || entity.hasTag(SLASHER_IGNORE_TAG)) {
+					if (!entity.isValid || entity.hasTag(SLASHER_IGNORE_TAG)) {
 						slashInfo.lockon.entities.splice(i, 1);
 						i--;
 						continue;

@@ -103,7 +103,7 @@ function onTick(arg: mc.BlockComponentTickEvent): void {
 	block.setPermutation(block.permutation.withState("lc:ticks_until_power_off", newValue));
 }
 
-mc.world.beforeEvents.worldInitialize.subscribe((event) => {
+mc.system.beforeEvents.startup.subscribe((event) => {
 	event.blockComponentRegistry.registerCustomComponent("scpdy:keycard_reader", {
 		beforeOnPlayerPlace,
 		onPlayerInteract,

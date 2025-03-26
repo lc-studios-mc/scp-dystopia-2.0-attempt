@@ -12,7 +12,7 @@ function onTick(arg: mc.BlockComponentTickEvent): void {
 	arg.block.setPermutation(arg.block.permutation.withState("lc:is_lit", !isLit));
 }
 
-mc.world.beforeEvents.worldInitialize.subscribe((event) => {
+mc.system.beforeEvents.startup.subscribe((event) => {
 	event.blockComponentRegistry.registerCustomComponent("scpdy:blinking_light", {
 		onTick,
 	});

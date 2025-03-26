@@ -44,7 +44,6 @@ async function showSetZoneForm(
 			),
 			0,
 		)
-		// @ts-expect-error
 		.show(player);
 
 	if (response.canceled) return;
@@ -127,7 +126,7 @@ function onTick(arg: mc.BlockComponentTickEvent): void {
 	}
 }
 
-mc.world.beforeEvents.worldInitialize.subscribe((event) => {
+mc.system.beforeEvents.startup.subscribe((event) => {
 	event.blockComponentRegistry.registerCustomComponent("scpdy:lockdown_alarm", {
 		beforeOnPlayerPlace,
 		onTick,

@@ -21,7 +21,7 @@ function onPlace(arg: mc.BlockComponentOnPlaceEvent): void {
 	}
 }
 
-mc.world.beforeEvents.worldInitialize.subscribe((event) => {
+mc.system.beforeEvents.startup.subscribe((event) => {
 	event.blockComponentRegistry.registerCustomComponent("scpdy:warn_lockdown_delay_on_place", {
 		onPlace,
 	});

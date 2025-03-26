@@ -29,7 +29,7 @@ function onPlayerDestroy(arg: mc.BlockComponentPlayerDestroyEvent): void {
 	updateHangingLamp(arg.block);
 }
 
-mc.world.beforeEvents.worldInitialize.subscribe((event) => {
+mc.system.beforeEvents.startup.subscribe((event) => {
 	event.blockComponentRegistry.registerCustomComponent("scpdy:hanging_lamp", {
 		onPlace,
 		onPlayerDestroy,

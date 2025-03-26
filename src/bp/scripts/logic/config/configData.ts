@@ -97,7 +97,6 @@ export async function showConfigEditorForm(player: Player): Promise<void> {
 
 		// Show
 
-		// @ts-expect-error
 		.show(player);
 
 	if (response.canceled) return;
@@ -112,14 +111,16 @@ export async function showConfigEditorForm(player: Player): Promise<void> {
 	player.sendMessage({ translate: "scpdy.msg.config.saved" });
 }
 
-const isNotFirstTimeLoad = world.getDynamicProperty("isNotFirstTimeLoad") === true;
+world.afterEvents.worldLoad.subscribe(() => {
+	const isNotFirstTimeLoad = world.getDynamicProperty("isNotFirstTimeLoad") === true;
 
-if (!isNotFirstTimeLoad) {
-	_CONFIG.reset();
-	world.setDynamicProperty("isNotFirstTimeLoad", true);
-}
+	if (!isNotFirstTimeLoad) {
+		_CONFIG.reset();
+		world.setDynamicProperty("isNotFirstTimeLoad", true);
+	}
 
-system.afterEvents.scriptEventReceive.subscribe((event) => {
-	if (event.id !== "scpdy:reset_config") return;
-	_CONFIG.reset();
+	system.afterEvents.scriptEventReceive.subscribe((event) => {
+		if (event.id !== "scpdy:reset_config") return;
+		_CONFIG.reset();
+	});
 });

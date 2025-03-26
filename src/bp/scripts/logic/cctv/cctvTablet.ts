@@ -128,7 +128,6 @@ async function showCameraList(
 		cameraListForm.button(button.label);
 	}
 
-	// @ts-expect-error
 	const response = await cameraListForm.show(player);
 
 	if (response.canceled || response.selection === undefined) {
@@ -152,7 +151,6 @@ function onUseCctvTablet(player: mc.Player, itemStack: mc.ItemStack): void {
 			.title({ translate: "scpdy.form.cctvTablet.notLinkedToServer.title" })
 			.body({ translate: "scpdy.form.cctvTablet.notLinkedToServer.body" })
 			.button({ translate: "scpdy.form.misc.close" })
-			// @ts-expect-error
 			.show(player);
 
 		return;
@@ -165,7 +163,6 @@ function onUseCctvTablet(player: mc.Player, itemStack: mc.ItemStack): void {
 			.title({ translate: "scpdy.form.cctvTablet.failedToGetServer.title" })
 			.body({ translate: "scpdy.form.cctvTablet.failedToGetServer.body" })
 			.button({ translate: "scpdy.form.cctvTablet.failedToGetServer.removeLinkButton" })
-			// @ts-expect-error
 			.show(player)
 			.then((response) => {
 				if (mainhandSlot.typeId !== TABLET_ITEM_TYPE) return;
@@ -251,7 +248,7 @@ function onUseItem(arg: mc.ItemComponentUseEvent): void {
 	arg.source.startItemCooldown("scpdy_cctv_tablet_use", 2);
 }
 
-mc.world.beforeEvents.worldInitialize.subscribe((event) => {
+mc.system.beforeEvents.startup.subscribe((event) => {
 	event.itemComponentRegistry.registerCustomComponent("scpdy:cctv_tablet", {
 		onUse: onUseItem,
 	});

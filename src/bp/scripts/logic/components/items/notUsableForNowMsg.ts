@@ -6,7 +6,7 @@ function onUse(arg: mc.ItemComponentUseEvent): void {
 	});
 }
 
-mc.world.beforeEvents.worldInitialize.subscribe((event) => {
+mc.system.beforeEvents.startup.subscribe((event) => {
 	event.itemComponentRegistry.registerCustomComponent("scpdy:not_usable_for_now_msg", {
 		onUse,
 	});

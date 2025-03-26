@@ -6,7 +6,7 @@ function onHitEntity(arg: mc.ItemComponentHitEntityEvent): void {
 	} catch {}
 }
 
-mc.world.beforeEvents.worldInitialize.subscribe((event) => {
+mc.system.beforeEvents.startup.subscribe((event) => {
 	event.itemComponentRegistry.registerCustomComponent("scpdy:kill_target_on_hit", {
 		onHitEntity,
 	});

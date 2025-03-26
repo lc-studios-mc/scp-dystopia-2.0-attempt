@@ -4,7 +4,7 @@ function beforeOnPlayerPlace(arg: mc.BlockComponentPlayerPlaceBeforeEvent): void
 	arg.cancel = true;
 }
 
-mc.world.beforeEvents.worldInitialize.subscribe((event) => {
+mc.system.beforeEvents.startup.subscribe((event) => {
 	event.blockComponentRegistry.registerCustomComponent("scpdy:cannot_be_placed_by_player", {
 		beforeOnPlayerPlace,
 	});

@@ -22,7 +22,7 @@ function onStepOn(arg: mc.BlockComponentStepOnEvent) {
 	});
 }
 
-mc.world.beforeEvents.worldInitialize.subscribe((event) => {
+mc.system.beforeEvents.startup.subscribe((event) => {
 	event.blockComponentRegistry.registerCustomComponent("scpdy:landmine", {
 		onStepOn,
 	});

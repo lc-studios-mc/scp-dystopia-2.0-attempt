@@ -74,8 +74,8 @@ function onTick(arg: mc.BlockComponentTickEvent): void {
 		currentOpenProgress < 15 && isPowered
 			? currentOpenProgress + 1
 			: currentOpenProgress > 0 && !isPowered
-				? currentOpenProgress - 1
-				: currentOpenProgress;
+			? currentOpenProgress - 1
+			: currentOpenProgress;
 
 	block.setPermutation(block.permutation.withState(STATE_NAMES.doorOpenProgress, nextOpenProgress));
 
@@ -128,7 +128,7 @@ function onPlayerDestroy(arg: mc.BlockComponentPlayerDestroyEvent): void {
 	otherPartBlock.setType("minecraft:air");
 }
 
-mc.world.beforeEvents.worldInitialize.subscribe((event) => {
+mc.system.beforeEvents.startup.subscribe((event) => {
 	event.blockComponentRegistry.registerCustomComponent("scpdy:mechanical_door", {
 		onPlace,
 		onTick,
