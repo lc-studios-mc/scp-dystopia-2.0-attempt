@@ -95,6 +95,7 @@
 							"lc:scpdy_landmine",
 							"lc:scpdy_laptop",
 							"lc:scpdy_toilet",
+							"lc:scpdy_toilet_paper_holder",
 							"lc:scpdy_warehouse_light_1",
 							"lc:scpdy_warehouse_light_1_hanging",
 							"lc:scpdy_connec_table_1",
@@ -114,10 +115,7 @@
 							"icon": "lc:scpdy_standard_door_1",
 							"name": "lc:scpdy_itemGroup_standardDoors"
 						},
-						"items": [
-							"lc:scpdy_standard_door_1",
-							"lc:scpdy_standard_door_2"
-						]
+						"items": ["lc:scpdy_standard_door_1", "lc:scpdy_standard_door_2"]
 					},
 					{
 						"group_identifier": {
@@ -336,11 +334,7 @@
 							"icon": "lc:scpdy_scp427",
 							"name": "lc:scpdy_itemGroup_scp"
 						},
-						"items": [
-							"lc:scpdy_scp096_1_wand",
-							"lc:scpdy_scp096_paper_bag",
-							"lc:scpdy_scp427"
-						]
+						"items": ["lc:scpdy_scp096_1_wand", "lc:scpdy_scp096_paper_bag", "lc:scpdy_scp427"]
 					}
 				]
 			}

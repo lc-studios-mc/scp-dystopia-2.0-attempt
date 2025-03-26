@@ -386,6 +386,9 @@
 		"scpdy_laptop": {
 			"textures": "textures/scpdy/blocks/furniture/laptop"
 		},
+		"scpdy_toilet_paper_holder": {
+			"textures": "textures/scpdy/blocks/furniture/toilet_paper_holder"
+		},
 		"scpdy_toilet": {
 			"textures": "textures/scpdy/blocks/furniture/toilet"
 		},

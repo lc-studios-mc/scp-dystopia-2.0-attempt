@@ -1,0 +1,90 @@
+{
+	"format_version": "1.21.60",
+	"minecraft:block": {
+		"description": {
+			"identifier": "lc:scpdy_toilet_paper_holder",
+			"menu_category": {
+				"category": "construction"
+			},
+			"states": {
+				"lc:has_paper_roll": [true, false]
+			},
+			"traits": {
+				"minecraft:placement_direction": {
+					"enabled_states": ["minecraft:cardinal_direction"],
+					"y_rotation_offset": 180
+				}
+			}
+		},
+		"components": {
+			"minecraft:custom_components": ["scpdy:toilet_paper_holder"],
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "scpdy_toilet_paper_holder",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:geometry": {
+				"identifier": "geometry.scpdy_toilet_paper_holder",
+				"bone_visibility": {
+					"paper_roll": "q.block_state('lc:has_paper_roll')"
+				}
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 10.0
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0.6
+			},
+			"minecraft:redstone_conductivity": {
+				"redstone_conductor": false,
+				"allows_wire_to_step_down": true
+			},
+			"minecraft:light_dampening": 0,
+			"minecraft:collision_box": {
+				"origin": [-5, 1, 3],
+				"size": [10, 6, 5]
+			},
+			"minecraft:selection_box": {
+				"origin": [-5, 1, 2],
+				"size": [10, 6, 6]
+			}
+		},
+		"permutations": [
+			// #region Facing directions
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'north'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [0, 0, 0]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'south'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [0, 180, 0]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'west'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [0, 90, 0]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'east'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [0, 270, 0]
+					}
+				}
+			}
+			// #endregion
+		]
+	}
+}
