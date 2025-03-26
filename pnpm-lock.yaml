@@ -17,6 +17,9 @@ importers:
       ganban:
         specifier: ^0.1.4
         version: 0.1.4(@types/node@22.13.9)(typescript@5.8.2)
+      neverthrow:
+        specifier: ^8.2.0
+        version: 8.2.0
       typescript:
         specifier: ^5.7.2
         version: 5.8.2
@@ -469,6 +472,11 @@ packages:
   '@minecraft/vanilla-data@1.21.62':
     resolution: {integrity: sha512-FXUx5hPkIcLsbIXlBrCw5JPGo1V3RwHE7I1qYjD/Z+HlajRJPHy9UzYwTcei+aRQW5NWR8Zg0vIhP3l2+Q2aMA==}
 
+  '@rollup/rollup-linux-x64-gnu@4.37.0':
+    resolution: {integrity: sha512-pKivGpgJM5g8dwj0ywBwe/HeVAUSuVVJhUTa/URXjxvoyTT/AxsLTAbkHkDHG7qQxLoW2s3apEIl26uUe08LVQ==}
+    cpu: [x64]
+    os: [linux]
+
   '@types/node@22.13.9':
     resolution: {integrity: sha512-acBjXdRJ3A6Pb3tqnw9HZmyR3Fiol3aGxRCK1x3d+6CDAMjl7I649wpSd+yNURCjbOUGu9tqtLKnTGxmK6CyGw==}
 
@@ -609,6 +617,10 @@ packages:
   mute-stream@2.0.0:
     resolution: {integrity: sha512-WWdIxpyjEn+FhQJQQv9aQAYlHoNVdzIzUySNV1gHUPDSdZJ3yZn7pAAbQcV7B56Mvu881q9FZV+0Vx2xC44VWA==}
     engines: {node: ^18.17.0 || >=20.5.0}
+
+  neverthrow@8.2.0:
+    resolution: {integrity: sha512-kOCT/1MCPAxY5iUV3wytNFUMUolzuwd/VF/1KCx7kf6CutrOsTie+84zTGTpgQycjvfLdBBdvBvFLqFD2c0wkQ==}
+    engines: {node: '>=18'}
 
   os-tmpdir@1.0.2:
     resolution: {integrity: sha512-D2FR03Vir7FIu45XBY20mTb+/ZSWB00sjU9jdQXt83gDrI4Ztz5Fs7/yy74g2N5SVQY4xY1qDr4rNddwYRVX0g==}
@@ -981,6 +993,9 @@ snapshots:
 
   '@minecraft/vanilla-data@1.21.62': {}
 
+  '@rollup/rollup-linux-x64-gnu@4.37.0':
+    optional: true
+
   '@types/node@22.13.9':
     dependencies:
       undici-types: 6.20.0
@@ -1160,6 +1175,10 @@ snapshots:
   lines-and-columns@1.2.4: {}
 
   mute-stream@2.0.0: {}
+
+  neverthrow@8.2.0:
+    optionalDependencies:
+      '@rollup/rollup-linux-x64-gnu': 4.37.0
 
   os-tmpdir@1.0.2: {}
 
