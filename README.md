@@ -19,17 +19,11 @@
 
 ## :placard: Roadmap
 
-**Version 2.0.0 (full rework) is currenntly under development!**
+**Version 2.0.0 is in active development!**
 
-<ins>My main priority is to restore all SCPs from v1.8.1.</ins>
+It's a full rework and we may take long time to finish it.
 
-While that's the main thing, I'm also going to add other important aspects in SCP universe such as SCP Foundation staff, MTF units, and *Groups of Interest* (like Chaos Insurgency and Global Occult Coalition).
-
-I'm also going to add decent survival support and lore behind those ruined facilities scattered around the world. But, they're very likely to be added after many other features are added.
-
-I won't make something like a big To-Do list during development, as I found it to be quite distracting for me.
-
-Thank you for reading! You can download the add-on from [here](https://github.com/lc-studios-mc/scp-dystopia/releases).
+Currently, this add-on is in ~~Pre-Alpha~~ Alpha phase, so you need to accept some incompleteness and bugs if you want to use it.
 
 ## :inbox_tray: Installation
 
