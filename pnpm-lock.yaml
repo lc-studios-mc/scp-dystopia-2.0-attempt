@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@minecraft/server':
-        specifier: 1.18.0-beta.1.21.60-stable
-        version: 1.18.0-beta.1.21.60-stable(@minecraft/vanilla-data@1.21.62)
+        specifier: 2.0.0-beta.1.21.70-stable
+        version: 2.0.0-beta.1.21.70-stable(@minecraft/vanilla-data@1.21.62)
       '@minecraft/server-ui':
         specifier: 1.3.0
         version: 1.3.0
@@ -464,8 +464,8 @@ packages:
   '@minecraft/server@1.17.0':
     resolution: {integrity: sha512-wiirWhwGcUexaPTxsJ6es7pHVil0o6dG6YCUKBeMOfgZI4x8Rt2MP6UQhgEj7NqlCwzk39/EdRoiVyEx4davJQ==}
 
-  '@minecraft/server@1.18.0-beta.1.21.60-stable':
-    resolution: {integrity: sha512-feZjUgO7W1RvzO7IVO08hTNVvjQTS5BOGxZLeMfLl1Mv49u8iiZz8zpM/gJvEarm26qEPRXhEkAZjoXUDx+8Og==}
+  '@minecraft/server@2.0.0-beta.1.21.70-stable':
+    resolution: {integrity: sha512-K2Lda/cMhOI3RgZ6zwi6KYRykYcWu9BHbxy33JeHf6RubO41e2NRQ03j7CHLL4rTWhMOGD2T/vbnkj17etZhbg==}
     peerDependencies:
       '@minecraft/vanilla-data': '>=1.20.70'
 
@@ -986,7 +986,7 @@ snapshots:
     dependencies:
       '@minecraft/common': 1.2.0
 
-  '@minecraft/server@1.18.0-beta.1.21.60-stable(@minecraft/vanilla-data@1.21.62)':
+  '@minecraft/server@2.0.0-beta.1.21.70-stable(@minecraft/vanilla-data@1.21.62)':
     dependencies:
       '@minecraft/common': 1.2.0
       '@minecraft/vanilla-data': 1.21.62
