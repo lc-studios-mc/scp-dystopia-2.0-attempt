@@ -5,7 +5,7 @@
 		"rootDir": "./src/",
 		"paths": {
 			"@lib/*": ["./src/bp/scripts/lib/*"],
-			"@server/*": ["./src/bp/scripts/server/*"]
+			"@logic/*": ["./src/bp/scripts/logic/*"]
 		},
 		"moduleDetection": "force",
 		"skipLibCheck": true,
