@@ -66,15 +66,7 @@ See [CREDITS.md](./CREDITS.md) for credits.
 
 ## :balance_scale: License
 
-Since January 7, 2025, this repository contains material under two different licenses.
-
-### Source Code
-All source code in this repository is licensed under the MIT License.
-See [LICENSE-MIT](./LICENSE-MIT) for the full license text.
-
-### Assets
-All assets (images, audio, etc.) are licensed under CC-BY-SA.
-See [LICENSE-CC-BY-SA](./LICENSE-CC-BY-SA) for the full license text.
+Dual licensed under [CC-BY-SA](./LICENSE-CC-BY-SA) (project itself and assets) and [MIT](./LICENSE-MIT) (source code).
 
 > [!IMPORTANT]
 > Until then, all source code and assets were licensed under CC-BY-SA.
