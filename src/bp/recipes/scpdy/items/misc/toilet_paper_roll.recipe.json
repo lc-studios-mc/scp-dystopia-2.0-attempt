@@ -1,0 +1,35 @@
+{
+	"format_version": "1.20.10",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "lc:scpdy_toilet_paper_roll"
+		},
+		"tags": ["crafting_table", "dystopia_craftbench", "scpdy_workbench"],
+		// prettier-ignore
+		"pattern": [
+			" PP",
+			"PSP",
+			"P  "
+		],
+		"key": {
+			"S": {
+				"item": "minecraft:stick"
+			},
+			"P": {
+				"item": "minecraft:paper"
+			}
+		},
+		"unlock": [
+			{
+				"item": "minecraft:paper"
+			},
+			{
+				"item": "lc:scpdy_toilet_paper_roll"
+			}
+		],
+		"result": {
+			"item": "lc:scpdy_toilet_paper_roll",
+			"count": 1
+		}
+	}
+}

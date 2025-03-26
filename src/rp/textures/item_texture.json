@@ -93,6 +93,11 @@
 			"textures": "textures/scpdy/items/materials/slasher_blade"
 		},
 		// #endregion
+		// #region misc
+		"scpdy_toilet_paper_roll": {
+			"textures": "textures/scpdy/items/misc/toilet_paper_roll"
+		},
+		// #endregion
 		// #region scp
 		"scpdy_scp096_1_wand_icon": {
 			"textures": "textures/scpdy/scp/scp096_1_wand_icon"

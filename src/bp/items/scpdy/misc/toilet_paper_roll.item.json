@@ -1,0 +1,26 @@
+{
+	"format_version": "1.21.10",
+	"minecraft:item": {
+		"description": {
+			"identifier": "lc:scpdy_toilet_paper_roll",
+			"menu_category": {
+				"category": "items",
+				"group": "itemGroup.name.items",
+				"is_hidden_in_commands": false
+			}
+		},
+		"components": {
+			"minecraft:icon": {
+				"textures": {
+					"default": "scpdy_toilet_paper_roll"
+				}
+			},
+			"minecraft:display_name": {
+				"value": "item.lc:scpdy_toilet_paper_roll.name"
+			},
+			"minecraft:max_stack_size": 6,
+			"minecraft:hand_equipped": false,
+			"minecraft:allow_off_hand": false
+		}
+	}
+}

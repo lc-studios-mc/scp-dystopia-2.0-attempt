@@ -362,6 +362,9 @@ item.lc:scpdy_keycard_o5.name=SCP Keycard (O5)
 ## items -> materials -> ...
 item.lc:scpdy_slasher_blade.name=Slasher Blade
 
+## items -> misc -> ...
+item.lc:scpdy_toilet_paper_roll.name=Paper Roll
+
 ## items -> scp -> ...
 item.lc:scpdy_scp096_1_wand.name=§dSCP-096-1 Wand
 item.lc:scpdy_scp096_paper_bag.name=SCP-096 Face Hider
