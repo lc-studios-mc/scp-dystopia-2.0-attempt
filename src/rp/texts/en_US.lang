@@ -399,7 +399,7 @@ item.lc:scpdy_gun_t5000_mag.name=T-5000 Magazine
 item.lc:scpdy_killer_sword.name=Killer Sword
 item.lc:scpdy_knife.name=Survival Knife
 item.lc:scpdy_pain_sword.name=Pain Sword
-item.lc:scpdy_slasher.name=Slasher
+item.lc:scpdy_slasher.name=Slasher MK-II
 item.lc:scpdy_void_sword.name=Void Sword
 
 ## items -> weapons -> throwables -> ...

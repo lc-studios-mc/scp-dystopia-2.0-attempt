@@ -42,7 +42,7 @@
 			"minecraft:display_name": {
 				"value": "item.lc:scpdy_slasher.name"
 			},
-			"minecraft:hover_text_color": "light_purple",
+			"minecraft:rarity": "epic",
 			"minecraft:use_modifiers": {
 				"movement_modifier": 1.0,
 				"use_duration": 3600
