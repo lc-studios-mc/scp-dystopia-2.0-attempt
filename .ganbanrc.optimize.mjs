@@ -7,5 +7,5 @@ export default {
 	rpName: "SCPDY_RP",
 	rpTarget: "dist",
 	tsconfig: "tsconfig.json",
-	minify: true,
+	minify: false, // Minification causes some files to break and I gotta fix the bug later
 };
