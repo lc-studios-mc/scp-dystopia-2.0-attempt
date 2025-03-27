@@ -19,7 +19,7 @@
 - Scripts do not work in 1.21.70.
 - Texture of Boolean Door 2 with clearance level of 1
 
-## [2.0.0 Alpha 2.2] - 2024-02-12
+## [2.0.0 Alpha 2.2] - 2025-02-12
 
 ### Changed
 
@@ -27,13 +27,13 @@
 - Improved reaction time of Tactical Response Officer during combat.
 - Made keycards look smaller in third-person view.
 
-## [2.0.0 Alpha 2.1] - 2024-02-11
+## [2.0.0 Alpha 2.1] - 2025-02-11
 
 ### Fixed
 
 - Alphanumeric Sign block was not rendered properly in some Android devices
 
-## [2.0.0 Alpha 2] - 2024-02-08
+## [2.0.0 Alpha 2] - 2025-02-08
 
 ### Added
 
