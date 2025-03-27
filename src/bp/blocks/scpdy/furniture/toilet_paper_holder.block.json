@@ -51,6 +51,12 @@
 			}
 		},
 		"permutations": [
+			{
+				"condition": "!q.block_state('lc:has_paper_roll')",
+				"components": {
+					"minecraft:loot": "loot_tables/scpdy/blocks/furniture/toilet_paper_holder_empty.json"
+				}
+			},
 			// #region Facing directions
 			{
 				"condition": "q.block_state('minecraft:cardinal_direction') == 'north'",
