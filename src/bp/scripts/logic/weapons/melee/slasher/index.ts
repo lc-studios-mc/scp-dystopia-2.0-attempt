@@ -25,14 +25,14 @@ type SlashInfo = {
 };
 
 const PARAM = {
-	swingAttackPreventionDuration: 5,
-	swingAttackDuration: 10,
+	swingAttackPreventionDuration: 4,
+	swingAttackDuration: 8,
 	swingAttackDamage: 4,
 	fullChargeTick: 5,
 	dashDuration: 4,
 	slashDirectDamage: 19,
 	slashDuration: 5,
-	slashAftertasteDuration: 2,
+	slashAftertasteDuration: 3,
 } as const;
 
 const CD_NAME = {
@@ -173,23 +173,19 @@ class Slasher extends AdvancedItem {
 	onRemove(): void {}
 
 	onSwingArm(): void {
-		if (this.getCooldown(CD_NAME.slashAftertaste) > 0) return;
-		this.swingAttack();
-	}
-
-	onHitEntity(_event: mc.EntityHitEntityAfterEvent): void {
-		if (this.getCooldown(CD_NAME.slashAftertaste) > 0) return;
-		this.swingAttack();
-	}
-
-	onHitBlock(_event: mc.EntityHitBlockAfterEvent): void {
-		if (this.getCooldown(CD_NAME.slashAftertaste) > 0) return;
-		this.swingAttack();
-	}
-
-	private swingAttack(): void {
 		const swingAttackPreventionName = this.getCooldown(CD_NAME.swingAttackPrevention);
 		if (swingAttackPreventionName > 0) return;
+		if (this.getCooldown(CD_NAME.slashAftertaste) > 0) return;
+		if (this.chargeInfo) return;
+		if (this.slashInfo) return;
+		this.swingAttack();
+	}
+
+	onHitEntity(_event: mc.EntityHitEntityAfterEvent): void {}
+
+	onHitBlock(_event: mc.EntityHitBlockAfterEvent): void {}
+
+	private swingAttack(): void {
 		this.setCooldown(CD_NAME.swingAttackPrevention, PARAM.swingAttackPreventionDuration);
 
 		const swingCd1 = this.getCooldown(CD_NAME.swing1);
@@ -215,7 +211,11 @@ class Slasher extends AdvancedItem {
 		const durabilityComp = this.getDurabilityComp(mainhandItem);
 		if (this.isNeedingRepair(durabilityComp)) return;
 
-		beam.shootSlasherSwingBeam(this.player);
+		mc.system.runTimeout(() => {
+			beam.shootSlasherSwingBeam(this.player, -0.6);
+			beam.shootSlasherSwingBeam(this.player, 0);
+			beam.shootSlasherSwingBeam(this.player, 0.6);
+		}, 1);
 
 		mc.system.run(() => {
 			const swingDamageTakers = this.player.dimension.getEntities({
@@ -289,7 +289,9 @@ class Slasher extends AdvancedItem {
 	private onTickCharge(chargeInfo: ChargeInfo): boolean {
 		if (this.slashInfo) return false;
 		if (this.getCooldown(CD_NAME.slashAftertaste) > 0) return false;
-		if (this.getCooldown(CD_NAME.swingAttackPrevention) > 2) return false;
+		if (this.getCooldown(CD_NAME.swing1) > 0) return false;
+		if (this.getCooldown(CD_NAME.swing2) > 0) return false;
+		if (this.getCooldown(CD_NAME.swingAttackPrevention) > 0) return false;
 
 		if (chargeInfo.elapsedTicks === 0) {
 			this.setCooldown(CD_NAME.chargeStart, 2);
@@ -431,12 +433,12 @@ class Slasher extends AdvancedItem {
 
 	private onTickSlash(slashInfo: SlashInfo): boolean {
 		if (slashInfo.elapsedTicks === 0) {
-			if (this.player.inputInfo.getMovementVector().y > 0.8) {
+			if (this.player.inputInfo.getMovementVector().y > 0.6) {
 				slashInfo.slashTick = PARAM.dashDuration;
 				this.setCooldown(CD_NAME.dash, 2);
 				this.playSound3DAnd2D("scpdy.slasher.dash", 10, { volume: 1.2 });
 
-				const dashImpulse = this.getDashImpulse(this.player.inputInfo.getMovementVector().y);
+				const dashImpulse = this.getDashImpulse(1);
 
 				if (this.player.isOnGround) {
 					this.player.applyKnockback({ x: dashImpulse.x * 4.2, z: dashImpulse.z * 4.2 }, 0.15);
@@ -452,7 +454,7 @@ class Slasher extends AdvancedItem {
 
 		if (slashInfo.elapsedTicks === slashInfo.slashTick) {
 			this.playSound3DAnd2D("scpdy.slasher.slash", 20, {
-				volume: 1.6,
+				volume: 1.5,
 				pitch: randomFloat(0.9, 1.1),
 			});
 			this.shakeCamera(0.08, 0.2, "rotational");
@@ -506,8 +508,8 @@ class Slasher extends AdvancedItem {
 					entity.applyImpulse(impulse);
 				}
 
-				this.playSound3DAnd2D("scpdy.slasher.slash", 10, { volume: 0.8 });
-				this.playSound3DAnd2D("scpdy.slasher.chainsaw.finish", 10, { volume: 0.8 });
+				this.playSound3DAnd2D("scpdy.slasher.slash", 10, { volume: 1.3 });
+				this.playSound3DAnd2D("scpdy.slasher.chainsaw.finish", 10, { volume: 1.3 });
 				this.setCooldown(CD_NAME.slashAftertaste, PARAM.slashAftertasteDuration);
 				this.setCooldown(CD_NAME.slashEnd, 2);
 				this.player.playAnimation("animation.scpdy_player.slasher.slash_end");

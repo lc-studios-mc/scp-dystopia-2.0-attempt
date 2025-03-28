@@ -1,18 +1,19 @@
 import * as mc from "@minecraft/server";
 import * as vec3 from "@lib/utils/vec3";
+import { getModifiedDamageNumber } from "@lib/utils/entityUtils";
 
 type BeamType = "swing" | "slash";
 
 const PARAM = {
-	swingBeamForce: 4.3,
-	swingBeamIndirectHitRadius: 1.1,
-	swingBeamIndirectDamage: 3,
-	swingBeamDirectDamage: 6,
+	swingBeamForce: 6.0,
+	swingBeamIndirectHitRadius: 1.6,
+	swingBeamIndirectDamage: 2,
+	swingBeamDirectDamage: 3,
 
-	slashBeamForce: 2.35,
-	slashBeamIndirectHitRadius: 1.4,
-	slashBeamIndirectDamage: 4,
-	slashBeamDirectDamage: 14,
+	slashBeamForce: 1.86,
+	slashBeamIndirectHitRadius: 1.7,
+	slashBeamIndirectDamage: 5,
+	slashBeamDirectDamage: 12,
 } as const;
 
 const SWING_BEAM_TYPE_ID = "lc:scpdy_slasher_beam_swing";
@@ -51,7 +52,8 @@ const applyIndirectDamageAt = (
 ): void => {
 	const nearbyEntities = location.dimension.getEntities({
 		closest: 5,
-		maxDistance: type === "swing" ? 2 : 3,
+		maxDistance:
+			type === "swing" ? PARAM.swingBeamIndirectHitRadius : PARAM.slashBeamIndirectHitRadius,
 		location: location,
 	});
 
@@ -61,13 +63,18 @@ const applyIndirectDamageAt = (
 		if (entity === source) continue;
 		if (excludeFromIndirectDamage?.includes(entity)) continue;
 
-		entity.applyDamage(
+		const damaged = entity.applyDamage(
 			type === "swing" ? PARAM.swingBeamIndirectDamage : PARAM.slashBeamIndirectDamage,
 			{
 				cause: mc.EntityDamageCause.entityAttack,
 				damagingEntity: source,
 			},
 		);
+
+		if (damaged && type === "swing") {
+			entity.clearVelocity();
+			entity.applyKnockback({ x: 0, z: 0 }, -1);
+		}
 	}
 };
 
@@ -130,15 +137,16 @@ const breakGlassVertically = (block?: mc.Block): void => {
 	tryToBreakGlassAt({ x: block.x, y: block.y + 1, z: block.z });
 };
 
-export const shootSlasherSwingBeam = (player: mc.Player): void => {
+export const shootSlasherSwingBeam = (player: mc.Player, xOffset = 0): void => {
 	const rot = player.getRotation();
 	const dir = player.getViewDirection();
 	const origin = vec3.add(
 		vec3.getRelativeToHead(player.getHeadLocation(), dir, {
+			x: xOffset,
 			y: -0.17,
 			z: 0.9,
 		}),
-		player.getVelocity(),
+		vec3.mul(player.getVelocity(), 1.5),
 	);
 
 	const blockAtOrigin = player.dimension.getBlock(origin);
@@ -249,13 +257,23 @@ mc.world.afterEvents.projectileHitEntity.subscribe((event) => {
 		event.projectile.setDynamicProperty("isTimedOut", true); // No multi-target hit
 
 		if (hitEntity) {
-			hitEntity.applyDamage(
-				isSwingBeam ? PARAM.swingBeamDirectDamage : PARAM.slashBeamDirectDamage,
-				{
-					cause: mc.EntityDamageCause.entityAttack,
-					damagingEntity: source,
-				},
+			const damage = Math.max(
+				1,
+				getModifiedDamageNumber(
+					isSwingBeam ? PARAM.swingBeamDirectDamage : PARAM.slashBeamDirectDamage,
+					hitEntity,
+				),
 			);
+
+			const damaged = hitEntity.applyDamage(damage, {
+				cause: isSwingBeam ? mc.EntityDamageCause.override : mc.EntityDamageCause.entityAttack,
+				damagingEntity: source,
+			});
+
+			if (damaged && isSwingBeam) {
+				hitEntity.clearVelocity();
+				hitEntity.applyKnockback({ x: 0, z: 0 }, -1);
+			}
 		}
 
 		hitAndRemoveBeamEntity(

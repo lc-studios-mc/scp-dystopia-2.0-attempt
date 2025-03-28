@@ -57,7 +57,7 @@
 			"minecraft:timer": {
 				"looping": false,
 				"randomInterval": false,
-				"time": 0.34,
+				"time": 0.2,
 				"time_down_event": {
 					"event": "timeout",
 					"target": "self"
@@ -68,8 +68,8 @@
 				"is_pushable_by_piston": false
 			},
 			"minecraft:collision_box": {
-				"width": 0.35,
-				"height": 0.35
+				"width": 0.6,
+				"height": 0.6
 			},
 			"minecraft:physics": {},
 			"minecraft:body_rotation_blocked": {},
