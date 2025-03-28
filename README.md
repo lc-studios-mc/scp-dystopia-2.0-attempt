@@ -60,10 +60,9 @@ See [CREDITS.md](./CREDITS.md) for credits.
 
 ## :balance_scale: License
 
-Dual licensed under [CC-BY-SA](./LICENSE-CC-BY-SA) (project itself and assets) and [MIT](./LICENSE-MIT) (source code).
-
-> [!IMPORTANT]
-> Until then, all source code and assets were licensed under CC-BY-SA.
+~~Dual-licensed under CC-BY-SA and MIT.~~
+I don't wanna deal with the licensing shit anymore.
+Everything is under [CC-BY-SA](./LICENSE.txt) after 2025-03-28!
 
 ## :mailbox: Contact
 
