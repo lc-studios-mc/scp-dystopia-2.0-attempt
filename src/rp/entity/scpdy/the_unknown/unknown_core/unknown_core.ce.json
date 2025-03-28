@@ -60,7 +60,8 @@
 					"v.y_look_new = q.has_target ? (q.property('lc:combat_y_body_rot') - q.body_y_rotation) : q.target_y_rotation;",
 					"v.x_look = v.update_look ? math.lerp(v.x_look, v.x_look_new, 8.0 * q.delta_time) : v.x_look;",
 					"v.y_look = v.update_look ? math.lerprotate(v.y_look, v.y_look_new, 8.0 * q.delta_time) : v.y_look;"
-				]
+				],
+				"should_update_effects_offscreen": "1.0"
 			},
 			"particle_effects": {
 				"plasma_charge": "lc:scpdy_unknown_core_plasma_charge_emitter",
