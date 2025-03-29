@@ -4,6 +4,10 @@
 
 ## Unreleased
 
+### Added
+
+- Trash Bin block.
+
 ### Fixed
 
 - Improve Slasher MK-II user experience.
