@@ -469,6 +469,9 @@
 	"lc:scpdy_laptop": {
 		"sound": "metal"
 	},
+	"lc:scpdy_trash": {
+		"sound": "iron"
+	},
 	"lc:scpdy_warehouse_light_1": {
 		"sound": "glass"
 	},

@@ -547,6 +547,7 @@ tile.lc:scpdy_landmine.name=Landmine
 tile.lc:scpdy_laptop.name=Laptop
 tile.lc:scpdy_toilet_paper_holder.name=Toilet Paper Holder
 tile.lc:scpdy_toilet.name=Toilet
+tile.lc:scpdy_trash.name=Trash
 tile.lc:scpdy_warehouse_light_1_hanging.name=Warehouse Light 1 (Hanging)
 tile.lc:scpdy_warehouse_light_1.name=Warehouse Light 1
 

@@ -395,6 +395,9 @@
 		"scpdy_toilet": {
 			"textures": "textures/scpdy/blocks/furniture/toilet"
 		},
+		"scpdy_trash": {
+			"textures": "textures/scpdy/blocks/furniture/trash"
+		},
 		"scpdy_warehouse_light_1": {
 			"textures": "textures/scpdy/blocks/furniture/warehouse_light_1"
 		},
