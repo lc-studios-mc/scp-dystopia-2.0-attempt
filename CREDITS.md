@@ -15,6 +15,8 @@ Those who helped this project are listed here! :handshake:
   - Office Chair blocks
   - Shelf blocks
   - Toilet block
+  - Toilet Paper Holder block
+  - Trash Bin block
 - Textures
   - Blue Wall blocks
   - Brown Facility Wall blocks
@@ -24,6 +26,7 @@ Those who helped this project are listed here! :handshake:
   - Lamp (2D) blocks
   - Office Ceiling blocks
   - Reinforced Panel blocks
+  - Toilet Paper Roll item
   - Treadplate block
 
 ### LLAMA BLA BLO
