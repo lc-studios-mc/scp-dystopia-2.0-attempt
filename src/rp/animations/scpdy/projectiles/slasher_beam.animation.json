@@ -13,27 +13,11 @@
 				}
 			}
 		},
-		"animation.scpdy_slasher_beam.trail_swing": {
-			"loop": true,
-			"animation_length": 1,
-			"particle_effects": {
-				"0.0417": [
-					{
-						"effect": "trail",
-						"locator": "left"
-					},
-					{
-						"effect": "trail",
-						"locator": "right"
-					}
-				]
-			}
-		},
 		"animation.scpdy_slasher_beam.trail_slash": {
 			"loop": true,
 			"animation_length": 1,
 			"particle_effects": {
-				"0.0417": [
+				"0.0": [
 					{
 						"effect": "trail",
 						"locator": "left"
@@ -45,6 +29,22 @@
 					{
 						"effect": "trail",
 						"locator": "middle"
+					}
+				]
+			}
+		},
+		"animation.scpdy_slasher_beam.trail_swing": {
+			"loop": true,
+			"animation_length": 1,
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "trail",
+						"locator": "left"
+					},
+					{
+						"effect": "trail",
+						"locator": "right"
 					}
 				]
 			}
