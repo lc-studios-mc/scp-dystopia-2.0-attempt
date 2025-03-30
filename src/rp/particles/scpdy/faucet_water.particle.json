@@ -1,0 +1,45 @@
+{
+	"format_version": "1.10.0",
+	"particle_effect": {
+		"description": {
+			"identifier": "lc:scpdy_faucet_water_emitter",
+			"basic_render_parameters": {
+				"material": "particles_blend",
+				"texture": "textures/scpdy/white"
+			}
+		},
+		"components": {
+			"minecraft:emitter_rate_steady": {
+				"spawn_rate": 40,
+				"max_particles": 100
+			},
+			"minecraft:emitter_lifetime_once": {
+				"active_time": 0.8
+			},
+			"minecraft:emitter_shape_point": {
+				"direction": ["math.random(-0.1, 0.1)", -1, "math.random(-0.1, 0.1)"]
+			},
+			"minecraft:particle_lifetime_expression": {
+				"max_lifetime": "math.random(0.11, 0.13)"
+			},
+			"minecraft:particle_initial_spin": {
+				"rotation": "math.random(-10, 10)"
+			},
+			"minecraft:particle_initial_speed": "math.random(2, 3)",
+			"minecraft:particle_motion_dynamic": {},
+			"minecraft:particle_appearance_billboard": {
+				"size": [0.03, 0.03],
+				"facing_camera_mode": "rotate_xyz",
+				"uv": {
+					"texture_width": 16,
+					"texture_height": 16,
+					"uv": [0, 0],
+					"uv_size": [16, 16]
+				}
+			},
+			"minecraft:particle_appearance_tinting": {
+				"color": [0.937, 0.996, 1, 0.5]
+			}
+		}
+	}
+}

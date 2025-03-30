@@ -1159,6 +1159,16 @@
 			"min_distance": 5.0,
 			"sounds": ["sounds/scpdy/misc/boom_1"]
 		},
+		"scpdy.misc.faucet_water": {
+			"category": "neutral",
+			"max_distance": 7.0,
+			"min_distance": null,
+			"sounds": ["sounds/scpdy/misc/faucet_water"]
+		},
+		"scpdy.misc.faucet_water_drip": {
+			"category": "neutral",
+			"sounds": ["sounds/scpdy/misc/faucet_water_drip"]
+		},
 		"scpdy.misc.monster.attack": {
 			"category": "hostile",
 			"max_distance": 10.0,
