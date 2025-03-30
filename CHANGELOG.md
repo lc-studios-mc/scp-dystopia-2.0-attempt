@@ -12,6 +12,7 @@
 ### Fixed
 
 - Improve Slasher MK-II user experience.
+- Dash Block does not boost user velocity.
 
 ## [2.0.0 Alpha 3] - 2025-03-27
 
