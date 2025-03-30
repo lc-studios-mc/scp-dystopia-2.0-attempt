@@ -57,3 +57,23 @@ export function getRelativeBlock(
 			return origin.west(steps);
 	}
 }
+
+export function getBlockCardinalDirection(permutation: mc.BlockPermutation): mc.Direction {
+	const direction = permutation.getState("minecraft:cardinal_direction") as
+		| "north"
+		| "south"
+		| "west"
+		| "east";
+
+	switch (direction) {
+		default:
+		case "north":
+			return mc.Direction.North;
+		case "south":
+			return mc.Direction.South;
+		case "west":
+			return mc.Direction.West;
+		case "east":
+			return mc.Direction.East;
+	}
+}

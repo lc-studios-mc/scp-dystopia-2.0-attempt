@@ -1,4 +1,4 @@
-import { Entity, Vector3 } from "@minecraft/server";
+import { Direction, Entity, Vector3 } from "@minecraft/server";
 
 export const ONE = {
 	x: 1,
@@ -267,6 +267,24 @@ export function changeDir(vec: Vector3, dir: Vector3): Vector3 {
 	return vec;
 }
 
+export function getRelativeLocation(
+	origin: Vector3,
+	relative: Vector3,
+	direction = Direction.North,
+): Vector3 {
+	switch (direction) {
+		case Direction.South:
+			return add(origin, rotateDeg(relative, UP, 180));
+		case Direction.West:
+			return add(origin, rotateDeg(relative, UP, 90));
+		case Direction.East:
+			return add(origin, rotateDeg(relative, UP, -90));
+		case Direction.North:
+		default:
+			return add(origin, relative);
+	}
+}
+
 export function getRelativeToHead(
 	headLocation: Vector3,
 	viewDirection: Vector3,
@@ -471,9 +489,9 @@ export function fromString(string: string, relativeTo?: Entity | Partial<Vector3
 
 	const isRelativeToEntity = relativeTo instanceof Entity;
 	const rel: Vector3 = {
-		x: isRelativeToEntity ? relativeTo.location.x : (relativeTo?.x ?? 0),
-		y: isRelativeToEntity ? relativeTo.location.y : (relativeTo?.y ?? 0),
-		z: isRelativeToEntity ? relativeTo.location.z : (relativeTo?.z ?? 0),
+		x: isRelativeToEntity ? relativeTo.location.x : relativeTo?.x ?? 0,
+		y: isRelativeToEntity ? relativeTo.location.y : relativeTo?.y ?? 0,
+		z: isRelativeToEntity ? relativeTo.location.z : relativeTo?.z ?? 0,
 	};
 
 	const xStr = xStrArray.join("");
