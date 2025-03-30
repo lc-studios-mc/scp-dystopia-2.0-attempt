@@ -6,6 +6,7 @@
 
 ### Added
 
+- Sink block.
 - Trash Bin block.
 
 ### Fixed
