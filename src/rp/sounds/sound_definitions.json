@@ -558,11 +558,21 @@
 			"category": "hostile",
 			"max_distance": 10.0,
 			"min_distance": null,
-			"sounds": ["sounds/scpdy/weapons/slasher/dash"]
+			"sounds": [
+				{
+					"name": "sounds/scpdy/weapons/slasher/dash",
+					"volume": 0.8
+				}
+			]
 		},
 		"scpdy.slasher.dash.2d": {
 			"category": "music",
-			"sounds": ["sounds/scpdy/weapons/slasher/dash"]
+			"sounds": [
+				{
+					"name": "sounds/scpdy/weapons/slasher/dash",
+					"volume": 0.75
+				}
+			]
 		},
 		"scpdy.slasher.slash": {
 			"category": "hostile",
