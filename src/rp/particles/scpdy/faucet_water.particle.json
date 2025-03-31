@@ -37,6 +37,7 @@
 					"uv_size": [16, 16]
 				}
 			},
+			"minecraft:particle_appearance_lighting": {},
 			"minecraft:particle_appearance_tinting": {
 				"color": [0.937, 0.996, 1, 0.5]
 			}
