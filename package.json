@@ -16,12 +16,14 @@
 	"packageManager": "pnpm@10.6.5",
 	"pnpm": {
 		"onlyBuiltDependencies": [
+			"dprint",
 			"esbuild"
 		]
 	},
 	"devDependencies": {
 		"@minecraft/server": "2.0.0-beta.1.21.70-stable",
 		"@minecraft/server-ui": "2.0.0-beta.1.21.70-stable",
+		"dprint": "^0.49.1",
 		"ganban": "^0.1.4",
 		"neverthrow": "^8.2.0",
 		"typescript": "^5.7.2"
