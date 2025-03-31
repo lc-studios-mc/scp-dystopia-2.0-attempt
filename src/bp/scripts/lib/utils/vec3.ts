@@ -181,7 +181,7 @@ export function scale(vec: Vector3, scaler: number): Vector3 {
 }
 
 export function distance(vec1: Vector3, vec2: Vector3): number {
-	return Math.sqrt((vec1.x - vec2.x) ** 2 + (vec1.y - vec2.y) ** 2 + (vec1.z - vec2.z) ** 2);
+	return Math.sqrt((vec1.x - vec2.x) ** 2 + (vec1.y - vec2.y) ** 2 + (vec1.z - vec2.z) ** 2,);
 }
 
 export function sqrDistance(vec1: Vector3, vec2: Vector3): number {
@@ -189,7 +189,7 @@ export function sqrDistance(vec1: Vector3, vec2: Vector3): number {
 }
 
 export function normalize(vec: Vector3): Vector3 {
-	const length: number = Math.sqrt(vec.x ** 2 + vec.y ** 2 + vec.z ** 2);
+	const length: number = Math.sqrt(vec.x ** 2 + vec.y ** 2 + vec.z ** 2,);
 	if (length === 0) return { x: 0, y: 0, z: 0 };
 	return {
 		x: vec.x / length,
@@ -199,12 +199,12 @@ export function normalize(vec: Vector3): Vector3 {
 }
 
 export function generateVectorsOnCircle(radius: number, density: () => number): Vector3[] {
-	const vectors: Vector3[] = new Array(Math.ceil(Math.sqrt(2 * Math.PI * radius)));
+	const vectors: Vector3[] = new Array(Math.ceil(Math.sqrt(2 * Math.PI * radius,),),);
 
 	for (let i = 0, len = vectors.length; i < len; i++) {
 		const angle = (i / len) * 2 * Math.PI;
-		const x = radius * Math.cos(angle) * Math.sqrt(density());
-		const y = radius * Math.sin(angle) * Math.sqrt(density());
+		const x = radius * Math.cos(angle,) * Math.sqrt(density(),);
+		const y = radius * Math.sin(angle,) * Math.sqrt(density(),);
 		vectors[i] = { x, y, z: 0 };
 	}
 
@@ -217,23 +217,23 @@ export function random(): Vector3 {
 
 export function randomDirection(): Vector3 {
 	let theta = Math.random() * 2 * Math.PI;
-	let phi = Math.acos(2 * Math.random() - 1);
+	let phi = Math.acos(2 * Math.random() - 1,);
 	return {
-		x: Math.sin(phi) * Math.cos(theta),
-		y: Math.sin(phi) * Math.sin(theta),
-		z: Math.cos(phi),
+		x: Math.sin(phi,) * Math.cos(theta,),
+		y: Math.sin(phi,) * Math.sin(theta,),
+		z: Math.cos(phi,),
 	};
 }
 
 export function randomLocationInSphere(sphereRadius: number): Vector3 {
 	let direction = randomDirection();
-	let randomRadius = Math.cbrt(Math.random()) * sphereRadius;
-	return mul(direction, randomRadius);
+	let randomRadius = Math.cbrt(Math.random(),) * sphereRadius;
+	return mul(direction, randomRadius,);
 }
 
 export function rotateRad(vec: Vector3, axis: Vector3, radians: number): Vector3 {
-	let cos = Math.cos(radians);
-	let sin = Math.sin(radians);
+	let cos = Math.cos(radians,);
+	let sin = Math.sin(radians,);
 	let dot = axis.x * vec.x + axis.y * vec.y + axis.z * vec.z;
 	let crossX = axis.y * vec.z - axis.z * vec.y;
 	let crossY = axis.z * vec.x - axis.x * vec.z;
@@ -247,18 +247,18 @@ export function rotateRad(vec: Vector3, axis: Vector3, radians: number): Vector3
 }
 
 export function rotateDeg(vec: Vector3, axis: Vector3, degrees: number): Vector3 {
-	return rotateRad(vec, axis, (Math.PI / 180) * degrees);
+	return rotateRad(vec, axis, (Math.PI / 180) * degrees,);
 }
 
 export function changeDir(vec: Vector3, dir: Vector3): Vector3 {
-	const magnitude = Math.sqrt(vec.x * vec.x + vec.y * vec.y + vec.z * vec.z);
+	const magnitude = Math.sqrt(vec.x * vec.x + vec.y * vec.y + vec.z * vec.z,);
 
 	if (magnitude === 0) {
 		// Handle zero vector case
 		return vec;
 	}
 
-	const dirMagnitude = Math.sqrt(dir.x * dir.x + dir.y * dir.y + dir.z * dir.z);
+	const dirMagnitude = Math.sqrt(dir.x * dir.x + dir.y * dir.y + dir.z * dir.z,);
 
 	vec.x = (dir.x / dirMagnitude) * magnitude;
 	vec.y = (dir.y / dirMagnitude) * magnitude;
@@ -274,14 +274,14 @@ export function getRelativeLocation(
 ): Vector3 {
 	switch (direction) {
 		case Direction.South:
-			return add(origin, rotateDeg(relative, UP, 180));
+			return add(origin, rotateDeg(relative, UP, 180,),);
 		case Direction.West:
-			return add(origin, rotateDeg(relative, UP, 90));
+			return add(origin, rotateDeg(relative, UP, 90,),);
 		case Direction.East:
-			return add(origin, rotateDeg(relative, UP, -90));
+			return add(origin, rotateDeg(relative, UP, -90,),);
 		case Direction.North:
 		default:
-			return add(origin, relative);
+			return add(origin, relative,);
 	}
 }
 
@@ -292,7 +292,7 @@ export function getRelativeToHead(
 ): Vector3 {
 	const forward = viewDirection;
 	const up = { x: 0, y: 1, z: 0 };
-	const right = normalize(cross(forward, up));
+	const right = normalize(cross(forward, up,),);
 
 	// Set the amount of movement in each direction
 	const rightMove = move?.x ?? 0;
@@ -300,15 +300,15 @@ export function getRelativeToHead(
 	const forwardMove = move?.z ?? 0;
 
 	// Calculate the scaled vectors
-	const rightVec = scale(right, rightMove);
-	const upVec = scale(up, upMove);
-	const forwardVec = scale(forward, forwardMove);
+	const rightVec = scale(right, rightMove,);
+	const upVec = scale(up, upMove,);
+	const forwardVec = scale(forward, forwardMove,);
 
 	// Combine all the vectors
-	const moveVec = add(add(rightVec, upVec), forwardVec);
+	const moveVec = add(add(rightVec, upVec,), forwardVec,);
 
 	// Add the movement vector to the player's position
-	const newPosition = add(headLocation, moveVec);
+	const newPosition = add(headLocation, moveVec,);
 
 	return newPosition;
 }
@@ -322,7 +322,7 @@ export function lerp(vec1: Vector3, vec2: Vector3, t: number): Vector3 {
 }
 
 export function reflect(vec: Vector3, normal: Vector3): Vector3 {
-	return sub(vec, mul(mul(normal, 2), dot(vec, normal)));
+	return sub(vec, mul(mul(normal, 2,), dot(vec, normal,),),);
 }
 
 export function cross(vec1: Vector3, vec2: Vector3): Vector3 {
@@ -338,7 +338,7 @@ export function dot(vec1: Vector3, vec2: Vector3): number {
 }
 
 export function length(vec: Vector3): number {
-	return Math.sqrt(vec.x ** 2 + vec.y ** 2 + vec.z ** 2);
+	return Math.sqrt(vec.x ** 2 + vec.y ** 2 + vec.z ** 2,);
 }
 
 export function sqrLength(vec: Vector3): number {
@@ -346,7 +346,7 @@ export function sqrLength(vec: Vector3): number {
 }
 
 export function angle(vec1: Vector3, vec2: Vector3): number {
-	return Math.acos(dot(normalize(vec1), normalize(vec2)));
+	return Math.acos(dot(normalize(vec1,), normalize(vec2,),),);
 }
 
 export function midpoint(vec1: Vector3, vec2: Vector3): Vector3 {
@@ -359,22 +359,22 @@ export function midpoint(vec1: Vector3, vec2: Vector3): Vector3 {
 
 export function clamp(vec: Vector3, min: Vector3, max: Vector3): Vector3 {
 	return {
-		x: Math.max(min.x, Math.min(max.x, vec.x)),
-		y: Math.max(min.y, Math.min(max.y, vec.y)),
-		z: Math.max(min.z, Math.min(max.z, vec.z)),
+		x: Math.max(min.x, Math.min(max.x, vec.x,),),
+		y: Math.max(min.y, Math.min(max.y, vec.y,),),
+		z: Math.max(min.z, Math.min(max.z, vec.z,),),
 	};
 }
 
 export function floor(vec: Vector3): Vector3 {
-	return { x: Math.floor(vec.x), y: Math.floor(vec.y), z: Math.floor(vec.z) };
+	return { x: Math.floor(vec.x,), y: Math.floor(vec.y,), z: Math.floor(vec.z,) };
 }
 
 export function ceil(vec: Vector3): Vector3 {
-	return { x: Math.ceil(vec.x), y: Math.ceil(vec.y), z: Math.ceil(vec.z) };
+	return { x: Math.ceil(vec.x,), y: Math.ceil(vec.y,), z: Math.ceil(vec.z,) };
 }
 
 export function round(vec: Vector3): Vector3 {
-	return { x: Math.round(vec.x), y: Math.round(vec.y), z: Math.round(vec.z) };
+	return { x: Math.round(vec.x,), y: Math.round(vec.y,), z: Math.round(vec.z,) };
 }
 
 export function toString<TVector extends Vector3>(
@@ -405,7 +405,7 @@ const FROM_STRING_ERROR_MSG = "Failed to convert string to Vector3 object.";
 export function fromString(string: string, relativeTo?: Entity | Partial<Vector3>): Vector3 {
 	const trimmed = string.trim();
 
-	if (trimmed === "") return clone(ZERO);
+	if (trimmed === "") return clone(ZERO,);
 
 	let xStrArray: string[] = [];
 	let yStrArray: string[] = [];
@@ -420,7 +420,7 @@ export function fromString(string: string, relativeTo?: Entity | Partial<Vector3
 		if (currentMode === "space") {
 			if (char === " ") continue;
 
-			const matchResult = char.match(/[0-9~-]/);
+			const matchResult = char.match(/[0-9~-]/,);
 
 			if (matchResult) {
 				currentMode = "num";
@@ -437,10 +437,10 @@ export function fromString(string: string, relativeTo?: Entity | Partial<Vector3
 					currentXYZ = "z";
 					currentStrArray = zStrArray;
 				} else if (oldXYZ === "z") {
-					throw new Error(FROM_STRING_ERROR_MSG);
+					throw new Error(FROM_STRING_ERROR_MSG,);
 				}
 			} else {
-				throw new Error(FROM_STRING_ERROR_MSG);
+				throw new Error(FROM_STRING_ERROR_MSG,);
 			}
 		}
 
@@ -458,33 +458,32 @@ export function fromString(string: string, relativeTo?: Entity | Partial<Vector3
 		}
 
 		if (currentStrArray.length === 0 && char === "~") {
-			currentStrArray.push("~");
+			currentStrArray.push("~",);
 			continue;
 		}
 
-		const addHyphen =
-			char === "-" &&
+		const addHyphen = char === "-" &&
 			(currentStrArray.length === 0 ||
 				(currentStrArray[0] === "~" && currentStrArray.length === 1));
 
 		if (addHyphen) {
-			currentStrArray.push("-");
+			currentStrArray.push("-",);
 			continue;
 		}
 
-		const addDot = char === "." && !currentStrArray.includes(".");
+		const addDot = char === "." && !currentStrArray.includes(".",);
 
 		if (addDot) {
-			currentStrArray.push(".");
+			currentStrArray.push(".",);
 			continue;
 		}
 
-		if (char.match(/[0-9]/)) {
-			currentStrArray.push(char);
+		if (char.match(/[0-9]/,)) {
+			currentStrArray.push(char,);
 			continue;
 		}
 
-		throw new Error(FROM_STRING_ERROR_MSG);
+		throw new Error(FROM_STRING_ERROR_MSG,);
 	}
 
 	const isRelativeToEntity = relativeTo instanceof Entity;
@@ -494,17 +493,17 @@ export function fromString(string: string, relativeTo?: Entity | Partial<Vector3
 		z: isRelativeToEntity ? relativeTo.location.z : relativeTo?.z ?? 0,
 	};
 
-	const xStr = xStrArray.join("");
-	const yStr = yStrArray.join("");
-	const zStr = zStrArray.join("");
+	const xStr = xStrArray.join("",);
+	const yStr = yStrArray.join("",);
+	const zStr = zStrArray.join("",);
 
 	const isXRelative = xStr[0] === "~";
 	const isYRelative = yStr[0] === "~";
 	const isZRelative = zStr[0] === "~";
 
-	const x = isXRelative ? (xStr === "~" ? rel.x : +xStr.substring(1) + rel.x) : +xStr;
-	const y = isYRelative ? (yStr === "~" ? rel.y : +yStr.substring(1) + rel.y) : +yStr;
-	const z = isZRelative ? (zStr === "~" ? rel.z : +zStr.substring(1) + rel.z) : +zStr;
+	const x = isXRelative ? (xStr === "~" ? rel.x : +xStr.substring(1,) + rel.x) : +xStr;
+	const y = isYRelative ? (yStr === "~" ? rel.y : +yStr.substring(1,) + rel.y) : +yStr;
+	const z = isZRelative ? (zStr === "~" ? rel.z : +zStr.substring(1,) + rel.z) : +zStr;
 
 	return { x, y, z };
 }
@@ -516,7 +515,7 @@ export function toArray<TVector extends Vector3>(
 }
 
 export function chain(vec: Vector3): Chain {
-	return new Chain(vec);
+	return new Chain(vec,);
 }
 
 class Chain {
@@ -527,12 +526,12 @@ class Chain {
 	}
 
 	add(vec2: Vector3): Chain {
-		this._vec = add(this._vec, vec2);
+		this._vec = add(this._vec, vec2,);
 		return this;
 	}
 
 	sub(vec2: Vector3): Chain {
-		this._vec = sub(this._vec, vec2);
+		this._vec = sub(this._vec, vec2,);
 		return this;
 	}
 
@@ -541,72 +540,72 @@ class Chain {
 	mul(scalar: number): Chain;
 
 	mul(value: Vector3 | number): Chain {
-		this._vec = mul(this._vec, value);
+		this._vec = mul(this._vec, value,);
 		return this;
 	}
 
 	div(vec2: Vector3): Chain {
-		this._vec = div(this._vec, vec2);
+		this._vec = div(this._vec, vec2,);
 		return this;
 	}
 
 	scale(scaler: number): Chain {
-		this._vec = scale(this._vec, scaler);
+		this._vec = scale(this._vec, scaler,);
 		return this;
 	}
 
 	lerp(vec2: Vector3, t: number): Chain {
-		this._vec = lerp(this._vec, vec2, t);
+		this._vec = lerp(this._vec, vec2, t,);
 		return this;
 	}
 
 	rotateRad(axis: Vector3, radians: number): Chain {
-		this._vec = rotateRad(this._vec, axis, radians);
+		this._vec = rotateRad(this._vec, axis, radians,);
 		return this;
 	}
 
 	rotateDeg(axis: Vector3, degrees: number): Chain {
-		this._vec = rotateDeg(this._vec, axis, degrees);
+		this._vec = rotateDeg(this._vec, axis, degrees,);
 		return this;
 	}
 
 	changeDir(direction: Vector3): Chain {
-		this._vec = changeDir(this._vec, direction);
+		this._vec = changeDir(this._vec, direction,);
 		return this;
 	}
 
 	reflect(normal: Vector3): Chain {
-		this._vec = reflect(this._vec, normal);
+		this._vec = reflect(this._vec, normal,);
 		return this;
 	}
 
 	midpoint(vec2: Vector3): Chain {
-		this._vec = midpoint(this._vec, vec2);
+		this._vec = midpoint(this._vec, vec2,);
 		return this;
 	}
 
 	clamp(min: Vector3, max: Vector3): Chain {
-		this._vec = clamp(this._vec, min, max);
+		this._vec = clamp(this._vec, min, max,);
 		return this;
 	}
 
 	normalize(): Chain {
-		this._vec = normalize(this._vec);
+		this._vec = normalize(this._vec,);
 		return this;
 	}
 
 	floor(): Chain {
-		this._vec = floor(this._vec);
+		this._vec = floor(this._vec,);
 		return this;
 	}
 
 	ceil(): Chain {
-		this._vec = ceil(this._vec);
+		this._vec = ceil(this._vec,);
 		return this;
 	}
 
 	round(): Chain {
-		this._vec = round(this._vec);
+		this._vec = round(this._vec,);
 		return this;
 	}
 

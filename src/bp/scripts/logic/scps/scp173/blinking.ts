@@ -1,6 +1,6 @@
+import { CONFIG } from "@logic/config/configData";
 import * as mc from "@minecraft/server";
 import { SCP173_ENTITY_TYPE } from "./shared";
-import { CONFIG } from "@logic/config/configData";
 
 const BLINK_START_TICK = 50;
 const CAMERA_FADE_START_TICK = 52;
@@ -50,14 +50,14 @@ function playerCameraBlinking(): void {
 
 		SCP173_EQO_REUSE.location = player.location;
 
-		const scp173 = player.dimension.getEntities(SCP173_EQO_REUSE)[0];
+		const scp173 = player.dimension.getEntities(SCP173_EQO_REUSE,)[0];
 
 		if (!scp173) continue;
 		if (!scp173.target) continue;
 
 		// Blink
 
-		player.camera.fade(BLINK_CAMERA_FADE_OPTIONS);
+		player.camera.fade(BLINK_CAMERA_FADE_OPTIONS,);
 	}
 }
 
@@ -68,5 +68,5 @@ mc.world.afterEvents.worldLoad.subscribe(() => {
 		if (CONFIG.blinkingCameraFade) {
 			playerCameraBlinking();
 		}
-	}, 2);
-});
+	}, 2,);
+},);

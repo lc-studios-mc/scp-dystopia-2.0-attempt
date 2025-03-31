@@ -10,19 +10,19 @@ import {
 
 async function showEditZoneNameForm(player: mc.Player, facilityZone: FacilityZone): Promise<void> {
 	const response = await new ModalFormData()
-		.title({ translate: "scpdy.form.fnm.editZoneName.title" })
+		.title({ translate: "scpdy.form.fnm.editZoneName.title" },)
 		.textField(
 			{ translate: "scpdy.form.fnm.editZoneName.nameField.label" },
 			{ translate: "scpdy.form.fnm.editZoneName.nameField.placeholder" },
 			facilityZone.name,
 		)
-		.submitButton({ translate: "scpdy.form.fnm.editZoneName.submitButton" })
-		.show(player);
+		.submitButton({ translate: "scpdy.form.fnm.editZoneName.submitButton" },)
+		.show(player,);
 
 	if (response.canceled) return;
 	if (!response.formValues) return;
 
-	const newName = String(response.formValues[0] ?? "");
+	const newName = String(response.formValues[0] ?? "",);
 
 	if (newName.trim() === "") {
 		facilityZone.name = undefined;
@@ -38,7 +38,7 @@ async function showZoneListForm(
 	const buttons: { label: string | mc.RawMessage; onClick: () => Promise<void> }[] = [];
 
 	for (let i = 0; i < MAX_FACILITY_ZONE_COUNT; i++) {
-		const facilityZone = facilityNetwork.getZone(i);
+		const facilityZone = facilityNetwork.getZone(i,);
 
 		buttons.push({
 			label: facilityZone.name ?? {
@@ -46,21 +46,21 @@ async function showZoneListForm(
 				with: [(i + 1).toString()],
 			},
 			async onClick() {
-				await showEditZoneNameForm(player, facilityZone);
-				await showZoneListForm(player, facilityNetwork);
+				await showEditZoneNameForm(player, facilityZone,);
+				await showZoneListForm(player, facilityNetwork,);
 			},
-		});
+		},);
 	}
 
 	const formData = new ActionFormData()
-		.title({ translate: "scpdy.form.fnm.zoneList.title" })
-		.body({ translate: "scpdy.form.fnm.zoneList.body" });
+		.title({ translate: "scpdy.form.fnm.zoneList.title" },)
+		.body({ translate: "scpdy.form.fnm.zoneList.body" },);
 
 	for (const button of buttons) {
-		formData.button(button.label);
+		formData.button(button.label,);
 	}
 
-	const response = await formData.show(player);
+	const response = await formData.show(player,);
 
 	if (response.canceled) return;
 	if (response.selection === undefined) return;
@@ -73,19 +73,19 @@ async function showEditNetworkNameForm(
 	facilityNetwork: FacilityNetwork,
 ): Promise<void> {
 	const response = await new ModalFormData()
-		.title({ translate: "scpdy.form.fnm.editNetworkName.title" })
+		.title({ translate: "scpdy.form.fnm.editNetworkName.title" },)
 		.textField(
 			{ translate: "scpdy.form.fnm.editNetworkName.nameField.label" },
 			{ translate: "scpdy.form.fnm.editNetworkName.nameField.placeholder" },
 			facilityNetwork.name,
 		)
-		.submitButton({ translate: "scpdy.form.fnm.editNetworkName.submitButton" })
-		.show(player);
+		.submitButton({ translate: "scpdy.form.fnm.editNetworkName.submitButton" },)
+		.show(player,);
 
 	if (response.canceled) return;
 	if (!response.formValues) return;
 
-	const newName = String(response.formValues[0] ?? "");
+	const newName = String(response.formValues[0] ?? "",);
 
 	if (newName.trim() === "") {
 		facilityNetwork.name = undefined;
@@ -105,25 +105,25 @@ async function showSelectNetworkActionForm(
 				with: [(facilityNetwork.index + 1).toString()],
 			},
 		)
-		.body({ translate: "scpdy.form.fnm.selectNetworkAction.body" })
-		.button({ translate: "scpdy.form.fnm.selectNetworkAction.button1" })
-		.button({ translate: "scpdy.form.fnm.selectNetworkAction.button2" })
-		.show(player);
+		.body({ translate: "scpdy.form.fnm.selectNetworkAction.body" },)
+		.button({ translate: "scpdy.form.fnm.selectNetworkAction.button1" },)
+		.button({ translate: "scpdy.form.fnm.selectNetworkAction.button2" },)
+		.show(player,);
 
 	if (response.canceled) return;
 
 	if (response.selection === 0) {
-		await showEditNetworkNameForm(player, facilityNetwork);
+		await showEditNetworkNameForm(player, facilityNetwork,);
 	} else if (response.selection === 1) {
-		await showZoneListForm(player, facilityNetwork);
-		await showSelectNetworkActionForm(player, facilityNetwork);
+		await showZoneListForm(player, facilityNetwork,);
+		await showSelectNetworkActionForm(player, facilityNetwork,);
 	}
 }
 
 async function showManagerForm(player: mc.Player): Promise<void> {
-	if (!player.hasTag("scpdy_read_fnm_instruction")) {
+	if (!player.hasTag("scpdy_read_fnm_instruction",)) {
 		const response = await new ActionFormData()
-			.title({ translate: "scpdy.form.fnm.instructions.title" })
+			.title({ translate: "scpdy.form.fnm.instructions.title" },)
 			.body({
 				rawtext: [
 					{ translate: "scpdy.form.fnm.instructions.body.line_1" },
@@ -149,19 +149,19 @@ async function showManagerForm(player: mc.Player): Promise<void> {
 					{ text: "\n" },
 					{ translate: "scpdy.form.fnm.instructions.body.line_7" },
 				],
-			})
-			.button({ translate: "scpdy.form.misc.ok" })
-			.show(player);
+			},)
+			.button({ translate: "scpdy.form.misc.ok" },)
+			.show(player,);
 
 		if (response.canceled) return;
 
-		player.addTag("scpdy_read_fnm_instruction");
+		player.addTag("scpdy_read_fnm_instruction",);
 	}
 
 	const buttons: { label: string | mc.RawMessage; onClick: () => Promise<void> }[] = [];
 
 	for (let i = 0; i < MAX_FACILITY_NETWORK_COUNT; i++) {
-		const facilityNetwork = getFacilityNetwork(i);
+		const facilityNetwork = getFacilityNetwork(i,);
 
 		buttons.push({
 			label: facilityNetwork.name ?? {
@@ -169,23 +169,23 @@ async function showManagerForm(player: mc.Player): Promise<void> {
 				with: [(i + 1).toString()],
 			},
 			async onClick() {
-				await showSelectNetworkActionForm(player, facilityNetwork);
-				await showManagerForm(player);
+				await showSelectNetworkActionForm(player, facilityNetwork,);
+				await showManagerForm(player,);
 			},
-		});
+		},);
 	}
 
 	const formData = new ActionFormData()
 		.title({
 			translate: "scpdy.form.fnm.main.title",
-		})
-		.body({ translate: "scpdy.form.fnm.main.body" });
+		},)
+		.body({ translate: "scpdy.form.fnm.main.body" },);
 
 	for (const button of buttons) {
-		formData.button(button.label);
+		formData.button(button.label,);
 	}
 
-	const response = await formData.show(player);
+	const response = await formData.show(player,);
 
 	if (response.canceled) return;
 	if (response.selection === undefined) return;
@@ -194,11 +194,11 @@ async function showManagerForm(player: mc.Player): Promise<void> {
 }
 
 function onUse(args: mc.ItemComponentUseEvent): void {
-	showManagerForm(args.source);
+	showManagerForm(args.source,);
 }
 
 mc.system.beforeEvents.startup.subscribe((event) => {
 	event.itemComponentRegistry.registerCustomComponent("scpdy:facility_network_manager", {
 		onUse,
-	});
-});
+	},);
+},);

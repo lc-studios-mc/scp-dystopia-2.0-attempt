@@ -35,8 +35,8 @@ If you fail on step 2 or 3, try installing manually:
 
 1. Download add-on file (`.zip`).
 1. Extract the downloaded zip file.
-1. Move the behavior pack folder named *SCPDY_BP* into `.../com.mojang/behavior_packs`
-1. Move the resource pack folder named *SCPDY_RP* into `.../com.mojang/resource_packs`
+1. Move the behavior pack folder named _SCPDY_BP_ into `.../com.mojang/behavior_packs`
+1. Move the resource pack folder named _SCPDY_RP_ into `.../com.mojang/resource_packs`
 1. Packs should be installed.
 
 The location of `com.mojang` folder differs in each platform.

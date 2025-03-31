@@ -5,19 +5,19 @@ import * as vec3 from "./vec3";
  * @returns Whether the player.json modification done by SCP: Dystopia is available.
  */
 export function isPlayerModificationAvailable(player: mc.Player): boolean {
-	return player.getProperty("lc:is_modified_by_scpdy") === true;
+	return player.getProperty("lc:is_modified_by_scpdy",) === true;
 }
 
 function getClearanceLevel_itemStack(itemStack: mc.ItemStack): number {
-	if (itemStack.hasTag("lc:keycard_o5")) return 6;
-	if (itemStack.hasTag("lc:keycard_lvl5")) return 5;
-	if (itemStack.hasTag("lc:keycard_lvl4")) return 4;
-	if (itemStack.hasTag("lc:keycard_lvl3")) return 3;
-	if (itemStack.hasTag("lc:keycard_lvl2")) return 2;
-	if (itemStack.hasTag("lc:keycard_lvl1")) return 1;
-	if (itemStack.hasTag("lc:keycard_lvl0")) return 0;
+	if (itemStack.hasTag("lc:keycard_o5",)) return 6;
+	if (itemStack.hasTag("lc:keycard_lvl5",)) return 5;
+	if (itemStack.hasTag("lc:keycard_lvl4",)) return 4;
+	if (itemStack.hasTag("lc:keycard_lvl3",)) return 3;
+	if (itemStack.hasTag("lc:keycard_lvl2",)) return 2;
+	if (itemStack.hasTag("lc:keycard_lvl1",)) return 1;
+	if (itemStack.hasTag("lc:keycard_lvl0",)) return 0;
 
-	if (itemStack.typeId.startsWith("sra")) {
+	if (itemStack.typeId.startsWith("sra",)) {
 		switch (itemStack.typeId) {
 			case "scp:cf_o5_keycard":
 			case "sra:classified_o5_keycard":
@@ -51,23 +51,23 @@ function getClearanceLevel_itemStack(itemStack: mc.ItemStack): number {
 }
 
 function getClearanceLevel_player(player: mc.Player): number {
-	const equippable = player.getComponent("equippable");
+	const equippable = player.getComponent("equippable",);
 
 	if (!equippable) return -1;
 
-	const mainhandItem = equippable.getEquipment(mc.EquipmentSlot.Mainhand);
+	const mainhandItem = equippable.getEquipment(mc.EquipmentSlot.Mainhand,);
 
 	if (mainhandItem) {
-		const mainhandKeyLvl = getClearanceLevel(mainhandItem);
+		const mainhandKeyLvl = getClearanceLevel(mainhandItem,);
 
 		if (mainhandKeyLvl >= 0) return mainhandKeyLvl;
 	}
 
-	const offhandItem = equippable.getEquipment(mc.EquipmentSlot.Offhand);
+	const offhandItem = equippable.getEquipment(mc.EquipmentSlot.Offhand,);
 
 	if (!offhandItem) return -1;
 
-	const offhandKeyLvl = getClearanceLevel(offhandItem);
+	const offhandKeyLvl = getClearanceLevel(offhandItem,);
 
 	return offhandKeyLvl;
 }
@@ -84,9 +84,9 @@ export function getClearanceLevel(player: mc.Player): number;
 
 export function getClearanceLevel(value: mc.ItemStack | mc.Player): number {
 	if (value instanceof mc.ItemStack) {
-		return getClearanceLevel_itemStack(value);
+		return getClearanceLevel_itemStack(value,);
 	} else {
-		return getClearanceLevel_player(value);
+		return getClearanceLevel_player(value,);
 	}
 }
 
@@ -95,7 +95,7 @@ export function getClearanceLevel(value: mc.ItemStack | mc.Player): number {
  */
 export function isWrench(itemStack?: mc.ItemStack): boolean {
 	if (!itemStack) return false;
-	if (itemStack.hasTag("lc:wrench")) return true;
+	if (itemStack.hasTag("lc:wrench",)) return true;
 	if (itemStack.typeId === "sra:hammer") return true;
 
 	return false;
@@ -105,16 +105,16 @@ export function isWrench(itemStack?: mc.ItemStack): boolean {
  * @returns Whether the player is holding an item that can be used as wrench.
  */
 export function isHoldingWrench(player: mc.Player): boolean {
-	const equippable = player.getComponent("minecraft:equippable");
+	const equippable = player.getComponent("minecraft:equippable",);
 
 	if (!equippable) return false;
 
-	let itemStack = equippable.getEquipment(mc.EquipmentSlot.Mainhand);
+	let itemStack = equippable.getEquipment(mc.EquipmentSlot.Mainhand,);
 
-	if (!isWrench(itemStack)) {
-		itemStack = equippable.getEquipment(mc.EquipmentSlot.Offhand);
+	if (!isWrench(itemStack,)) {
+		itemStack = equippable.getEquipment(mc.EquipmentSlot.Offhand,);
 
-		if (!isWrench(itemStack)) {
+		if (!isWrench(itemStack,)) {
 			return false;
 		}
 	}
@@ -127,13 +127,13 @@ export function spawnBulletRicochetParticle(
 	location: mc.Vector3,
 	direction?: mc.Vector3,
 ): void {
-	dimension.playSound("scpdy.projectile.bullet.ricochet", location);
+	dimension.playSound("scpdy.projectile.bullet.ricochet", location,);
 
 	const dir = direction ?? vec3.ZERO;
 
 	const particleMolangVarMap = new mc.MolangVariableMap();
 
-	particleMolangVarMap.setVector3("direction", vec3.mul(dir, -1));
+	particleMolangVarMap.setVector3("direction", vec3.mul(dir, -1,),);
 
-	dimension.spawnParticle("minecraft:basic_crit_particle", location, particleMolangVarMap);
+	dimension.spawnParticle("minecraft:basic_crit_particle", location, particleMolangVarMap,);
 }

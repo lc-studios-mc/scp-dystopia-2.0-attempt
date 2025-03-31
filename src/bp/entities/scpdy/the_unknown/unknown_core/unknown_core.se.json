@@ -64,7 +64,8 @@
 						// 10  - Fireball
 						// 20  - Shield
 						// 100 - To Stage 2
-						0, 100
+						0,
+						100
 					],
 					"default": 0,
 					"client_sync": true
@@ -78,7 +79,8 @@
 						// 30  - Summon Allies
 						// 40  - Expose Eye
 						// 100 - To Stage 2
-						0, 100
+						0,
+						100
 					],
 					"default": 0,
 					"client_sync": true
@@ -96,7 +98,8 @@
 						// 70  - Heal
 						// 80  - Plasma Ultra
 						// 100 - Defeat
-						0, 100
+						0,
+						100
 					],
 					"default": 0,
 					"client_sync": true

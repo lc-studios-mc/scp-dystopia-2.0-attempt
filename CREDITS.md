@@ -3,6 +3,7 @@
 Those who helped this project are listed here! :handshake:
 
 ### Blazik
+
 - Full 3D models
   - Blast Door 1
 - Textures
@@ -10,6 +11,7 @@ Those who helped this project are listed here! :handshake:
   - Keycards
 
 ### Hexablare Union
+
 - Full 3D models
   - Laptop block
   - Office Chair blocks
@@ -30,6 +32,7 @@ Those who helped this project are listed here! :handshake:
   - Treadplate block
 
 ### LLAMA BLA BLO
+
 - Full 3D models
   - Glock-17
   - GM6 LYNX

@@ -1,5 +1,5 @@
-import { system, world } from "@minecraft/server";
 import { ensureType } from "@lib/utils/miscUtils";
+import { system, world } from "@minecraft/server";
 
 export type FacilityZone = {
 	readonly index: number;
@@ -21,13 +21,13 @@ class _FacilityZone implements FacilityZone {
 
 	get name(): string | undefined {
 		return ensureType(
-			world.getDynamicProperty(`scpdy_facilityZone_${this.network.index}_${this.index}_name`),
+			world.getDynamicProperty(`scpdy_facilityZone_${this.network.index}_${this.index}_name`,),
 			"string",
 		);
 	}
 
 	set name(value: string | undefined) {
-		world.setDynamicProperty(`scpdy_facilityZone_${this.network.index}_${this.index}_name`, value);
+		world.setDynamicProperty(`scpdy_facilityZone_${this.network.index}_${this.index}_name`, value,);
 	}
 
 	get isLockdownActive(): boolean {
@@ -55,7 +55,7 @@ class _FacilityZone implements FacilityZone {
 	}
 
 	set lockdownDelay(value: number | undefined) {
-		const val = value !== undefined && value > 0 ? Math.max(0, Math.floor(value)) : undefined;
+		const val = value !== undefined && value > 0 ? Math.max(0, Math.floor(value,),) : undefined;
 
 		world.setDynamicProperty(
 			`scpdy_facilityZone_${this.network.index}_${this.index}_lockdownDelay`,
@@ -73,7 +73,7 @@ class _FacilityZone implements FacilityZone {
 	}
 
 	set lockdownDuration(value: number | undefined) {
-		const val = value !== undefined && value > 0 ? Math.max(0, Math.floor(value)) : undefined;
+		const val = value !== undefined && value > 0 ? Math.max(0, Math.floor(value,),) : undefined;
 
 		world.setDynamicProperty(
 			`scpdy_facilityZone_${this.network.index}_${this.index}_lockdownDuration`,
@@ -109,29 +109,29 @@ class _FacilityNetwork implements FacilityNetwork {
 	private zones: _FacilityZone[];
 
 	constructor(public readonly index: number) {
-		this.zones = Array(MAX_FACILITY_ZONE_COUNT);
+		this.zones = Array(MAX_FACILITY_ZONE_COUNT,);
 	}
 
 	get name(): string | undefined {
 		return ensureType(
-			world.getDynamicProperty(`scpdy_facilityNetwork_${this.index}_name`),
+			world.getDynamicProperty(`scpdy_facilityNetwork_${this.index}_name`,),
 			"string",
 		);
 	}
 
 	set name(value: string | undefined) {
-		world.setDynamicProperty(`scpdy_facilityNetwork_${this.index}_name`, value);
+		world.setDynamicProperty(`scpdy_facilityNetwork_${this.index}_name`, value,);
 	}
 
 	getZone(index: number): _FacilityZone {
 		if (index < 0 || index >= MAX_FACILITY_ZONE_COUNT) {
-			throw new Error(`Invalid zone index: ${index}`);
+			throw new Error(`Invalid zone index: ${index}`,);
 		}
 
 		let zone = this.zones[index];
 		if (zone) return zone;
 
-		zone = new _FacilityZone(this, index);
+		zone = new _FacilityZone(this, index,);
 		this.zones[index] = zone;
 
 		return zone;
@@ -141,7 +141,7 @@ class _FacilityNetwork implements FacilityNetwork {
 export const MAX_FACILITY_NETWORK_COUNT = 5; // This is the maximum number of facility networks that can be created.
 export const MAX_FACILITY_ZONE_COUNT = 10; // This is the maximum number of zones that can be created in a facility network.
 
-const FACILITY_NETWORKS: _FacilityNetwork[] = Array(MAX_FACILITY_NETWORK_COUNT); // An array of facility networks.
+const FACILITY_NETWORKS: _FacilityNetwork[] = Array(MAX_FACILITY_NETWORK_COUNT,); // An array of facility networks.
 
 /**
  * Returns the FacilityNetwork at the given index.
@@ -151,13 +151,13 @@ const FACILITY_NETWORKS: _FacilityNetwork[] = Array(MAX_FACILITY_NETWORK_COUNT);
  */
 export function getFacilityNetwork(index: number): _FacilityNetwork {
 	if (index < 0 || index >= MAX_FACILITY_NETWORK_COUNT) {
-		throw new Error(`Invalid network index: ${index}`);
+		throw new Error(`Invalid network index: ${index}`,);
 	}
 
 	let network = FACILITY_NETWORKS[index];
 	if (network) return network;
 
-	network = new _FacilityNetwork(index);
+	network = new _FacilityNetwork(index,);
 	FACILITY_NETWORKS[index] = network;
 
 	return network;
@@ -165,10 +165,10 @@ export function getFacilityNetwork(index: number): _FacilityNetwork {
 
 function updateZoneLockdownTimers(): void {
 	for (let i = 0; i < MAX_FACILITY_NETWORK_COUNT; i++) {
-		const network = getFacilityNetwork(i);
+		const network = getFacilityNetwork(i,);
 
 		for (let j = 0; j < MAX_FACILITY_ZONE_COUNT; j++) {
-			const zone = network.getZone(j);
+			const zone = network.getZone(j,);
 			const lockdownDuration = zone.lockdownDuration;
 			const lockdownDelay = zone.lockdownDelay;
 
@@ -199,5 +199,5 @@ function updateZoneLockdownTimers(): void {
 }
 
 world.afterEvents.worldLoad.subscribe(() => {
-	system.runInterval(updateZoneLockdownTimers, 20);
-});
+	system.runInterval(updateZoneLockdownTimers, 20,);
+},);

@@ -8,7 +8,7 @@
 		"pattern": [
 			"ISI", //
 			"SCS", // Don't format
-			"ISI"  //
+			"ISI" //
 		],
 		"key": {
 			"I": {

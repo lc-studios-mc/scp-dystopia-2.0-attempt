@@ -1,8 +1,8 @@
-import * as mc from "@minecraft/server";
 import { getModifiedDamageNumber } from "@lib/utils/entityUtils";
 import { randomFloat } from "@lib/utils/mathUtils";
 import { ensureType } from "@lib/utils/miscUtils";
 import * as vec3 from "@lib/utils/vec3";
+import * as mc from "@minecraft/server";
 import {
 	UNKNOWN_BREEZE_ENTITY_TYPE,
 	UNKNOWN_CORE_ENTITY_TYPE,
@@ -139,97 +139,95 @@ namespace CombatStateArrays {
 }
 
 export function getDifficulty(unknownCore: mc.Entity): mc.Difficulty {
-	const difficulty = unknownCore.getProperty("lc:difficulty") as mc.Difficulty;
+	const difficulty = unknownCore.getProperty("lc:difficulty",) as mc.Difficulty;
 	return difficulty;
 }
 
 export function getStageState(unknownCore: mc.Entity, stage: number): number {
-	const stageState =
-		stage === 1
-			? (unknownCore.getProperty("lc:s1_state") as number)
-			: stage === 2
-				? (unknownCore.getProperty("lc:s2_state") as number)
-				: stage === 3
-					? (unknownCore.getProperty("lc:s3_state") as number)
-					: 0;
+	const stageState = stage === 1
+		? (unknownCore.getProperty("lc:s1_state",) as number)
+		: stage === 2
+		? (unknownCore.getProperty("lc:s2_state",) as number)
+		: stage === 3
+		? (unknownCore.getProperty("lc:s3_state",) as number)
+		: 0;
 
 	return stageState;
 }
 
 function updateLocationLock(unknownCore: mc.Entity): void {
-	const locationLock = ensureType(unknownCore.getDynamicProperty("locationLock"), "Vector3");
+	const locationLock = ensureType(unknownCore.getDynamicProperty("locationLock",), "Vector3",);
 
 	if (!locationLock) return;
 
-	const dist = vec3.distance(locationLock, unknownCore.location);
+	const dist = vec3.distance(locationLock, unknownCore.location,);
 
 	if (dist <= 0.1) return;
 
 	unknownCore.tryTeleport(locationLock, {
 		keepVelocity: false,
-	});
+	},);
 }
 
 function getNextCombatBehaviorTick(unknownCore: mc.Entity): number {
 	return (
-		ensureType(unknownCore.getDynamicProperty("ticksUntilDecideNextCombatBehavior"), "number") ?? 0
+		ensureType(unknownCore.getDynamicProperty("ticksUntilDecideNextCombatBehavior",), "number",) ??
+			0
 	);
 }
 
 function setNextCombatBehaviorTick(unknownCore: mc.Entity, value?: number) {
-	unknownCore.setDynamicProperty("ticksUntilDecideNextCombatBehavior", value);
+	unknownCore.setDynamicProperty("ticksUntilDecideNextCombatBehavior", value,);
 }
 
 function decideNextCombatBehavior(unknownCore: mc.Entity, stage: number): void {
-	const healthComp = unknownCore.getComponent("health")!;
+	const healthComp = unknownCore.getComponent("health",)!;
 
 	switch (stage) {
 		case 1: {
-			const didGuard = unknownCore.getDynamicProperty("s1_didGuard") === true;
+			const didGuard = unknownCore.getDynamicProperty("s1_didGuard",) === true;
 
 			if (
 				!didGuard &&
 				Math.random() > 0.5 &&
 				healthComp.currentValue < healthComp.effectiveMax / 2
 			) {
-				unknownCore.setProperty(PROP_ID.s1State, STAGE_STATE_IDX.s1.shield);
-				unknownCore.setDynamicProperty("s1_didGuard", true);
+				unknownCore.setProperty(PROP_ID.s1State, STAGE_STATE_IDX.s1.shield,);
+				unknownCore.setDynamicProperty("s1_didGuard", true,);
 
-				setNextCombatBehaviorTick(unknownCore, 2);
+				setNextCombatBehaviorTick(unknownCore, 2,);
 
 				break;
 			}
 
-			unknownCore.setProperty(PROP_ID.s1State, STAGE_STATE_IDX.s1.fireball);
-			unknownCore.setDynamicProperty("s1_didGuard", undefined);
+			unknownCore.setProperty(PROP_ID.s1State, STAGE_STATE_IDX.s1.fireball,);
+			unknownCore.setDynamicProperty("s1_didGuard", undefined,);
 
 			break;
 		}
 		case 2: {
-			const decisionCountPropId =
-				healthComp.currentValue < healthComp.effectiveMax / 2
-					? "s2MidCombatDecisionCount"
-					: "s2CombatDecisionCount";
+			const decisionCountPropId = healthComp.currentValue < healthComp.effectiveMax / 2
+				? "s2MidCombatDecisionCount"
+				: "s2CombatDecisionCount";
 
 			const decisionCount =
-				ensureType(unknownCore.getDynamicProperty(decisionCountPropId), "number") ?? 0;
+				ensureType(unknownCore.getDynamicProperty(decisionCountPropId,), "number",) ?? 0;
 
-			const combatStateArray =
-				healthComp.currentValue < healthComp.effectiveMax / 2
-					? CombatStateArrays.S2_2
-					: CombatStateArrays.S2_1;
+			const combatStateArray = healthComp.currentValue < healthComp.effectiveMax / 2
+				? CombatStateArrays.S2_2
+				: CombatStateArrays.S2_1;
 
 			const nextThing = combatStateArray[decisionCount % combatStateArray.length];
 
-			unknownCore.setDynamicProperty(decisionCountPropId, decisionCount + 1);
+			unknownCore.setDynamicProperty(decisionCountPropId, decisionCount + 1,);
 
 			if (typeof nextThing === "string") {
-				if (nextThing.startsWith("setDelay")) {
+				if (nextThing.startsWith("setDelay",)) {
 					const delay = +nextThing[nextThing.length - 1]!;
 
-					setNextCombatBehaviorTick(unknownCore, delay);
+					setNextCombatBehaviorTick(unknownCore, delay,);
 				} else {
-					throw new Error(`Unrecognized next behavior: ${nextThing}`);
+					throw new Error(`Unrecognized next behavior: ${nextThing}`,);
 				}
 
 				return;
@@ -242,50 +240,48 @@ function decideNextCombatBehavior(unknownCore: mc.Entity, stage: number): void {
 					location: unknownCore.location,
 					families: ["the_unknown"],
 					excludeTypes: [UNKNOWN_CORE_ENTITY_TYPE],
-				});
+				},);
 
 				if (nearbyAllies.length < 5) {
-					unknownCore.setProperty(PROP_ID.s2State, STAGE_STATE_IDX.s2.summonAllies);
+					unknownCore.setProperty(PROP_ID.s2State, STAGE_STATE_IDX.s2.summonAllies,);
 				} else {
-					unknownCore.setProperty(PROP_ID.s2State, STAGE_STATE_IDX.s2.plasmaRapid);
+					unknownCore.setProperty(PROP_ID.s2State, STAGE_STATE_IDX.s2.plasmaRapid,);
 				}
 
 				return;
 			}
 
-			unknownCore.setProperty(PROP_ID.s2State, nextThing ?? 0);
+			unknownCore.setProperty(PROP_ID.s2State, nextThing ?? 0,);
 
 			break;
 		}
 		case 3: {
-			const decisionCountPropId =
-				healthComp.currentValue < healthComp.effectiveMax / 5
-					? "s3LowCombatDecisionCount"
-					: healthComp.currentValue < healthComp.effectiveMax / 2
-						? "s3MidCombatDecisionCount"
-						: "s3CombatDecisionCount";
+			const decisionCountPropId = healthComp.currentValue < healthComp.effectiveMax / 5
+				? "s3LowCombatDecisionCount"
+				: healthComp.currentValue < healthComp.effectiveMax / 2
+				? "s3MidCombatDecisionCount"
+				: "s3CombatDecisionCount";
 
 			const decisionCount =
-				ensureType(unknownCore.getDynamicProperty(decisionCountPropId), "number") ?? 0;
+				ensureType(unknownCore.getDynamicProperty(decisionCountPropId,), "number",) ?? 0;
 
-			const combatStateArray =
-				healthComp.currentValue < healthComp.effectiveMax / 5
-					? CombatStateArrays.S3_3
-					: healthComp.currentValue < healthComp.effectiveMax / 2
-						? CombatStateArrays.S3_2
-						: CombatStateArrays.S3_1;
+			const combatStateArray = healthComp.currentValue < healthComp.effectiveMax / 5
+				? CombatStateArrays.S3_3
+				: healthComp.currentValue < healthComp.effectiveMax / 2
+				? CombatStateArrays.S3_2
+				: CombatStateArrays.S3_1;
 
 			const nextThing = combatStateArray[decisionCount % combatStateArray.length];
 
-			unknownCore.setDynamicProperty(decisionCountPropId, decisionCount + 1);
+			unknownCore.setDynamicProperty(decisionCountPropId, decisionCount + 1,);
 
 			if (typeof nextThing === "string") {
-				if (nextThing.startsWith("setDelay")) {
+				if (nextThing.startsWith("setDelay",)) {
 					const delay = +nextThing[nextThing.length - 1]!;
 
-					setNextCombatBehaviorTick(unknownCore, delay);
+					setNextCombatBehaviorTick(unknownCore, delay,);
 				} else {
-					throw new Error(`Unrecognized next behavior: ${nextThing}`);
+					throw new Error(`Unrecognized next behavior: ${nextThing}`,);
 				}
 
 				return;
@@ -298,18 +294,18 @@ function decideNextCombatBehavior(unknownCore: mc.Entity, stage: number): void {
 					location: unknownCore.location,
 					families: ["the_unknown"],
 					excludeTypes: [UNKNOWN_CORE_ENTITY_TYPE],
-				});
+				},);
 
 				if (nearbyAllies.length < 10) {
-					unknownCore.setProperty(PROP_ID.s3State, STAGE_STATE_IDX.s3.summonAllies);
+					unknownCore.setProperty(PROP_ID.s3State, STAGE_STATE_IDX.s3.summonAllies,);
 				} else {
-					unknownCore.setProperty(PROP_ID.s3State, STAGE_STATE_IDX.s3.swordSlash1);
+					unknownCore.setProperty(PROP_ID.s3State, STAGE_STATE_IDX.s3.swordSlash1,);
 				}
 
 				return;
 			}
 
-			unknownCore.setProperty(PROP_ID.s3State, nextThing ?? 0);
+			unknownCore.setProperty(PROP_ID.s3State, nextThing ?? 0,);
 
 			break;
 		}
@@ -317,15 +313,15 @@ function decideNextCombatBehavior(unknownCore: mc.Entity, stage: number): void {
 }
 
 function onUpdate(unknownCore: mc.Entity): void {
-	updateLocationLock(unknownCore);
+	updateLocationLock(unknownCore,);
 
 	const target = unknownCore.target;
 
 	if (!target) return;
 
-	const dirToTarget = vec3.sub(target.location, unknownCore.location);
+	const dirToTarget = vec3.sub(target.location, unknownCore.location,);
 
-	let yRotation = Math.atan2(dirToTarget.x, dirToTarget.z) * (180 / Math.PI);
+	let yRotation = Math.atan2(dirToTarget.x, dirToTarget.z,) * (180 / Math.PI);
 
 	if (yRotation > 180) {
 		yRotation -= 360;
@@ -333,104 +329,104 @@ function onUpdate(unknownCore: mc.Entity): void {
 		yRotation += 360;
 	}
 
-	unknownCore.setProperty("lc:combat_y_body_rot", -yRotation);
+	unknownCore.setProperty("lc:combat_y_body_rot", -yRotation,);
 
-	const stage = unknownCore.getProperty(PROP_ID.stage) as number;
+	const stage = unknownCore.getProperty(PROP_ID.stage,) as number;
 
-	const stageState = getStageState(unknownCore, stage);
+	const stageState = getStageState(unknownCore, stage,);
 
 	if (stageState !== 0) return; // If stage state is not 0, do not tick combat behavior timer.
 
-	let ticksLeft = getNextCombatBehaviorTick(unknownCore);
+	let ticksLeft = getNextCombatBehaviorTick(unknownCore,);
 
 	if (ticksLeft === 0) {
-		decideNextCombatBehavior(unknownCore, stage);
+		decideNextCombatBehavior(unknownCore, stage,);
 		return;
 	}
 
 	const next = ticksLeft > 0 ? ticksLeft - 1 : 0;
 
-	setNextCombatBehaviorTick(unknownCore, next);
+	setNextCombatBehaviorTick(unknownCore, next,);
 }
 
 function resetHealth(unknownCore: mc.Entity): void {
-	const healthComp = unknownCore.getComponent("health");
+	const healthComp = unknownCore.getComponent("health",);
 
 	if (!healthComp) return;
 
-	healthComp.setCurrentValue(healthComp.effectiveMax);
+	healthComp.setCurrentValue(healthComp.effectiveMax,);
 }
 
 function onFatalDamage(unknownCore: mc.Entity): void {
-	unknownCore.getComponent("health")?.setCurrentValue(1);
+	unknownCore.getComponent("health",)?.setCurrentValue(1,);
 
-	const stage = unknownCore.getProperty(PROP_ID.stage) as number;
+	const stage = unknownCore.getProperty(PROP_ID.stage,) as number;
 
 	switch (stage) {
 		case 1:
-			unknownCore.setProperty(PROP_ID.s1State, STAGE_STATE_IDX.s1.toS2);
+			unknownCore.setProperty(PROP_ID.s1State, STAGE_STATE_IDX.s1.toS2,);
 			break;
 		case 2:
-			unknownCore.setProperty(PROP_ID.s2State, STAGE_STATE_IDX.s2.toS3);
+			unknownCore.setProperty(PROP_ID.s2State, STAGE_STATE_IDX.s2.toS3,);
 			break;
 		case 3:
-			unknownCore.setProperty(PROP_ID.s3State, STAGE_STATE_IDX.s3.defeat);
+			unknownCore.setProperty(PROP_ID.s3State, STAGE_STATE_IDX.s3.defeat,);
 			break;
 	}
 
-	setNextCombatBehaviorTick(unknownCore, 3);
+	setNextCombatBehaviorTick(unknownCore, 3,);
 }
 
 function summonAlliesS2(unknownCore: mc.Entity): void {
-	const difficulty = getDifficulty(unknownCore);
+	const difficulty = getDifficulty(unknownCore,);
 
-	const ally1Pos = vec3.add(unknownCore.location, { x: 0, y: 0, z: 1 });
-	const ally1 = unknownCore.dimension.spawnEntity(UNKNOWN_ZOMBIE_ENTITY_TYPE, ally1Pos);
-	ally1.setDynamicProperty("parentUnknownCoreId", unknownCore.id);
+	const ally1Pos = vec3.add(unknownCore.location, { x: 0, y: 0, z: 1 },);
+	const ally1 = unknownCore.dimension.spawnEntity(UNKNOWN_ZOMBIE_ENTITY_TYPE, ally1Pos,);
+	ally1.setDynamicProperty("parentUnknownCoreId", unknownCore.id,);
 
-	const ally2Pos = vec3.add(unknownCore.location, { x: 0, y: 0, z: -1 });
-	const ally2 = unknownCore.dimension.spawnEntity(UNKNOWN_BREEZE_ENTITY_TYPE, ally2Pos);
-	ally2.setDynamicProperty("parentUnknownCoreId", unknownCore.id);
+	const ally2Pos = vec3.add(unknownCore.location, { x: 0, y: 0, z: -1 },);
+	const ally2 = unknownCore.dimension.spawnEntity(UNKNOWN_BREEZE_ENTITY_TYPE, ally2Pos,);
+	ally2.setDynamicProperty("parentUnknownCoreId", unknownCore.id,);
 
 	if (difficulty <= mc.Difficulty.Easy) return;
 
-	const ally3Pos = vec3.add(unknownCore.location, { x: 1, y: 0, z: 0 });
-	const ally3 = unknownCore.dimension.spawnEntity(UNKNOWN_GOLEM_ENTITY_TYPE, ally3Pos);
-	ally3.setDynamicProperty("parentUnknownCoreId", unknownCore.id);
+	const ally3Pos = vec3.add(unknownCore.location, { x: 1, y: 0, z: 0 },);
+	const ally3 = unknownCore.dimension.spawnEntity(UNKNOWN_GOLEM_ENTITY_TYPE, ally3Pos,);
+	ally3.setDynamicProperty("parentUnknownCoreId", unknownCore.id,);
 
 	if (difficulty <= mc.Difficulty.Normal) return;
 
-	const ally4Pos = vec3.add(unknownCore.location, { x: -1, y: 0, z: 0 });
-	const ally4 = unknownCore.dimension.spawnEntity(UNKNOWN_SPIDER_ENTITY_TYPE, ally4Pos);
-	ally4.setDynamicProperty("parentUnknownCoreId", unknownCore.id);
+	const ally4Pos = vec3.add(unknownCore.location, { x: -1, y: 0, z: 0 },);
+	const ally4 = unknownCore.dimension.spawnEntity(UNKNOWN_SPIDER_ENTITY_TYPE, ally4Pos,);
+	ally4.setDynamicProperty("parentUnknownCoreId", unknownCore.id,);
 }
 
 function summonAlliesS3(unknownCore: mc.Entity): void {
-	const difficulty = getDifficulty(unknownCore);
+	const difficulty = getDifficulty(unknownCore,);
 
-	const ally1Pos = vec3.add(unknownCore.location, { x: 0, y: 0, z: 1 });
-	const ally1 = unknownCore.dimension.spawnEntity(UNKNOWN_ZOMBIE_ENTITY_TYPE, ally1Pos);
-	ally1.setDynamicProperty("parentUnknownCoreId", unknownCore.id);
+	const ally1Pos = vec3.add(unknownCore.location, { x: 0, y: 0, z: 1 },);
+	const ally1 = unknownCore.dimension.spawnEntity(UNKNOWN_ZOMBIE_ENTITY_TYPE, ally1Pos,);
+	ally1.setDynamicProperty("parentUnknownCoreId", unknownCore.id,);
 
-	const ally2Pos = vec3.add(unknownCore.location, { x: 0, y: 0, z: -1 });
-	const ally2 = unknownCore.dimension.spawnEntity(UNKNOWN_ZOMBIE_ENTITY_TYPE, ally2Pos);
-	ally2.setDynamicProperty("parentUnknownCoreId", unknownCore.id);
+	const ally2Pos = vec3.add(unknownCore.location, { x: 0, y: 0, z: -1 },);
+	const ally2 = unknownCore.dimension.spawnEntity(UNKNOWN_ZOMBIE_ENTITY_TYPE, ally2Pos,);
+	ally2.setDynamicProperty("parentUnknownCoreId", unknownCore.id,);
 
 	if (difficulty <= mc.Difficulty.Easy) return;
 
-	const ally3Pos = vec3.add(unknownCore.location, { x: 1, y: 0, z: 0 });
-	const ally3 = unknownCore.dimension.spawnEntity(UNKNOWN_BREEZE_ENTITY_TYPE, ally3Pos);
-	ally3.setDynamicProperty("parentUnknownCoreId", unknownCore.id);
+	const ally3Pos = vec3.add(unknownCore.location, { x: 1, y: 0, z: 0 },);
+	const ally3 = unknownCore.dimension.spawnEntity(UNKNOWN_BREEZE_ENTITY_TYPE, ally3Pos,);
+	ally3.setDynamicProperty("parentUnknownCoreId", unknownCore.id,);
 
-	const ally4Pos = vec3.add(unknownCore.location, { x: -1, y: 0, z: 0 });
-	const ally4 = unknownCore.dimension.spawnEntity(UNKNOWN_GOLEM_ENTITY_TYPE, ally4Pos);
-	ally4.setDynamicProperty("parentUnknownCoreId", unknownCore.id);
+	const ally4Pos = vec3.add(unknownCore.location, { x: -1, y: 0, z: 0 },);
+	const ally4 = unknownCore.dimension.spawnEntity(UNKNOWN_GOLEM_ENTITY_TYPE, ally4Pos,);
+	ally4.setDynamicProperty("parentUnknownCoreId", unknownCore.id,);
 
 	if (difficulty <= mc.Difficulty.Normal) return;
 
-	const ally5Pos = vec3.add(unknownCore.location, { x: -1, y: 0, z: 1 });
-	const ally5 = unknownCore.dimension.spawnEntity(UNKNOWN_SPIDER_ENTITY_TYPE, ally5Pos);
-	ally5.setDynamicProperty("parentUnknownCoreId", unknownCore.id);
+	const ally5Pos = vec3.add(unknownCore.location, { x: -1, y: 0, z: 1 },);
+	const ally5 = unknownCore.dimension.spawnEntity(UNKNOWN_SPIDER_ENTITY_TYPE, ally5Pos,);
+	ally5.setDynamicProperty("parentUnknownCoreId", unknownCore.id,);
 }
 
 function onSwingSword(unknownCore: mc.Entity): void {
@@ -438,14 +434,14 @@ function onSwingSword(unknownCore: mc.Entity): void {
 
 	if (!target) return;
 
-	const dist = vec3.distance(unknownCore.location, target.location);
+	const dist = vec3.distance(unknownCore.location, target.location,);
 
 	if (dist > 3.8) return;
 
-	target.applyDamage(getModifiedDamageNumber(13, target), {
+	target.applyDamage(getModifiedDamageNumber(13, target,), {
 		cause: mc.EntityDamageCause.override,
 		damagingEntity: unknownCore,
-	});
+	},);
 }
 
 function fireMeteorite(unknownCore: mc.Entity): void {
@@ -454,13 +450,13 @@ function fireMeteorite(unknownCore: mc.Entity): void {
 		unknownCore.location,
 	);
 
-	meteoriteEntity.setDynamicProperty("targetEntityId", unknownCore.target?.id);
+	meteoriteEntity.setDynamicProperty("targetEntityId", unknownCore.target?.id,);
 
 	const fallbackFallLoc = unknownCore.target
-		? vec3.add(unknownCore.target.location, vec3.mul(vec3.random(), randomFloat(-2, 2)))
-		: vec3.add(unknownCore.location, vec3.mul(vec3.random(), randomFloat(-10, 10)));
+		? vec3.add(unknownCore.target.location, vec3.mul(vec3.random(), randomFloat(-2, 2,),),)
+		: vec3.add(unknownCore.location, vec3.mul(vec3.random(), randomFloat(-10, 10,),),);
 
-	meteoriteEntity.setDynamicProperty("fallbackFallLoc", fallbackFallLoc);
+	meteoriteEntity.setDynamicProperty("fallbackFallLoc", fallbackFallLoc,);
 }
 
 function onDefeat(unknownCore: mc.Entity): void {
@@ -469,10 +465,10 @@ function onDefeat(unknownCore: mc.Entity): void {
 		excludeTypes: [UNKNOWN_CORE_ENTITY_TYPE],
 		maxDistance: 100,
 		location: unknownCore.location,
-	});
+	},);
 
 	for (const childAlly of childAllies) {
-		const parentUnknownCoreId = childAlly.getDynamicProperty("parentUnknownCoreId");
+		const parentUnknownCoreId = childAlly.getDynamicProperty("parentUnknownCoreId",);
 
 		if (typeof parentUnknownCoreId !== "string") continue;
 		if (parentUnknownCoreId !== unknownCore.id) continue;
@@ -482,7 +478,7 @@ function onDefeat(unknownCore: mc.Entity): void {
 
 	mc.system.run(() => {
 		unknownCore.remove();
-	});
+	},);
 }
 
 mc.world.afterEvents.dataDrivenEntityTrigger.subscribe((event) => {
@@ -490,47 +486,47 @@ mc.world.afterEvents.dataDrivenEntityTrigger.subscribe((event) => {
 
 	switch (event.eventId) {
 		case "unknown_core:set_can_be_damaged:true":
-			event.entity.removeTag("scpdy_ignore_slasher_capture");
+			event.entity.removeTag("scpdy_ignore_slasher_capture",);
 			break;
 		case "unknown_core:set_can_be_damaged:false":
-			event.entity.addTag("scpdy_ignore_slasher_capture");
+			event.entity.addTag("scpdy_ignore_slasher_capture",);
 			break;
 		case "unknown_core:reset_health":
-			resetHealth(event.entity);
+			resetHealth(event.entity,);
 			break;
 		case "unknown_core:script_update":
-			onUpdate(event.entity);
+			onUpdate(event.entity,);
 			break;
 		case "unknown_core:on_fatal_damage":
-			onFatalDamage(event.entity);
+			onFatalDamage(event.entity,);
 			break;
 		case "unknown_core:on_defeat":
-			onDefeat(event.entity);
+			onDefeat(event.entity,);
 			break;
 		case "unknown_core:s2:summon_allies":
-			summonAlliesS2(event.entity);
+			summonAlliesS2(event.entity,);
 			break;
 		case "unknown_core:s3:summon_allies":
-			summonAlliesS3(event.entity);
+			summonAlliesS3(event.entity,);
 			break;
 		case "unknown_core:s3:on_swing_sword":
-			onSwingSword(event.entity);
+			onSwingSword(event.entity,);
 			break;
 		case "unknown_core:s3:fire_meteorite":
-			fireMeteorite(event.entity);
+			fireMeteorite(event.entity,);
 			break;
 	}
-});
+},);
 
 mc.world.afterEvents.entitySpawn.subscribe((event) => {
 	if (event.entity.typeId !== UNKNOWN_CORE_ENTITY_TYPE) return;
 
 	const locationLock: mc.Vector3 = {
-		x: Math.floor(event.entity.location.x) + 0.5,
+		x: Math.floor(event.entity.location.x,) + 0.5,
 		y: event.entity.location.y,
-		z: Math.floor(event.entity.location.z) + 0.5,
+		z: Math.floor(event.entity.location.z,) + 0.5,
 	};
 
-	event.entity.tryTeleport(locationLock);
-	event.entity.setDynamicProperty("locationLock", locationLock);
-});
+	event.entity.tryTeleport(locationLock,);
+	event.entity.setDynamicProperty("locationLock", locationLock,);
+},);

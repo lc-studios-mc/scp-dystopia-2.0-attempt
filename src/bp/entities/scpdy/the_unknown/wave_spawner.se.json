@@ -19,7 +19,8 @@
 						// 0 - None
 						// 1 - Wave Break
 						// 2 - Wave Battle
-						0, 2
+						0,
+						2
 					],
 					"default": 0
 				},

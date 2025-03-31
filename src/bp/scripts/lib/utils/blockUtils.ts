@@ -6,7 +6,7 @@ const AIR_OR_LIQUID_BLOCK_TYPE = new Set<string>([
 	"minecraft:flowing_water",
 	"minecraft:lava",
 	"minecraft:flowing_lava",
-]);
+],);
 
 export function isAirOrLiquid(block: mc.Block): boolean;
 
@@ -14,10 +14,10 @@ export function isAirOrLiquid(blockTypeId: string): boolean;
 
 export function isAirOrLiquid(value: mc.Block | string): boolean {
 	if (typeof value === "string") {
-		return AIR_OR_LIQUID_BLOCK_TYPE.has(value);
+		return AIR_OR_LIQUID_BLOCK_TYPE.has(value,);
 	}
 
-	return AIR_OR_LIQUID_BLOCK_TYPE.has(value.typeId);
+	return AIR_OR_LIQUID_BLOCK_TYPE.has(value.typeId,);
 }
 
 /**
@@ -44,22 +44,22 @@ export function getRelativeBlock(
 ): mc.Block | undefined {
 	switch (direction) {
 		case mc.Direction.Down:
-			return origin.below(steps);
+			return origin.below(steps,);
 		case mc.Direction.Up:
-			return origin.above(steps);
+			return origin.above(steps,);
 		case mc.Direction.North:
-			return origin.north(steps);
+			return origin.north(steps,);
 		case mc.Direction.South:
-			return origin.south(steps);
+			return origin.south(steps,);
 		case mc.Direction.East:
-			return origin.east(steps);
+			return origin.east(steps,);
 		case mc.Direction.West:
-			return origin.west(steps);
+			return origin.west(steps,);
 	}
 }
 
 export function getBlockCardinalDirection(permutation: mc.BlockPermutation): mc.Direction {
-	const direction = permutation.getState("minecraft:cardinal_direction") as
+	const direction = permutation.getState("minecraft:cardinal_direction",) as
 		| "north"
 		| "south"
 		| "west"

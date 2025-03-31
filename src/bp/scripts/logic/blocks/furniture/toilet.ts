@@ -1,5 +1,5 @@
-import * as mc from "@minecraft/server";
 import * as vec3 from "@lib/utils/vec3";
+import * as mc from "@minecraft/server";
 
 type CardinalDirection = "north" | "south" | "east" | "west";
 
@@ -19,7 +19,7 @@ const FART_SOUND_ORDER: string[] = [
 
 mc.world.afterEvents.dataDrivenEntityTrigger.subscribe(
 	(event) => {
-		onUpdateToiletRideableEntity(event.entity);
+		onUpdateToiletRideableEntity(event.entity,);
 	},
 	{
 		entityTypes: [TOILET_RIDEABLE_ENTITY_TYPE],
@@ -30,47 +30,46 @@ mc.world.afterEvents.dataDrivenEntityTrigger.subscribe(
 function onUpdateToiletRideableEntity(entity: mc.Entity): void {
 	if (!entity.isValid) return;
 
-	const rider = entity.getComponent("rideable")!.getRiders()[0];
+	const rider = entity.getComponent("rideable",)!.getRiders()[0];
 
 	if (!rider) return;
 
-	const lastRiderPitch = entity.getDynamicProperty("lastRiderPitch");
+	const lastRiderPitch = entity.getDynamicProperty("lastRiderPitch",);
 	const currentRiderPitch = rider.getRotation().x;
 
-	const emitFart =
-		typeof lastRiderPitch === "number" &&
+	const emitFart = typeof lastRiderPitch === "number" &&
 		((lastRiderPitch < 80 && currentRiderPitch > 80) ||
 			(lastRiderPitch > -80 && currentRiderPitch < -80));
 
 	if (emitFart) {
-		const fartCount = (entity.getDynamicProperty("fartCount") as number) ?? 0;
+		const fartCount = (entity.getDynamicProperty("fartCount",) as number) ?? 0;
 
 		const fartSoundId = FART_SOUND_ORDER[fartCount];
 
 		if (typeof fartSoundId === "string") {
 			entity.dimension.playSound(fartSoundId, entity.location, {
 				volume: 1.1,
-			});
+			},);
 		}
 
 		if (fartCount === 4) {
-			rider.removeEffect("poison");
-			rider.removeEffect("fatal_poison");
+			rider.removeEffect("poison",);
+			rider.removeEffect("fatal_poison",);
 		} else if (fartCount === 8) {
 			rider.addEffect("regeneration", 80, {
 				amplifier: 1,
-			});
+			},);
 		}
 
-		entity.setDynamicProperty("fartCount", fartCount + 1);
+		entity.setDynamicProperty("fartCount", fartCount + 1,);
 	}
 
-	entity.setDynamicProperty("lastRiderPitch", currentRiderPitch);
+	entity.setDynamicProperty("lastRiderPitch", currentRiderPitch,);
 }
 
 mc.world.afterEvents.dataDrivenEntityTrigger.subscribe(
 	(event) => {
-		onToiletRideableEntityLostRider(event.entity);
+		onToiletRideableEntityLostRider(event.entity,);
 	},
 	{
 		entityTypes: [TOILET_RIDEABLE_ENTITY_TYPE],
@@ -79,17 +78,17 @@ mc.world.afterEvents.dataDrivenEntityTrigger.subscribe(
 );
 
 function onToiletRideableEntityLostRider(entity: mc.Entity): void {
-	const fartCount = (entity.getDynamicProperty("fartCount") as number) ?? 0;
+	const fartCount = (entity.getDynamicProperty("fartCount",) as number) ?? 0;
 
 	if (fartCount > 0) {
 		if (fartCount < 5) {
 			entity.dimension.playSound("scpdy.misc.toilet_flush.normal", entity.location, {
 				volume: 1.1,
-			});
+			},);
 		} else {
 			entity.dimension.playSound("scpdy.misc.toilet_flush.hard", entity.location, {
 				volume: 1.2,
-			});
+			},);
 		}
 	}
 
@@ -99,8 +98,8 @@ function onToiletRideableEntityLostRider(entity: mc.Entity): void {
 mc.system.beforeEvents.startup.subscribe((event) => {
 	event.blockComponentRegistry.registerCustomComponent("scpdy:toilet", {
 		onPlayerInteract,
-	});
-});
+	},);
+},);
 
 function onPlayerInteract(arg: mc.BlockComponentPlayerInteractEvent): void {
 	const { block, dimension, player } = arg;
@@ -109,29 +108,28 @@ function onPlayerInteract(arg: mc.BlockComponentPlayerInteractEvent): void {
 
 	const center = block.center();
 
-	if (vec3.distance(center, player.location) > 2.5) {
-		player.onScreenDisplay.setActionBar({ translate: "scpdy.actionHint.furniture.toilet.tooFar" });
+	if (vec3.distance(center, player.location,) > 2.5) {
+		player.onScreenDisplay.setActionBar({ translate: "scpdy.actionHint.furniture.toilet.tooFar" },);
 		return;
 	}
 
-	const isLidOpen = block.permutation.getState("lc:is_lid_open") === true;
+	const isLidOpen = block.permutation.getState("lc:is_lid_open",) === true;
 
 	const sitLoc = { x: center.x, y: center.y - 0.26, z: center.z };
 
-	const rideableEntityExists =
-		dimension.getEntities({
-			type: TOILET_RIDEABLE_ENTITY_TYPE,
-			closest: 1,
-			maxDistance: 0.5,
-			location: sitLoc,
-		}).length > 0;
+	const rideableEntityExists = dimension.getEntities({
+		type: TOILET_RIDEABLE_ENTITY_TYPE,
+		closest: 1,
+		maxDistance: 0.5,
+		location: sitLoc,
+	},).length > 0;
 
 	if (rideableEntityExists) return;
 
 	if (!player.isSneaking) {
 		// Open/Close lid
 
-		block.setPermutation(block.permutation.withState("lc:is_lid_open", !isLidOpen));
+		block.setPermutation(block.permutation.withState("lc:is_lid_open", !isLidOpen,),);
 		dimension.playSound(
 			isLidOpen ? "close.bamboo_wood_trapdoor" : "open.bamboo_wood_trapdoor",
 			center,
@@ -141,7 +139,7 @@ function onPlayerInteract(arg: mc.BlockComponentPlayerInteractEvent): void {
 		if (!isLidOpen) {
 			player.onScreenDisplay.setActionBar({
 				translate: "scpdy.actionHint.furniture.toilet.sitHint",
-			});
+			},);
 		}
 
 		return;
@@ -172,13 +170,13 @@ function onPlayerInteract(arg: mc.BlockComponentPlayerInteractEvent): void {
 			break;
 	}
 
-	const rideableEntity = dimension.spawnEntity(rideableEntityTypeId, sitLoc);
+	const rideableEntity = dimension.spawnEntity(rideableEntityTypeId, sitLoc,);
 
-	rideableEntity.getComponent("rideable")!.addRider(player);
+	rideableEntity.getComponent("rideable",)!.addRider(player,);
 
 	mc.system.runTimeout(() => {
 		player.onScreenDisplay.setActionBar({
 			translate: "scpdy.actionHint.furniture.toilet.fartHint",
-		});
-	}, 40);
+		},);
+	}, 40,);
 }

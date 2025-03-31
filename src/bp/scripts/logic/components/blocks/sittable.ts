@@ -1,5 +1,5 @@
-import * as mc from "@minecraft/server";
 import * as vec3 from "@lib/utils/vec3";
+import * as mc from "@minecraft/server";
 
 type CardinalDirection = "north" | "south" | "east" | "west";
 
@@ -12,9 +12,11 @@ function onPlayerInteract(arg: mc.BlockComponentPlayerInteractEvent): void {
 
 	const center = block.center();
 
-	if (vec3.distance(center, player.location) > 2.5) {
-		if (block.hasTag("chair")) {
-			player.onScreenDisplay.setActionBar({ translate: "scpdy.actionHint.furniture.chair.tooFar" });
+	if (vec3.distance(center, player.location,) > 2.5) {
+		if (block.hasTag("chair",)) {
+			player.onScreenDisplay.setActionBar({
+				translate: "scpdy.actionHint.furniture.chair.tooFar",
+			},);
 		}
 
 		return;
@@ -26,13 +28,12 @@ function onPlayerInteract(arg: mc.BlockComponentPlayerInteractEvent): void {
 		z: center.z,
 	};
 
-	const sittableAnchorAlreadyExists =
-		dimension.getEntities({
-			type: SITTABLE_ANCHOR_TYPE,
-			closest: 1,
-			maxDistance: 0.5,
-			location: sitLoc,
-		}).length > 0;
+	const sittableAnchorAlreadyExists = dimension.getEntities({
+		type: SITTABLE_ANCHOR_TYPE,
+		closest: 1,
+		maxDistance: 0.5,
+		location: sitLoc,
+	},).length > 0;
 
 	if (sittableAnchorAlreadyExists) return;
 
@@ -57,19 +58,19 @@ function onPlayerInteract(arg: mc.BlockComponentPlayerInteractEvent): void {
 			break;
 	}
 
-	const sittableAnchor = dimension.spawnEntity(sittableAnchorTypeId, sitLoc);
+	const sittableAnchor = dimension.spawnEntity(sittableAnchorTypeId, sitLoc,);
 
 	mc.system.run(() => {
-		const rideable = sittableAnchor.getComponent("rideable");
+		const rideable = sittableAnchor.getComponent("rideable",);
 
 		if (!rideable) return;
 
-		rideable.addRider(player);
-	});
+		rideable.addRider(player,);
+	},);
 }
 
 mc.system.beforeEvents.startup.subscribe((event) => {
 	event.blockComponentRegistry.registerCustomComponent("scpdy:sittable", {
 		onPlayerInteract,
-	});
-});
+	},);
+},);

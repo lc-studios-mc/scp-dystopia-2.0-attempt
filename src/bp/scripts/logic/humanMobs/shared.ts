@@ -5,14 +5,14 @@ export const HUMAN_MOB_TYPES = {
 	f_mtf_epsilon11: "lc:scpdy_f_mtf_epsilon11",
 } as const;
 
-export const HUMAN_MOB_TYPE_ARRAY = Array.from(Object.values(HUMAN_MOB_TYPES));
+export const HUMAN_MOB_TYPE_ARRAY = Array.from(Object.values(HUMAN_MOB_TYPES,),);
 
 export const HUMAN_MOB_CORPSE_TYPES = {
 	f_tro_dead: "lc:scpdy_f_tro_dead",
 	f_mtf_epsilon11_dead: "lc:scpdy_f_mtf_epsilon11_dead",
 } as const;
 
-export const HUMAN_MOB_CORPSE_TYPE_ARRAY = Array.from(Object.values(HUMAN_MOB_CORPSE_TYPES));
+export const HUMAN_MOB_CORPSE_TYPE_ARRAY = Array.from(Object.values(HUMAN_MOB_CORPSE_TYPES,),);
 
 const DAMAGE_CAUSES_IGNORE_BODY_EXPLOSION = new Set<mc.EntityDamageCause>([
 	mc.EntityDamageCause.selfDestruct,
@@ -26,8 +26,8 @@ const DAMAGE_CAUSES_IGNORE_BODY_EXPLOSION = new Set<mc.EntityDamageCause>([
 	mc.EntityDamageCause.wither,
 	mc.EntityDamageCause.soulCampfire,
 	mc.EntityDamageCause.campfire,
-]);
+],);
 
 export function canDamageCauseBodyExplosion(damageCause: mc.EntityDamageCause): boolean {
-	return !DAMAGE_CAUSES_IGNORE_BODY_EXPLOSION.has(damageCause);
+	return !DAMAGE_CAUSES_IGNORE_BODY_EXPLOSION.has(damageCause,);
 }
