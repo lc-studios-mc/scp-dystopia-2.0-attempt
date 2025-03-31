@@ -49,13 +49,16 @@ const CD_NAME = {
 	slashAftertaste: "scpdy_slasher_aftertaste",
 } as const;
 
-const SLASH_TARGET_EXCLUDED_FAMILIES: string[] = ["projectile", "inanimate"];
-const SLASH_TARGET_EXCLUDED_TYPES: string[] = [
+const SLASH_LOCKON_EXCLUDED_FAMILIES: string[] = ["projectile", "inanimate", "scp096", "scp682"];
+const SLASH_LOCKON_EXCLUDED_TYPES: string[] = [
 	"minecraft:xp_orb",
 	"minecraft:arrow",
 	"minecraft:fireball",
+	"minecraft:ender_dragon",
+	"minecraft:wither",
 ];
-const SLASHER_IGNORE_TAG = "scpdy_ignore_slasher_capture";
+const SLASH_CAPTURE_IGNORE_TAG = "scpdy_ignore_slasher_capture";
+const SLASH_LOCKON_EXCLUDED_TAGS = [SLASH_CAPTURE_IGNORE_TAG];
 
 const isPlayerImmune = (player: mc.Player): boolean =>
 	[mc.GameMode.creative, mc.GameMode.spectator].includes(player.getGameMode());
@@ -353,7 +356,7 @@ class Slasher extends AdvancedItem {
 		}, 2);
 	}
 
-	private getEntitiesInSlashRange(): mc.Entity[] {
+	private getEntitiesInSlashRange(lockon = false): mc.Entity[] {
 		const headLoc = this.player.getHeadLocation();
 		const viewDir = this.player.getViewDirection();
 
@@ -364,9 +367,9 @@ class Slasher extends AdvancedItem {
 				location: vec3.getRelativeToHead(headLoc, viewDir, {
 					z: 1.3,
 				}),
-				excludeFamilies: SLASH_TARGET_EXCLUDED_FAMILIES,
-				excludeTypes: SLASH_TARGET_EXCLUDED_TYPES,
-				excludeTags: [SLASHER_IGNORE_TAG],
+				excludeFamilies: lockon ? SLASH_LOCKON_EXCLUDED_FAMILIES : undefined,
+				excludeTypes: lockon ? SLASH_LOCKON_EXCLUDED_TYPES : undefined,
+				excludeTags: lockon ? SLASH_LOCKON_EXCLUDED_TAGS : undefined,
 			}),
 			...this.player.dimension.getEntities({
 				closest: 5,
@@ -374,9 +377,9 @@ class Slasher extends AdvancedItem {
 				location: vec3.getRelativeToHead(headLoc, viewDir, {
 					z: 2.7,
 				}),
-				excludeFamilies: SLASH_TARGET_EXCLUDED_FAMILIES,
-				excludeTypes: SLASH_TARGET_EXCLUDED_TYPES,
-				excludeTags: [SLASHER_IGNORE_TAG],
+				excludeFamilies: lockon ? SLASH_LOCKON_EXCLUDED_FAMILIES : undefined,
+				excludeTypes: lockon ? SLASH_LOCKON_EXCLUDED_TYPES : undefined,
+				excludeTags: lockon ? SLASH_LOCKON_EXCLUDED_TAGS : undefined,
 			}),
 			...this.player.dimension.getEntities({
 				closest: 5,
@@ -385,9 +388,9 @@ class Slasher extends AdvancedItem {
 					z: 2.2,
 					y: -1.4,
 				}),
-				excludeFamilies: SLASH_TARGET_EXCLUDED_FAMILIES,
-				excludeTypes: SLASH_TARGET_EXCLUDED_TYPES,
-				excludeTags: [SLASHER_IGNORE_TAG],
+				excludeFamilies: lockon ? SLASH_LOCKON_EXCLUDED_FAMILIES : undefined,
+				excludeTypes: lockon ? SLASH_LOCKON_EXCLUDED_TYPES : undefined,
+				excludeTags: lockon ? SLASH_LOCKON_EXCLUDED_TAGS : undefined,
 			}),
 		];
 
@@ -461,7 +464,7 @@ class Slasher extends AdvancedItem {
 
 			const lockonEntities =
 				this.player.inputInfo.getButtonState(mc.InputButton.Sneak) === mc.ButtonState.Pressed
-					? this.getEntitiesInSlashRange()
+					? this.getEntitiesInSlashRange(true)
 					: [];
 
 			if (lockonEntities.length > 0) {
@@ -552,7 +555,7 @@ class Slasher extends AdvancedItem {
 				try {
 					const entity = slashInfo.lockon.entities[i]!;
 
-					if (!entity.isValid || entity.hasTag(SLASHER_IGNORE_TAG)) {
+					if (!entity.isValid || entity.hasTag(SLASH_CAPTURE_IGNORE_TAG)) {
 						slashInfo.lockon.entities.splice(i, 1);
 						i--;
 						continue;
