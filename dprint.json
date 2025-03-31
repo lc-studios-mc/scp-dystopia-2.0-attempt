@@ -4,7 +4,7 @@
 	"lineWidth": 100,
 	"typescript": {
 		"commentLine.forceSpaceAfterSlashes": true,
-		"arguments.trailingCommas": "always",
+		"arguments.trailingCommas": "onlyMultiLine",
 		"quoteStyle": "preferDouble",
 		"binaryExpression.operatorPosition": "sameLine"
 	},
