@@ -1,5 +1,6 @@
 {
-	"[json][jsonc][javascript][typescript]": {
+	"[json][jsonc][javascript][typescript][markdown]": {
+		"editor.defaultFormatter": "dprint.dprint",
 		"editor.formatOnSave": true
 	},
 	"[json5]": {

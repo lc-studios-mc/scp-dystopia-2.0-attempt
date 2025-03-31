@@ -1,6 +1,7 @@
 {
 	"name": "scp-dystopia",
 	"scripts": {
+		"fmt": "dprint fmt",
 		"typecheck": "tsc -p tsconfig.json --noEmit",
 		"dev": "ganban -c .ganbanrc.dev.mjs",
 		"devb": "ganban -c .ganbanrc.dev.mjs -b",

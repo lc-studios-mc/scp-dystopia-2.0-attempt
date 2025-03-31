@@ -1,0 +1,29 @@
+{
+	"useTabs": true,
+	"newLineKind": "lf",
+	"lineWidth": 100,
+	"typescript": {
+		"commentLine.forceSpaceAfterSlashes": true,
+		"arguments.trailingCommas": "always",
+		"quoteStyle": "preferDouble",
+		"binaryExpression.operatorPosition": "sameLine"
+	},
+	"json": {
+		"commentLine.forceSpaceAfterSlashes": true
+	},
+	"markdown": {
+		"textWrap": "maintain"
+	},
+	"excludes": [
+		"**/dist",
+		"**/node_modules",
+		"**/*-lock.json",
+		"**/*.animation.json",
+		"**/*.geo.json"
+	],
+	"plugins": [
+		"https://plugins.dprint.dev/typescript-0.94.0.wasm",
+		"https://plugins.dprint.dev/json-0.20.0.wasm",
+		"https://plugins.dprint.dev/markdown-0.18.0.wasm"
+	]
+}
