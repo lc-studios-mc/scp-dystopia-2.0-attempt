@@ -355,6 +355,9 @@
 		"scpdy_scp096_plushie": {
 			"textures": "textures/scpdy/blocks/furniture/plushies/scp096_plushie"
 		},
+		"scpdy_scp427_1_plushie": {
+			"textures": "textures/scpdy/blocks/furniture/plushies/scp427_1_plushie"
+		},
 		// #endregion
 		// #region furniture -> shelves
 		"scpdy_shelf_1_books": {

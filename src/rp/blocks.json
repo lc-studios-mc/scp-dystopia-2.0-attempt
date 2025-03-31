@@ -453,6 +453,9 @@
 	"lc:scpdy_scp096_plushie": {
 		"sound": "cloth"
 	},
+	"lc:scpdy_scp427_1_plushie": {
+		"sound": "cloth"
+	},
 	// #endregion
 	// #region furniture -> shelves
 	"lc:scpdy_shelf_1": {
