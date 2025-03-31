@@ -81,6 +81,9 @@
 						},
 						{
 							"slash_start": "v.slash_start"
+						},
+						{
+							"plunge_windup": "v.plunge_windup"
 						}
 					]
 				},
@@ -95,6 +98,9 @@
 						},
 						{
 							"slash_start": "v.slash_start"
+						},
+						{
+							"plunge_windup": "v.plunge_windup"
 						}
 					]
 				},
@@ -168,6 +174,42 @@
 						}
 					],
 					"blend_transition": 0.15
+				},
+				"plunge_windup": {
+					"animations": ["anim.fp.plunge_windup"],
+					"transitions": [
+						{
+							"plunge_fall": "v.plunge_fall"
+						},
+						{
+							"plunge_impact": "v.plunge_impact"
+						},
+						{
+							"pick": "v.pick"
+						}
+					],
+					"blend_transition": 0.02
+				},
+				"plunge_fall": {
+					"animations": ["anim.fp.plunge_fall"],
+					"transitions": [
+						{
+							"plunge_impact": "v.plunge_impact"
+						},
+						{
+							"pick": "v.pick"
+						}
+					],
+					"blend_transition": 0.02
+				},
+				"plunge_impact": {
+					"animations": ["anim.fp.plunge_impact"],
+					"transitions": [
+						{
+							"pick": "q.all_animations_finished || v.pick"
+						}
+					],
+					"blend_transition": 0.02
 				}
 			}
 		}

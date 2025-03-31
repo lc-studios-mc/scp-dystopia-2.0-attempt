@@ -1,0 +1,22 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "lc:scpdy_slasher_plunge_impact_particle_spawner",
+			"materials": {
+				"default": "entity"
+			},
+			"animations": {
+				"anim.general": "animation.scpdy_slasher_plunge_impact_particle_spawner.general"
+			},
+			"scripts": {
+				"animate": ["anim.general"],
+				"should_update_effects_offscreen": "1.0"
+			},
+			"particle_effects": {
+				"smash_1": "minecraft:smash_ground_particle_center",
+				"smash_2": "minecraft:smash_ground_particle"
+			}
+		}
+	}
+}

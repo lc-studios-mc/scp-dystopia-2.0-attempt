@@ -30,6 +30,9 @@
 				"anim.fp.slash_start": "animation.scpdy_slasher.fp.slash_start",
 				"anim.fp.slash_hold": "animation.scpdy_slasher.fp.slash_hold",
 				"anim.fp.slash_end": "animation.scpdy_slasher.fp.slash_end",
+				"anim.fp.plunge_windup": "animation.scpdy_slasher.fp.plunge_windup",
+				"anim.fp.plunge_fall": "animation.scpdy_slasher.fp.plunge_fall",
+				"anim.fp.plunge_impact": "animation.scpdy_slasher.fp.plunge_impact",
 				"anim.tp.override": "animation.scpdy_slasher.tp.override"
 			},
 			"scripts": {
@@ -56,6 +59,9 @@
 					"v.slash_continue = q.cooldown_time_remaining('scpdy_slasher_slash_continue_cd') > 0;",
 					"v.slash_hold = q.cooldown_time_remaining('scpdy_slasher_slash_hold_cd') > 0;",
 					"v.slash_end = q.cooldown_time_remaining('scpdy_slasher_slash_end_cd') > 0;",
+					"v.plunge_windup = q.cooldown_time_remaining('scpdy_plunge_windup_cd') > 0;",
+					"v.plunge_fall = q.cooldown_time_remaining('scpdy_plunge_fall_cd') > 0;",
+					"v.plunge_impact = q.cooldown_time_remaining('scpdy_plunge_impact_cd') > 0;",
 
 					// Saw cycle
 					"v.blade_speed = Math.lerp(v.blade_speed, v.blade_speed_a, 3.4 * q.delta_time);",
