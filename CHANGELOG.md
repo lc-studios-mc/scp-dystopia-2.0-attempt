@@ -6,6 +6,7 @@
 
 ### Added
 
+- SCP plushies.
 - Sink block.
 - Trash Bin block.
 
