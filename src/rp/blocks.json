@@ -449,6 +449,11 @@
 		"sound": "stone"
 	},
 	// #endregion
+	// #region furniture -> plushies
+	"lc:scpdy_scp096_plushie": {
+		"sound": "cloth"
+	},
+	// #endregion
 	// #region furniture -> shelves
 	"lc:scpdy_shelf_1": {
 		"sound": "stone"

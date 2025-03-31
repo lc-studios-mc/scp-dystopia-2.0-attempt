@@ -351,6 +351,11 @@
 			"textures": "textures/scpdy/blocks/furniture/office_chairs/3"
 		},
 		// #endregion
+		// #region furniture -> plushies
+		"scpdy_scp096_plushie": {
+			"textures": "textures/scpdy/blocks/furniture/plushies/scp096_plushie"
+		},
+		// #endregion
 		// #region furniture -> shelves
 		"scpdy_shelf_1_books": {
 			"textures": "textures/scpdy/blocks/furniture/shelves/shelf_1_books"

@@ -16,6 +16,7 @@ lc:scpdy_itemGroup_constructionWallBlocks=§7SCP:DY §8| §fConstruction (Walls)
 lc:scpdy_itemGroup_3dConstructionBlocks=§7SCP:DY §8| §f3D Construction Blocks
 lc:scpdy_itemGroup_keycardReaders=§7SCP:DY §8| §fKeycard Readers
 lc:scpdy_itemGroup_furnitureAndDecor=§7SCP:DY §8| §fFurniture & Decoration
+lc:scpdy_itemGroup_plushies=§7SCP:DY §8| §fPlushies
 lc:scpdy_itemGroup_booleanDoors=§7SCP:DY §8| §fBoolean Doors
 lc:scpdy_itemGroup_commandDoors=§7SCP:DY §8| §fCommand Doors
 lc:scpdy_itemGroup_lockdownDoors=§7SCP:DY §8| §fLockdown Doors
@@ -535,6 +536,9 @@ tile.lc:scpdy_connec_table_2.name=Connec™ Table 2
 tile.lc:scpdy_office_chair_1.name=Office Chair 1
 tile.lc:scpdy_office_chair_2.name=Office Chair 2
 tile.lc:scpdy_office_chair_3.name=Office Chair 3
+
+## blocks -> furniture -> plushies -> ...
+tile.lc:scpdy_scp096_plushie.name=SCP-096 Plushie
 
 ## blocks -> furniture -> shelves -> ...
 tile.lc:scpdy_shelf_1.name=Shelf 1 §e(+Variants)

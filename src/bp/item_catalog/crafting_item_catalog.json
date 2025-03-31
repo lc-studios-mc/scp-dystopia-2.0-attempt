@@ -114,6 +114,16 @@
 					},
 					{
 						"group_identifier": {
+							"icon": "lc:scpdy_scp096_plushie",
+							"name": "lc:scpdy_itemGroup_plushies"
+						},
+						// prettier-ignore
+						"items": [
+							"lc:scpdy_scp096_plushie"
+						]
+					},
+					{
+						"group_identifier": {
 							"icon": "lc:scpdy_standard_door_1",
 							"name": "lc:scpdy_itemGroup_standardDoors"
 						},
