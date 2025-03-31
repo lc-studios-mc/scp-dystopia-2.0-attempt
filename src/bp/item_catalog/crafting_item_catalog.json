@@ -117,7 +117,6 @@
 							"icon": "lc:scpdy_scp096_plushie",
 							"name": "lc:scpdy_itemGroup_plushies"
 						},
-						// prettier-ignore
 						"items": [
 							"lc:scpdy_scp096_plushie",
 							"lc:scpdy_scp427_1_plushie",

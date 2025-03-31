@@ -5,7 +5,6 @@
 			"identifier": "lc:scpdy_toilet_paper_roll"
 		},
 		"tags": ["crafting_table", "dystopia_craftbench", "scpdy_workbench"],
-		// prettier-ignore
 		"pattern": [
 			" PP",
 			"PSP",

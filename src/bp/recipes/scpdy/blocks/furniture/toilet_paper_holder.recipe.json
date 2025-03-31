@@ -5,7 +5,6 @@
 			"identifier": "lc:scpdy_recipe_toilet_paper_holder"
 		},
 		"tags": ["crafting_table", "dystopia_craftbench", "scpdy_workbench"],
-		// prettier-ignore
 		"pattern": [
 			"PI",
 			" I"

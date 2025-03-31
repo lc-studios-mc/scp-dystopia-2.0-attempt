@@ -1,9 +1,0 @@
-{
-	"useTabs": true,
-	"bracketSameLine": false,
-	"bracketSpacing": true,
-	"endOfLine": "crlf",
-	"printWidth": 100,
-	"singleQuote": false,
-	"trailingComma": "all"
-}
