@@ -5,11 +5,11 @@ import { BLOOD_ENTITY_TYPE } from "./shared";
 export function spreadBlood(dimension: mc.Dimension, location: mc.Vector3, fast?: boolean): void {
 	let spawnLoc: mc.Vector3;
 
-	const raycastHit = dimension.getBlockFromRay(location, vec3.DOWN, { maxDistance: 10 },);
+	const raycastHit = dimension.getBlockFromRay(location, vec3.DOWN, { maxDistance: 10 });
 
 	if (raycastHit) {
-		spawnLoc = vec3.add(raycastHit.block.location, raycastHit.faceLocation,);
-		spawnLoc = vec3.add(spawnLoc, { x: 0, y: 0.05, z: 0 },);
+		spawnLoc = vec3.add(raycastHit.block.location, raycastHit.faceLocation);
+		spawnLoc = vec3.add(spawnLoc, { x: 0, y: 0.05, z: 0 });
 	} else {
 		spawnLoc = {
 			x: location.x,
@@ -18,12 +18,12 @@ export function spreadBlood(dimension: mc.Dimension, location: mc.Vector3, fast?
 		};
 	}
 
-	const bloodEntity = dimension.spawnEntity(BLOOD_ENTITY_TYPE, spawnLoc,);
+	const bloodEntity = dimension.spawnEntity(BLOOD_ENTITY_TYPE, spawnLoc);
 
 	if (fast === true) {
-		bloodEntity.triggerEvent("blood:start_spreading_fast",);
+		bloodEntity.triggerEvent("blood:start_spreading_fast");
 	} else {
-		bloodEntity.triggerEvent("blood:start_spreading_slow",);
+		bloodEntity.triggerEvent("blood:start_spreading_slow");
 	}
 }
 

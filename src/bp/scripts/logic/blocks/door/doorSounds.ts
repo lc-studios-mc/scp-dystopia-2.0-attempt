@@ -131,11 +131,11 @@ const MAP = new Map<string, DoorSoundInfo>([
 			closeSound: { id: "scpdy.door.standard_door.close_metal", volume: 1.1 },
 		},
 	],
-],);
+]);
 
 /**
  * Returns sound-related info of the door type.
  */
 export function getDoorSoundInfo(doorBlockTypeId: string): DoorSoundInfo | undefined {
-	return MAP.get(doorBlockTypeId,);
+	return MAP.get(doorBlockTypeId);
 }

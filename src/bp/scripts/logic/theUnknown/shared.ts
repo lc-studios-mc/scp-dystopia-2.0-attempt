@@ -15,5 +15,5 @@ const UNKNOWN_RACE_MOB_TYPES: string[] = [
 ];
 
 export function isUnknownRace(entity: mc.Entity): boolean {
-	return UNKNOWN_RACE_MOB_TYPES.includes(entity.typeId,);
+	return UNKNOWN_RACE_MOB_TYPES.includes(entity.typeId);
 }

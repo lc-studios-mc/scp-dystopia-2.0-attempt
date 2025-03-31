@@ -14,5 +14,5 @@ function onHitEntity(arg: mc.ItemComponentHitEntityEvent): void {
 mc.system.beforeEvents.startup.subscribe((event) => {
 	event.itemComponentRegistry.registerCustomComponent("scpdy:remove_target_on_hit", {
 		onHitEntity,
-	},);
-},);
+	});
+});

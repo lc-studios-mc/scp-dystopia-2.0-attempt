@@ -12,11 +12,11 @@ import {
 import { removeCctvUsage, setCctvUsage } from "./tick";
 
 export function getCctvServerId(cctvMonitor: mc.Entity): string | undefined {
-	return ensureType(cctvMonitor.getDynamicProperty("serverId",), "string",);
+	return ensureType(cctvMonitor.getDynamicProperty("serverId"), "string");
 }
 
 export function setCctvServerId(cctvMonitor: mc.Entity, cctvServerId?: string): void {
-	cctvMonitor.setDynamicProperty("serverId", cctvServerId,);
+	cctvMonitor.setDynamicProperty("serverId", cctvServerId);
 }
 
 function onSelectCameraToUse(
@@ -27,11 +27,11 @@ function onSelectCameraToUse(
 ): void {
 	function stopCondition(): boolean {
 		try {
-			if (player.getComponent("health",)!.currentValue <= 0) return true;
-			if (cctvServer.getComponent("health",)!.currentValue <= 0) return true;
-			if (cctvCamera.getComponent("health",)!.currentValue <= 0) return true;
-			if (cctvMonitor.getComponent("health",)!.currentValue <= 0) return true;
-			if (vec3.distance(player.location, cctvMonitor.location,) > 3) return true;
+			if (player.getComponent("health")!.currentValue <= 0) return true;
+			if (cctvServer.getComponent("health")!.currentValue <= 0) return true;
+			if (cctvCamera.getComponent("health")!.currentValue <= 0) return true;
+			if (cctvMonitor.getComponent("health")!.currentValue <= 0) return true;
+			if (vec3.distance(player.location, cctvMonitor.location) > 3) return true;
 			if (player.isSneaking) return true;
 
 			return false;
@@ -45,7 +45,7 @@ function onSelectCameraToUse(
 		cctvServer,
 		cctvCamera,
 		stopCondition,
-	},);
+	});
 }
 
 async function showCameraList(
@@ -53,22 +53,22 @@ async function showCameraList(
 	cctvServer: mc.Entity,
 	cctvMonitor: mc.Entity,
 ): Promise<void> {
-	const cameraRefs = cctvServerMod.getCameraRefs(cctvServer,);
+	const cameraRefs = cctvServerMod.getCameraRefs(cctvServer);
 
 	const cameraListForm = new ActionFormData()
 		.title({
 			translate: "scpdy.form.cctvMonitor.chooseCamera.title",
-		},)
+		})
 		.body({
 			translate: "scpdy.form.cctvMonitor.chooseCamera.body",
 			with: [cameraRefs.length.toString()],
-		},);
+		});
 
 	const buttons: { label: mc.RawMessage; callback: () => Promise<void> }[] = [];
 
 	for (let cameraRefIndex = 0; cameraRefIndex < cameraRefs.length; cameraRefIndex++) {
 		const cameraRef = cameraRefs[cameraRefIndex]!;
-		const cameraEntity = mc.world.getEntity(cameraRef.entityId,);
+		const cameraEntity = mc.world.getEntity(cameraRef.entityId);
 
 		if (!cameraEntity || cameraEntity.dimension.id !== cctvServer.dimension.id) {
 			buttons.push({
@@ -79,9 +79,9 @@ async function showCameraList(
 				async callback() {
 					player.sendMessage({
 						translate: "scpdy.msg.cctvMonitor.cameraUnavailable",
-					},);
+					});
 				},
-			},);
+			});
 		} else {
 			buttons.push({
 				label: {
@@ -90,13 +90,13 @@ async function showCameraList(
 						cameraRefIndex.toString(),
 						cameraEntity.nameTag.trim()
 							? cameraEntity.nameTag
-							: `${vec3.toString(vec3.round(cameraEntity.location,),)}`,
+							: `${vec3.toString(vec3.round(cameraEntity.location))}`,
 					],
 				},
 				async callback() {
-					onSelectCameraToUse(player, cctvServer, cameraEntity, cctvMonitor,);
+					onSelectCameraToUse(player, cctvServer, cameraEntity, cctvMonitor);
 				},
-			},);
+			});
 		}
 	}
 
@@ -105,19 +105,19 @@ async function showCameraList(
 			translate: "scpdy.form.cctvMonitor.failedToGetServer.removeLinkButton",
 		},
 		async callback() {
-			setCctvServerId(cctvMonitor, undefined,);
+			setCctvServerId(cctvMonitor, undefined);
 
-			removeCctvUsage(player,);
+			removeCctvUsage(player);
 
-			player.sendMessage({ translate: "scpdy.msg.cctvMonitor.removedServerLink" },);
+			player.sendMessage({ translate: "scpdy.msg.cctvMonitor.removedServerLink" });
 		},
-	},);
+	});
 
 	for (const button of buttons) {
-		cameraListForm.button(button.label,);
+		cameraListForm.button(button.label);
 	}
 
-	const response = await cameraListForm.show(player,);
+	const response = await cameraListForm.show(player);
 
 	if (response.canceled || response.selection === undefined) {
 		return;
@@ -127,47 +127,47 @@ async function showCameraList(
 }
 
 function onInteract(player: mc.Player, cctvMonitor: mc.Entity): void {
-	if (vec3.distance(player.location, cctvMonitor.location,) > 3) {
+	if (vec3.distance(player.location, cctvMonitor.location) > 3) {
 		player.sendMessage({
 			translate: "scpdy.msg.cctvMonitor.tooFarFromMonitor",
-		},);
+		});
 		return;
 	}
 
-	const cctvServerId = getCctvServerId(cctvMonitor,);
+	const cctvServerId = getCctvServerId(cctvMonitor);
 
 	if (cctvServerId === undefined) {
 		new ActionFormData()
-			.title({ translate: "scpdy.form.cctvMonitor.notLinkedToServer.title" },)
-			.body({ translate: "scpdy.form.cctvMonitor.notLinkedToServer.body" },)
-			.button({ translate: "scpdy.form.misc.close" },)
-			.show(player,);
+			.title({ translate: "scpdy.form.cctvMonitor.notLinkedToServer.title" })
+			.body({ translate: "scpdy.form.cctvMonitor.notLinkedToServer.body" })
+			.button({ translate: "scpdy.form.misc.close" })
+			.show(player);
 
 		return;
 	}
 
-	const cctvServer = mc.world.getEntity(cctvServerId,);
+	const cctvServer = mc.world.getEntity(cctvServerId);
 
 	if (!cctvServer || cctvServer.typeId !== SERVER_ENTITY_TYPE) {
 		new ActionFormData()
-			.title({ translate: "scpdy.form.cctvMonitor.failedToGetServer.title" },)
-			.body({ translate: "scpdy.form.cctvMonitor.failedToGetServer.body" },)
-			.button({ translate: "scpdy.form.cctvMonitor.failedToGetServer.removeLinkButton" },)
-			.show(player,)
+			.title({ translate: "scpdy.form.cctvMonitor.failedToGetServer.title" })
+			.body({ translate: "scpdy.form.cctvMonitor.failedToGetServer.body" })
+			.button({ translate: "scpdy.form.cctvMonitor.failedToGetServer.removeLinkButton" })
+			.show(player)
 			.then((response) => {
 				if (response.canceled) return;
 
 				if (response.selection === 0) {
-					setCctvServerId(cctvMonitor,);
+					setCctvServerId(cctvMonitor);
 
-					player.sendMessage({ translate: "scpdy.msg.cctvMonitor.removedServerLink" },);
+					player.sendMessage({ translate: "scpdy.msg.cctvMonitor.removedServerLink" });
 				}
-			},);
+			});
 
 		return;
 	}
 
-	showCameraList(player, cctvServer, cctvMonitor,);
+	showCameraList(player, cctvServer, cctvMonitor);
 }
 
 mc.world.afterEvents.playerInteractWithEntity.subscribe((event) => {
@@ -175,5 +175,5 @@ mc.world.afterEvents.playerInteractWithEntity.subscribe((event) => {
 	if (event.itemStack?.typeId === LINKER_ITEM_TYPE) return;
 	if (event.itemStack?.typeId === TABLET_ITEM_TYPE) return;
 	if (event.player.isSneaking) return;
-	onInteract(event.player, event.target,);
-},);
+	onInteract(event.player, event.target);
+});

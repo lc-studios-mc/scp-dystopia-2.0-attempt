@@ -7,33 +7,33 @@ import * as mc from "@minecraft/server";
 import { SCP096_1_TAG, SCP096_ENTITY_TYPE } from "./shared";
 
 function onUpdateScp096(scp096Entity: mc.Entity): void {
-	const scp096State = scp096Entity.getProperty("lc:state",) as number;
-	const healthComp = scp096Entity.getComponent("health",)!;
+	const scp096State = scp096Entity.getProperty("lc:state") as number;
+	const healthComp = scp096Entity.getComponent("health")!;
 	const target = scp096Entity.target;
 
 	scp096Entity.addEffect("speed", 20, {
 		amplifier: scp096State === 2 ? 23 : 18,
 		showParticles: false,
-	},);
+	});
 
 	if (healthComp.currentValue < healthComp.effectiveMax - 700) {
-		healthComp.setCurrentValue(healthComp.effectiveMax - 699,);
+		healthComp.setCurrentValue(healthComp.effectiveMax - 699);
 	} else if (healthComp.currentValue < healthComp.effectiveMax) {
 		const healAmount = scp096State === 0 ? 4 : 1;
-		const newHealth = Math.floor(healthComp.currentValue + healAmount,);
+		const newHealth = Math.floor(healthComp.currentValue + healAmount);
 
-		healthComp.setCurrentValue(newHealth,);
+		healthComp.setCurrentValue(newHealth);
 	}
 
 	if (!target) return;
 
-	target.addTag(SCP096_1_TAG,);
+	target.addTag(SCP096_1_TAG);
 
 	if (scp096State !== 2) return;
 
-	const dirToTarget = vec3.sub(target.location, scp096Entity.location,);
+	const dirToTarget = vec3.sub(target.location, scp096Entity.location);
 
-	let yRotation = Math.atan2(dirToTarget.x, dirToTarget.z,) * (180 / Math.PI);
+	let yRotation = Math.atan2(dirToTarget.x, dirToTarget.z) * (180 / Math.PI);
 
 	if (yRotation > 180) {
 		yRotation -= 360;
@@ -41,17 +41,17 @@ function onUpdateScp096(scp096Entity: mc.Entity): void {
 		yRotation += 360;
 	}
 
-	scp096Entity.setProperty("lc:chase_body_y_rotation", -yRotation,);
+	scp096Entity.setProperty("lc:chase_body_y_rotation", -yRotation);
 
-	const distanceBetweenTarget = vec3.distance(scp096Entity.location, target.location,);
+	const distanceBetweenTarget = vec3.distance(scp096Entity.location, target.location);
 
 	if (distanceBetweenTarget < 2.9 && target.typeId === "minecraft:wither") {
 		target.applyDamage(33, {
 			cause: mc.EntityDamageCause.entityAttack,
 			damagingEntity: scp096Entity,
-		},);
+		});
 
-		onScp096HitWither(scp096Entity, target,);
+		onScp096HitWither(scp096Entity, target);
 	}
 
 	if (!CONFIG.advanced096Movement) return;
@@ -59,7 +59,7 @@ function onUpdateScp096(scp096Entity: mc.Entity): void {
 	// Stuck checker below
 
 	let ticksUntilNextLocCheck = ensureType(
-		scp096Entity.getDynamicProperty("ticksUntilNextLocCheck",),
+		scp096Entity.getDynamicProperty("ticksUntilNextLocCheck"),
 		"number",
 	);
 
@@ -69,7 +69,7 @@ function onUpdateScp096(scp096Entity: mc.Entity): void {
 
 	if (ticksUntilNextLocCheck <= 0) {
 		const lastCheckedLoc = ensureType(
-			scp096Entity.getDynamicProperty("lastCheckedLoc",),
+			scp096Entity.getDynamicProperty("lastCheckedLoc"),
 			"Vector3",
 		);
 
@@ -90,21 +90,21 @@ function onUpdateScp096(scp096Entity: mc.Entity): void {
 			const detectedStuck = dist < 0.8;
 
 			if (detectedStuck) {
-				onDetectedScp096Stuck(scp096Entity,);
+				onDetectedScp096Stuck(scp096Entity);
 			}
 		}
 
-		scp096Entity.setDynamicProperty("lastCheckedLoc", scp096Entity.location,);
+		scp096Entity.setDynamicProperty("lastCheckedLoc", scp096Entity.location);
 
-		ticksUntilNextLocCheck = randomInt(1, 3,);
+		ticksUntilNextLocCheck = randomInt(1, 3);
 	}
 
-	scp096Entity.setDynamicProperty("ticksUntilNextLocCheck", ticksUntilNextLocCheck - 1,);
+	scp096Entity.setDynamicProperty("ticksUntilNextLocCheck", ticksUntilNextLocCheck - 1);
 }
 
 function onDetectedScp096Stuck(scp096Entity: mc.Entity): void {
 	const dirToTarget = vec3.normalize(
-		vec3.sub(scp096Entity.target!.location, vec3.add(scp096Entity.location, vec3.UP,),),
+		vec3.sub(scp096Entity.target!.location, vec3.add(scp096Entity.location, vec3.UP)),
 	);
 
 	const isNearInXZ = vec3.distance(
@@ -122,16 +122,16 @@ function onDetectedScp096Stuck(scp096Entity: mc.Entity): void {
 
 	if (scp096Entity.location.y > scp096Entity.target!.location.y - 3) {
 		if (mc.world.gameRules.mobGriefing) {
-			scp096Entity.runCommand("setblock ~ ~-1 ~ air destroy",);
-			scp096Entity.runCommand("setblock ~1 ~-1 ~ air destroy",);
-			scp096Entity.runCommand("setblock ~-1 ~-1 ~ air destroy",);
-			scp096Entity.runCommand("setblock ~ ~-1 ~1 air destroy",);
-			scp096Entity.runCommand("setblock ~ ~-1 ~-1 air destroy",);
+			scp096Entity.runCommand("setblock ~ ~-1 ~ air destroy");
+			scp096Entity.runCommand("setblock ~1 ~-1 ~ air destroy");
+			scp096Entity.runCommand("setblock ~-1 ~-1 ~ air destroy");
+			scp096Entity.runCommand("setblock ~ ~-1 ~1 air destroy");
+			scp096Entity.runCommand("setblock ~ ~-1 ~-1 air destroy");
 
-			scp096Entity.runCommand("setblock ~1 ~-1 ~-1 air destroy",);
-			scp096Entity.runCommand("setblock ~-1 ~-1 ~1 air destroy",);
-			scp096Entity.runCommand("setblock ~-1 ~-1 ~1 air destroy",);
-			scp096Entity.runCommand("setblock ~1 ~-1 ~-1 air destroy",);
+			scp096Entity.runCommand("setblock ~1 ~-1 ~-1 air destroy");
+			scp096Entity.runCommand("setblock ~-1 ~-1 ~1 air destroy");
+			scp096Entity.runCommand("setblock ~-1 ~-1 ~1 air destroy");
+			scp096Entity.runCommand("setblock ~1 ~-1 ~-1 air destroy");
 		}
 	} else if (scp096Entity.location.y < scp096Entity.target!.location.y + 3) {
 		if (isNearInXZ && scp096Entity.location.y < 350) {
@@ -139,13 +139,13 @@ function onDetectedScp096Stuck(scp096Entity: mc.Entity): void {
 				scp096Entity.addEffect("levitation", 5, {
 					amplifier: 17,
 					showParticles: false,
-				},);
+				});
 
 				scp096Entity.addEffect("slow_falling", 20, {
 					amplifier: 1,
 					showParticles: false,
-				},);
-			},);
+				});
+			});
 		}
 
 		if (mc.world.gameRules.mobGriefing) {
@@ -158,50 +158,50 @@ function onDetectedScp096Stuck(scp096Entity: mc.Entity): void {
 			);
 
 			if (raycastHit) {
-				const locStr = vec3.toString2(raycastHit.block.center(),);
-				const locStr2 = vec3.toString2(vec3.add(raycastHit.block.center(), vec3.UP,),);
-				scp096Entity.runCommand(`setblock ${locStr} air destroy`,);
-				scp096Entity.runCommand(`setblock ${locStr2} air destroy`,);
+				const locStr = vec3.toString2(raycastHit.block.center());
+				const locStr2 = vec3.toString2(vec3.add(raycastHit.block.center(), vec3.UP));
+				scp096Entity.runCommand(`setblock ${locStr} air destroy`);
+				scp096Entity.runCommand(`setblock ${locStr2} air destroy`);
 			}
 
 			mc.system.run(() => {
-				scp096Entity.runCommand("setblock ~ ~2 ~ air destroy",);
-				scp096Entity.runCommand("setblock ~ ~3 ~ air destroy",);
-				scp096Entity.runCommand("setblock ~1 ~2 ~ air destroy",);
-				scp096Entity.runCommand("setblock ~-1 ~2 ~ air destroy",);
-				scp096Entity.runCommand("setblock ~ ~1 ~2 air destroy",);
-				scp096Entity.runCommand("setblock ~ ~1 ~-2 air destroy",);
+				scp096Entity.runCommand("setblock ~ ~2 ~ air destroy");
+				scp096Entity.runCommand("setblock ~ ~3 ~ air destroy");
+				scp096Entity.runCommand("setblock ~1 ~2 ~ air destroy");
+				scp096Entity.runCommand("setblock ~-1 ~2 ~ air destroy");
+				scp096Entity.runCommand("setblock ~ ~1 ~2 air destroy");
+				scp096Entity.runCommand("setblock ~ ~1 ~-2 air destroy");
 
-				scp096Entity.runCommand("setblock ~1 ~2 ~-1 air destroy",);
-				scp096Entity.runCommand("setblock ~-1 ~2 ~1 air destroy",);
-				scp096Entity.runCommand("setblock ~-1 ~2 ~1 air destroy",);
-				scp096Entity.runCommand("setblock ~1 ~2 ~-1 air destroy",);
-			},);
+				scp096Entity.runCommand("setblock ~1 ~2 ~-1 air destroy");
+				scp096Entity.runCommand("setblock ~-1 ~2 ~1 air destroy");
+				scp096Entity.runCommand("setblock ~-1 ~2 ~1 air destroy");
+				scp096Entity.runCommand("setblock ~1 ~2 ~-1 air destroy");
+			});
 		}
 	}
 
 	if (mc.world.gameRules.mobGriefing) {
-		scp096Entity.runCommand("setblock ~ ~ ~ air destroy",);
-		scp096Entity.runCommand("setblock ~ ~1 ~ air destroy",);
+		scp096Entity.runCommand("setblock ~ ~ ~ air destroy");
+		scp096Entity.runCommand("setblock ~ ~1 ~ air destroy");
 
-		scp096Entity.runCommand("setblock ~1 ~ ~ air destroy",);
-		scp096Entity.runCommand("setblock ~1 ~1 ~ air destroy",);
+		scp096Entity.runCommand("setblock ~1 ~ ~ air destroy");
+		scp096Entity.runCommand("setblock ~1 ~1 ~ air destroy");
 
-		scp096Entity.runCommand("setblock ~-1 ~ ~ air destroy",);
-		scp096Entity.runCommand("setblock ~-1 ~1 ~ air destroy",);
+		scp096Entity.runCommand("setblock ~-1 ~ ~ air destroy");
+		scp096Entity.runCommand("setblock ~-1 ~1 ~ air destroy");
 
-		scp096Entity.runCommand("setblock ~ ~ ~1 air destroy",);
-		scp096Entity.runCommand("setblock ~ ~1 ~1 air destroy",);
+		scp096Entity.runCommand("setblock ~ ~ ~1 air destroy");
+		scp096Entity.runCommand("setblock ~ ~1 ~1 air destroy");
 
-		scp096Entity.runCommand("setblock ~ ~ ~-1 air destroy",);
-		scp096Entity.runCommand("setblock ~ ~1 ~-1 air destroy",);
+		scp096Entity.runCommand("setblock ~ ~ ~-1 air destroy");
+		scp096Entity.runCommand("setblock ~ ~1 ~-1 air destroy");
 	}
 
-	scp096Entity.dimension.spawnParticle("minecraft:wind_explosion_emitter", scp096Entity.location,);
+	scp096Entity.dimension.spawnParticle("minecraft:wind_explosion_emitter", scp096Entity.location);
 
 	const smokeParticleVarMap = new mc.MolangVariableMap();
 
-	smokeParticleVarMap.setVector3("direction", dirToTarget,);
+	smokeParticleVarMap.setVector3("direction", dirToTarget);
 
 	scp096Entity.dimension.spawnParticle(
 		"lc:scpdy_scp096_leap_smoke_emitter",
@@ -209,7 +209,7 @@ function onDetectedScp096Stuck(scp096Entity: mc.Entity): void {
 		smokeParticleVarMap,
 	);
 
-	scp096Entity.applyImpulse(vec3.changeDir(vec3.mul(vec3.FORWARD, 2,), dirToTarget,),);
+	scp096Entity.applyImpulse(vec3.changeDir(vec3.mul(vec3.FORWARD, 2), dirToTarget));
 }
 
 function onScp096HitWither(scp096Entity: mc.Entity, wither: mc.Entity): void {
@@ -236,27 +236,27 @@ function onScp096HitWither(scp096Entity: mc.Entity, wither: mc.Entity): void {
 			z: wither.location.z,
 		};
 	} else {
-		witherStunLocation = vec3.add(raycastHit.block.bottomCenter(), vec3.UP,);
+		witherStunLocation = vec3.add(raycastHit.block.bottomCenter(), vec3.UP);
 	}
 
-	wither.teleport(witherStunLocation,);
+	wither.teleport(witherStunLocation);
 
 	let ticksUntilStunEnd = 20;
 
 	const stunRunId = mc.system.runInterval(() => {
 		try {
 			if (ticksUntilStunEnd <= 0) {
-				mc.system.clearRun(stunRunId,);
+				mc.system.clearRun(stunRunId);
 				return;
 			}
 
-			wither.teleport(witherStunLocation,);
+			wither.teleport(witherStunLocation);
 
 			ticksUntilStunEnd -= 1;
 		} catch {
-			mc.system.clearRun(stunRunId,);
+			mc.system.clearRun(stunRunId);
 		}
-	}, 1,);
+	}, 1);
 }
 
 function emitScp096AttackParticle(
@@ -264,13 +264,13 @@ function emitScp096AttackParticle(
 	location: mc.Vector3,
 	playSound: boolean,
 ): void {
-	dimension.spawnParticle("minecraft:critical_hit_emitter", vec3.add(location, vec3.UP,),);
+	dimension.spawnParticle("minecraft:critical_hit_emitter", vec3.add(location, vec3.UP));
 
 	if (!playSound) return;
 
 	dimension.playSound("scpdy.scp096.attack", location, {
 		volume: 8.0,
-	},);
+	});
 }
 
 function onScp096Attack(scp096Entity: mc.Entity): void {
@@ -278,19 +278,19 @@ function onScp096Attack(scp096Entity: mc.Entity): void {
 
 	if (!target) return;
 
-	const targetDist = vec3.distance(target.location, scp096Entity.location,);
+	const targetDist = vec3.distance(target.location, scp096Entity.location);
 
 	if (targetDist > 7) return;
 
 	if (target.isOnGround) {
-		scp096Entity.setDynamicProperty("ticksUntilNextLocCheck", 13,); // Delay stuck checker
+		scp096Entity.setDynamicProperty("ticksUntilNextLocCheck", 13); // Delay stuck checker
 	}
 
-	emitScp096AttackParticle(target.dimension, target.location, true,);
+	emitScp096AttackParticle(target.dimension, target.location, true);
 
-	target.getComponent("rideable",)?.ejectRiders();
+	target.getComponent("rideable")?.ejectRiders();
 
-	const targetHealthComp = target.getComponent("health",);
+	const targetHealthComp = target.getComponent("health");
 
 	let targetHealthCurrent = 1;
 	let targetHealthMax = 2;
@@ -301,21 +301,21 @@ function onScp096Attack(scp096Entity: mc.Entity): void {
 	}
 
 	const targetHealthBeforeAttack = targetHealthCurrent;
-	const dmg = Math.floor(Math.max(34, targetHealthMax / randomFloat(10, 12,),),);
+	const dmg = Math.floor(Math.max(34, targetHealthMax / randomFloat(10, 12)));
 
 	let damagedTarget = false;
 
 	damagedTarget = target.applyDamage(dmg, {
 		cause: mc.EntityDamageCause.override,
 		damagingEntity: scp096Entity,
-	},);
+	});
 
 	if (!damagedTarget) {
 		damagedTarget = targetHealthCurrent < targetHealthBeforeAttack;
 	}
 
 	if (target.typeId === "minecraft:wither") {
-		onScp096HitWither(target, target,);
+		onScp096HitWither(target, target);
 		return;
 	}
 
@@ -327,9 +327,9 @@ function onScp096Attack(scp096Entity: mc.Entity): void {
 		};
 
 		function explode(entity: mc.Entity): void {
-			entity.dimension.playSound("scpdy.gore.explode", entity.location, { volume: 1.6 },);
-			entity.dimension.spawnParticle("lc:scpdy_blood_splash_emitter", particleLoc,);
-			entity.dimension.spawnParticle("lc:scpdy_body_explosion_particle", particleLoc,);
+			entity.dimension.playSound("scpdy.gore.explode", entity.location, { volume: 1.6 });
+			entity.dimension.spawnParticle("lc:scpdy_blood_splash_emitter", particleLoc);
+			entity.dimension.spawnParticle("lc:scpdy_body_explosion_particle", particleLoc);
 
 			if (entity.typeId === "minecraft:ender_dragon") {
 				entity.kill();
@@ -339,14 +339,14 @@ function onScp096Attack(scp096Entity: mc.Entity): void {
 		}
 
 		const attackFailCount =
-			ensureType(target.getDynamicProperty("scp096AttackFailCount",), "number",) ?? 0;
+			ensureType(target.getDynamicProperty("scp096AttackFailCount"), "number") ?? 0;
 
 		if (attackFailCount > 69) {
-			explode(target,);
+			explode(target);
 			return;
 		}
 
-		target.setDynamicProperty("scp096AttackFailCount", attackFailCount + 1,);
+		target.setDynamicProperty("scp096AttackFailCount", attackFailCount + 1);
 	}
 }
 
@@ -358,9 +358,9 @@ function onScp096Die(oldScp096Entity: mc.Entity, damageSource: mc.EntityDamageSo
 	const location = oldScp096Entity.location;
 	const velocity = oldScp096Entity.getVelocity();
 	const hadTarget = oldScp096Entity.target !== undefined;
-	const oldHealthComp = oldScp096Entity.getComponent("health",)!;
+	const oldHealthComp = oldScp096Entity.getComponent("health")!;
 	const newHealthWhenRevive = oldHealthComp.effectiveMax - 1000;
-	const wasFaceHidden = oldScp096Entity.getProperty("lc:is_face_hidden",) === true;
+	const wasFaceHidden = oldScp096Entity.getProperty("lc:is_face_hidden") === true;
 
 	oldScp096Entity.remove();
 
@@ -370,12 +370,12 @@ function onScp096Die(oldScp096Entity: mc.Entity, damageSource: mc.EntityDamageSo
 		newScp096Type += "<scp096:spawn_angry>";
 	}
 
-	const newScp096Entity = dimension.spawnEntity(newScp096Type, location,);
+	const newScp096Entity = dimension.spawnEntity(newScp096Type, location);
 
-	newScp096Entity.applyImpulse(velocity,);
-	newScp096Entity.getComponent("health",)!.setCurrentValue(newHealthWhenRevive,);
+	newScp096Entity.applyImpulse(velocity);
+	newScp096Entity.getComponent("health")!.setCurrentValue(newHealthWhenRevive);
 
-	newScp096Entity.setProperty("lc:is_face_hidden", wasFaceHidden,);
+	newScp096Entity.setProperty("lc:is_face_hidden", wasFaceHidden);
 
 	if (damageSource.damagingEntity) {
 		const damagerDist = vec3.distance(
@@ -384,10 +384,10 @@ function onScp096Die(oldScp096Entity: mc.Entity, damageSource: mc.EntityDamageSo
 		);
 
 		if (damagerDist < 5) {
-			damageSource.damagingEntity.applyDamage(randomInt(350, 400,), {
+			damageSource.damagingEntity.applyDamage(randomInt(350, 400), {
 				cause: mc.EntityDamageCause.entityAttack,
 				damagingEntity: newScp096Entity,
-			},);
+			});
 		}
 	}
 }
@@ -395,7 +395,7 @@ function onScp096Die(oldScp096Entity: mc.Entity, damageSource: mc.EntityDamageSo
 function isCreativeOrSpectator(entity: mc.Entity): boolean {
 	return (
 		entity instanceof mc.Player &&
-		[mc.GameMode.creative, mc.GameMode.spectator].includes(entity.getGameMode(),)
+		[mc.GameMode.creative, mc.GameMode.spectator].includes(entity.getGameMode())
 	);
 }
 
@@ -403,7 +403,7 @@ mc.world.afterEvents.dataDrivenEntityTrigger.subscribe(
 	(event) => {
 		event.entity.dimension.playSound("scpdy.scp096.triggered_scream", event.entity.location, {
 			volume: 10.0,
-		},);
+		});
 	},
 	{
 		entityTypes: [SCP096_ENTITY_TYPE],
@@ -413,7 +413,7 @@ mc.world.afterEvents.dataDrivenEntityTrigger.subscribe(
 
 mc.world.afterEvents.dataDrivenEntityTrigger.subscribe(
 	(event) => {
-		onScp096Attack(event.entity,);
+		onScp096Attack(event.entity);
 	},
 	{
 		entityTypes: [SCP096_ENTITY_TYPE],
@@ -437,7 +437,7 @@ mc.system.afterEvents.scriptEventReceive.subscribe(
 		if (!event.sourceEntity) return;
 		if (event.sourceEntity.typeId !== SCP096_ENTITY_TYPE) return;
 
-		onUpdateScp096(event.sourceEntity,);
+		onUpdateScp096(event.sourceEntity);
 	},
 	{
 		namespaces: ["scpdy"],
@@ -446,7 +446,7 @@ mc.system.afterEvents.scriptEventReceive.subscribe(
 
 mc.world.afterEvents.entityDie.subscribe(
 	(event) => {
-		onScp096Die(event.deadEntity, event.damageSource,);
+		onScp096Die(event.deadEntity, event.damageSource);
 	},
 	{
 		entityTypes: [SCP096_ENTITY_TYPE],
@@ -455,7 +455,7 @@ mc.world.afterEvents.entityDie.subscribe(
 
 mc.world.afterEvents.entityDie.subscribe(
 	(event) => {
-		event.deadEntity.removeTag(SCP096_1_TAG,);
+		event.deadEntity.removeTag(SCP096_1_TAG);
 	},
 	{
 		entityTypes: ["minecraft:player"],
@@ -465,9 +465,9 @@ mc.world.afterEvents.entityDie.subscribe(
 mc.world.afterEvents.entityHurt.subscribe(
 	(event) => {
 		if (!event.damageSource.damagingEntity) return;
-		if (isCreativeOrSpectator(event.damageSource.damagingEntity,)) return;
+		if (isCreativeOrSpectator(event.damageSource.damagingEntity)) return;
 
-		event.damageSource.damagingEntity.addTag(SCP096_1_TAG,);
+		event.damageSource.damagingEntity.addTag(SCP096_1_TAG);
 	},
 	{
 		entityTypes: [SCP096_ENTITY_TYPE],
@@ -475,5 +475,5 @@ mc.world.afterEvents.entityHurt.subscribe(
 );
 
 mc.world.afterEvents.playerGameModeChange.subscribe((event) => {
-	event.player.removeTag(SCP096_1_TAG,);
-},);
+	event.player.removeTag(SCP096_1_TAG);
+});

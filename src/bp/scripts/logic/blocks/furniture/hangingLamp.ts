@@ -9,29 +9,29 @@ function updateHangingLamp(block: mc.Block, isFirst = true): void {
 	if (block.typeId === HANGING_LAMP_TYPE_ID) {
 		block.setPermutation(
 			block.permutation
-				.withState("lc:show_base", blockAbove?.typeId !== HANGING_LAMP_TYPE_ID,)
-				.withState("lc:is_extension", blockBelow?.typeId === HANGING_LAMP_TYPE_ID,),
+				.withState("lc:show_base", blockAbove?.typeId !== HANGING_LAMP_TYPE_ID)
+				.withState("lc:is_extension", blockBelow?.typeId === HANGING_LAMP_TYPE_ID),
 		);
 	}
 
 	if (!isFirst) return;
 
-	if (blockAbove) updateHangingLamp(blockAbove, false,);
+	if (blockAbove) updateHangingLamp(blockAbove, false);
 
-	if (blockBelow) updateHangingLamp(blockBelow, false,);
+	if (blockBelow) updateHangingLamp(blockBelow, false);
 }
 
 function onPlace(arg: mc.BlockComponentOnPlaceEvent): void {
-	updateHangingLamp(arg.block,);
+	updateHangingLamp(arg.block);
 }
 
 function onPlayerDestroy(arg: mc.BlockComponentPlayerDestroyEvent): void {
-	updateHangingLamp(arg.block,);
+	updateHangingLamp(arg.block);
 }
 
 mc.system.beforeEvents.startup.subscribe((event) => {
 	event.blockComponentRegistry.registerCustomComponent("scpdy:hanging_lamp", {
 		onPlace,
 		onPlayerDestroy,
-	},);
-},);
+	});
+});

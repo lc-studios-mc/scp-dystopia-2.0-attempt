@@ -17,25 +17,25 @@ export function equipMag(args: EquipMagArgs): boolean {
 
 	const magItemSlot = getContainerSlot(inventoryContainer, (slot) => {
 		return slot.hasItem() && slot.typeId === magItemTypeId;
-	},);
+	});
 
 	if (!magItemSlot) return false;
 
 	const offhandItem = offhandSlot.getItem();
 
-	if (!force && offhandItem && !offhandItem.hasTag("scpdy:mag",)) return false;
+	if (!force && offhandItem && !offhandItem.hasTag("scpdy:mag")) return false;
 
 	if (offhandItem) {
 		mc.system.run(() => {
-			player.getComponent("inventory",)?.container?.addItem(offhandItem,);
-		},);
+			player.getComponent("inventory")?.container?.addItem(offhandItem);
+		});
 	}
 
 	const magItem = magItemSlot.getItem()!;
-	offhandSlot.setItem(magItem,);
+	offhandSlot.setItem(magItem);
 	magItemSlot.setItem();
 
-	player.dimension.playSound("scpdy.gun.magazine.equip", player.location,);
+	player.dimension.playSound("scpdy.gun.magazine.equip", player.location);
 
 	return true;
 }

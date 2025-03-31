@@ -43,8 +43,8 @@ const COOLDOWN_IDS = {
 
 registerAdvancedItemProfile({
 	itemTypeId: "lc:scpdy_gun_mp5sd",
-	createInstance: (args) => new MP5SD(args,),
-},);
+	createInstance: (args) => new MP5SD(args),
+});
 
 /**
  * MP5-SD submachine gun
@@ -71,11 +71,11 @@ class MP5SD extends AdvancedItem {
 	private tryReloadingNextTick = false;
 
 	constructor(args: AdvancedItemBaseConstructorArgs) {
-		super(args,);
+		super(args);
 
-		this.playerInventoryContainer = args.player.getComponent("inventory",)!.container!;
+		this.playerInventoryContainer = args.player.getComponent("inventory")!.container!;
 
-		args.player.startItemCooldown(COOLDOWN_IDS.pick, 2,);
+		args.player.startItemCooldown(COOLDOWN_IDS.pick, 2);
 
 		equipMag({
 			player: this.player,
@@ -83,9 +83,9 @@ class MP5SD extends AdvancedItem {
 			offhandSlot: this.playerOffhand,
 			magItemTypeId: MAG_ITEM_TYPE_ID,
 			force: false,
-		},);
+		});
 
-		args.player.playAnimation("animation.scpdy_player.mp5.pick",);
+		args.player.playAnimation("animation.scpdy_player.mp5.pick");
 		this.tpAnimVars.ticksUntilSpecialAnimTimeEnd = 8;
 	}
 
@@ -111,11 +111,11 @@ class MP5SD extends AdvancedItem {
 		}
 
 		if (this.tpAnimVars.isADS && !this.tpAnimVars.wasADS) {
-			this.playTPAnimIfNotDuringSpecialAnimTime("animation.scpdy_player.mp5.ready_to_aim",);
+			this.playTPAnimIfNotDuringSpecialAnimTime("animation.scpdy_player.mp5.ready_to_aim");
 			this.tpAnimVars.ticksUntilADSTransitionEnd = 4;
 			this.tpAnimVars.wasADS = true;
 		} else if (!this.tpAnimVars.isADS && this.tpAnimVars.wasADS) {
-			this.playTPAnimIfNotDuringSpecialAnimTime("animation.scpdy_player.mp5.aim_to_ready",);
+			this.playTPAnimIfNotDuringSpecialAnimTime("animation.scpdy_player.mp5.aim_to_ready");
 			this.tpAnimVars.ticksUntilADSTransitionEnd = 4;
 			this.tpAnimVars.wasADS = false;
 		}
@@ -131,12 +131,12 @@ class MP5SD extends AdvancedItem {
 
 	private playTPAnimIfNotDuringSpecialAnimTime(id: string): void {
 		if (this.tpAnimVars.ticksUntilSpecialAnimTimeEnd > 0) return;
-		this.player.playAnimation(id,);
+		this.player.playAnimation(id);
 	}
 
 	onTick_1(): void {
-		const cdReload = this.player.getItemCooldown(COOLDOWN_IDS.reload,);
-		const cdReloadTac = this.player.getItemCooldown(COOLDOWN_IDS.reloadTac,);
+		const cdReload = this.player.getItemCooldown(COOLDOWN_IDS.reload);
+		const cdReloadTac = this.player.getItemCooldown(COOLDOWN_IDS.reloadTac);
 		const dontAim = cdReload > 0 || cdReloadTac > 0;
 
 		// Update aimTick
@@ -169,19 +169,19 @@ class MP5SD extends AdvancedItem {
 			this.player.addEffect("slowness", 3, {
 				amplifier: 0,
 				showParticles: false,
-			},);
+			});
 
 			if (!this.wasCrosshairHidden) {
 				this.player.onScreenDisplay.setHudVisibility(mc.HudVisibility.Hide, [
 					mc.HudElement.Crosshair,
-				],);
+				]);
 
 				this.wasCrosshairHidden = true;
 			}
 		} else if (this.wasCrosshairHidden) {
 			this.player.onScreenDisplay.setHudVisibility(mc.HudVisibility.Reset, [
 				mc.HudElement.Crosshair,
-			],);
+			]);
 
 			this.wasCrosshairHidden = false;
 		}
@@ -192,21 +192,21 @@ class MP5SD extends AdvancedItem {
 			// Stop reload just in case if mag was removed during reload
 			if (this.reloadData) {
 				this.reloadData = undefined;
-				this.player.startItemCooldown(COOLDOWN_IDS.reload, 0,);
-				this.player.startItemCooldown(COOLDOWN_IDS.reloadTac, 0,);
+				this.player.startItemCooldown(COOLDOWN_IDS.reload, 0);
+				this.player.startItemCooldown(COOLDOWN_IDS.reloadTac, 0);
 			}
 
 			this.player.onScreenDisplay.setActionBar({
 				translate: "scpdy.actionHint.gun.noMagInInventory",
-			},);
+			});
 
 			return;
 		}
 
-		const magAmmoType = getAmmoType(magItemStack,)!;
-		const magDurabilityComp = magItemStack.getComponent("durability",)!;
+		const magAmmoType = getAmmoType(magItemStack)!;
+		const magDurabilityComp = magItemStack.getComponent("durability")!;
 		const magAmmoCountNow = magDurabilityComp.maxDurability - magDurabilityComp.damage;
-		const invAmmoCountNow = getTotalAmmoCount(this.playerInventoryContainer, magAmmoType,);
+		const invAmmoCountNow = getTotalAmmoCount(this.playerInventoryContainer, magAmmoType);
 
 		// Display ammo count
 		const ammoDisplayText = getAmmoDisplayText(
@@ -214,10 +214,10 @@ class MP5SD extends AdvancedItem {
 			magDurabilityComp.maxDurability,
 			invAmmoCountNow,
 		);
-		this.player.onScreenDisplay.setActionBar(`${ammoDisplayText}`,);
+		this.player.onScreenDisplay.setActionBar(`${ammoDisplayText}`);
 
 		if (this.currentTick < PICK_DURATION) return; // Stop here if still picking
-		if (this.player.getItemCooldown(COOLDOWN_IDS.shootScript,) > 0) return; // Stop here if still shooting
+		if (this.player.getItemCooldown(COOLDOWN_IDS.shootScript) > 0) return; // Stop here if still shooting
 
 		if (this.isUsingToShoot) {
 			if (magAmmoCountNow <= 0) {
@@ -227,13 +227,13 @@ class MP5SD extends AdvancedItem {
 				return;
 			}
 
-			if (this.player.getItemCooldown(COOLDOWN_IDS.shootScript,) > 0) return;
+			if (this.player.getItemCooldown(COOLDOWN_IDS.shootScript) > 0) return;
 
 			this.shotsFired++;
-			this.shoot(isADS,);
+			this.shoot(isADS);
 
 			magDurabilityComp.damage++;
-			this.playerOffhand.setItem(magItemStack,);
+			this.playerOffhand.setItem(magItemStack);
 
 			return;
 		}
@@ -258,29 +258,29 @@ class MP5SD extends AdvancedItem {
 			// Cancel reload if ammo count (both mag and inventory) is 0
 			if (magAmmoCountNow <= 0 && invAmmoCountNow <= 0) {
 				this.reloadData = undefined;
-				this.player.startItemCooldown(COOLDOWN_IDS.reload, 0,);
-				this.player.startItemCooldown(COOLDOWN_IDS.reloadTac, 0,);
+				this.player.startItemCooldown(COOLDOWN_IDS.reload, 0);
+				this.player.startItemCooldown(COOLDOWN_IDS.reloadTac, 0);
 				return;
 			}
 
 			if (this.reloadData.tac) {
 				if (this.reloadData.tick === 0) {
-					this.player.startItemCooldown(COOLDOWN_IDS.reloadTac, 32,);
+					this.player.startItemCooldown(COOLDOWN_IDS.reloadTac, 32);
 
-					this.player.playAnimation("animation.scpdy_player.mp5.reload_tac",);
+					this.player.playAnimation("animation.scpdy_player.mp5.reload_tac");
 					this.tpAnimVars.ticksUntilSpecialAnimTimeEnd = 32;
 				}
 
 				if (this.reloadData.tick === 4) {
-					this.player.runCommand("camerashake add @s 0.01 0.2 rotational",);
+					this.player.runCommand("camerashake add @s 0.01 0.2 rotational");
 
-					this.playSoundAtHead("scpdy.gun.mp5sd.mag_remove", { volume: 1.2 },);
+					this.playSoundAtHead("scpdy.gun.mp5sd.mag_remove", { volume: 1.2 });
 				}
 
 				if (this.reloadData.tick === 18) {
-					this.player.runCommand("camerashake add @s 0.02 0.08 rotational",);
+					this.player.runCommand("camerashake add @s 0.02 0.08 rotational");
 
-					this.playSoundAtHead("scpdy.gun.mp5sd.mag_attach", { volume: 1.2 },);
+					this.playSoundAtHead("scpdy.gun.mp5sd.mag_attach", { volume: 1.2 });
 
 					const reloadAmount = removeAmmo(
 						this.playerInventoryContainer,
@@ -288,7 +288,7 @@ class MP5SD extends AdvancedItem {
 						magDurabilityComp.damage,
 					);
 					magDurabilityComp.damage -= reloadAmount;
-					this.playerOffhand.setItem(magItemStack,);
+					this.playerOffhand.setItem(magItemStack);
 				}
 
 				if (this.reloadData.tick === 32) {
@@ -297,34 +297,34 @@ class MP5SD extends AdvancedItem {
 				}
 			} else {
 				if (this.reloadData.tick === 0) {
-					this.player.startItemCooldown(COOLDOWN_IDS.reload, 52,);
+					this.player.startItemCooldown(COOLDOWN_IDS.reload, 52);
 
-					this.player.playAnimation("animation.scpdy_player.mp5.reload",);
+					this.player.playAnimation("animation.scpdy_player.mp5.reload");
 					this.tpAnimVars.ticksUntilSpecialAnimTimeEnd = 52;
 				}
 
 				if (this.reloadData.tick === 2) {
-					this.player.runCommand("camerashake add @s 0.01 0.1 rotational",);
+					this.player.runCommand("camerashake add @s 0.01 0.1 rotational");
 
-					this.playSoundAtHead("scpdy.gun.mp5sd.ch_pull", { volume: 1.2 },);
+					this.playSoundAtHead("scpdy.gun.mp5sd.ch_pull", { volume: 1.2 });
 				}
 
 				if (this.reloadData.tick === 10) {
-					this.player.runCommand("camerashake add @s 0.01 0.2 rotational",);
+					this.player.runCommand("camerashake add @s 0.01 0.2 rotational");
 
-					this.playSoundAtHead("scpdy.gun.mp5sd.mag_remove", { volume: 1.2 },);
+					this.playSoundAtHead("scpdy.gun.mp5sd.mag_remove", { volume: 1.2 });
 				}
 
 				if (this.reloadData.tick === 27) {
-					this.player.runCommand("camerashake add @s 0.015 0.1 rotational",);
+					this.player.runCommand("camerashake add @s 0.015 0.1 rotational");
 
-					this.playSoundAtHead("scpdy.gun.mp5sd.mag_attach", { volume: 1.2 },);
+					this.playSoundAtHead("scpdy.gun.mp5sd.mag_attach", { volume: 1.2 });
 				}
 
 				if (this.reloadData.tick === 37) {
-					this.player.runCommand("camerashake add @s 0.02 0.1 rotational",);
+					this.player.runCommand("camerashake add @s 0.02 0.1 rotational");
 
-					this.playSoundAtHead("scpdy.gun.mp5sd.ch_slap", { volume: 1.2 },);
+					this.playSoundAtHead("scpdy.gun.mp5sd.ch_slap", { volume: 1.2 });
 
 					const reloadAmount = removeAmmo(
 						this.playerInventoryContainer,
@@ -332,7 +332,7 @@ class MP5SD extends AdvancedItem {
 						magDurabilityComp.damage,
 					);
 					magDurabilityComp.damage -= reloadAmount;
-					this.playerOffhand.setItem(magItemStack,);
+					this.playerOffhand.setItem(magItemStack);
 				}
 
 				if (this.reloadData.tick === 53) {
@@ -350,15 +350,15 @@ class MP5SD extends AdvancedItem {
 	onRemove(): void {
 		this.player.onScreenDisplay.setHudVisibility(mc.HudVisibility.Reset, [
 			mc.HudElement.Crosshair,
-		],);
-		this.player.playAnimation("animation.scpdy_player.mp5.remove",);
+		]);
+		this.player.playAnimation("animation.scpdy_player.mp5.remove");
 	}
 
 	isUsable(): boolean {
 		if (this.currentTick < PICK_DURATION) return false;
 		if (this.tryReloadingNextTick) return false;
 		if (this.reloadData) return false;
-		if (this.player.getItemCooldown(COOLDOWN_IDS.shootScript,) > 0) return false;
+		if (this.player.getItemCooldown(COOLDOWN_IDS.shootScript) > 0) return false;
 
 		return true;
 	}
@@ -370,16 +370,16 @@ class MP5SD extends AdvancedItem {
 			offhandSlot: this.playerOffhand,
 			magItemTypeId: MAG_ITEM_TYPE_ID,
 			force: true,
-		},);
+		});
 
 		if (!equipMagResult) return; // Mag was not found in inventory
 
-		this.player.playSound("scpdy.gun.trigger_click",);
+		this.player.playSound("scpdy.gun.trigger_click");
 
 		const magItemStack = this.playerOffhand.getItem();
 		if (!magItemStack) return;
 
-		const magDurabilityComp = magItemStack.getComponent("durability",);
+		const magDurabilityComp = magItemStack.getComponent("durability");
 		if (!magDurabilityComp) return;
 
 		const magAmmoCountNow = magDurabilityComp.maxDurability - magDurabilityComp.damage;
@@ -418,7 +418,7 @@ class MP5SD extends AdvancedItem {
 	private playSoundAtHead(soundId: string, options?: mc.WorldSoundOptions): void {
 		this.player.dimension.playSound(
 			soundId,
-			vec3.add(this.player.getHeadLocation(), this.player.getViewDirection(),),
+			vec3.add(this.player.getHeadLocation(), this.player.getViewDirection()),
 			options,
 		);
 	}
@@ -439,7 +439,7 @@ class MP5SD extends AdvancedItem {
 
 		// Get location relative to player head
 		const muzzleLoc = vec3.add(
-			vec3.getRelativeToHead(this.player.getHeadLocation(), this.player.getViewDirection(), move,),
+			vec3.getRelativeToHead(this.player.getHeadLocation(), this.player.getViewDirection(), move),
 			this.player.getVelocity(),
 		);
 
@@ -449,18 +449,18 @@ class MP5SD extends AdvancedItem {
 	private shoot(ads: boolean) {
 		const shotsFired = this.shotsFired;
 
-		this.player.startItemCooldown(COOLDOWN_IDS.shootScript, 1.5,);
+		this.player.startItemCooldown(COOLDOWN_IDS.shootScript, 1.5);
 
 		// Play shoot animation
-		if (this.player.getItemCooldown(COOLDOWN_IDS.shoot1,) > 0) {
-			this.player.startItemCooldown(COOLDOWN_IDS.shoot1, 0,);
-			this.player.startItemCooldown(COOLDOWN_IDS.shoot2, 15,);
+		if (this.player.getItemCooldown(COOLDOWN_IDS.shoot1) > 0) {
+			this.player.startItemCooldown(COOLDOWN_IDS.shoot1, 0);
+			this.player.startItemCooldown(COOLDOWN_IDS.shoot2, 15);
 		} else {
-			this.player.startItemCooldown(COOLDOWN_IDS.shoot2, 0,);
-			this.player.startItemCooldown(COOLDOWN_IDS.shoot1, 15,);
+			this.player.startItemCooldown(COOLDOWN_IDS.shoot2, 0);
+			this.player.startItemCooldown(COOLDOWN_IDS.shoot1, 15);
 		}
 
-		this.player.playAnimation("animation.scpdy_player.mp5.shoot",);
+		this.player.playAnimation("animation.scpdy_player.mp5.shoot");
 		this.tpAnimVars.ticksUntilSpecialAnimTimeEnd = 9;
 		this.tpAnimVars.ticksUntilStopADS = 600;
 
@@ -469,15 +469,15 @@ class MP5SD extends AdvancedItem {
 		const bulletSpread = shotsFired === 1
 			? 0
 			: (0.01 +
-				Math.min(0.15, (ads ? 0.02 : 0.03) * shotsFired,) +
-				Math.min(0.1, vec3.length(this.player.getVelocity(),) / 4,)) *
+				Math.min(0.15, (ads ? 0.02 : 0.03) * shotsFired) +
+				Math.min(0.1, vec3.length(this.player.getVelocity()) / 4)) *
 				0.23;
 
 		const shootBulletVelocity: mc.Vector3 = vec3
-			.chain(vec3.FORWARD,)
-			.scale(9.3,)
-			.changeDir(this.player.getViewDirection(),)
-			.rotateRad(vec3.random(), randomFloat(-bulletSpread, bulletSpread,),)
+			.chain(vec3.FORWARD)
+			.scale(9.3)
+			.changeDir(this.player.getViewDirection())
+			.rotateRad(vec3.random(), randomFloat(-bulletSpread, bulletSpread))
 			.done();
 
 		shootBullet("default", {
@@ -514,11 +514,11 @@ class MP5SD extends AdvancedItem {
 					type: "removeBullet",
 				},
 			],
-		},);
+		});
 
-		const muzzleLoc = this.getMuzzleLocation(ads,);
+		const muzzleLoc = this.getMuzzleLocation(ads);
 
-		this.player.dimension.spawnParticle("lc:scpdy_muzzle_smoke_emitter", muzzleLoc,);
+		this.player.dimension.spawnParticle("lc:scpdy_muzzle_smoke_emitter", muzzleLoc);
 
 		// Spawn empty casing drop particle
 		{
@@ -539,23 +539,23 @@ class MP5SD extends AdvancedItem {
 			);
 
 			const viewDirection = this.player.getViewDirection();
-			const rightDirection = vec3.cross(viewDirection, vec3.UP,); // 右方向を計算
+			const rightDirection = vec3.cross(viewDirection, vec3.UP); // 右方向を計算
 
 			const particleDirection = vec3.add(
 				vec3.add(
-					vec3.scale(viewDirection, -randomFloat(1.3, 1.5,),), // Go backwards
-					vec3.scale(rightDirection, randomFloat(0.6, 0.7,),), // Go right
+					vec3.scale(viewDirection, -randomFloat(1.3, 1.5)), // Go backwards
+					vec3.scale(rightDirection, randomFloat(0.6, 0.7)), // Go right
 				),
 				vec3.fromPartial({
-					x: randomFloat(-0.1, 0.1,),
-					y: randomFloat(1.1, 1.3,), // Go up
-					z: randomFloat(-0.1, 0.1,),
-				},),
+					x: randomFloat(-0.1, 0.1),
+					y: randomFloat(1.1, 1.3), // Go up
+					z: randomFloat(-0.1, 0.1),
+				}),
 			);
 
 			const molangVarMap = new mc.MolangVariableMap();
-			molangVarMap.setFloat("speed", 6,);
-			molangVarMap.setVector3("direction", particleDirection,);
+			molangVarMap.setFloat("speed", 6);
+			molangVarMap.setVector3("direction", particleDirection);
 
 			this.player.dimension.spawnParticle(
 				"lc:scpdy_bullet_casing_drop_var0_particle",
@@ -567,10 +567,10 @@ class MP5SD extends AdvancedItem {
 		// Play sound
 		this.playSoundAtHead("scpdy.gun.mp5sd.shoot", {
 			volume: 1.4,
-			pitch: randomFloat(0.95, 1.05,),
-		},);
+			pitch: randomFloat(0.95, 1.05),
+		});
 
-		const camShakeAmount = Math.min(0.1, 0.01 + (ads ? 0.0005 : 0.001) * this.shotsFired,);
-		this.player.runCommand(`camerashake add @s ${camShakeAmount} 0.05 rotational`,);
+		const camShakeAmount = Math.min(0.1, 0.01 + (ads ? 0.0005 : 0.001) * this.shotsFired);
+		this.player.runCommand(`camerashake add @s ${camShakeAmount} 0.05 rotational`);
 	}
 }

@@ -11,7 +11,7 @@ const LOOT_MAP = new Map<string, HumanMobLootData>([
 		HUMAN_MOB_TYPES.f_tro,
 		{
 			getItemStacks() {
-				return [new mc.ItemStack("lc:scpdy_ammo_9mm", randomInt(7, 10,),)];
+				return [new mc.ItemStack("lc:scpdy_ammo_9mm", randomInt(7, 10))];
 			},
 		},
 	],
@@ -19,12 +19,12 @@ const LOOT_MAP = new Map<string, HumanMobLootData>([
 		HUMAN_MOB_TYPES.f_mtf_epsilon11,
 		{
 			getItemStacks() {
-				return [new mc.ItemStack("lc:scpdy_ammo_556mm", randomInt(11, 14,),)];
+				return [new mc.ItemStack("lc:scpdy_ammo_556mm", randomInt(11, 14))];
 			},
 		},
 	],
-],);
+]);
 
 export function getHumanMobLootData(entityTypeId: string): HumanMobLootData | undefined {
-	return LOOT_MAP.get(entityTypeId,);
+	return LOOT_MAP.get(entityTypeId);
 }

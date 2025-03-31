@@ -112,7 +112,7 @@ export function shootBullet(bulletType: BulletType, shootOptions: ShootOptions):
 		},
 	);
 
-	entity.applyImpulse(shootOptions.initialVelocity,);
+	entity.applyImpulse(shootOptions.initialVelocity);
 
 	FLYING_BULLET_MAP.set(entity.id, {
 		bulletType,
@@ -123,11 +123,11 @@ export function shootBullet(bulletType: BulletType, shootOptions: ShootOptions):
 			hitEntityCount: 0,
 			stopCurrentEventSequence: false,
 		},
-	},);
+	});
 }
 
 mc.world.afterEvents.projectileHitBlock.subscribe((hitEvent) => {
-	const flyingBulletInfo = FLYING_BULLET_MAP.get(hitEvent.projectile.id,);
+	const flyingBulletInfo = FLYING_BULLET_MAP.get(hitEvent.projectile.id);
 
 	if (!flyingBulletInfo) return;
 
@@ -151,19 +151,19 @@ mc.world.afterEvents.projectileHitBlock.subscribe((hitEvent) => {
 			const event = events[i]!;
 
 			if (event.condition !== undefined) {
-				if (!event.condition(hitEvent, flyingBulletInfo.sharedState,)) continue;
+				if (!event.condition(hitEvent, flyingBulletInfo.sharedState)) continue;
 			}
 
 			if (flyingBulletInfo.sharedState.stopCurrentEventSequence) return;
 
 			if (event.type === "callback") {
-				event.callback(hitEvent, flyingBulletInfo.sharedState,);
+				event.callback(hitEvent, flyingBulletInfo.sharedState);
 			} else if (event.type === "removeBullet") {
 				hitEvent.projectile.remove();
 				flyingBulletInfo.isInvalid = true;
 				return;
 			} else if (event.type === "spawnRicochet") {
-				spawnBulletRicochetParticle(hitEvent.dimension, hitEvent.location, hitEvent.hitVector,);
+				spawnBulletRicochetParticle(hitEvent.dimension, hitEvent.location, hitEvent.hitVector);
 			}
 		}
 	} catch (err) {
@@ -171,10 +171,10 @@ mc.world.afterEvents.projectileHitBlock.subscribe((hitEvent) => {
 		hitEvent.projectile.remove();
 		throw err;
 	}
-},);
+});
 
 mc.world.afterEvents.projectileHitEntity.subscribe((hitEvent) => {
-	const flyingBulletInfo = FLYING_BULLET_MAP.get(hitEvent.projectile.id,);
+	const flyingBulletInfo = FLYING_BULLET_MAP.get(hitEvent.projectile.id);
 
 	if (!flyingBulletInfo) return;
 
@@ -204,13 +204,13 @@ mc.world.afterEvents.projectileHitEntity.subscribe((hitEvent) => {
 			const event = events[i]!;
 
 			if (event.condition !== undefined) {
-				if (!event.condition(hitEvent, hitEntity, flyingBulletInfo.sharedState,)) continue;
+				if (!event.condition(hitEvent, hitEntity, flyingBulletInfo.sharedState)) continue;
 			}
 
 			if (flyingBulletInfo.sharedState.stopCurrentEventSequence) return;
 
 			if (event.type === "callback") {
-				event.callback(hitEvent, hitEntity, flyingBulletInfo.sharedState,);
+				event.callback(hitEvent, hitEntity, flyingBulletInfo.sharedState);
 			} else if (event.type === "removeBullet") {
 				hitEvent.projectile.remove();
 				flyingBulletInfo.isInvalid = true;
@@ -218,37 +218,37 @@ mc.world.afterEvents.projectileHitEntity.subscribe((hitEvent) => {
 			} else if (event.type === "damageEntity") {
 				const oldVelocity = hitEntity.getVelocity();
 				const damage = event.canDamageBeModified === true
-					? Math.max(1, getModifiedDamageNumber(event.damage, hitEntity,),)
+					? Math.max(1, getModifiedDamageNumber(event.damage, hitEntity))
 					: event.damage;
 
 				hitEntity.applyDamage(damage, {
 					cause: event.damageCause,
 					damagingEntity: flyingBulletInfo.shootOptions.sourceEntity,
-				},);
+				});
 
 				if (CONFIG.bulletManipulatesTargetVelocity) {
 					hitEntity.clearVelocity();
 
 					const revelo: mc.Vector3 = {
-						x: clamp(oldVelocity.x / 3, -0.5, 0.5,),
+						x: clamp(oldVelocity.x / 3, -0.5, 0.5),
 						y: 0,
-						z: clamp(oldVelocity.z / 3, -0.5, 0.5,),
+						z: clamp(oldVelocity.z / 3, -0.5, 0.5),
 					};
 
-					hitEntity.applyImpulse(revelo,);
+					hitEntity.applyImpulse(revelo);
 
 					if (event.knockbackPower === undefined) continue;
 
 					const impulse = vec3
-						.chain(vec3.FORWARD,)
-						.scale(event.knockbackPower,)
-						.changeDir(hitEvent.hitVector,)
+						.chain(vec3.FORWARD)
+						.scale(event.knockbackPower)
+						.changeDir(hitEvent.hitVector)
 						.done();
 
-					hitEntity.applyImpulse(impulse,);
+					hitEntity.applyImpulse(impulse);
 				}
 			} else if (event.type === "spawnRicochet") {
-				spawnBulletRicochetParticle(hitEvent.dimension, hitEvent.location, hitEvent.hitVector,);
+				spawnBulletRicochetParticle(hitEvent.dimension, hitEvent.location, hitEvent.hitVector);
 			}
 		}
 	} catch (err) {
@@ -256,24 +256,24 @@ mc.world.afterEvents.projectileHitEntity.subscribe((hitEvent) => {
 		hitEvent.projectile.remove();
 		throw err;
 	}
-},);
+});
 
 mc.world.afterEvents.worldLoad.subscribe(() => {
 	const scriptableBullets = getEntitiesInAllDimensions({
 		families: ["scriptable_bullet"],
-	},);
+	});
 
 	for (let i = 0; i < scriptableBullets.length; i++) {
 		const bullet = scriptableBullets[i]!;
 		bullet.remove();
 	}
-},);
+});
 
 mc.world.afterEvents.entityLoad.subscribe((event) => {
-	if (!FLYING_BULLET_MAP.has(event.entity.id,)) return;
+	if (!FLYING_BULLET_MAP.has(event.entity.id)) return;
 	event.entity.remove();
-},);
+});
 
 mc.world.afterEvents.entityRemove.subscribe((event) => {
-	FLYING_BULLET_MAP.delete(event.removedEntityId,);
-},);
+	FLYING_BULLET_MAP.delete(event.removedEntityId);
+});

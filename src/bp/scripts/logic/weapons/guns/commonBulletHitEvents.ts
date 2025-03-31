@@ -9,9 +9,9 @@ export const BREAK_GLASS_AND_END_SEQUENCE: OnBulletHitBlockEvent = {
 		if (hitBlock.typeId === "minecraft:glass") return true;
 		if (hitBlock.typeId === "minecraft:glass_pane") return true;
 		if (
-			hitBlock.typeId.startsWith("minecraft:",) &&
-			(hitBlock.typeId.endsWith("stained_glass",) ||
-				hitBlock.typeId.endsWith("stained_glass_pane",))
+			hitBlock.typeId.startsWith("minecraft:") &&
+			(hitBlock.typeId.endsWith("stained_glass") ||
+				hitBlock.typeId.endsWith("stained_glass_pane"))
 		) {
 			return true;
 		}
@@ -20,9 +20,9 @@ export const BREAK_GLASS_AND_END_SEQUENCE: OnBulletHitBlockEvent = {
 	},
 	callback(event, sharedState) {
 		const hitBlock = event.getBlockHit().block;
-		const xyz = vec3.toString2(hitBlock.location,);
+		const xyz = vec3.toString2(hitBlock.location);
 
-		event.dimension.runCommand(`setblock ${xyz} air destroy`,);
+		event.dimension.runCommand(`setblock ${xyz} air destroy`);
 
 		sharedState.stopCurrentEventSequence = true;
 

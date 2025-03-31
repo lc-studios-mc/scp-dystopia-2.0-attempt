@@ -50,9 +50,9 @@ export function getContainerSlot(
 	condition?: (slot: mc.ContainerSlot) => boolean,
 ): mc.ContainerSlot | undefined {
 	for (let i = 0; i < container.size; i++) {
-		const slot = container.getSlot(i,);
+		const slot = container.getSlot(i);
 
-		if (condition !== undefined && !condition(slot,)) continue;
+		if (condition !== undefined && !condition(slot)) continue;
 
 		return slot;
 	}
@@ -68,18 +68,18 @@ export function getAllContainerSlots(
 	const array = [];
 
 	for (let i = 0; i < container.size; i++) {
-		const slot = container.getSlot(i,);
+		const slot = container.getSlot(i);
 
-		if (condition !== undefined && !condition(slot,)) continue;
+		if (condition !== undefined && !condition(slot)) continue;
 
-		array.push(slot,);
+		array.push(slot);
 	}
 
 	return array;
 }
 
 export function stopSoundAt(dimension: mc.Dimension, location: mc.Vector3, soundId?: string): void {
-	const locString = vec3.toString2(location,);
+	const locString = vec3.toString2(location);
 	dimension.runCommand(
 		`execute positioned ${locString} run stopsound @a[r=5]${
 			soundId === undefined ? "" : ` ${soundId}`

@@ -11,31 +11,31 @@ class AmmoPack extends AdvancedItem {
 	private useTick = -1;
 
 	constructor(args: AdvancedItemBaseConstructorArgs) {
-		super(args,);
+		super(args);
 
-		this.playerInventoryContainer = args.player.getComponent("inventory",)!.container!;
+		this.playerInventoryContainer = args.player.getComponent("inventory")!.container!;
 
 		const mainhandItemStack = args.playerMainhand.getItem()!;
 
-		this.ammoType = getAmmoType(mainhandItemStack,)!;
+		this.ammoType = getAmmoType(mainhandItemStack)!;
 	}
 
 	onTick(mainhandItemStack: mc.ItemStack): void {
 		if (this.useTick === -1) return;
 
-		if (this.player.getItemCooldown("scpdy_ammo_pack_usage",) > 0) return;
+		if (this.player.getItemCooldown("scpdy_ammo_pack_usage") > 0) return;
 
 		if (this.useTick <= USE_DURATION) {
 			// Create string to display on actionbar
 			const actionbarStringHyphenArray: string[] = [];
 			const loopCount = USE_DURATION - this.useTick;
 			for (let i = 0; i < loopCount; i++) {
-				actionbarStringHyphenArray.push("-",);
+				actionbarStringHyphenArray.push("-");
 			}
-			const actionbarStringHyphens = actionbarStringHyphenArray.join("",);
+			const actionbarStringHyphens = actionbarStringHyphenArray.join("");
 			const actionbarString = actionbarStringHyphens + "+" + actionbarStringHyphens;
 
-			this.player.onScreenDisplay.setActionBar(`§7${actionbarString}`,);
+			this.player.onScreenDisplay.setActionBar(`§7${actionbarString}`);
 
 			this.useTick++;
 
@@ -44,13 +44,13 @@ class AmmoPack extends AdvancedItem {
 
 		this.useTick = 0;
 
-		const durabilityComponent = mainhandItemStack.getComponent("durability",)!;
+		const durabilityComponent = mainhandItemStack.getComponent("durability")!;
 
 		if (!durabilityComponent) {
-			throw new Error(`Durability component of ${mainhandItemStack.typeId} is missing.`,);
+			throw new Error(`Durability component of ${mainhandItemStack.typeId} is missing.`);
 		}
 
-		this.player.startItemCooldown("scpdy_ammo_pack_usage", 5,);
+		this.player.startItemCooldown("scpdy_ammo_pack_usage", 5);
 
 		const mode: "putAmmo" | "extractAmmo" = this.player.isSneaking ? "extractAmmo" : "putAmmo";
 
@@ -58,11 +58,11 @@ class AmmoPack extends AdvancedItem {
 			if (durabilityComponent.damage <= 0) {
 				this.player.onScreenDisplay.setActionBar({
 					translate: "scpdy.actionHint.ammoPack.full",
-				},);
+				});
 				return;
 			}
 
-			const maxPutAmount = Math.min(64, durabilityComponent.damage,);
+			const maxPutAmount = Math.min(64, durabilityComponent.damage);
 
 			const putAmount = removeAmmo(
 				this.playerInventoryContainer,
@@ -74,7 +74,7 @@ class AmmoPack extends AdvancedItem {
 			if (putAmount <= 0) {
 				this.player.onScreenDisplay.setActionBar({
 					translate: "scpdy.actionHint.ammoPack.noAmmoInInventory",
-				},);
+				});
 				return;
 			}
 
@@ -84,9 +84,9 @@ class AmmoPack extends AdvancedItem {
 			const textColor = durabilityComponent.damage <= 0 ? `§a` : `§f`;
 			const displayText = `${textColor}${currentLoad} / ${durabilityComponent.maxDurability}`;
 
-			this.player.onScreenDisplay.setActionBar(displayText,);
+			this.player.onScreenDisplay.setActionBar(displayText);
 
-			this.playerMainhand.setItem(mainhandItemStack,);
+			this.playerMainhand.setItem(mainhandItemStack);
 
 			this.player.dimension.playSound(
 				"scpdy.gun.ammo_pack.load_ammo",
@@ -99,20 +99,20 @@ class AmmoPack extends AdvancedItem {
 			);
 
 			if (extractAmount <= 0) {
-				this.player.onScreenDisplay.setActionBar({ translate: "scpdy.actionHint.ammoPack.empty" },);
+				this.player.onScreenDisplay.setActionBar({ translate: "scpdy.actionHint.ammoPack.empty" });
 				return;
 			}
 
 			durabilityComponent.damage += extractAmount;
 
-			this.playerMainhand.setItem(mainhandItemStack,);
+			this.playerMainhand.setItem(mainhandItemStack);
 
-			const dropAmmoItemStack = new mc.ItemStack(getAmmoItemType(this.ammoType,), extractAmount,);
+			const dropAmmoItemStack = new mc.ItemStack(getAmmoItemType(this.ammoType), extractAmount);
 
 			// Run after a delay because inventory UI breaks when not delayed
 			mc.system.runTimeout(() => {
-				this.player.dimension.spawnItem(dropAmmoItemStack, this.player.getHeadLocation(),);
-			}, 1,);
+				this.player.dimension.spawnItem(dropAmmoItemStack, this.player.getHeadLocation());
+			}, 1);
 		}
 	}
 
@@ -149,6 +149,6 @@ for (
 ) {
 	registerAdvancedItemProfile({
 		itemTypeId: ammoPackItemType,
-		createInstance: (args) => new AmmoPack(args,),
-	},);
+		createInstance: (args) => new AmmoPack(args),
+	});
 }

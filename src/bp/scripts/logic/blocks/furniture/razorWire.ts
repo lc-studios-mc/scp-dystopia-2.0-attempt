@@ -9,12 +9,12 @@ function onStepOn(arg: mc.BlockComponentStepOnEvent): void {
 	try {
 		const result = entity.applyDamage(2, {
 			cause: mc.EntityDamageCause.contact,
-		},);
+		});
 
 		if (result) {
-			entity.addEffect("slowness", 40,);
-			entity.teleport(entity.location,);
-			dimension.playSound("block.sweet_berry_bush.hurt", block.center(),);
+			entity.addEffect("slowness", 40);
+			entity.teleport(entity.location);
+			dimension.playSound("block.sweet_berry_bush.hurt", block.center());
 		}
 	} catch {}
 }
@@ -28,7 +28,7 @@ function onStepOff(arg: mc.BlockComponentStepOnEvent): void {
 	try {
 		entity.applyDamage(1, {
 			cause: mc.EntityDamageCause.override,
-		},);
+		});
 	} catch {}
 }
 
@@ -36,5 +36,5 @@ mc.system.beforeEvents.startup.subscribe((event) => {
 	event.blockComponentRegistry.registerCustomComponent("scpdy:razor_wire", {
 		onStepOn,
 		onStepOff,
-	},);
-},);
+	});
+});

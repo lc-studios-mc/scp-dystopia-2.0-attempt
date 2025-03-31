@@ -15,13 +15,13 @@ type PlacementSequenceElement = mc.BlockPermutation | "space";
 
 async function showPlacementOptionsForm(player: mc.Player): Promise<PlacementOptions | undefined> {
 	const response = await new ModalFormData()
-		.title({ translate: "scpdy.form.alphanumericSignOptions.title" },)
+		.title({ translate: "scpdy.form.alphanumericSignOptions.title" })
 		.textField(
 			{ translate: "scpdy.form.alphanumericSignOptions.textField.label" },
 			{ translate: "scpdy.form.alphanumericSignOptions.textField.placeholder" },
 			"",
 		)
-		.slider({ translate: "scpdy.form.alphanumericSignOptions.spacing.label" }, 0, 2, 1, 0,)
+		.slider({ translate: "scpdy.form.alphanumericSignOptions.spacing.label" }, 0, 2, 1, 0)
 		.dropdown(
 			{ translate: "scpdy.form.alphanumericSignOptions.color.label" },
 			[
@@ -32,23 +32,23 @@ async function showPlacementOptionsForm(player: mc.Player): Promise<PlacementOpt
 					translate: "scpdy.form.alphanumericSignOptions.color.black",
 				},
 			],
-			(player.getDynamicProperty("lastAlphanumericSignColorSelection",) as number) ?? 0,
+			(player.getDynamicProperty("lastAlphanumericSignColorSelection") as number) ?? 0,
 		)
-		.submitButton({ translate: "scpdy.form.alphanumericSignOptions.submit" },)
-		.show(player,);
+		.submitButton({ translate: "scpdy.form.alphanumericSignOptions.submit" })
+		.show(player);
 
 	if (response.canceled) return;
 	if (!response.formValues) return;
 
-	const colorIdx = Number(response.formValues[2],);
+	const colorIdx = Number(response.formValues[2]);
 
-	player.setDynamicProperty("lastAlphanumericSignColorSelection", colorIdx,);
+	player.setDynamicProperty("lastAlphanumericSignColorSelection", colorIdx);
 
 	const color = colorIdx === 0 ? "white" : "black";
 
 	return {
-		text: String(response.formValues[0],),
-		spacing: Number(response.formValues[1],),
+		text: String(response.formValues[0]),
+		spacing: Number(response.formValues[1]),
 		color: color,
 	};
 }
@@ -61,31 +61,31 @@ async function asyncPlacement(
 	dir: mc.Direction,
 ): Promise<void> {
 	const playerMainhand = player
-		.getComponent("equippable",)!
-		.getEquipmentSlot(mc.EquipmentSlot.Mainhand,);
-	const options = await showPlacementOptionsForm(player,);
+		.getComponent("equippable")!
+		.getEquipmentSlot(mc.EquipmentSlot.Mainhand);
+	const options = await showPlacementOptionsForm(player);
 
 	if (options === undefined) return;
 
 	const error = (msg: mc.RawMessage) => {
-		player.sendMessage(msg,);
-		player.playSound("note.bass",);
+		player.sendMessage(msg);
+		player.playSound("note.bass");
 	};
 
-	if (vec3.distance(player.location, initialBlock.location,) > 7) {
-		error({ translate: "scpdy.msg.alphanumericSignPlacement.error.tooFar" },);
+	if (vec3.distance(player.location, initialBlock.location) > 7) {
+		error({ translate: "scpdy.msg.alphanumericSignPlacement.error.tooFar" });
 		return;
 	}
 
 	const text = options.text.trim().toLowerCase();
 
 	if (text === "") {
-		error({ translate: "scpdy.msg.alphanumericSignPlacement.error.empty" },);
+		error({ translate: "scpdy.msg.alphanumericSignPlacement.error.empty" });
 		return;
 	}
 
 	if (text.length > 20) {
-		error({ translate: "scpdy.msg.alphanumericSignPlacement.error.tooLong" },);
+		error({ translate: "scpdy.msg.alphanumericSignPlacement.error.tooLong" });
 		return;
 	}
 
@@ -94,7 +94,7 @@ async function asyncPlacement(
 	let spacing = 0;
 	for (let i = 0; i < text.length; i++) {
 		if (spacing > 0) {
-			placementSequence.push("space",);
+			placementSequence.push("space");
 			spacing--;
 			i--;
 			continue;
@@ -103,14 +103,14 @@ async function asyncPlacement(
 		spacing += options.spacing;
 
 		const char = text[i]!;
-		const permutation = getCharBlockPermutation(char,);
+		const permutation = getCharBlockPermutation(char);
 
 		if (permutation instanceof mc.BlockPermutation) {
-			placementSequence.push(permutation,);
+			placementSequence.push(permutation);
 		} else if (permutation === "space") {
-			placementSequence.push("space",);
+			placementSequence.push("space");
 		} else {
-			error({ translate: "scpdy.msg.alphanumericSignPlacement.error.unsupportedChar" },);
+			error({ translate: "scpdy.msg.alphanumericSignPlacement.error.unsupportedChar" });
 			return;
 		}
 	}
@@ -118,8 +118,8 @@ async function asyncPlacement(
 	// Placement
 	let block: mc.Block = initialBlock;
 	for (const sequenceElement of placementSequence) {
-		if (!isAirOrLiquid(block,)) {
-			error({ translate: "scpdy.msg.alphanumericSignPlacement.error.obstructed" },);
+		if (!isAirOrLiquid(block)) {
+			error({ translate: "scpdy.msg.alphanumericSignPlacement.error.obstructed" });
 			return;
 		}
 
@@ -128,24 +128,24 @@ async function asyncPlacement(
 				const itemStack = playerMainhand.getItem();
 
 				if (!itemStack || itemStack.typeId !== "lc:scpdy_alphanumeric_sign_placer") {
-					error({ translate: "scpdy.msg.alphanumericSignPlacement.error.notEnoughToComplete" },);
+					error({ translate: "scpdy.msg.alphanumericSignPlacement.error.notEnoughToComplete" });
 					return;
 				}
 
 				if (itemStack.amount > 1) {
 					itemStack.amount--;
-					playerMainhand.setItem(itemStack,);
+					playerMainhand.setItem(itemStack);
 				} else {
-					playerMainhand.setItem(undefined,);
+					playerMainhand.setItem(undefined);
 				}
 			}
 
 			const permutation = sequenceElement
-				.withState("lc:color", options.color,)
-				.withState("lc:dir", dir.toLowerCase(),)
-				.withState("lc:updown", upOrDown,);
+				.withState("lc:color", options.color)
+				.withState("lc:dir", dir.toLowerCase())
+				.withState("lc:updown", upOrDown);
 
-			block.setPermutation(permutation,);
+			block.setPermutation(permutation);
 		}
 
 		let rightBlock: mc.Block | undefined;
@@ -165,7 +165,7 @@ async function asyncPlacement(
 		}
 
 		if (rightBlock === undefined) {
-			error({ translate: "scpdy.msg.alphanumericSignPlacement.error.obstructed" },);
+			error({ translate: "scpdy.msg.alphanumericSignPlacement.error.obstructed" });
 			return;
 		}
 
@@ -180,18 +180,18 @@ function getCharBlockPermutation(char: string): mc.BlockPermutation | "space" | 
 		return "space";
 	}
 
-	if (/[a-p]/.test(char,)) {
+	if (/[a-p]/.test(char)) {
 		return mc.BlockPermutation.resolve("lc:scpdy_alphabet_sign_1", {
 			"lc:char": char,
-		},);
-	} else if (/[q-z]/.test(char,)) {
+		});
+	} else if (/[q-z]/.test(char)) {
 		return mc.BlockPermutation.resolve("lc:scpdy_alphabet_sign_2", {
 			"lc:char": char,
-		},);
-	} else if (/[0-9]/.test(char,)) {
+		});
+	} else if (/[0-9]/.test(char)) {
 		return mc.BlockPermutation.resolve("lc:scpdy_number_sign", {
 			"lc:number": +char,
-		},);
+		});
 	}
 
 	// Match symbols
@@ -199,127 +199,127 @@ function getCharBlockPermutation(char: string): mc.BlockPermutation | "space" | 
 		case "+":
 			return mc.BlockPermutation.resolve("lc:scpdy_symbol_sign_1", {
 				"lc:symbol": "plus",
-			},);
+			});
 		case "-":
 			return mc.BlockPermutation.resolve("lc:scpdy_symbol_sign_1", {
 				"lc:symbol": "hyphen",
-			},);
+			});
 		case "*":
 			return mc.BlockPermutation.resolve("lc:scpdy_symbol_sign_1", {
 				"lc:symbol": "asterisk",
-			},);
+			});
 		case "=":
 			return mc.BlockPermutation.resolve("lc:scpdy_symbol_sign_1", {
 				"lc:symbol": "equal",
-			},);
+			});
 		case "/":
 			return mc.BlockPermutation.resolve("lc:scpdy_symbol_sign_1", {
 				"lc:symbol": "slash",
-			},);
+			});
 		case "|":
 			return mc.BlockPermutation.resolve("lc:scpdy_symbol_sign_1", {
 				"lc:symbol": "bar",
-			},);
+			});
 		case "\\":
 			return mc.BlockPermutation.resolve("lc:scpdy_symbol_sign_1", {
 				"lc:symbol": "backslash",
-			},);
+			});
 		case "@":
 			return mc.BlockPermutation.resolve("lc:scpdy_symbol_sign_1", {
 				"lc:symbol": "at",
-			},);
+			});
 		case "#":
 			return mc.BlockPermutation.resolve("lc:scpdy_symbol_sign_1", {
 				"lc:symbol": "hash",
-			},);
+			});
 		case "$":
 			return mc.BlockPermutation.resolve("lc:scpdy_symbol_sign_1", {
 				"lc:symbol": "dollar",
-			},);
+			});
 		case "%":
 			return mc.BlockPermutation.resolve("lc:scpdy_symbol_sign_1", {
 				"lc:symbol": "percent",
-			},);
+			});
 		case "^":
 			return mc.BlockPermutation.resolve("lc:scpdy_symbol_sign_1", {
 				"lc:symbol": "caret",
-			},);
+			});
 		case "&":
 			return mc.BlockPermutation.resolve("lc:scpdy_symbol_sign_1", {
 				"lc:symbol": "ampersand",
-			},);
+			});
 		case "~":
 			return mc.BlockPermutation.resolve("lc:scpdy_symbol_sign_1", {
 				"lc:symbol": "period",
-			},);
+			});
 		case ".":
 			return mc.BlockPermutation.resolve("lc:scpdy_symbol_sign_1", {
 				"lc:symbol": "period",
-			},);
+			});
 		case ",":
 			return mc.BlockPermutation.resolve("lc:scpdy_symbol_sign_1", {
 				"lc:symbol": "comma",
-			},);
+			});
 		case ":":
 			return mc.BlockPermutation.resolve("lc:scpdy_symbol_sign_2", {
 				"lc:symbol": "colon",
-			},);
+			});
 		case ";":
 			return mc.BlockPermutation.resolve("lc:scpdy_symbol_sign_2", {
 				"lc:symbol": "semicolon",
-			},);
+			});
 		case "—":
 			return mc.BlockPermutation.resolve("lc:scpdy_symbol_sign_2", {
 				"lc:symbol": "emdash",
-			},);
+			});
 		case "_":
 			return mc.BlockPermutation.resolve("lc:scpdy_symbol_sign_2", {
 				"lc:symbol": "underscore",
-			},);
+			});
 		case "(":
 			return mc.BlockPermutation.resolve("lc:scpdy_symbol_sign_2", {
 				"lc:symbol": "paren_left",
-			},);
+			});
 		case ")":
 			return mc.BlockPermutation.resolve("lc:scpdy_symbol_sign_2", {
 				"lc:symbol": "paren_right",
-			},);
+			});
 		case "[":
 			return mc.BlockPermutation.resolve("lc:scpdy_symbol_sign_2", {
 				"lc:symbol": "bracket_left",
-			},);
+			});
 		case "]":
 			return mc.BlockPermutation.resolve("lc:scpdy_symbol_sign_2", {
 				"lc:symbol": "bracket_right",
-			},);
+			});
 		case "{":
 			return mc.BlockPermutation.resolve("lc:scpdy_symbol_sign_2", {
 				"lc:symbol": "brace_left",
-			},);
+			});
 		case "}":
 			return mc.BlockPermutation.resolve("lc:scpdy_symbol_sign_2", {
 				"lc:symbol": "brace_right",
-			},);
+			});
 		case "<":
 			return mc.BlockPermutation.resolve("lc:scpdy_symbol_sign_2", {
 				"lc:symbol": "lessthan",
-			},);
+			});
 		case ">":
 			return mc.BlockPermutation.resolve("lc:scpdy_symbol_sign_2", {
 				"lc:symbol": "greaterthan",
-			},);
+			});
 		case "`":
 			return mc.BlockPermutation.resolve("lc:scpdy_symbol_sign_2", {
 				"lc:symbol": "backtick",
-			},);
+			});
 		case "'":
 			return mc.BlockPermutation.resolve("lc:scpdy_symbol_sign_2", {
 				"lc:symbol": "quote",
-			},);
+			});
 		case '"':
 			return mc.BlockPermutation.resolve("lc:scpdy_symbol_sign_2", {
 				"lc:symbol": "dbquotes",
-			},);
+			});
 	}
 
 	return undefined;
@@ -353,11 +353,11 @@ function beforeOnPlayerPlace(arg: mc.BlockComponentPlayerPlaceBeforeEvent): void
 		return arg.face;
 	})();
 
-	asyncPlacement(arg.player, arg.block, arg.dimension, upOrDown, dir,);
+	asyncPlacement(arg.player, arg.block, arg.dimension, upOrDown, dir);
 }
 
 mc.system.beforeEvents.startup.subscribe((event) => {
 	event.blockComponentRegistry.registerCustomComponent("scpdy:alphanumeric_sign", {
 		beforeOnPlayerPlace,
-	},);
-},);
+	});
+});

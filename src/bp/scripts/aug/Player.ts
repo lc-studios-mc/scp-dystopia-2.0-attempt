@@ -11,7 +11,7 @@ function applyImpulseNew(entity: Entity, vector: Vector3) {
 	const previousVelocity = entity.getVelocity();
 
 	// Calculate the norm (magnitude) of the horizontal components (x and z)
-	const horizontalNorm = Math.sqrt(x * x + z * z,);
+	const horizontalNorm = Math.sqrt(x * x + z * z);
 
 	// Calculate directionX and directionZ as normalized values
 	let directionX = 0;
@@ -46,7 +46,7 @@ function clearVelocity(entity: Entity) {
 	const { x, z } = entity.getVelocity();
 
 	// Calculate the norm (magnitude) of the horizontal components (x and z)
-	const horizontalNorm = Math.sqrt(x * x + z * z,);
+	const horizontalNorm = Math.sqrt(x * x + z * z);
 
 	// Calculate directionX and directionZ as normalized values
 	let directionX = 0;
@@ -57,13 +57,13 @@ function clearVelocity(entity: Entity) {
 	}
 
 	// Apply the knockback
-	entity.applyKnockback({ x: directionX * horizontalNorm, z: directionZ * horizontalNorm }, 0,);
+	entity.applyKnockback({ x: directionX * horizontalNorm, z: directionZ * horizontalNorm }, 0);
 }
 
 Player.prototype.applyImpulse = function(vector: Vector3) {
-	applyImpulseNew(this, vector,);
+	applyImpulseNew(this, vector);
 };
 
 Player.prototype.clearVelocity = function() {
-	clearVelocity(this,);
+	clearVelocity(this);
 };

@@ -2,9 +2,9 @@ import * as mc from "@minecraft/server";
 
 export function getEntitiesInAllDimensions(options?: mc.EntityQueryOptions): mc.Entity[] {
 	return [
-		...mc.world.getDimension("overworld",).getEntities(options,),
-		...mc.world.getDimension("nether",).getEntities(options,),
-		...mc.world.getDimension("the_end",).getEntities(options,),
+		...mc.world.getDimension("overworld").getEntities(options),
+		...mc.world.getDimension("nether").getEntities(options),
+		...mc.world.getDimension("the_end").getEntities(options),
 	];
 }
 
@@ -12,7 +12,7 @@ export function getEntitiesInAllDimensions(options?: mc.EntityQueryOptions): mc.
  * @returns Whether the entity's health is 0.
  */
 export function isEntityDead(entity: mc.Entity): boolean {
-	const comp = entity.getComponent("health",);
+	const comp = entity.getComponent("health");
 
 	if (!comp) return false;
 
@@ -31,14 +31,14 @@ export function canApplyImpulse(typeId: string): boolean;
 
 export function canApplyImpulse(value: mc.Entity | string): boolean {
 	const typeId = typeof value === "string" ? value : value.typeId;
-	return !["minecraft:player", "minecraft:ender_dragon"].includes(typeId,);
+	return !["minecraft:player", "minecraft:ender_dragon"].includes(typeId);
 }
 
 function getEntityName_typeId(typeId: string): mc.RawText {
-	const entityTypeNamespace = typeId.split(":",)[0];
+	const entityTypeNamespace = typeId.split(":")[0];
 
 	const entityTypeId = entityTypeNamespace === "minecraft"
-		? typeId.replace("minecraft:", "",)
+		? typeId.replace("minecraft:", "")
 		: typeId;
 
 	return { rawtext: [{ translate: `entity.${entityTypeId}.name` }] };
@@ -61,7 +61,7 @@ export function getEntityName(player: mc.Player): mc.RawText;
 
 export function getEntityName(value: mc.Entity | string): mc.RawText {
 	if (typeof value === "string") {
-		return getEntityName_typeId(value,);
+		return getEntityName_typeId(value);
 	}
 
 	if (value instanceof mc.Player) {
@@ -72,16 +72,16 @@ export function getEntityName(value: mc.Entity | string): mc.RawText {
 
 	if (value.nameTag.trim() !== "") return { rawtext: [{ text: value.nameTag }] };
 
-	return getEntityName_typeId(value.typeId,);
+	return getEntityName_typeId(value.typeId);
 }
 
 export function canEntitySplashBlood(entity: mc.Entity): boolean {
 	if (entity.typeId === "minecraft:player") return true;
-	if (entity.matches({ families: ["human"] },)) return true;
-	if (entity.matches({ families: ["villager"] },)) return true;
-	if (entity.matches({ families: ["illager"] },)) return true;
-	if (entity.matches({ families: ["animal"] },)) return true;
-	if (entity.matches({ families: ["piglin"] },)) return true;
+	if (entity.matches({ families: ["human"] })) return true;
+	if (entity.matches({ families: ["villager"] })) return true;
+	if (entity.matches({ families: ["illager"] })) return true;
+	if (entity.matches({ families: ["animal"] })) return true;
+	if (entity.matches({ families: ["piglin"] })) return true;
 
 	return false;
 }
@@ -92,16 +92,16 @@ export function canEntitySplashBlood(entity: mc.Entity): boolean {
 export function getModifiedDamageNumber(damage: number, entity: mc.Entity): number {
 	if (damage <= 0) return 0;
 
-	const resistanceEffect = entity.getEffect("resistance",);
+	const resistanceEffect = entity.getEffect("resistance");
 
 	if (resistanceEffect) {
 		const resistanceMultiplier = 1 - resistanceEffect.amplifier * 0.2;
-		damage = Math.floor(damage * resistanceMultiplier,);
+		damage = Math.floor(damage * resistanceMultiplier);
 	}
 
 	if (damage <= 0) return 0;
 
-	const equippableComponent = entity.getComponent("equippable",);
+	const equippableComponent = entity.getComponent("equippable");
 
 	if (!equippableComponent) return damage;
 
@@ -109,12 +109,12 @@ export function getModifiedDamageNumber(damage: number, entity: mc.Entity): numb
 	let armorToughness = 0;
 	let epf = 0;
 
-	const feetEq = equippableComponent.getEquipment(mc.EquipmentSlot.Feet,);
+	const feetEq = equippableComponent.getEquipment(mc.EquipmentSlot.Feet);
 
 	if (feetEq) {
-		epf += feetEq.getComponent("enchantable",)?.getEnchantment("protection",)?.level ?? 0;
+		epf += feetEq.getComponent("enchantable")?.getEnchantment("protection")?.level ?? 0;
 		epf +=
-			(feetEq.getComponent("enchantable",)?.getEnchantment("projectile_protection",)?.level ?? 0) *
+			(feetEq.getComponent("enchantable")?.getEnchantment("projectile_protection")?.level ?? 0) *
 			2;
 	}
 
@@ -137,12 +137,12 @@ export function getModifiedDamageNumber(damage: number, entity: mc.Entity): numb
 			break;
 	}
 
-	const headEq = equippableComponent.getEquipment(mc.EquipmentSlot.Head,);
+	const headEq = equippableComponent.getEquipment(mc.EquipmentSlot.Head);
 
 	if (headEq) {
-		epf += headEq.getComponent("enchantable",)?.getEnchantment("protection",)?.level ?? 0;
+		epf += headEq.getComponent("enchantable")?.getEnchantment("protection")?.level ?? 0;
 		epf +=
-			(headEq.getComponent("enchantable",)?.getEnchantment("projectile_protection",)?.level ?? 0) *
+			(headEq.getComponent("enchantable")?.getEnchantment("projectile_protection")?.level ?? 0) *
 			2;
 	}
 
@@ -166,12 +166,12 @@ export function getModifiedDamageNumber(damage: number, entity: mc.Entity): numb
 			break;
 	}
 
-	const legsEq = equippableComponent.getEquipment(mc.EquipmentSlot.Legs,);
+	const legsEq = equippableComponent.getEquipment(mc.EquipmentSlot.Legs);
 
 	if (legsEq) {
-		epf += legsEq.getComponent("enchantable",)?.getEnchantment("protection",)?.level ?? 0;
+		epf += legsEq.getComponent("enchantable")?.getEnchantment("protection")?.level ?? 0;
 		epf +=
-			(legsEq.getComponent("enchantable",)?.getEnchantment("projectile_protection",)?.level ?? 0) *
+			(legsEq.getComponent("enchantable")?.getEnchantment("projectile_protection")?.level ?? 0) *
 			2;
 	}
 
@@ -198,12 +198,12 @@ export function getModifiedDamageNumber(damage: number, entity: mc.Entity): numb
 			break;
 	}
 
-	const chestEq = equippableComponent.getEquipment(mc.EquipmentSlot.Chest,);
+	const chestEq = equippableComponent.getEquipment(mc.EquipmentSlot.Chest);
 
 	if (chestEq) {
-		epf += chestEq.getComponent("enchantable",)?.getEnchantment("protection",)?.level ?? 0;
+		epf += chestEq.getComponent("enchantable")?.getEnchantment("protection")?.level ?? 0;
 		epf +=
-			(chestEq.getComponent("enchantable",)?.getEnchantment("projectile_protection",)?.level ?? 0) *
+			(chestEq.getComponent("enchantable")?.getEnchantment("projectile_protection")?.level ?? 0) *
 			2;
 	}
 
@@ -232,13 +232,13 @@ export function getModifiedDamageNumber(damage: number, entity: mc.Entity): numb
 		(1 -
 			Math.min(
 					20,
-					Math.max(defensePoints / 5, defensePoints - (4 * damage) / (armorToughness + 8),),
+					Math.max(defensePoints / 5, defensePoints - (4 * damage) / (armorToughness + 8)),
 				) /
 				25);
 
-	damage -= Math.min(20, epf,) / 25;
+	damage -= Math.min(20, epf) / 25;
 
-	damage = Math.floor(damage,);
+	damage = Math.floor(damage);
 
 	if (damage <= 0) return 0;
 

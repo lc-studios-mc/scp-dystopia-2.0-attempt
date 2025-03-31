@@ -69,13 +69,13 @@ const AMMO_TYPE_INFO_MAP = new Map<AmmoType, AmmoTypeInfo>([
 			loadSoundId: "scpdy.gun.magazine.load_ammo",
 		},
 	],
-],);
+]);
 
 export function getAmmoType(itemStack: mc.ItemStack): AmmoType | undefined {
 	const ammoType = itemStack
 		.getTags()
-		.find((tag) => tag.startsWith("ammo_type:",))
-		?.split(":",)[1];
+		.find((tag) => tag.startsWith("ammo_type:"))
+		?.split(":")[1];
 
 	if (ammoType === undefined) return undefined;
 	if (!(ammoType in AMMO_TYPE_OBJ)) return undefined;
@@ -85,13 +85,13 @@ export function getAmmoType(itemStack: mc.ItemStack): AmmoType | undefined {
 
 export function getAmmoItemType(ammoType: AmmoType): string {
 	const value = AMMO_TYPE_OBJ[ammoType];
-	if (typeof value !== "string") throw new Error(`Ammo item type of ${ammoType} is invalid.`,);
+	if (typeof value !== "string") throw new Error(`Ammo item type of ${ammoType} is invalid.`);
 	return value;
 }
 
 export function getAmmoTypeInfo(ammoType: AmmoType): AmmoTypeInfo {
-	const value = AMMO_TYPE_INFO_MAP.get(ammoType,);
-	if (!value) throw new Error(`Ammo type info of ${ammoType} is missing.`,);
+	const value = AMMO_TYPE_INFO_MAP.get(ammoType);
+	if (!value) throw new Error(`Ammo type info of ${ammoType} is missing.`);
 	return value;
 }
 
@@ -102,16 +102,16 @@ export function getTotalAmmoCount(container: mc.Container, ammoType: AmmoType): 
 	let ammoCount = 0;
 
 	for (let i = 0; i < container.size; i++) {
-		const slot = container.getSlot(i,);
+		const slot = container.getSlot(i);
 		const itemStack = slot.getItem();
 
 		if (!itemStack) continue;
-		if (getAmmoType(itemStack,) !== ammoType) continue;
+		if (getAmmoType(itemStack) !== ammoType) continue;
 
-		if (itemStack.hasTag("scpdy:ammo",)) {
+		if (itemStack.hasTag("scpdy:ammo")) {
 			ammoCount += itemStack.amount;
-		} else if (itemStack.hasTag("scpdy:ammo_pack",)) {
-			const durabilityComp = itemStack.getComponent("durability",)!;
+		} else if (itemStack.hasTag("scpdy:ammo_pack")) {
+			const durabilityComp = itemStack.getComponent("durability")!;
 			ammoCount += durabilityComp.maxDurability - durabilityComp.damage;
 		}
 	}
@@ -129,31 +129,31 @@ export function removeAmmo(
 	maxAmount: number,
 	excludePacks = false,
 ): number {
-	maxAmount = Math.floor(maxAmount,);
+	maxAmount = Math.floor(maxAmount);
 
-	if (maxAmount <= 0) throw new RangeError("maxAmount is less than 0",);
+	if (maxAmount <= 0) throw new RangeError("maxAmount is less than 0");
 
 	let totalRemoved = 0;
 
 	for (let i = 0; i < container.size; i++) {
 		if (totalRemoved >= maxAmount) break;
 
-		const slot = container.getSlot(i,);
+		const slot = container.getSlot(i);
 		const itemStack = slot.getItem();
 
 		if (!itemStack) continue;
-		if (getAmmoType(itemStack,) !== ammoType) continue;
+		if (getAmmoType(itemStack) !== ammoType) continue;
 
-		if (itemStack.hasTag("scpdy:ammo",)) {
+		if (itemStack.hasTag("scpdy:ammo")) {
 			const initialStackAmount = itemStack.amount;
 
-			let decreaseAmount = Math.min(Math.max(maxAmount - totalRemoved, 0,), initialStackAmount,);
+			let decreaseAmount = Math.min(Math.max(maxAmount - totalRemoved, 0), initialStackAmount);
 
 			totalRemoved += decreaseAmount;
 
 			if (itemStack.amount - decreaseAmount > 0) {
 				itemStack.amount -= decreaseAmount;
-				slot.setItem(itemStack,);
+				slot.setItem(itemStack);
 			} else {
 				slot.setItem();
 			}
@@ -163,18 +163,18 @@ export function removeAmmo(
 
 		if (excludePacks) continue;
 
-		if (itemStack.hasTag("scpdy:ammo_pack",)) {
-			const durabilityComp = itemStack.getComponent("durability",)!;
+		if (itemStack.hasTag("scpdy:ammo_pack")) {
+			const durabilityComp = itemStack.getComponent("durability")!;
 
 			const damageIncrease = Math.min(
-				Math.max(maxAmount - totalRemoved, 0,),
+				Math.max(maxAmount - totalRemoved, 0),
 				durabilityComp.maxDurability - durabilityComp.damage,
 			);
 
 			durabilityComp.damage += damageIncrease;
 			totalRemoved += damageIncrease;
 
-			slot.setItem(itemStack,);
+			slot.setItem(itemStack);
 		}
 	}
 

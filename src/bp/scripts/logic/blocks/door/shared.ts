@@ -9,7 +9,7 @@ export function dropDoorItem(
 	if (!mc.world.gameRules.doTileDrops) return;
 	if (destroyer && destroyer.getGameMode() === mc.GameMode.creative) return;
 
-	const itemStack = new mc.ItemStack(doorTypeId, 1,);
+	const itemStack = new mc.ItemStack(doorTypeId, 1);
 
-	dimension.spawnItem(itemStack, location,);
+	dimension.spawnItem(itemStack, location);
 }

@@ -5,5 +5,5 @@ mc.system.beforeEvents.startup.subscribe((event) => {
 		onBeforeDurabilityDamage(arg) {
 			arg.durabilityDamage = 0;
 		},
-	},);
-},);
+	});
+});
