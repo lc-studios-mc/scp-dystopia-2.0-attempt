@@ -1,9 +1,1 @@
-*.png -text
-
-*.ogg -text
-
-*.mcstructure -text
-*.geo.json -text
-*.animation.json -text
-
-package-lock.json -text
+* text=auto eol=lf
