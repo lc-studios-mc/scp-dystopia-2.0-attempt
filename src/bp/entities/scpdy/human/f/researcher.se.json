@@ -13,6 +13,7 @@
 			"var_2": { "minecraft:variant": { "value": 2 } },
 			"var_3": { "minecraft:variant": { "value": 3 } },
 			"var_4": { "minecraft:variant": { "value": 4 } },
+			"var_5": { "minecraft:variant": { "value": 5 } },
 			"turn_into_corpse": {
 				"minecraft:transformation": {
 					"into": "lc:scpdy_f_researcher_dead"
@@ -152,6 +153,10 @@
 					{
 						"weight": 1,
 						"add": { "component_groups": ["var_4"] }
+					},
+					{
+						"weight": 1,
+						"add": { "component_groups": ["var_5"] }
 					}
 				]
 			},

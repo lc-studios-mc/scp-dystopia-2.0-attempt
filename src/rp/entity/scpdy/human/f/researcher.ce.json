@@ -11,7 +11,8 @@
 				"var_1": "textures/scpdy/human/f/researcher/var_1",
 				"var_2": "textures/scpdy/human/f/researcher/var_2",
 				"var_3": "textures/scpdy/human/f/researcher/bb607",
-				"var_4": "textures/scpdy/human/f/researcher/lc45"
+				"var_4": "textures/scpdy/human/f/researcher/lc45",
+				"var_5": "textures/scpdy/human/f/researcher/lbb"
 			},
 			"geometry": {
 				"default": "geometry.scpdy_f_researcher"

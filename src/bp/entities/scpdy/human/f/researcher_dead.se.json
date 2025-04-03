@@ -30,6 +30,7 @@
 			"var_2": { "minecraft:variant": { "value": 2 } },
 			"var_3": { "minecraft:variant": { "value": 3 } },
 			"var_4": { "minecraft:variant": { "value": 4 } },
+			"var_5": { "minecraft:variant": { "value": 5 } },
 			"just_spawned_timer": {
 				"minecraft:timer": {
 					"looping": false,
@@ -150,6 +151,10 @@
 					{
 						"weight": 1,
 						"add": { "component_groups": ["var_4"] }
+					},
+					{
+						"weight": 1,
+						"add": { "component_groups": ["var_5"] }
 					}
 				]
 			},
@@ -189,6 +194,10 @@
 					{
 						"filters": { "test": "is_variant", "subject": "other", "value": 4 },
 						"add": { "component_groups": ["var_4"] }
+					},
+					{
+						"filters": { "test": "is_variant", "subject": "other", "value": 5 },
+						"add": { "component_groups": ["var_5"] }
 					}
 				]
 			},
