@@ -1,6 +1,7 @@
 import * as mc from "@minecraft/server";
 
 export const HUMAN_MOB_TYPES = {
+	f_researcher: "lc:scpdy_f_researcher",
 	f_tro: "lc:scpdy_f_tro",
 	f_mtf_epsilon11: "lc:scpdy_f_mtf_epsilon11",
 } as const;
@@ -9,6 +10,7 @@ export const HUMAN_MOB_TYPE_ARRAY = Array.from(Object.values(HUMAN_MOB_TYPES));
 
 export const HUMAN_MOB_CORPSE_TYPES = {
 	f_tro_dead: "lc:scpdy_f_tro_dead",
+	f_researcher: "lc:scpdy_f_researcher_dead",
 	f_mtf_epsilon11_dead: "lc:scpdy_f_mtf_epsilon11_dead",
 } as const;
 

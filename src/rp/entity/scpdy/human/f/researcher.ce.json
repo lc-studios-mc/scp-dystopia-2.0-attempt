@@ -1,0 +1,46 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "lc:scpdy_f_researcher",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"var_0": "textures/scpdy/human/f/researcher/var_0",
+				"var_1": "textures/scpdy/human/f/researcher/var_1",
+				"var_2": "textures/scpdy/human/f/researcher/var_2",
+				"var_3": "textures/scpdy/human/f/researcher/bb607",
+				"var_4": "textures/scpdy/human/f/researcher/lc45"
+			},
+			"geometry": {
+				"default": "geometry.scpdy_f_researcher"
+			},
+			"animations": {
+				// Animation controllers
+				"ctrl.main": "controller.animation.scpdy_humanoid_default.main",
+				// Animations
+				"anim.general": "animation.scpdy_humanoid_default.general",
+				"anim.walk.arms": "animation.scpdy_humanoid_default.walk.arms",
+				"anim.walk.legs": "animation.scpdy_humanoid_default.walk.legs",
+				"anim.look_at_target": "animation.scpdy_humanoid_default.look_at_target"
+			},
+			"scripts": {
+				"scale": "0.9375",
+				"animate": ["ctrl.main"],
+				"pre_animation": [
+					"v.move = (Math.cos(q.modified_distance_moved * 38.17) * q.modified_move_speed / v.gliding_speed_value) * 57.3;",
+					"v.move_mul = 1.0;"
+				]
+			},
+			"render_controllers": [
+				"controller.render.scpdy.human.f_researcher"
+			],
+			"spawn_egg": {
+				"base_color": "#dfdace",
+				"overlay_color": "#645e4f"
+			},
+			"enable_attachables": true
+		}
+	}
+}

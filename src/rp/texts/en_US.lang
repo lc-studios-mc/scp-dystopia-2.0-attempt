@@ -612,6 +612,9 @@ item.spawn_egg.entity.lc:scpdy_f_mtf_epsilon11.name=§7SCP:DY §8| §fMTF Epsilo
 entity.lc:scpdy_f_mtf_epsilon11_dead.name=Corpse
 
 ## entities -> human -> f -> ...
+entity.lc:scpdy_f_researcher.name=Researcher
+item.spawn_egg.entity.lc:scpdy_f_researcher.name=§7SCP:DY §8| §fFoundation Researcher
+entity.lc:scpdy_f_researcher_dead.name=Corpse
 entity.lc:scpdy_f_tro.name=TRO
 item.spawn_egg.entity.lc:scpdy_f_tro.name=§7SCP:DY §8| §fFoundation TRO
 entity.lc:scpdy_f_tro_dead.name=Corpse

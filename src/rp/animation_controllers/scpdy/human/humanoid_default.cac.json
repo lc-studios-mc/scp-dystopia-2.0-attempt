@@ -1,0 +1,18 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.scpdy_humanoid_default.main": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						"anim.general",
+						"anim.walk.legs",
+						"anim.walk.arms",
+						"anim.look_at_target"
+					]
+				}
+			}
+		}
+	}
+}

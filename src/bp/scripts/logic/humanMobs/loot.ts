@@ -8,6 +8,12 @@ export type HumanMobLootData = {
 
 const LOOT_MAP = new Map<string, HumanMobLootData>([
 	[
+		HUMAN_MOB_TYPES.f_researcher,
+		{
+			getItemStacks: () => [],
+		},
+	],
+	[
 		HUMAN_MOB_TYPES.f_tro,
 		{
 			getItemStacks() {
