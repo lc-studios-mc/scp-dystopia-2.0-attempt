@@ -6,6 +6,7 @@ _Most_ notable changes to this project will be documented in this file.
 
 ### Added
 
+- Foundation Researcher mob.
 - SCP plushies.
 - Sink block.
 - Trash Bin block.
