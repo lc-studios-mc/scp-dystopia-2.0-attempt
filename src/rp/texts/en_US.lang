@@ -39,6 +39,8 @@ scpdy.action.interact.cctvServer=Configure CCTV
 
 scpdy.action.interact.gib.eat=Eat
 
+scpdy.action.interact.keypad=Enter Key
+
 scpdy.action.interact.scp096.hideFace=Hide face
 scpdy.action.interact.scp096.removePaperBag=Remove face hider
 
@@ -351,6 +353,9 @@ item.lc:scpdy_cctv_monitor_placer.name=CCTV Monitor
 item.lc:scpdy_cctv_server_placer.name=CCTV Server
 item.lc:scpdy_cctv_tablet.name=CCTV Tablet
 
+## items -> cctv -> ...
+item.lc:scpdy_keypad_placer.name=Keypad
+
 ## items -> keycards -> ...
 item.lc:scpdy_keycard_lvl_0.name=SCP Keycard (Level 0)
 item.lc:scpdy_keycard_lvl_1.name=SCP Keycard (Level 1)
@@ -597,6 +602,9 @@ entity.lc:scpdy_blood.name=Blood
 entity.lc:scpdy_cctv_camera.name=CCTV Camera
 entity.lc:scpdy_cctv_monitor.name=CCTV Monitor
 entity.lc:scpdy_cctv_server.name=CCTV Server
+
+## entities -> control_devices -> ...
+entity.lc:scpdy_keypad.name=Keypad
 
 ## entities -> explosion -> ...
 entity.lc:scpdy_landmine_explosion.name=Landmine

@@ -1,0 +1,2 @@
+import "./keypad";
+import "./placer";

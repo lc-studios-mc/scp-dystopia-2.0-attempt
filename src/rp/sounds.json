@@ -33,6 +33,14 @@
 				"pitch": [1.0, 1.0],
 				"volume": 1.0
 			},
+			"lc:scpdy_keypad": {
+				"events": {
+					"hurt": "scpdy.misc.computer.hit",
+					"death": "scpdy.misc.computer.hit"
+				},
+				"pitch": [1.0, 1.0],
+				"volume": 1.0
+			},
 			"lc:scpdy_gib_small": {
 				"events": {
 					"hurt": "scpdy.gore.small",

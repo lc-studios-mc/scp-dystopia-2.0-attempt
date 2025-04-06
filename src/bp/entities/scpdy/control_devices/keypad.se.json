@@ -1,0 +1,143 @@
+{
+	"format_version": "1.21.60",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "lc:scpdy_keypad",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false,
+			"properties": {
+				"lc:is_on": {
+					"type": "bool",
+					"default": false,
+					"client_sync": true
+				},
+				"lc:rotation_y": {
+					"type": "float",
+					"range": [-180.0, 180.0],
+					"default": 0.0,
+					"client_sync": true
+				}
+			}
+		},
+		"component_groups": {
+			"off": {
+			},
+			"on": {
+			},
+			"turn_off_timer": {
+				"minecraft:timer": {
+					"looping": true,
+					"time": 1.6,
+					"time_down_event": {
+						"event": "turn_off"
+					}
+				}
+			}
+		},
+		"components": {
+			"minecraft:knockback_resistance": {
+				"value": 1.0
+			},
+			"minecraft:type_family": {
+				"family": [
+					"inanimate"
+				]
+			},
+			"minecraft:health": {
+				"value": 11,
+				"max": 11
+			},
+			"minecraft:interact": {
+				"interactions": [
+					{
+						"on_interact": {
+							"filters": {
+								"all_of": [
+									{
+										"test": "is_family",
+										"subject": "other",
+										"operator": "==",
+										"value": "player"
+									},
+									{
+										"test": "is_sneaking",
+										"subject": "other",
+										"operator": "!="
+									}
+								]
+							}
+						},
+						"cooldown": 0.1,
+						"swing": true,
+						"interact_text": "scpdy.action.interact.keypad"
+					}
+				]
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "entity_explosion",
+						"deals_damage": "yes"
+					},
+					{
+						"cause": "block_explosion",
+						"deals_damage": "yes"
+					},
+					{
+						"cause": "all",
+						"deals_damage": "no"
+					}
+				]
+			},
+			"minecraft:breathable": {
+				"breathes_water": true,
+				"generates_bubbles": false
+			},
+			"minecraft:physics": {
+				"has_collision": true,
+				"has_gravity": false
+			},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:custom_hit_test": {
+				"hitboxes": [
+					{
+						"width": 0.35,
+						"height": 0.6,
+						"pivot": [0, 0.3, 0]
+					}
+				]
+			},
+			"minecraft:collision_box": {
+				"height": 0.4,
+				"width": 0.15
+			},
+			"minecraft:body_rotation_blocked": {},
+			"minecraft:conditional_bandwidth_optimization": {
+				"default_values": {
+					"max_dropped_ticks": 18,
+					"max_optimized_distance": 20.0,
+					"use_motion_prediction_hints": false
+				}
+			}
+		},
+		"events": {
+			"minecraft:entity_spawned": {
+				"add": { "component_groups": ["off"] }
+			},
+			"turn_on": {
+				"remove": { "component_groups": ["off"] },
+				"add": { "component_groups": ["on", "turn_off_timer"] },
+				"set_property": { "lc:is_on": true }
+			},
+			"turn_off": {
+				"remove": { "component_groups": ["on", "turn_off_timer"] },
+				"add": { "component_groups": ["off"] },
+				"set_property": { "lc:is_on": false }
+			}
+		}
+	}
+}

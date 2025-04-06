@@ -247,6 +247,11 @@
 						"items": ["lc:scpdy_door_button"]
 					},
 					{
+						"items": [
+							"lc:scpdy_keypad_placer"
+						]
+					},
+					{
 						"group_identifier": {
 							"icon": "lc:scpdy_keycard_reader_lvl_0",
 							"name": "lc:scpdy_itemGroup_keycardReaders"

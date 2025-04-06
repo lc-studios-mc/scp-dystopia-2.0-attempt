@@ -65,6 +65,11 @@
 			"textures": "textures/scpdy/cctv/tablet_icon"
 		},
 		// #endregion
+		// #region control_devices
+		"scpdy_keypad_icon": {
+			"textures": "textures/scpdy/control_devices/keypad/icon"
+		},
+		// #endregion
 		// #region keycards
 		"scpdy_keycard_lvl_0": {
 			"textures": "textures/scpdy/items/keycards/keycard_lvl_0"

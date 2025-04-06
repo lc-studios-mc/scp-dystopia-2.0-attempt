@@ -1,0 +1,16 @@
+{
+	"format_version": "1.8.0",
+	"render_controllers": {
+		"controller.render.scpdy.keypad": {
+			"geometry": "Geometry.default",
+			"materials": [{ "*": "Material.default" }],
+			"textures": ["v.is_on ? Texture.on : Texture.off"],
+			"is_hurt_color": {
+				"r": 1.0,
+				"g": 0.0,
+				"b": 0.0,
+				"a": 0.3
+			}
+		}
+	}
+}
