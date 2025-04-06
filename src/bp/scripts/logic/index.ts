@@ -7,6 +7,7 @@ import "./blocks";
 import "./cctv";
 import "./components";
 import "./config";
+import "./controlDevices";
 import "./facilityNetwork";
 import "./gore";
 import "./humanMobs";
