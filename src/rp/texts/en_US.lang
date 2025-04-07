@@ -46,6 +46,7 @@ scpdy.action.interact.scp096.removePaperBag=Remove face hider
 
 scpdy.actionHint.misc.accessGranted=§aACCESS GRANTED
 scpdy.actionHint.misc.accessDenied=§cACCESS DENIED
+scpdy.actionHint.misc.o5PermissionRequired=§cO5 PERMISSION REQUIRED
 
 scpdy.actionHint.doorActivator.redstoneDetectionOff=Redstone Detection: §cOFF
 scpdy.actionHint.doorActivator.redstoneDetectionOn=Redstone Detection: §aON
@@ -143,6 +144,9 @@ scpdy.msg.controlDevice.modeTip=§dYou can use wrench to change the mode of a Bu
 scpdy.msg.controlDevice.rbPlaceholderIsAbsent=§eNo Redstone Block Placeholder was found at corresponding location.
 
 scpdy.msg.booleanDoor.clearanceAlreadySet=§cClearance level cannot be changed!
+
+scpdy.msg.keypad.placement.passwordRequired=§cPassword is required!
+scpdy.msg.keypad.placement.passwordTooLong=§cPassword is too long!
 
 scpdy.msg.lockdownSystem.setZone.lagWarn.line_1=§ePlease note that any lockdown system (e.g. Lockdown Doors and Alarms) has a delay between reading the latest state of its zone.
 scpdy.msg.lockdownSystem.setZone.lagWarn.line_2=This is to prevent them from slowing down the world.
@@ -266,8 +270,30 @@ scpdy.form.config.prop.gunTacReloadTrigger.0=None
 scpdy.form.config.prop.gunTacReloadTrigger.1=On hit block or entity
 scpdy.form.config.prop.gunTacReloadTrigger.2=Arm swing (player.json)
 
+scpdy.form.controlDevice.modeDropdown.label=Control Device Mode
+scpdy.form.controlDevice.modeDropdown.opt0=Power a Door Activator
+scpdy.form.controlDevice.modeDropdown.opt1=Control the nearest Blast Door
+scpdy.form.controlDevice.modeDropdown.opt2=Place a Redstone Block below
+scpdy.form.controlDevice.modeDropdown.opt3=Place a Redstone Block behind
+
 scpdy.form.booleanDoor.clearanceOption.title=Set Clearance Level
 scpdy.form.booleanDoor.clearanceOption.body=§cThis cannot be changed later!
+
+scpdy.form.keypad.placementOpts.title=New Keypad
+scpdy.form.keypad.placementOpts.warning=§cThese options cannot be changed later.
+scpdy.form.keypad.placementOpts.passwordField.label=Password (Required)
+scpdy.form.keypad.placementOpts.passwordField.placeholder=Enter password here
+scpdy.form.keypad.placementOpts.hintField.label=§7Hint (Optional)
+scpdy.form.keypad.placementOpts.hintField.placeholder=Enter hint here
+scpdy.form.keypad.placementOpts.loudIncorrectBuzzerToggle.label=Loud Incorrect Buzzer
+scpdy.form.keypad.placementOpts.O5ClearanceToggle.label=Has O5 Clearance Level
+scpdy.form.keypad.placementOpts.submitButton=Place
+scpdy.form.keypad.use.title=Locked
+scpdy.form.keypad.use.note=§eThis device is locked with a password.
+scpdy.form.keypad.use.hint=§7Hint: %s
+scpdy.form.keypad.use.passwordField.label=Enter Password
+scpdy.form.keypad.use.passwordField.placeholder=Enter password here
+scpdy.form.keypad.use.submitButton=Unlock
 
 scpdy.form.lockdownDoor.setZone.title=Set facility zone
 scpdy.form.lockdownDoor.setZone.allowChangeToggle.label=Can change zone later

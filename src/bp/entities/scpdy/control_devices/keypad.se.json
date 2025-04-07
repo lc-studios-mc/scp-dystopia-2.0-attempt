@@ -7,6 +7,11 @@
 			"is_summonable": true,
 			"is_experimental": false,
 			"properties": {
+				"lc:control_device_mode": {
+					"type": "int",
+					"range": [0, 4],
+					"default": 0
+				},
 				"lc:is_on": {
 					"type": "bool",
 					"default": false,
