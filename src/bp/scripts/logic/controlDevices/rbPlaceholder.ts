@@ -1,7 +1,13 @@
-import { Block, world } from "@minecraft/server";
+import { Block, Player, world } from "@minecraft/server";
 
 const ANCHOR_ENTITY_TYPE = "lc:scpdy_rb_placeholder_anchor";
 const RB_PLACEHOLDER_BLOCK_TYPE = "lc:scpdy_rb_placeholder";
+
+export function tellRbPlaceholderIsMissing(player?: Player): void {
+	player?.sendMessage({
+		translate: "scpdy.msg.controlDevice.rbPlaceholderIsAbsent",
+	});
+}
 
 export function activateRbPlaceholder(block?: Block): boolean {
 	if (!block) return false;
