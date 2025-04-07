@@ -87,6 +87,22 @@
 				}
 			]
 		},
+		"scpdy.interact.keypad.correct": {
+			"category": "neutral",
+			"sounds": ["sounds/scpdy/interact/keypad_correct"]
+		},
+		"scpdy.interact.keypad.incorrect": {
+			"category": "neutral",
+			"sounds": ["sounds/scpdy/interact/keypad_incorrect"]
+		},
+		"scpdy.interact.keypad.incorrect_loud": {
+			"category": "neutral",
+			"max_distance": 20.0,
+			"min_distance": null,
+			"sounds": [
+				{ "name": "sounds/scpdy/interact/keypad_incorrect_loud", "volume": 1.3 }
+			]
+		},
 		"scpdy.interact.laptop.close": {
 			"category": "neutral",
 			"max_distance": null,
