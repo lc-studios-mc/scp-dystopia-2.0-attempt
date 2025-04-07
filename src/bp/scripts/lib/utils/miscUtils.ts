@@ -43,6 +43,43 @@ export function rotationToDirection(
 }
 
 /**
+ * Convert {@link mc.Direction} to {@link mc.Vector2}
+ */
+export function directionToRotation(direction: mc.Direction): mc.Vector2 {
+	switch (direction) {
+		default:
+			return { x: 0, y: 0 };
+		case mc.Direction.Down:
+			return { x: 90, y: 0 };
+		case mc.Direction.Up:
+			return { x: -90, y: 0 };
+		case mc.Direction.South:
+			return { x: 0, y: 180 };
+		case mc.Direction.West:
+			return { x: 0, y: -90 };
+		case mc.Direction.East:
+			return { x: 0, y: 90 };
+	}
+}
+
+export function reversedDirection(direction: mc.Direction): mc.Direction {
+	switch (direction) {
+		default:
+			return mc.Direction.South;
+		case mc.Direction.Down:
+			return mc.Direction.Up;
+		case mc.Direction.Up:
+			return mc.Direction.Down;
+		case mc.Direction.South:
+			return mc.Direction.North;
+		case mc.Direction.West:
+			return mc.Direction.East;
+		case mc.Direction.East:
+			return mc.Direction.West;
+	}
+}
+
+/**
  * @returns First container slot (matching condition)
  */
 export function getContainerSlot(
