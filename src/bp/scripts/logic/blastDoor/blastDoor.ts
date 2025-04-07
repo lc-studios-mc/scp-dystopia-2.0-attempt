@@ -96,6 +96,28 @@ export function controlBlastDoor(
 	return true;
 }
 
+/**
+ * @param dimension Dimension
+ * @param origin Original location to run entity query from
+ * @param maxDistance Allows {@link Infinity} number
+ * @returns
+ */
+export function getNearestBlastDoor(
+	dimension: mc.Dimension,
+	origin: mc.Vector3,
+	maxDistance = 7,
+): mc.Entity | undefined {
+	return dimension.getEntities({
+		closest: 1,
+		maxDistance: maxDistance === Infinity ? undefined : maxDistance,
+		location: origin,
+		families: ["scpdy_blast_door"],
+	})[0];
+}
+
+/**
+ * @deprecated Use {@link getNearestBlastDoor} and {@link controlBlastDoor} instead
+ */
 export function switchClosestBlastDoor(block: mc.Block, isO5Access = false): boolean {
 	const blastDoor = block.dimension.getEntities({
 		closest: 1,
