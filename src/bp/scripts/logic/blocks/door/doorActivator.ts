@@ -29,7 +29,7 @@ function onTick(arg: mc.BlockComponentTickEvent): void {
 	if (ticksUntilPowerOff > 0) {
 		const val = ticksUntilPowerOff -
 			((hasDetectedRedstone && ticksUntilPowerOff === 1) ||
-					(ticksUntilPowerOff > 1 && mc.system.currentTick % 6 !== 0)
+					(ticksUntilPowerOff > 1 && mc.system.currentTick % 8 !== 0)
 				? 0
 				: 1);
 
