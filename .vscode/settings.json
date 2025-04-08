@@ -9,7 +9,7 @@
 	"editor.insertSpaces": false,
 	"files.eol": "\n",
 	"files.associations": {
-		"**/packs/**/*.json": "jsonc",
+		"*.json": "jsonc",
 		"package.json": "json",
 		"package-lock.json": "json"
 	},
