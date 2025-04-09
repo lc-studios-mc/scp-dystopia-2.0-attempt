@@ -1,5 +1,5 @@
-import { showConfigEditorForm } from "@logic/config/configData";
 import * as mc from "@minecraft/server";
+import { showConfigEditorForm } from "./config";
 
 function onUse(arg: mc.ItemComponentUseEvent): void {
 	const player = arg.source;

@@ -184,6 +184,20 @@ scpdy.form.misc.no=No
 scpdy.form.misc.ok=OK
 scpdy.form.misc.none=None
 
+scpdy.configV2.title=Config Editor
+scpdy.configV2.submitButton=Save & Exit
+scpdy.configV2.description=Config changes how various features in SCP: Dystopia work in this world.
+scpdy.configV2.resetOnExit.label=§eTurning the toggle below will cause all options to be reset after pressing Save & Exit
+scpdy.configV2.resetOnExit.toggle=§cReset
+scpdy.configV2.disableExpensiveGoreEffects=Disable Expensive Gore Effect
+scpdy.configV2.disableAdvancedSCP096Movement=Disable Advanced SCP-096 Movement
+scpdy.configV2.disableCameraFadeOnBlink=Disable Camera Fade on Blink
+scpdy.configV2.disableKnockbackOfCertainBullets=Disable Knockback of Certain Bullets (buggy)
+scpdy.configV2.gunTacReloadTrigger.label=Gun Tactical Reload Trigger
+scpdy.configV2.gunTacReloadTrigger.0=None
+scpdy.configV2.gunTacReloadTrigger.1=On Punch Something
+scpdy.configV2.gunTacReloadTrigger.2=* On Detect Arm Swing
+
 scpdy.form.alphanumericSignOptions.title=Placement Options
 scpdy.form.alphanumericSignOptions.textField.label=Text
 scpdy.form.alphanumericSignOptions.textField.placeholder=ASCII string
