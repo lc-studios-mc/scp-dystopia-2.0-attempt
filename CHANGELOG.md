@@ -12,6 +12,10 @@ _Most_ notable changes to this project will be documented in this file.
 - Sink block.
 - Trash Bin block.
 
+### Changed
+
+- **BREAKING:** Improve Config and Config editor form.
+
 ### Fixed
 
 - Improve Slasher MK-II user experience.
