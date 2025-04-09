@@ -14,13 +14,6 @@
 		"url": "git+https://github.com/lc-studios-mc/scp-dystopia.git"
 	},
 	"author": "Lucked Coronet",
-	"packageManager": "pnpm@10.6.5",
-	"pnpm": {
-		"onlyBuiltDependencies": [
-			"dprint",
-			"esbuild"
-		]
-	},
 	"devDependencies": {
 		"@minecraft/server": "2.0.0-beta.1.21.70-stable",
 		"@minecraft/server-ui": "2.0.0-beta.1.21.70-stable",
