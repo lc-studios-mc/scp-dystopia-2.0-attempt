@@ -190,7 +190,7 @@ abstract class SlasherState {
 }
 
 class IdleState extends SlasherState {
-	onTick(mainhandItemStack: mc.ItemStack): void {
+	override onTick(mainhandItemStack: mc.ItemStack): void {
 		super.onTick(mainhandItemStack);
 
 		if (this.slasher.isBeingUsed) {
@@ -212,7 +212,7 @@ class IdleState extends SlasherState {
 		}
 	}
 
-	onSwingArm(): void {
+	override onSwingArm(): void {
 		this.slasher.transitionTo(new SwingAttackState(this.slasher));
 	}
 }
@@ -227,7 +227,7 @@ class SwingAttackState extends SlasherState {
 	private isNextSwingQueued = false;
 	private nextAnimIndex = 0;
 
-	onTick(mainhandItemStack: mc.ItemStack): void {
+	override onTick(mainhandItemStack: mc.ItemStack): void {
 		super.onTick(mainhandItemStack);
 
 		if (this.ticksUntilExitState <= 0) {
@@ -244,11 +244,11 @@ class SwingAttackState extends SlasherState {
 		}
 	}
 
-	onEnter(): void {
+	override onEnter(): void {
 		this.swingAttack();
 	}
 
-	onSwingArm(): void {
+	override onSwingArm(): void {
 		if (this.cooldown > 0) {
 			this.isNextSwingQueued = true;
 			return;
@@ -329,7 +329,7 @@ class SwingAttackState extends SlasherState {
 class ChargingState extends SlasherState {
 	private static readonly FULL_CHARGE_DURATION = 4;
 
-	onTick(mainhandItemStack: mc.ItemStack): void {
+	override onTick(mainhandItemStack: mc.ItemStack): void {
 		super.onTick(mainhandItemStack);
 
 		const durabilityComp = this.slasher.getDurabilityComp(mainhandItemStack);
@@ -352,7 +352,7 @@ class ChargingState extends SlasherState {
 		];
 
 		if (this.currentTick < ChargingState.FULL_CHARGE_DURATION) {
-			this.slasher.player.onScreenDisplay.setActionBar(chargeUIMap[this.currentTick]);
+			this.slasher.player.onScreenDisplay.setActionBar(chargeUIMap[this.currentTick] ?? "");
 		} else {
 			// Flashy colors for fully charged
 			this.slasher.player.onScreenDisplay.setActionBar(
@@ -374,7 +374,7 @@ class ChargingState extends SlasherState {
 		}
 	}
 
-	onStopUse(_event: mc.ItemStopUseAfterEvent): void {
+	override onStopUse(_event: mc.ItemStopUseAfterEvent): void {
 		if (this.currentTick < ChargingState.FULL_CHARGE_DURATION) this.cancelCharge();
 		else this.releaseFullCharge();
 	}
@@ -426,7 +426,7 @@ class SlashingState extends SlasherState {
 	private slashTick = 0;
 	private alreadySlashedEntities: mc.Entity[] = [];
 
-	onTick(mainhandItemStack: mc.ItemStack): void {
+	override onTick(mainhandItemStack: mc.ItemStack): void {
 		super.onTick(mainhandItemStack);
 
 		if (this.currentTick % 2 === 0) {
@@ -662,7 +662,7 @@ class LockonSlashingState extends SlasherState {
 			return;
 		}
 
-		const entity = lockonEntities[0];
+		const entity = lockonEntities[0]!;
 
 		const lockonRelativeLoc = vec3
 			.chain(slasher.player.location)
@@ -671,7 +671,7 @@ class LockonSlashingState extends SlasherState {
 			.add(entity.location)
 			.done();
 
-		slasher.player.teleport(lockonRelativeLoc, { facingLocation: lockonEntities[0].location });
+		slasher.player.teleport(lockonRelativeLoc, { facingLocation: entity.location });
 
 		this.playerLoc = lockonRelativeLoc;
 		this.playerRot = slasher.player.getRotation();
@@ -680,11 +680,11 @@ class LockonSlashingState extends SlasherState {
 		entity.clearVelocity();
 	}
 
-	onEnter(): void {
+	override onEnter(): void {
 		this.slasher.playSound3DAnd2D("scpdy.slasher.slash", 10, { volume: 1.3 });
 	}
 
-	onTick(mainhandItemStack: mc.ItemStack): void {
+	override onTick(mainhandItemStack: mc.ItemStack): void {
 		super.onTick(mainhandItemStack);
 
 		if (this.endTick >= 0) {
@@ -835,7 +835,7 @@ class LockonSlashingState extends SlasherState {
 class PlungeWindupState extends SlasherState {
 	private static readonly COMPLETE_TICK = 8;
 
-	onEnter(): void {
+	override onEnter(): void {
 		this.slasher.player.addEffect("weakness", PlungeWindupState.COMPLETE_TICK + 2, {
 			amplifier: 255,
 			showParticles: false,
@@ -856,7 +856,7 @@ class PlungeWindupState extends SlasherState {
 		// TODO: plunge windup third person animations
 	}
 
-	onTick(mainhandItemStack: mc.ItemStack): void {
+	override onTick(mainhandItemStack: mc.ItemStack): void {
 		super.onTick(mainhandItemStack);
 
 		if (this.currentTick === PlungeWindupState.COMPLETE_TICK) {
@@ -873,7 +873,7 @@ class PlungeFallState extends SlasherState {
 		super(slasher);
 	}
 
-	onEnter(): void {
+	override onEnter(): void {
 		this.addEffects();
 
 		this.slasher.playSound3DAnd2D("scpdy.slasher.slash", 12, {
@@ -886,7 +886,7 @@ class PlungeFallState extends SlasherState {
 		// TODO: plunge fall third person animations
 	}
 
-	onTick(mainhandItemStack: mc.ItemStack): void {
+	override onTick(mainhandItemStack: mc.ItemStack): void {
 		super.onTick(mainhandItemStack);
 
 		if (this.currentTick % 2 === 0) {
@@ -944,7 +944,7 @@ class PlungeImpactState extends SlasherState {
 		});
 	}
 
-	onEnter(): void {
+	override onEnter(): void {
 		if (
 			this.fallenDepth <= 1.2 || (!this.slasher.player.isFalling && !this.slasher.player.isOnGround)
 		) {
@@ -1073,7 +1073,7 @@ class PlungeImpactState extends SlasherState {
 		}
 	}
 
-	onTick(mainhandItemStack: mc.ItemStack): void {
+	override onTick(mainhandItemStack: mc.ItemStack): void {
 		super.onTick(mainhandItemStack);
 
 		if (this.currentTick < PlungeImpactState.STATE_DURATION) return;
