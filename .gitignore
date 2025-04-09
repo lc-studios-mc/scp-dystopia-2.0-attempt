@@ -1,17 +1,5 @@
 node_modules/
 dist/
-unbundled_js_output/
-sync/
-.temp-worktrees/
-.temp-wt/
 
-*.jpg
-*.jpeg
 *.gif
-*.bmp
 *.psd
-
-*.wav
-*.mp3
-
-*.bbmodel
