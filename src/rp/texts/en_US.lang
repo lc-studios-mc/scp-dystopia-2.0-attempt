@@ -136,7 +136,6 @@ scpdy.msg.cctvTablet.removedServerLink=§aRemoved CCTV Server link.
 scpdy.msg.cctvTablet.cameraUnavailable=§cThe camera you selected is unavailable.
 
 scpdy.msg.config.restricted=§cOnly the world leader and players with operator-level permissions can use this item!
-scpdy.msg.config.saved=§aSaved changes!
 
 scpdy.msg.doorActivator.redstoneLagWarning=§eMech Door Activator with redstone detection enabled can cause significant lag when placed in large numbers within a simulated chunk.
 
@@ -272,17 +271,6 @@ scpdy.form.cctvTablet.chooseCamera.title=CCTV Tablet
 scpdy.form.cctvTablet.chooseCamera.body=Select the camera you want to use:
 scpdy.form.cctvTablet.chooseCamera.button.cameraElement=%s: %s
 scpdy.form.cctvTablet.chooseCamera.button.cameraElementError=%s: §cCONNECTION ERROR
-
-scpdy.form.config.title=SCP:DY Config Editor
-scpdy.form.config.submitButton=Save
-scpdy.form.config.prop.disableGore=Disable expensive gore effect
-scpdy.form.config.prop.advanced096Movement=Advanced SCP-096 movement
-scpdy.form.config.prop.blinkingCameraFade=Camera fades on blinking
-scpdy.form.config.prop.bulletManipulatesTargetVelocity=Player bullet can manipulate target velocity
-scpdy.form.config.prop.gunTacReloadTrigger=Gun tac-reload trigger
-scpdy.form.config.prop.gunTacReloadTrigger.0=None
-scpdy.form.config.prop.gunTacReloadTrigger.1=On hit block or entity
-scpdy.form.config.prop.gunTacReloadTrigger.2=Arm swing (player.json)
 
 scpdy.form.controlDevice.modeDropdown.label=Control Device Mode
 scpdy.form.controlDevice.modeDropdown.opt0=Power a Door Activator
