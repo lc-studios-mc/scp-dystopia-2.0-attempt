@@ -1,4 +1,4 @@
-import { CONFIG } from "@logic/config/configData";
+import { CONFIG } from "@logic/config/config";
 import * as mc from "@minecraft/server";
 import { spreadBlood } from "./blood";
 import { GIB_MEDIUM_ENTITY_TYPE, GIB_SMALL_ENTITY_TYPE } from "./shared";
@@ -21,7 +21,7 @@ export function spawnGoreExplosion(dimension: mc.Dimension, location: mc.Vector3
 		}, i);
 	}
 
-	if (CONFIG.disableGore) return;
+	if (CONFIG.disableExpensiveGoreEffects) return;
 
 	spreadBlood(dimension, location, true);
 

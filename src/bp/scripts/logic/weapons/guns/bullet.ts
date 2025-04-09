@@ -2,7 +2,7 @@ import { getEntitiesInAllDimensions, getModifiedDamageNumber } from "@lib/utils/
 import { clamp } from "@lib/utils/mathUtils";
 import { spawnBulletRicochetParticle } from "@lib/utils/scpdyUtils";
 import * as vec3 from "@lib/utils/vec3";
-import { CONFIG } from "@logic/config/configData";
+import { CONFIG } from "@logic/config/config";
 import * as mc from "@minecraft/server";
 
 const BULLET_TYPE_OBJ = {
@@ -226,7 +226,7 @@ mc.world.afterEvents.projectileHitEntity.subscribe((hitEvent) => {
 					damagingEntity: flyingBulletInfo.shootOptions.sourceEntity,
 				});
 
-				if (CONFIG.bulletManipulatesTargetVelocity) {
+				if (CONFIG.disableKnockbackOfCertainBullets) {
 					hitEntity.clearVelocity();
 
 					const revelo: mc.Vector3 = {

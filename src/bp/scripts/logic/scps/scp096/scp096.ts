@@ -1,7 +1,7 @@
 import { randomFloat, randomInt } from "@lib/utils/mathUtils";
 import { ensureType } from "@lib/utils/miscUtils";
 import * as vec3 from "@lib/utils/vec3";
-import { CONFIG } from "@logic/config/configData";
+import { CONFIG } from "@logic/config/config";
 import { SCP173_ENTITY_TYPE } from "@logic/scps/scp173/shared";
 import * as mc from "@minecraft/server";
 import { SCP096_1_TAG, SCP096_ENTITY_TYPE } from "./shared";
@@ -54,7 +54,7 @@ function onUpdateScp096(scp096Entity: mc.Entity): void {
 		onScp096HitWither(scp096Entity, target);
 	}
 
-	if (!CONFIG.advanced096Movement) return;
+	if (CONFIG.disableAdvanced096Movement) return;
 
 	// Stuck checker below
 

@@ -1,4 +1,4 @@
-import { CONFIG } from "@logic/config/configData";
+import { CONFIG } from "@logic/config/config";
 import * as mc from "@minecraft/server";
 import { SCP173_ENTITY_TYPE } from "./shared";
 
@@ -65,8 +65,8 @@ mc.world.afterEvents.worldLoad.subscribe(() => {
 	mc.system.runInterval(() => {
 		updateBlinkTimer();
 
-		if (CONFIG.blinkingCameraFade) {
-			playerCameraBlinking();
-		}
+		if (CONFIG.disableCameraFadeOnBlink) return;
+
+		playerCameraBlinking();
 	}, 2);
 });

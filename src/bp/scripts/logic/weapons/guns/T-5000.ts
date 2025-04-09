@@ -3,7 +3,7 @@ import * as vec3 from "@lib/utils/vec3";
 import { AdvancedItem, AdvancedItemBaseConstructorArgs } from "@logic/advancedItem/AdvancedItem";
 import { registerAdvancedItemProfile } from "@logic/advancedItem/profileRegistry";
 import { getAmmoType, getTotalAmmoCount, removeAmmo } from "@logic/ammo/ammo";
-import { CONFIG } from "@logic/config/configData";
+import { CONFIG } from "@logic/config/config";
 import * as mc from "@minecraft/server";
 import { shootBullet } from "./bullet";
 import * as commonBulletHitEvents from "./commonBulletHitEvents";
@@ -432,19 +432,19 @@ class T5000 extends AdvancedItem {
 	onStopUse(event: mc.ItemStopUseAfterEvent): void {}
 
 	onSwingArm(): void {
-		if (CONFIG.gunTacReloadOption !== 2) return;
+		if (CONFIG.gunTacReloadTrigger !== 2) return;
 		if (this.tryReloadingNextTick) return;
 		this.tryReloadingNextTick = true;
 	}
 
 	onHitEntity(event: mc.EntityHitEntityAfterEvent): void {
-		if (CONFIG.gunTacReloadOption !== 1) return;
+		if (CONFIG.gunTacReloadTrigger !== 1) return;
 		if (this.tryReloadingNextTick) return;
 		this.tryReloadingNextTick = true;
 	}
 
 	onHitBlock(event: mc.EntityHitBlockAfterEvent): void {
-		if (CONFIG.gunTacReloadOption !== 1) return;
+		if (CONFIG.gunTacReloadTrigger !== 1) return;
 		if (this.tryReloadingNextTick) return;
 		this.tryReloadingNextTick = true;
 	}
