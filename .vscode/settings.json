@@ -13,6 +13,13 @@
 		"package.json": "json",
 		"package-lock.json": "json"
 	},
+	"files.watcherExclude": {
+		"**/dist/**": true
+	},
+	"search.exclude": {
+		"**/dist/**": true,
+		"**/wt/**": true
+	},
 
 	// https://marketplace.visualstudio.com/items?itemName=BlueGlassBlock.better-json5
 	"json5.format.enable": true,
