@@ -173,12 +173,14 @@ function removeParentNodeOf(pwrNode: mc.Entity): void {
 	}
 
 	setParentNode(pwrNode, undefined);
+	setPowerWasComingFromParent(pwrNode, undefined);
 }
 
 function removeChildNodesOf(pwrNode: mc.Entity): void {
 	for (const child of getChildNodes(pwrNode)) {
 		if (child == null) continue;
 		setParentNode(child, undefined);
+		setPowerWasComingFromParent(child, undefined);
 	}
 
 	setChildNodes(pwrNode, undefined);
