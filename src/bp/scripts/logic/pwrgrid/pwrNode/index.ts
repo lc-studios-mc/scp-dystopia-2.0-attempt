@@ -1,5 +1,5 @@
 import * as mc from "@minecraft/server";
-import { PWR_NODE_ENTITY_TYPE_ID } from "./shared";
+import { PWR_NODE_ENTITY_TYPE_ID, PWR_NODE_PLACER_ITEM_TYPE_ID } from "./shared";
 
 export function placePwrNode(
 	dimension: mc.Dimension,
@@ -12,6 +12,46 @@ export function placePwrNode(
 
 	setDirection(pwrNode, direction);
 }
+
+function removePwrNode(pwrNode: mc.Entity, damager?: mc.Player, isDamagerCreative = false): void {
+	if (!pwrNode.isValid) return;
+
+	if (!isDamagerCreative) isDamagerCreative = damager?.getGameMode() === mc.GameMode.creative;
+
+	if (!isDamagerCreative && mc.world.gameRules.doMobLoot) {
+		const loot = new mc.ItemStack(PWR_NODE_PLACER_ITEM_TYPE_ID);
+		pwrNode.dimension.spawnItem(loot, pwrNode.location);
+	}
+
+	pwrNode.remove();
+}
+
+// #region world event listeners
+
+mc.world.afterEvents.entityHurt.subscribe(({ damageSource, hurtEntity: pwrNode }) => {
+	const damager = damageSource?.damagingEntity instanceof mc.Player
+		? damageSource.damagingEntity
+		: undefined;
+
+	if (!damager) return;
+	if (damager.getGameMode() !== mc.GameMode.creative) return;
+
+	removePwrNode(pwrNode, damager, true);
+}, {
+	entityTypes: [PWR_NODE_ENTITY_TYPE_ID],
+});
+
+mc.world.afterEvents.entityDie.subscribe(({ damageSource, deadEntity: pwrNode }) => {
+	const damager = damageSource?.damagingEntity instanceof mc.Player
+		? damageSource.damagingEntity
+		: undefined;
+
+	removePwrNode(pwrNode, damager);
+}, {
+	entityTypes: [PWR_NODE_ENTITY_TYPE_ID],
+});
+
+// #endregion
 
 // #region get/set functions
 
