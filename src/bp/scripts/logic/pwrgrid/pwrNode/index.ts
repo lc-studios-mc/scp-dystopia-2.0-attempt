@@ -1,5 +1,6 @@
 import { getRelativeBlock } from "@lib/utils/blockUtils";
 import { reversedDirection } from "@lib/utils/miscUtils";
+import * as vec3 from "@lib/utils/vec3";
 import * as mc from "@minecraft/server";
 import { ActionFormData } from "@minecraft/server-ui";
 import { PWR_NODE_ENTITY_TYPE_ID, PWR_NODE_PLACER_ITEM_TYPE_ID } from "./shared";
@@ -55,6 +56,7 @@ export function connectNodes(from: mc.Entity, to: mc.Entity): boolean {
 	if (!isPwrNode(from)) return false;
 	if (!isPwrNode(to)) return false;
 	if (from === to) return false;
+	if (vec3.distance(from.location, to.location) > 50) return false;
 
 	const parentOfFrom = getParentNode(from);
 
