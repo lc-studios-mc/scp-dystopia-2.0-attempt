@@ -216,6 +216,15 @@
 					"component_groups": ["script_update_timer:slow", "script_update_timer:mid"]
 				}
 			},
+			"pwr_node:remove_script_update_timer": {
+				"remove": {
+					"component_groups": [
+						"script_update_timer:slow",
+						"script_update_timer:mid",
+						"script_update_timer:fast"
+					]
+				}
+			},
 			"pwr_node:update_script": {} // Listened by script
 		}
 	}
