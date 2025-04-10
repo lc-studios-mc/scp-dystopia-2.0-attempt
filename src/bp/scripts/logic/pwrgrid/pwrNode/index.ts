@@ -154,6 +154,20 @@ function setDirection(pwrNode: mc.Entity, direction: mc.Direction) {
 	pwrNode.setProperty("lc:rot_y", rotY);
 }
 
+function getPowered(pwrNode: mc.Entity): boolean {
+	return pwrNode.getProperty("lc:is_powered") === true;
+}
+
+function setPowered(pwrNode: mc.Entity, value: boolean) {
+	const isPoweredNow = getPowered(pwrNode);
+
+	if (isPoweredNow && !value) {
+		pwrNode.triggerEvent("pwr_node:power_off");
+	} else if (!isPoweredNow && value) {
+		pwrNode.triggerEvent("pwr_node:power_on");
+	}
+}
+
 function getParentNode(pwrNode: mc.Entity): mc.Entity | null {
 	const entityId = pwrNode.getDynamicProperty("parent");
 
