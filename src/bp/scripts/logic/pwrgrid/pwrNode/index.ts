@@ -20,6 +20,12 @@ function onUpdatePwrNode(pwrNode: mc.Entity): void {
 
 	setPowered(pwrNode, shouldBePowered);
 
+	const isAttachedToUnlitLamp = attachedTo.typeId === "minecraft:redstone_lamp" ||
+		attachedTo.typeId.startsWith("minecraft:") && attachedTo.typeId.endsWith("copper_bulb") &&
+			attachedTo.permutation.getState("lit") === false;
+
+	if (isAttachedToUnlitLamp) return;
+
 	const childs = getChildNodes(pwrNode);
 
 	for (let i = 0; i < childs.length; i++) {
