@@ -9,7 +9,7 @@
 			}
 		},
 		"components": {
-			// "minecraft:custom_components": ["scpdy:pwr_node_placer"],
+			"minecraft:custom_components": ["scpdy:pwr_node_placer"],
 			"minecraft:icon": {
 				"textures": {
 					"default": "scpdy_pwr_node_icon"
