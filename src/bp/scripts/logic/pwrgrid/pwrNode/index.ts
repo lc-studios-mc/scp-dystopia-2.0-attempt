@@ -138,12 +138,16 @@ async function interactionAsync(pwrNode: mc.Entity, player: mc.Player): Promise<
 	const childsLabelWidth = `${childs.filter(x => x !== null).length}/${childs.length}`;
 
 	const response = await new ActionFormData()
-		.title("bruh")
-		.body("im power node!")
-		.label(`parent: ${parentLabelWith}`)
-		.label(`childs: ${childsLabelWidth}`)
-		.button("rm parent")
-		.button("rm childs")
+		.title({ translate: "scpdy.form.pwrNodeInfo.title" })
+		.body({ translate: "scpdy.form.pwrNodeInfo.body" })
+		.label(
+			{ translate: "scpdy.form.pwrNodeInfo.parentInfo", with: [parentLabelWith] },
+		)
+		.label(
+			{ translate: "scpdy.form.pwrNodeInfo.childsInfo", with: [childsLabelWidth] },
+		)
+		.button({ translate: "scpdy.form.pwrNodeInfo.rmParentButton" })
+		.button({ translate: "scpdy.form.pwrNodeInfo.rmChildsButton" })
 		.show(player);
 
 	if (response.canceled) return;

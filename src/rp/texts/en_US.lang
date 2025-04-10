@@ -365,6 +365,13 @@ scpdy.form.pwrNodeConnector.title=Power Node Connector
 scpdy.form.pwrNodeConnector.initialNodeLabel=Initial Node: §b%s
 scpdy.form.pwrNodeConnector.removeInitialNodeButton=§lRemove Initial Node
 
+scpdy.form.pwrNodeInfo.title=Power Node
+scpdy.form.pwrNodeInfo.body=You can use the Power Node Connector item to connect nodes together.
+scpdy.form.pwrNodeInfo.parentInfo=Parent Node: §7%s
+scpdy.form.pwrNodeInfo.childsInfo=Child Nodes: §7%s
+scpdy.form.pwrNodeInfo.rmParentButton=Remove Parent Node
+scpdy.form.pwrNodeInfo.rmChildsButton=Remove Child Nodes
+
 ## --- Items
 
 ## items -> ammo -> packs -> ...
