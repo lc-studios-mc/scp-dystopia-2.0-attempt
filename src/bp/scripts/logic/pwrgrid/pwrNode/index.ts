@@ -4,6 +4,31 @@ import * as mc from "@minecraft/server";
 import { PWR_NODE_ENTITY_TYPE_ID, PWR_NODE_PLACER_ITEM_TYPE_ID } from "./shared";
 
 function onUpdatePwrNode(pwrNode: mc.Entity): void {
+	if (!pwrNode.isValid) return;
+
+	const attachedTo = getBlockAttachedTo(pwrNode);
+
+	if (!attachedTo) {
+		removePwrNode(pwrNode);
+		return;
+	}
+
+	const wasPowerComingFromParent = getPowerWasComingFromParent(pwrNode);
+
+	const shouldBePowered = wasPowerComingFromParent ||
+		attachedTo.typeId === "minecraft:redstone_block";
+
+	setPowered(pwrNode, shouldBePowered);
+
+	const childs = getChildNodes(pwrNode);
+
+	for (let i = 0; i < childs.length; i++) {
+		const child = childs[i];
+
+		if (child == null) continue;
+
+		setPowerWasComingFromParent(child, shouldBePowered);
+	}
 }
 
 export function placePwrNode(
@@ -166,6 +191,14 @@ function setPowered(pwrNode: mc.Entity, value: boolean) {
 	} else if (!isPoweredNow && value) {
 		pwrNode.triggerEvent("pwr_node:power_on");
 	}
+}
+
+function getPowerWasComingFromParent(pwrNode: mc.Entity): boolean {
+	return pwrNode.getDynamicProperty("wasPowerComingFromParent") === true;
+}
+
+function setPowerWasComingFromParent(pwrNode: mc.Entity, value?: boolean): void {
+	pwrNode.setDynamicProperty("wasPowerComingFromParent", value);
 }
 
 function getParentNode(pwrNode: mc.Entity): mc.Entity | null {
