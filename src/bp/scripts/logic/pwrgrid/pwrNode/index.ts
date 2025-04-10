@@ -142,6 +142,9 @@ function isPwrNode(entity: unknown): entity is mc.Entity {
 	return entity.typeId === PWR_NODE_ENTITY_TYPE_ID;
 }
 
+async function interactionAsync(pwrNode: mc.Entity, player: mc.Player): Promise<void> {
+}
+
 // #region world event listeners
 
 mc.world.afterEvents.dataDrivenEntityTrigger.subscribe(({ entity: pwrNode }) => {
@@ -149,6 +152,15 @@ mc.world.afterEvents.dataDrivenEntityTrigger.subscribe(({ entity: pwrNode }) => 
 }, {
 	entityTypes: [PWR_NODE_ENTITY_TYPE_ID],
 	eventTypes: ["pwr_node:update_script"],
+});
+
+mc.world.afterEvents.playerInteractWithEntity.subscribe(({ target, player }) => {
+	if (target.typeId !== PWR_NODE_ENTITY_TYPE_ID) return;
+
+	interactionAsync(target, player)
+		.catch(() => {
+			player.sendMessage({ translate: "scpdy.msg.misc.somethingWentWrong" });
+		});
 });
 
 mc.world.afterEvents.entitySpawn.subscribe(({ entity }) => {
