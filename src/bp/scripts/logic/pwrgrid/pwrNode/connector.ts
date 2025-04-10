@@ -1,6 +1,7 @@
 import * as vec3 from "@lib/utils/vec3";
 import * as mc from "@minecraft/server";
 import { ActionFormData } from "@minecraft/server-ui";
+import { connectNodes } from ".";
 import { PWR_NODE_ENTITY_TYPE_ID } from "./shared";
 
 mc.system.beforeEvents.startup.subscribe(({ itemComponentRegistry }) => {
@@ -47,7 +48,23 @@ function onUse({ source: player, itemStack }: mc.ItemComponentUseEvent): void {
 		return;
 	}
 
-	// TODO: connect nodes together
+	if (!connectNodes(initialNode, selectedPwrNode)) {
+		player.onScreenDisplay.setActionBar({
+			translate: "scpdy.actionHint.pwrNodeConnector.cannotConnect",
+		});
+
+		player.playSound("note.bass");
+		return;
+	}
+
+	player.onScreenDisplay.setActionBar({
+		translate: "scpdy.actionHint.pwrNodeConnector.connected",
+	});
+
+	player.playSound("random.orb", { pitch: 0.9 });
+
+	setInitialNode(itemStack, undefined);
+	tryApplyChanges(player, itemStack);
 }
 
 async function showInitialNodeInfoForm(
