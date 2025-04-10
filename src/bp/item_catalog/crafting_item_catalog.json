@@ -360,7 +360,8 @@
 							"name": "lc:scpdy_itemGroup_pwrgrid"
 						},
 						"items": [
-							"lc:scpdy_pwr_node_placer"
+							"lc:scpdy_pwr_node_placer",
+							"lc:scpdy_pwr_node_connector"
 						]
 					}
 				]

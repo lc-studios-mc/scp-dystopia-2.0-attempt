@@ -104,6 +104,9 @@
 		},
 		// #endregion
 		// #region pwrgrid
+		"scpdy_pwr_node_connector_icon": {
+			"textures": "textures/scpdy/pwrgrid/pwr_node_connector_icon"
+		},
 		"scpdy_pwr_node_icon": {
 			"textures": "textures/scpdy/pwrgrid/pwr_node_icon"
 		},
