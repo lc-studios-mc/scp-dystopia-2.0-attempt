@@ -1,3 +1,5 @@
+import { getRelativeBlock } from "@lib/utils/blockUtils";
+import { reversedDirection } from "@lib/utils/miscUtils";
 import * as mc from "@minecraft/server";
 import { PWR_NODE_ENTITY_TYPE_ID, PWR_NODE_PLACER_ITEM_TYPE_ID } from "./shared";
 
@@ -91,6 +93,21 @@ mc.world.afterEvents.entityDie.subscribe(({ damageSource, deadEntity: pwrNode })
 // #endregion
 
 // #region get/set functions
+
+function getBlockAttachedTo(
+	pwrNode: mc.Entity,
+	direction?: mc.Direction,
+): mc.Block | undefined {
+	const dir = reversedDirection(direction ?? getDirection(pwrNode));
+	const origin = pwrNode.dimension.getBlock(pwrNode.location);
+	if (!origin) return;
+
+	const attachedTo = getRelativeBlock(origin, dir, 1);
+	if (!attachedTo) return;
+	if (!attachedTo.isSolid) return;
+
+	return attachedTo;
+}
 
 function getDirection(pwrNode: mc.Entity): mc.Direction {
 	const value = pwrNode.getDynamicProperty("attachedDirection");
