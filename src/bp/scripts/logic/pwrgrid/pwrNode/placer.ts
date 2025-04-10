@@ -37,6 +37,10 @@ function onUseOn(arg: mc.ItemComponentUseOnEvent): void {
 		return;
 	}
 
+	const blockAtSpawnLoc = arg.block.dimension.getBlock(spawnLoc);
+
+	if (blockAtSpawnLoc && !blockAtSpawnLoc.isAir) return;
+
 	const mainhandSlot = player.getComponent("equippable")?.getEquipmentSlot(
 		mc.EquipmentSlot.Mainhand,
 	);
