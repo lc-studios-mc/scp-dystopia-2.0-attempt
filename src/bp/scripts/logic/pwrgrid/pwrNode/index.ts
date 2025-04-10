@@ -318,7 +318,7 @@ function setPowerWasComingFromParent(pwrNode: mc.Entity, value?: boolean): void 
 }
 
 function getParentNode(pwrNode: mc.Entity): mc.Entity | undefined | null {
-	const entityId = pwrNode.getDynamicProperty("parent");
+	const entityId = getParentNodeId(pwrNode);
 
 	if (typeof entityId !== "string") return undefined;
 
@@ -335,7 +335,16 @@ function getParentNode(pwrNode: mc.Entity): mc.Entity | undefined | null {
 }
 
 function setParentNode(pwrNode: mc.Entity, parent?: mc.Entity | null): void {
-	pwrNode.setDynamicProperty("parent", parent?.id);
+	setParentNodeId(pwrNode, parent?.id);
+}
+
+function getParentNodeId(pwrNode: mc.Entity): string | undefined {
+	const value = pwrNode.getDynamicProperty("parent");
+	return typeof value === "string" ? value : undefined;
+}
+
+function setParentNodeId(pwrNode: mc.Entity, value?: string): void {
+	pwrNode.setDynamicProperty("parent", value);
 }
 
 function getChildNodes(pwrNode: mc.Entity): (mc.Entity | null)[] {
@@ -359,6 +368,11 @@ function getChildNodes(pwrNode: mc.Entity): (mc.Entity | null)[] {
 		}
 
 		if (!isPwrNode(entity)) {
+			array.push(null);
+			continue;
+		}
+
+		if (getParentNodeId(entity) !== pwrNode.id) {
 			array.push(null);
 			continue;
 		}
