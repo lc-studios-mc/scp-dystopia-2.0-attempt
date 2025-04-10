@@ -1,6 +1,7 @@
 import { getRelativeBlock } from "@lib/utils/blockUtils";
 import { reversedDirection } from "@lib/utils/miscUtils";
 import * as mc from "@minecraft/server";
+import { ActionFormData } from "@minecraft/server-ui";
 import { PWR_NODE_ENTITY_TYPE_ID, PWR_NODE_PLACER_ITEM_TYPE_ID } from "./shared";
 
 function onUpdatePwrNode(pwrNode: mc.Entity): void {
@@ -9,7 +10,7 @@ function onUpdatePwrNode(pwrNode: mc.Entity): void {
 	const attachedTo = getBlockAttachedTo(pwrNode);
 
 	if (!attachedTo) {
-		removePwrNode(pwrNode);
+		killPwrNode(pwrNode);
 		return;
 	}
 
@@ -89,34 +90,21 @@ export function placePwrNode(
 	setDirection(pwrNode, direction);
 }
 
-function removePwrNode(pwrNode: mc.Entity, damager?: mc.Player, isDamagerCreative = false): void {
-	if (!pwrNode.isValid) return;
+function killPwrNode(pwrNode: mc.Entity, damager?: mc.Player, isDamagerCreative = false): void {
+	try {
+		removeParentNodeOf(pwrNode);
 
-	if (!isDamagerCreative) isDamagerCreative = damager?.getGameMode() === mc.GameMode.creative;
+		removeChildNodesOf(pwrNode);
 
-	if (!isDamagerCreative && mc.world.gameRules.doMobLoot) {
-		const loot = new mc.ItemStack(PWR_NODE_PLACER_ITEM_TYPE_ID);
-		pwrNode.dimension.spawnItem(loot, pwrNode.location);
-	}
+		if (!isDamagerCreative) isDamagerCreative = damager?.getGameMode() === mc.GameMode.creative;
 
-	const parent = getParentNode(pwrNode);
-
-	if (parent) {
-		const childsOfParent = getChildNodes(parent);
-		const indexOfRemoved = childsOfParent.indexOf(pwrNode);
-
-		if (indexOfRemoved !== -1) {
-			childsOfParent.splice(indexOfRemoved, 1);
-			setChildNodes(parent, childsOfParent);
+		if (!isDamagerCreative && mc.world.gameRules.doMobLoot) {
+			const loot = new mc.ItemStack(PWR_NODE_PLACER_ITEM_TYPE_ID);
+			pwrNode.dimension.spawnItem(loot, pwrNode.location);
 		}
-	}
 
-	for (const child of getChildNodes(pwrNode)) {
-		if (child == null) continue;
-		setParentNode(child, undefined);
-	}
-
-	pwrNode.remove();
+		pwrNode.remove();
+	} catch {}
 }
 
 function resetPwrNodeUpdateTimer(pwrNode: mc.Entity): void {
@@ -143,6 +131,53 @@ function isPwrNode(entity: unknown): entity is mc.Entity {
 }
 
 async function interactionAsync(pwrNode: mc.Entity, player: mc.Player): Promise<void> {
+	const parent = getParentNode(pwrNode);
+	const childs = getChildNodes(pwrNode);
+
+	const parentLabelWith = parent === undefined ? "0/0" : `${parent !== null ? "1" : "0"}/1`;
+	const childsLabelWidth = `${childs.filter(x => x !== null).length}/${childs.length}`;
+
+	const response = await new ActionFormData()
+		.title("bruh")
+		.body("im power node!")
+		.label(`parent: ${parentLabelWith}`)
+		.label(`childs: ${childsLabelWidth}`)
+		.button("rm parent")
+		.button("rm childs")
+		.show(player);
+
+	if (response.canceled) return;
+
+	if (response.selection === 0) {
+		removeParentNodeOf(pwrNode);
+	} else if (response.selection === 1) {
+		removeChildNodesOf(pwrNode);
+	}
+}
+
+function removeParentNodeOf(pwrNode: mc.Entity): void {
+	const parent = getParentNode(pwrNode);
+
+	if (parent) {
+		const childsOfParent = getChildNodes(parent);
+		const indexOfRemoved = childsOfParent.indexOf(pwrNode);
+
+		if (indexOfRemoved !== -1) {
+			childsOfParent.splice(indexOfRemoved, 1);
+			setChildNodes(parent, childsOfParent);
+		}
+	}
+
+	setParentNode(pwrNode, undefined);
+}
+
+function removeChildNodesOf(pwrNode: mc.Entity): void {
+	for (const child of getChildNodes(pwrNode)) {
+		if (child == null) continue;
+		setParentNode(child, undefined);
+	}
+
+	setChildNodes(pwrNode, undefined);
 }
 
 // #region world event listeners
@@ -181,7 +216,7 @@ mc.world.afterEvents.entityHurt.subscribe(({ damageSource, hurtEntity: pwrNode }
 	if (!damager) return;
 	if (damager.getGameMode() !== mc.GameMode.creative) return;
 
-	removePwrNode(pwrNode, damager, true);
+	killPwrNode(pwrNode, damager, true);
 }, {
 	entityTypes: [PWR_NODE_ENTITY_TYPE_ID],
 });
@@ -191,7 +226,7 @@ mc.world.afterEvents.entityDie.subscribe(({ damageSource, deadEntity: pwrNode })
 		? damageSource.damagingEntity
 		: undefined;
 
-	removePwrNode(pwrNode, damager);
+	killPwrNode(pwrNode, damager);
 }, {
 	entityTypes: [PWR_NODE_ENTITY_TYPE_ID],
 });
