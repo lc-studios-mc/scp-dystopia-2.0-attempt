@@ -13,7 +13,14 @@ function onUpdatePwrNode(pwrNode: mc.Entity): void {
 		return;
 	}
 
+	const hasParent = getParentNode(pwrNode) !== undefined;
 	const wasPowerComingFromParent = getPowerWasComingFromParent(pwrNode);
+
+	if (!hasParent && wasPowerComingFromParent) {
+		setPowerWasComingFromParent(pwrNode, undefined);
+		setPowered(pwrNode, false);
+		return;
+	}
 
 	const shouldBePowered = wasPowerComingFromParent ||
 		attachedTo.typeId === "minecraft:redstone_block";
@@ -37,6 +44,29 @@ function onUpdatePwrNode(pwrNode: mc.Entity): void {
 	}
 }
 
+export function connectNodes(parent: mc.Entity, child: mc.Entity): boolean {
+	if (!isPwrNode(parent)) return false;
+	if (!isPwrNode(child)) return false;
+	if (parent === child) return false;
+
+	const parentOfChild = getParentNode(child);
+
+	if (parentOfChild !== undefined) return false;
+	if (parentOfChild === parent) return false;
+
+	const childsOfParent = getChildNodes(parent);
+
+	if (childsOfParent.includes(child)) return false;
+
+	childsOfParent.push(child);
+
+	setChildNodes(parent, childsOfParent);
+
+	setParentNode(child, parent);
+
+	return true;
+}
+
 export function placePwrNode(
 	dimension: mc.Dimension,
 	location: mc.Vector3,
@@ -57,6 +87,23 @@ function removePwrNode(pwrNode: mc.Entity, damager?: mc.Player, isDamagerCreativ
 	if (!isDamagerCreative && mc.world.gameRules.doMobLoot) {
 		const loot = new mc.ItemStack(PWR_NODE_PLACER_ITEM_TYPE_ID);
 		pwrNode.dimension.spawnItem(loot, pwrNode.location);
+	}
+
+	const parent = getParentNode(pwrNode);
+
+	if (parent) {
+		const childsOfParent = getChildNodes(parent);
+		const indexOfRemoved = childsOfParent.indexOf(pwrNode);
+
+		if (indexOfRemoved !== -1) {
+			childsOfParent.splice(indexOfRemoved, 1);
+			setChildNodes(pwrNode, childsOfParent);
+		}
+	}
+
+	for (const child of getChildNodes(pwrNode)) {
+		if (child == null) continue;
+		setParentNode(child, undefined);
 	}
 
 	pwrNode.remove();
@@ -207,10 +254,10 @@ function setPowerWasComingFromParent(pwrNode: mc.Entity, value?: boolean): void 
 	pwrNode.setDynamicProperty("wasPowerComingFromParent", value);
 }
 
-function getParentNode(pwrNode: mc.Entity): mc.Entity | null {
+function getParentNode(pwrNode: mc.Entity): mc.Entity | undefined | null {
 	const entityId = pwrNode.getDynamicProperty("parent");
 
-	if (typeof entityId !== "string") return null;
+	if (typeof entityId !== "string") return undefined;
 
 	let entity;
 	try {
@@ -236,12 +283,9 @@ function getChildNodes(pwrNode: mc.Entity): (mc.Entity | null)[] {
 	const array: (mc.Entity | null)[] = [];
 
 	for (let i = 0; i < childCount; i++) {
-		const entityId = pwrNode.getDynamicProperty(`child_${childCount}`);
+		const entityId = pwrNode.getDynamicProperty(`child_${i}`);
 
-		if (typeof entityId !== "string") {
-			array.push(null);
-			continue;
-		}
+		if (typeof entityId !== "string") continue;
 
 		let entity;
 		try {
@@ -267,6 +311,8 @@ function setChildNodes(pwrNode: mc.Entity, array?: (mc.Entity | null)[]): void {
 		pwrNode.setDynamicProperty("childCount", undefined);
 		return;
 	}
+
+	pwrNode.setDynamicProperty("childCount", array.length);
 
 	for (let i = 0; i < array.length; i++) {
 		const child = array[i];
