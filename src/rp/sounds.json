@@ -85,9 +85,9 @@
 				"pitch": [0.95, 1.05],
 				"volume": 1.0
 			},
-			"lc:scpdy_minigame_machine": {
+			"lc:scpdy_pwr_node": {
 				"events": {
-					"hurt": "sound.none",
+					"hurt": "scpdy.misc.computer.hit",
 					"death": "scpdy.misc.computer.hit"
 				},
 				"pitch": [1.0, 1.0],

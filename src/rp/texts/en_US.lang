@@ -41,6 +41,8 @@ scpdy.action.interact.gib.eat=Eat
 
 scpdy.action.interact.keypad=Enter Key
 
+scpdy.action.interact.pwr_node=View Information
+
 scpdy.action.interact.scp096.hideFace=Hide face
 scpdy.action.interact.scp096.removePaperBag=Remove face hider
 
@@ -665,6 +667,9 @@ entity.lc:scpdy_bullet_m4a1.name=Bullet
 entity.lc:scpdy_bullet_mp5.name=Bullet
 entity.lc:scpdy_scriptable_bullet_large.name=Bullet
 entity.lc:scpdy_scriptable_bullet.name=Bullet
+
+## entities -> pwrgrid -> ...
+entity.lc:scpdy_pwr_node.name=Power Node
 
 ## entities -> scp -> ...
 entity.lc:scpdy_scp001_proto.name=SCP-001 Prototype

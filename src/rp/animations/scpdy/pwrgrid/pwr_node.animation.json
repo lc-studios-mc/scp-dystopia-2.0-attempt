@@ -1,0 +1,19 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.scpdy_pwr_node.general": {
+			"loop": true,
+			"bones": {
+				"sign_on": {
+					"scale": "v.is_powered ? 1 : 0"
+				},
+				"sign_off": {
+					"scale": "v.is_powered ? 0 : 1"
+				},
+				"root": {
+					"rotation": ["v.rot_x", "v.rot_y", 0]
+				}
+			}
+		}
+	}
+}

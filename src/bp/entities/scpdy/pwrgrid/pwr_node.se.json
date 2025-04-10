@@ -1,0 +1,222 @@
+{
+	"format_version": "1.21.60",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "lc:scpdy_pwr_node",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false,
+			"properties": {
+				"lc:is_powered": {
+					"type": "bool",
+					"default": false,
+					"client_sync": true
+				},
+				"lc:rot_x": {
+					"type": "float",
+					"range": [-180.0, 180.0],
+					"default": 0.0,
+					"client_sync": true
+				},
+				"lc:rot_y": {
+					"type": "float",
+					"range": [-180.0, 180.0],
+					"default": 0.0,
+					"client_sync": true
+				}
+			}
+		},
+		"component_groups": {
+			"power_off": {
+			},
+			"power_on": {
+			},
+			"script_update_timer:slow": {
+				"minecraft:timer": {
+					"looping": true,
+					"randomInterval": true,
+					"time": [1.5, 3.0],
+					"time_down_event": {
+						"event": "pwr_node:update_script"
+					}
+				}
+			},
+			"script_update_timer:mid": {
+				"minecraft:timer": {
+					"looping": true,
+					"randomInterval": true,
+					"time": [0.9, 2.2],
+					"time_down_event": {
+						"event": "pwr_node:update_script"
+					}
+				}
+			},
+			"script_update_timer:fast": {
+				"minecraft:timer": {
+					"looping": true,
+					"randomInterval": true,
+					"time": [0.6, 1.2],
+					"time_down_event": {
+						"event": "pwr_node:update_script"
+					}
+				}
+			}
+		},
+		"components": {
+			"minecraft:knockback_resistance": {
+				"value": 1.0
+			},
+			"minecraft:type_family": {
+				"family": [
+					"inanimate",
+					"pwrgrid",
+					"pwr_node"
+				]
+			},
+			"minecraft:health": {
+				"value": 8,
+				"max": 8
+			},
+			"minecraft:interact": {
+				"interactions": [
+					{
+						"on_interact": {
+							"filters": {
+								"all_of": [
+									{
+										"test": "is_family",
+										"subject": "other",
+										"operator": "==",
+										"value": "player"
+									},
+									{
+										"test": "is_sneaking",
+										"subject": "other",
+										"operator": "!="
+									},
+									{
+										"test": "has_equipment",
+										"subject": "other",
+										"domain": "hand",
+										"operator": "!=",
+										"value": "lc:scpdy_pwr_node_connector"
+									}
+								]
+							}
+						},
+						"cooldown": 0.1,
+						"swing": true,
+						"interact_text": "scpdy.action.interact.pwr_node"
+					}
+				]
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"on_damage": {
+							"filters": { "test": "is_family", "subject": "other", "value": "player" }
+						},
+						"cause": "all",
+						"deals_damage": "yes"
+					},
+					{
+						"cause": "entity_explosion",
+						"deals_damage": "yes"
+					},
+					{
+						"cause": "block_explosion",
+						"deals_damage": "yes"
+					},
+					{
+						"cause": "all",
+						"deals_damage": "no"
+					}
+				]
+			},
+			"minecraft:breathable": {
+				"breathes_water": true,
+				"breathes_solids": true,
+				"generates_bubbles": false
+			},
+			"minecraft:physics": {
+				"has_collision": true,
+				"has_gravity": false
+			},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": false
+			},
+			"minecraft:collision_box": {
+				"height": 0.6,
+				"width": 0.5
+			},
+			"minecraft:dimension_bound": {},
+			"minecraft:persistent": {},
+			"minecraft:body_rotation_blocked": {},
+			"minecraft:conditional_bandwidth_optimization": {
+				"default_values": {
+					"max_dropped_ticks": 16,
+					"max_optimized_distance": 20.0,
+					"use_motion_prediction_hints": false
+				}
+			},
+			"minecraft:game_event_movement_tracking": {
+				"emit_flap": false,
+				"emit_move": false,
+				"emit_swim": false
+			}
+		},
+		"events": {
+			"minecraft:entity_spawned": {
+				"trigger": "pwr_node:power_off"
+			},
+			"pwr_node:power_off": {
+				"add": {
+					"component_groups": ["power_off"]
+				},
+				"remove": {
+					"component_groups": ["power_on"]
+				},
+				"set_property": {
+					"lc:is_powered": false
+				}
+			},
+			"pwr_node:power_on": {
+				"add": {
+					"component_groups": ["power_on"]
+				},
+				"remove": {
+					"component_groups": ["power_off"]
+				},
+				"set_property": {
+					"lc:is_powered": true
+				}
+			},
+			"pwr_node:add_script_update_timer:slow": {
+				"add": {
+					"component_groups": ["script_update_timer:slow"]
+				},
+				"remove": {
+					"component_groups": ["script_update_timer:mid", "script_update_timer:fast"]
+				}
+			},
+			"pwr_node:add_script_update_timer:mid": {
+				"add": {
+					"component_groups": ["script_update_timer:mid"]
+				},
+				"remove": {
+					"component_groups": ["script_update_timer:slow", "script_update_timer:fast"]
+				}
+			},
+			"pwr_node:add_script_update_timer:fast": {
+				"add": {
+					"component_groups": ["script_update_timer:fast"]
+				},
+				"remove": {
+					"component_groups": ["script_update_timer:slow", "script_update_timer:mid"]
+				}
+			},
+			"pwr_node:update_script": {} // Listened by script
+		}
+	}
+}
