@@ -154,6 +154,27 @@ function setDirection(pwrNode: mc.Entity, direction: mc.Direction) {
 	pwrNode.setProperty("lc:rot_y", rotY);
 }
 
+function getParentNode(pwrNode: mc.Entity): mc.Entity | null {
+	const entityId = pwrNode.getDynamicProperty("parent");
+
+	if (typeof entityId !== "string") return null;
+
+	let entity;
+	try {
+		entity = mc.world.getEntity(entityId);
+	} catch {
+		return null;
+	}
+
+	if (!isPwrNode(entity)) return null;
+
+	return entity;
+}
+
+function setParentNode(pwrNode: mc.Entity, parent?: mc.Entity | null): void {
+	pwrNode.setDynamicProperty("parent", parent?.id);
+}
+
 function getChildNodes(pwrNode: mc.Entity): (mc.Entity | null)[] {
 	const childCount = pwrNode.getDynamicProperty("childCount");
 
