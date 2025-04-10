@@ -1037,6 +1037,7 @@ class PlungeImpactState extends SlasherState {
 		const entities = this.slasher.player.dimension.getEntities({
 			location: impactLocation,
 			maxDistance: this.fallenDepth > 20 ? 4.5 : this.fallenDepth > 50 ? 5.5 : 9,
+			excludeFamilies: ["ignore_slasher_plunge"],
 			closest: 15,
 		});
 
