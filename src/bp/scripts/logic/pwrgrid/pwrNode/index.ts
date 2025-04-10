@@ -48,6 +48,12 @@ function resetPwrNodeUpdateTimer(pwrNode: mc.Entity): void {
 	}
 }
 
+function isPwrNode(entity: unknown): entity is mc.Entity {
+	if (entity == null) return false;
+	if (!(entity instanceof mc.Entity)) return false;
+	return entity.typeId === PWR_NODE_ENTITY_TYPE_ID;
+}
+
 // #region world event listeners
 
 mc.world.afterEvents.dataDrivenEntityTrigger.subscribe(({ entity: pwrNode }) => {
