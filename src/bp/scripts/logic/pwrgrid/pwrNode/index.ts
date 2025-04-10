@@ -1,6 +1,9 @@
 import * as mc from "@minecraft/server";
 import { PWR_NODE_ENTITY_TYPE_ID, PWR_NODE_PLACER_ITEM_TYPE_ID } from "./shared";
 
+function onUpdatePwrNode(pwrNode: mc.Entity): void {
+}
+
 export function placePwrNode(
 	dimension: mc.Dimension,
 	location: mc.Vector3,
@@ -27,6 +30,13 @@ function removePwrNode(pwrNode: mc.Entity, damager?: mc.Player, isDamagerCreativ
 }
 
 // #region world event listeners
+
+mc.world.afterEvents.dataDrivenEntityTrigger.subscribe(({ entity: pwrNode }) => {
+	onUpdatePwrNode(pwrNode);
+}, {
+	entityTypes: [PWR_NODE_ENTITY_TYPE_ID],
+	eventTypes: ["pwr_node:update_script"],
+});
 
 mc.world.afterEvents.entityHurt.subscribe(({ damageSource, hurtEntity: pwrNode }) => {
 	const damager = damageSource?.damagingEntity instanceof mc.Player
