@@ -29,6 +29,23 @@ function removePwrNode(pwrNode: mc.Entity, damager?: mc.Player, isDamagerCreativ
 	pwrNode.remove();
 }
 
+function resetPwrNodeUpdateTimer(pwrNode: mc.Entity): void {
+	switch (mc.system.serverSystemInfo.memoryTier) {
+		default:
+		case mc.MemoryTier.SuperLow:
+		case mc.MemoryTier.Low:
+			pwrNode.triggerEvent("pwr_node:add_script_update_timer:slow");
+			break;
+		case mc.MemoryTier.Mid:
+		case mc.MemoryTier.High:
+			pwrNode.triggerEvent("pwr_node:add_script_update_timer:mid");
+			break;
+		case mc.MemoryTier.SuperHigh:
+			pwrNode.triggerEvent("pwr_node:add_script_update_timer:fast");
+			break;
+	}
+}
+
 // #region world event listeners
 
 mc.world.afterEvents.dataDrivenEntityTrigger.subscribe(({ entity: pwrNode }) => {
@@ -36,6 +53,16 @@ mc.world.afterEvents.dataDrivenEntityTrigger.subscribe(({ entity: pwrNode }) => 
 }, {
 	entityTypes: [PWR_NODE_ENTITY_TYPE_ID],
 	eventTypes: ["pwr_node:update_script"],
+});
+
+mc.world.afterEvents.entitySpawn.subscribe(({ entity }) => {
+	if (entity.typeId !== PWR_NODE_ENTITY_TYPE_ID) return;
+	resetPwrNodeUpdateTimer(entity);
+});
+
+mc.world.afterEvents.entityLoad.subscribe(({ entity }) => {
+	if (entity.typeId !== PWR_NODE_ENTITY_TYPE_ID) return;
+	resetPwrNodeUpdateTimer(entity);
 });
 
 mc.world.afterEvents.entityHurt.subscribe(({ damageSource, hurtEntity: pwrNode }) => {
