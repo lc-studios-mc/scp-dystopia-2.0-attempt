@@ -353,6 +353,15 @@
 							"name": "lc:scpdy_itemGroup_scp"
 						},
 						"items": ["lc:scpdy_scp096_1_wand", "lc:scpdy_scp096_paper_bag", "lc:scpdy_scp427"]
+					},
+					{
+						"group_identifier": {
+							"icon": "lc:scpdy_pwr_node_placer",
+							"name": "lc:scpdy_itemGroup_pwrgrid"
+						},
+						"items": [
+							"lc:scpdy_pwr_node_placer"
+						]
 					}
 				]
 			}
