@@ -9,11 +9,6 @@
 		"rm-dist": "powershell.exe -Command \"rm -Recurse -Force dist\""
 	},
 	"private": true,
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/lc-studios-mc/scp-dystopia.git"
-	},
-	"author": "Lucked Coronet",
 	"devDependencies": {
 		"@minecraft/server": "2.0.0-beta.1.21.70-stable",
 		"@minecraft/server-ui": "2.0.0-beta.1.21.70-stable",
