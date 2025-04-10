@@ -13,13 +13,19 @@ function onUpdatePwrNode(pwrNode: mc.Entity): void {
 		return;
 	}
 
-	const hasParent = getParentNode(pwrNode) !== undefined;
-	const wasPowerComingFromParent = getPowerWasComingFromParent(pwrNode);
+	const parent = getParentNode(pwrNode);
+	const hasParent = parent !== undefined;
+	let wasPowerComingFromParent = getPowerWasComingFromParent(pwrNode);
 
-	if (!hasParent && wasPowerComingFromParent) {
+	if (!hasParent) {
+		if (wasPowerComingFromParent) {
+			setPowerWasComingFromParent(pwrNode, undefined);
+		}
+
+		wasPowerComingFromParent = false;
+	} else if (parent !== null && !getPowered(parent)) {
 		setPowerWasComingFromParent(pwrNode, undefined);
-		setPowered(pwrNode, false);
-		return;
+		wasPowerComingFromParent = false;
 	}
 
 	const shouldBePowered = wasPowerComingFromParent ||
@@ -31,7 +37,7 @@ function onUpdatePwrNode(pwrNode: mc.Entity): void {
 		attachedTo.typeId.startsWith("minecraft:") && attachedTo.typeId.endsWith("copper_bulb") &&
 			attachedTo.permutation.getState("lit") === false;
 
-	if (isAttachedToUnlitLamp) return;
+	const shouldSendPowerToChilds = !isAttachedToUnlitLamp;
 
 	const childs = getChildNodes(pwrNode);
 
@@ -40,29 +46,33 @@ function onUpdatePwrNode(pwrNode: mc.Entity): void {
 
 		if (child == null) continue;
 
-		setPowerWasComingFromParent(child, shouldBePowered);
+		setPowerWasComingFromParent(child, shouldSendPowerToChilds);
 	}
 }
 
-export function connectNodes(parent: mc.Entity, child: mc.Entity): boolean {
-	if (!isPwrNode(parent)) return false;
-	if (!isPwrNode(child)) return false;
-	if (parent === child) return false;
+export function connectNodes(from: mc.Entity, to: mc.Entity): boolean {
+	if (!isPwrNode(from)) return false;
+	if (!isPwrNode(to)) return false;
+	if (from === to) return false;
 
-	const parentOfChild = getParentNode(child);
+	const parentOfFrom = getParentNode(from);
 
-	if (parentOfChild !== undefined) return false;
-	if (parentOfChild === parent) return false;
+	if (parentOfFrom === to) return false;
 
-	const childsOfParent = getChildNodes(parent);
+	const parentOfTo = getParentNode(to);
 
-	if (childsOfParent.includes(child)) return false;
+	if (parentOfTo !== undefined) return false;
+	if (parentOfTo === from) return false;
 
-	childsOfParent.push(child);
+	const childsOfFrom = getChildNodes(from);
 
-	setChildNodes(parent, childsOfParent);
+	if (childsOfFrom.includes(to)) return false;
 
-	setParentNode(child, parent);
+	childsOfFrom.push(to);
+
+	setChildNodes(from, childsOfFrom);
+
+	setParentNode(to, from);
 
 	return true;
 }
@@ -97,7 +107,7 @@ function removePwrNode(pwrNode: mc.Entity, damager?: mc.Player, isDamagerCreativ
 
 		if (indexOfRemoved !== -1) {
 			childsOfParent.splice(indexOfRemoved, 1);
-			setChildNodes(pwrNode, childsOfParent);
+			setChildNodes(parent, childsOfParent);
 		}
 	}
 
