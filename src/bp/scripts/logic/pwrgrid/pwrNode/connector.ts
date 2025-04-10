@@ -63,6 +63,8 @@ function onUse({ source: player, itemStack }: mc.ItemComponentUseEvent): void {
 
 	player.playSound("random.orb", { pitch: 0.9 });
 
+	if (player.inputInfo.getButtonState(mc.InputButton.Sneak) === mc.ButtonState.Pressed) return;
+
 	setInitialNode(itemStack, undefined);
 	tryApplyChanges(player, itemStack);
 }
