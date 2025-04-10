@@ -154,4 +154,50 @@ function setDirection(pwrNode: mc.Entity, direction: mc.Direction) {
 	pwrNode.setProperty("lc:rot_y", rotY);
 }
 
+function getChildNodes(pwrNode: mc.Entity): (mc.Entity | null)[] {
+	const childCount = pwrNode.getDynamicProperty("childCount");
+
+	if (typeof childCount !== "number" || childCount <= 0) return [];
+
+	const array: (mc.Entity | null)[] = [];
+
+	for (let i = 0; i < childCount; i++) {
+		const entityId = pwrNode.getDynamicProperty(`child_${childCount}`);
+
+		if (typeof entityId !== "string") {
+			array.push(null);
+			continue;
+		}
+
+		let entity;
+		try {
+			entity = mc.world.getEntity(entityId);
+		} catch {
+			array.push(null);
+			continue;
+		}
+
+		if (!isPwrNode(entity)) {
+			array.push(null);
+			continue;
+		}
+
+		array.push(entity);
+	}
+
+	return array;
+}
+
+function setChildNodes(pwrNode: mc.Entity, array?: (mc.Entity | null)[]): void {
+	if (!array || array.length <= 0) {
+		pwrNode.setDynamicProperty("childCount", undefined);
+		return;
+	}
+
+	for (let i = 0; i < array.length; i++) {
+		const child = array[i];
+		pwrNode.setDynamicProperty(`child_${i}`, child?.id);
+	}
+}
+
 // #endregion
