@@ -1,6 +1,5 @@
 import * as mc from "@minecraft/server";
-
-export const PWR_NODE_ENTITY_TYPE_ID = "lc:scpdy_pwr_node";
+import { PWR_NODE_ENTITY_TYPE_ID } from "./shared";
 
 export function placePwrNode(
 	dimension: mc.Dimension,

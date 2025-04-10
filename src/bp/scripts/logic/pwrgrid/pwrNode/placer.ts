@@ -1,9 +1,8 @@
 import { getRelativeBlock } from "@lib/utils/blockUtils";
 import * as vec3 from "@lib/utils/vec3";
 import * as mc from "@minecraft/server";
-import { placePwrNode, PWR_NODE_ENTITY_TYPE_ID } from ".";
-
-const PWR_NODE_PLACER_ITEM_TYPE_ID = "lc:scpdy_pwr_node_placer";
+import { placePwrNode } from ".";
+import { PWR_NODE_ENTITY_TYPE_ID, PWR_NODE_PLACER_ITEM_TYPE_ID } from "./shared";
 
 mc.system.beforeEvents.startup.subscribe(({ itemComponentRegistry }) => {
 	itemComponentRegistry.registerCustomComponent("scpdy:pwr_node_placer", {
