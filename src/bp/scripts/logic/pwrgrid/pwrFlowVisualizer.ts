@@ -21,7 +21,7 @@ playerLoop.subscribe((player, { equippableComp }) => {
 		mainhandItemStack.typeId === PWR_FLOW_VISUALIZER_ITEM_TYPE_ID;
 
 	if (!isHoldingVisualizerInMainhand) {
-		const offhandItemStack = equippableComp.getEquipment(mc.EquipmentSlot.Mainhand);
+		const offhandItemStack = equippableComp.getEquipment(mc.EquipmentSlot.Offhand);
 		const isHoldingVisualizerInOffhand = offhandItemStack !== undefined &&
 			offhandItemStack.typeId === PWR_FLOW_VISUALIZER_ITEM_TYPE_ID;
 
