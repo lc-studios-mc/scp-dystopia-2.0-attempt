@@ -297,7 +297,7 @@ function setDirection(pwrNode: mc.Entity, direction: mc.Direction) {
 	pwrNode.setProperty("lc:rot_y", rotY);
 }
 
-function getPowered(pwrNode: mc.Entity): boolean {
+export function getPowered(pwrNode: mc.Entity): boolean {
 	return pwrNode.getProperty("lc:is_powered") === true;
 }
 
@@ -349,7 +349,7 @@ function setParentNodeId(pwrNode: mc.Entity, value?: string): void {
 	pwrNode.setDynamicProperty("parent", value);
 }
 
-function getChildNodes(pwrNode: mc.Entity): (mc.Entity | null)[] {
+export function getChildNodes(pwrNode: mc.Entity): (mc.Entity | null)[] {
 	const childCount = pwrNode.getDynamicProperty("childCount");
 
 	if (typeof childCount !== "number" || childCount <= 0) return [];
