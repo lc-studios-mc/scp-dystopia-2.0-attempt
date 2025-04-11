@@ -35,11 +35,7 @@ function onUpdatePwrNode(pwrNode: mc.Entity): void {
 
 	setPowered(pwrNode, shouldBePowered);
 
-	const isAttachedToUnlitLamp = attachedTo.typeId === "minecraft:redstone_lamp" ||
-		attachedTo.typeId.startsWith("minecraft:") && attachedTo.typeId.endsWith("copper_bulb") &&
-			attachedTo.permutation.getState("lit") === false;
-
-	const shouldSendPowerToChilds = !isAttachedToUnlitLamp;
+	const shouldSendPowerToChilds = !isAttachedToUnlitLamp(pwrNode, attachedTo);
 
 	const childs = getChildNodes(pwrNode);
 
@@ -130,6 +126,17 @@ function isPwrNode(entity: unknown): entity is mc.Entity {
 	if (entity == null) return false;
 	if (!(entity instanceof mc.Entity)) return false;
 	return entity.typeId === PWR_NODE_ENTITY_TYPE_ID;
+}
+
+export function isAttachedToUnlitLamp(
+	pwrNode: mc.Entity,
+	attachedTo = getBlockAttachedTo(pwrNode),
+): boolean {
+	if (!attachedTo) return false;
+
+	return attachedTo.typeId === "minecraft:redstone_lamp" ||
+		attachedTo.typeId.startsWith("minecraft:") && attachedTo.typeId.endsWith("copper_bulb") &&
+			attachedTo.permutation.getState("lit") === false;
 }
 
 async function interactionAsync(pwrNode: mc.Entity, player: mc.Player): Promise<void> {
