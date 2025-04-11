@@ -420,6 +420,7 @@ item.lc:scpdy_slasher_blade.name=Slasher Blade
 item.lc:scpdy_toilet_paper_roll.name=Paper Roll
 
 ## items -> pwrgrid -> ...
+item.lc:scpdy_pwr_flow_visualizer.name=Power Flow Visualizer
 item.lc:scpdy_pwr_node_connector.name=Power Node Connector
 item.lc:scpdy_pwr_node_placer.name=Power Node
 

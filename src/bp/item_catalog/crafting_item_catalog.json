@@ -361,7 +361,8 @@
 						},
 						"items": [
 							"lc:scpdy_pwr_node_placer",
-							"lc:scpdy_pwr_node_connector"
+							"lc:scpdy_pwr_node_connector",
+							"lc:scpdy_pwr_flow_visualizer"
 						]
 					}
 				]

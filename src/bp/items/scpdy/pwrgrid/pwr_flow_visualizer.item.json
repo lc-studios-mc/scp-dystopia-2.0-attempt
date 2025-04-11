@@ -1,0 +1,25 @@
+{
+	"format_version": "1.21.50",
+	"minecraft:item": {
+		"description": {
+			"identifier": "lc:scpdy_pwr_flow_visualizer",
+			"menu_category": {
+				"category": "items",
+				"is_hidden_in_commands": false
+			}
+		},
+		"components": {
+			"minecraft:icon": {
+				"textures": {
+					"default": "scpdy_pwr_flow_visualizer_icon"
+				}
+			},
+			"minecraft:display_name": {
+				"value": "item.lc:scpdy_pwr_flow_visualizer.name"
+			},
+			"minecraft:max_stack_size": 1,
+			"minecraft:hand_equipped": false,
+			"minecraft:allow_off_hand": false
+		}
+	}
+}
