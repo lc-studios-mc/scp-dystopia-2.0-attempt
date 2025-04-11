@@ -80,6 +80,8 @@ scpdy.actionHint.pwrNodeConnector.removed=§bRemoved!
 scpdy.actionHint.pwrNodeConnector.connected=§aConnected!
 scpdy.actionHint.pwrNodeConnector.cannotConnect=§cCannot connect to this node...
 
+scpdy.actionHint.pwrFlowVisualizer=§eNearest Power Node is at §b%s
+
 scpdy.actionHint.slasher.needsRepair=§cREPAIR NEEDED
 
 scpdy.actionHint.scp096_1_wand.noValidEntity=§cNo valid entity in line of sight...
