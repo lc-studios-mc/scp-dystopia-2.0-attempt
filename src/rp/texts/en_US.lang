@@ -392,6 +392,7 @@ item.lc:scpdy_keycard_lvl_3.name=SCP Keycard (Level 3)
 item.lc:scpdy_keycard_lvl_4.name=SCP Keycard (Level 4)
 item.lc:scpdy_keycard_lvl_5.name=SCP Keycard (Level 5)
 item.lc:scpdy_keycard_o5.name=SCP Keycard (O5)
+item.lc:scpdy_keycard_disposable_3.name=Disposable Keycard - Level 3
 
 ## items -> materials -> ...
 item.lc:scpdy_slasher_blade.name=Slasher Blade

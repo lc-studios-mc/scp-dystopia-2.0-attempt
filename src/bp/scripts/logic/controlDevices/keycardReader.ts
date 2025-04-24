@@ -82,6 +82,23 @@ function onPlayerInteract(arg: mc.BlockComponentPlayerInteractEvent): void {
 		player.onScreenDisplay.setActionBar({
 			translate: "scpdy.actionHint.misc.accessGranted",
 		});
+
+		// Damage disposable keycard
+		const equipment = player.getComponent("equippable") as mc.EntityEquippableComponent | undefined;
+		const item = equipment?.getEquipment(mc.EquipmentSlot.Mainhand);
+		if (item?.hasTag("lc:keycard_disposable")) {
+			const itemDurability = item.getComponent("durability") as mc.ItemDurabilityComponent | undefined;
+			if (itemDurability) {
+				itemDurability.damage += 1;
+				// Check if the item broke
+				if (itemDurability.damage >= itemDurability.maxDurability) {
+					equipment?.setEquipment(mc.EquipmentSlot.Mainhand); // Set to undefined to remove
+					dimension.playSound("random.break", player.location);
+				} else {
+					equipment?.setEquipment(mc.EquipmentSlot.Mainhand, item);
+				}
+			}
+		}
 	} else {
 		dimension.playSound("scpdy.interact.keycard_reader.deny", block.center());
 
