@@ -7,10 +7,10 @@ import { ModalFormData } from "@minecraft/server-ui";
 import { activateRbPlaceholder, tellRbPlaceholderIsMissing } from "./rbPlaceholder";
 
 export const CONTROL_DEVICE_MODE = {
-	"powerDoorActivator": 0,
-	"openNearestBlastDoor": 1,
-	"placeRedstoneBlockBelow": 2,
-	"placeRedstoneBlockBehind": 3,
+	powerDoorActivator: 0,
+	openNearestBlastDoor: 1,
+	placeRedstoneBlockBelow: 2,
+	placeRedstoneBlockBehind: 3,
 } as const;
 
 export type ControlDevicePulseOpts = {
@@ -42,13 +42,15 @@ export function emitControlDevicePulse(
 		return false;
 	}
 
-	const originBlock = controlDevice instanceof mc.Block
-		? controlDevice
-		: controlDevice.dimension.getBlock(controlDevice.location);
+	const originBlock =
+		controlDevice instanceof mc.Block
+			? controlDevice
+			: controlDevice.dimension.getBlock(controlDevice.location);
 
 	if (!originBlock) return false;
 
-	const dir = opts?.facingDirection ??
+	const dir =
+		opts?.facingDirection ??
 		(controlDevice instanceof mc.Block
 			? getBlockCardinalDirection(controlDevice.permutation)
 			: rotationToDirection(controlDevice.getRotation()));

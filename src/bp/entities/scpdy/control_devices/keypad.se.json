@@ -26,10 +26,8 @@
 			}
 		},
 		"component_groups": {
-			"off": {
-			},
-			"on": {
-			},
+			"off": {},
+			"on": {},
 			"turn_off_timer": {
 				"minecraft:timer": {
 					"looping": true,
@@ -45,9 +43,7 @@
 				"value": 1.0
 			},
 			"minecraft:type_family": {
-				"family": [
-					"inanimate"
-				]
+				"family": ["inanimate"]
 			},
 			"minecraft:health": {
 				"value": 11,

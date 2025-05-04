@@ -5,10 +5,7 @@
 			"identifier": "lc:scpdy_recipe_toilet_paper_holder"
 		},
 		"tags": ["crafting_table", "dystopia_craftbench", "scpdy_workbench"],
-		"pattern": [
-			"PI",
-			" I"
-		],
+		"pattern": ["PI", " I"],
 		"key": {
 			"P": {
 				"item": "lc:scpdy_toilet_paper_roll"

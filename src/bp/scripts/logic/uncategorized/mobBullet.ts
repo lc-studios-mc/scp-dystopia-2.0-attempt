@@ -22,7 +22,7 @@ world.afterEvents.projectileHitBlock.subscribe((event) => {
 
 	if (
 		event.dimension.getPlayers({ location: event.location, closest: 1, maxDistance: 40 })[0] !==
-			undefined
+		undefined
 	) {
 		spawnBulletRicochetParticle(event.dimension, event.location, event.hitVector);
 	}

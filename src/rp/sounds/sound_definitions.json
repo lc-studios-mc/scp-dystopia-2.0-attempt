@@ -99,9 +99,7 @@
 			"category": "neutral",
 			"max_distance": 20.0,
 			"min_distance": null,
-			"sounds": [
-				{ "name": "sounds/scpdy/interact/keypad_incorrect_loud", "volume": 1.3 }
-			]
+			"sounds": [{ "name": "sounds/scpdy/interact/keypad_incorrect_loud", "volume": 1.3 }]
 		},
 		"scpdy.interact.laptop.close": {
 			"category": "neutral",

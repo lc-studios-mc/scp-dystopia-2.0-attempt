@@ -21,10 +21,9 @@ mc.world.afterEvents.playerInteractWithEntity.subscribe(({ player, target: keypa
 		return;
 	}
 
-	keypadInteractionAsync(player, keypad)
-		.catch(() => {
-			player.sendMessage({ translate: "scpdy.msg.misc.somethingWentWrong" });
-		});
+	keypadInteractionAsync(player, keypad).catch(() => {
+		player.sendMessage({ translate: "scpdy.msg.misc.somethingWentWrong" });
+	});
 });
 
 async function keypadInteractionAsync(player: mc.Player, keypad: mc.Entity): Promise<void> {
@@ -139,11 +138,15 @@ export function attachNewKeypadEntityTo(
 	blockFace: mc.Direction,
 	source?: mc.Player,
 ): mc.Entity {
-	const location = vec3.getRelativeLocation(block.bottomCenter(), {
-		x: 0,
-		y: 0.15,
-		z: -0.617,
-	}, blockFace);
+	const location = vec3.getRelativeLocation(
+		block.bottomCenter(),
+		{
+			x: 0,
+			y: 0.15,
+			z: -0.617,
+		},
+		blockFace,
+	);
 
 	const entity = block.dimension.spawnEntity(KEYPAD_ENTITY_TYPE_ID, location);
 
@@ -156,24 +159,31 @@ export function attachNewKeypadEntityTo(
 	return entity;
 }
 
-mc.world.afterEvents.entityDie.subscribe(({ deadEntity: keypad }) => {
-	removeKeypad(keypad);
-}, { entityTypes: [KEYPAD_ENTITY_TYPE_ID] });
+mc.world.afterEvents.entityDie.subscribe(
+	({ deadEntity: keypad }) => {
+		removeKeypad(keypad);
+	},
+	{ entityTypes: [KEYPAD_ENTITY_TYPE_ID] },
+);
 
-mc.world.afterEvents.entityHitEntity.subscribe(({ damagingEntity, hitEntity: keypad }) => {
-	if (keypad.typeId !== KEYPAD_ENTITY_TYPE_ID) return;
-	if (!keypad.isValid) return;
-	if (!(damagingEntity instanceof mc.Player)) return;
+mc.world.afterEvents.entityHitEntity.subscribe(
+	({ damagingEntity, hitEntity: keypad }) => {
+		if (keypad.typeId !== KEYPAD_ENTITY_TYPE_ID) return;
+		if (!keypad.isValid) return;
+		if (!(damagingEntity instanceof mc.Player)) return;
 
-	if (
-		damagingEntity.getGameMode() !== mc.GameMode.creative &&
-		getKeypadSourceId(keypad) !== damagingEntity.id
-	) return;
+		if (
+			damagingEntity.getGameMode() !== mc.GameMode.creative &&
+			getKeypadSourceId(keypad) !== damagingEntity.id
+		)
+			return;
 
-	keypad.dimension.playSound("scpdy.misc.computer.hit", keypad.location);
+		keypad.dimension.playSound("scpdy.misc.computer.hit", keypad.location);
 
-	removeKeypad(keypad);
-}, { entityTypes: ["minecraft:player"] });
+		removeKeypad(keypad);
+	},
+	{ entityTypes: ["minecraft:player"] },
+);
 
 function removeKeypad(keypad: mc.Entity): void {
 	try {

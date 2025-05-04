@@ -124,9 +124,7 @@ mc.world.afterEvents.projectileHitEntity.subscribe((event) => {
 	if (hitEntity) {
 		hitEntity.applyDamage(2, {
 			cause: mc.EntityDamageCause.entityAttack,
-			damagingEntity: sourcePlayerId !== undefined
-				? mc.world.getEntity(sourcePlayerId)
-				: undefined,
+			damagingEntity: sourcePlayerId !== undefined ? mc.world.getEntity(sourcePlayerId) : undefined,
 		});
 	}
 });

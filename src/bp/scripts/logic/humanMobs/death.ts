@@ -27,7 +27,8 @@ function onHumanMobDie(
 		mc.EntityDamageCause.blockExplosion,
 	].includes(cause);
 
-	const shouldGoreExplode = damagingEntity?.typeId !== SCP173_ENTITY_TYPE &&
+	const shouldGoreExplode =
+		damagingEntity?.typeId !== SCP173_ENTITY_TYPE &&
 		(isDamageBig || isExplosionDamage || damagingEntity?.typeId === SCP096_ENTITY_TYPE);
 
 	if (shouldGoreExplode) {

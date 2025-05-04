@@ -37,9 +37,8 @@ export function canApplyImpulse(value: mc.Entity | string): boolean {
 function getEntityName_typeId(typeId: string): mc.RawText {
 	const entityTypeNamespace = typeId.split(":")[0];
 
-	const entityTypeId = entityTypeNamespace === "minecraft"
-		? typeId.replace("minecraft:", "")
-		: typeId;
+	const entityTypeId =
+		entityTypeNamespace === "minecraft" ? typeId.replace("minecraft:", "") : typeId;
 
 	return { rawtext: [{ translate: `entity.${entityTypeId}.name` }] };
 }
@@ -114,8 +113,7 @@ export function getModifiedDamageNumber(damage: number, entity: mc.Entity): numb
 	if (feetEq) {
 		epf += feetEq.getComponent("enchantable")?.getEnchantment("protection")?.level ?? 0;
 		epf +=
-			(feetEq.getComponent("enchantable")?.getEnchantment("projectile_protection")?.level ?? 0) *
-			2;
+			(feetEq.getComponent("enchantable")?.getEnchantment("projectile_protection")?.level ?? 0) * 2;
 	}
 
 	switch (feetEq?.typeId) {
@@ -142,8 +140,7 @@ export function getModifiedDamageNumber(damage: number, entity: mc.Entity): numb
 	if (headEq) {
 		epf += headEq.getComponent("enchantable")?.getEnchantment("protection")?.level ?? 0;
 		epf +=
-			(headEq.getComponent("enchantable")?.getEnchantment("projectile_protection")?.level ?? 0) *
-			2;
+			(headEq.getComponent("enchantable")?.getEnchantment("projectile_protection")?.level ?? 0) * 2;
 	}
 
 	switch (headEq?.typeId) {
@@ -171,8 +168,7 @@ export function getModifiedDamageNumber(damage: number, entity: mc.Entity): numb
 	if (legsEq) {
 		epf += legsEq.getComponent("enchantable")?.getEnchantment("protection")?.level ?? 0;
 		epf +=
-			(legsEq.getComponent("enchantable")?.getEnchantment("projectile_protection")?.level ?? 0) *
-			2;
+			(legsEq.getComponent("enchantable")?.getEnchantment("projectile_protection")?.level ?? 0) * 2;
 	}
 
 	switch (legsEq?.typeId) {
@@ -228,12 +224,13 @@ export function getModifiedDamageNumber(damage: number, entity: mc.Entity): numb
 			break;
 	}
 
-	damage = damage *
+	damage =
+		damage *
 		(1 -
 			Math.min(
-					20,
-					Math.max(defensePoints / 5, defensePoints - (4 * damage) / (armorToughness + 8)),
-				) /
+				20,
+				Math.max(defensePoints / 5, defensePoints - (4 * damage) / (armorToughness + 8)),
+			) /
 				25);
 
 	damage -= Math.min(20, epf) / 25;

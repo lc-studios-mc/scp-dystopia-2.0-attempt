@@ -25,13 +25,8 @@
 			},
 			"scripts": {
 				"scale": "0.96",
-				"animate": [
-					"ctrl.main",
-					"anim.attack"
-				],
-				"initialize": [
-					"v.chainsaw_stun_tick = 0;"
-				],
+				"animate": ["ctrl.main", "anim.attack"],
+				"initialize": ["v.chainsaw_stun_tick = 0;"],
 				"pre_animation": [
 					"v.chainsaw_stun_tick = q.property('lc:chainsaw_stun_tick');",
 					"v.attack_anim_time = v.attack_time / 2;",

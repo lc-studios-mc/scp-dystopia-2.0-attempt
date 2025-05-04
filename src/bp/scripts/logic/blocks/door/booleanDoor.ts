@@ -79,9 +79,7 @@ function onTick(arg: mc.BlockComponentTickEvent): void {
 		if (doorOpenProgress < 15) {
 			const progressVal = doorOpenProgress + 1;
 
-			block.setPermutation(
-				block.permutation.withState(STATE_NAMES.doorOpenProgress, progressVal),
-			);
+			block.setPermutation(block.permutation.withState(STATE_NAMES.doorOpenProgress, progressVal));
 
 			otherPartBlock.setPermutation(
 				otherPartBlock.permutation.withState(STATE_NAMES.doorOpenProgress, progressVal),
@@ -106,9 +104,7 @@ function onTick(arg: mc.BlockComponentTickEvent): void {
 		if (doorOpenProgress > 0) {
 			const progressVal = doorOpenProgress - 1;
 
-			block.setPermutation(
-				block.permutation.withState(STATE_NAMES.doorOpenProgress, progressVal),
-			);
+			block.setPermutation(block.permutation.withState(STATE_NAMES.doorOpenProgress, progressVal));
 
 			otherPartBlock.setPermutation(
 				otherPartBlock.permutation.withState(STATE_NAMES.doorOpenProgress, progressVal),

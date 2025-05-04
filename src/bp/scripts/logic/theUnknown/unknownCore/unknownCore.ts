@@ -144,13 +144,14 @@ export function getDifficulty(unknownCore: mc.Entity): mc.Difficulty {
 }
 
 export function getStageState(unknownCore: mc.Entity, stage: number): number {
-	const stageState = stage === 1
-		? (unknownCore.getProperty("lc:s1_state") as number)
-		: stage === 2
-		? (unknownCore.getProperty("lc:s2_state") as number)
-		: stage === 3
-		? (unknownCore.getProperty("lc:s3_state") as number)
-		: 0;
+	const stageState =
+		stage === 1
+			? (unknownCore.getProperty("lc:s1_state") as number)
+			: stage === 2
+				? (unknownCore.getProperty("lc:s2_state") as number)
+				: stage === 3
+					? (unknownCore.getProperty("lc:s3_state") as number)
+					: 0;
 
 	return stageState;
 }
@@ -171,8 +172,7 @@ function updateLocationLock(unknownCore: mc.Entity): void {
 
 function getNextCombatBehaviorTick(unknownCore: mc.Entity): number {
 	return (
-		ensureType(unknownCore.getDynamicProperty("ticksUntilDecideNextCombatBehavior"), "number") ??
-			0
+		ensureType(unknownCore.getDynamicProperty("ticksUntilDecideNextCombatBehavior"), "number") ?? 0
 	);
 }
 
@@ -206,16 +206,18 @@ function decideNextCombatBehavior(unknownCore: mc.Entity, stage: number): void {
 			break;
 		}
 		case 2: {
-			const decisionCountPropId = healthComp.currentValue < healthComp.effectiveMax / 2
-				? "s2MidCombatDecisionCount"
-				: "s2CombatDecisionCount";
+			const decisionCountPropId =
+				healthComp.currentValue < healthComp.effectiveMax / 2
+					? "s2MidCombatDecisionCount"
+					: "s2CombatDecisionCount";
 
 			const decisionCount =
 				ensureType(unknownCore.getDynamicProperty(decisionCountPropId), "number") ?? 0;
 
-			const combatStateArray = healthComp.currentValue < healthComp.effectiveMax / 2
-				? CombatStateArrays.S2_2
-				: CombatStateArrays.S2_1;
+			const combatStateArray =
+				healthComp.currentValue < healthComp.effectiveMax / 2
+					? CombatStateArrays.S2_2
+					: CombatStateArrays.S2_1;
 
 			const nextThing = combatStateArray[decisionCount % combatStateArray.length];
 
@@ -256,20 +258,22 @@ function decideNextCombatBehavior(unknownCore: mc.Entity, stage: number): void {
 			break;
 		}
 		case 3: {
-			const decisionCountPropId = healthComp.currentValue < healthComp.effectiveMax / 5
-				? "s3LowCombatDecisionCount"
-				: healthComp.currentValue < healthComp.effectiveMax / 2
-				? "s3MidCombatDecisionCount"
-				: "s3CombatDecisionCount";
+			const decisionCountPropId =
+				healthComp.currentValue < healthComp.effectiveMax / 5
+					? "s3LowCombatDecisionCount"
+					: healthComp.currentValue < healthComp.effectiveMax / 2
+						? "s3MidCombatDecisionCount"
+						: "s3CombatDecisionCount";
 
 			const decisionCount =
 				ensureType(unknownCore.getDynamicProperty(decisionCountPropId), "number") ?? 0;
 
-			const combatStateArray = healthComp.currentValue < healthComp.effectiveMax / 5
-				? CombatStateArrays.S3_3
-				: healthComp.currentValue < healthComp.effectiveMax / 2
-				? CombatStateArrays.S3_2
-				: CombatStateArrays.S3_1;
+			const combatStateArray =
+				healthComp.currentValue < healthComp.effectiveMax / 5
+					? CombatStateArrays.S3_3
+					: healthComp.currentValue < healthComp.effectiveMax / 2
+						? CombatStateArrays.S3_2
+						: CombatStateArrays.S3_1;
 
 			const nextThing = combatStateArray[decisionCount % combatStateArray.length];
 

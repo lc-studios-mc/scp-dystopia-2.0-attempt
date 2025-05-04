@@ -1,19 +1,28 @@
 {
 	"name": "scp-dystopia",
-	"scripts": {
-		"fmt": "dprint fmt",
-		"typecheck": "tsc -p tsconfig.json --noEmit",
-		"dev": "ganban -c .ganbanrc.dev.mjs",
-		"devb": "ganban -c .ganbanrc.dev.mjs -b",
-		"build": "ganban -c .ganbanrc.optimize.mjs",
-		"rm-dist": "powershell.exe -Command \"rm -Recurse -Force dist\""
-	},
 	"private": true,
-	"devDependencies": {
+	"scripts": {
+		"build": "tsx ./tasks/build.ts",
+		"build:watch": "tsx watch ./tasks/build.ts --watch",
+		"clean": "tsx ./tasks/clean.ts --inside-com-mojang",
+		"clean:dist": "tsx ./tasks/clean.ts dist",
+		"types": "tsc --noEmit",
+		"format": "prettier --write ."
+	},
+	"type": "module",
+	"dependencies": {
 		"@minecraft/server": "2.0.0-beta.1.21.70-stable",
-		"@minecraft/server-ui": "2.0.0-beta.1.21.70-stable",
-		"dprint": "^0.49.1",
-		"ganban": "^0.1.4",
+		"@minecraft/server-ui": "2.0.0-beta.1.21.70-stable"
+	},
+	"devDependencies": {
+		"@types/fs-extra": "^11.0.4",
+		"@types/node": "^22.15.3",
+		"chalk": "^5.4.1",
+		"esbuild": "^0.25.3",
+		"fs-extra": "^11.3.0",
+		"prettier": "^3.5.3",
+		"sync-directory": "^6.0.5",
+		"tsx": "^4.19.4",
 		"typescript": "^5.7.2"
 	}
 }

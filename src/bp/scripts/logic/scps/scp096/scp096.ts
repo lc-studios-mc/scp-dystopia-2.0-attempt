@@ -68,10 +68,7 @@ function onUpdateScp096(scp096Entity: mc.Entity): void {
 	}
 
 	if (ticksUntilNextLocCheck <= 0) {
-		const lastCheckedLoc = ensureType(
-			scp096Entity.getDynamicProperty("lastCheckedLoc"),
-			"Vector3",
-		);
+		const lastCheckedLoc = ensureType(scp096Entity.getDynamicProperty("lastCheckedLoc"), "Vector3");
 
 		if (lastCheckedLoc) {
 			const dist = vec3.distance(
@@ -107,18 +104,19 @@ function onDetectedScp096Stuck(scp096Entity: mc.Entity): void {
 		vec3.sub(scp096Entity.target!.location, vec3.add(scp096Entity.location, vec3.UP)),
 	);
 
-	const isNearInXZ = vec3.distance(
-		{
-			x: scp096Entity.location.x,
-			y: 0,
-			z: scp096Entity.location.z,
-		},
-		{
-			x: scp096Entity.target!.location.x,
-			y: 0,
-			z: scp096Entity.target!.location.z,
-		},
-	) < 10.0;
+	const isNearInXZ =
+		vec3.distance(
+			{
+				x: scp096Entity.location.x,
+				y: 0,
+				z: scp096Entity.location.z,
+			},
+			{
+				x: scp096Entity.target!.location.x,
+				y: 0,
+				z: scp096Entity.target!.location.z,
+			},
+		) < 10.0;
 
 	if (scp096Entity.location.y > scp096Entity.target!.location.y - 3) {
 		if (mc.world.gameRules.mobGriefing) {

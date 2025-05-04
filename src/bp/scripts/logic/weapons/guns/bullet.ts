@@ -25,18 +25,16 @@ type OnBulletHitBlockEventCallback = {
 	callback: (event: mc.ProjectileHitBlockAfterEvent, sharedState: FlyingBulletSharedState) => void;
 };
 
-export type OnBulletHitBlockEvent =
-	& (
-		| OnBulletHitBlockEventRemoveBullet
-		| OnBulletHitBlockEventCallback
-		| OnBulletHitBlockEventSpawnRicochet
-	)
-	& {
-		condition?: (
-			event: mc.ProjectileHitBlockAfterEvent,
-			sharedState: FlyingBulletSharedState,
-		) => boolean;
-	};
+export type OnBulletHitBlockEvent = (
+	| OnBulletHitBlockEventRemoveBullet
+	| OnBulletHitBlockEventCallback
+	| OnBulletHitBlockEventSpawnRicochet
+) & {
+	condition?: (
+		event: mc.ProjectileHitBlockAfterEvent,
+		sharedState: FlyingBulletSharedState,
+	) => boolean;
+};
 
 type OnBulletHitEntityEventSpawnRicochet = {
 	type: "spawnRicochet";
@@ -63,20 +61,18 @@ type OnBulletHitEntityEventCallback = {
 	) => void;
 };
 
-export type OnBulletHitEntityEvent =
-	& (
-		| OnBulletHitEntityEventDamage
-		| OnBulletHitEntityEventRemoveBullet
-		| OnBulletHitEntityEventCallback
-		| OnBulletHitEntityEventSpawnRicochet
-	)
-	& {
-		condition?: (
-			event: mc.ProjectileHitEntityAfterEvent,
-			hitEntity: mc.Entity,
-			sharedState: FlyingBulletSharedState,
-		) => boolean;
-	};
+export type OnBulletHitEntityEvent = (
+	| OnBulletHitEntityEventDamage
+	| OnBulletHitEntityEventRemoveBullet
+	| OnBulletHitEntityEventCallback
+	| OnBulletHitEntityEventSpawnRicochet
+) & {
+	condition?: (
+		event: mc.ProjectileHitEntityAfterEvent,
+		hitEntity: mc.Entity,
+		sharedState: FlyingBulletSharedState,
+	) => boolean;
+};
 
 export type ShootOptions = {
 	initialLocation: mc.Vector3;
@@ -217,9 +213,10 @@ mc.world.afterEvents.projectileHitEntity.subscribe((hitEvent) => {
 				return;
 			} else if (event.type === "damageEntity") {
 				const oldVelocity = hitEntity.getVelocity();
-				const damage = event.canDamageBeModified === true
-					? Math.max(1, getModifiedDamageNumber(event.damage, hitEntity))
-					: event.damage;
+				const damage =
+					event.canDamageBeModified === true
+						? Math.max(1, getModifiedDamageNumber(event.damage, hitEntity))
+						: event.damage;
 
 				hitEntity.applyDamage(damage, {
 					cause: event.damageCause,

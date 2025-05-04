@@ -25,9 +25,7 @@ function onUpdate(scp001Entity: mc.Entity): void {
 		return;
 	}
 
-	const dirToTarget = vec3.normalize(
-		vec3.sub(scp001Entity.target.location, scp001Entity.location),
-	);
+	const dirToTarget = vec3.normalize(vec3.sub(scp001Entity.target.location, scp001Entity.location));
 
 	const isLeadBlockingRay = testLeadBlockingRay(
 		scp001Entity.dimension,
@@ -45,8 +43,8 @@ function onUpdate(scp001Entity: mc.Entity): void {
 		ticksUntilSigularity > 0
 			? ticksUntilSigularity - 1
 			: target.isOnGround
-			? randomInt(20, 30)
-			: randomInt(5, 10),
+				? randomInt(20, 30)
+				: randomInt(5, 10),
 	);
 
 	if (isLeadBlockingRay) return;
@@ -251,8 +249,8 @@ mc.world.afterEvents.entityDie.subscribe((event) => {
 
 	const scp001HealthComp = scp001Entity.getComponent("health")!;
 
-	const healAmount = scp001HealthComp.currentValue +
-		Math.min(2, Math.floor(deadEntityHealthComp.effectiveMax / 20));
+	const healAmount =
+		scp001HealthComp.currentValue + Math.min(2, Math.floor(deadEntityHealthComp.effectiveMax / 20));
 
 	const newHealth = Math.min(scp001HealthComp.effectiveMax, healAmount);
 
@@ -260,10 +258,7 @@ mc.world.afterEvents.entityDie.subscribe((event) => {
 
 	const molangVarMap = new mc.MolangVariableMap();
 
-	molangVarMap.setFloat(
-		"particle_amount",
-		Math.min(1, Math.max(5, Math.floor(healAmount * 0.5))),
-	);
+	molangVarMap.setFloat("particle_amount", Math.min(1, Math.max(5, Math.floor(healAmount * 0.5))));
 
 	scp001Entity.dimension.spawnParticle(
 		"lc:scpdy_heal_emitter",

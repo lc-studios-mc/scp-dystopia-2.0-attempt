@@ -128,9 +128,7 @@
 		},
 		"events": {
 			"minecraft:entity_spawned": {
-				"sequence": [
-					{ "trigger": "randomize_variant" }
-				]
+				"sequence": [{ "trigger": "randomize_variant" }]
 			},
 			"randomize_variant": {
 				"randomize": [

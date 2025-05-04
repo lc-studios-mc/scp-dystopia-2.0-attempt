@@ -28,12 +28,13 @@ function onPlayerInteract(arg: mc.BlockComponentPlayerInteractEvent): void {
 		z: center.z,
 	};
 
-	const sittableAnchorAlreadyExists = dimension.getEntities({
-		type: SITTABLE_ANCHOR_TYPE,
-		closest: 1,
-		maxDistance: 0.5,
-		location: sitLoc,
-	}).length > 0;
+	const sittableAnchorAlreadyExists =
+		dimension.getEntities({
+			type: SITTABLE_ANCHOR_TYPE,
+			closest: 1,
+			maxDistance: 0.5,
+			location: sitLoc,
+		}).length > 0;
 
 	if (sittableAnchorAlreadyExists) return;
 

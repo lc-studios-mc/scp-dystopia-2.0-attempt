@@ -343,13 +343,7 @@ class ChargingState extends SlasherState {
 			return;
 		}
 
-		const chargeUIMap = [
-			"§c>    X    <",
-			"§c>   X   <",
-			"§c>  X  <",
-			"§c> X <",
-			"§c>X<",
-		];
+		const chargeUIMap = ["§c>    X    <", "§c>   X   <", "§c>  X  <", "§c> X <", "§c>X<"];
 
 		if (this.currentTick < ChargingState.FULL_CHARGE_DURATION) {
 			this.slasher.player.onScreenDisplay.setActionBar(chargeUIMap[this.currentTick] ?? "");
@@ -387,7 +381,9 @@ class ChargingState extends SlasherState {
 	}
 
 	private releaseFullCharge(): void {
-		const plunge = !this.slasher.player.isOnGround && this.slasher.player.getRotation().x > 65 &&
+		const plunge =
+			!this.slasher.player.isOnGround &&
+			this.slasher.player.getRotation().x > 65 &&
 			this.slasher.player.inputInfo.getButtonState(mc.InputButton.Jump) === mc.ButtonState.Pressed;
 
 		if (plunge) {
@@ -501,11 +497,7 @@ class SlashingState extends SlasherState {
 	}
 
 	private chargeReleaseActionbarAnim(): void {
-		const uiFrames = [
-			"<X>",
-			"< X >",
-			"<  X  >",
-		];
+		const uiFrames = ["<X>", "< X >", "<  X  >"];
 
 		for (let i = 0; i < uiFrames.length; i++) {
 			const uiFrame = uiFrames[i]!;
@@ -651,7 +643,10 @@ class LockonSlashingState extends SlasherState {
 	private entityLockLoc: mc.Vector3 = vec3.ZERO;
 	private nextCritParticleTick = 0;
 
-	constructor(slasher: Slasher, private lockonEntities: mc.Entity[]) {
+	constructor(
+		slasher: Slasher,
+		private lockonEntities: mc.Entity[],
+	) {
 		super(slasher);
 
 		this.slasher.setCooldown("scpdy_slasher_slash_hold_cd");
@@ -694,7 +689,8 @@ class LockonSlashingState extends SlasherState {
 
 		if (this.currentTick % 8 === 0) this.slasher.playSound3DAnd2D("scpdy.slasher.chainsaw.loop");
 
-		const shouldStartEnding = this.lockonEntities.length <= 0 ||
+		const shouldStartEnding =
+			this.lockonEntities.length <= 0 ||
 			this.slasher.player.inputInfo.getButtonState(mc.InputButton.Sneak) ===
 				mc.ButtonState.Released;
 
@@ -796,10 +792,7 @@ class LockonSlashingState extends SlasherState {
 			.add(this.slasher.player.getHeadLocation())
 			.done();
 
-		this.slasher.player.dimension.spawnParticle(
-			"lc:scpdy_slasher_spark_emitter",
-			sparkParticleLoc,
-		);
+		this.slasher.player.dimension.spawnParticle("lc:scpdy_slasher_spark_emitter", sparkParticleLoc);
 	}
 
 	private displayEntityHealthInfo(healthComp: mc.EntityHealthComponent): void {
@@ -807,13 +800,14 @@ class LockonSlashingState extends SlasherState {
 
 		const targetName = getEntityName(entity);
 
-		const colorText = healthComp.currentValue <= 0
-			? "§c"
-			: healthComp.currentValue <= 30
-			? mc.system.currentTick % 2 === 0
-				? "§b"
-				: "§d"
-			: "§e";
+		const colorText =
+			healthComp.currentValue <= 0
+				? "§c"
+				: healthComp.currentValue <= 30
+					? mc.system.currentTick % 2 === 0
+						? "§b"
+						: "§d"
+					: "§e";
 
 		const currentHealth = Math.floor(healthComp.currentValue);
 		const maxHealth = Math.floor(healthComp.effectiveMax);
@@ -869,7 +863,10 @@ class PlungeWindupState extends SlasherState {
 class PlungeFallState extends SlasherState {
 	private static readonly FALL_FORCE: mc.Vector3 = { x: 0, y: -3.3, z: 0 };
 
-	constructor(slasher: Slasher, private readonly startHeight: number) {
+	constructor(
+		slasher: Slasher,
+		private readonly startHeight: number,
+	) {
 		super(slasher);
 	}
 
@@ -946,7 +943,8 @@ class PlungeImpactState extends SlasherState {
 
 	override onEnter(): void {
 		if (
-			this.fallenDepth <= 1.2 || (!this.slasher.player.isFalling && !this.slasher.player.isOnGround)
+			this.fallenDepth <= 1.2 ||
+			(!this.slasher.player.isFalling && !this.slasher.player.isOnGround)
 		) {
 			this.slasher.playSoundAtHeadFront("mace.smash_air", { volume: 1.1 });
 			return;
@@ -1004,10 +1002,11 @@ class PlungeImpactState extends SlasherState {
 	}
 
 	private getImpactLocation(): mc.Vector3 {
-		const loc = this.slasher.player.dimension.getBlockBelow(
-			vec3.add(this.slasher.player.location, { x: 0, y: -1.0, z: 0 }),
-			{ maxDistance: 15 },
-		)?.bottomCenter();
+		const loc = this.slasher.player.dimension
+			.getBlockBelow(vec3.add(this.slasher.player.location, { x: 0, y: -1.0, z: 0 }), {
+				maxDistance: 15,
+			})
+			?.bottomCenter();
 
 		if (!loc) return this.slasher.player.location;
 
@@ -1052,20 +1051,22 @@ class PlungeImpactState extends SlasherState {
 
 			let rayHit = false;
 
-			const rayHit1 = this.slasher.player.dimension.getEntitiesFromRay(
-				this.slasher.player.location,
-				vec3.sub(entity.location, this.slasher.player.location),
-			)
-				.some(hitInfo => hitInfo.entity === entity);
+			const rayHit1 = this.slasher.player.dimension
+				.getEntitiesFromRay(
+					this.slasher.player.location,
+					vec3.sub(entity.location, this.slasher.player.location),
+				)
+				.some((hitInfo) => hitInfo.entity === entity);
 
 			if (rayHit1) {
 				rayHit = true;
 			} else {
-				const rayHit2 = this.slasher.player.dimension.getEntitiesFromRay(
-					this.slasher.player.getHeadLocation(),
-					vec3.sub(entity.getHeadLocation(), this.slasher.player.getHeadLocation()),
-				)
-					.some(hitInfo => hitInfo.entity === entity);
+				const rayHit2 = this.slasher.player.dimension
+					.getEntitiesFromRay(
+						this.slasher.player.getHeadLocation(),
+						vec3.sub(entity.getHeadLocation(), this.slasher.player.getHeadLocation()),
+					)
+					.some((hitInfo) => hitInfo.entity === entity);
 
 				rayHit = rayHit2;
 			}

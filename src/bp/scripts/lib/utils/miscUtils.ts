@@ -126,11 +126,15 @@ export function stopSoundAt(dimension: mc.Dimension, location: mc.Vector3, sound
 
 type EnsureableType = boolean | number | string | mc.Vector3;
 type EnsureableTypeAsString = "boolean" | "number" | "string" | "Vector3";
-type EnsureTypeResult<T> = T extends "boolean" ? boolean | undefined
-	: T extends "number" ? number | undefined
-	: T extends "string" ? string | undefined
-	: T extends "Vector3" ? mc.Vector3 | undefined
-	: undefined;
+type EnsureTypeResult<T> = T extends "boolean"
+	? boolean | undefined
+	: T extends "number"
+		? number | undefined
+		: T extends "string"
+			? string | undefined
+			: T extends "Vector3"
+				? mc.Vector3 | undefined
+				: undefined;
 
 /**
  * @returns Unchanged 'value' if its type is same as 'type', otherwise undefined.

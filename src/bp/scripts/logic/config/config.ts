@@ -22,9 +22,7 @@ type DropdownConfigOption = {
 	set: (value: unknown) => void;
 };
 
-type ConfigOption =
-	| ToggleConfigOption
-	| DropdownConfigOption;
+type ConfigOption = ToggleConfigOption | DropdownConfigOption;
 
 type ConfigOptionWithoutGeneratedProperties<T extends ConfigOption> = Omit<
 	T,

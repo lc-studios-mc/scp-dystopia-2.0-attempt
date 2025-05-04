@@ -299,9 +299,10 @@ async function showMainMenu(player: mc.Player, cctvServer: mc.Entity): Promise<v
 	async function actionSetPassword(): Promise<void> {
 		const response = await new ModalFormData()
 			.title({
-				translate: password === undefined || password.trim() === ""
-					? "scpdy.form.cctvServer.setPassword.title1"
-					: "scpdy.form.cctvServer.setPassword.title2",
+				translate:
+					password === undefined || password.trim() === ""
+						? "scpdy.form.cctvServer.setPassword.title1"
+						: "scpdy.form.cctvServer.setPassword.title2",
 			})
 			.textField(
 				{
@@ -351,9 +352,10 @@ async function showMainMenu(player: mc.Player, cctvServer: mc.Entity): Promise<v
 			translate: "scpdy.form.cctvServer.main.button.cameraList",
 		})
 		.button({
-			translate: password === undefined || password.trim() === ""
-				? "scpdy.form.cctvServer.main.button.setPassword"
-				: "scpdy.form.cctvServer.main.button.changePassword",
+			translate:
+				password === undefined || password.trim() === ""
+					? "scpdy.form.cctvServer.main.button.setPassword"
+					: "scpdy.form.cctvServer.main.button.changePassword",
 		})
 		.show(player);
 

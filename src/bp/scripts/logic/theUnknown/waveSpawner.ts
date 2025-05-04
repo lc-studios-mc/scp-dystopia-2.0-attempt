@@ -224,13 +224,14 @@ function onTickWaveBattle(waveSpawner: mc.Entity): void {
 	}
 
 	const enemyTypeId = waveEnemyArray[nextWaveEnemyIndex]!;
-	const spawnLoc = enemyTypeId === UNKNOWN_CORE_ENTITY_TYPE
-		? {
-			x: waveSpawner.location.x,
-			y: Math.floor(waveSpawner.location.y) + 1.6,
-			z: waveSpawner.location.z,
-		}
-		: waveSpawner.location;
+	const spawnLoc =
+		enemyTypeId === UNKNOWN_CORE_ENTITY_TYPE
+			? {
+					x: waveSpawner.location.x,
+					y: Math.floor(waveSpawner.location.y) + 1.6,
+					z: waveSpawner.location.z,
+				}
+			: waveSpawner.location;
 
 	const spawnedMob = waveSpawner.dimension.spawnEntity(enemyTypeId, spawnLoc);
 

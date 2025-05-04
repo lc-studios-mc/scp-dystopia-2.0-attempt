@@ -1,25 +1,40 @@
 {
 	"compilerOptions": {
-		"target": "ES2023",
-		"lib": ["ES2023"],
-		"rootDir": "./src/",
-		"paths": {
-			"@lib/*": ["./src/bp/scripts/lib/*"],
-			"@logic/*": ["./src/bp/scripts/logic/*"]
-		},
+		/* Language and Environment */
+		"target": "es2023",
+		"lib": ["es2023"],
 		"moduleDetection": "force",
-		"skipLibCheck": true,
+
+		/* Modules */
+		"module": "preserve",
+		"moduleResolution": "bundler",
+		"rootDir": "./src/bp/scripts/",
+		"paths": {
+			"@/*": ["./src/bp/scripts/*"],
+			"@logic/*": ["./src/bp/scripts/logic/*"],
+			"@lib/*": ["./src/bp/scripts/lib/*"]
+		},
+		"types": ["@minecraft/server", "@minecraft/server-ui"],
+
+		/* JavaScript Support */
 		"allowJs": true,
 		"checkJs": true,
 
+		/* Emit */
+		"noEmit": true,
+
+		/* Interop Constraints */
+		"isolatedModules": true,
+		"verbatimModuleSyntax": true,
+		"forceConsistentCasingInFileNames": true,
+
+		/* Type Checking */
 		"strict": true,
-		"strictNullChecks": true,
 		"noUncheckedIndexedAccess": true,
 		"noImplicitOverride": true,
 
-		"module": "Preserve",
-		"moduleResolution": "Bundler",
-		"noEmit": true
+		/* Completeness */
+		"skipLibCheck": true
 	},
-	"include": ["./src/**/*"]
+	"include": ["./src/bp/scripts/**/*"]
 }

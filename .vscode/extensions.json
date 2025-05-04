@@ -1,9 +1,7 @@
 {
+	// prettier-ignore
 	"recommendations": [
-		"maptz.regionfolder",
 		"mojang-studios.minecraft-debugger",
 		"zz5840.minecraft-lang-colorizer",
-		"dprint.dprint"
-	],
-	"unwantedRecommendations": []
+	]
 }

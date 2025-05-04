@@ -22,10 +22,9 @@ function onUseOn(arg: mc.ItemComponentUseOnEvent): void {
 	if (!(player instanceof mc.Player)) return;
 	if (arg.blockFace === mc.Direction.Down || arg.blockFace === mc.Direction.Up) return;
 
-	processPlacementAsync(player, arg)
-		.catch(() => {
-			player.sendMessage({ translate: "scpdy.msg.misc.somethingWentWrong" });
-		});
+	processPlacementAsync(player, arg).catch(() => {
+		player.sendMessage({ translate: "scpdy.msg.misc.somethingWentWrong" });
+	});
 }
 
 async function processPlacementAsync(
@@ -43,10 +42,7 @@ async function processPlacementAsync(
 			{ translate: "scpdy.form.keypad.placementOpts.hintField.label" },
 			{ translate: "scpdy.form.keypad.placementOpts.hintField.placeholder" },
 		)
-		.toggle(
-			{ translate: "scpdy.form.keypad.placementOpts.loudIncorrectBuzzerToggle.label" },
-			false,
-		)
+		.toggle({ translate: "scpdy.form.keypad.placementOpts.loudIncorrectBuzzerToggle.label" }, false)
 		.divider();
 
 	addControlDeviceModeDropdownToForm(formData);

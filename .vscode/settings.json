@@ -1,11 +1,10 @@
 {
-	"[json][jsonc][javascript][typescript][markdown]": {
-		"editor.defaultFormatter": "dprint.dprint",
-		"editor.formatOnSave": true
+	"[markdown]": {
+		"editor.insertSpaces": true,
+		"editor.tabSize": 2
 	},
-	"[json5]": {
-		"editor.defaultFormatter": "BlueGlassBlock.better-json5"
-	},
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnSave": true,
 	"editor.insertSpaces": false,
 	"files.eol": "\n",
 	"files.associations": {
@@ -13,18 +12,8 @@
 		"package.json": "json",
 		"package-lock.json": "json"
 	},
-	"files.watcherExclude": {
-		"**/dist/**": true
-	},
 	"search.exclude": {
 		"**/dist/**": true,
 		"**/wt/**": true
-	},
-
-	// https://marketplace.visualstudio.com/items?itemName=BlueGlassBlock.better-json5
-	"json5.format.enable": true,
-	"json5.format.stringQuotes": "double",
-	"json5.format.keyQuotes": "none-double",
-	"json5.format.trailingCommas": "all",
-	"json5.format.keepLines": false
+	}
 }

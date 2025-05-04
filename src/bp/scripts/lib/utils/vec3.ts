@@ -462,7 +462,8 @@ export function fromString(string: string, relativeTo?: Entity | Partial<Vector3
 			continue;
 		}
 
-		const addHyphen = char === "-" &&
+		const addHyphen =
+			char === "-" &&
 			(currentStrArray.length === 0 ||
 				(currentStrArray[0] === "~" && currentStrArray.length === 1));
 
@@ -488,9 +489,9 @@ export function fromString(string: string, relativeTo?: Entity | Partial<Vector3
 
 	const isRelativeToEntity = relativeTo instanceof Entity;
 	const rel: Vector3 = {
-		x: isRelativeToEntity ? relativeTo.location.x : relativeTo?.x ?? 0,
-		y: isRelativeToEntity ? relativeTo.location.y : relativeTo?.y ?? 0,
-		z: isRelativeToEntity ? relativeTo.location.z : relativeTo?.z ?? 0,
+		x: isRelativeToEntity ? relativeTo.location.x : (relativeTo?.x ?? 0),
+		y: isRelativeToEntity ? relativeTo.location.y : (relativeTo?.y ?? 0),
+		z: isRelativeToEntity ? relativeTo.location.z : (relativeTo?.z ?? 0),
 	};
 
 	const xStr = xStrArray.join("");

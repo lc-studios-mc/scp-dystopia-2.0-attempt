@@ -155,8 +155,8 @@ class T5000 extends AdvancedItem {
 					? this.aimTick + 1
 					: AIM_DURATION
 				: this.aimTick > 0
-				? this.aimTick - 1
-				: 0;
+					? this.aimTick - 1
+					: 0;
 
 			if (this.tpAnimVars.ticksUntilSpecialAnimTimeEnd <= 0) {
 				if (this.player.isSneaking) {
@@ -379,9 +379,7 @@ class T5000 extends AdvancedItem {
 	}
 
 	onRemove(): void {
-		this.player.onScreenDisplay.setHudVisibility(mc.HudVisibility.Reset, [
-			mc.HudElement.Crosshair,
-		]);
+		this.player.onScreenDisplay.setHudVisibility(mc.HudVisibility.Reset, [mc.HudElement.Crosshair]);
 		this.player.playAnimation("animation.scpdy_player.t5000.remove");
 	}
 
@@ -469,15 +467,15 @@ class T5000 extends AdvancedItem {
 		// Amount of movement in each direction
 		const move: Partial<mc.Vector3> = ads
 			? {
-				x: 0.0,
-				y: -0.1,
-				z: 1.3,
-			}
+					x: 0.0,
+					y: -0.1,
+					z: 1.3,
+				}
 			: {
-				x: 0.13,
-				y: 0.026,
-				z: 1.2,
-			};
+					x: 0.13,
+					y: 0.026,
+					z: 1.2,
+				};
 
 		// Get location relative to player head
 		const muzzleLoc = vec3.add(

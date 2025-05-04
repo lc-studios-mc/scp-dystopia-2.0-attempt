@@ -5,10 +5,7 @@
 			"identifier": "lc:scpdy_recipe_trash"
 		},
 		"tags": ["crafting_table", "dystopia_craftbench", "scpdy_workbench"],
-		"pattern": [
-			"IBI",
-			"III"
-		],
+		"pattern": ["IBI", "III"],
 		"key": {
 			"B": {
 				"item": "minecraft:barrel"

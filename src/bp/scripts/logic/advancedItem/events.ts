@@ -32,11 +32,11 @@ function createAdvancedItemWrapper(
 
 	if (!playerEquippable) throw new Error("Failed to get equippable component of the player.");
 
-	const playerMainhand = playerComponents?.mainhandSlot ??
-		playerEquippable.getEquipmentSlot(mc.EquipmentSlot.Mainhand);
+	const playerMainhand =
+		playerComponents?.mainhandSlot ?? playerEquippable.getEquipmentSlot(mc.EquipmentSlot.Mainhand);
 
-	const playerOffhand = playerComponents?.offhandSlot ??
-		playerEquippable.getEquipmentSlot(mc.EquipmentSlot.Offhand);
+	const playerOffhand =
+		playerComponents?.offhandSlot ?? playerEquippable.getEquipmentSlot(mc.EquipmentSlot.Offhand);
 
 	const wrapperFields: AdvancedItemWrapper["fields"] = {
 		currentTick: fieldOverrides?.currentTick ?? 0,
@@ -85,13 +85,13 @@ function removeAdvancedItemWrapper(
 playerLoop.subscribe((player) => {
 	let advancedItemWrapper = ADVANCED_ITEM_MAP.get(player);
 
-	const playerHealth = advancedItemWrapper?.advancedItem.playerHealth ??
-		player.getComponent("health")!;
+	const playerHealth =
+		advancedItemWrapper?.advancedItem.playerHealth ?? player.getComponent("health")!;
 
 	if (playerHealth.currentValue <= 0) return;
 
-	const playerEquippable = advancedItemWrapper?.advancedItem.playerEquippable ??
-		player.getComponent("equippable")!;
+	const playerEquippable =
+		advancedItemWrapper?.advancedItem.playerEquippable ?? player.getComponent("equippable")!;
 
 	const playerMainhandItemStack = playerEquippable.getEquipment(mc.EquipmentSlot.Mainhand);
 

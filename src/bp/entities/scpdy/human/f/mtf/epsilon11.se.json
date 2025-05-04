@@ -37,8 +37,7 @@
 						// 3: Drop grenade
 						// 4: Going to hide SCP-096's face
 						// 5: Hiding SCP-096's face
-						0,
-						5
+						0, 5
 					],
 					"default": 0,
 					"client_sync": true

@@ -66,9 +66,7 @@ function onTickPlayer(player: mc.Player): void {
 
 	if (!usageData) return;
 
-	const stop = usageData.options.stopCondition
-		? usageData.options.stopCondition(usageData)
-		: false;
+	const stop = usageData.options.stopCondition ? usageData.options.stopCondition(usageData) : false;
 
 	if (stop) {
 		removeCctvUsageInternal(player, usageData);
@@ -87,11 +85,12 @@ function onTickPlayer(player: mc.Player): void {
 
 		const newRotation: mc.Vector2 = {
 			x: cctvCameraHeadRot.x,
-			y: cctvCameraRot.y < 0
-				? cctvCameraRot.y + cctvCameraHeadRot.y
-				: cctvCameraRot.y > 0
-				? cctvCameraRot.y - cctvCameraHeadRot.y
-				: 0,
+			y:
+				cctvCameraRot.y < 0
+					? cctvCameraRot.y + cctvCameraHeadRot.y
+					: cctvCameraRot.y > 0
+						? cctvCameraRot.y - cctvCameraHeadRot.y
+						: 0,
 		};
 
 		player.teleport(player.location, { rotation: newRotation });

@@ -137,16 +137,14 @@ class AmmoPack extends AdvancedItem {
 	onHitBlock(event: mc.EntityHitBlockAfterEvent): void {}
 }
 
-for (
-	const ammoPackItemType of [
-		"lc:scpdy_ammo_pack_9mm",
-		"lc:scpdy_ammo_pack_12shell",
-		"lc:scpdy_ammo_pack_50bmg",
-		"lc:scpdy_ammo_pack_338magnum",
-		"lc:scpdy_ammo_pack_556mm",
-		"lc:scpdy_ammo_pack_762x51",
-	]
-) {
+for (const ammoPackItemType of [
+	"lc:scpdy_ammo_pack_9mm",
+	"lc:scpdy_ammo_pack_12shell",
+	"lc:scpdy_ammo_pack_50bmg",
+	"lc:scpdy_ammo_pack_338magnum",
+	"lc:scpdy_ammo_pack_556mm",
+	"lc:scpdy_ammo_pack_762x51",
+]) {
 	registerAdvancedItemProfile({
 		itemTypeId: ammoPackItemType,
 		createInstance: (args) => new AmmoPack(args),

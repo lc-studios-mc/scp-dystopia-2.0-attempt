@@ -5,12 +5,7 @@
 			"initial_state": "default",
 			"states": {
 				"default": {
-					"animations": [
-						"anim.general",
-						"anim.walk.legs",
-						"anim.walk.arms",
-						"anim.look_at_target"
-					]
+					"animations": ["anim.general", "anim.walk.legs", "anim.walk.arms", "anim.look_at_target"]
 				}
 			}
 		}

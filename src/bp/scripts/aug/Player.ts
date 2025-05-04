@@ -60,10 +60,10 @@ function clearVelocity(entity: Entity) {
 	entity.applyKnockback({ x: directionX * horizontalNorm, z: directionZ * horizontalNorm }, 0);
 }
 
-Player.prototype.applyImpulse = function(vector: Vector3) {
+Player.prototype.applyImpulse = function (vector: Vector3) {
 	applyImpulseNew(this, vector);
 };
 
-Player.prototype.clearVelocity = function() {
+Player.prototype.clearVelocity = function () {
 	clearVelocity(this);
 };

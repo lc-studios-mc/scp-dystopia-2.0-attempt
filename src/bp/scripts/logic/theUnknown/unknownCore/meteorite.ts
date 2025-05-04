@@ -6,8 +6,8 @@ import * as mc from "@minecraft/server";
 export const METEORITE_ENTITY_TYPE = "lc:scpdy_unknown_core_meteorite";
 
 function getFallLocation(meteorite: mc.Entity): mc.Vector3 {
-	const fallbackFallLoc = ensureType(meteorite.getDynamicProperty("fallbackFallLoc"), "Vector3") ??
-		meteorite.location;
+	const fallbackFallLoc =
+		ensureType(meteorite.getDynamicProperty("fallbackFallLoc"), "Vector3") ?? meteorite.location;
 
 	const targetEntityId = ensureType(meteorite.getDynamicProperty("targetEntityId"), "string");
 

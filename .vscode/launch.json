@@ -1,8 +1,14 @@
 {
 	"version": "0.3.0",
 	"configurations": [
+		/*
+			Download the debugger extension from:
+			https://marketplace.visualstudio.com/items?itemName=mojang-studios.minecraft-debugger
+
+			"targetModuleUuid" must match with the UUID of the "script" module in the behavior pack manifest.json
+		*/
 		{
-			"type": "minecraft-js", // https://marketplace.visualstudio.com/items?itemName=mojang-studios.minecraft-debugger
+			"type": "minecraft-js",
 			"request": "attach",
 			"name": "Debug with Minecraft",
 			"mode": "listen",
@@ -11,11 +17,10 @@
 			"generatedSourceRoot": "${userHome}/AppData/Local/Packages/Microsoft.MinecraftUWP_8wekyb3d8bbwe/LocalState/games/com.mojang/development_behavior_packs/SCPDY_BP/scripts/",
 			"port": 19144,
 
-			// Must match with the UUID of the "script" module in the behavior pack manifest.json
 			"targetModuleUuid": "5fa83869-172d-41dc-8fb0-bd98da2e9da6"
 		},
 		{
-			"type": "minecraft-js", // https://marketplace.visualstudio.com/items?itemName=mojang-studios.minecraft-debugger
+			"type": "minecraft-js",
 			"request": "attach",
 			"name": "Debug with Minecraft Preview",
 			"mode": "listen",
@@ -24,7 +29,6 @@
 			"generatedSourceRoot": "${userHome}/AppData/Local/Packages/Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe/LocalState/games/com.mojang/development_behavior_packs/SCPDY_BP/scripts/",
 			"port": 19144,
 
-			// Must match with the UUID of the "script" module in the behavior pack manifest.json
 			"targetModuleUuid": "5fa83869-172d-41dc-8fb0-bd98da2e9da6"
 		}
 	]

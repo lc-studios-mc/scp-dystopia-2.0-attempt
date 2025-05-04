@@ -247,9 +247,7 @@
 						"items": ["lc:scpdy_door_button"]
 					},
 					{
-						"items": [
-							"lc:scpdy_keypad_placer"
-						]
+						"items": ["lc:scpdy_keypad_placer"]
 					},
 					{
 						"group_identifier": {

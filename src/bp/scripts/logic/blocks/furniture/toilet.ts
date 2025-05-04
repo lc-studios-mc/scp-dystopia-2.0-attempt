@@ -37,7 +37,8 @@ function onUpdateToiletRideableEntity(entity: mc.Entity): void {
 	const lastRiderPitch = entity.getDynamicProperty("lastRiderPitch");
 	const currentRiderPitch = rider.getRotation().x;
 
-	const emitFart = typeof lastRiderPitch === "number" &&
+	const emitFart =
+		typeof lastRiderPitch === "number" &&
 		((lastRiderPitch < 80 && currentRiderPitch > 80) ||
 			(lastRiderPitch > -80 && currentRiderPitch < -80));
 
@@ -117,12 +118,13 @@ function onPlayerInteract(arg: mc.BlockComponentPlayerInteractEvent): void {
 
 	const sitLoc = { x: center.x, y: center.y - 0.26, z: center.z };
 
-	const rideableEntityExists = dimension.getEntities({
-		type: TOILET_RIDEABLE_ENTITY_TYPE,
-		closest: 1,
-		maxDistance: 0.5,
-		location: sitLoc,
-	}).length > 0;
+	const rideableEntityExists =
+		dimension.getEntities({
+			type: TOILET_RIDEABLE_ENTITY_TYPE,
+			closest: 1,
+			maxDistance: 0.5,
+			location: sitLoc,
+		}).length > 0;
 
 	if (rideableEntityExists) return;
 

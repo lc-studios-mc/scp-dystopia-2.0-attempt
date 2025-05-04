@@ -330,13 +330,10 @@ function beforeOnPlayerPlace(arg: mc.BlockComponentPlayerPlaceBeforeEvent): void
 
 	if (!arg.player) return;
 
-	const upOrDown: "none" | "up" | "down" = arg.face === mc.Direction.Up
-		? "up"
-		: arg.face === mc.Direction.Down
-		? "down"
-		: "none";
+	const upOrDown: "none" | "up" | "down" =
+		arg.face === mc.Direction.Up ? "up" : arg.face === mc.Direction.Down ? "down" : "none";
 
-	const dir = (function() {
+	const dir = (function () {
 		const y = arg.player.getRotation().y;
 
 		if (upOrDown !== "none") {

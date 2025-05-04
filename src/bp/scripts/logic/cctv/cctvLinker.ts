@@ -222,9 +222,8 @@ function onInteractCctvServerAuthorized(
 	// Link cameras
 
 	for (const cameraRefToLink of linkerCameraRefs) {
-		const isAlreadyAdded = serverCameraRefs.findIndex((ref) =>
-			ref.entityId === cameraRefToLink.entityId
-		) !== -1;
+		const isAlreadyAdded =
+			serverCameraRefs.findIndex((ref) => ref.entityId === cameraRefToLink.entityId) !== -1;
 
 		if (isAlreadyAdded) {
 			skippedCameraCount++;

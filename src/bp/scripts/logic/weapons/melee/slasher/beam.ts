@@ -52,9 +52,8 @@ const applyIndirectDamageAt = (
 ): void => {
 	const nearbyEntities = location.dimension.getEntities({
 		closest: 5,
-		maxDistance: type === "swing"
-			? PARAM.swingBeamIndirectHitRadius
-			: PARAM.slashBeamIndirectHitRadius,
+		maxDistance:
+			type === "swing" ? PARAM.swingBeamIndirectHitRadius : PARAM.slashBeamIndirectHitRadius,
 		location: location,
 	});
 

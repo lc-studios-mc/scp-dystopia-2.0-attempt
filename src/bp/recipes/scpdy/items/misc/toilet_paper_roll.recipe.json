@@ -5,11 +5,7 @@
 			"identifier": "lc:scpdy_toilet_paper_roll"
 		},
 		"tags": ["crafting_table", "dystopia_craftbench", "scpdy_workbench"],
-		"pattern": [
-			" PP",
-			"PSP",
-			"P  "
-		],
+		"pattern": [" PP", "PSP", "P  "],
 		"key": {
 			"S": {
 				"item": "minecraft:stick"

@@ -17,7 +17,10 @@ export type FacilityNetwork = {
 };
 
 class _FacilityZone implements FacilityZone {
-	constructor(public readonly network: _FacilityNetwork, public readonly index: number) {}
+	constructor(
+		public readonly network: _FacilityNetwork,
+		public readonly index: number,
+	) {}
 
 	get name(): string | undefined {
 		return ensureType(

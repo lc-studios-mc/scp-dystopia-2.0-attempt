@@ -34,9 +34,7 @@
 					"v.move_mul = 1.0;"
 				]
 			},
-			"render_controllers": [
-				"controller.render.scpdy.human.f_researcher"
-			],
+			"render_controllers": ["controller.render.scpdy.human.f_researcher"],
 			"spawn_egg": {
 				"base_color": "#dfdace",
 				"overlay_color": "#645e4f"

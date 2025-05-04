@@ -70,15 +70,14 @@ function onTick(arg: mc.BlockComponentTickEvent): void {
 
 	const currentOpenProgress = block.permutation.getState(STATE_NAMES.doorOpenProgress) as number;
 
-	const nextOpenProgress: number = currentOpenProgress < 15 && isPowered
-		? currentOpenProgress + 1
-		: currentOpenProgress > 0 && !isPowered
-		? currentOpenProgress - 1
-		: currentOpenProgress;
+	const nextOpenProgress: number =
+		currentOpenProgress < 15 && isPowered
+			? currentOpenProgress + 1
+			: currentOpenProgress > 0 && !isPowered
+				? currentOpenProgress - 1
+				: currentOpenProgress;
 
-	block.setPermutation(
-		block.permutation.withState(STATE_NAMES.doorOpenProgress, nextOpenProgress),
-	);
+	block.setPermutation(block.permutation.withState(STATE_NAMES.doorOpenProgress, nextOpenProgress));
 
 	otherPartBlock.setPermutation(
 		otherPartBlock.permutation.withState(STATE_NAMES.doorOpenProgress, nextOpenProgress),
