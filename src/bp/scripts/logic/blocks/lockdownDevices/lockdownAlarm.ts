@@ -1,7 +1,7 @@
 import { isAirOrLiquid } from "@lib/utils/blockUtils";
 import {
-	FacilityNetwork,
-	FacilityZone,
+	type FacilityNetwork,
+	type FacilityZone,
 	getFacilityNetwork,
 	MAX_FACILITY_ZONE_COUNT,
 } from "@logic/facilityNetwork/network";

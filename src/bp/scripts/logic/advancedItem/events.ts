@@ -1,6 +1,10 @@
 import * as playerLoop from "@logic/playerLoop";
 import * as mc from "@minecraft/server";
-import { AdvancedItem, AdvancedItemBaseConstructorArgs, AdvancedItemProfile } from "./AdvancedItem";
+import {
+	AdvancedItem,
+	type AdvancedItemBaseConstructorArgs,
+	type AdvancedItemProfile,
+} from "./AdvancedItem";
 import * as profileRegistry from "./profileRegistry";
 
 type AdvancedItemWrapper = {

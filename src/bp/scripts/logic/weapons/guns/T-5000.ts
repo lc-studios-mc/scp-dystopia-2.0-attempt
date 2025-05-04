@@ -1,6 +1,9 @@
 import { randomFloat } from "@lib/utils/mathUtils";
 import * as vec3 from "@lib/utils/vec3";
-import { AdvancedItem, AdvancedItemBaseConstructorArgs } from "@logic/advancedItem/AdvancedItem";
+import {
+	AdvancedItem,
+	type AdvancedItemBaseConstructorArgs,
+} from "@logic/advancedItem/AdvancedItem";
 import { registerAdvancedItemProfile } from "@logic/advancedItem/profileRegistry";
 import { getAmmoType, getTotalAmmoCount, removeAmmo } from "@logic/ammo/ammo";
 import { CONFIG } from "@logic/config/config";

@@ -1,5 +1,5 @@
 import * as vec3 from "@lib/utils/vec3";
-import { OnBulletHitBlockEvent } from "./bullet";
+import type { OnBulletHitBlockEvent } from "./bullet";
 
 export const BREAK_GLASS_AND_END_SEQUENCE: OnBulletHitBlockEvent = {
 	type: "callback",

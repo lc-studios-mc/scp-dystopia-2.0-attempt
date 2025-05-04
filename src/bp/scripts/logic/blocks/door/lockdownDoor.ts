@@ -1,7 +1,7 @@
 import { isAirOrLiquid } from "@lib/utils/blockUtils";
 import { getClearanceLevel } from "@lib/utils/scpdyUtils";
 import {
-	FacilityZone,
+	type FacilityZone,
 	getFacilityNetwork,
 	MAX_FACILITY_ZONE_COUNT,
 } from "@logic/facilityNetwork/network";

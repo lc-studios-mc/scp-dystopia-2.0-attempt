@@ -1,6 +1,6 @@
 import { ensureType } from "@lib/utils/miscUtils";
 import * as vec3 from "@lib/utils/vec3";
-import { FacilityZone, getFacilityNetwork } from "@logic/facilityNetwork/network";
+import { type FacilityZone, getFacilityNetwork } from "@logic/facilityNetwork/network";
 import * as mc from "@minecraft/server";
 
 type BlastDoorInfo = {

@@ -1,8 +1,8 @@
 import * as mc from "@minecraft/server";
 import { ActionFormData, ModalFormData } from "@minecraft/server-ui";
 import {
-	FacilityNetwork,
-	FacilityZone,
+	type FacilityNetwork,
+	type FacilityZone,
 	getFacilityNetwork,
 	MAX_FACILITY_NETWORK_COUNT,
 	MAX_FACILITY_ZONE_COUNT,

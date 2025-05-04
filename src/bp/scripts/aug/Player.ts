@@ -1,4 +1,4 @@
-import { Entity, Player, Vector3 } from "@minecraft/server";
+import { Entity, Player, type Vector3 } from "@minecraft/server";
 
 /**
  * New implementation of applyImpulse. This one tries to replicate the behavior of

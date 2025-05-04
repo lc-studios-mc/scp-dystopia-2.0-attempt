@@ -4,7 +4,7 @@ import { spawnGoreExplosion } from "@logic/gore/gibs";
 import { SCP096_ENTITY_TYPE } from "@logic/scps/scp096/shared";
 import { SCP173_ENTITY_TYPE } from "@logic/scps/scp173/shared";
 import * as mc from "@minecraft/server";
-import { getHumanMobLootData, HumanMobLootData } from "./loot";
+import { getHumanMobLootData, type HumanMobLootData } from "./loot";
 import { HUMAN_MOB_TYPE_ARRAY } from "./shared";
 
 function onHumanMobDie(

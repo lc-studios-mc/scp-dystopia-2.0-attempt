@@ -1,7 +1,10 @@
 import { getEntityName, getModifiedDamageNumber } from "@lib/utils/entityUtils";
 import { randomFloat, randomInt } from "@lib/utils/mathUtils";
 import * as vec3 from "@lib/utils/vec3";
-import { AdvancedItem, AdvancedItemBaseConstructorArgs } from "@logic/advancedItem/AdvancedItem";
+import {
+	AdvancedItem,
+	type AdvancedItemBaseConstructorArgs,
+} from "@logic/advancedItem/AdvancedItem";
 import { registerAdvancedItemProfile } from "@logic/advancedItem/profileRegistry";
 import * as scp427_1_module from "@logic/scps/scp427/scp427_1";
 import * as mc from "@minecraft/server";

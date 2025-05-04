@@ -1,4 +1,4 @@
-import { AdvancedItemProfile } from "./AdvancedItem";
+import type { AdvancedItemProfile } from "./AdvancedItem";
 
 const ENTRIES = new Map<string, AdvancedItemProfile>();
 

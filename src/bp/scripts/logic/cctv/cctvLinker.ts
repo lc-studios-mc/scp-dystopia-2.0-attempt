@@ -4,8 +4,8 @@ import * as cctvMonitorMod from "./cctvMonitor";
 import * as cctvServerMod from "./cctvServer";
 import {
 	CAMERA_ENTITY_TYPE,
-	CCTVCameraRef,
-	CCTVMonitorRef,
+	type CCTVCameraRef,
+	type CCTVMonitorRef,
 	MONITOR_ENTITY_TYPE,
 	SERVER_ENTITY_TYPE,
 } from "./shared";

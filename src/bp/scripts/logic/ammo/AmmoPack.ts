@@ -1,7 +1,10 @@
-import { AdvancedItem, AdvancedItemBaseConstructorArgs } from "@logic/advancedItem/AdvancedItem";
+import {
+	AdvancedItem,
+	type AdvancedItemBaseConstructorArgs,
+} from "@logic/advancedItem/AdvancedItem";
 import { registerAdvancedItemProfile } from "@logic/advancedItem/profileRegistry";
 import * as mc from "@minecraft/server";
-import { AmmoType, getAmmoItemType, getAmmoType, removeAmmo } from "./ammo";
+import { type AmmoType, getAmmoItemType, getAmmoType, removeAmmo } from "./ammo";
 
 const USE_DURATION = 10;
 

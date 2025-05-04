@@ -1,4 +1,4 @@
-import { Direction, Entity, Vector3 } from "@minecraft/server";
+import { Direction, Entity, type Vector3 } from "@minecraft/server";
 
 export const ONE = {
 	x: 1,
