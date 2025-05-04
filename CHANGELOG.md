@@ -12,14 +12,13 @@ _Most_ notable changes to this project will be documented in this file.
 - Sink block.
 - Trash Bin block.
 
-### Changed
-
-- **BREAKING:** Improve Config and Config editor form.
-
 ### Fixed
 
-- Improve Slasher MK-II user experience.
 - Dash Block does not boost user velocity.
+
+### Removed
+
+- Slasher (in favor of [standalone version](https://www.curseforge.com/minecraft-bedrock/addons/slasher-sword))
 
 ## [2.0.0 Alpha 3] - 2025-03-27
 

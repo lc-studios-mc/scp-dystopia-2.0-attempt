@@ -93,11 +93,6 @@
 			"textures": "textures/scpdy/items/keycards/keycard_o5"
 		},
 		// #endregion
-		// #region materials
-		"scpdy_slasher_blade": {
-			"textures": "textures/scpdy/items/materials/slasher_blade"
-		},
-		// #endregion
 		// #region misc
 		"scpdy_toilet_paper_roll": {
 			"textures": "textures/scpdy/items/misc/toilet_paper_roll"
@@ -188,9 +183,6 @@
 		},
 		"scpdy_pain_sword_icon": {
 			"textures": "textures/scpdy/items/weapons/melee/pain_sword_icon"
-		},
-		"scpdy_slasher_icon": {
-			"textures": "textures/scpdy/items/weapons/melee/slasher_icon"
 		},
 		"scpdy_void_sword_icon": {
 			"textures": "textures/scpdy/items/weapons/melee/void_sword_icon"

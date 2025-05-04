@@ -71,8 +71,6 @@ scpdy.actionHint.ammoPack.empty=§cAmmo pack is empty
 scpdy.actionHint.gun.noMagInInventory=§cNo magazine
 scpdy.actionHint.gun.reloading=§e[RELOADING] %s
 
-scpdy.actionHint.slasher.needsRepair=§cREPAIR NEEDED
-
 scpdy.actionHint.scp096_1_wand.noValidEntity=§cNo valid entity in line of sight...
 scpdy.actionHint.scp096_1_wand.taggedEntity=§aTagged %s as SCP-096-1!
 scpdy.actionHint.scp096_1_wand.entityAlreadyTagged=§cThis entity is already tagged as SCP-096-1...
@@ -393,9 +391,6 @@ item.lc:scpdy_keycard_lvl_4.name=SCP Keycard (Level 4)
 item.lc:scpdy_keycard_lvl_5.name=SCP Keycard (Level 5)
 item.lc:scpdy_keycard_o5.name=SCP Keycard (O5)
 
-## items -> materials -> ...
-item.lc:scpdy_slasher_blade.name=Slasher Blade
-
 ## items -> misc -> ...
 item.lc:scpdy_toilet_paper_roll.name=Paper Roll
 
@@ -433,7 +428,6 @@ item.lc:scpdy_gun_t5000_mag.name=T-5000 Magazine
 item.lc:scpdy_killer_sword.name=Killer Sword
 item.lc:scpdy_knife.name=Survival Knife
 item.lc:scpdy_pain_sword.name=Pain Sword
-item.lc:scpdy_slasher.name=Slasher MK-II
 item.lc:scpdy_void_sword.name=Void Sword
 
 ## items -> weapons -> throwables -> ...
