@@ -54,7 +54,7 @@ async function main(): Promise<void> {
 		console.log(getCurrentTimeString(), `${info.eventType}: ${relativePath}`);
 	};
 
-	console.log(chalk.gray("Syncing pack files..."));
+	console.log(chalk.gray("Starting initial pack sync..."));
 
 	const bpWatcher: any = await syncdir(bpSrcDir, bpOutDir, {
 		watch: args.values.watch,
@@ -71,7 +71,7 @@ async function main(): Promise<void> {
 		afterEachSync,
 	});
 
-	console.log("Synced pack files!");
+	console.log("Synced!");
 
 	const srcScriptsDir = path.resolve("./src/bp/scripts/");
 
@@ -124,7 +124,7 @@ async function main(): Promise<void> {
 				name: "build-log",
 				setup(build) {
 					build.onEnd(() => {
-						console.log(getCurrentTimeString(), "Bundled BP scripts!");
+						console.log(getCurrentTimeString(), "Bundled scripts!");
 					});
 				},
 			},
@@ -133,7 +133,7 @@ async function main(): Promise<void> {
 
 	let esbuildCtx: esbuild.BuildContext | null = null;
 
-	console.log(chalk.gray("Bundling BP scripts..."));
+	console.log(chalk.gray("Bundling scripts..."));
 
 	if (args.values.watch) {
 		esbuildCtx = await esbuild.context(esbuildOpts);
