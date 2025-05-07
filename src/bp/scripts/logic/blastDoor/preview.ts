@@ -63,7 +63,7 @@ async function showCreationForm(previewEntity: mc.Entity, player: mc.Player): Pr
 	formData1.title({ translate: "scpdy.form.blastDoorCreation.title" });
 	formData1.toggle(
 		{ translate: "scpdy.form.blastDoorCreation.redstoneDetectionToggle.label" },
-		false,
+		{ defaultValue: false },
 	);
 
 	const facilityNetworks = Array.from(
@@ -87,7 +87,7 @@ async function showCreationForm(previewEntity: mc.Entity, player: mc.Player): Pr
 					},
 			),
 		],
-		0,
+		{ defaultValueIndex: 0 },
 	);
 
 	formData1.submitButton({ translate: "scpdy.form.blastDoorCreation.submitButton" });
@@ -127,7 +127,7 @@ async function showCreationForm(previewEntity: mc.Entity, player: mc.Player): Pr
 						with: [(index + 1).toString()],
 					},
 			),
-			0,
+			{ defaultValueIndex: 0 },
 		);
 
 		formData2.submitButton({ translate: "scpdy.form.blastDoorCreation.setZone.submitButton" });

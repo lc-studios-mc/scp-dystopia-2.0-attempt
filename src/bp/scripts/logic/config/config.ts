@@ -166,7 +166,7 @@ class ConfigBuilder<T = {}> {
 			.label({ translate: "scpdy.configV2.description" })
 			.divider()
 			.label({ translate: "scpdy.configV2.resetOnExit.label" })
-			.toggle({ translate: "scpdy.configV2.resetOnExit.toggle" }, false)
+			.toggle({ translate: "scpdy.configV2.resetOnExit.toggle" }, { defaultValue: false })
 			.divider();
 
 		const optionCallbacks: FormOptionCallback[] = [];
@@ -221,10 +221,12 @@ class ConfigBuilder<T = {}> {
 		const mode = option.mode;
 		switch (mode) {
 			case "toggle":
-				formData.toggle(option.label ?? name, option.get());
+				formData.toggle(option.label ?? name, { defaultValue: option.get() });
 				break;
 			case "dropdown":
-				formData.dropdown(option.label ?? name, option.choices, option.get());
+				formData.dropdown(option.label ?? name, option.choices, {
+					defaultValueIndex: option.get(),
+				});
 				break;
 			default:
 				throw new Error(`Unhandled option mode: ${mode}`);

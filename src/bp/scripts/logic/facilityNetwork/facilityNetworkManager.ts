@@ -14,7 +14,7 @@ async function showEditZoneNameForm(player: mc.Player, facilityZone: FacilityZon
 		.textField(
 			{ translate: "scpdy.form.fnm.editZoneName.nameField.label" },
 			{ translate: "scpdy.form.fnm.editZoneName.nameField.placeholder" },
-			facilityZone.name,
+			{ defaultValue: facilityZone.name },
 		)
 		.submitButton({ translate: "scpdy.form.fnm.editZoneName.submitButton" })
 		.show(player);
@@ -77,7 +77,7 @@ async function showEditNetworkNameForm(
 		.textField(
 			{ translate: "scpdy.form.fnm.editNetworkName.nameField.label" },
 			{ translate: "scpdy.form.fnm.editNetworkName.nameField.placeholder" },
-			facilityNetwork.name,
+			{ defaultValue: facilityNetwork.name },
 		)
 		.submitButton({ translate: "scpdy.form.fnm.editNetworkName.submitButton" })
 		.show(player);

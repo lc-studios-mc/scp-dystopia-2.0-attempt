@@ -19,9 +19,12 @@ async function showPlacementOptionsForm(player: mc.Player): Promise<PlacementOpt
 		.textField(
 			{ translate: "scpdy.form.alphanumericSignOptions.textField.label" },
 			{ translate: "scpdy.form.alphanumericSignOptions.textField.placeholder" },
-			"",
+			{ defaultValue: "" },
 		)
-		.slider({ translate: "scpdy.form.alphanumericSignOptions.spacing.label" }, 0, 2, 1, 0)
+		.slider({ translate: "scpdy.form.alphanumericSignOptions.spacing.label" }, 0, 2, {
+			defaultValue: 0,
+			valueStep: 1,
+		})
 		.dropdown(
 			{ translate: "scpdy.form.alphanumericSignOptions.color.label" },
 			[
@@ -32,7 +35,10 @@ async function showPlacementOptionsForm(player: mc.Player): Promise<PlacementOpt
 					translate: "scpdy.form.alphanumericSignOptions.color.black",
 				},
 			],
-			(player.getDynamicProperty("lastAlphanumericSignColorSelection") as number) ?? 0,
+			{
+				defaultValueIndex:
+					(player.getDynamicProperty("lastAlphanumericSignColorSelection") as number) ?? 0,
+			},
 		)
 		.submitButton({ translate: "scpdy.form.alphanumericSignOptions.submit" })
 		.show(player);

@@ -132,7 +132,7 @@ export function addControlDeviceModeDropdownToForm(formData: ModalFormData): voi
 			{ translate: "scpdy.form.controlDevice.modeDropdown.opt2" },
 			{ translate: "scpdy.form.controlDevice.modeDropdown.opt3" },
 		],
-		0,
+		{ defaultValueIndex: 0 },
 	);
 }
 

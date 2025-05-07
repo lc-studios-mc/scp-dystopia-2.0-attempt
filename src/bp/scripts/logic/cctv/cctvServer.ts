@@ -39,7 +39,7 @@ export async function showPasswordForm(player: mc.Player, cctvServer: mc.Entity)
 			{
 				translate: "scpdy.form.cctvServer.locked.passwordField.placeholder",
 			},
-			lastEnteredCctvPassword,
+			{ defaultValue: lastEnteredCctvPassword },
 		)
 		.submitButton({
 			translate: "scpdy.form.cctvServer.locked.submitButton",

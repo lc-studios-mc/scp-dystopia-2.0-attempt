@@ -46,7 +46,7 @@ async function showSetZoneForm(
 						with: [(index + 1).toString()],
 					},
 			),
-			prevZoneIndex < 0 ? 0 : prevZoneIndex,
+			{ defaultValueIndex: prevZoneIndex < 0 ? 0 : prevZoneIndex },
 		)
 		.show(player);
 

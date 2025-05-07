@@ -42,7 +42,10 @@ async function processPlacementAsync(
 			{ translate: "scpdy.form.keypad.placementOpts.hintField.label" },
 			{ translate: "scpdy.form.keypad.placementOpts.hintField.placeholder" },
 		)
-		.toggle({ translate: "scpdy.form.keypad.placementOpts.loudIncorrectBuzzerToggle.label" }, false)
+		.toggle(
+			{ translate: "scpdy.form.keypad.placementOpts.loudIncorrectBuzzerToggle.label" },
+			{ defaultValue: false },
+		)
 		.divider();
 
 	addControlDeviceModeDropdownToForm(formData);

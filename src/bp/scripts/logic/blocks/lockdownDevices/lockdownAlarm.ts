@@ -42,7 +42,7 @@ async function showSetZoneForm(
 						with: [(index + 1).toString()],
 					},
 			),
-			0,
+			{ defaultValueIndex: 0 },
 		)
 		.show(player);
 
