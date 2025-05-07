@@ -1,6 +1,7 @@
 node_modules/
 dist/
 wt/
+.old/
 
 *.gif
 *.psd
