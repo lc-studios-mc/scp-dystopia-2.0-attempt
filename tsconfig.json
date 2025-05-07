@@ -14,7 +14,7 @@
 			"@logic/*": ["./src/bp/scripts/logic/*"],
 			"@lib/*": ["./src/bp/scripts/lib/*"]
 		},
-		"types": ["@minecraft/server", "@minecraft/server-ui", "neverthrow"],
+		"types": ["neverthrow"],
 
 		/* JavaScript Support */
 		"allowJs": true,
