@@ -36,5 +36,6 @@
 		/* Completeness */
 		"skipLibCheck": true
 	},
-	"include": ["./src/bp/scripts/**/*"]
+	"include": ["./src/bp/scripts/**/*"],
+	"exclude": ["**/.old/**/*"]
 }
