@@ -1,11 +1,22 @@
-import { EventEmitter } from "@/utils/EventEmitter";
 import { flattenCoordinates, unflattenToCoordinates } from "@/utils/misc";
 import { isHoldingWrench } from "@/utils/wrench";
 import * as mc from "@minecraft/server";
+import { ActivatorBlockEvents } from "./events";
 
-export const _EVENTS = new EventEmitter<{
-	onTickPower: { block: mc.Block; powered: boolean };
-}>();
+/**
+ * Sets the power level of an Activator Block.
+ * @param activatorBlock - Activator Block.
+ * @param powerLevel - Level of the power. (min: `0`, max: `15`, default: `15`)
+ * @returns Whether the operation was successful.
+ */
+export function setPowerLevel(activatorBlock: mc.Block, powerLevel = 15): boolean {
+	if (!activatorBlock.isValid) return false;
+	if (!activatorBlock.hasTag("lc:activator")) return false;
+
+	activatorBlock.setPermutation(_setPowerLevelState(activatorBlock.permutation, powerLevel));
+
+	return true;
+}
 
 const STATE = {
 	powerLevelMajor: "lc:power_level_major",
@@ -41,7 +52,7 @@ const COMPONENT: mc.BlockCustomComponent = {
 		}
 
 		if (currentPowerLevel > 0 || newPowerLevel > 0) {
-			_EVENTS.emit("onTickPower", { block, powered: newPowerLevel > 0 });
+			ActivatorBlockEvents.emit("onTickPower", { block, powered: newPowerLevel > 0 });
 		}
 	},
 	onPlayerInteract({ block, dimension, player }) {

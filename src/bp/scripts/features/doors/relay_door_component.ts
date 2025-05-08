@@ -1,7 +1,7 @@
 import { destroyBlock } from "@/utils/block";
 import { flattenCoordinates, unflattenToCoordinates } from "@/utils/misc";
 import * as mc from "@minecraft/server";
-import { ActivatorBlockEvents } from "../machinery/activator_block/public";
+import { ActivatorBlockEvents } from "../machinery/activator_block/events";
 
 interface RelayDoorComponentParams {
 	minStepIndex?: number;
