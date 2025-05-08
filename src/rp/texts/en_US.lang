@@ -1,3 +1,27 @@
+## --- doors ---
+
+## relay doors
+lc:scpdy_itemGroup_relayDoors=§7SCP:DY §8- §fRelay Doors (require Activator Block)
+tile.lc:scpdy_relay_door_1.name=Relay Door 1
+
+
+## --- machinery ---
+
+## activator block
+tile.lc:scpdy_activator_block.name=Activator Block (for Relay Doors)
+scpdy.activatorBlock.text.redstoneDetection.off=Redstone Detection: §7OFF
+scpdy.activatorBlock.text.redstoneDetection.on=Redstone Detection: §eON
+scpdy.activatorBlock.text.redstoneDetection.warn=§eRedstone detection can significantly degrade performance when placed in large numbers in a small area.
+
+
+## --- misc ---
+
+scpdy.misc.text.wrenchIsRequired=§eWrench is required
+
+
+
+## LEGACY TRANSLATIONS BELOW
+
 ## --- Item Groups
 
 itemGroup.name.stoneBrick=Decorative Stone §b+ SCP:DY Construction Blocks

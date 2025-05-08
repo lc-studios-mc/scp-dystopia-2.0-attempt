@@ -1,5 +1,18 @@
 {
 	"format_version": "1.1.0",
+
+	// #region doors
+	"lc:scpdy_relay_door_1": {
+		"sound": "iron"
+	},
+	// #endregion
+
+	// #region machinery
+	"lc:scpdy_activator_block": {
+		"sound": "metal"
+	},
+	// #endregion
+
 	// #region construction
 	"lc:scpdy_cst_black_checker_tiles": {
 		"sound": "stone",

@@ -1,0 +1,138 @@
+{
+	"format_version": "1.21.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "lc:scpdy_activator_block",
+			"menu_category": {
+				"category": "construction"
+			},
+			"states": {
+				"lc:power_level_major": [0, 1, 2, 3],
+				"lc:power_level_minor": [0, 1, 2, 3],
+				"lc:detect_redstone": [false, true]
+			}
+		},
+		"components": {
+			"scpdy:activator_block": {},
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "scpdy_activator_block_top_off",
+					"render_method": "opaque"
+				},
+				"custom_sides": {
+					"texture": "scpdy_activator_block_side",
+					"render_method": "opaque"
+				},
+				"down": {
+					"texture": "scpdy_activator_block_bottom",
+					"render_method": "opaque"
+				},
+				"north": "custom_sides",
+				"south": "custom_sides",
+				"east": "custom_sides",
+				"west": "custom_sides"
+			},
+			"minecraft:map_color": "#75591c",
+			"minecraft:destruction_particles": {
+				"texture": "scpdy_activator_block_side"
+			},
+			"minecraft:light_dampening": 15,
+			"minecraft:tick": {
+				"interval_range": [2000, 3000],
+				"looping": true
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 24.0
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 15,
+				"item_specific_speeds": [
+					{
+						"item": {
+							"tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:wooden_tier')"
+						},
+						"destroy_speed": 0.9
+					},
+					{
+						"item": {
+							"tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:stone_tier')"
+						},
+						"destroy_speed": 0.8
+					},
+					{
+						"item": {
+							"tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:iron_tier')"
+						},
+						"destroy_speed": 0.7
+					},
+					{
+						"item": {
+							"tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:diamond_tier')"
+						},
+						"destroy_speed": 0.6
+					},
+					{
+						"item": {
+							"tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:netherite_tier')"
+						},
+						"destroy_speed": 0.5
+					},
+					{
+						"item": {
+							"tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:golden_tier')"
+						},
+						"destroy_speed": 0.4
+					}
+				]
+			},
+			"minecraft:redstone_conductivity": {
+				"redstone_conductor": true,
+				"allows_wire_to_step_down": false
+			},
+			"tag:metal": {},
+			"tag:lc:machinery": {},
+			"tag:lc:activator": {},
+			"tag:lc:relay_door_can_be_placed_on": {}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('lc:power_level_major') > 0 || q.block_state('lc:power_level_minor') > 0",
+				"components": {
+					"minecraft:tick": {
+						"interval_range": [1, 1],
+						"looping": true
+					},
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "scpdy_activator_block_top_on",
+							"render_method": "opaque"
+						},
+						"custom_sides": {
+							"texture": "scpdy_activator_block_side",
+							"render_method": "opaque"
+						},
+						"down": {
+							"texture": "scpdy_activator_block_bottom",
+							"render_method": "opaque"
+						},
+						"north": "custom_sides",
+						"south": "custom_sides",
+						"east": "custom_sides",
+						"west": "custom_sides"
+					},
+					"tag:lc:activator_on": {}
+				}
+			},
+			{
+				"condition": "q.block_state('lc:detect_redstone') && q.block_state('lc:power_level_major') == 0 && q.block_state('lc:power_level_minor') == 0",
+				"components": {
+					"minecraft:tick": {
+						"interval_range": [2, 4],
+						"looping": true
+					}
+				}
+			}
+		]
+	}
+}

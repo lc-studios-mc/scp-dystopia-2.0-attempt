@@ -7,6 +7,24 @@
 				"groups": [
 					{
 						"group_identifier": {
+							"icon": "lc:scpdy_relay_door_1",
+							"name": "lc:scpdy_itemGroup_relayDoors"
+						},
+						// prettier-ignore
+						"items": [
+							"lc:scpdy_relay_door_1"
+						]
+					},
+
+					{
+						// prettier-ignore
+						"items": [
+							"lc:scpdy_activator_block"
+						]
+					},
+
+					{
+						"group_identifier": {
 							"icon": "lc:scpdy_cst_floor_tiles",
 							"name": "lc:scpdy_itemGroup_constructionBlocks"
 						},

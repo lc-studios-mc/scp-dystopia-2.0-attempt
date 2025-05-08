@@ -4,6 +4,27 @@
 	"padding": 8,
 	"num_mip_levels": 4,
 	"texture_data": {
+		// #region doors
+		"scpdy_relay_door_1": {
+			"textures": "textures/scpdy/doors/relay/relay_door_1"
+		},
+		// #endregion
+
+		// #region machinery
+		"scpdy_activator_block_top_off": {
+			"textures": "textures/scpdy/machinery/activator_block/top_off"
+		},
+		"scpdy_activator_block_top_on": {
+			"textures": "textures/scpdy/machinery/activator_block/top_on"
+		},
+		"scpdy_activator_block_side": {
+			"textures": "textures/scpdy/machinery/activator_block/side"
+		},
+		"scpdy_activator_block_bottom": {
+			"textures": "textures/scpdy/machinery/activator_block/bottom"
+		},
+		// #endregion
+
 		// #region construction
 		"scpdy_cst_cushion": {
 			"textures": "textures/scpdy/blocks/construction/cushion"
