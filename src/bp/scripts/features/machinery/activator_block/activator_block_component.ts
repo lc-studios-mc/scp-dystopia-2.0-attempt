@@ -1,4 +1,4 @@
-import { flattenCoordinates, unflattenToCoordinates } from "@/utils/misc";
+import { flattenCoordinates, unflattenToCoordinates } from "@/utils/math";
 import { isHoldingWrench } from "@/utils/wrench";
 import * as mc from "@minecraft/server";
 import { ActivatorBlockEvents } from "./events";
@@ -36,10 +36,10 @@ const COMPONENT: mc.BlockCustomComponent = {
 
 		const currentPowerLevel = getPowerLevelState(block.permutation);
 
-		let newPowerLevel = 0;
+		let newPowerLevel = currentPowerLevel;
 
 		if (currentPowerLevel > 0 && mc.system.currentTick % POWER_LEVEL_DECREASE_INTERVAL === 0) {
-			newPowerLevel = currentPowerLevel - 1;
+			newPowerLevel--;
 		}
 
 		const isRedstoneDetected = detectRedstone && checkRedstonePower(block);

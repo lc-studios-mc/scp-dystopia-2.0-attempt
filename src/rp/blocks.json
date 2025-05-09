@@ -11,6 +11,12 @@
 	"lc:scpdy_activator_block": {
 		"sound": "metal"
 	},
+	"lc:scpdy_btn_1": {
+		"sound": "copper"
+	},
+	"lc:scpdy_kr_1": {
+		"sound": "copper"
+	},
 	// #endregion
 
 	// #region construction

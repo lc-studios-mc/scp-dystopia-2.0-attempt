@@ -7,16 +7,45 @@ tile.lc:scpdy_relay_door_1.name=Relay Door 1
 
 ## --- machinery ---
 
+scpdy.machinery.input.mode.text=Input Mode
+scpdy.machinery.input.mode.text.tooltip=What happens when you use this input device.
+scpdy.machinery.input.mode.text.powerActivators=Power Activator Block(s)
+scpdy.machinery.input.mode.text.ctrlBlastDoor=Control The Nearest Blast Door
+scpdy.machinery.input.mode.text.placeRbBelow=Place Redstone Block (Below)
+scpdy.machinery.input.mode.text.placeRbBehind=Place Redstone Block (Behind)
+
 ## activator block
 tile.lc:scpdy_activator_block.name=Activator Block (for Relay Doors)
 scpdy.activatorBlock.text.redstoneDetection.off=Redstone Detection: §7OFF
 scpdy.activatorBlock.text.redstoneDetection.on=Redstone Detection: §eON
 scpdy.activatorBlock.text.redstoneDetection.warn=§eRedstone detection can significantly degrade performance when placed in large numbers in a small area.
 
+## btn
+lc:scpdy_itemGroup_btns=§7SCP:DY §8- §fButtons
+tile.lc:scpdy_btn_1.name=Button 1
+scpdy.machinery.input.btn.text=Button
+
+## kr
+lc:scpdy_itemGroup_kr=§7SCP:DY §8- §fKeycard Readers
+tile.lc:scpdy_kr_1.name=Keycard Reader 1
+scpdy.machinery.input.kr.text=Keycard Reader
+
 
 ## --- misc ---
 
 scpdy.misc.text.wrenchIsRequired=§eWrench is required
+scpdy.misc.text.accessGranted=§aAccess granted!
+scpdy.misc.text.accessDenied=§aAccess denied.
+scpdy.misc.text.clearanceLevel=Clearance Level
+scpdy.misc.text.clearanceLevel.tooltip=The minimum required clearance level.
+scpdy.misc.text.clearanceLevel.level_0=Level 0
+scpdy.misc.text.clearanceLevel.level_1=Level 1
+scpdy.misc.text.clearanceLevel.level_2=Level 2
+scpdy.misc.text.clearanceLevel.level_3=Level 3
+scpdy.misc.text.clearanceLevel.level_4=Level 4
+scpdy.misc.text.clearanceLevel.level_5=Level 5
+scpdy.misc.text.clearanceLevel.o5=O5
+scpdy.misc.text.youDontHaveRequiredClearanceLevel=§7You do not have the required clearance level.
 
 
 

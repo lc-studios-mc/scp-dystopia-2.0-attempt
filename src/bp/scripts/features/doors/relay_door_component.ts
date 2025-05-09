@@ -1,5 +1,5 @@
 import { destroyBlock } from "@/utils/block";
-import { flattenCoordinates, unflattenToCoordinates } from "@/utils/misc";
+import { flattenCoordinates, unflattenToCoordinates } from "@/utils/math";
 import * as mc from "@minecraft/server";
 import { ActivatorBlockEvents } from "../machinery/activator_block/events";
 

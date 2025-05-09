@@ -25,6 +25,17 @@
 
 					{
 						"group_identifier": {
+							"icon": "lc:scpdy_btn_1",
+							"name": "lc:scpdy_itemGroup_btns"
+						},
+						// prettier-ignore
+						"items": [
+							"lc:scpdy_btn_1"
+						]
+					},
+
+					{
+						"group_identifier": {
 							"icon": "lc:scpdy_cst_floor_tiles",
 							"name": "lc:scpdy_itemGroup_constructionBlocks"
 						},
