@@ -23,6 +23,7 @@ scpdy.activatorBlock.text.redstoneDetection.warn=§eRedstone detection can signi
 ## btn
 lc:scpdy_itemGroup_btns=§7SCP:DY §8- §fButtons
 tile.lc:scpdy_btn_1.name=Button 1
+tile.lc:scpdy_btn_2.name=Button 1
 scpdy.machinery.input.btn.text=Button
 
 ## kr

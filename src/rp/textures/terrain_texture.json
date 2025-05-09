@@ -26,6 +26,9 @@
 		"scpdy_btn_1": {
 			"textures": "textures/scpdy/machinery/input/btn/btn_1"
 		},
+		"scpdy_btn_2": {
+			"textures": "textures/scpdy/machinery/input/btn/btn_2"
+		},
 		"scpdy_kr_1": {
 			"textures": "textures/scpdy/machinery/input/kr/kr_1"
 		},
