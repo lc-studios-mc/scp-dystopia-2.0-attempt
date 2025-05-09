@@ -30,7 +30,8 @@
 						},
 						// prettier-ignore
 						"items": [
-							"lc:scpdy_btn_1"
+							"lc:scpdy_btn_1",
+							"lc:scpdy_btn_2"
 						]
 					},
 
