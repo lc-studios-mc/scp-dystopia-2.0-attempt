@@ -4,8 +4,8 @@ import { showConfigEditorForm } from "./config";
 mc.system.beforeEvents.startup.subscribe((event) => {
 	event.customCommandRegistry.registerCommand(
 		{
-			name: "scpdy:show_config_editor",
-			description: "Shows the SCP: Dystopia addon config editor form to a player",
+			name: "scpdy:configeditor",
+			description: "Shows the SCP: Dystopia addon config editor form",
 			permissionLevel: mc.CommandPermissionLevel.Host,
 			optionalParameters: [
 				{
@@ -14,23 +14,30 @@ mc.system.beforeEvents.startup.subscribe((event) => {
 				},
 			],
 		},
-		(origin, args) => {
-			const target = args?.[0] ?? origin.sourceEntity;
+		(origin, players) => {
+			const targets = Array.isArray(players) ? players : [origin.sourceEntity];
+			let showCount = 0;
 
-			if (!(target instanceof mc.Player)) {
+			for (const target of targets) {
+				if (!(target instanceof mc.Player)) continue;
+
+				mc.system.run(() => {
+					showConfigEditorForm(target);
+				});
+
+				showCount++;
+			}
+
+			if (showCount > 0) {
 				return {
-					status: mc.CustomCommandStatus.Failure,
-					message: "Target player must be specified",
+					status: mc.CustomCommandStatus.Success,
+					message: `Successfully showed the config editor form to ${showCount} players.`,
 				};
 			}
 
-			mc.system.run(() => {
-				showConfigEditorForm(target);
-			});
-
 			return {
-				status: mc.CustomCommandStatus.Success,
-				message: `Successfully sent a request to show the config editor form to ${target.name}`,
+				status: mc.CustomCommandStatus.Failure,
+				message: "Target player must be specified.",
 			};
 		},
 	);
