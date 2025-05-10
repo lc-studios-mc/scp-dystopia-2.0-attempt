@@ -32,8 +32,18 @@ tile.lc:scpdy_kr_1.name=Keycard Reader 1
 scpdy.machinery.input.kr.text=Keycard Reader
 
 
+## --- config ---
+
+scpdy.config.text.editorFormTitle=Config Editor
+scpdy.config.text.editorFormExplanation=You can edit the options below to change various aspects of SCP: Dystopia addon in this world.
+scpdy.config.text.editorFormResetToggle.label=§eReset
+scpdy.config.text.editorFormResetToggle.tooltip=Enabling this option will cause all options to be reset after pressing Save & Exit.
+scpdy.config.text.messageOnReset=§6Successfully reset all options!
+scpdy.config.text.messageOnSaveAndExit=§aSaved changes!
+
 ## --- misc ---
 
+scpdy.misc.text.saveAndExit=Save & Exit
 scpdy.misc.text.wrenchIsRequired=§eWrench is required
 scpdy.misc.text.accessGranted=§aAccess granted!
 scpdy.misc.text.accessDenied=§aAccess denied.
