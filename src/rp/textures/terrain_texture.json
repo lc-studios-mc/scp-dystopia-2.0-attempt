@@ -5,8 +5,8 @@
 	"num_mip_levels": 4,
 	"texture_data": {
 		// #region doors
-		"scpdy_relay_door_1": {
-			"textures": "textures/scpdy/doors/relay/relay_door_1"
+		"scpdy_sliding_door_1": {
+			"textures": "textures/scpdy/doors/sliding/sliding_door_1"
 		},
 		// #endregion
 

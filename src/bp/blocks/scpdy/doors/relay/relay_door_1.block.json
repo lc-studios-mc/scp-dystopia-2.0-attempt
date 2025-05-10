@@ -69,7 +69,7 @@
 			},
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "scpdy_relay_door_1",
+					"texture": "scpdy_sliding_door_1",
 					"render_method": "opaque"
 				}
 			},
@@ -77,7 +77,7 @@
 				"geometry": "geometry.scpdy_sliding_door_item_visual",
 				"material_instances": {
 					"*": {
-						"texture": "scpdy_relay_door_1"
+						"texture": "scpdy_sliding_door_1"
 					}
 				}
 			},
