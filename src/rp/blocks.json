@@ -20,6 +20,9 @@
 	"lc:scpdy_kr_1": {
 		"sound": "copper"
 	},
+	"lc:scpdy_kr_2": {
+		"sound": "copper"
+	},
 	// #endregion
 
 	// #region construction

@@ -32,6 +32,9 @@
 		"scpdy_kr_1": {
 			"textures": "textures/scpdy/machinery/input/kr/kr_1"
 		},
+		"scpdy_kr_2": {
+			"textures": "textures/scpdy/machinery/input/kr/kr_2"
+		},
 		// #endregion
 
 		// #region construction

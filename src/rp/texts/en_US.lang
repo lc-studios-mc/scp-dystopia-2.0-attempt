@@ -29,6 +29,7 @@ scpdy.machinery.input.btn.text=Button
 ## kr
 lc:scpdy_itemGroup_kr=§7SCP:DY §8- §fKeycard Readers
 tile.lc:scpdy_kr_1.name=Keycard Reader 1
+tile.lc:scpdy_kr_2.name=Keycard Reader 2
 scpdy.machinery.input.kr.text=Keycard Reader
 
 
