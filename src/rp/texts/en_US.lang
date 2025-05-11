@@ -1,8 +1,9 @@
 ## --- doors ---
 
 ## relay doors
-lc:scpdy_itemGroup_relayDoors=§7SCP:DY §8- §fRelay Doors (require Activator Block)
+lc:scpdy_itemGroup_relayDoors=§7SCP:DY §8- §fRelay Doors
 tile.lc:scpdy_relay_door_1.name=Relay Door 1
+tile.lc:scpdy_relay_door_2.name=Relay Door 2
 
 
 ## --- machinery ---
@@ -41,6 +42,7 @@ scpdy.config.text.editorFormResetToggle.label=§eReset
 scpdy.config.text.editorFormResetToggle.tooltip=Enabling this option will cause all options to be reset after pressing Save & Exit.
 scpdy.config.text.messageOnReset=§6Successfully reset all options!
 scpdy.config.text.messageOnSaveAndExit=§aSaved changes!
+
 
 ## --- misc ---
 

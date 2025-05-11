@@ -1,0 +1,425 @@
+{
+	"format_version": "1.21.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "lc:scpdy_relay_door_2",
+			"menu_category": {
+				"category": "construction"
+			},
+			"states": {
+				"lc:is_bottom_part": [true, false],
+				"lc:power_level": [0, 1, 2],
+				"lc:step_major": [0, 1, 2, 3],
+				"lc:step_minor": [0, 1, 2, 3]
+			},
+			"traits": {
+				"minecraft:placement_direction": {
+					"enabled_states": ["minecraft:cardinal_direction"],
+					"y_rotation_offset": 180
+				}
+			}
+		},
+		"components": {
+			"scpdy:relay_door": {
+				"openSound": {
+					"id": "scpdy.door.futuristic_door.open",
+					"volume": 1.1
+				},
+				"closeSound": {
+					"id": "scpdy.door.futuristic_door.close",
+					"volume": 1.1
+				}
+			},
+			"minecraft:geometry": {
+				"identifier": "geometry.scpdy_framed_door",
+				"bone_visibility": {
+					"bottom_static": "q.block_state('lc:is_bottom_part')",
+					"bottom_step_0": "q.block_state('lc:is_bottom_part') && q.block_state('lc:step_major') == 0 && q.block_state('lc:step_minor') == 0",
+					"bottom_step_1": "q.block_state('lc:is_bottom_part') && q.block_state('lc:step_major') == 0 && q.block_state('lc:step_minor') == 1",
+					"bottom_step_2": "q.block_state('lc:is_bottom_part') && q.block_state('lc:step_major') == 0 && q.block_state('lc:step_minor') == 2",
+					"bottom_step_3": "q.block_state('lc:is_bottom_part') && q.block_state('lc:step_major') == 0 && q.block_state('lc:step_minor') == 3",
+					"bottom_step_4": "q.block_state('lc:is_bottom_part') && q.block_state('lc:step_major') == 1 && q.block_state('lc:step_minor') == 0",
+					"bottom_step_5": "q.block_state('lc:is_bottom_part') && q.block_state('lc:step_major') == 1 && q.block_state('lc:step_minor') == 1",
+					"bottom_step_6": "q.block_state('lc:is_bottom_part') && q.block_state('lc:step_major') == 1 && q.block_state('lc:step_minor') == 2",
+					"bottom_step_7": "q.block_state('lc:is_bottom_part') && q.block_state('lc:step_major') == 1 && q.block_state('lc:step_minor') == 3",
+					"bottom_step_8": "q.block_state('lc:is_bottom_part') && q.block_state('lc:step_major') == 2 && q.block_state('lc:step_minor') == 0",
+					"bottom_step_9": "q.block_state('lc:is_bottom_part') && q.block_state('lc:step_major') == 2 && q.block_state('lc:step_minor') == 1",
+					"bottom_step_10": "q.block_state('lc:is_bottom_part') && q.block_state('lc:step_major') == 2 && q.block_state('lc:step_minor') == 2",
+					"bottom_step_11": "q.block_state('lc:is_bottom_part') && q.block_state('lc:step_major') == 2 && q.block_state('lc:step_minor') == 3",
+					"bottom_step_12": "q.block_state('lc:is_bottom_part') && q.block_state('lc:step_major') == 3 && q.block_state('lc:step_minor') == 0",
+					"bottom_step_13": "q.block_state('lc:is_bottom_part') && q.block_state('lc:step_major') == 3 && q.block_state('lc:step_minor') == 1",
+					"bottom_step_14": "q.block_state('lc:is_bottom_part') && q.block_state('lc:step_major') == 3 && q.block_state('lc:step_minor') == 2",
+					"bottom_step_15": "q.block_state('lc:is_bottom_part') && q.block_state('lc:step_major') == 3 && q.block_state('lc:step_minor') == 3",
+					"top_static": "!q.block_state('lc:is_bottom_part')",
+					"top_step_0": "!q.block_state('lc:is_bottom_part') && q.block_state('lc:step_major') == 0 && q.block_state('lc:step_minor') == 0",
+					"top_step_1": "!q.block_state('lc:is_bottom_part') && q.block_state('lc:step_major') == 0 && q.block_state('lc:step_minor') == 1",
+					"top_step_2": "!q.block_state('lc:is_bottom_part') && q.block_state('lc:step_major') == 0 && q.block_state('lc:step_minor') == 2",
+					"top_step_3": "!q.block_state('lc:is_bottom_part') && q.block_state('lc:step_major') == 0 && q.block_state('lc:step_minor') == 3",
+					"top_step_4": "!q.block_state('lc:is_bottom_part') && q.block_state('lc:step_major') == 1 && q.block_state('lc:step_minor') == 0",
+					"top_step_5": "!q.block_state('lc:is_bottom_part') && q.block_state('lc:step_major') == 1 && q.block_state('lc:step_minor') == 1",
+					"top_step_6": "!q.block_state('lc:is_bottom_part') && q.block_state('lc:step_major') == 1 && q.block_state('lc:step_minor') == 2",
+					"top_step_7": "!q.block_state('lc:is_bottom_part') && q.block_state('lc:step_major') == 1 && q.block_state('lc:step_minor') == 3",
+					"top_step_8": "!q.block_state('lc:is_bottom_part') && q.block_state('lc:step_major') == 2 && q.block_state('lc:step_minor') == 0",
+					"top_step_9": "!q.block_state('lc:is_bottom_part') && q.block_state('lc:step_major') == 2 && q.block_state('lc:step_minor') == 1",
+					"top_step_10": "!q.block_state('lc:is_bottom_part') && q.block_state('lc:step_major') == 2 && q.block_state('lc:step_minor') == 2",
+					"top_step_11": "!q.block_state('lc:is_bottom_part') && q.block_state('lc:step_major') == 2 && q.block_state('lc:step_minor') == 3",
+					"top_step_12": "!q.block_state('lc:is_bottom_part') && q.block_state('lc:step_major') == 3 && q.block_state('lc:step_minor') == 0",
+					"top_step_13": "!q.block_state('lc:is_bottom_part') && q.block_state('lc:step_major') == 3 && q.block_state('lc:step_minor') == 1",
+					"top_step_14": "!q.block_state('lc:is_bottom_part') && q.block_state('lc:step_major') == 3 && q.block_state('lc:step_minor') == 2",
+					"top_step_15": "!q.block_state('lc:is_bottom_part') && q.block_state('lc:step_major') == 3 && q.block_state('lc:step_minor') == 3"
+				}
+			},
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "scpdy_framed_door_1",
+					"render_method": "alpha_test",
+					"face_dimming": false
+				}
+			},
+			"minecraft:item_visual": {
+				"geometry": "geometry.scpdy_framed_door_item_visual",
+				"material_instances": {
+					"*": {
+						"texture": "scpdy_framed_door_1",
+						"render_method": "alpha_test",
+						"face_dimming": false
+					}
+				}
+			},
+			"minecraft:map_color": "#404040",
+			"minecraft:destruction_particles": {
+				"texture": "scpdy_cst_reinforced_panel_1"
+			},
+			"minecraft:tick": {
+				"interval_range": [2000, 3000],
+				"looping": true
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 24.0
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 15,
+				"item_specific_speeds": [
+					{
+						"item": {
+							"tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:wooden_tier')"
+						},
+						"destroy_speed": 0.9
+					},
+					{
+						"item": {
+							"tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:stone_tier')"
+						},
+						"destroy_speed": 0.8
+					},
+					{
+						"item": {
+							"tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:iron_tier')"
+						},
+						"destroy_speed": 0.7
+					},
+					{
+						"item": {
+							"tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:diamond_tier')"
+						},
+						"destroy_speed": 0.6
+					},
+					{
+						"item": {
+							"tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:netherite_tier')"
+						},
+						"destroy_speed": 0.5
+					},
+					{
+						"item": {
+							"tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:golden_tier')"
+						},
+						"destroy_speed": 0.4
+					}
+				]
+			},
+			"tag:metal": {},
+			"tag:door": {},
+			"tag:lc:relay_door": {},
+			"tag:lc:relay_door_can_be_placed_on": {}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('lc:is_bottom_part') && (q.block_state('lc:power_level') > 0 || q.block_state('lc:step_major') > 0 || q.block_state('lc:step_minor') > 0)",
+				"components": {
+					"minecraft:tick": {
+						"interval_range": [1, 1],
+						"looping": true
+					}
+				}
+			},
+			{
+				"condition": "!q.block_state('lc:is_bottom_part')",
+				"components": {
+					"minecraft:loot": "loot_tables/empty.json"
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'north'",
+				"components": {
+					"minecraft:transformation": { "rotation": [0, 0, 0] }
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'south'",
+				"components": {
+					"minecraft:transformation": { "rotation": [0, 180, 0] }
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'west'",
+				"components": {
+					"minecraft:transformation": { "rotation": [0, 90, 0] }
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'east'",
+				"components": {
+					"minecraft:transformation": { "rotation": [0, 270, 0] }
+				}
+			},
+			{
+				// Step 0
+				"condition": "q.block_state('lc:step_major') == 0 && q.block_state('lc:step_minor') == 0",
+				"components": {
+					"minecraft:light_dampening": 11,
+					"minecraft:collision_box": {
+						"origin": [-8, 0, -2],
+						"size": [16, 16, 4]
+					},
+					"minecraft:selection_box": {
+						"origin": [-8, 0, -2],
+						"size": [16, 16, 4]
+					}
+				}
+			},
+			{
+				// Step 1
+				"condition": "q.block_state('lc:step_major') == 0 && q.block_state('lc:step_minor') == 1",
+				"components": {
+					"minecraft:light_dampening": 10,
+					"minecraft:collision_box": {
+						"origin": [-8, 0, -2],
+						"size": [15, 16, 4]
+					},
+					"minecraft:selection_box": {
+						"origin": [-8, 0, -2],
+						"size": [15, 16, 4]
+					}
+				}
+			},
+			{
+				// Step 2
+				"condition": "q.block_state('lc:step_major') == 0 && q.block_state('lc:step_minor') == 2",
+				"components": {
+					"minecraft:light_dampening": 6,
+					"minecraft:collision_box": {
+						"origin": [-8, 0, -2],
+						"size": [14, 16, 4]
+					},
+					"minecraft:selection_box": {
+						"origin": [-8, 0, -2],
+						"size": [14, 16, 4]
+					}
+				}
+			},
+			{
+				// Step 3
+				"condition": "q.block_state('lc:step_major') == 0 && q.block_state('lc:step_minor') == 3",
+				"components": {
+					"minecraft:light_dampening": 3,
+					"minecraft:collision_box": {
+						"origin": [-8, 0, -2],
+						"size": [13, 16, 4]
+					},
+					"minecraft:selection_box": {
+						"origin": [-8, 0, -2],
+						"size": [13, 16, 4]
+					}
+				}
+			},
+			{
+				// Step 4
+				"condition": "q.block_state('lc:step_major') == 1 && q.block_state('lc:step_minor') == 0",
+				"components": {
+					"minecraft:light_dampening": 0,
+					"minecraft:collision_box": {
+						"origin": [-8, 0, -2],
+						"size": [12, 16, 4]
+					},
+					"minecraft:selection_box": {
+						"origin": [-8, 0, -2],
+						"size": [12, 16, 4]
+					}
+				}
+			},
+			{
+				// Step 5
+				"condition": "q.block_state('lc:step_major') == 1 && q.block_state('lc:step_minor') == 1",
+				"components": {
+					"minecraft:light_dampening": 0,
+					"minecraft:collision_box": {
+						"origin": [-8, 0, -2],
+						"size": [11, 16, 4]
+					},
+					"minecraft:selection_box": {
+						"origin": [-8, 0, -2],
+						"size": [11, 16, 4]
+					}
+				}
+			},
+			{
+				// Step 6
+				"condition": "q.block_state('lc:step_major') == 1 && q.block_state('lc:step_minor') == 2",
+				"components": {
+					"minecraft:light_dampening": 0,
+					"minecraft:collision_box": {
+						"origin": [-8, 0, -2],
+						"size": [10, 16, 4]
+					},
+					"minecraft:selection_box": {
+						"origin": [-8, 0, -2],
+						"size": [10, 16, 4]
+					}
+				}
+			},
+			{
+				// Step 7
+				"condition": "q.block_state('lc:step_major') == 1 && q.block_state('lc:step_minor') == 3",
+				"components": {
+					"minecraft:light_dampening": 0,
+					"minecraft:collision_box": {
+						"origin": [-8, 0, -2],
+						"size": [9, 16, 4]
+					},
+					"minecraft:selection_box": {
+						"origin": [-8, 0, -2],
+						"size": [9, 16, 4]
+					}
+				}
+			},
+			{
+				// Step 8
+				"condition": "q.block_state('lc:step_major') == 2 && q.block_state('lc:step_minor') == 0",
+				"components": {
+					"minecraft:light_dampening": 0,
+					"minecraft:collision_box": {
+						"origin": [-8, 0, -2],
+						"size": [8, 16, 4]
+					},
+					"minecraft:selection_box": {
+						"origin": [-8, 0, -2],
+						"size": [8, 16, 4]
+					}
+				}
+			},
+			{
+				// Step 9
+				"condition": "q.block_state('lc:step_major') == 2 && q.block_state('lc:step_minor') == 1",
+				"components": {
+					"minecraft:light_dampening": 0,
+					"minecraft:collision_box": {
+						"origin": [-8, 0, -2],
+						"size": [7, 16, 4]
+					},
+					"minecraft:selection_box": {
+						"origin": [-8, 0, -2],
+						"size": [7, 16, 4]
+					}
+				}
+			},
+			{
+				// Step 10
+				"condition": "q.block_state('lc:step_major') == 2 && q.block_state('lc:step_minor') == 2",
+				"components": {
+					"minecraft:light_dampening": 0,
+					"minecraft:collision_box": {
+						"origin": [-8, 0, -2],
+						"size": [6, 16, 4]
+					},
+					"minecraft:selection_box": {
+						"origin": [-8, 0, -2],
+						"size": [6, 16, 4]
+					}
+				}
+			},
+			{
+				// Step 11
+				"condition": "q.block_state('lc:step_major') == 2 && q.block_state('lc:step_minor') == 3",
+				"components": {
+					"minecraft:light_dampening": 0,
+					"minecraft:collision_box": {
+						"origin": [-8, 0, -2],
+						"size": [5, 16, 4]
+					},
+					"minecraft:selection_box": {
+						"origin": [-8, 0, -2],
+						"size": [5, 16, 4]
+					}
+				}
+			},
+			{
+				// Step 12
+				"condition": "q.block_state('lc:step_major') == 3 && q.block_state('lc:step_minor') == 0",
+				"components": {
+					"minecraft:light_dampening": 0,
+					"minecraft:collision_box": {
+						"origin": [-8, 0, -2],
+						"size": [4, 16, 4]
+					},
+					"minecraft:selection_box": {
+						"origin": [-8, 0, -2],
+						"size": [4, 16, 4]
+					}
+				}
+			},
+			{
+				// Step 13
+				"condition": "q.block_state('lc:step_major') == 3 && q.block_state('lc:step_minor') == 1",
+				"components": {
+					"minecraft:light_dampening": 0,
+					"minecraft:collision_box": {
+						"origin": [-8, 0, -2],
+						"size": [3, 16, 4]
+					},
+					"minecraft:selection_box": {
+						"origin": [-8, 0, -2],
+						"size": [3, 16, 4]
+					}
+				}
+			},
+			{
+				// Step 14
+				"condition": "q.block_state('lc:step_major') == 3 && q.block_state('lc:step_minor') == 2",
+				"components": {
+					"minecraft:light_dampening": 0,
+					"minecraft:collision_box": {
+						"origin": [-8, 0, -2],
+						"size": [2, 16, 4]
+					},
+					"minecraft:selection_box": {
+						"origin": [-8, 0, -2],
+						"size": [2, 16, 4]
+					}
+				}
+			},
+			{
+				// Step 15
+				"condition": "q.block_state('lc:step_major') == 3 && q.block_state('lc:step_minor') == 3",
+				"components": {
+					"minecraft:light_dampening": 0,
+					"minecraft:collision_box": false,
+					"minecraft:selection_box": {
+						"origin": [-8, 0, -2],
+						"size": [1, 16, 4]
+					}
+				}
+			}
+		]
+	}
+}

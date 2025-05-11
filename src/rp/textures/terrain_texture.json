@@ -5,6 +5,9 @@
 	"num_mip_levels": 4,
 	"texture_data": {
 		// #region doors
+		"scpdy_framed_door_1": {
+			"textures": "textures/scpdy/doors/framed/framed_door_1"
+		},
 		"scpdy_sliding_door_1": {
 			"textures": "textures/scpdy/doors/sliding/sliding_door_1"
 		},
