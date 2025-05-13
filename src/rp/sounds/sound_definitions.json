@@ -647,6 +647,65 @@
 				}
 			]
 		},
+		// #region SCP-106
+		"scpdy.scp106.ambient": {
+			"category": "hostile",
+			"max_distance": 12.0,
+			"min_distance": null,
+			"sounds": [
+				"sounds/scpdy/scp/scp106/ambient_1",
+				"sounds/scpdy/scp/scp106/ambient_2",
+				"sounds/scpdy/scp/scp106/ambient_3",
+				"sounds/scpdy/scp/scp106/ambient_4"
+			]
+		},
+		"scpdy.scp106.step": {
+			"category": "hostile",
+			"max_distance": 8.0,
+			"min_distance": null,
+			"sounds": [
+				{ "name": "sounds/scpdy/scp/scp106/step_1", "volume": 1.5 },
+				{ "name": "sounds/scpdy/scp/scp106/step_2", "volume": 1.5 },
+				{ "name": "sounds/scpdy/scp/scp106/step_3", "volume": 1.5 }
+			]
+		},
+		"scpdy.scp106.attack": {
+			"category": "hostile",
+			"max_distance": 12.0,
+			"min_distance": null,
+			"sounds": ["sounds/scpdy/scp/scp106/attack"]
+		},
+		"scpdy.scp106.dive": {
+			"category": "hostile",
+			"max_distance": 10.0,
+			"min_distance": null,
+			"sounds": ["sounds/scpdy/scp/scp106/dive"]
+		},
+		"scpdy.scp106.abduction": {
+			"category": "hostile",
+			"max_distance": 12.0,
+			"min_distance": null,
+			"sounds": ["sounds/scpdy/scp/scp106/abduction"]
+		},
+		"scpdy.scp106.retreat": {
+			"category": "hostile",
+			"max_distance": 20.0,
+			"min_distance": null,
+			"sounds": ["sounds/scpdy/scp/scp106/retreat"]
+		},
+		"scpdy.scp106.emerge_slow": {
+			"category": "hostile",
+			"max_distance": 10.0,
+			"min_distance": null,
+			"sounds": [{ "name": "sounds/scpdy/scp/scp106/emerge_slow", "volume": 1.1 }]
+		},
+		"scpdy.scp106.emerge_fast": {
+			"category": "hostile",
+			"max_distance": 10.0,
+			"min_distance": null,
+			"sounds": [{ "name": "sounds/scpdy/scp/scp106/emerge_fast", "volume": 1.1 }]
+		},
+		// #endregion
 		// #endregion
 		// #region SCP-173
 		"scpdy.scp173.spawn": {

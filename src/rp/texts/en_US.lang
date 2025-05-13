@@ -724,6 +724,7 @@ entity.lc:scpdy_toilet_rideable.name=Sittable
 ## entities -> projectiles -> ...
 entity.lc:scpdy_bullet_m4a1.name=Bullet
 entity.lc:scpdy_bullet_mp5.name=Bullet
+entity.lc:scpdy_corrosion_projectile.name=Corrosion
 entity.lc:scpdy_scriptable_bullet_large.name=Bullet
 entity.lc:scpdy_scriptable_bullet.name=Bullet
 
@@ -734,6 +735,8 @@ entity.lc:scpdy_scp001_proto_weakened.name=SCP-001 Prototype
 entity.lc:scpdy_scp001_proto_singularity.name=Microsingularity
 entity.lc:scpdy_scp096.name=SCP-096
 item.spawn_egg.entity.lc:scpdy_scp096.name=§7SCP:DY §8| §fSCP-096
+entity.lc:scpdy_scp106.name=SCP-106
+item.spawn_egg.entity.lc:scpdy_scp106.name=§7SCP:DY §8| §fSCP-106
 entity.lc:scpdy_scp173.name=SCP-173
 item.spawn_egg.entity.lc:scpdy_scp173.name=§7SCP:DY §8| §fSCP-173
 entity.lc:scpdy_scp427_1.name=SCP-427-1

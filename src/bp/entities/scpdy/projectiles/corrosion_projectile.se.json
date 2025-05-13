@@ -1,0 +1,58 @@
+{
+	"format_version": "1.21.70",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "lc:scpdy_corrosion_projectile",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false,
+			"runtime_identifier": "minecraft:snowball"
+		},
+		"components": {
+			"minecraft:type_family": {
+				"family": ["projectile", "corrosion"]
+			},
+			"minecraft:collision_box": {
+				"width": 0.2,
+				"height": 0.2
+			},
+			"minecraft:projectile": {
+				"on_hit": {
+					"stick_in_ground": {
+						"shake_time": 0.1
+					}
+				},
+				"ignored_entities": ["lc:scpdy_scp106"],
+				"power": 2.0,
+				"gravity": 0.012,
+				"inertia": 1.06,
+				"liquid_inertia": 1.0,
+				"uncertainty_base": 0.0,
+				"uncertainty_multiplier": 0.0,
+				"anchor": 1,
+				"offset": [0, 0.1, 0],
+				"reflect_on_hurt": true,
+				"catch_fire": false
+			},
+			"minecraft:timer": {
+				"looping": false,
+				"randomInterval": false,
+				"time": 2.5,
+				"time_down_event": {
+					"event": "bom",
+					"target": "self"
+				}
+			},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": false
+			},
+			"minecraft:dimension_bound": {},
+			"minecraft:transient": {}
+		},
+		"events": {
+			"bom": {}
+		}
+	}
+}
