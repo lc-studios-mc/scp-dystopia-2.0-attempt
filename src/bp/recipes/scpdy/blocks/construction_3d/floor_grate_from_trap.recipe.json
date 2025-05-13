@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "lc:scpdy_recipe_floor_grate_from_trap"
 		},
-		"tags": ["crafting_table", "dystopia_craftbench", "scpdy_workbench"],
+		"tags": ["crafting_table"],
 		"ingredients": [
 			{
 				"item": "lc:scpdy_floor_grate_trap"

@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "lc:scpdy_recipe_keycard_o5_duplication"
 		},
-		"tags": ["crafting_table", "dystopia_craftbench", "scpdy_workbench"],
+		"tags": ["crafting_table"],
 		"pattern": ["KP", "M "],
 		"key": {
 			"P": {

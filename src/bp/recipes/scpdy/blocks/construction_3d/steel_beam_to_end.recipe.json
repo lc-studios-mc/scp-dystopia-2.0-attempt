@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "lc:scpdy_recipe_steel_beam_to_end"
 		},
-		"tags": ["crafting_table", "dystopia_craftbench", "scpdy_workbench"],
+		"tags": ["crafting_table"],
 		"ingredients": [
 			{
 				"item": "lc:scpdy_steel_beam"

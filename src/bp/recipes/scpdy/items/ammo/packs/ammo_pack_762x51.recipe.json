@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "lc:scpdy_recipe_ammo_pack_762x51"
 		},
-		"tags": ["crafting_table", "dystopia_craftbench", "scpdy_workbench"],
+		"tags": ["crafting_table"],
 		"ingredients": [
 			{
 				"item": "lc:scpdy_ammo_762x51"
