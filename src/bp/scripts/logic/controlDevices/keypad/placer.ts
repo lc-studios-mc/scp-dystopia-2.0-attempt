@@ -27,10 +27,7 @@ function onUseOn(arg: mc.ItemComponentUseOnEvent): void {
 	});
 }
 
-async function processPlacementAsync(
-	player: mc.Player,
-	event: mc.ItemComponentUseOnEvent,
-): Promise<void> {
+async function processPlacementAsync(player: mc.Player, event: mc.ItemComponentUseOnEvent): Promise<void> {
 	const formData = new ModalFormData()
 		.title({ translate: "scpdy.form.keypad.placementOpts.title" })
 		.label({ translate: "scpdy.form.keypad.placementOpts.warning" })
@@ -42,10 +39,7 @@ async function processPlacementAsync(
 			{ translate: "scpdy.form.keypad.placementOpts.hintField.label" },
 			{ translate: "scpdy.form.keypad.placementOpts.hintField.placeholder" },
 		)
-		.toggle(
-			{ translate: "scpdy.form.keypad.placementOpts.loudIncorrectBuzzerToggle.label" },
-			{ defaultValue: false },
-		)
+		.toggle({ translate: "scpdy.form.keypad.placementOpts.loudIncorrectBuzzerToggle.label" }, { defaultValue: false })
 		.divider();
 
 	addControlDeviceModeDropdownToForm(formData);

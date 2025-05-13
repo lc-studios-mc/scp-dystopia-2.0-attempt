@@ -20,10 +20,7 @@ world.afterEvents.entitySpawn.subscribe((event) => {
 world.afterEvents.projectileHitBlock.subscribe((event) => {
 	if (!event.projectile.typeId.startsWith("lc:scpdy_bullet")) return;
 
-	if (
-		event.dimension.getPlayers({ location: event.location, closest: 1, maxDistance: 40 })[0] !==
-		undefined
-	) {
+	if (event.dimension.getPlayers({ location: event.location, closest: 1, maxDistance: 40 })[0] !== undefined) {
 		spawnBulletRicochetParticle(event.dimension, event.location, event.hitVector);
 	}
 

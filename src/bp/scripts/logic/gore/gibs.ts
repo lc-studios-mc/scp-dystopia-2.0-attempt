@@ -94,12 +94,7 @@ export function spawnGoreExplosion(dimension: mc.Dimension, location: mc.Vector3
 	}
 }
 
-function spawnGib(
-	type: GibType,
-	dimension: mc.Dimension,
-	location: mc.Vector3,
-	impulse?: mc.Vector3,
-): void {
+function spawnGib(type: GibType, dimension: mc.Dimension, location: mc.Vector3, impulse?: mc.Vector3): void {
 	const entityType = type === "medium" ? "lc:scpdy_gib_medium" : "lc:scpdy_gib_small";
 	const gibEntity = dimension.spawnEntity(entityType, location);
 

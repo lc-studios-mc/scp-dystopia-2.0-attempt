@@ -105,13 +105,8 @@ function getPowerLevelState(permutation: mc.BlockPermutation): number {
 	return flattenCoordinates(major, minor);
 }
 
-export function _setPowerLevelState(
-	permutation: mc.BlockPermutation,
-	powerLevel: number,
-): mc.BlockPermutation {
+export function _setPowerLevelState(permutation: mc.BlockPermutation, powerLevel: number): mc.BlockPermutation {
 	const { major, minor } = unflattenToCoordinates(powerLevel);
 
-	return permutation
-		.withState(STATE.powerLevelMajor, major)
-		.withState(STATE.powerLevelMinor, minor);
+	return permutation.withState(STATE.powerLevelMajor, major).withState(STATE.powerLevelMinor, minor);
 }

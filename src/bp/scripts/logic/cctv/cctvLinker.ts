@@ -117,14 +117,8 @@ function onUseCctvLinker(player: mc.Player, itemStack: mc.ItemStack): void {
 	});
 }
 
-function onInteractCctvCamera(
-	player: mc.Player,
-	cctvCamera: mc.Entity,
-	itemStack: mc.ItemStack,
-): void {
-	const mainhandSlot = player
-		.getComponent("equippable")!
-		.getEquipmentSlot(mc.EquipmentSlot.Mainhand);
+function onInteractCctvCamera(player: mc.Player, cctvCamera: mc.Entity, itemStack: mc.ItemStack): void {
+	const mainhandSlot = player.getComponent("equippable")!.getEquipmentSlot(mc.EquipmentSlot.Mainhand);
 
 	if (mainhandSlot.typeId !== LINKER_ITEM_TYPE) return;
 
@@ -154,14 +148,8 @@ function onInteractCctvCamera(
 	});
 }
 
-function onInteractCctvMonitor(
-	player: mc.Player,
-	cctvMonitor: mc.Entity,
-	itemStack: mc.ItemStack,
-): void {
-	const mainhandSlot = player
-		.getComponent("equippable")!
-		.getEquipmentSlot(mc.EquipmentSlot.Mainhand);
+function onInteractCctvMonitor(player: mc.Player, cctvMonitor: mc.Entity, itemStack: mc.ItemStack): void {
+	const mainhandSlot = player.getComponent("equippable")!.getEquipmentSlot(mc.EquipmentSlot.Mainhand);
 
 	if (mainhandSlot.typeId !== LINKER_ITEM_TYPE) return;
 
@@ -191,14 +179,8 @@ function onInteractCctvMonitor(
 	});
 }
 
-function onInteractCctvServerAuthorized(
-	player: mc.Player,
-	cctvServer: mc.Entity,
-	itemStack: mc.ItemStack,
-): void {
-	const mainhandSlot = player
-		.getComponent("equippable")!
-		.getEquipmentSlot(mc.EquipmentSlot.Mainhand);
+function onInteractCctvServerAuthorized(player: mc.Player, cctvServer: mc.Entity, itemStack: mc.ItemStack): void {
+	const mainhandSlot = player.getComponent("equippable")!.getEquipmentSlot(mc.EquipmentSlot.Mainhand);
 
 	if (mainhandSlot.typeId !== LINKER_ITEM_TYPE) return;
 
@@ -222,8 +204,7 @@ function onInteractCctvServerAuthorized(
 	// Link cameras
 
 	for (const cameraRefToLink of linkerCameraRefs) {
-		const isAlreadyAdded =
-			serverCameraRefs.findIndex((ref) => ref.entityId === cameraRefToLink.entityId) !== -1;
+		const isAlreadyAdded = serverCameraRefs.findIndex((ref) => ref.entityId === cameraRefToLink.entityId) !== -1;
 
 		if (isAlreadyAdded) {
 			skippedCameraCount++;
@@ -291,11 +272,7 @@ function onInteractCctvServerAuthorized(
 	}
 }
 
-function onInteractCctvServer(
-	player: mc.Player,
-	cctvServer: mc.Entity,
-	itemStack: mc.ItemStack,
-): void {
+function onInteractCctvServer(player: mc.Player, cctvServer: mc.Entity, itemStack: mc.ItemStack): void {
 	const password = cctvServerMod.getPassword(cctvServer);
 
 	if (password === undefined || password.trim() === "") {

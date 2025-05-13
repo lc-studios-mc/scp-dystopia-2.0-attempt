@@ -58,10 +58,7 @@ function onUpdateScp096(scp096Entity: mc.Entity): void {
 
 	// Stuck checker below
 
-	let ticksUntilNextLocCheck = ensureType(
-		scp096Entity.getDynamicProperty("ticksUntilNextLocCheck"),
-		"number",
-	);
+	let ticksUntilNextLocCheck = ensureType(scp096Entity.getDynamicProperty("ticksUntilNextLocCheck"), "number");
 
 	if (ticksUntilNextLocCheck === undefined) {
 		ticksUntilNextLocCheck = 2;
@@ -100,9 +97,7 @@ function onUpdateScp096(scp096Entity: mc.Entity): void {
 }
 
 function onDetectedScp096Stuck(scp096Entity: mc.Entity): void {
-	const dirToTarget = vec3.normalize(
-		vec3.sub(scp096Entity.target!.location, vec3.add(scp096Entity.location, vec3.UP)),
-	);
+	const dirToTarget = vec3.normalize(vec3.sub(scp096Entity.target!.location, vec3.add(scp096Entity.location, vec3.UP)));
 
 	const isNearInXZ =
 		vec3.distance(
@@ -147,13 +142,9 @@ function onDetectedScp096Stuck(scp096Entity: mc.Entity): void {
 		}
 
 		if (mc.world.gameRules.mobGriefing) {
-			const raycastHit = scp096Entity.dimension.getBlockFromRay(
-				scp096Entity.location,
-				dirToTarget,
-				{
-					maxDistance: 10,
-				},
-			);
+			const raycastHit = scp096Entity.dimension.getBlockFromRay(scp096Entity.location, dirToTarget, {
+				maxDistance: 10,
+			});
 
 			if (raycastHit) {
 				const locStr = vec3.toString2(raycastHit.block.center());
@@ -257,11 +248,7 @@ function onScp096HitWither(scp096Entity: mc.Entity, wither: mc.Entity): void {
 	}, 1);
 }
 
-function emitScp096AttackParticle(
-	dimension: mc.Dimension,
-	location: mc.Vector3,
-	playSound: boolean,
-): void {
+function emitScp096AttackParticle(dimension: mc.Dimension, location: mc.Vector3, playSound: boolean): void {
 	dimension.spawnParticle("minecraft:critical_hit_emitter", vec3.add(location, vec3.UP));
 
 	if (!playSound) return;
@@ -336,8 +323,7 @@ function onScp096Attack(scp096Entity: mc.Entity): void {
 			}
 		}
 
-		const attackFailCount =
-			ensureType(target.getDynamicProperty("scp096AttackFailCount"), "number") ?? 0;
+		const attackFailCount = ensureType(target.getDynamicProperty("scp096AttackFailCount"), "number") ?? 0;
 
 		if (attackFailCount > 69) {
 			explode(target);
@@ -376,10 +362,7 @@ function onScp096Die(oldScp096Entity: mc.Entity, damageSource: mc.EntityDamageSo
 	newScp096Entity.setProperty("lc:is_face_hidden", wasFaceHidden);
 
 	if (damageSource.damagingEntity) {
-		const damagerDist = vec3.distance(
-			damageSource.damagingEntity.location,
-			oldScp096Entity.location,
-		);
+		const damagerDist = vec3.distance(damageSource.damagingEntity.location, oldScp096Entity.location);
 
 		if (damagerDist < 5) {
 			damageSource.damagingEntity.applyDamage(randomInt(350, 400), {
@@ -391,10 +374,7 @@ function onScp096Die(oldScp096Entity: mc.Entity, damageSource: mc.EntityDamageSo
 }
 
 function isCreativeOrSpectator(entity: mc.Entity): boolean {
-	return (
-		entity instanceof mc.Player &&
-		[mc.GameMode.creative, mc.GameMode.spectator].includes(entity.getGameMode())
-	);
+	return entity instanceof mc.Player && [mc.GameMode.creative, mc.GameMode.spectator].includes(entity.getGameMode());
 }
 
 mc.world.afterEvents.dataDrivenEntityTrigger.subscribe(

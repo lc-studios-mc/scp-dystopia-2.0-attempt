@@ -31,12 +31,7 @@ mc.world.afterEvents.projectileHitBlock.subscribe((event) => {
 	} catch {}
 });
 
-function explode(
-	projectile: mc.Entity,
-	location: mc.Vector3,
-	hitEntity?: mc.Entity,
-	source?: mc.Entity,
-): void {
+function explode(projectile: mc.Entity, location: mc.Vector3, hitEntity?: mc.Entity, source?: mc.Entity): void {
 	projectile.dimension.spawnParticle("lc:scpdy_corrosion_burst_emitter", location);
 
 	try {

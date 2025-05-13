@@ -9,10 +9,6 @@ declare module "@minecraft/server" {
 
 	interface Dimension {
 		// Allow any string as entity identifier.
-		spawnEntity<T = never>(
-			identifier: string,
-			location: Vector3,
-			options?: SpawnEntityOptions,
-		): Entity;
+		spawnEntity<T = never>(identifier: string, location: Vector3, options?: SpawnEntityOptions): Entity;
 	}
 }

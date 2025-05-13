@@ -77,9 +77,7 @@ function onTick(arg: mc.BlockComponentTickEvent): void {
 
 			block.setPermutation(block.permutation.withState(STATE_NAMES.doorOpenProgress, progressVal));
 
-			otherPartBlock.setPermutation(
-				otherPartBlock.permutation.withState(STATE_NAMES.doorOpenProgress, progressVal),
-			);
+			otherPartBlock.setPermutation(otherPartBlock.permutation.withState(STATE_NAMES.doorOpenProgress, progressVal));
 
 			if (progressVal === 1) {
 				const doorSoundInfo = getDoorSoundInfo(block.typeId);
@@ -102,9 +100,7 @@ function onTick(arg: mc.BlockComponentTickEvent): void {
 
 			block.setPermutation(block.permutation.withState(STATE_NAMES.doorOpenProgress, progressVal));
 
-			otherPartBlock.setPermutation(
-				otherPartBlock.permutation.withState(STATE_NAMES.doorOpenProgress, progressVal),
-			);
+			otherPartBlock.setPermutation(otherPartBlock.permutation.withState(STATE_NAMES.doorOpenProgress, progressVal));
 
 			if (progressVal === 14) {
 				const doorSoundInfo = getDoorSoundInfo(block.typeId);
@@ -163,9 +159,7 @@ mc.system.afterEvents.scriptEventReceive.subscribe(
 		const sourceLoc = event.sourceBlock?.center() ?? event.sourceEntity?.location ?? vec3.ZERO;
 
 		const sourceDim =
-			event.sourceEntity?.dimension ??
-			event.sourceBlock?.dimension ??
-			mc.world.getDimension("overworld");
+			event.sourceEntity?.dimension ?? event.sourceBlock?.dimension ?? mc.world.getDimension("overworld");
 
 		const location = vec3.fromString(event.message, sourceLoc);
 
@@ -190,16 +184,12 @@ mc.system.afterEvents.scriptEventReceive.subscribe(
 		switch (event.id) {
 			case SE_ID_CMD_DOOR_OPEN:
 				doorBlock.setPermutation(
-					doorBlock.permutation
-						.withState(STATE_NAMES.move, true)
-						.withState(STATE_NAMES.openOnNextMove, true),
+					doorBlock.permutation.withState(STATE_NAMES.move, true).withState(STATE_NAMES.openOnNextMove, true),
 				);
 				break;
 			case SE_ID_CMD_DOOR_CLOSE:
 				doorBlock.setPermutation(
-					doorBlock.permutation
-						.withState(STATE_NAMES.move, true)
-						.withState(STATE_NAMES.openOnNextMove, false),
+					doorBlock.permutation.withState(STATE_NAMES.move, true).withState(STATE_NAMES.openOnNextMove, false),
 				);
 				break;
 			case SE_ID_CMD_DOOR_SWITCH:

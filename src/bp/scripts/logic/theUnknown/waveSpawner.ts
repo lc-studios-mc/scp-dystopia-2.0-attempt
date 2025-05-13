@@ -66,8 +66,7 @@ function onStartWaveBreakEvent(waveSpawner: mc.Entity): void {
 	const currentWave = waveSpawner.getProperty("lc:wave_count") as number;
 	const nextWave = currentWave + 1;
 	const difficulty = getDifficulty(waveSpawner);
-	const waveBreakSeconds =
-		difficulty === mc.Difficulty.Hard ? 3 : difficulty === mc.Difficulty.Normal ? 5 : 7;
+	const waveBreakSeconds = difficulty === mc.Difficulty.Hard ? 3 : difficulty === mc.Difficulty.Normal ? 5 : 7;
 	const msg: mc.RawMessage = {
 		translate: "scpdy.msg.theUnknownWaveSpawner.waveBreakStarted",
 		with: [`${currentWave}`, `${nextWave}`],
@@ -171,10 +170,7 @@ function onFinishAllWaves(waveSpawner: mc.Entity): void {
 		};
 
 		for (const winner of winners) {
-			congratulationMsg.rawtext!.push(
-				{ text: `${winner.identity.displayName} - ${winner.score}` },
-				{ text: "\n" },
-			);
+			congratulationMsg.rawtext!.push({ text: `${winner.identity.displayName} - ${winner.score}` }, { text: "\n" });
 
 			const entity = winner.identity.getEntity();
 
@@ -325,10 +321,7 @@ mc.world.afterEvents.entityHurt.subscribe((event) => {
 		if (!event.damageSource.damagingEntity) return;
 		if (!isUnknownRace(event.hurtEntity)) return;
 
-		const waveSpawnerId = ensureType(
-			event.hurtEntity.getDynamicProperty("waveSpawnerId"),
-			"string",
-		);
+		const waveSpawnerId = ensureType(event.hurtEntity.getDynamicProperty("waveSpawnerId"), "string");
 
 		if (waveSpawnerId === undefined) return;
 

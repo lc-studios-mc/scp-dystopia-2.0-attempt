@@ -57,10 +57,7 @@ export function flattenCoordinates(major: number, minor: number, minorRange = 4)
  * // Returns { major: 1, minor: 2 }
  * unflattenToCoordinates(6);
  */
-export function unflattenToCoordinates(
-	flatIndex: number,
-	minorRange = 4,
-): { major: number; minor: number } {
+export function unflattenToCoordinates(flatIndex: number, minorRange = 4): { major: number; minor: number } {
 	return {
 		major: Math.floor(flatIndex / minorRange),
 		minor: flatIndex % minorRange,

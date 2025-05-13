@@ -1,8 +1,4 @@
-export type MachineryInputMode =
-	| "powerActivators"
-	| "ctrlBlastDoor"
-	| "placeRbBelow"
-	| "placeRbBehind";
+export type MachineryInputMode = "powerActivators" | "ctrlBlastDoor" | "placeRbBelow" | "placeRbBehind";
 
 export function _getModeStringFromIndex(index: number): MachineryInputMode {
 	switch (index) {

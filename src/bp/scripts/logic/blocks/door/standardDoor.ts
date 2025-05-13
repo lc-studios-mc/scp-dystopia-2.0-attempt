@@ -65,9 +65,7 @@ function onPlayerInteract(arg: mc.BlockComponentPlayerInteractEvent): void {
 
 	block.setPermutation(block.permutation.withState(STATE_NAMES.isOpened, !isOpened));
 
-	otherPartBlock.setPermutation(
-		otherPartBlock.permutation.withState(STATE_NAMES.isOpened, !isOpened),
-	);
+	otherPartBlock.setPermutation(otherPartBlock.permutation.withState(STATE_NAMES.isOpened, !isOpened));
 
 	if (isOpened) {
 		const doorSoundInfo = getDoorSoundInfo(block.typeId);

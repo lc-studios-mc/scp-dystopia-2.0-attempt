@@ -39,8 +39,7 @@ function onUpdateToiletRideableEntity(entity: mc.Entity): void {
 
 	const emitFart =
 		typeof lastRiderPitch === "number" &&
-		((lastRiderPitch < 80 && currentRiderPitch > 80) ||
-			(lastRiderPitch > -80 && currentRiderPitch < -80));
+		((lastRiderPitch < 80 && currentRiderPitch > 80) || (lastRiderPitch > -80 && currentRiderPitch < -80));
 
 	if (emitFart) {
 		const fartCount = (entity.getDynamicProperty("fartCount") as number) ?? 0;
@@ -132,11 +131,7 @@ function onPlayerInteract(arg: mc.BlockComponentPlayerInteractEvent): void {
 		// Open/Close lid
 
 		block.setPermutation(block.permutation.withState("lc:is_lid_open", !isLidOpen));
-		dimension.playSound(
-			isLidOpen ? "close.bamboo_wood_trapdoor" : "open.bamboo_wood_trapdoor",
-			center,
-			{ pitch: 1.2 },
-		);
+		dimension.playSound(isLidOpen ? "close.bamboo_wood_trapdoor" : "open.bamboo_wood_trapdoor", center, { pitch: 1.2 });
 
 		if (!isLidOpen) {
 			player.onScreenDisplay.setActionBar({
@@ -151,9 +146,7 @@ function onPlayerInteract(arg: mc.BlockComponentPlayerInteractEvent): void {
 
 	if (!isLidOpen) return;
 
-	const blockDirection = block.permutation.getState(
-		"minecraft:cardinal_direction",
-	) as CardinalDirection;
+	const blockDirection = block.permutation.getState("minecraft:cardinal_direction") as CardinalDirection;
 
 	let rideableEntityTypeId: string;
 

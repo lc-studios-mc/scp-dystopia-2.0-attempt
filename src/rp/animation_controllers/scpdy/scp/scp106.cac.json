@@ -50,10 +50,7 @@
 				},
 				"hidden": {
 					"animations": ["anim.hidden"],
-					"transitions": [
-						{ "emerge_slow": "v.emerging_slow" },
-						{ "emerge_fast": "v.emerging_fast" }
-					],
+					"transitions": [{ "emerge_slow": "v.emerging_slow" }, { "emerge_fast": "v.emerging_fast" }],
 					"blend_transition": 0
 				},
 				"emerge_slow": {

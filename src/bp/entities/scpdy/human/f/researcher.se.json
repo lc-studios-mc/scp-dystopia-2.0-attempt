@@ -22,15 +22,7 @@
 		},
 		"components": {
 			"minecraft:type_family": {
-				"family": [
-					"mob",
-					"villager",
-					"human",
-					"scpdy_human",
-					"scp_foundation",
-					"scientist",
-					"researcher"
-				]
+				"family": ["mob", "villager", "human", "scpdy_human", "scp_foundation", "scientist", "researcher"]
 			},
 			"minecraft:health": {
 				"value": 20,

@@ -4,11 +4,7 @@ import * as mc from "@minecraft/server";
 /**
  * Convert {@link mc.Vector2} to {@link mc.Direction}
  */
-export function rotationToDirection(
-	rotation: mc.Vector2,
-	ignoreX = false,
-	ignoreY = false,
-): mc.Direction {
+export function rotationToDirection(rotation: mc.Vector2, ignoreX = false, ignoreY = false): mc.Direction {
 	if (!ignoreX) {
 		if (rotation.x > 50) {
 			return mc.Direction.Down;
@@ -118,9 +114,7 @@ export function getAllContainerSlots(
 export function stopSoundAt(dimension: mc.Dimension, location: mc.Vector3, soundId?: string): void {
 	const locString = vec3.toString2(location);
 	dimension.runCommand(
-		`execute positioned ${locString} run stopsound @a[r=5]${
-			soundId === undefined ? "" : ` ${soundId}`
-		}`,
+		`execute positioned ${locString} run stopsound @a[r=5]${soundId === undefined ? "" : ` ${soundId}`}`,
 	);
 }
 
@@ -153,9 +147,7 @@ export function ensureType<T1 extends EnsureableType, T2 extends EnsureableTypeA
 		case "Vector3": {
 			if (typeof value !== "object") return undefined!;
 
-			return (
-				"x" in value && "y" in value && "z" in value ? value : undefined
-			) as EnsureTypeResult<T2>;
+			return ("x" in value && "y" in value && "z" in value ? value : undefined) as EnsureTypeResult<T2>;
 		}
 	}
 

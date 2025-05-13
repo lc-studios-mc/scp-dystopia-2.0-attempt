@@ -31,10 +31,7 @@ async function showEditZoneNameForm(player: mc.Player, facilityZone: FacilityZon
 	}
 }
 
-async function showZoneListForm(
-	player: mc.Player,
-	facilityNetwork: FacilityNetwork,
-): Promise<void> {
+async function showZoneListForm(player: mc.Player, facilityNetwork: FacilityNetwork): Promise<void> {
 	const buttons: { label: string | mc.RawMessage; onClick: () => Promise<void> }[] = [];
 
 	for (let i = 0; i < MAX_FACILITY_ZONE_COUNT; i++) {
@@ -68,10 +65,7 @@ async function showZoneListForm(
 	await buttons[response.selection]!.onClick();
 }
 
-async function showEditNetworkNameForm(
-	player: mc.Player,
-	facilityNetwork: FacilityNetwork,
-): Promise<void> {
+async function showEditNetworkNameForm(player: mc.Player, facilityNetwork: FacilityNetwork): Promise<void> {
 	const response = await new ModalFormData()
 		.title({ translate: "scpdy.form.fnm.editNetworkName.title" })
 		.textField(
@@ -94,10 +88,7 @@ async function showEditNetworkNameForm(
 	}
 }
 
-async function showSelectNetworkActionForm(
-	player: mc.Player,
-	facilityNetwork: FacilityNetwork,
-): Promise<void> {
+async function showSelectNetworkActionForm(player: mc.Player, facilityNetwork: FacilityNetwork): Promise<void> {
 	const response = await new ActionFormData()
 		.title(
 			facilityNetwork.name ?? {

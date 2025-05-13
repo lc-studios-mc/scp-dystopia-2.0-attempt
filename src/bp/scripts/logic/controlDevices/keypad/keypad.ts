@@ -133,11 +133,7 @@ export function setKeypadO5Clearance(keypad: mc.Entity, value?: boolean): void {
 	keypad.setDynamicProperty("o5Clearance", value);
 }
 
-export function attachNewKeypadEntityTo(
-	block: mc.Block,
-	blockFace: mc.Direction,
-	source?: mc.Player,
-): mc.Entity {
+export function attachNewKeypadEntityTo(block: mc.Block, blockFace: mc.Direction, source?: mc.Player): mc.Entity {
 	const location = vec3.getRelativeLocation(
 		block.bottomCenter(),
 		{
@@ -172,10 +168,7 @@ mc.world.afterEvents.entityHitEntity.subscribe(
 		if (!keypad.isValid) return;
 		if (!(damagingEntity instanceof mc.Player)) return;
 
-		if (
-			damagingEntity.getGameMode() !== mc.GameMode.creative &&
-			getKeypadSourceId(keypad) !== damagingEntity.id
-		)
+		if (damagingEntity.getGameMode() !== mc.GameMode.creative && getKeypadSourceId(keypad) !== damagingEntity.id)
 			return;
 
 		keypad.dimension.playSound("scpdy.misc.computer.hit", keypad.location);

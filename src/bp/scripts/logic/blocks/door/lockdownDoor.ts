@@ -1,10 +1,6 @@
 import { isAirOrLiquid } from "@lib/utils/blockUtils";
 import { getClearanceLevel } from "@lib/utils/scpdyUtils";
-import {
-	type FacilityZone,
-	getFacilityNetwork,
-	MAX_FACILITY_ZONE_COUNT,
-} from "@logic/facilityNetwork/network";
+import { type FacilityZone, getFacilityNetwork, MAX_FACILITY_ZONE_COUNT } from "@logic/facilityNetwork/network";
 import * as mc from "@minecraft/server";
 import { ModalFormData } from "@minecraft/server-ui";
 import { getDoorSoundInfo } from "./doorSounds";
@@ -174,9 +170,7 @@ function onTick(arg: mc.BlockComponentTickEvent): void {
 
 			block.setPermutation(block.permutation.withState(STATE_NAMES.doorOpenProgress, progressVal));
 
-			otherPartBlock.setPermutation(
-				otherPartBlock.permutation.withState(STATE_NAMES.doorOpenProgress, progressVal),
-			);
+			otherPartBlock.setPermutation(otherPartBlock.permutation.withState(STATE_NAMES.doorOpenProgress, progressVal));
 
 			if (progressVal === 1) {
 				const doorSoundInfo = getDoorSoundInfo(block.typeId);
@@ -195,9 +189,7 @@ function onTick(arg: mc.BlockComponentTickEvent): void {
 
 			block.setPermutation(block.permutation.withState(STATE_NAMES.doorOpenProgress, progressVal));
 
-			otherPartBlock.setPermutation(
-				otherPartBlock.permutation.withState(STATE_NAMES.doorOpenProgress, progressVal),
-			);
+			otherPartBlock.setPermutation(otherPartBlock.permutation.withState(STATE_NAMES.doorOpenProgress, progressVal));
 
 			if (progressVal === 14) {
 				const doorSoundInfo = getDoorSoundInfo(block.typeId);

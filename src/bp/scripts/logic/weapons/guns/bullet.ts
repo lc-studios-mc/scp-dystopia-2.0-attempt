@@ -30,10 +30,7 @@ export type OnBulletHitBlockEvent = (
 	| OnBulletHitBlockEventCallback
 	| OnBulletHitBlockEventSpawnRicochet
 ) & {
-	condition?: (
-		event: mc.ProjectileHitBlockAfterEvent,
-		sharedState: FlyingBulletSharedState,
-	) => boolean;
+	condition?: (event: mc.ProjectileHitBlockAfterEvent, sharedState: FlyingBulletSharedState) => boolean;
 };
 
 type OnBulletHitEntityEventSpawnRicochet = {
@@ -100,13 +97,9 @@ type FlyingBulletInfo = {
 const FLYING_BULLET_MAP = new Map<string, FlyingBulletInfo>();
 
 export function shootBullet(bulletType: BulletType, shootOptions: ShootOptions): void {
-	const entity = shootOptions.dimension.spawnEntity(
-		BULLET_TYPE_OBJ[bulletType],
-		shootOptions.initialLocation,
-		{
-			initialRotation: shootOptions.initialRotation,
-		},
-	);
+	const entity = shootOptions.dimension.spawnEntity(BULLET_TYPE_OBJ[bulletType], shootOptions.initialLocation, {
+		initialRotation: shootOptions.initialRotation,
+	});
 
 	entity.applyImpulse(shootOptions.initialVelocity);
 
@@ -236,11 +229,7 @@ mc.world.afterEvents.projectileHitEntity.subscribe((hitEvent) => {
 
 					if (event.knockbackPower === undefined) continue;
 
-					const impulse = vec3
-						.chain(vec3.FORWARD)
-						.scale(event.knockbackPower)
-						.changeDir(hitEvent.hitVector)
-						.done();
+					const impulse = vec3.chain(vec3.FORWARD).scale(event.knockbackPower).changeDir(hitEvent.hitVector).done();
 
 					hitEntity.applyImpulse(impulse);
 				}

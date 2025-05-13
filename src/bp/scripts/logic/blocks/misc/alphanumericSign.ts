@@ -36,8 +36,7 @@ async function showPlacementOptionsForm(player: mc.Player): Promise<PlacementOpt
 				},
 			],
 			{
-				defaultValueIndex:
-					(player.getDynamicProperty("lastAlphanumericSignColorSelection") as number) ?? 0,
+				defaultValueIndex: (player.getDynamicProperty("lastAlphanumericSignColorSelection") as number) ?? 0,
 			},
 		)
 		.submitButton({ translate: "scpdy.form.alphanumericSignOptions.submit" })
@@ -66,9 +65,7 @@ async function asyncPlacement(
 	upOrDown: UpOrDown,
 	dir: mc.Direction,
 ): Promise<void> {
-	const playerMainhand = player
-		.getComponent("equippable")!
-		.getEquipmentSlot(mc.EquipmentSlot.Mainhand);
+	const playerMainhand = player.getComponent("equippable")!.getEquipmentSlot(mc.EquipmentSlot.Mainhand);
 	const options = await showPlacementOptionsForm(player);
 
 	if (options === undefined) return;

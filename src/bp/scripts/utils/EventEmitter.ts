@@ -98,11 +98,7 @@ export class EventEmitter<Events extends EventMap = Record<string, any>> {
 	 * @param priority - Priority of the handler (higher numbers execute first)
 	 * @returns Subscription object for controlling the subscription
 	 */
-	public once<K extends keyof Events>(
-		eventName: K,
-		handler: EventHandler<Events[K]>,
-		priority = 0,
-	): Subscription {
+	public once<K extends keyof Events>(eventName: K, handler: EventHandler<Events[K]>, priority = 0): Subscription {
 		return this.on(eventName, handler, { once: true, priority });
 	}
 
@@ -285,11 +281,7 @@ export class EventEmitter<Events extends EventMap = Record<string, any>> {
 	 * @param handlerId - ID of the handler
 	 * @param active - Active state to set
 	 */
-	private setSubscriptionState<K extends keyof Events>(
-		eventName: K,
-		handlerId: number,
-		active: boolean,
-	): void {
+	private setSubscriptionState<K extends keyof Events>(eventName: K, handlerId: number, active: boolean): void {
 		if (!this.subscribers.has(eventName)) {
 			return;
 		}

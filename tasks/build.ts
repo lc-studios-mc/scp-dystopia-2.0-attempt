@@ -108,9 +108,7 @@ async function main(): Promise<void> {
 							if (path.extname(outputFile.path) === ".map") {
 								const data = JSON.parse(outputFile.text);
 								const sources = data.sources as string[];
-								const convertedSources = sources.map((x) =>
-									path.relative(srcScriptsDir, fileURLToPath(x)),
-								);
+								const convertedSources = sources.map((x) => path.relative(srcScriptsDir, fileURLToPath(x)));
 								data.sources = convertedSources;
 								toWrite = JSON.stringify(data, null, 2);
 							}

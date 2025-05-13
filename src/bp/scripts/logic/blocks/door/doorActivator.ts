@@ -10,9 +10,7 @@ export function tryPowerDoorActivator(block?: mc.Block, powerLevel = 15): boolea
 	if (!block) return false;
 	if (block.typeId !== "lc:scpdy_door_activator") return false;
 
-	block.setPermutation(
-		block.permutation.withState("lc:ticks_until_power_off", Math.floor(powerLevel)),
-	);
+	block.setPermutation(block.permutation.withState("lc:ticks_until_power_off", Math.floor(powerLevel)));
 
 	return true;
 }
@@ -29,8 +27,7 @@ function onTick(arg: mc.BlockComponentTickEvent): void {
 	if (ticksUntilPowerOff > 0) {
 		const val =
 			ticksUntilPowerOff -
-			((hasDetectedRedstone && ticksUntilPowerOff === 1) ||
-			(ticksUntilPowerOff > 1 && mc.system.currentTick % 8 !== 0)
+			((hasDetectedRedstone && ticksUntilPowerOff === 1) || (ticksUntilPowerOff > 1 && mc.system.currentTick % 8 !== 0)
 				? 0
 				: 1);
 

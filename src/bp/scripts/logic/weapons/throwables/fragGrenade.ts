@@ -14,31 +14,18 @@ function throwFragGrenade(player: mc.Player, ticksSinceRemovedPin: number): void
 			cause: mc.EntityDamageCause.entityExplosion,
 			damagingEntity: player,
 		});
-		player.dimension.spawnEntity(
-			`${FRAG_GRENADE_DROPPED_ENTITY_TYPE}<frag_grenade:explode>`,
-			playerHeadLoc,
-		);
+		player.dimension.spawnEntity(`${FRAG_GRENADE_DROPPED_ENTITY_TYPE}<frag_grenade:explode>`, playerHeadLoc);
 		return;
 	}
 
 	player.dimension.playSound("scpdy.frag_grenade.throw", playerHeadLoc, { volume: 1.1 });
 
 	const throwForceMultiplierMax = player.isSneaking ? 0.9 : 1.9;
-	const throwForceMultiplier = Math.min(
-		throwForceMultiplierMax,
-		Math.max(0.6, ticksSinceRemovedPin / 15),
-	);
+	const throwForceMultiplier = Math.min(throwForceMultiplierMax, Math.max(0.6, ticksSinceRemovedPin / 15));
 
-	const impulse = vec3
-		.chain(vec3.FORWARD)
-		.mul(throwForceMultiplier)
-		.changeDir(player.getViewDirection())
-		.done();
+	const impulse = vec3.chain(vec3.FORWARD).mul(throwForceMultiplier).changeDir(player.getViewDirection()).done();
 
-	const grenadeEntity = player.dimension.spawnEntity(
-		FRAG_GRENADE_THROWN_ENTITY_TYPE,
-		playerHeadLoc,
-	);
+	const grenadeEntity = player.dimension.spawnEntity(FRAG_GRENADE_THROWN_ENTITY_TYPE, playerHeadLoc);
 
 	grenadeEntity.setDynamicProperty("sourcePlayerId", player.id);
 
@@ -51,10 +38,7 @@ function throwFragGrenade(player: mc.Player, ticksSinceRemovedPin: number): void
 	grenadeEntity.setProperty("lc:ticks_until_explode", ticksUntilExplode);
 }
 
-function turnThrownFragGrenadeIntoDropped(
-	thrownGrenadeEntity: mc.Entity,
-	keepVelocity: boolean,
-): void {
+function turnThrownFragGrenadeIntoDropped(thrownGrenadeEntity: mc.Entity, keepVelocity: boolean): void {
 	if (!thrownGrenadeEntity.isValid) return;
 
 	thrownGrenadeEntity.dimension.playSound("scpdy.frag_grenade.hit", thrownGrenadeEntity.location, {
@@ -71,14 +55,11 @@ function turnThrownFragGrenadeIntoDropped(
 	const sourcePlayerId = thrownGrenadeEntity.getDynamicProperty("sourcePlayerId");
 	const thrownGrenadeVelocity = thrownGrenadeEntity.getVelocity();
 
-	const droppedGrenadeEntity = thrownGrenadeEntity.dimension.spawnEntity(
-		FRAG_GRENADE_DROPPED_ENTITY_TYPE,
-		{
-			x: thrownGrenadeEntity.location.x,
-			y: thrownGrenadeEntity.location.y + 0.1,
-			z: thrownGrenadeEntity.location.z,
-		},
-	);
+	const droppedGrenadeEntity = thrownGrenadeEntity.dimension.spawnEntity(FRAG_GRENADE_DROPPED_ENTITY_TYPE, {
+		x: thrownGrenadeEntity.location.x,
+		y: thrownGrenadeEntity.location.y + 0.1,
+		z: thrownGrenadeEntity.location.z,
+	});
 
 	if (keepVelocity) {
 		droppedGrenadeEntity.applyImpulse({
@@ -112,10 +93,7 @@ mc.world.afterEvents.projectileHitEntity.subscribe((event) => {
 
 	if (hitEntity && hitEntity.typeId === FRAG_GRENADE_THROWN_ENTITY_TYPE) return;
 
-	const sourcePlayerId = ensureType(
-		event.projectile.getDynamicProperty("sourcePlayerId"),
-		"string",
-	);
+	const sourcePlayerId = ensureType(event.projectile.getDynamicProperty("sourcePlayerId"), "string");
 
 	if (sourcePlayerId !== undefined && sourcePlayerId === hitEntity?.id) return;
 
@@ -138,8 +116,7 @@ mc.world.afterEvents.itemStartUse.subscribe((event) => {
 
 	player.setDynamicProperty("isThrowingFragGrenade", true);
 
-	const throwTriggerIndex =
-		ensureType(player.getDynamicProperty("nextFragGrenadeThrowTriggerIndex"), "number") ?? 0;
+	const throwTriggerIndex = ensureType(player.getDynamicProperty("nextFragGrenadeThrowTriggerIndex"), "number") ?? 0;
 
 	player.startItemCooldown(`scpdy_frag_grenade_use_trigger_${throwTriggerIndex + 1}`, 2);
 

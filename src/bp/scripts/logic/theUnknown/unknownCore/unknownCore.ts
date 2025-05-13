@@ -171,9 +171,7 @@ function updateLocationLock(unknownCore: mc.Entity): void {
 }
 
 function getNextCombatBehaviorTick(unknownCore: mc.Entity): number {
-	return (
-		ensureType(unknownCore.getDynamicProperty("ticksUntilDecideNextCombatBehavior"), "number") ?? 0
-	);
+	return ensureType(unknownCore.getDynamicProperty("ticksUntilDecideNextCombatBehavior"), "number") ?? 0;
 }
 
 function setNextCombatBehaviorTick(unknownCore: mc.Entity, value?: number) {
@@ -187,11 +185,7 @@ function decideNextCombatBehavior(unknownCore: mc.Entity, stage: number): void {
 		case 1: {
 			const didGuard = unknownCore.getDynamicProperty("s1_didGuard") === true;
 
-			if (
-				!didGuard &&
-				Math.random() > 0.5 &&
-				healthComp.currentValue < healthComp.effectiveMax / 2
-			) {
+			if (!didGuard && Math.random() > 0.5 && healthComp.currentValue < healthComp.effectiveMax / 2) {
 				unknownCore.setProperty(PROP_ID.s1State, STAGE_STATE_IDX.s1.shield);
 				unknownCore.setDynamicProperty("s1_didGuard", true);
 
@@ -207,17 +201,12 @@ function decideNextCombatBehavior(unknownCore: mc.Entity, stage: number): void {
 		}
 		case 2: {
 			const decisionCountPropId =
-				healthComp.currentValue < healthComp.effectiveMax / 2
-					? "s2MidCombatDecisionCount"
-					: "s2CombatDecisionCount";
+				healthComp.currentValue < healthComp.effectiveMax / 2 ? "s2MidCombatDecisionCount" : "s2CombatDecisionCount";
 
-			const decisionCount =
-				ensureType(unknownCore.getDynamicProperty(decisionCountPropId), "number") ?? 0;
+			const decisionCount = ensureType(unknownCore.getDynamicProperty(decisionCountPropId), "number") ?? 0;
 
 			const combatStateArray =
-				healthComp.currentValue < healthComp.effectiveMax / 2
-					? CombatStateArrays.S2_2
-					: CombatStateArrays.S2_1;
+				healthComp.currentValue < healthComp.effectiveMax / 2 ? CombatStateArrays.S2_2 : CombatStateArrays.S2_1;
 
 			const nextThing = combatStateArray[decisionCount % combatStateArray.length];
 
@@ -265,8 +254,7 @@ function decideNextCombatBehavior(unknownCore: mc.Entity, stage: number): void {
 						? "s3MidCombatDecisionCount"
 						: "s3CombatDecisionCount";
 
-			const decisionCount =
-				ensureType(unknownCore.getDynamicProperty(decisionCountPropId), "number") ?? 0;
+			const decisionCount = ensureType(unknownCore.getDynamicProperty(decisionCountPropId), "number") ?? 0;
 
 			const combatStateArray =
 				healthComp.currentValue < healthComp.effectiveMax / 5
@@ -449,10 +437,7 @@ function onSwingSword(unknownCore: mc.Entity): void {
 }
 
 function fireMeteorite(unknownCore: mc.Entity): void {
-	const meteoriteEntity = unknownCore.dimension.spawnEntity(
-		METEORITE_ENTITY_TYPE,
-		unknownCore.location,
-	);
+	const meteoriteEntity = unknownCore.dimension.spawnEntity(METEORITE_ENTITY_TYPE, unknownCore.location);
 
 	meteoriteEntity.setDynamicProperty("targetEntityId", unknownCore.target?.id);
 

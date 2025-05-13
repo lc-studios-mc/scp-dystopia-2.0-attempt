@@ -44,10 +44,7 @@
 					"/playsound scpdy.unknown_core.plasma_powerful @a[r=100] ~ ~ ~ 1.9 1.0",
 					"/camerashake add @a[r=30] 0.2 0.95 positional"
 				],
-				"1.0": [
-					"@s unknown_core:s2:add_shoot_plasma_large",
-					"/camerashake add @a[r=30] 0.5 0.7 positional"
-				],
+				"1.0": ["@s unknown_core:s2:add_shoot_plasma_large", "/camerashake add @a[r=30] 0.5 0.7 positional"],
 				"1.25": ["@s unknown_core:s2:remove_shoot_plasma_large"],
 				"2.60": ["@s unknown_core:s2:reset_state"]
 			}

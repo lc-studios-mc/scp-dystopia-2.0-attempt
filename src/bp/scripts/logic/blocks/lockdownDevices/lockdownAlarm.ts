@@ -113,15 +113,11 @@ function onTick(arg: mc.BlockComponentTickEvent): void {
 		}
 
 		arg.block.setPermutation(
-			arg.block.permutation
-				.withState("lc:is_activated", true)
-				.withState("lc:played_since_lockdown", false),
+			arg.block.permutation.withState("lc:is_activated", true).withState("lc:played_since_lockdown", false),
 		);
 	} else if (!zone.isLockdownActive && zone.lockdownDelay === undefined && isActivated) {
 		arg.block.setPermutation(
-			arg.block.permutation
-				.withState("lc:is_activated", false)
-				.withState("lc:played_since_lockdown", false),
+			arg.block.permutation.withState("lc:is_activated", false).withState("lc:played_since_lockdown", false),
 		);
 	}
 }

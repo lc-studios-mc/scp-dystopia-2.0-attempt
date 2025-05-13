@@ -38,9 +38,7 @@ function onPlayerInteract(arg: mc.BlockComponentPlayerInteractEvent): void {
 
 	if (sittableAnchorAlreadyExists) return;
 
-	const blockDirection = block.permutation.getState(
-		"minecraft:cardinal_direction",
-	) as CardinalDirection;
+	const blockDirection = block.permutation.getState("minecraft:cardinal_direction") as CardinalDirection;
 
 	let sittableAnchorTypeId: string;
 

@@ -18,11 +18,7 @@ export function onInteractControlDeviceWithWrench(block: mc.Block, player: mc.Pl
 	player.playSound("random.click");
 }
 
-export function onActivateControlDevice(
-	block: mc.Block,
-	player?: mc.Player,
-	clearanceLevel = -1,
-): boolean {
+export function onActivateControlDevice(block: mc.Block, player?: mc.Player, clearanceLevel = -1): boolean {
 	const mode = block.permutation.getState("lc:mode") as number;
 
 	switch (mode) {
@@ -52,13 +48,8 @@ export function onActivateControlDevice(
 	return false;
 }
 
-function getBlockBehindControlDeviceBlock(
-	controlDeviceBlock: mc.Block,
-	steps = 1,
-): mc.Block | undefined {
-	const direction = controlDeviceBlock.permutation.getState(
-		"minecraft:cardinal_direction",
-	) as CardinalDirection;
+function getBlockBehindControlDeviceBlock(controlDeviceBlock: mc.Block, steps = 1): mc.Block | undefined {
+	const direction = controlDeviceBlock.permutation.getState("minecraft:cardinal_direction") as CardinalDirection;
 
 	let blockBehind: mc.Block | undefined;
 

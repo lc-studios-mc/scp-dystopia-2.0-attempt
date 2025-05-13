@@ -79,14 +79,10 @@ function onTick(arg: mc.BlockComponentTickEvent): void {
 
 	block.setPermutation(block.permutation.withState(STATE_NAMES.doorOpenProgress, nextOpenProgress));
 
-	otherPartBlock.setPermutation(
-		otherPartBlock.permutation.withState(STATE_NAMES.doorOpenProgress, nextOpenProgress),
-	);
+	otherPartBlock.setPermutation(otherPartBlock.permutation.withState(STATE_NAMES.doorOpenProgress, nextOpenProgress));
 
 	if (ticksUntilPowerOff > 0) {
-		block.setPermutation(
-			block.permutation.withState(STATE_NAMES.ticksUntilPowerOff, ticksUntilPowerOff - 1),
-		);
+		block.setPermutation(block.permutation.withState(STATE_NAMES.ticksUntilPowerOff, ticksUntilPowerOff - 1));
 	}
 
 	// Play sound

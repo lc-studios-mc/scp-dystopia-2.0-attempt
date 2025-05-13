@@ -75,9 +75,7 @@ const COMPONENT: mc.BlockCustomComponent = {
 		);
 
 		otherPartBlock.setPermutation(
-			otherPartBlock.permutation
-				.withState(STATE.stepMajor, newStep.major)
-				.withState(STATE.stepMinor, newStep.minor),
+			otherPartBlock.permutation.withState(STATE.stepMajor, newStep.major).withState(STATE.stepMinor, newStep.minor),
 		);
 
 		if (params.openSound && isPowered && newStepIndex === 1) {

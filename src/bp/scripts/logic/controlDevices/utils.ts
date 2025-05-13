@@ -31,10 +31,7 @@ export type ControlDevicePulseOpts = {
  * @param controlDevice Control device block or entity (button, keypad, etc.)
  * @param opts Options
  */
-export function emitControlDevicePulse(
-	controlDevice: mc.Block | mc.Entity,
-	opts?: ControlDevicePulseOpts,
-): boolean {
+export function emitControlDevicePulse(controlDevice: mc.Block | mc.Entity, opts?: ControlDevicePulseOpts): boolean {
 	let mode;
 	try {
 		mode = getControlDeviceMode(controlDevice);
@@ -43,9 +40,7 @@ export function emitControlDevicePulse(
 	}
 
 	const originBlock =
-		controlDevice instanceof mc.Block
-			? controlDevice
-			: controlDevice.dimension.getBlock(controlDevice.location);
+		controlDevice instanceof mc.Block ? controlDevice : controlDevice.dimension.getBlock(controlDevice.location);
 
 	if (!originBlock) return false;
 
@@ -60,10 +55,7 @@ export function emitControlDevicePulse(
 	switch (mode) {
 		case CONTROL_DEVICE_MODE.powerDoorActivator:
 			if (opts?.onlyCloseBlastDoor) return false;
-			sendPowerToDoorActivators(
-				getRelativeBlock(originBlock, dir, 1),
-				opts?.mechDoorActivationDuration,
-			);
+			sendPowerToDoorActivators(getRelativeBlock(originBlock, dir, 1), opts?.mechDoorActivationDuration);
 			return true;
 		case CONTROL_DEVICE_MODE.openNearestBlastDoor: {
 			const blastDoor = getNearestBlastDoor(controlDevice.dimension, originBlock.center());
@@ -156,9 +148,7 @@ export function getControlDeviceMode(controlDevice: mc.Block | mc.Entity): numbe
 export function setControlDeviceMode(controlDevice: mc.Block | mc.Entity, value: number): void {
 	try {
 		if (controlDevice instanceof mc.Block) {
-			controlDevice.setPermutation(
-				controlDevice.permutation.withState("lc:control_device_mode", value),
-			);
+			controlDevice.setPermutation(controlDevice.permutation.withState("lc:control_device_mode", value));
 		} else if (controlDevice instanceof mc.Entity) {
 			controlDevice.setProperty("lc:control_device_mode", value);
 		}

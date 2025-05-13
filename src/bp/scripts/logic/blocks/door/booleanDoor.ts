@@ -81,9 +81,7 @@ function onTick(arg: mc.BlockComponentTickEvent): void {
 
 			block.setPermutation(block.permutation.withState(STATE_NAMES.doorOpenProgress, progressVal));
 
-			otherPartBlock.setPermutation(
-				otherPartBlock.permutation.withState(STATE_NAMES.doorOpenProgress, progressVal),
-			);
+			otherPartBlock.setPermutation(otherPartBlock.permutation.withState(STATE_NAMES.doorOpenProgress, progressVal));
 
 			if (progressVal === 1) {
 				const doorSoundInfo = getDoorSoundInfo(block.typeId);
@@ -106,9 +104,7 @@ function onTick(arg: mc.BlockComponentTickEvent): void {
 
 			block.setPermutation(block.permutation.withState(STATE_NAMES.doorOpenProgress, progressVal));
 
-			otherPartBlock.setPermutation(
-				otherPartBlock.permutation.withState(STATE_NAMES.doorOpenProgress, progressVal),
-			);
+			otherPartBlock.setPermutation(otherPartBlock.permutation.withState(STATE_NAMES.doorOpenProgress, progressVal));
 
 			if (progressVal === 14) {
 				const doorSoundInfo = getDoorSoundInfo(block.typeId);
@@ -180,9 +176,7 @@ function onPlayerInteract(arg: mc.BlockComponentPlayerInteractEvent): void {
 			return;
 		}
 
-		const minimumLevel = lowerPartBlock.permutation.getState(
-			STATE_NAMES.minimumClearanceLevel,
-		) as number;
+		const minimumLevel = lowerPartBlock.permutation.getState(STATE_NAMES.minimumClearanceLevel) as number;
 		const keycardLevel = getClearanceLevel(player);
 
 		if (keycardLevel < minimumLevel) {

@@ -142,13 +142,7 @@ export class ConfigBuilder<Data = {}> {
 		>;
 	}
 
-	textField<Name extends string>(
-		name: Name,
-		label: Text,
-		placeholderText: Text,
-		defaultValue = "",
-		tooltip?: Text,
-	) {
+	textField<Name extends string>(name: Name, label: Text, placeholderText: Text, defaultValue = "", tooltip?: Text) {
 		this.elements.push({
 			type: "textField",
 			name,

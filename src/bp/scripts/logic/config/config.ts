@@ -24,10 +24,7 @@ type DropdownConfigOption = {
 
 type ConfigOption = ToggleConfigOption | DropdownConfigOption;
 
-type ConfigOptionWithoutGeneratedProperties<T extends ConfigOption> = Omit<
-	T,
-	"type" | "mode" | "get" | "set"
->;
+type ConfigOptionWithoutGeneratedProperties<T extends ConfigOption> = Omit<T, "type" | "mode" | "get" | "set">;
 
 type ToggleConfigOptionFriendly = ConfigOptionWithoutGeneratedProperties<ToggleConfigOption>;
 
@@ -59,10 +56,7 @@ class ConfigBuilder<T = {}> {
 		return this;
 	}
 
-	toggle<K extends string>(
-		name: K,
-		option: ToggleConfigOptionFriendly,
-	): ConfigBuilder<T & { [P in K]: boolean }> {
+	toggle<K extends string>(name: K, option: ToggleConfigOptionFriendly): ConfigBuilder<T & { [P in K]: boolean }> {
 		const dynamicPropId = this.dynamicPropertyIdOf(name);
 
 		const realOption: ToggleConfigOption = {
@@ -89,10 +83,7 @@ class ConfigBuilder<T = {}> {
 		return this as ConfigBuilder<T & { [P in K]: boolean }>;
 	}
 
-	dropdown<K extends string>(
-		name: K,
-		option: DropdownConfigOptionFriendly,
-	): ConfigBuilder<T & { [P in K]: number }> {
+	dropdown<K extends string>(name: K, option: DropdownConfigOptionFriendly): ConfigBuilder<T & { [P in K]: number }> {
 		const dynamicPropId = this.dynamicPropertyIdOf(name);
 
 		const realOption: DropdownConfigOption = {
@@ -213,11 +204,7 @@ class ConfigBuilder<T = {}> {
 		}
 	}
 
-	private addOptionToConfigEditorForm(
-		formData: ModalFormData,
-		name: string,
-		option: ConfigOption,
-	): FormOptionCallback {
+	private addOptionToConfigEditorForm(formData: ModalFormData, name: string, option: ConfigOption): FormOptionCallback {
 		const mode = option.mode;
 		switch (mode) {
 			case "toggle":
