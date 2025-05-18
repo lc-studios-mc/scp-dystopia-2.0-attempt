@@ -1,14 +1,12 @@
 {
-	"Import mc module": {
+	"Import @minecraft/server as `mc`": {
 		"scope": "javascript,typescript",
 		"prefix": "mc",
 		"body": ["import * as mc from \"@minecraft/server\";"],
-		"description": "Import @minecraft/server module",
 	},
-	"Import vec3 module": {
+	"Import Vector3 utilities as `vec3`": {
 		"scope": "javascript,typescript",
 		"prefix": "vec3",
-		"body": ["import * as vec3 from \"@lib/utils/vec3\";"],
-		"description": "Import @lib/utils/vec3 module",
+		"body": ["import * as vec3 from \"@/utils/vec3\";"],
 	},
 }
