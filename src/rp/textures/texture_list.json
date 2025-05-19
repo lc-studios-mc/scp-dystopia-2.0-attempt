@@ -2,11 +2,6 @@
 	"textures/scpdy/doors/framed/framed_door_1",
 	"textures/scpdy/doors/sliding/sliding_door_1",
 
-	"textures/scpdy/machinery/activator_block/bottom",
-	"textures/scpdy/machinery/activator_block/side",
-	"textures/scpdy/machinery/activator_block/top_off",
-	"textures/scpdy/machinery/activator_block/top_on",
-
 	"textures/scpdy/machinery/input/btn/btn_1",
 	"textures/scpdy/machinery/input/btn/btn_2",
 	"textures/scpdy/machinery/input/kr/kr_1",
