@@ -9,7 +9,7 @@
 			"states": {
 				"lc:is_on": [false, true],
 				"lc:clearance_level": [0, 1, 2, 3, 4, 5, 6],
-				"lc:mode": ["powerActivators", "ctrlBlastDoor", "placeRbBelow", "placeRbBehind"]
+				"lc:mode": ["powerRelayDoors", "ctrlBlastDoor", "placeRbBelow", "placeRbBehind"]
 			},
 			"traits": {
 				"minecraft:placement_direction": {

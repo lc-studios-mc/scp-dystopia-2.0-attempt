@@ -8,7 +8,7 @@
 			},
 			"states": {
 				"lc:is_pressed": [false, true],
-				"lc:mode": ["powerActivators", "ctrlBlastDoor", "placeRbBelow", "placeRbBehind"]
+				"lc:mode": ["powerRelayDoors", "ctrlBlastDoor", "placeRbBelow", "placeRbBehind"]
 			},
 			"traits": {
 				"minecraft:placement_direction": {

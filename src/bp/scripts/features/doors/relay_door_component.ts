@@ -145,7 +145,7 @@ const COMPONENT: mc.BlockCustomComponent = {
 				translate: "scpdy.relayDoor.text.redstoneDetection.on",
 			});
 
-			if (player.addTag("scpdy_warned_activator_redstone_detection_lag")) {
+			if (player.addTag("scpdy_warned_relay_door_redstone_detection_lag")) {
 				mc.system.runTimeout(() => {
 					if (!player.isValid) return;
 

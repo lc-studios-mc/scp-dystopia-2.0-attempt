@@ -17,7 +17,7 @@ export function _getModeStringFromIndex(index: number): MachineryInputMode {
 
 export function _isModeString(value: unknown): value is MachineryInputMode {
 	switch (value) {
-		case "powerActivators":
+		case "powerRelayDoors":
 		case "ctrlBlastDoor":
 		case "placeRbBelow":
 		case "placeRbBehind":
