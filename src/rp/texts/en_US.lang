@@ -3,7 +3,12 @@
 ## relay doors
 lc:scpdy_itemGroup_relayDoors=§7SCP:DY §8- §fRelay Doors
 tile.lc:scpdy_relay_door_1.name=Relay Door 1
-## TODO: 2~7 variants
+tile.lc:scpdy_relay_door_2.name=Relay Door 2
+tile.lc:scpdy_relay_door_3.name=Relay Door 3
+tile.lc:scpdy_relay_door_4.name=Relay Door 4
+tile.lc:scpdy_relay_door_5.name=Relay Door 5
+tile.lc:scpdy_relay_door_6.name=Relay Door 6
+tile.lc:scpdy_relay_door_7.name=Relay Door 7
 tile.lc:scpdy_relay_door_8.name=Relay Door 8
 scpdy.relayDoor.text.redstoneDetection.off=Redstone Detection: §7OFF
 scpdy.relayDoor.text.redstoneDetection.on=Redstone Detection: §eON

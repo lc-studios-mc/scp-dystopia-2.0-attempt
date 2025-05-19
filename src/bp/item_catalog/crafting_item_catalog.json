@@ -13,6 +13,12 @@
 						// prettier-ignore
 						"items": [
 							"lc:scpdy_relay_door_1",
+							"lc:scpdy_relay_door_2",
+							"lc:scpdy_relay_door_3",
+							"lc:scpdy_relay_door_4",
+							"lc:scpdy_relay_door_5",
+							"lc:scpdy_relay_door_6",
+							"lc:scpdy_relay_door_7",
 							"lc:scpdy_relay_door_8"
 						]
 					},
