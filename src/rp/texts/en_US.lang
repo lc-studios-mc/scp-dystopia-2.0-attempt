@@ -4,6 +4,9 @@
 lc:scpdy_itemGroup_relayDoors=§7SCP:DY §8- §fRelay Doors
 tile.lc:scpdy_relay_door_1.name=Relay Door 1
 tile.lc:scpdy_relay_door_2.name=Relay Door 2
+scpdy.relayDoor.text.redstoneDetection.off=Redstone Detection: §7OFF
+scpdy.relayDoor.text.redstoneDetection.on=Redstone Detection: §eON
+scpdy.relayDoor.text.redstoneDetection.warn=§eRelay doors with redstone detection can significantly degrade performance when placed in large numbers in a small area.
 
 
 ## --- machinery ---
