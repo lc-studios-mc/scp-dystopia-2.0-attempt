@@ -173,7 +173,12 @@ function getUpdatedPowerLevel(currentPowerLevel: number, detectRedstone: boolean
 	return newPowerLevel;
 }
 
-function getUpdatedStepIndex(currentStepIndex: number, currentPowerLevel: number, minStepIndex: number, maxStepIndex: number): number {
+function getUpdatedStepIndex(
+	currentStepIndex: number,
+	currentPowerLevel: number,
+	minStepIndex: number,
+	maxStepIndex: number,
+): number {
 	if (mc.system.currentTick % 2 !== 0) return currentStepIndex; // Steps are updated only every 2 ticks
 	if (currentPowerLevel > 0 && currentStepIndex < maxStepIndex) {
 		return currentStepIndex + 1;
@@ -212,14 +217,10 @@ MachineryInputEvents.on("onActivate", (data) => {
 	const blockBehind = getRelativeBlockAtDirection(block, data.pulseDirection ?? mc.Direction.North);
 	if (!blockBehind) return;
 
-	sendPowerToActivatorBlocks(blockBehind);
+	tryPowerRelayDoorsFrom(blockBehind);
 });
 
-function sendPowerToActivatorBlocks(origin: mc.Block): void {
-	tryCrossFrom(origin);
-}
-
-function tryCrossFrom(block: mc.Block): void {
+function tryPowerRelayDoorsFrom(block: mc.Block): void {
 	setPowerLevel(block);
 
 	const north = block.north();
