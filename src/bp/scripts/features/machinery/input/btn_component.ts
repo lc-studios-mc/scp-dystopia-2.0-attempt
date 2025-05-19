@@ -28,7 +28,7 @@ const COMPONENT: mc.BlockCustomComponent = {
 			formData.dropdown(
 				{ translate: "scpdy.machinery.input.mode.text" },
 				[
-					{ translate: "scpdy.machinery.input.mode.text.powerActivators" },
+					{ translate: "scpdy.machinery.input.mode.text.powerRelayDoors" },
 					{ translate: "scpdy.machinery.input.mode.text.ctrlBlastDoor" },
 					{ translate: "scpdy.machinery.input.mode.text.placeRbBelow" },
 					{ translate: "scpdy.machinery.input.mode.text.placeRbBehind" },

@@ -209,7 +209,7 @@ function checkRedstonePower(block: mc.Block): boolean {
 }
 
 MachineryInputEvents.on("onActivate", (data) => {
-	if (data.mode !== "powerActivators") return;
+	if (data.mode !== "powerRelayDoors") return;
 
 	const block = data.block ?? data.dimension.getBlock(data.location);
 	if (!block) return;

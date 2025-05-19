@@ -1,9 +1,9 @@
-export type MachineryInputMode = "powerActivators" | "ctrlBlastDoor" | "placeRbBelow" | "placeRbBehind";
+export type MachineryInputMode = "powerRelayDoors" | "ctrlBlastDoor" | "placeRbBelow" | "placeRbBehind";
 
 export function _getModeStringFromIndex(index: number): MachineryInputMode {
 	switch (index) {
 		case 0:
-			return "powerActivators";
+			return "powerRelayDoors";
 		case 1:
 			return "ctrlBlastDoor";
 		case 2:
