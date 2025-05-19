@@ -18,13 +18,6 @@
 					},
 
 					{
-						// prettier-ignore
-						"items": [
-							"lc:scpdy_activator_block"
-						]
-					},
-
-					{
 						"group_identifier": {
 							"icon": "lc:scpdy_btn_1",
 							"name": "lc:scpdy_itemGroup_btns"
