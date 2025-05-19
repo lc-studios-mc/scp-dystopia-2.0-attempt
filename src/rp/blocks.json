@@ -11,9 +11,6 @@
 	// #endregion
 
 	// #region machinery
-	"lc:scpdy_activator_block": {
-		"sound": "metal"
-	},
 	"lc:scpdy_btn_1": {
 		"sound": "copper"
 	},

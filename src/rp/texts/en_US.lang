@@ -18,12 +18,6 @@ scpdy.machinery.input.mode.text.ctrlBlastDoor=Control The Nearest Blast Door
 scpdy.machinery.input.mode.text.placeRbBelow=Place Redstone Block (Below)
 scpdy.machinery.input.mode.text.placeRbBehind=Place Redstone Block (Behind)
 
-## activator block
-tile.lc:scpdy_activator_block.name=Activator Block (for Relay Doors)
-scpdy.activatorBlock.text.redstoneDetection.off=Redstone Detection: §7OFF
-scpdy.activatorBlock.text.redstoneDetection.on=Redstone Detection: §eON
-scpdy.activatorBlock.text.redstoneDetection.warn=§eRedstone detection can significantly degrade performance when placed in large numbers in a small area.
-
 ## btn
 lc:scpdy_itemGroup_btns=§7SCP:DY §8- §fButtons
 tile.lc:scpdy_btn_1.name=Button 1

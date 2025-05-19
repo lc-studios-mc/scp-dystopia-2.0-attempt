@@ -14,18 +14,6 @@
 		// #endregion
 
 		// #region machinery
-		"scpdy_activator_block_top_off": {
-			"textures": "textures/scpdy/machinery/activator_block/top_off"
-		},
-		"scpdy_activator_block_top_on": {
-			"textures": "textures/scpdy/machinery/activator_block/top_on"
-		},
-		"scpdy_activator_block_side": {
-			"textures": "textures/scpdy/machinery/activator_block/side"
-		},
-		"scpdy_activator_block_bottom": {
-			"textures": "textures/scpdy/machinery/activator_block/bottom"
-		},
 		"scpdy_btn_1": {
 			"textures": "textures/scpdy/machinery/input/btn/btn_1"
 		},
