@@ -246,6 +246,9 @@ function tryPowerRelayDoorsFrom(block: mc.Block): void {
 		const east2 = east.east();
 		if (east2) setPowerLevel(east2);
 	}
+
+	const below2 = block.below(2);
+	below2 && setPowerLevel(below2);
 }
 
 function setPowerLevel(relayDoorBlock: mc.Block, powerLevel = 6): boolean {
