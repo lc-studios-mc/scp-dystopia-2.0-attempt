@@ -2,7 +2,7 @@
 	"format_version": "1.21.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "lc:scpdy_relay_door_2",
+			"identifier": "lc:scpdy_relay_door_8",
 			"menu_category": {
 				"category": "construction"
 			},
