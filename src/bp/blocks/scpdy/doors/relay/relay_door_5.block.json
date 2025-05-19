@@ -71,7 +71,8 @@
 				"geometry": "geometry.scpdy_dividing_door_item_visual",
 				"material_instances": {
 					"*": {
-						"texture": "scpdy_dividing_door_1"
+						"texture": "scpdy_dividing_door_1",
+						"face_dimming": false
 					}
 				}
 			},

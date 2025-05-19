@@ -79,7 +79,8 @@
 				"geometry": "geometry.scpdy_sliding_door_item_visual",
 				"material_instances": {
 					"*": {
-						"texture": "scpdy_sliding_door_3"
+						"texture": "scpdy_sliding_door_3",
+						"face_dimming": false
 					}
 				}
 			},
