@@ -69,55 +69,6 @@ const MAP = new Map<string, DoorSoundInfo>([
 		},
 	],
 	[
-		"lc:scpdy_mechanical_door_1",
-		{
-			openSound: { id: "scpdy.door.classic_door_1.open", volume: 1.1 },
-			closeSound: { id: "scpdy.door.classic_door_1.close", volume: 1.1 },
-		},
-	],
-	[
-		"lc:scpdy_mechanical_door_2",
-		{
-			openSound: { id: "scpdy.door.classic_door_1.open", volume: 1.1 },
-			closeSound: { id: "scpdy.door.classic_door_1.close", volume: 1.1 },
-		},
-	],
-	[
-		"lc:scpdy_mechanical_door_3",
-		{
-			openSound: { id: "scpdy.door.classic_door_3.open", volume: 1.1 },
-			closeSound: { id: "scpdy.door.classic_door_3.close", volume: 1.1 },
-		},
-	],
-	[
-		"lc:scpdy_mechanical_door_4",
-		{
-			openSound: { id: "scpdy.door.classic_door_2.open", volume: 1.1 },
-			closeSound: { id: "scpdy.door.classic_door_2.close", volume: 1.1 },
-		},
-	],
-	[
-		"lc:scpdy_mechanical_door_5",
-		{
-			openSound: { id: "scpdy.door.futuristic_door.open", volume: 1.1 },
-			closeSound: { id: "scpdy.door.futuristic_door.close", volume: 1.1 },
-		},
-	],
-	[
-		"lc:scpdy_mechanical_door_6",
-		{
-			openSound: { id: "scpdy.door.classic_door_2.open", volume: 1.1 },
-			closeSound: { id: "scpdy.door.classic_door_2.close", volume: 1.1 },
-		},
-	],
-	[
-		"lc:scpdy_mechanical_door_7",
-		{
-			openSound: { id: "scpdy.door.futuristic_door.open", volume: 1.1 },
-			closeSound: { id: "scpdy.door.futuristic_door.close", volume: 1.1 },
-		},
-	],
-	[
 		"lc:scpdy_standard_door_1",
 		{
 			openSound: { id: "scpdy.door.standard_door.open", volume: 1.1 },

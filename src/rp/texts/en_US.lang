@@ -90,7 +90,6 @@ lc:scpdy_itemGroup_plushies=§7SCP:DY §8| §fPlushies
 lc:scpdy_itemGroup_booleanDoors=§7SCP:DY §8| §fBoolean Doors
 lc:scpdy_itemGroup_commandDoors=§7SCP:DY §8| §fCommand Doors
 lc:scpdy_itemGroup_lockdownDoors=§7SCP:DY §8| §fLockdown Doors
-lc:scpdy_itemGroup_mechanicalDoors=§7SCP:DY §8| §fMechanical Doors
 lc:scpdy_itemGroup_standardDoors=§7SCP:DY §8| §fStandard Doors
 lc:scpdy_itemGroup_lockdownAlarms=§7SCP:DY §8| §fLockdown Alarms
 lc:scpdy_itemGroup_lockdownPanels=§7SCP:DY §8| §fLockdown Panels
@@ -608,15 +607,6 @@ tile.lc:scpdy_lockdown_door_n2.name=§dLockdown Door (Network 2)
 tile.lc:scpdy_lockdown_door_n3.name=§dLockdown Door (Network 3)
 tile.lc:scpdy_lockdown_door_n4.name=§dLockdown Door (Network 4)
 tile.lc:scpdy_lockdown_door_n5.name=§dLockdown Door (Network 5)
-
-## blocks -> door -> mechanical -> doors -> ...
-tile.lc:scpdy_mechanical_door_1.name=Mechanical Door 1
-tile.lc:scpdy_mechanical_door_2.name=Mechanical Door 2
-tile.lc:scpdy_mechanical_door_3.name=Mechanical Door 3
-tile.lc:scpdy_mechanical_door_4.name=Mechanical Door 4
-tile.lc:scpdy_mechanical_door_5.name=Mechanical Door 5
-tile.lc:scpdy_mechanical_door_6.name=Mechanical Door 6
-tile.lc:scpdy_mechanical_door_7.name=O5 Mechanical Door
 
 ## blocks -> door -> mechanical -> ...
 tile.lc:scpdy_door_activator.name=Mech Door Activator

@@ -340,29 +340,6 @@
 			"textures": "textures/scpdy/blocks/door/mechanical/door_activator/bottom"
 		},
 		// #endregion
-		// #region door -> mechanical -> doors
-		"scpdy_mechanical_door_1": {
-			"textures": "textures/scpdy/blocks/door/mechanical/doors/door_1"
-		},
-		"scpdy_mechanical_door_2": {
-			"textures": "textures/scpdy/blocks/door/mechanical/doors/door_2"
-		},
-		"scpdy_mechanical_door_3": {
-			"textures": "textures/scpdy/blocks/door/mechanical/doors/door_3"
-		},
-		"scpdy_mechanical_door_4": {
-			"textures": "textures/scpdy/blocks/door/mechanical/doors/door_4"
-		},
-		"scpdy_mechanical_door_5": {
-			"textures": "textures/scpdy/blocks/door/mechanical/doors/door_5"
-		},
-		"scpdy_mechanical_door_6": {
-			"textures": "textures/scpdy/blocks/door/mechanical/doors/door_6"
-		},
-		"scpdy_mechanical_door_7": {
-			"textures": "textures/scpdy/blocks/door/mechanical/doors/door_7"
-		},
-		// #endregion
 		// #endregion
 		// #region door -> standard
 		"scpdy_standard_door_1": {
@@ -525,6 +502,9 @@
 		},
 		"scpdy_alphanumeric_chars_black": {
 			"textures": "textures/scpdy/blocks/misc/alphanumeric_chars/black"
+		},
+		"scpdy_old_upgrade_notice": {
+			"textures": "textures/scpdy/blocks/misc/old_upgrade_notice"
 		},
 		"scpdy_rb_placeholder": {
 			"textures": "textures/scpdy/blocks/misc/rb_placeholder"

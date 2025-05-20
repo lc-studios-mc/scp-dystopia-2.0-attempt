@@ -438,28 +438,6 @@
 	"lc:scpdy_door_activator": {
 		"sound": "metal"
 	},
-	// #region door -> mechanical -> doors
-	"lc:scpdy_mechanical_door_1": {
-		"sound": "metal"
-	},
-	"lc:scpdy_mechanical_door_2": {
-		"sound": "metal"
-	},
-	"lc:scpdy_mechanical_door_3": {
-		"sound": "metal"
-	},
-	"lc:scpdy_mechanical_door_4": {
-		"sound": "metal"
-	},
-	"lc:scpdy_mechanical_door_5": {
-		"sound": "metal"
-	},
-	"lc:scpdy_mechanical_door_6": {
-		"sound": "metal"
-	},
-	"lc:scpdy_mechanical_door_7": {
-		"sound": "netherite"
-	},
 	// #endregion
 	// #region door -> standard
 	"lc:scpdy_standard_door_1": {
