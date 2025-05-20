@@ -204,11 +204,11 @@
 					"minecraft:light_dampening": 13,
 					"minecraft:collision_box": {
 						"origin": [-8, 0, -1],
-						"size": [15, 16, 2]
+						"size": [16, 16, 2]
 					},
 					"minecraft:selection_box": {
 						"origin": [-8, 0, -1],
-						"size": [15, 16, 2]
+						"size": [16, 16, 2]
 					}
 				}
 			},
@@ -219,11 +219,11 @@
 					"minecraft:light_dampening": 10,
 					"minecraft:collision_box": {
 						"origin": [-8, 0, -1],
-						"size": [14, 16, 2]
+						"size": [16, 16, 2]
 					},
 					"minecraft:selection_box": {
 						"origin": [-8, 0, -1],
-						"size": [14, 16, 2]
+						"size": [16, 16, 2]
 					}
 				}
 			},
@@ -234,11 +234,11 @@
 					"minecraft:light_dampening": 6,
 					"minecraft:collision_box": {
 						"origin": [-8, 0, -1],
-						"size": [13, 16, 2]
+						"size": [16, 16, 2]
 					},
 					"minecraft:selection_box": {
 						"origin": [-8, 0, -1],
-						"size": [13, 16, 2]
+						"size": [16, 16, 2]
 					}
 				}
 			},
@@ -249,11 +249,11 @@
 					"minecraft:light_dampening": 3,
 					"minecraft:collision_box": {
 						"origin": [-8, 0, -1],
-						"size": [12, 16, 2]
+						"size": [16, 16, 2]
 					},
 					"minecraft:selection_box": {
 						"origin": [-8, 0, -1],
-						"size": [12, 16, 2]
+						"size": [16, 16, 2]
 					}
 				}
 			},
@@ -264,11 +264,11 @@
 					"minecraft:light_dampening": 0,
 					"minecraft:collision_box": {
 						"origin": [-8, 0, -1],
-						"size": [11, 16, 2]
+						"size": [16, 16, 2]
 					},
 					"minecraft:selection_box": {
 						"origin": [-8, 0, -1],
-						"size": [11, 16, 2]
+						"size": [16, 16, 2]
 					}
 				}
 			},
@@ -279,11 +279,11 @@
 					"minecraft:light_dampening": 0,
 					"minecraft:collision_box": {
 						"origin": [-8, 0, -1],
-						"size": [10, 16, 2]
+						"size": [16, 16, 2]
 					},
 					"minecraft:selection_box": {
 						"origin": [-8, 0, -1],
-						"size": [10, 16, 2]
+						"size": [16, 16, 2]
 					}
 				}
 			},
@@ -294,11 +294,11 @@
 					"minecraft:light_dampening": 0,
 					"minecraft:collision_box": {
 						"origin": [-8, 0, -1],
-						"size": [9, 16, 2]
+						"size": [16, 16, 2]
 					},
 					"minecraft:selection_box": {
 						"origin": [-8, 0, -1],
-						"size": [9, 16, 2]
+						"size": [16, 16, 2]
 					}
 				}
 			},
@@ -307,13 +307,10 @@
 				"condition": "q.block_state('lc:step_major') == 2 && q.block_state('lc:step_minor') == 0",
 				"components": {
 					"minecraft:light_dampening": 0,
-					"minecraft:collision_box": {
-						"origin": [-8, 0, -1],
-						"size": [8, 16, 2]
-					},
+					"minecraft:collision_box": false,
 					"minecraft:selection_box": {
 						"origin": [-8, 0, -1],
-						"size": [8, 16, 2]
+						"size": [16, 16, 2]
 					}
 				}
 			},
@@ -322,13 +319,10 @@
 				"condition": "q.block_state('lc:step_major') == 2 && q.block_state('lc:step_minor') == 1",
 				"components": {
 					"minecraft:light_dampening": 0,
-					"minecraft:collision_box": {
-						"origin": [-8, 0, -1],
-						"size": [7, 16, 2]
-					},
+					"minecraft:collision_box": false,
 					"minecraft:selection_box": {
 						"origin": [-8, 0, -1],
-						"size": [7, 16, 2]
+						"size": [16, 16, 2]
 					}
 				}
 			},
@@ -337,13 +331,10 @@
 				"condition": "q.block_state('lc:step_major') == 2 && q.block_state('lc:step_minor') == 2",
 				"components": {
 					"minecraft:light_dampening": 0,
-					"minecraft:collision_box": {
-						"origin": [-8, 0, -1],
-						"size": [6, 16, 2]
-					},
+					"minecraft:collision_box": false,
 					"minecraft:selection_box": {
 						"origin": [-8, 0, -1],
-						"size": [6, 16, 2]
+						"size": [16, 16, 2]
 					}
 				}
 			},
@@ -352,13 +343,10 @@
 				"condition": "q.block_state('lc:step_major') == 2 && q.block_state('lc:step_minor') == 3",
 				"components": {
 					"minecraft:light_dampening": 0,
-					"minecraft:collision_box": {
-						"origin": [-8, 0, -1],
-						"size": [5, 16, 2]
-					},
+					"minecraft:collision_box": false,
 					"minecraft:selection_box": {
 						"origin": [-8, 0, -1],
-						"size": [5, 16, 2]
+						"size": [16, 16, 2]
 					}
 				}
 			},
@@ -367,13 +355,10 @@
 				"condition": "q.block_state('lc:step_major') == 3 && q.block_state('lc:step_minor') == 0",
 				"components": {
 					"minecraft:light_dampening": 0,
-					"minecraft:collision_box": {
-						"origin": [-8, 0, -1],
-						"size": [4, 16, 2]
-					},
+					"minecraft:collision_box": false,
 					"minecraft:selection_box": {
 						"origin": [-8, 0, -1],
-						"size": [4, 16, 2]
+						"size": [16, 16, 2]
 					}
 				}
 			},
@@ -382,13 +367,10 @@
 				"condition": "q.block_state('lc:step_major') == 3 && q.block_state('lc:step_minor') == 1",
 				"components": {
 					"minecraft:light_dampening": 0,
-					"minecraft:collision_box": {
-						"origin": [-8, 0, -1],
-						"size": [3, 16, 2]
-					},
+					"minecraft:collision_box": false,
 					"minecraft:selection_box": {
 						"origin": [-8, 0, -1],
-						"size": [3, 16, 2]
+						"size": [16, 16, 2]
 					}
 				}
 			},
@@ -397,13 +379,10 @@
 				"condition": "q.block_state('lc:step_major') == 3 && q.block_state('lc:step_minor') == 2",
 				"components": {
 					"minecraft:light_dampening": 0,
-					"minecraft:collision_box": {
-						"origin": [-8, 0, -1],
-						"size": [2, 16, 2]
-					},
+					"minecraft:collision_box": false,
 					"minecraft:selection_box": {
 						"origin": [-8, 0, -1],
-						"size": [2, 16, 2]
+						"size": [16, 16, 2]
 					}
 				}
 			},
@@ -415,7 +394,7 @@
 					"minecraft:collision_box": false,
 					"minecraft:selection_box": {
 						"origin": [-8, 0, -1],
-						"size": [1, 16, 2]
+						"size": [16, 16, 2]
 					}
 				}
 			}
