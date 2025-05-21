@@ -16,3 +16,5 @@ import "./logic/uncategorized";
 import "./logic/weapons";
 
 import "./features";
+
+import "./old_feature_upgrades/v1";
