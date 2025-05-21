@@ -318,21 +318,6 @@
 
 		// #region door -> mechanical
 
-		// #region door -> mechanical -> door_activator
-		"scpdy_door_activator_top_off": {
-			"textures": "textures/scpdy/blocks/door/mechanical/door_activator/top_off"
-		},
-		"scpdy_door_activator_top_on": {
-			"textures": "textures/scpdy/blocks/door/mechanical/door_activator/top_on"
-		},
-		"scpdy_door_activator_side": {
-			"textures": "textures/scpdy/blocks/door/mechanical/door_activator/side"
-		},
-		"scpdy_door_activator_bottom": {
-			"textures": "textures/scpdy/blocks/door/mechanical/door_activator/bottom"
-		},
-		// #endregion
-
 		// #endregion
 
 		// #region door -> standard

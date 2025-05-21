@@ -123,9 +123,6 @@ scpdy.actionHint.misc.accessGranted=§aACCESS GRANTED
 scpdy.actionHint.misc.accessDenied=§cACCESS DENIED
 scpdy.actionHint.misc.o5PermissionRequired=§cO5 PERMISSION REQUIRED
 
-scpdy.actionHint.doorActivator.redstoneDetectionOff=Redstone Detection: §cOFF
-scpdy.actionHint.doorActivator.redstoneDetectionOn=Redstone Detection: §aON
-
 scpdy.actionHint.controlDevice.changeMode0=Mode set to 0 §7-§f Mechanical Door activation
 scpdy.actionHint.controlDevice.changeMode1=Mode set to 1 §7-§f Open/Close the closest Blast Door
 scpdy.actionHint.controlDevice.changeMode2=Mode set to 2 §7-§f Place a redstone block 3 meters below
@@ -209,8 +206,6 @@ scpdy.msg.cctvTablet.removedServerLink=§aRemoved CCTV Server link.
 scpdy.msg.cctvTablet.cameraUnavailable=§cThe camera you selected is unavailable.
 
 scpdy.msg.config.restricted=§cOnly the world leader and players with operator-level permissions can use this item!
-
-scpdy.msg.doorActivator.redstoneLagWarning=§eMech Door Activator with redstone detection enabled can cause significant lag when placed in large numbers within a simulated chunk.
 
 scpdy.msg.controlDevice.modeTip=§dYou can use wrench to change the mode of a Button or a Keycard Reader.
 scpdy.msg.controlDevice.rbPlaceholderIsAbsent=§eNo Redstone Block Placeholder was found at corresponding location.
@@ -346,7 +341,6 @@ scpdy.form.cctvTablet.chooseCamera.button.cameraElement=%s: %s
 scpdy.form.cctvTablet.chooseCamera.button.cameraElementError=%s: §cCONNECTION ERROR
 
 scpdy.form.controlDevice.modeDropdown.label=Control Device Mode
-scpdy.form.controlDevice.modeDropdown.opt0=Power a Door Activator
 scpdy.form.controlDevice.modeDropdown.opt1=Control the nearest Blast Door
 scpdy.form.controlDevice.modeDropdown.opt2=Place a Redstone Block below
 scpdy.form.controlDevice.modeDropdown.opt3=Place a Redstone Block behind
@@ -601,9 +595,6 @@ tile.lc:scpdy_lockdown_door_n2.name=§dLockdown Door (Network 2)
 tile.lc:scpdy_lockdown_door_n3.name=§dLockdown Door (Network 3)
 tile.lc:scpdy_lockdown_door_n4.name=§dLockdown Door (Network 4)
 tile.lc:scpdy_lockdown_door_n5.name=§dLockdown Door (Network 5)
-
-## blocks -> door -> mechanical -> ...
-tile.lc:scpdy_door_activator.name=Mech Door Activator
 
 ## blocks -> door -> standard -> ...
 tile.lc:scpdy_standard_door_1.name=Standard Door 1

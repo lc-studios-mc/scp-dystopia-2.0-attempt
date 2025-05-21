@@ -1,5 +1,4 @@
 import { switchClosestBlastDoor } from "@logic/blastDoor/blastDoor";
-import { tryPowerDoorActivator } from "@logic/blocks/door/doorActivator";
 import * as mc from "@minecraft/server";
 import { activateRbPlaceholder } from "./rbPlaceholder";
 
@@ -117,4 +116,8 @@ function activateRbPlaceholderBelow(controlDeviceBlock: mc.Block): boolean {
 function activateRbPlaceholderBehind(controlDeviceBlock: mc.Block): boolean {
 	const block = getBlockBehindControlDeviceBlock(controlDeviceBlock, 2);
 	return activateRbPlaceholder(block);
+}
+
+function tryPowerDoorActivator(...args: unknown[]): boolean {
+	throw new Error("Door Activator is no longer available.");
 }

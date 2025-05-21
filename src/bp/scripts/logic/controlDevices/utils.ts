@@ -1,7 +1,6 @@
 import { getBlockCardinalDirection, getRelativeBlock } from "@lib/utils/blockUtils";
 import { rotationToDirection } from "@lib/utils/miscUtils";
 import { controlBlastDoor, getNearestBlastDoor } from "@logic/blastDoor/blastDoor";
-import { tryPowerDoorActivator } from "@logic/blocks/door/doorActivator";
 import * as mc from "@minecraft/server";
 import { ModalFormData } from "@minecraft/server-ui";
 import { activateRbPlaceholder, tellRbPlaceholderIsMissing } from "./rbPlaceholder";
@@ -155,4 +154,8 @@ export function setControlDeviceMode(controlDevice: mc.Block | mc.Entity, value:
 	} catch {
 		throw new Error("Failed to set control device mode");
 	}
+}
+
+function tryPowerDoorActivator(...args: unknown[]): boolean {
+	throw new Error("Door Activator is no longer available.");
 }

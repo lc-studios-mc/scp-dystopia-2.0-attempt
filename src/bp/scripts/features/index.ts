@@ -5,3 +5,4 @@ import "./player_loop";
 
 import "./doors";
 import "./machinery";
+import "./uncategorizable";

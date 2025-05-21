@@ -1,0 +1,33 @@
+// Door Activator will be converted to Caution Block 3 automatically since 2.0.0 Alpha 4
+{
+	"format_version": "1.21.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "lc:scpdy_door_activator",
+			"menu_category": {
+				"category": "none",
+				"is_hidden_in_commands": true
+			},
+			"states": {
+				"lc:ticks_until_power_off": { "values": { "min": 0, "max": 15 } },
+				"lc:detect_redstone": [false, true]
+			}
+		},
+		"components": {
+			"scpdy:change_block_type_on_tick": {
+				"newType": "lc:scpdy_cst_caution_block_3"
+			},
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "scpdy_old_upgrade_notice",
+					"render_method": "opaque"
+				}
+			},
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:tick": {
+				"interval_range": [1, 1], // Run upgrade immediately
+				"looping": true
+			}
+		}
+	}
+}

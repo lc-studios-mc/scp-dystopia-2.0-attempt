@@ -419,11 +419,6 @@
 		"sound": "netherite"
 	},
 	// #endregion
-	// #region door -> mechanical
-	"lc:scpdy_door_activator": {
-		"sound": "metal"
-	},
-	// #endregion
 	// #region door -> standard
 	"lc:scpdy_standard_door_1": {
 		"sound": "wood"
