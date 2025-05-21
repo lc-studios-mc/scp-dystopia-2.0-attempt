@@ -44,6 +44,8 @@ const COMPONENT: mc.BlockCustomComponent = {
 		const maxStepIndex = DEFAULT_MAX_STEP_INDEX;
 
 		const isBottomPart = Boolean(block.permutation.getState(STATE.isBottomPart));
+		if (!isBottomPart) return; // Only the bottom part should simulate
+
 		const otherPartBlock = isBottomPart ? block.above() : block.below();
 		if (!otherPartBlock || otherPartBlock.typeId !== block.typeId) return;
 
