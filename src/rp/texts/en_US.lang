@@ -1,3 +1,10 @@
+## --- construction ---
+
+tile.lc:scpdy_cst_caution_block_1.name=Caution Block 1
+tile.lc:scpdy_cst_caution_block_2.name=Caution Block 2
+tile.lc:scpdy_cst_caution_block_3.name=Caution Block 3
+
+
 ## --- doors ---
 
 ## relay doors

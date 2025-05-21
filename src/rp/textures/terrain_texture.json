@@ -53,6 +53,15 @@
 		"scpdy_cst_black_checker_tiles": {
 			"textures": "textures/scpdy/blocks/construction/black_checker_tiles"
 		},
+		"scpdy_cst_caution_block_1": {
+			"textures": "textures/scpdy/blocks/construction/caution_block_1"
+		},
+		"scpdy_cst_caution_block_2": {
+			"textures": "textures/scpdy/blocks/construction/caution_block_2"
+		},
+		"scpdy_cst_caution_block_3": {
+			"textures": "textures/scpdy/blocks/construction/caution_block_3"
+		},
 		"scpdy_cst_floor_tiles": {
 			"textures": "textures/scpdy/blocks/construction/floor_tiles"
 		},

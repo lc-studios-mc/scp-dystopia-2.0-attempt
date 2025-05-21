@@ -48,6 +48,18 @@
 		"sound": "stone",
 		"textures": "scpdy_cst_black_checker_tiles"
 	},
+	"lc:scpdy_cst_caution_block_1": {
+		"sound": "stone",
+		"textures": "scpdy_cst_caution_block_1"
+	},
+	"lc:scpdy_cst_caution_block_2": {
+		"sound": "stone",
+		"textures": "scpdy_cst_caution_block_2"
+	},
+	"lc:scpdy_cst_caution_block_3": {
+		"sound": "stone",
+		"textures": "scpdy_cst_caution_block_3"
+	},
 	"lc:scpdy_cst_cushion": {
 		"sound": "cloth",
 		"textures": "scpdy_cst_cushion"
