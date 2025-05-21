@@ -209,32 +209,6 @@
 			"textures": "textures/scpdy/blocks/construction_3d/vent"
 		},
 		// #endregion
-		// #region control_devices
-		"scpdy_button": {
-			"textures": "textures/scpdy/control_devices/button"
-		},
-		"scpdy_keycard_reader_lvl_0": {
-			"textures": "textures/scpdy/control_devices/keycard_reader/lvl_0"
-		},
-		"scpdy_keycard_reader_lvl_1": {
-			"textures": "textures/scpdy/control_devices/keycard_reader/lvl_1"
-		},
-		"scpdy_keycard_reader_lvl_2": {
-			"textures": "textures/scpdy/control_devices/keycard_reader/lvl_2"
-		},
-		"scpdy_keycard_reader_lvl_3": {
-			"textures": "textures/scpdy/control_devices/keycard_reader/lvl_3"
-		},
-		"scpdy_keycard_reader_lvl_4": {
-			"textures": "textures/scpdy/control_devices/keycard_reader/lvl_4"
-		},
-		"scpdy_keycard_reader_lvl_5": {
-			"textures": "textures/scpdy/control_devices/keycard_reader/lvl_5"
-		},
-		"scpdy_keycard_reader_o5": {
-			"textures": "textures/scpdy/control_devices/keycard_reader/o5"
-		},
-		// #endregion
 		// #region decor
 		// #region decor -> vent
 		"scpdy_decor_vent_1": {

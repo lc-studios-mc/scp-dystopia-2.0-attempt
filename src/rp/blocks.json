@@ -362,33 +362,6 @@
 	},
 	// #endregion
 
-	// #region control_devices
-	"lc:scpdy_door_button": {
-		"sound": "copper"
-	},
-	"lc:scpdy_keycard_reader_lvl_0": {
-		"sound": "copper"
-	},
-	"lc:scpdy_keycard_reader_lvl_1": {
-		"sound": "copper"
-	},
-	"lc:scpdy_keycard_reader_lvl_2": {
-		"sound": "copper"
-	},
-	"lc:scpdy_keycard_reader_lvl_3": {
-		"sound": "copper"
-	},
-	"lc:scpdy_keycard_reader_lvl_4": {
-		"sound": "copper"
-	},
-	"lc:scpdy_keycard_reader_lvl_5": {
-		"sound": "copper"
-	},
-	"lc:scpdy_keycard_reader_o5": {
-		"sound": "copper"
-	},
-	// #endregion
-
 	// #region decor
 	// #region decor -> vent
 	"lc:scpdy_decor_vent_1": {

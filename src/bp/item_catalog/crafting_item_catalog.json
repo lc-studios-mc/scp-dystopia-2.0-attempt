@@ -254,28 +254,7 @@
 				"category_name": "items",
 				"groups": [
 					{
-						"group_identifier": {
-							"name": "lc:scpdy_itemGroup_buttons"
-						},
-						"items": ["lc:scpdy_door_button"]
-					},
-					{
 						"items": ["lc:scpdy_keypad_placer"]
-					},
-					{
-						"group_identifier": {
-							"icon": "lc:scpdy_keycard_reader_lvl_0",
-							"name": "lc:scpdy_itemGroup_keycardReaders"
-						},
-						"items": [
-							"lc:scpdy_keycard_reader_lvl_0",
-							"lc:scpdy_keycard_reader_lvl_1",
-							"lc:scpdy_keycard_reader_lvl_2",
-							"lc:scpdy_keycard_reader_lvl_3",
-							"lc:scpdy_keycard_reader_lvl_4",
-							"lc:scpdy_keycard_reader_lvl_5",
-							"lc:scpdy_keycard_reader_o5"
-						]
 					},
 					{
 						"group_identifier": {

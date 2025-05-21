@@ -84,7 +84,6 @@ lc:scpdy_itemGroup_gun_mags=§7SCP:DY §8| §fGun Magazines
 lc:scpdy_itemGroup_constructionBlocks=§7SCP:DY §8| §fConstruction
 lc:scpdy_itemGroup_constructionWallBlocks=§7SCP:DY §8| §fConstruction (Walls)
 lc:scpdy_itemGroup_3dConstructionBlocks=§7SCP:DY §8| §f3D Construction Blocks
-lc:scpdy_itemGroup_keycardReaders=§7SCP:DY §8| §fKeycard Readers
 lc:scpdy_itemGroup_furnitureAndDecor=§7SCP:DY §8| §fFurniture & Decoration
 lc:scpdy_itemGroup_plushies=§7SCP:DY §8| §fPlushies
 lc:scpdy_itemGroup_booleanDoors=§7SCP:DY §8| §fBoolean Doors
@@ -576,18 +575,6 @@ tile.lc:scpdy_steel_beam.name=Steel Beam
 tile.lc:scpdy_steel_truss.name=Steel Truss
 tile.lc:scpdy_vent_openable.name=Vent (Openable)
 tile.lc:scpdy_vent.name=Vent
-
-## blocks -> control_devices -> keycard_reader -> ...
-tile.lc:scpdy_keycard_reader_lvl_0.name=SCP Keycard Reader (Level 0)
-tile.lc:scpdy_keycard_reader_lvl_1.name=SCP Keycard Reader (Level 1)
-tile.lc:scpdy_keycard_reader_lvl_2.name=SCP Keycard Reader (Level 2)
-tile.lc:scpdy_keycard_reader_lvl_3.name=SCP Keycard Reader (Level 3)
-tile.lc:scpdy_keycard_reader_lvl_4.name=SCP Keycard Reader (Level 4)
-tile.lc:scpdy_keycard_reader_lvl_5.name=SCP Keycard Reader (Level 5)
-tile.lc:scpdy_keycard_reader_o5.name=SCP Keycard Reader (O5)
-
-## blocks -> control_devices -> ...
-tile.lc:scpdy_door_button.name=Button
 
 ## blocks -> decor -> vent -> ...
 tile.lc:scpdy_decor_vent_1.name=Decorative Vent 1
