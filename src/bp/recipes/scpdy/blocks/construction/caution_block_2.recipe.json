@@ -7,8 +7,9 @@
 		"tags": ["crafting_table"],
 		// prettier-ignore
 		"pattern": [
-			"YX",
-			"XY"
+			"Y ",
+			"XY",
+			" X"
 		],
 		"key": {
 			"X": {
