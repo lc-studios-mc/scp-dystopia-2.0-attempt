@@ -9,7 +9,6 @@
 				"is_hidden_in_commands": true
 			},
 			"states": {
-				"lc:ticks_until_power_off": { "values": { "min": 0, "max": 15 } },
 				"lc:detect_redstone": [false, true]
 			}
 		},

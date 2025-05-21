@@ -9,9 +9,7 @@
 				"is_hidden_in_commands": true
 			},
 			"states": {
-				"lc:is_lower_part": [true, false],
-				"lc:ticks_until_power_off": { "values": { "min": 0, "max": 2 } },
-				"lc:door_open_progress": { "values": { "min": 0, "max": 15 } }
+				"lc:is_lower_part": [true, false]
 			},
 			"traits": {
 				"minecraft:placement_direction": {
