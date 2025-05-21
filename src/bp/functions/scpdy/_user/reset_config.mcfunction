@@ -1,1 +1,0 @@
-scriptevent scpdy:reset_config
