@@ -1,1 +1,1 @@
-import "./relay_door_component";
+import "./relay_door";
