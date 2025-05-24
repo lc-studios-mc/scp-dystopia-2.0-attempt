@@ -9,6 +9,7 @@ export function spawnOrReactivateRbAnchor(block: mc.Block, sexTilDeath = 5): boo
 	block.setType("minecraft:redstone_block");
 
 	const alrExistingRbAnchor = block.dimension.getEntities({
+		type: RB_ANCHOR_ENTITY_TYPE,
 		maxDistance: 1,
 		location: block.center(),
 		closest: 1,
