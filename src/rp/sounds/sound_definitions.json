@@ -212,9 +212,9 @@
 			"max_distance": 15.0,
 			"min_distance": null,
 			"sounds": [
-				"sounds/scpdy/door/classic_door_3_open_1",
-				"sounds/scpdy/door/classic_door_3_open_2",
-				"sounds/scpdy/door/classic_door_3_open_3"
+				{ "name": "sounds/scpdy/door/classic_door_3_open_1", "volume": 0.7 },
+				{ "name": "sounds/scpdy/door/classic_door_3_open_2", "volume": 0.7 },
+				{ "name": "sounds/scpdy/door/classic_door_3_open_3", "volume": 0.7 }
 			]
 		},
 		"scpdy.door.classic_door_3.close": {
@@ -223,9 +223,9 @@
 			"max_distance": 15.0,
 			"min_distance": null,
 			"sounds": [
-				"sounds/scpdy/door/classic_door_3_close_1",
-				"sounds/scpdy/door/classic_door_3_close_2",
-				"sounds/scpdy/door/classic_door_3_close_3"
+				{ "name": "sounds/scpdy/door/classic_door_3_close_1", "volume": 0.7 },
+				{ "name": "sounds/scpdy/door/classic_door_3_close_2", "volume": 0.7 },
+				{ "name": "sounds/scpdy/door/classic_door_3_close_3", "volume": 0.7 }
 			]
 		},
 		"scpdy.door.futuristic_door.open": {
