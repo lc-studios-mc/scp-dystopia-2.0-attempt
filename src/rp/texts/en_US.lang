@@ -7,6 +7,10 @@ tile.lc:scpdy_cst_caution_block_3.name=Caution Block 3
 
 ## --- doors ---
 
+## cmd doors
+tile.lc:scpdy_cmd_door_1.name=Command Door
+scpdy.cmdDoor.text.beginnerTip=§aYou can use the command to control a Command Door: §o/scpdy:cmddoor
+
 ## relay doors
 lc:scpdy_itemGroup_relayDoors=§7SCP:DY §8- §fRelay Doors
 tile.lc:scpdy_relay_door_1.name=Relay Door 1

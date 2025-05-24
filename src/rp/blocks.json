@@ -2,6 +2,9 @@
 	"format_version": "1.1.0",
 
 	// #region doors
+	"lc:scpdy_cmd_door_1": {
+		"sound": "iron"
+	},
 	"lc:scpdy_relay_door_1": {
 		"sound": "iron"
 	},
