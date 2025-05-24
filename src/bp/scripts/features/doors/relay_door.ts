@@ -53,7 +53,8 @@ const COMPONENT: mc.BlockCustomComponent = {
 		const { major: currentPowerLevelMajor, minor: currentPowerLevelMinor } = getPowerLevel(block.permutation);
 		const currentPowerLevel = flattenCoordinates(currentPowerLevelMajor, currentPowerLevelMinor, 3);
 		const detectRedstone = Boolean(block.permutation.getState(STATE.detectRedstone));
-		let newPowerLevel = getUpdatedPowerLevel(currentPowerLevel, detectRedstone, block);
+		const isRedstoneDetected = detectRedstone && checkRedstonePower(block);
+		let newPowerLevel = getUpdatedPowerLevel(currentPowerLevel, detectRedstone, block, isRedstoneDetected);
 
 		// --- Step Logic ---
 		const { major: currentStepMajor, minor: currentStepMinor } = getStep(block.permutation);
@@ -84,7 +85,7 @@ const COMPONENT: mc.BlockCustomComponent = {
 				pitch: params.openSound.pitch,
 			});
 		}
-		if (params.closeSound && currentPowerLevel <= 0 && newStepIndex === 14) {
+		if (params.closeSound && !isRedstoneDetected && currentPowerLevel <= 0 && newStepIndex === 14) {
 			dimension.playSound(params.closeSound.id, block.location, {
 				volume: params.closeSound.volume,
 				pitch: params.closeSound.pitch,
@@ -163,12 +164,16 @@ const COMPONENT: mc.BlockCustomComponent = {
 };
 
 // --- Helper Functions for onTick ---
-function getUpdatedPowerLevel(currentPowerLevel: number, detectRedstone: boolean, block: mc.Block): number {
+function getUpdatedPowerLevel(
+	currentPowerLevel: number,
+	detectRedstone: boolean,
+	block: mc.Block,
+	isRedstoneDetected: boolean,
+): number {
 	let newPowerLevel = currentPowerLevel;
 	if (currentPowerLevel > 0 && mc.system.currentTick % POWER_LEVEL_DECREASE_INTERVAL === 0) {
 		newPowerLevel--;
 	}
-	const isRedstoneDetected = detectRedstone && checkRedstonePower(block);
 	if (isRedstoneDetected && newPowerLevel === 0) {
 		newPowerLevel = 1;
 	}
