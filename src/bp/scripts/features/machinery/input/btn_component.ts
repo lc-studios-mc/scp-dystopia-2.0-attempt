@@ -9,6 +9,7 @@ import { randf } from "@/utils/math";
 const STATE = {
 	isPressed: "lc:is_pressed",
 	mode: "lc:mode",
+	rbLifespan: "lc:rb_lifespan",
 } as const;
 
 mc.system.beforeEvents.startup.subscribe((event) => {
@@ -38,6 +39,11 @@ const COMPONENT: mc.BlockCustomComponent = {
 					tooltip: { translate: "scpdy.machinery.input.mode.text.tooltip" },
 				},
 			);
+			formData.slider({ translate: "scpdy.machinery.input.rbLifespan" }, 1, 5, {
+				defaultValue: 5,
+				valueStep: 1,
+				tooltip: "scpdy.machinery.input.rbLifespan.tooltip",
+			});
 
 			const response = await formData.show(arg.player);
 
@@ -46,8 +52,9 @@ const COMPONENT: mc.BlockCustomComponent = {
 
 			const modeIndex = Number(response.formValues[0]);
 			const mode = _getModeStringFromIndex(modeIndex);
+			const rbLifespan = Number(response.formValues[1]);
 
-			const newPermutation = arg.permutationToPlace.withState(STATE.mode, mode);
+			const newPermutation = arg.permutationToPlace.withState(STATE.mode, mode).withState(STATE.rbLifespan, rbLifespan);
 
 			if (!arg.block.isAir && !arg.block.isLiquid) return;
 
@@ -95,6 +102,7 @@ const COMPONENT: mc.BlockCustomComponent = {
 			source: player,
 			block,
 			pulseDirection: dir2,
+			rbLifespan: Number(block.permutation.getState(STATE.rbLifespan)),
 		});
 	},
 	onTick({ block, dimension }) {

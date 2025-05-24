@@ -2,19 +2,16 @@
 	"format_version": "1.19.80",
 	"minecraft:entity": {
 		"description": {
-			"identifier": "lc:scpdy_rb_placeholder_anchor",
+			"identifier": "lc:scpdy_rb_anchor",
+			"runtime_identifier": "minecraft:snowball",
 			"is_spawnable": false,
 			"is_summonable": true,
-			"is_experimental": false
-		},
-		"component_groups": {
-			"timer": {
-				"minecraft:timer": {
-					"looping": false,
-					"time": 5.0,
-					"time_down_event": {
-						"event": "rb_placeholder_anchor:remove"
-					}
+			"is_experimental": false,
+			"properties": {
+				"lc:sex_til_death": {
+					"type": "int",
+					"range": [0, 5],
+					"default": 5
 				}
 			}
 		},
@@ -34,6 +31,13 @@
 					}
 				]
 			},
+			"minecraft:timer": {
+				"looping": true,
+				"time": 1.0,
+				"time_down_event": {
+					"event": "lc:update_script"
+				}
+			},
 			"minecraft:physics": {
 				"has_collision": false,
 				"has_gravity": false
@@ -48,12 +52,7 @@
 			}
 		},
 		"events": {
-			"minecraft:entity_spawned": {
-				"add": {
-					"component_groups": ["timer"]
-				}
-			},
-			"rb_placeholder_anchor:remove": {}
+			"lc:update_script": {}
 		}
 	}
 }

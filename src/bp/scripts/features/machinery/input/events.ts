@@ -12,5 +12,6 @@ export const MachineryInputEvents = new EventEmitter<{
 		source?: mc.Player;
 		block?: mc.Block;
 		entity?: mc.Entity;
+		rbLifespan?: number;
 	};
 }>();

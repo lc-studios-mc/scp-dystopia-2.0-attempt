@@ -28,12 +28,15 @@ scpdy.relayDoor.text.redstoneDetection.warn=§eRelay doors with redstone detecti
 
 ## --- machinery ---
 
+entity.lc:scpdy_rb_anchor.name=Redstone Block Anchor
 scpdy.machinery.input.mode.text=Input Mode
 scpdy.machinery.input.mode.text.tooltip=What happens when you use this input device.
 scpdy.machinery.input.mode.text.powerRelayDoors=Power Relay Door(s)
 scpdy.machinery.input.mode.text.ctrlBlastDoor=Control The Nearest Blast Door
-scpdy.machinery.input.mode.text.placeRbBelow=Place Redstone Block (Below)
-scpdy.machinery.input.mode.text.placeRbBehind=Place Redstone Block (Behind)
+scpdy.machinery.input.mode.text.placeRbBelow=Place Redstone Block (3 Blocks Below)
+scpdy.machinery.input.mode.text.placeRbBehind=Place Redstone Block (2 Blocks Behind)
+scpdy.machinery.input.rbLifespan=Redstone Block Lifespan (Seconds)
+scpdy.machinery.input.rbLifespan.tooltip=How long a Redstone Block should stay after activation.
 
 ## btn
 lc:scpdy_itemGroup_btns=§7SCP:DY §8- §fButtons
