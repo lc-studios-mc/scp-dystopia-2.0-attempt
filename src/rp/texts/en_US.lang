@@ -109,7 +109,6 @@ lc:scpdy_itemGroup_3dConstructionBlocks=§7SCP:DY §8| §f3D Construction Blocks
 lc:scpdy_itemGroup_furnitureAndDecor=§7SCP:DY §8| §fFurniture & Decoration
 lc:scpdy_itemGroup_plushies=§7SCP:DY §8| §fPlushies
 lc:scpdy_itemGroup_booleanDoors=§7SCP:DY §8| §fBoolean Doors
-lc:scpdy_itemGroup_commandDoors=§7SCP:DY §8| §fCommand Doors
 lc:scpdy_itemGroup_lockdownDoors=§7SCP:DY §8| §fLockdown Doors
 lc:scpdy_itemGroup_standardDoors=§7SCP:DY §8| §fStandard Doors
 lc:scpdy_itemGroup_lockdownAlarms=§7SCP:DY §8| §fLockdown Alarms
@@ -600,9 +599,6 @@ tile.lc:scpdy_decor_vent_2.name=Decorative Vent 2
 tile.lc:scpdy_boolean_door_1.name=Boolean Door 1
 tile.lc:scpdy_boolean_door_2.name=Boolean Door 2
 tile.lc:scpdy_boolean_door_3.name=Boolean Door 3
-
-## blocks -> door -> command -> ...
-tile.lc:scpdy_command_door.name=§dCommand Door
 
 ## blocks -> door -> lockdown -> ...
 tile.lc:scpdy_lockdown_door_n1.name=§dLockdown Door (Network 1)

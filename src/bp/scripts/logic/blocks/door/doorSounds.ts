@@ -27,13 +27,6 @@ const MAP = new Map<string, DoorSoundInfo>([
 		},
 	],
 	[
-		"lc:scpdy_command_door",
-		{
-			openSound: { id: "scpdy.door.classic_door_1.open", volume: 1.1 },
-			closeSound: { id: "scpdy.door.classic_door_1.close", volume: 1.1 },
-		},
-	],
-	[
 		"lc:scpdy_lockdown_door_n1",
 		{
 			openSound: { id: "scpdy.door.lockdown_door.open", volume: 1.1 },
