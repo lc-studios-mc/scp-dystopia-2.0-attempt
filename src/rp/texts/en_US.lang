@@ -108,7 +108,6 @@ lc:scpdy_itemGroup_constructionWallBlocks=§7SCP:DY §8| §fConstruction (Walls)
 lc:scpdy_itemGroup_3dConstructionBlocks=§7SCP:DY §8| §f3D Construction Blocks
 lc:scpdy_itemGroup_furnitureAndDecor=§7SCP:DY §8| §fFurniture & Decoration
 lc:scpdy_itemGroup_plushies=§7SCP:DY §8| §fPlushies
-lc:scpdy_itemGroup_booleanDoors=§7SCP:DY §8| §fBoolean Doors
 lc:scpdy_itemGroup_lockdownDoors=§7SCP:DY §8| §fLockdown Doors
 lc:scpdy_itemGroup_standardDoors=§7SCP:DY §8| §fStandard Doors
 lc:scpdy_itemGroup_lockdownAlarms=§7SCP:DY §8| §fLockdown Alarms
@@ -223,8 +222,6 @@ scpdy.msg.config.restricted=§cOnly the world leader and players with operator-l
 
 scpdy.msg.controlDevice.modeTip=§dYou can use wrench to change the mode of a Button or a Keycard Reader.
 scpdy.msg.controlDevice.rbPlaceholderIsAbsent=§eNo Redstone Block Placeholder was found at corresponding location.
-
-scpdy.msg.booleanDoor.clearanceAlreadySet=§cClearance level cannot be changed!
 
 scpdy.msg.keypad.placement.passwordRequired=§cPassword is required!
 scpdy.msg.keypad.placement.passwordTooLong=§cPassword is too long!
@@ -358,9 +355,6 @@ scpdy.form.controlDevice.modeDropdown.label=Control Device Mode
 scpdy.form.controlDevice.modeDropdown.opt1=Control the nearest Blast Door
 scpdy.form.controlDevice.modeDropdown.opt2=Place a Redstone Block below
 scpdy.form.controlDevice.modeDropdown.opt3=Place a Redstone Block behind
-
-scpdy.form.booleanDoor.clearanceOption.title=Set Clearance Level
-scpdy.form.booleanDoor.clearanceOption.body=§cThis cannot be changed later!
 
 scpdy.form.keypad.placementOpts.title=New Keypad
 scpdy.form.keypad.placementOpts.warning=§cThese options cannot be changed later.
@@ -594,11 +588,6 @@ tile.lc:scpdy_vent.name=Vent
 ## blocks -> decor -> vent -> ...
 tile.lc:scpdy_decor_vent_1.name=Decorative Vent 1
 tile.lc:scpdy_decor_vent_2.name=Decorative Vent 2
-
-## blocks -> door -> boolean -> ...
-tile.lc:scpdy_boolean_door_1.name=Boolean Door 1
-tile.lc:scpdy_boolean_door_2.name=Boolean Door 2
-tile.lc:scpdy_boolean_door_3.name=Boolean Door 3
 
 ## blocks -> door -> lockdown -> ...
 tile.lc:scpdy_lockdown_door_n1.name=§dLockdown Door (Network 1)

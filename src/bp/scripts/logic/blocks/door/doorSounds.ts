@@ -6,27 +6,6 @@ export type DoorSoundInfo = {
 //          < Door Type ID, Door Sound Info >
 const MAP = new Map<string, DoorSoundInfo>([
 	[
-		"lc:scpdy_boolean_door_1",
-		{
-			openSound: { id: "scpdy.door.classic_door_1.open", volume: 1.1 },
-			closeSound: { id: "scpdy.door.classic_door_1.close", volume: 1.1 },
-		},
-	],
-	[
-		"lc:scpdy_boolean_door_2",
-		{
-			openSound: { id: "scpdy.door.futuristic_door.open", volume: 1.1 },
-			closeSound: { id: "scpdy.door.futuristic_door.close", volume: 1.1 },
-		},
-	],
-	[
-		"lc:scpdy_boolean_door_3",
-		{
-			openSound: { id: "scpdy.door.futuristic_door.open", volume: 1.1 },
-			closeSound: { id: "scpdy.door.futuristic_door.close", volume: 1.1 },
-		},
-	],
-	[
 		"lc:scpdy_lockdown_door_n1",
 		{
 			openSound: { id: "scpdy.door.lockdown_door.open", volume: 1.1 },

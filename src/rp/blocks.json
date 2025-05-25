@@ -398,17 +398,6 @@
 	// #endregion
 
 	// #region door
-	// #region door -> boolean
-	"lc:scpdy_boolean_door_1": {
-		"sound": "metal"
-	},
-	"lc:scpdy_boolean_door_2": {
-		"sound": "metal"
-	},
-	"lc:scpdy_boolean_door_3": {
-		"sound": "metal"
-	},
-	// #endregion
 	// #region door -> lockdown
 	"lc:scpdy_lockdown_door_n1": {
 		"sound": "netherite"
