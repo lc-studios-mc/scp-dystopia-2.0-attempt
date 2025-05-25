@@ -7,6 +7,19 @@
 				"groups": [
 					{
 						"group_identifier": {
+							"icon": "lc:scpdy_easy_door_1",
+							"name": "lc:scpdy_itemGroup_easyDoors"
+						},
+						// prettier-ignore
+						"items": [
+							"lc:scpdy_easy_door_1",
+							"lc:scpdy_easy_door_2",
+							"lc:scpdy_easy_door_3"
+						]
+					},
+
+					{
+						"group_identifier": {
 							"icon": "lc:scpdy_relay_door_1",
 							"name": "lc:scpdy_itemGroup_relayDoors"
 						},

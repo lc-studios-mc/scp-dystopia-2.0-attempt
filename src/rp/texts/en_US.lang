@@ -11,6 +11,13 @@ tile.lc:scpdy_cst_caution_block_3.name=Caution Block 3
 tile.lc:scpdy_cmd_door_1.name=Command Door
 scpdy.cmdDoor.text.beginnerTip=§aYou can use the command to control a Command Door: §o/scpdy:cmddoor
 
+## easy doors
+lc:scpdy_itemGroup_easyDoors=§7SCP:DY §8- §fEasy Doors
+tile.lc:scpdy_easy_door_1.name=Easy Door 1
+tile.lc:scpdy_easy_door_2.name=Easy Door 2
+tile.lc:scpdy_easy_door_3.name=Easy Door 3
+scpdy.easyDoor=Easy Door
+
 ## relay doors
 lc:scpdy_itemGroup_relayDoors=§7SCP:DY §8- §fRelay Doors
 tile.lc:scpdy_relay_door_1.name=Relay Door 1
@@ -63,6 +70,7 @@ scpdy.config.text.messageOnSaveAndExit=§aSaved changes!
 
 ## --- misc ---
 
+scpdy.misc.text.none=None
 scpdy.misc.text.saveAndExit=Save & Exit
 scpdy.misc.text.wrenchIsRequired=§eWrench is required
 scpdy.misc.text.accessGranted=§aAccess granted!
