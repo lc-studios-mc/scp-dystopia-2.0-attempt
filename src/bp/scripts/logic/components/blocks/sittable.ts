@@ -40,24 +40,26 @@ function onPlayerInteract(arg: mc.BlockComponentPlayerInteractEvent): void {
 
 	const blockDirection = block.permutation.getState("minecraft:cardinal_direction") as CardinalDirection;
 
-	let sittableAnchorTypeId: string;
+	let sittableAnchorSpawnEvent: string;
 
 	switch (blockDirection) {
 		case "north":
-			sittableAnchorTypeId = `${SITTABLE_ANCHOR_TYPE}<sittable_anchor:r180>`;
+			sittableAnchorSpawnEvent = `sittable_anchor:r180`;
 			break;
 		case "east":
-			sittableAnchorTypeId = `${SITTABLE_ANCHOR_TYPE}<sittable_anchor:r270>`;
+			sittableAnchorSpawnEvent = `sittable_anchor:r270`;
 			break;
 		case "west":
-			sittableAnchorTypeId = `${SITTABLE_ANCHOR_TYPE}<sittable_anchor:r90>`;
+			sittableAnchorSpawnEvent = `sittable_anchor:r90`;
 			break;
 		default:
-			sittableAnchorTypeId = `${SITTABLE_ANCHOR_TYPE}`;
+			sittableAnchorSpawnEvent = "minecraft:entity_spawned";
 			break;
 	}
 
-	const sittableAnchor = dimension.spawnEntity(sittableAnchorTypeId, sitLoc);
+	const sittableAnchor = dimension.spawnEntity(SITTABLE_ANCHOR_TYPE, sitLoc, {
+		spawnEvent: sittableAnchorSpawnEvent,
+	});
 
 	mc.system.run(() => {
 		const rideable = sittableAnchor.getComponent("rideable");
