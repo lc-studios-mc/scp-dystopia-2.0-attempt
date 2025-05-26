@@ -148,24 +148,26 @@ function onPlayerInteract(arg: mc.BlockComponentPlayerInteractEvent): void {
 
 	const blockDirection = block.permutation.getState("minecraft:cardinal_direction") as CardinalDirection;
 
-	let rideableEntityTypeId: string;
+	let rideableEntitySpawnEvent: string;
 
 	switch (blockDirection) {
 		case "north":
-			rideableEntityTypeId = `${TOILET_RIDEABLE_ENTITY_TYPE}<toilet_rideable:r180>`;
+			rideableEntitySpawnEvent = `toilet_rideable:r180`;
 			break;
 		case "east":
-			rideableEntityTypeId = `${TOILET_RIDEABLE_ENTITY_TYPE}<toilet_rideable:r270>`;
+			rideableEntitySpawnEvent = `toilet_rideable:r270`;
 			break;
 		case "west":
-			rideableEntityTypeId = `${TOILET_RIDEABLE_ENTITY_TYPE}<toilet_rideable:r90>`;
+			rideableEntitySpawnEvent = `toilet_rideable:r90`;
 			break;
 		default:
-			rideableEntityTypeId = `${TOILET_RIDEABLE_ENTITY_TYPE}`;
+			rideableEntitySpawnEvent = "minecraft:entity_spawned";
 			break;
 	}
 
-	const rideableEntity = dimension.spawnEntity(rideableEntityTypeId, sitLoc);
+	const rideableEntity = dimension.spawnEntity(TOILET_RIDEABLE_ENTITY_TYPE, sitLoc, {
+		spawnEvent: rideableEntitySpawnEvent,
+	});
 
 	rideableEntity.getComponent("rideable")!.addRider(player);
 
