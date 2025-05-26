@@ -17,14 +17,16 @@ function onStepOn(arg: mc.BlockComponentStepOnEvent): void {
 
 	if (ticksUntilActiveAgain > 0) return;
 
-	let dashDir = arg.entity.getVelocity();
+	const dashDir = vec3.normalize(arg.entity.getVelocity());
 
-	if (vec3.length(dashDir) < 2) {
-		arg.entity.applyImpulse({
-			x: dashDir.x * 11,
-			y: 0.0,
-			z: dashDir.z * 11,
-		});
+	if (vec3.length(dashDir) < 5) {
+		arg.entity.applyKnockback(
+			{
+				x: dashDir.x * 8,
+				z: dashDir.z * 8,
+			},
+			0.04,
+		);
 	}
 
 	arg.entity.addEffect("speed", 50, {
