@@ -18,7 +18,8 @@ _Most_ notable changes to this project will be documented in this file.
 
 ### Fixed
 
-- Dash Block did not boost user's velocity.
+- Toilets and Chairs are not sittable.
+- Dash Block does not work.
 
 ### Removed
 
