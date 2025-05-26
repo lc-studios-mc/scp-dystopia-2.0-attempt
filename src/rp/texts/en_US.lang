@@ -31,6 +31,7 @@ tile.lc:scpdy_relay_door_8.name=Relay Door 8
 scpdy.relayDoor.text.redstoneDetection.off=Redstone Detection: §7OFF
 scpdy.relayDoor.text.redstoneDetection.on=Redstone Detection: §eON
 scpdy.relayDoor.text.redstoneDetection.warn=§eRelay doors with redstone detection can significantly degrade performance when placed in large numbers in a small area.
+scpdy.relayDoor.tip=§aYou can control a Relay Door with a button or a keycard reader, and you can also use a wrench to toggle redstone detection on/off (it will try to detect redstone 2 blocks down).
 
 
 ## --- machinery ---

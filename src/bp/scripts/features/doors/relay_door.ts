@@ -92,6 +92,21 @@ const COMPONENT: mc.BlockCustomComponent = {
 			});
 		}
 	},
+	beforeOnPlayerPlace({ player }) {
+		if (!player) return;
+
+		// Show tip for beginners. In-game tips are very important!
+		mc.system.run(() => {
+			if (!player.addTag("scpdy_sent_relay_door_tip")) return;
+
+			mc.system.runTimeout(() => {
+				if (!player || !player.isValid) return;
+
+				player.sendMessage({ translate: "scpdy.relayDoor.tip" });
+				player.playSound("random.orb");
+			}, 8);
+		});
+	},
 	onPlace({ block }) {
 		const isBottomPart = Boolean(block.permutation.getState(STATE.isBottomPart));
 
