@@ -92,6 +92,15 @@ const COMPONENT: mc.BlockCustomComponent = {
 			arg.block.setPermutation(newPermutation);
 
 			arg.dimension.playSound("dig.copper", arg.block.center(), { pitch: randf(0.8, 1.0) });
+
+			// Redstone Block Placeholder tip
+			if (mode !== "placeRbBehind" && mode !== "placeRbBelow") return;
+			if (!arg.player.addTag("scpdy_sent_input_device_rb_tip")) return;
+			mc.system.runTimeout(() => {
+				if (!arg.player || !arg.player.isValid) return;
+				arg.player.sendMessage({ translate: "scpdy.machinery.input.rbMode.tip" });
+				arg.player.playSound("random.orb");
+			}, 8);
 		});
 	},
 	onPlayerInteract({ block, dimension, player }) {
