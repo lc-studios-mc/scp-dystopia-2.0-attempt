@@ -6,19 +6,27 @@ _Most_ notable changes to this project will be documented in this file.
 
 ### Added
 
+- SCP-106.
+- Relay Door, as a direct replacement for Mechanical Door.
+- Easy Door, as a direct replacement for Boolean Door.
+- Command to control a Command Door: `scpdy:cmddoor`.
 - Foundation Researcher mob.
-- Keypad block.
 - SCP plushies.
+- Caution blocks.
 - Sink block.
 - Trash Bin block.
 
 ### Fixed
 
-- Dash Block does not boost user velocity.
+- Dash Block did not boost user's velocity.
 
 ### Removed
 
-- Slasher (in favor of [standalone version](https://www.curseforge.com/minecraft-bedrock/addons/slasher-sword))
+- Mechanical Door.
+- Mechanical Door Activator.
+- Boolean Door.
+- Config Editor item (run the command `/scpdy:configeditor` instead).
+- Slasher (in favor of the [standalone version](https://www.curseforge.com/minecraft-bedrock/addons/slasher-sword))
 
 ## [2.0.0 Alpha 3] - 2025-03-27
 
