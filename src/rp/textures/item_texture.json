@@ -119,9 +119,6 @@
 		},
 		// #endregion
 		// #region utility
-		"scpdy_config_icon": {
-			"textures": "textures/scpdy/items/utility/config_icon"
-		},
 		"scpdy_facility_network_manager_icon": {
 			"textures": "textures/scpdy/items/utility/facility_network_manager_icon"
 		},

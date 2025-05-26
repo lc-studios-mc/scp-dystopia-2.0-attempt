@@ -482,8 +482,6 @@ item.lc:scpdy_scp427_open.name=SCP-427
 item.lc:scpdy_scp427.name=SCP-427
 
 ## items -> utility -> ...
-item.lc:scpdy_config.name=Config (SCP: Dystopia 2.0+)
-item.lc:scpdy_config.interact=Edit Config
 item.lc:scpdy_facility_network_manager.name=Facility Network Manager
 item.lc:scpdy_wrench.name=Wrench (SCP: Dystopia 2.0+)
 
