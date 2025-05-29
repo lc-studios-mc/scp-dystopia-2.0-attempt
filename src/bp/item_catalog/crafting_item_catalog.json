@@ -298,6 +298,9 @@
 						]
 					},
 					{
+						"items": ["lc:scpdy_fnet_manager"]
+					},
+					{
 						"group_identifier": {
 							"icon": "lc:scpdy_ammo_9mm",
 							"name": "lc:scpdy_itemGroup_ammo"

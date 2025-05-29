@@ -4,5 +4,6 @@ import "./config";
 import "./player_loop";
 
 import "./doors";
+import "./fnet";
 import "./machinery";
 import "./uncategorizable";

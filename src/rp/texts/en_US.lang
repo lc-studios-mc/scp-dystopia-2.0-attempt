@@ -34,6 +34,23 @@ scpdy.relayDoor.text.redstoneDetection.warn=§eRelay doors with redstone detecti
 scpdy.relayDoor.tip=§aYou can control a Relay Door with a button or a keycard reader, and you can also use a wrench to toggle redstone detection on/off (it will try to detect redstone 2 blocks down).
 
 
+## --- facility network (fnet) ---
+
+scpdy.fnet.nonameX=Facility Network %s
+scpdy.fnet.customNameX=Net. %s - "%s"
+
+scpdy.fzone.nonameX=Zone %s
+scpdy.fzone.customNameX=Zone %s - "%s"
+
+scpdy.fnetManager=Facility Network Manager
+scpdy.fnetManager.interact_button=Open Menu
+scpdy.fnetManager.selectFnetToEdit=Select the facility network you want to edit.
+scpdy.fnetManager.selectedX=§7Selected:§f %s
+scpdy.fnetManager.changeName=Change Name
+scpdy.fnetManager.changeZoneNames=Change Zone Names
+scpdy.fnetManager.youCanEditZoneNames=You can edit the name of each zone!
+
+
 ## --- machinery ---
 
 entity.lc:scpdy_rb_anchor.name=Redstone Block Anchor
@@ -75,6 +92,9 @@ scpdy.config.text.messageOnSaveAndExit=§aSaved changes!
 scpdy.misc.text.none=None
 scpdy.misc.text.saveAndExit=Save & Exit
 scpdy.misc.text.wrenchIsRequired=§eWrench is required
+scpdy.misc.text.newName=New name
+scpdy.misc.text.enterNewName=Enter new name
+scpdy.misc.text.leaveThisEmptyToReset=Leave this field empty to use default value.
 scpdy.misc.text.accessGranted=§aAccess granted!
 scpdy.misc.text.accessDenied=§aAccess denied.
 scpdy.misc.text.clearanceLevel=Clearance Level
@@ -396,38 +416,6 @@ scpdy.form.lockdownPanel.activate.delayField.placeholder=No delay
 scpdy.form.lockdownPanel.activate.durationField.label=Duration (in seconds)
 scpdy.form.lockdownPanel.activate.durationField.placeholder=Infinity
 scpdy.form.lockdownPanel.activate.submitButton=§4§lACTIVATE
-
-scpdy.form.fnm.instructions.title=Facility Network Manager
-scpdy.form.fnm.instructions.body.line_1=§6Facility Networks§f are data objects that are saved directly into the world itself. This means that a facility network has infinite range within their world.
-scpdy.form.fnm.instructions.body.line_2=There are %s facility network slots, each of them has %s §6facility zone§f slots.
-scpdy.form.fnm.instructions.body.line_3=§bLockdown Door§f and §bAlarm§f are special blocks that can be connected to a facility zone.
-scpdy.form.fnm.instructions.body.line_4=Lockdown Doors will be locked or unlocked based on lockdown status of their zone.
-scpdy.form.fnm.instructions.body.line_5=Just like Lockdown Doors, Alarms will play alarm sounds and become red if lockdown is activated in their zone.
-scpdy.form.fnm.instructions.body.line_6=With this item, you can edit facility networks and zones in this world.
-scpdy.form.fnm.instructions.body.line_7=For details, please read the documentation at §a§oscp-dystopia.lc-studios.net§r§f
-
-scpdy.form.fnm.main.title=Facility Network Manager
-scpdy.form.fnm.main.body=Select a facility network to edit.
-scpdy.form.fnm.main.button=Network %s
-
-scpdy.form.fnm.selectNetworkAction.title=Facility Network %s
-scpdy.form.fnm.selectNetworkAction.body=Select which action to perform on this facility network.
-scpdy.form.fnm.selectNetworkAction.button1=Edit name
-scpdy.form.fnm.selectNetworkAction.button2=Show zone list
-
-scpdy.form.fnm.editNetworkName.title=Edit facility network name
-scpdy.form.fnm.editNetworkName.nameField.label=New name
-scpdy.form.fnm.editNetworkName.nameField.placeholder=Enter new name
-scpdy.form.fnm.editNetworkName.submitButton=Save
-
-scpdy.form.fnm.zoneList.title=Facility zone list
-scpdy.form.fnm.zoneList.body=Select which zone's name you want to change
-scpdy.form.fnm.zoneList.button=Zone %s
-
-scpdy.form.fnm.editZoneName.title=Edit facility zone name
-scpdy.form.fnm.editZoneName.nameField.label=New name
-scpdy.form.fnm.editZoneName.nameField.placeholder=Enter new name
-scpdy.form.fnm.editZoneName.submitButton=Save
 
 ## --- Items
 
