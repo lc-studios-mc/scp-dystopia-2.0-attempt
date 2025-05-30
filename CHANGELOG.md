@@ -13,8 +13,15 @@ _Most_ notable changes to this project will be documented in this file.
 - Foundation Researcher mob.
 - SCP plushies.
 - Caution blocks.
+- Bench block.
+- Cardboard Box 1 block.
+- Microscope block.
+- Office Desk block.
+- Printer block.
+- Radio block.
 - Sink block.
 - Trash Bin block.
+- Water Dispenser block.
 
 ### Fixed
 
