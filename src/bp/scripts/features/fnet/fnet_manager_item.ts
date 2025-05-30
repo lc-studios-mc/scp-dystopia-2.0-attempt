@@ -126,7 +126,7 @@ async function showChangeFzoneNamesForm(player: mc.Player, fnet: Fnet): Promise<
 
 		if (newName === "") {
 			zone.setCustomName(undefined);
-			return;
+			continue;
 		}
 
 		zone.setCustomName(newName);
