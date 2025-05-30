@@ -51,6 +51,48 @@ scpdy.fnetManager.changeZoneNames=Change Zone Names
 scpdy.fnetManager.youCanEditZoneNames=You can edit the name of each zone!
 
 
+## --- furniture ---
+
+lc:scpdy_itemGroup_furnitureAndDecor=§7SCP:DY §8- §fFurniture & Decoration
+
+tile.lc:scpdy_connec_table_1.name=Connec™ Table 1
+tile.lc:scpdy_connec_table_2.name=Connec™ Table 2
+
+tile.lc:scpdy_office_chair_1.name=Office Chair 1
+tile.lc:scpdy_office_chair_2.name=Office Chair 2
+tile.lc:scpdy_office_chair_3.name=Office Chair 3
+
+tile.lc:scpdy_scp096_plushie.name=SCP-096 Plushie
+tile.lc:scpdy_scp427_1_plushie.name=SCP-427-1 Plushie
+tile.lc:scpdy_scp5167_plushie.name=SCP-5167 Plushie
+
+tile.lc:scpdy_shelf_1.name=Shelf 1 §e(+Variants)
+tile.lc:scpdy_shelf_2.name=Shelf 2 §e(+Variants)
+
+scpdy.furniture.bench=Bench
+scpdy.furniture.cardboard_box_1=Cardboard Box 1
+tile.lc:scpdy_file_cabinet.name=File Cabinet
+tile.lc:scpdy_hanging_lamp.name=Hanging Lamp
+tile.lc:scpdy_landmine.name=Landmine
+tile.lc:scpdy_laptop.name=Laptop
+scpdy.furniture.microscope=Microscope
+scpdy.furniture.office_desk=Office Desk
+scpdy.furniture.printer=Printer
+scpdy.furniture.radio=Radio
+tile.lc:scpdy_sink.name=Sink
+tile.lc:scpdy_toilet_paper_holder.name=Toilet Paper Holder
+tile.lc:scpdy_toilet.name=Toilet
+tile.lc:scpdy_trash.name=Trash
+tile.lc:scpdy_warehouse_light_1_hanging.name=Warehouse Light 1 (Hanging)
+tile.lc:scpdy_warehouse_light_1.name=Warehouse Light 1
+scpdy.furniture.water_dispenser=Water Dispenser
+
+scpdy.actionHint.furniture.chair.tooFar=Too far from chair
+scpdy.actionHint.furniture.toilet.tooFar=Too far from toilet
+scpdy.actionHint.furniture.toilet.sitHint=Sneak and interact to sit
+scpdy.actionHint.furniture.toilet.fartHint=Look 90 degrees down (or up) to fart
+
+
 ## --- machinery ---
 
 entity.lc:scpdy_rb_anchor.name=Redstone Block Anchor
@@ -128,7 +170,6 @@ lc:scpdy_itemGroup_gun_mags=§7SCP:DY §8| §fGun Magazines
 lc:scpdy_itemGroup_constructionBlocks=§7SCP:DY §8| §fConstruction
 lc:scpdy_itemGroup_constructionWallBlocks=§7SCP:DY §8| §fConstruction (Walls)
 lc:scpdy_itemGroup_3dConstructionBlocks=§7SCP:DY §8| §f3D Construction Blocks
-lc:scpdy_itemGroup_furnitureAndDecor=§7SCP:DY §8| §fFurniture & Decoration
 lc:scpdy_itemGroup_plushies=§7SCP:DY §8| §fPlushies
 lc:scpdy_itemGroup_lockdownDoors=§7SCP:DY §8| §fLockdown Doors
 lc:scpdy_itemGroup_standardDoors=§7SCP:DY §8| §fStandard Doors
@@ -162,11 +203,6 @@ scpdy.actionHint.controlDevice.changeMode0=Mode set to 0 §7-§f Mechanical Door
 scpdy.actionHint.controlDevice.changeMode1=Mode set to 1 §7-§f Open/Close the closest Blast Door
 scpdy.actionHint.controlDevice.changeMode2=Mode set to 2 §7-§f Place a redstone block 3 meters below
 scpdy.actionHint.controlDevice.changeMode3=Mode set to 3 §7-§f Place a redstone block 2 meters behind
-
-scpdy.actionHint.furniture.chair.tooFar=Too far from chair
-scpdy.actionHint.furniture.toilet.tooFar=Too far from toilet
-scpdy.actionHint.furniture.toilet.sitHint=Sneak and interact to sit
-scpdy.actionHint.furniture.toilet.fartHint=Look 90 degrees down (or up) to fart
 
 scpdy.actionHint.ammo.noLoadableInOffhand=§eNo loadable item in offhand
 scpdy.actionHint.ammo.wrongAmmoType=§cWrong ammo type
@@ -587,36 +623,6 @@ tile.lc:scpdy_lockdown_door_n5.name=§dLockdown Door (Network 5)
 ## blocks -> door -> standard -> ...
 tile.lc:scpdy_standard_door_1.name=Standard Door 1
 tile.lc:scpdy_standard_door_2.name=Standard Door 2
-
-## blocks -> furniture -> connec_tables -> ...
-tile.lc:scpdy_connec_table_1.name=Connec™ Table 1
-tile.lc:scpdy_connec_table_2.name=Connec™ Table 2
-
-## blocks -> furniture -> office_chair -> ...
-tile.lc:scpdy_office_chair_1.name=Office Chair 1
-tile.lc:scpdy_office_chair_2.name=Office Chair 2
-tile.lc:scpdy_office_chair_3.name=Office Chair 3
-
-## blocks -> furniture -> plushies -> ...
-tile.lc:scpdy_scp096_plushie.name=SCP-096 Plushie
-tile.lc:scpdy_scp427_1_plushie.name=SCP-427-1 Plushie
-tile.lc:scpdy_scp5167_plushie.name=SCP-5167 Plushie
-
-## blocks -> furniture -> shelves -> ...
-tile.lc:scpdy_shelf_1.name=Shelf 1 §e(+Variants)
-tile.lc:scpdy_shelf_2.name=Shelf 2 §e(+Variants)
-
-## blocks -> furniture -> ...
-tile.lc:scpdy_file_cabinet.name=File Cabinet
-tile.lc:scpdy_hanging_lamp.name=Hanging Lamp
-tile.lc:scpdy_landmine.name=Landmine
-tile.lc:scpdy_laptop.name=Laptop
-tile.lc:scpdy_sink.name=Sink
-tile.lc:scpdy_toilet_paper_holder.name=Toilet Paper Holder
-tile.lc:scpdy_toilet.name=Toilet
-tile.lc:scpdy_trash.name=Trash
-tile.lc:scpdy_warehouse_light_1_hanging.name=Warehouse Light 1 (Hanging)
-tile.lc:scpdy_warehouse_light_1.name=Warehouse Light 1
 
 ## blocks -> lockdown_devices -> alarm -> ...
 tile.lc:scpdy_lockdown_alarm_n1.name=§dLockdown Alarm (Network 1)

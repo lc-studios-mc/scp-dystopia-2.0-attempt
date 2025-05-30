@@ -91,6 +91,7 @@
 							"lc:scpdy_cst_lamp_2"
 						]
 					},
+
 					{
 						"group_identifier": {
 							"icon": "lc:scpdy_cst_facility_wall_bottom",
@@ -128,6 +129,7 @@
 							"lc:scpdy_cst_blue_wall_top"
 						]
 					},
+
 					{
 						"group_identifier": {
 							"icon": "lc:scpdy_steel_truss",
@@ -146,22 +148,30 @@
 							"lc:scpdy_vent_openable"
 						]
 					},
+
 					{
 						"group_identifier": {
-							"icon": "lc:scpdy_hanging_lamp",
+							"icon": "lc:scpdy_bench",
 							"name": "lc:scpdy_itemGroup_furnitureAndDecor"
 						},
 						"items": [
+							"lc:scpdy_bench",
+							"lc:scpdy_cardboard_box_1",
 							"lc:scpdy_hanging_lamp",
 							"lc:scpdy_file_cabinet",
 							"lc:scpdy_landmine",
 							"lc:scpdy_laptop",
+							"lc:scpdy_printer",
+							"lc:scpdy_radio",
+							"lc:scpdy_microscope",
 							"lc:scpdy_sink",
 							"lc:scpdy_toilet",
 							"lc:scpdy_toilet_paper_holder",
 							"lc:scpdy_trash",
+							"lc:scpdy_water_dispenser",
 							"lc:scpdy_warehouse_light_1",
 							"lc:scpdy_warehouse_light_1_hanging",
+							"lc:scpdy_office_desk",
 							"lc:scpdy_connec_table_1",
 							"lc:scpdy_connec_table_2",
 							"lc:scpdy_office_chair_1",
@@ -174,6 +184,7 @@
 							"lc:scpdy_alphanumeric_sign_placer"
 						]
 					},
+
 					{
 						"group_identifier": {
 							"icon": "lc:scpdy_scp096_plushie",
@@ -181,6 +192,7 @@
 						},
 						"items": ["lc:scpdy_scp096_plushie", "lc:scpdy_scp427_1_plushie", "lc:scpdy_scp5167_plushie"]
 					},
+
 					{
 						"group_identifier": {
 							"icon": "lc:scpdy_standard_door_1",
@@ -188,6 +200,7 @@
 						},
 						"items": ["lc:scpdy_standard_door_1", "lc:scpdy_standard_door_2"]
 					},
+
 					{
 						"group_identifier": {
 							"icon": "lc:scpdy_lockdown_door_n1",
@@ -201,6 +214,7 @@
 							"lc:scpdy_lockdown_door_n5"
 						]
 					},
+
 					{
 						"group_identifier": {
 							"icon": "lc:scpdy_lockdown_alarm_n5",
@@ -214,6 +228,7 @@
 							"lc:scpdy_lockdown_alarm_n5"
 						]
 					},
+
 					{
 						"group_identifier": {
 							"icon": "lc:scpdy_lockdown_panel_n5",
@@ -229,6 +244,7 @@
 					}
 				]
 			},
+
 			{
 				"category_name": "equipment",
 				"groups": [
@@ -247,6 +263,7 @@
 							"lc:scpdy_gun_t5000"
 						]
 					},
+
 					{
 						"group_identifier": {
 							"icon": "lc:scpdy_knife",
@@ -256,12 +273,14 @@
 					}
 				]
 			},
+
 			{
 				"category_name": "items",
 				"groups": [
 					{
 						"items": ["lc:scpdy_keypad_placer"]
 					},
+
 					{
 						"group_identifier": {
 							"icon": "lc:scpdy_keycard_lvl_0",
@@ -277,6 +296,7 @@
 							"lc:scpdy_keycard_o5"
 						]
 					},
+
 					{
 						"group_identifier": {
 							"icon": "lc:scpdy_blast_door_1_preview_placer",
@@ -284,6 +304,7 @@
 						},
 						"items": ["lc:scpdy_blast_door_1_preview_placer", "lc:scpdy_blast_door_2_preview_placer"]
 					},
+
 					{
 						"group_identifier": {
 							"icon": "lc:scpdy_cctv_camera_placer",
@@ -297,6 +318,7 @@
 							"lc:scpdy_cctv_linker"
 						]
 					},
+
 					{
 						"items": ["lc:scpdy_fnet_manager"]
 					},
@@ -314,6 +336,7 @@
 							"lc:scpdy_ammo_762x51"
 						]
 					},
+
 					{
 						"group_identifier": {
 							"icon": "lc:scpdy_ammo_pack_9mm",
@@ -328,6 +351,7 @@
 							"lc:scpdy_ammo_pack_762x51"
 						]
 					},
+
 					{
 						"group_identifier": {
 							"icon": "lc:scpdy_gun_mp5_mag",
@@ -343,6 +367,7 @@
 							"lc:scpdy_gun_t5000_mag"
 						]
 					},
+
 					{
 						"group_identifier": {
 							"icon": "lc:scpdy_scp427",

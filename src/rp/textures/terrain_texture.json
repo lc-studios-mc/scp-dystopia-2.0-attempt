@@ -4,6 +4,10 @@
 	"padding": 8,
 	"num_mip_levels": 4,
 	"texture_data": {
+		/*
+			Try to arrange these elements in alphabetical order as much as possible!
+		*/
+
 		// #region doors
 
 		// #region dividing
@@ -67,6 +71,59 @@
 		// #endregion
 
 		// #endregion
+
+		/* -------------------- */
+
+		// #region furniture
+
+		// #region furniture -> connec_tables
+		"scpdy_connec_table_1": { "textures": "textures/scpdy/blocks/furniture/connec_tables/table_1" },
+		"scpdy_connec_table_2": { "textures": "textures/scpdy/blocks/furniture/connec_tables/table_2" },
+		// #endregion
+
+		// #region furniture -> office_chairs
+		"scpdy_office_chair_1": { "textures": "textures/scpdy/blocks/furniture/office_chairs/1" },
+		"scpdy_office_chair_2": { "textures": "textures/scpdy/blocks/furniture/office_chairs/2" },
+		"scpdy_office_chair_3": { "textures": "textures/scpdy/blocks/furniture/office_chairs/3" },
+		// #endregion
+
+		// #region furniture -> plushies
+		"scpdy_scp096_plushie": { "textures": "textures/scpdy/blocks/furniture/plushies/scp096_plushie" },
+		"scpdy_scp427_1_plushie": { "textures": "textures/scpdy/blocks/furniture/plushies/scp427_1_plushie" },
+		"scpdy_scp5167_plushie": { "textures": "textures/scpdy/blocks/furniture/plushies/scp5167_plushie" },
+		// #endregion
+
+		// #region furniture -> shelves
+		"scpdy_shelf_1_books": { "textures": "textures/scpdy/blocks/furniture/shelves/shelf_1_books" },
+		"scpdy_shelf_1_empty": { "textures": "textures/scpdy/blocks/furniture/shelves/shelf_1_empty" },
+		"scpdy_shelf_1_painting": { "textures": "textures/scpdy/blocks/furniture/shelves/shelf_1_painting" },
+		"scpdy_shelf_1_plant": { "textures": "textures/scpdy/blocks/furniture/shelves/shelf_1_plant" },
+		"scpdy_shelf_2_books": { "textures": "textures/scpdy/blocks/furniture/shelves/shelf_2_books" },
+		"scpdy_shelf_2_empty": { "textures": "textures/scpdy/blocks/furniture/shelves/shelf_2_empty" },
+		"scpdy_shelf_2_tools": { "textures": "textures/scpdy/blocks/furniture/shelves/shelf_2_tools" },
+		"scpdy_shelf_2_toys": { "textures": "textures/scpdy/blocks/furniture/shelves/shelf_2_toys" },
+		// #endregion
+
+		"scpdy_bench": { "textures": "textures/scpdy/blocks/furniture/bench" },
+		"scpdy_cardboard_box_1": { "textures": "textures/scpdy/blocks/furniture/cardboard_box_1" },
+		"scpdy_file_cabinet": { "textures": "textures/scpdy/blocks/furniture/file_cabinet" },
+		"scpdy_hanging_lamp": { "textures": "textures/scpdy/blocks/furniture/hanging_lamp" },
+		"scpdy_landmine": { "textures": "textures/scpdy/blocks/furniture/landmine" },
+		"scpdy_laptop": { "textures": "textures/scpdy/blocks/furniture/laptop" },
+		"scpdy_microscope": { "textures": "textures/scpdy/blocks/furniture/microscope" },
+		"scpdy_office_desk": { "textures": "textures/scpdy/blocks/furniture/office_desk" },
+		"scpdy_printer": { "textures": "textures/scpdy/blocks/furniture/printer" },
+		"scpdy_radio": { "textures": "textures/scpdy/blocks/furniture/radio" },
+		"scpdy_sink": { "textures": "textures/scpdy/blocks/furniture/sink" },
+		"scpdy_toilet_paper_holder": { "textures": "textures/scpdy/blocks/furniture/toilet_paper_holder" },
+		"scpdy_toilet": { "textures": "textures/scpdy/blocks/furniture/toilet" },
+		"scpdy_trash": { "textures": "textures/scpdy/blocks/furniture/trash" },
+		"scpdy_warehouse_light_1": { "textures": "textures/scpdy/blocks/furniture/warehouse_light_1" },
+		"scpdy_water_dispenser": { "textures": "textures/scpdy/blocks/furniture/water_dispenser" },
+
+		// #endregion
+
+		/* -------------------- */
 
 		// #region machinery
 		"scpdy_btn_1": {
@@ -290,98 +347,6 @@
 			"textures": "textures/scpdy/blocks/door/standard/door_2"
 		},
 		// #endregion
-
-		// #endregion
-
-		// #region furniture
-
-		// #region furniture -> connec_tables
-		"scpdy_connec_table_1": {
-			"textures": "textures/scpdy/blocks/furniture/connec_tables/table_1"
-		},
-		"scpdy_connec_table_2": {
-			"textures": "textures/scpdy/blocks/furniture/connec_tables/table_2"
-		},
-		// #endregion
-
-		// #region furniture -> office_chairs
-		"scpdy_office_chair_1": {
-			"textures": "textures/scpdy/blocks/furniture/office_chairs/1"
-		},
-		"scpdy_office_chair_2": {
-			"textures": "textures/scpdy/blocks/furniture/office_chairs/2"
-		},
-		"scpdy_office_chair_3": {
-			"textures": "textures/scpdy/blocks/furniture/office_chairs/3"
-		},
-		// #endregion
-
-		// #region furniture -> plushies
-		"scpdy_scp096_plushie": {
-			"textures": "textures/scpdy/blocks/furniture/plushies/scp096_plushie"
-		},
-		"scpdy_scp427_1_plushie": {
-			"textures": "textures/scpdy/blocks/furniture/plushies/scp427_1_plushie"
-		},
-		"scpdy_scp5167_plushie": {
-			"textures": "textures/scpdy/blocks/furniture/plushies/scp5167_plushie"
-		},
-		// #endregion
-
-		// #region furniture -> shelves
-		"scpdy_shelf_1_books": {
-			"textures": "textures/scpdy/blocks/furniture/shelves/shelf_1_books"
-		},
-		"scpdy_shelf_1_empty": {
-			"textures": "textures/scpdy/blocks/furniture/shelves/shelf_1_empty"
-		},
-		"scpdy_shelf_1_painting": {
-			"textures": "textures/scpdy/blocks/furniture/shelves/shelf_1_painting"
-		},
-		"scpdy_shelf_1_plant": {
-			"textures": "textures/scpdy/blocks/furniture/shelves/shelf_1_plant"
-		},
-		"scpdy_shelf_2_books": {
-			"textures": "textures/scpdy/blocks/furniture/shelves/shelf_2_books"
-		},
-		"scpdy_shelf_2_empty": {
-			"textures": "textures/scpdy/blocks/furniture/shelves/shelf_2_empty"
-		},
-		"scpdy_shelf_2_tools": {
-			"textures": "textures/scpdy/blocks/furniture/shelves/shelf_2_tools"
-		},
-		"scpdy_shelf_2_toys": {
-			"textures": "textures/scpdy/blocks/furniture/shelves/shelf_2_toys"
-		},
-		// #endregion
-
-		"scpdy_file_cabinet": {
-			"textures": "textures/scpdy/blocks/furniture/file_cabinet"
-		},
-		"scpdy_hanging_lamp": {
-			"textures": "textures/scpdy/blocks/furniture/hanging_lamp"
-		},
-		"scpdy_landmine": {
-			"textures": "textures/scpdy/blocks/furniture/landmine"
-		},
-		"scpdy_laptop": {
-			"textures": "textures/scpdy/blocks/furniture/laptop"
-		},
-		"scpdy_sink": {
-			"textures": "textures/scpdy/blocks/furniture/sink"
-		},
-		"scpdy_toilet_paper_holder": {
-			"textures": "textures/scpdy/blocks/furniture/toilet_paper_holder"
-		},
-		"scpdy_toilet": {
-			"textures": "textures/scpdy/blocks/furniture/toilet"
-		},
-		"scpdy_trash": {
-			"textures": "textures/scpdy/blocks/furniture/trash"
-		},
-		"scpdy_warehouse_light_1": {
-			"textures": "textures/scpdy/blocks/furniture/warehouse_light_1"
-		},
 
 		// #endregion
 

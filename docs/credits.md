@@ -40,3 +40,14 @@ Those who helped this project are listed here! :handshake:
   - MP5-SD
   - SPAS-12
   - T-5000
+
+### Michi75
+
+- Full 3D models
+  - Bench
+  - Cardboard Box 1
+  - Microscope
+  - Office Desk
+  - Printer
+  - Radio
+  - Water Dispenser

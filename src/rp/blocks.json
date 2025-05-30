@@ -1,6 +1,10 @@
 {
 	"format_version": "1.1.0",
 
+	/*
+		Only blocks that require sound other than stone should be listed here, excluding construction blocks.
+	*/
+
 	// #region doors
 	"lc:scpdy_cmd_door_1": {
 		"sound": "iron"
@@ -40,6 +44,49 @@
 	},
 	// #endregion
 
+	/* -------------------- */
+
+	// #region furniture
+
+	// #region furniture -> connec_tables
+	"lc:scpdy_connec_table_1": { "sound": "stone" },
+	"lc:scpdy_connec_table_2": { "sound": "stone" },
+	// #endregion
+
+	// #region furniture -> office_chairs
+	"lc:scpdy_office_chair_1": { "sound": "stone" },
+	"lc:scpdy_office_chair_2": { "sound": "stone" },
+	"lc:scpdy_office_chair_3": { "sound": "stone" },
+	// #endregion
+
+	// #region furniture -> plushies
+	"lc:scpdy_scp096_plushie": { "sound": "cloth" },
+	"lc:scpdy_scp427_1_plushie": { "sound": "cloth" },
+	"lc:scpdy_scp5167_plushie": { "sound": "cloth" },
+	// #endregion
+
+	// #region furniture -> shelves
+	"lc:scpdy_shelf_1": { "sound": "stone" },
+	"lc:scpdy_shelf_2": { "sound": "stone" },
+	// #endregion
+
+	"lc:scpdy_bench": { "sound": "wood" },
+	"lc:scpdy_cardboard_box_1": { "sound": "grass" },
+	"lc:scpdy_file_cabinet": { "sound": "metal" },
+	"lc:scpdy_hanging_lamp": { "sound": "metal" },
+	"lc:scpdy_landmine": { "sound": "copper" },
+	"lc:scpdy_laptop": { "sound": "metal" },
+	"lc:scpdy_microscope": { "sound": "iron" },
+	"lc:scpdy_printer": { "sound": "copper" },
+	"lc:scpdy_radio": { "sound": "copper" },
+	"lc:scpdy_trash": { "sound": "iron" },
+	"lc:scpdy_warehouse_light_1": { "sound": "glass" },
+	"lc:scpdy_warehouse_light_1_hanging": { "sound": "metal" },
+
+	// #endregion
+
+	/* -------------------- */
+
 	// #region machinery
 	"lc:scpdy_btn_1": {
 		"sound": "copper"
@@ -54,6 +101,8 @@
 		"sound": "copper"
 	},
 	// #endregion
+
+	/* -------------------- */
 
 	// #region construction
 	"lc:scpdy_cst_black_checker_tiles": {
@@ -424,68 +473,6 @@
 	},
 	// #endregion
 	// #endregion
-	// #endregion
-
-	// #region furniture
-	// #region furniture -> connec_tables
-	"lc:scpdy_connec_table_1": {
-		"sound": "stone"
-	},
-	"lc:scpdy_connec_table_2": {
-		"sound": "stone"
-	},
-	// #endregion
-	// #region furniture -> office_chairs
-	"lc:scpdy_office_chair_1": {
-		"sound": "stone"
-	},
-	"lc:scpdy_office_chair_2": {
-		"sound": "stone"
-	},
-	"lc:scpdy_office_chair_3": {
-		"sound": "stone"
-	},
-	// #endregion
-	// #region furniture -> plushies
-	"lc:scpdy_scp096_plushie": {
-		"sound": "cloth"
-	},
-	"lc:scpdy_scp427_1_plushie": {
-		"sound": "cloth"
-	},
-	"lc:scpdy_scp5167_plushie": {
-		"sound": "cloth"
-	},
-	// #endregion
-	// #region furniture -> shelves
-	"lc:scpdy_shelf_1": {
-		"sound": "stone"
-	},
-	"lc:scpdy_shelf_2": {
-		"sound": "stone"
-	},
-	// #endregion
-	"lc:scpdy_file_cabinet": {
-		"sound": "metal"
-	},
-	"lc:scpdy_hanging_lamp": {
-		"sound": "metal"
-	},
-	"lc:scpdy_landmine": {
-		"sound": "copper"
-	},
-	"lc:scpdy_laptop": {
-		"sound": "metal"
-	},
-	"lc:scpdy_trash": {
-		"sound": "iron"
-	},
-	"lc:scpdy_warehouse_light_1": {
-		"sound": "glass"
-	},
-	"lc:scpdy_warehouse_light_1_hanging": {
-		"sound": "metal"
-	},
 	// #endregion
 
 	// #region lockdown_devices
