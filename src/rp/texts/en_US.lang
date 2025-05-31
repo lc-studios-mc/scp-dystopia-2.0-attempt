@@ -1,8 +1,94 @@
+## A lang file tends to get very messy. Try to keep the keys categorized and alphabetically organized.
+## And never create a vague category like "blocks" or "items" in top-level, it will quickly become a root of evil!
+
+
+## * <-------------------------> *
+
+
 ## --- construction ---
 
+lc:scpdy_itemGroup_constructionBlocks=§7SCP:DY §8- §fConstruction
+lc:scpdy_itemGroup_constructionWallBlocks=§7SCP:DY §8- §fConstruction (Walls)
+
+tile.lc:scpdy_cst_concrete_black.name=Black Facility Concrete
+tile.lc:scpdy_cst_concrete_gray.name=Gray Facility Concrete
+
+tile.lc:scpdy_cst_exterior_bricks_bottom.name=Exterior Bricks (Bottom)
+tile.lc:scpdy_cst_exterior_bricks_middle.name=Generic Exterior Bricks
+tile.lc:scpdy_cst_exterior_bricks_top.name=Exterior Bricks (Top)
+
+tile.lc:scpdy_cst_blue_wall_bottom_1.name=Blue Wall (Bottom 1)
+tile.lc:scpdy_cst_blue_wall_bottom_2.name=Blue Wall (Bottom 2)
+tile.lc:scpdy_cst_blue_wall_bottom_3.name=Blue Wall (Bottom 3)
+tile.lc:scpdy_cst_blue_wall_middle.name=Blue Wall (Middle)
+tile.lc:scpdy_cst_blue_wall_top.name=Blue Wall (Top)
+tile.lc:scpdy_cst_blue_wall.name=Generic Blue Wall
+tile.lc:scpdy_cst_brown_wall_bottom.name=Brown Facility Wall (Bottom)
+tile.lc:scpdy_cst_brown_wall_top.name=Brown Facility Wall (Top)
+tile.lc:scpdy_cst_cyan_wall_bottom.name=Cyan Facility Wall (Bottom)
+tile.lc:scpdy_cst_cyan_wall_top.name=Cyan Facility Wall (Top)
+tile.lc:scpdy_cst_gray_wall_bottom.name=Gray Facility Wall (Bottom)
+tile.lc:scpdy_cst_gray_wall_top.name=Gray Facility Wall (Top)
+tile.lc:scpdy_cst_mint_wall_bottom.name=Mint Facility Wall (Bottom)
+tile.lc:scpdy_cst_mint_wall_top.name=Mint Facility Wall (Top)
+tile.lc:scpdy_cst_orange_wall_bottom.name=Orange Facility Wall (Bottom)
+tile.lc:scpdy_cst_orange_wall_top.name=Orange Facility Wall (Top)
+tile.lc:scpdy_cst_facility_wall_bottom.name=Facility Wall (Bottom)
+tile.lc:scpdy_cst_facility_wall_middle_2.name=Facility Wall (Middle)
+tile.lc:scpdy_cst_facility_wall_middle.name=Generic Facility Wall
+tile.lc:scpdy_cst_facility_wall_top.name=Facility Wall (Top)
+
+tile.lc:scpdy_cst_heavy_wall_1_bottom.name=Heavy Wall 1 (Bottom)
+tile.lc:scpdy_cst_heavy_wall_1_top.name=Heavy Wall 1 (Top)
+tile.lc:scpdy_cst_heavy_wall_1.name=Generic Heavy Wall 1
+tile.lc:scpdy_cst_heavy_wall_2_bottom.name=Heavy Wall 2 (Bottom)
+tile.lc:scpdy_cst_heavy_wall_2_top.name=Heavy Wall 2 (Top)
+tile.lc:scpdy_cst_heavy_wall_2.name=Generic Heavy Wall 2
+
+tile.lc:scpdy_cst_lamp_1.name=Lamp 1
+tile.lc:scpdy_cst_lamp_2.name=Lamp 2
+
+tile.lc:scpdy_cst_office_ceiling_1.name=Office Ceiling 1
+tile.lc:scpdy_cst_office_ceiling_2.name=Office Ceiling 2
+
+tile.lc:scpdy_cst_reinforced_panel_1.name=Reinforced Panel 1
+tile.lc:scpdy_cst_reinforced_panel_2.name=Reinforced Panel 2
+tile.lc:scpdy_cst_reinforced_panel_3.name=Reinforced Panel 3
+
+tile.lc:scpdy_cst_black_checker_tiles.name=Black Checker Tiles
 tile.lc:scpdy_cst_caution_block_1.name=Caution Block 1
 tile.lc:scpdy_cst_caution_block_2.name=Caution Block 2
 tile.lc:scpdy_cst_caution_block_3.name=Caution Block 3
+tile.lc:scpdy_cst_cushion.name=Cushion
+tile.lc:scpdy_cst_floor_tiles.name=Floor Tiles
+tile.lc:scpdy_cst_generic_floor.name=Generic Floor
+tile.lc:scpdy_cst_lead_block.name=Lead Block
+tile.lc:scpdy_cst_steel_Block.name=Steel Block
+tile.lc:scpdy_cst_treadplate.name=Treadplate
+
+
+## * <-------------------------> *
+
+
+## --- construction 3d ---
+
+lc:scpdy_itemGroup_3dConstructionBlocks=§7SCP:DY §8- §f3D Construction Blocks
+
+tile.lc:scpdy_decor_vent_1.name=Decorative Vent 1
+tile.lc:scpdy_decor_vent_2.name=Decorative Vent 2
+tile.lc:scpdy_floor_grate_trap.name=Metal Floor Grate (Trap)
+tile.lc:scpdy_floor_grate.name=Metal Floor Grate
+tile.lc:scpdy_razor_wire.name=Razor Wire
+tile.lc:scpdy_small_light_blinking.name=Small Light (Blinking)
+tile.lc:scpdy_small_light.name=Small Light
+tile.lc:scpdy_steel_beam_end.name=Steel Beam (End)
+tile.lc:scpdy_steel_beam.name=Steel Beam
+tile.lc:scpdy_steel_truss.name=Steel Truss
+tile.lc:scpdy_vent_openable.name=Vent (Openable)
+tile.lc:scpdy_vent.name=Vent
+
+
+## * <-------------------------> *
 
 
 ## --- doors ---
@@ -34,6 +120,9 @@ scpdy.relayDoor.text.redstoneDetection.warn=§eRelay doors with redstone detecti
 scpdy.relayDoor.tip=§aYou can control a Relay Door with a button or a keycard reader, and you can also use a wrench to toggle redstone detection on/off (it will try to detect redstone 2 blocks down).
 
 
+## * <-------------------------> *
+
+
 ## --- facility network (fnet) ---
 
 scpdy.fnet.nonameX=Facility Network %s
@@ -49,6 +138,9 @@ scpdy.fnetManager.selectedX=§7Selected:§f %s
 scpdy.fnetManager.changeName=Change Name
 scpdy.fnetManager.changeZoneNames=Change Zone Names
 scpdy.fnetManager.youCanEditZoneNames=You can edit the name of each zone!
+
+
+## * <-------------------------> *
 
 
 ## --- furniture ---
@@ -93,6 +185,9 @@ scpdy.actionHint.furniture.toilet.sitHint=Sneak and interact to sit
 scpdy.actionHint.furniture.toilet.fartHint=Look 90 degrees down (or up) to fart
 
 
+## * <-------------------------> *
+
+
 ## --- machinery ---
 
 entity.lc:scpdy_rb_anchor.name=Redstone Block Anchor
@@ -119,6 +214,9 @@ tile.lc:scpdy_kr_2.name=Keycard Reader 2
 scpdy.machinery.input.kr.text=Keycard Reader
 
 
+## * <-------------------------> *
+
+
 ## --- config ---
 
 scpdy.config.text.editorFormTitle=Config Editor
@@ -127,6 +225,9 @@ scpdy.config.text.editorFormResetToggle.label=§eReset
 scpdy.config.text.editorFormResetToggle.tooltip=Enabling this option will cause all options to be reset after pressing Save & Exit.
 scpdy.config.text.messageOnReset=§6Successfully reset all options!
 scpdy.config.text.messageOnSaveAndExit=§aSaved changes!
+
+
+## * <-------------------------> *
 
 
 ## --- misc ---
@@ -151,8 +252,11 @@ scpdy.misc.text.clearanceLevel.o5=O5
 scpdy.misc.text.youDontHaveRequiredClearanceLevel=§7You do not have the required clearance level.
 
 
+## * <-------------------------> *
 
-## LEGACY TRANSLATIONS BELOW
+
+## OLD KEYS BELOW SHOULD BE UPDATED SOMEDAY!
+
 
 ## --- Item Groups
 
@@ -167,9 +271,6 @@ lc:scpdy_itemGroup_keycards=§7SCP:DY §8| §fKeycards
 lc:scpdy_itemGroup_scp=§7SCP:DY §8| §fSCP(-related)
 lc:scpdy_itemGroup_guns=§7SCP:DY §8| §fGuns
 lc:scpdy_itemGroup_gun_mags=§7SCP:DY §8| §fGun Magazines
-lc:scpdy_itemGroup_constructionBlocks=§7SCP:DY §8| §fConstruction
-lc:scpdy_itemGroup_constructionWallBlocks=§7SCP:DY §8| §fConstruction (Walls)
-lc:scpdy_itemGroup_3dConstructionBlocks=§7SCP:DY §8| §f3D Construction Blocks
 lc:scpdy_itemGroup_plushies=§7SCP:DY §8| §fPlushies
 lc:scpdy_itemGroup_lockdownDoors=§7SCP:DY §8| §fLockdown Doors
 lc:scpdy_itemGroup_standardDoors=§7SCP:DY §8| §fStandard Doors
@@ -535,83 +636,6 @@ item.lc:scpdy_void_sword.name=Void Sword
 item.lc:scpdy_frag_grenade.name=Frag Grenade
 
 ## --- Blocks
-
-## blocks -> construction -> concrete -> ...
-tile.lc:scpdy_cst_concrete_black.name=Black Facility Concrete
-tile.lc:scpdy_cst_concrete_gray.name=Gray Facility Concrete
-
-## blocks -> construction -> exterior_bricks -> ...
-tile.lc:scpdy_cst_exterior_bricks_bottom.name=Exterior Bricks (Bottom)
-tile.lc:scpdy_cst_exterior_bricks_middle.name=Generic Exterior Bricks
-tile.lc:scpdy_cst_exterior_bricks_top.name=Exterior Bricks (Top)
-
-## blocks -> construction -> facility_wall -> ...
-tile.lc:scpdy_cst_blue_wall_bottom_1.name=Blue Wall (Bottom 1)
-tile.lc:scpdy_cst_blue_wall_bottom_2.name=Blue Wall (Bottom 2)
-tile.lc:scpdy_cst_blue_wall_bottom_3.name=Blue Wall (Bottom 3)
-tile.lc:scpdy_cst_blue_wall_middle.name=Blue Wall (Middle)
-tile.lc:scpdy_cst_blue_wall_top.name=Blue Wall (Top)
-tile.lc:scpdy_cst_blue_wall.name=Generic Blue Wall
-tile.lc:scpdy_cst_brown_wall_bottom.name=Brown Facility Wall (Bottom)
-tile.lc:scpdy_cst_brown_wall_top.name=Brown Facility Wall (Top)
-tile.lc:scpdy_cst_cyan_wall_bottom.name=Cyan Facility Wall (Bottom)
-tile.lc:scpdy_cst_cyan_wall_top.name=Cyan Facility Wall (Top)
-tile.lc:scpdy_cst_gray_wall_bottom.name=Gray Facility Wall (Bottom)
-tile.lc:scpdy_cst_gray_wall_top.name=Gray Facility Wall (Top)
-tile.lc:scpdy_cst_mint_wall_bottom.name=Mint Facility Wall (Bottom)
-tile.lc:scpdy_cst_mint_wall_top.name=Mint Facility Wall (Top)
-tile.lc:scpdy_cst_orange_wall_bottom.name=Orange Facility Wall (Bottom)
-tile.lc:scpdy_cst_orange_wall_top.name=Orange Facility Wall (Top)
-tile.lc:scpdy_cst_facility_wall_bottom.name=Facility Wall (Bottom)
-tile.lc:scpdy_cst_facility_wall_middle_2.name=Facility Wall (Middle)
-tile.lc:scpdy_cst_facility_wall_middle.name=Generic Facility Wall
-tile.lc:scpdy_cst_facility_wall_top.name=Facility Wall (Top)
-
-## blocks -> construction -> heavy_walls -> ...
-tile.lc:scpdy_cst_heavy_wall_1_bottom.name=Heavy Wall 1 (Bottom)
-tile.lc:scpdy_cst_heavy_wall_1_top.name=Heavy Wall 1 (Top)
-tile.lc:scpdy_cst_heavy_wall_1.name=Generic Heavy Wall 1
-tile.lc:scpdy_cst_heavy_wall_2_bottom.name=Heavy Wall 2 (Bottom)
-tile.lc:scpdy_cst_heavy_wall_2_top.name=Heavy Wall 2 (Top)
-tile.lc:scpdy_cst_heavy_wall_2.name=Generic Heavy Wall 2
-
-## blocks -> construction -> lamps -> ...
-tile.lc:scpdy_cst_lamp_1.name=Lamp 1
-tile.lc:scpdy_cst_lamp_2.name=Lamp 2
-
-## blocks -> construction -> office_ceilings -> ...
-tile.lc:scpdy_cst_office_ceiling_1.name=Office Ceiling 1
-tile.lc:scpdy_cst_office_ceiling_2.name=Office Ceiling 2
-
-## blocks -> construction -> reinforced_panels -> ...
-tile.lc:scpdy_cst_reinforced_panel_1.name=Reinforced Panel 1
-tile.lc:scpdy_cst_reinforced_panel_2.name=Reinforced Panel 2
-tile.lc:scpdy_cst_reinforced_panel_3.name=Reinforced Panel 3
-
-## blocks -> construction -> ...
-tile.lc:scpdy_cst_black_checker_tiles.name=Black Checker Tiles
-tile.lc:scpdy_cst_cushion.name=Cushion
-tile.lc:scpdy_cst_floor_tiles.name=Floor Tiles
-tile.lc:scpdy_cst_generic_floor.name=Generic Floor
-tile.lc:scpdy_cst_lead_block.name=Lead Block
-tile.lc:scpdy_cst_steel_Block.name=Steel Block
-tile.lc:scpdy_cst_treadplate.name=Treadplate
-
-## blocks -> construction_3d -> ...
-tile.lc:scpdy_floor_grate_trap.name=Metal Floor Grate (Trap)
-tile.lc:scpdy_floor_grate.name=Metal Floor Grate
-tile.lc:scpdy_razor_wire.name=Razor Wire
-tile.lc:scpdy_small_light_blinking.name=Small Light (Blinking)
-tile.lc:scpdy_small_light.name=Small Light
-tile.lc:scpdy_steel_beam_end.name=Steel Beam (End)
-tile.lc:scpdy_steel_beam.name=Steel Beam
-tile.lc:scpdy_steel_truss.name=Steel Truss
-tile.lc:scpdy_vent_openable.name=Vent (Openable)
-tile.lc:scpdy_vent.name=Vent
-
-## blocks -> decor -> vent -> ...
-tile.lc:scpdy_decor_vent_1.name=Decorative Vent 1
-tile.lc:scpdy_decor_vent_2.name=Decorative Vent 2
 
 ## blocks -> door -> lockdown -> ...
 tile.lc:scpdy_lockdown_door_n1.name=§dLockdown Door (Network 1)

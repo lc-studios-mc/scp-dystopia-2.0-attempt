@@ -3,45 +3,39 @@
 
 	/*
 		Only blocks that require sound other than stone should be listed here, excluding construction blocks.
+		Also try to arrange these elements in alphabetical order as much as possible!
 	*/
 
+	// #region construction_3d
+	"lc:scpdy_decor_vent_1": { "sound": "metal" },
+	"lc:scpdy_decor_vent_2": { "sound": "metal" },
+	"lc:scpdy_floor_grate": { "sound": "metal" },
+	"lc:scpdy_floor_grate_trap": { "sound": "metal" },
+	"lc:scpdy_razor_wire": { "sound": "metal" },
+	"lc:scpdy_small_light": { "sound": "copper" },
+	"lc:scpdy_small_light_blinking": { "sound": "copper" },
+	"lc:scpdy_steel_beam": { "sound": "metal" },
+	"lc:scpdy_steel_beam_end": { "sound": "metal" },
+	"lc:scpdy_steel_truss": { "sound": "metal" },
+	"lc:scpdy_vent": { "sound": "metal" },
+	"lc:scpdy_vent_openable": { "sound": "metal" },
+	// #endregion
+
+	/* -------------------- */
+
 	// #region doors
-	"lc:scpdy_cmd_door_1": {
-		"sound": "iron"
-	},
-	"lc:scpdy_easy_door_1": {
-		"sound": "iron"
-	},
-	"lc:scpdy_easy_door_2": {
-		"sound": "iron"
-	},
-	"lc:scpdy_easy_door_3": {
-		"sound": "iron"
-	},
-	"lc:scpdy_relay_door_1": {
-		"sound": "iron"
-	},
-	"lc:scpdy_relay_door_2": {
-		"sound": "iron"
-	},
-	"lc:scpdy_relay_door_3": {
-		"sound": "iron"
-	},
-	"lc:scpdy_relay_door_4": {
-		"sound": "iron"
-	},
-	"lc:scpdy_relay_door_5": {
-		"sound": "iron"
-	},
-	"lc:scpdy_relay_door_6": {
-		"sound": "iron"
-	},
-	"lc:scpdy_relay_door_7": {
-		"sound": "iron"
-	},
-	"lc:scpdy_relay_door_8": {
-		"sound": "iron"
-	},
+	"lc:scpdy_cmd_door_1": { "sound": "iron" },
+	"lc:scpdy_easy_door_1": { "sound": "iron" },
+	"lc:scpdy_easy_door_2": { "sound": "iron" },
+	"lc:scpdy_easy_door_3": { "sound": "iron" },
+	"lc:scpdy_relay_door_1": { "sound": "iron" },
+	"lc:scpdy_relay_door_2": { "sound": "iron" },
+	"lc:scpdy_relay_door_3": { "sound": "iron" },
+	"lc:scpdy_relay_door_4": { "sound": "iron" },
+	"lc:scpdy_relay_door_5": { "sound": "iron" },
+	"lc:scpdy_relay_door_6": { "sound": "iron" },
+	"lc:scpdy_relay_door_7": { "sound": "iron" },
+	"lc:scpdy_relay_door_8": { "sound": "iron" },
 	// #endregion
 
 	/* -------------------- */
@@ -88,22 +82,73 @@
 	/* -------------------- */
 
 	// #region machinery
-	"lc:scpdy_btn_1": {
-		"sound": "copper"
-	},
-	"lc:scpdy_btn_2": {
-		"sound": "copper"
-	},
-	"lc:scpdy_kr_1": {
-		"sound": "copper"
-	},
-	"lc:scpdy_kr_2": {
-		"sound": "copper"
-	},
+	"lc:scpdy_btn_1": { "sound": "copper" },
+	"lc:scpdy_btn_2": { "sound": "copper" },
+	"lc:scpdy_kr_1": { "sound": "copper" },
+	"lc:scpdy_kr_2": { "sound": "copper" },
 	// #endregion
 
 	/* -------------------- */
 
+	// #region minigame
+	"lc:scpdy_dash_block": { "sound": "metal" },
+	// #endregion
+
+	/* -------------------- */
+
+	// #region misc
+	"lc:scpdy_blast_door_dummy": { "sound": "netherite" },
+	"lc:scpdy_rb_placeholder": { "sound": "stone", "textures": "scpdy_rb_placeholder" },
+	"lc:scpdy_workbench": { "sound": "metal" },
+	// #endregion
+
+	/* -------------------- */
+
+	// Legacy ones must be removed at some point.
+	// #region LEGACY
+
+	// #region door
+
+	// #region door -> lockdown
+	"lc:scpdy_lockdown_door_n1": { "sound": "netherite" },
+	"lc:scpdy_lockdown_door_n2": { "sound": "netherite" },
+	"lc:scpdy_lockdown_door_n3": { "sound": "netherite" },
+	"lc:scpdy_lockdown_door_n4": { "sound": "netherite" },
+	"lc:scpdy_lockdown_door_n5": { "sound": "netherite" },
+	// #endregion
+
+	// #region door -> standard
+	"lc:scpdy_standard_door_1": { "sound": "wood" },
+	"lc:scpdy_standard_door_2": { "sound": "metal" },
+	// #endregion
+
+	// #endregion
+
+	// #region lockdown_devices
+
+	// #region lockdown_devices -> alarm
+	"lc:scpdy_lockdown_alarm_n1": { "sound": "glass" },
+	"lc:scpdy_lockdown_alarm_n2": { "sound": "glass" },
+	"lc:scpdy_lockdown_alarm_n3": { "sound": "glass" },
+	"lc:scpdy_lockdown_alarm_n4": { "sound": "glass" },
+	"lc:scpdy_lockdown_alarm_n5": { "sound": "glass" },
+	// #endregion
+
+	// #region lockdown_devices -> panel
+	"lc:scpdy_lockdown_panel_n1": { "sound": "copper" },
+	"lc:scpdy_lockdown_panel_n2": { "sound": "copper" },
+	"lc:scpdy_lockdown_panel_n3": { "sound": "copper" },
+	"lc:scpdy_lockdown_panel_n4": { "sound": "copper" },
+	"lc:scpdy_lockdown_panel_n5": { "sound": "copper" },
+	// #endregion
+
+	// #endregion
+
+	// #endregion
+
+	/* -------------------- */
+
+	// Construction blocks are the last ones because theirs are too long!
 	// #region construction
 	"lc:scpdy_cst_black_checker_tiles": {
 		"sound": "stone",
@@ -399,135 +444,6 @@
 	"lc:scpdy_cst_reinforced_panel_3": {
 		"sound": "metal",
 		"textures": "scpdy_cst_reinforced_panel_3"
-	},
-	// #endregion
-
-	// #region construction_3d
-	"lc:scpdy_floor_grate": {
-		"sound": "metal"
-	},
-	"lc:scpdy_floor_grate_trap": {
-		"sound": "metal"
-	},
-	"lc:scpdy_razor_wire": {
-		"sound": "metal"
-	},
-	"lc:scpdy_small_light": {
-		"sound": "copper"
-	},
-	"lc:scpdy_small_light_blinking": {
-		"sound": "copper"
-	},
-	"lc:scpdy_steel_beam": {
-		"sound": "metal"
-	},
-	"lc:scpdy_steel_beam_end": {
-		"sound": "metal"
-	},
-	"lc:scpdy_steel_truss": {
-		"sound": "metal"
-	},
-	"lc:scpdy_vent": {
-		"sound": "metal"
-	},
-	"lc:scpdy_vent_openable": {
-		"sound": "metal"
-	},
-	// #endregion
-
-	// #region decor
-	// #region decor -> vent
-	"lc:scpdy_decor_vent_1": {
-		"sound": "metal"
-	},
-	"lc:scpdy_decor_vent_2": {
-		"sound": "metal"
-	},
-	// #endregion
-	// #endregion
-
-	// #region door
-	// #region door -> lockdown
-	"lc:scpdy_lockdown_door_n1": {
-		"sound": "netherite"
-	},
-	"lc:scpdy_lockdown_door_n2": {
-		"sound": "netherite"
-	},
-	"lc:scpdy_lockdown_door_n3": {
-		"sound": "netherite"
-	},
-	"lc:scpdy_lockdown_door_n4": {
-		"sound": "netherite"
-	},
-	"lc:scpdy_lockdown_door_n5": {
-		"sound": "netherite"
-	},
-	// #endregion
-	// #region door -> standard
-	"lc:scpdy_standard_door_1": {
-		"sound": "wood"
-	},
-	"lc:scpdy_standard_door_2": {
-		"sound": "metal"
-	},
-	// #endregion
-	// #endregion
-	// #endregion
-
-	// #region lockdown_devices
-	// #region lockdown_devices -> alarm
-	"lc:scpdy_lockdown_alarm_n1": {
-		"sound": "glass"
-	},
-	"lc:scpdy_lockdown_alarm_n2": {
-		"sound": "glass"
-	},
-	"lc:scpdy_lockdown_alarm_n3": {
-		"sound": "glass"
-	},
-	"lc:scpdy_lockdown_alarm_n4": {
-		"sound": "glass"
-	},
-	"lc:scpdy_lockdown_alarm_n5": {
-		"sound": "glass"
-	},
-	// #endregion
-	// #region lockdown_devices -> panel
-	"lc:scpdy_lockdown_panel_n1": {
-		"sound": "copper"
-	},
-	"lc:scpdy_lockdown_panel_n2": {
-		"sound": "copper"
-	},
-	"lc:scpdy_lockdown_panel_n3": {
-		"sound": "copper"
-	},
-	"lc:scpdy_lockdown_panel_n4": {
-		"sound": "copper"
-	},
-	"lc:scpdy_lockdown_panel_n5": {
-		"sound": "copper"
-	},
-	// #endregion
-	// #endregion
-
-	// #region minigame
-	"lc:scpdy_dash_block": {
-		"sound": "metal"
-	},
-	// #endregion
-
-	// #region misc
-	"lc:scpdy_blast_door_dummy": {
-		"sound": "netherite"
-	},
-	"lc:scpdy_rb_placeholder": {
-		"sound": "stone",
-		"textures": "scpdy_rb_placeholder"
-	},
-	"lc:scpdy_workbench": {
-		"sound": "metal"
 	}
 	// #endregion
 }

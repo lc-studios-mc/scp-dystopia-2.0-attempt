@@ -63,6 +63,8 @@
 		/* -------------------- */
 
 		// #region construction_3d
+		"scpdy_decor_vent_1": { "textures": "textures/scpdy/blocks/construction_3d/decor_vent_1" },
+		"scpdy_decor_vent_2": { "textures": "textures/scpdy/blocks/construction_3d/decor_vent_2" },
 		"scpdy_floor_grate_trap": { "textures": "textures/scpdy/blocks/construction_3d/floor_grate_trap" },
 		"scpdy_floor_grate": { "textures": "textures/scpdy/blocks/construction_3d/floor_grate" },
 		"scpdy_razor_wire": { "textures": "textures/scpdy/blocks/construction_3d/razor_wire" },
@@ -180,17 +182,6 @@
 		"scpdy_btn_2": { "textures": "textures/scpdy/machinery/input/btn/btn_2" },
 		"scpdy_kr_1": { "textures": "textures/scpdy/machinery/input/kr/kr_1" },
 		"scpdy_kr_2": { "textures": "textures/scpdy/machinery/input/kr/kr_2" },
-		// #endregion
-
-		/* -------------------- */
-
-		// #region decor
-
-		// #region decor -> vent
-		"scpdy_decor_vent_1": { "textures": "textures/scpdy/blocks/decor/vent/vent_1" },
-		"scpdy_decor_vent_2": { "textures": "textures/scpdy/blocks/decor/vent/vent_2" },
-		// #endregion
-
 		// #endregion
 
 		/* -------------------- */
