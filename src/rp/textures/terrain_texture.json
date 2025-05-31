@@ -81,7 +81,7 @@
 		// #region dividing
 		"scpdy_dividing_door_1": { "textures": "textures/scpdy/doors/dividing/dividing_door_1" },
 		"scpdy_dividing_door_2": { "textures": "textures/scpdy/doors/dividing/dividing_door_2" },
-		// #region
+		// #endregion
 
 		// #region easy
 		"scpdy_easy_door_1": { "textures": "textures/scpdy/doors/easy/easy_door_1" },
@@ -178,6 +178,14 @@
 
 		/* -------------------- */
 
+		// #region lkdn (Lockdown)
+
+		"scpdy_lkdn_panel": { "textures": "textures/scpdy/lkdn/lkdn_panel" },
+
+		// #endregion
+
+		/* -------------------- */
+
 		// #region machinery
 		"scpdy_btn_1": { "textures": "textures/scpdy/machinery/input/btn/btn_1" },
 		"scpdy_btn_2": { "textures": "textures/scpdy/machinery/input/btn/btn_2" },
@@ -232,21 +240,7 @@
 
 		// #region lockdown_devices -> alarm
 		"scpdy_lockdown_alarm_off": { "textures": "textures/scpdy/blocks/lockdown_devices/alarm/off" },
-		"scpdy_lockdown_alarm_on": { "textures": "textures/scpdy/blocks/lockdown_devices/alarm/on" },
-		// #endregion
-
-		// #region lockdown_devices -> panel
-		"scpdy_lockdown_panel_named": { "textures": "textures/scpdy/blocks/lockdown_devices/panel/named" },
-		"scpdy_lockdown_panel_zone_1": { "textures": "textures/scpdy/blocks/lockdown_devices/panel/zone_1" },
-		"scpdy_lockdown_panel_zone_2": { "textures": "textures/scpdy/blocks/lockdown_devices/panel/zone_2" },
-		"scpdy_lockdown_panel_zone_3": { "textures": "textures/scpdy/blocks/lockdown_devices/panel/zone_3" },
-		"scpdy_lockdown_panel_zone_4": { "textures": "textures/scpdy/blocks/lockdown_devices/panel/zone_4" },
-		"scpdy_lockdown_panel_zone_5": { "textures": "textures/scpdy/blocks/lockdown_devices/panel/zone_5" },
-		"scpdy_lockdown_panel_zone_6": { "textures": "textures/scpdy/blocks/lockdown_devices/panel/zone_6" },
-		"scpdy_lockdown_panel_zone_7": { "textures": "textures/scpdy/blocks/lockdown_devices/panel/zone_7" },
-		"scpdy_lockdown_panel_zone_8": { "textures": "textures/scpdy/blocks/lockdown_devices/panel/zone_8" },
-		"scpdy_lockdown_panel_zone_9": { "textures": "textures/scpdy/blocks/lockdown_devices/panel/zone_9" },
-		"scpdy_lockdown_panel_zone_10": { "textures": "textures/scpdy/blocks/lockdown_devices/panel/zone_10" }
+		"scpdy_lockdown_alarm_on": { "textures": "textures/scpdy/blocks/lockdown_devices/alarm/on" }
 		// #endregion
 
 		// #endregion

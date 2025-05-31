@@ -204,6 +204,10 @@
 					},
 
 					{
+						"items": ["lc:scpdy_lkdn_panel"]
+					},
+
+					{
 						"group_identifier": {
 							"icon": "lc:scpdy_lockdown_door_n1",
 							"name": "lc:scpdy_itemGroup_lockdownDoors"
@@ -228,20 +232,6 @@
 							"lc:scpdy_lockdown_alarm_n3",
 							"lc:scpdy_lockdown_alarm_n4",
 							"lc:scpdy_lockdown_alarm_n5"
-						]
-					},
-
-					{
-						"group_identifier": {
-							"icon": "lc:scpdy_lockdown_panel_n5",
-							"name": "lc:scpdy_itemGroup_lockdownPanels"
-						},
-						"items": [
-							"lc:scpdy_lockdown_panel_n1",
-							"lc:scpdy_lockdown_panel_n2",
-							"lc:scpdy_lockdown_panel_n3",
-							"lc:scpdy_lockdown_panel_n4",
-							"lc:scpdy_lockdown_panel_n5"
 						]
 					}
 				]

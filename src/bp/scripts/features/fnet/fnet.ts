@@ -75,35 +75,34 @@ mc.world.afterEvents.worldLoad.subscribe(() => {
 			for (let i = 0; i < MAX_FZONE_COUNT; i++) {
 				const fzone = fnet.getZone(i);
 
-				updateZoneLockdownState(fzone);
+				updateZoneStates(fzone);
 			}
 		}
 	}, 20);
 });
 
-function updateZoneLockdownState(zone: Fzone): void {
+function updateZoneStates(zone: Fzone): void {
 	const lkdnDuration = zone.getLkdnDuration();
 	const scheduledLkdnDelay = zone.getScheduledLkdnDelay();
 
 	if (scheduledLkdnDelay != undefined && scheduledLkdnDelay > 0) {
 		const next = scheduledLkdnDelay - 1;
 
-		if (next > 0) {
-			zone.setScheduledLkdnDelay(next);
-			return;
+		zone.setScheduledLkdnDelay(next);
+
+		if (next <= 0) {
+			zone.startLkdn(lkdnDuration);
 		}
 
-		zone.startLkdn(lkdnDuration);
+		return; // Dont remove this return
 	}
 
 	if (lkdnDuration != undefined && lkdnDuration > 0) {
 		const next = lkdnDuration - 1;
+		zone.setLkdnDuration(next);
+	}
 
-		if (next > 0) {
-			zone.setLkdnDuration(next);
-			return;
-		}
-
+	if (lkdnDuration == undefined) {
 		zone.stopLkdn();
 	}
 }
@@ -311,7 +310,7 @@ export class Fzone {
 		const propId = this.prefix("lkdnDelay");
 		const value = mc.world.getDynamicProperty(propId);
 
-		return typeof value == "number" ? value : undefined;
+		return typeof value == "number" ? (value === 45451919 ? Infinity : value) : undefined;
 	}
 
 	/**
@@ -324,6 +323,7 @@ export class Fzone {
 		const propId = this.prefix("lkdnDelay");
 
 		if (value == undefined || value <= 0) value = undefined;
+		else if (value === Infinity) value = 45451919;
 
 		mc.world.setDynamicProperty(propId, value);
 	}
@@ -333,7 +333,7 @@ export class Fzone {
 		const propId = this.prefix("lkdnDuration");
 		const value = mc.world.getDynamicProperty(propId);
 
-		return typeof value == "number" ? value : undefined;
+		return typeof value == "number" ? (value === 45451919 ? Infinity : value) : undefined;
 	}
 
 	/**
@@ -346,6 +346,7 @@ export class Fzone {
 		const propId = this.prefix("lkdnDuration");
 
 		if (value == undefined || value <= 0) value = undefined;
+		else if (value === Infinity) value = 45451919;
 
 		mc.world.setDynamicProperty(propId, value);
 	}
@@ -359,7 +360,7 @@ export class Fzone {
 	 * @param duration - Duration (in seconds) for which this facility zone will be locked down.
 	 * @returns Whether the lockdown was successfully started.
 	 */
-	startLkdn(duration?: number): boolean {
+	startLkdn(duration = Infinity): boolean {
 		if (this.getLkdnActive()) return false;
 
 		if (duration != undefined && duration > 0) {
@@ -402,7 +403,7 @@ export class Fzone {
 	 * @param duration - Duration (in seconds) for which this facility zone will be locked down.
 	 * @returns Whether the lockdown was scheduled successfully.
 	 */
-	scheduleLkdn(delay: number, duration?: number): boolean {
+	scheduleLkdn(delay: number, duration = Infinity): boolean {
 		if (this.getLkdnActive()) return false;
 
 		this.setScheduledLkdnDelay(delay);

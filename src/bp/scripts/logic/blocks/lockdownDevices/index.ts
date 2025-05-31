@@ -1,2 +1,1 @@
 import "./lockdownAlarm";
-import "./lockdownPanel";

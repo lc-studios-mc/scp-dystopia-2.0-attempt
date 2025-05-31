@@ -83,6 +83,14 @@
 
 	/* -------------------- */
 
+	// #region lkdn (Lockdown)
+
+	"lc:scpdy_lkdn_panel": { "sound": "metal" },
+
+	// #endregion
+
+	/* -------------------- */
+
 	// #region machinery
 	"lc:scpdy_btn_1": { "sound": "copper" },
 	"lc:scpdy_btn_2": { "sound": "copper" },
@@ -134,14 +142,6 @@
 	"lc:scpdy_lockdown_alarm_n3": { "sound": "glass" },
 	"lc:scpdy_lockdown_alarm_n4": { "sound": "glass" },
 	"lc:scpdy_lockdown_alarm_n5": { "sound": "glass" },
-	// #endregion
-
-	// #region lockdown_devices -> panel
-	"lc:scpdy_lockdown_panel_n1": { "sound": "copper" },
-	"lc:scpdy_lockdown_panel_n2": { "sound": "copper" },
-	"lc:scpdy_lockdown_panel_n3": { "sound": "copper" },
-	"lc:scpdy_lockdown_panel_n4": { "sound": "copper" },
-	"lc:scpdy_lockdown_panel_n5": { "sound": "copper" },
 	// #endregion
 
 	// #endregion

@@ -133,6 +133,8 @@ scpdy.fzone.customNameX=Zone %s - "%s"
 
 scpdy.fnetManager=Facility Network Manager
 scpdy.fnetManager.interact_button=Open Menu
+scpdy.fnetManager.selectFnet=Select the facility network.
+scpdy.fnetManager.selectFzone=Select the facility zone.
 scpdy.fnetManager.selectFnetToEdit=Select the facility network you want to edit.
 scpdy.fnetManager.selectedX=§7Selected:§f %s
 scpdy.fnetManager.changeName=Change Name
@@ -190,6 +192,24 @@ scpdy.actionHint.furniture.toilet.fartHint=Look 90 degrees down (or up) to fart
 ## * <-------------------------> *
 
 
+## --- lkdn ---
+
+scpdy.lkdnPanel=Lockdown Panel
+scpdy.lkdnPanel.targetZoneX=§7TARGET ZONE: §f%s
+scpdy.lkdnPanel.networkX=§7NETWORK: §f%s
+scpdy.lkdnPanel.startedLkdn=§aStarted the lockdown.
+scpdy.lkdnPanel.scheduledLkdn=§aScheduled the lockdown.
+scpdy.lkdnPanel.lkdnIsActive=§cLockdown is active.
+scpdy.lkdnPanel.wannaStopLkdn=§fWant to stop the lockdown?
+scpdy.lkdnPanel.stoppedLkdn=§aStopped the lockdown!
+scpdy.lkdnPanel.lkdnIsScheduled=§eLockdown is scheduled.
+scpdy.lkdnPanel.wannaCancelSchedule=§fWant to cancel the schedule?
+scpdy.lkdnPanel.canceledSchedule=§aCanceled the schedule!
+
+
+## * <-------------------------> *
+
+
 ## --- machinery ---
 
 entity.lc:scpdy_rb_anchor.name=Redstone Block Anchor
@@ -235,13 +255,20 @@ scpdy.config.text.messageOnSaveAndExit=§aSaved changes!
 ## --- misc ---
 
 scpdy.misc.text.none=None
+scpdy.misc.text.yes=Yes
+scpdy.misc.text.no=No
 scpdy.misc.text.saveAndExit=Save & Exit
+scpdy.misc.text.duration=Duration
+scpdy.misc.text.delay=Delay
+scpdy.misc.text.infinity=Infinity
 scpdy.misc.text.wrenchIsRequired=§eWrench is required
 scpdy.misc.text.newName=New name
 scpdy.misc.text.enterNewName=Enter new name
+scpdy.misc.text.enterNumber=Enter a number
 scpdy.misc.text.leaveThisEmptyToReset=Leave this field empty to use default value.
 scpdy.misc.text.accessGranted=§aAccess granted!
-scpdy.misc.text.accessDenied=§aAccess denied.
+scpdy.misc.text.accessDenied=§cAccess denied.
+scpdy.misc.text.somethingWentWrong=§cSomething went wrong...
 scpdy.misc.text.clearanceLevel=Clearance Level
 scpdy.misc.text.clearanceLevel.tooltip=The minimum required clearance level.
 scpdy.misc.text.clearanceLevel.level_0=Level 0
@@ -277,7 +304,6 @@ lc:scpdy_itemGroup_plushies=§7SCP:DY §8| §fPlushies
 lc:scpdy_itemGroup_lockdownDoors=§7SCP:DY §8| §fLockdown Doors
 lc:scpdy_itemGroup_standardDoors=§7SCP:DY §8| §fStandard Doors
 lc:scpdy_itemGroup_lockdownAlarms=§7SCP:DY §8| §fLockdown Alarms
-lc:scpdy_itemGroup_lockdownPanels=§7SCP:DY §8| §fLockdown Panels
 
 ## --- Action hints
 
@@ -394,15 +420,6 @@ scpdy.msg.lockdownDoor.setZone.failed=§cFailed to set zone.
 scpdy.msg.lockdownDoor.setZone.success=§aSuccessfully set zone!
 
 scpdy.msg.lockdownAlarm.setZone.success=§aSuccessfully set zone!
-
-scpdy.msg.lockdownPanel.setZone.success=§aSuccessfully set zone!
-
-scpdy.msg.lockdownPanel.activate.activatedLockdown=§c%s - §lLOCKDOWN ACTIVATED
-scpdy.msg.lockdownPanel.activate.activatedLockdown.noZoneName=§cZone %s - §lLOCKDOWN ACTIVATED
-scpdy.msg.lockdownPanel.activate.startedDelayedLockdown=§c%s - §lLOCKDOWN STARTS IN %s SECONDS
-scpdy.msg.lockdownPanel.activate.startedDelayedLockdown.noZoneName=§cZone %s - §lLOCKDOWN STARTS IN %s SECONDS
-scpdy.msg.lockdownPanel.activate.deactivatedLockdown=§a%s - §lLOCKDOWN DEACTIVATED
-scpdy.msg.lockdownPanel.activate.deactivatedLockdown.noZoneName=§aZone %s - §lLOCKDOWN DEACTIVATED
 
 scpdy.msg.theUnknownWaveSpawner.peacefulNotSupported=§7[!] §l§cDifficulty must be higher than peaceful!
 scpdy.msg.theUnknownWaveSpawner.waveBreakStarted=§7[!] §l§fWave §e%s§f is over. Wave §e%s§f is starting soon...
@@ -544,18 +561,6 @@ scpdy.form.lockdownAlarm.setZone.dropdown.label=Select zone
 scpdy.form.lockdownAlarm.setZone.dropdown.option=Zone %s
 scpdy.form.lockdownAlarm.setZone.submitButton=Set
 
-scpdy.form.lockdownPanel.setZone.title=Set facility zone
-scpdy.form.lockdownPanel.setZone.dropdown.label=Select zone
-scpdy.form.lockdownPanel.setZone.dropdown.option=Zone %s
-scpdy.form.lockdownPanel.setZone.submitButton=Set
-
-scpdy.form.lockdownPanel.activate.title=Lockdown Options
-scpdy.form.lockdownPanel.activate.delayField.label=Delay (in seconds)
-scpdy.form.lockdownPanel.activate.delayField.placeholder=No delay
-scpdy.form.lockdownPanel.activate.durationField.label=Duration (in seconds)
-scpdy.form.lockdownPanel.activate.durationField.placeholder=Infinity
-scpdy.form.lockdownPanel.activate.submitButton=§4§lACTIVATE
-
 ## --- Items
 
 ## items -> ammo -> packs -> ...
@@ -656,13 +661,6 @@ tile.lc:scpdy_lockdown_alarm_n2.name=§dLockdown Alarm (Network 2)
 tile.lc:scpdy_lockdown_alarm_n3.name=§dLockdown Alarm (Network 3)
 tile.lc:scpdy_lockdown_alarm_n4.name=§dLockdown Alarm (Network 4)
 tile.lc:scpdy_lockdown_alarm_n5.name=§dLockdown Alarm (Network 5)
-
-## blocks -> lockdown_devices -> panel -> ...
-tile.lc:scpdy_lockdown_panel_n1.name=§dLockdown Panel (Network 1)
-tile.lc:scpdy_lockdown_panel_n2.name=§dLockdown Panel (Network 2)
-tile.lc:scpdy_lockdown_panel_n3.name=§dLockdown Panel (Network 3)
-tile.lc:scpdy_lockdown_panel_n4.name=§dLockdown Panel (Network 4)
-tile.lc:scpdy_lockdown_panel_n5.name=§dLockdown Panel (Network 5)
 
 ## blocks -> minigame_blocks -> ...
 tile.lc:scpdy_dash_block.name=Dash Block
