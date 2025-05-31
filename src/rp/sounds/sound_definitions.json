@@ -1075,6 +1075,12 @@
 				"sounds/scpdy/misc/computer_hit_3"
 			]
 		},
+		"scpdy.misc.fan_rotation.moderate": {
+			"category": "hostile",
+			"max_distance": 6.0,
+			"min_distance": 1.0,
+			"sounds": ["sounds/scpdy/misc/fan_rotation_moderate"]
+		},
 		"scpdy.misc.fart_1": {
 			"category": "hostile",
 			"max_distance": 5.0,

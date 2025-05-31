@@ -5,5 +5,6 @@ import "./player_loop";
 
 import "./doors";
 import "./fnet";
+import "./furniture";
 import "./machinery";
 import "./uncategorizable";

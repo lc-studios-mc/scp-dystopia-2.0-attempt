@@ -164,6 +164,7 @@
 		"scpdy_laptop": { "textures": "textures/scpdy/blocks/furniture/laptop" },
 		"scpdy_microscope": { "textures": "textures/scpdy/blocks/furniture/microscope" },
 		"scpdy_office_desk": { "textures": "textures/scpdy/blocks/furniture/office_desk" },
+		"scpdy_panel_fan": { "textures": "textures/scpdy/blocks/furniture/panel_fan" },
 		"scpdy_printer": { "textures": "textures/scpdy/blocks/furniture/printer" },
 		"scpdy_radio": { "textures": "textures/scpdy/blocks/furniture/radio" },
 		"scpdy_sink": { "textures": "textures/scpdy/blocks/furniture/sink" },

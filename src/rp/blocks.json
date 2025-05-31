@@ -71,6 +71,8 @@
 	"lc:scpdy_landmine": { "sound": "copper" },
 	"lc:scpdy_laptop": { "sound": "metal" },
 	"lc:scpdy_microscope": { "sound": "iron" },
+	"lc:scpdy_panel_fan": { "sound": "copper" },
+	"lc:scpdy_panel_fan_static": { "sound": "copper" },
 	"lc:scpdy_printer": { "sound": "copper" },
 	"lc:scpdy_radio": { "sound": "copper" },
 	"lc:scpdy_trash": { "sound": "iron" },
