@@ -141,10 +141,7 @@ const COMPONENT: mc.BlockCustomComponent = {
 	onPlayerInteract({ player, block: blockUnchecked }) {
 		if (!player) return;
 
-		if (!isHoldingWrench(player)) {
-			player.onScreenDisplay.setActionBar({ translate: "scpdy.misc.text.wrenchIsRequired" });
-			return;
-		}
+		if (!isHoldingWrench(player)) return;
 
 		const block = blockUnchecked.hasTag("lc:door_top_part") ? blockUnchecked.below()! : blockUnchecked;
 
