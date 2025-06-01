@@ -91,6 +91,20 @@ tile.lc:scpdy_vent.name=Vent
 ## * <-------------------------> *
 
 
+## --- decals ---
+
+lc:scpdy_itemGroup_decals=§7SCP:DY §8- §fDecals
+scpdy.decal.blood_1=Blood Decal 1
+scpdy.decal.blood_2=Blood Decal 2
+scpdy.decal.smudge_1=Smudge Decal 1
+scpdy.decal.smudge_2=Smudge Decal 2
+scpdy.decal.smudge_3=Smudge Decal 3
+scpdy.decal.smudge_4=Smudge Decal 4
+
+
+## * <-------------------------> *
+
+
 ## --- doors ---
 
 ## cmd doors

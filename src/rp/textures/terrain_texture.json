@@ -76,6 +76,17 @@
 
 		/* -------------------- */
 
+		// #region decals
+		"scpdy_decal_blood_1": { "textures": "textures/scpdy/blocks/decals/decal_blood_1" },
+		"scpdy_decal_blood_2": { "textures": "textures/scpdy/blocks/decals/decal_blood_2" },
+		"scpdy_decal_smudge_1": { "textures": "textures/scpdy/blocks/decals/decal_smudge_1" },
+		"scpdy_decal_smudge_2": { "textures": "textures/scpdy/blocks/decals/decal_smudge_2" },
+		"scpdy_decal_smudge_3": { "textures": "textures/scpdy/blocks/decals/decal_smudge_3" },
+		"scpdy_decal_smudge_4": { "textures": "textures/scpdy/blocks/decals/decal_smudge_4" },
+		// #endregion
+
+		/* -------------------- */
+
 		// #region doors
 
 		// #region dividing

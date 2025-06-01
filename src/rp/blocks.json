@@ -23,6 +23,17 @@
 
 	/* -------------------- */
 
+	// #region decals
+	"lc:scpdy_decal_blood_1": { "sound": "slime" },
+	"lc:scpdy_decal_blood_2": { "sound": "slime" },
+	"lc:scpdy_decal_smudge_1": { "sound": "slime" },
+	"lc:scpdy_decal_smudge_2": { "sound": "slime" },
+	"lc:scpdy_decal_smudge_3": { "sound": "slime" },
+	"lc:scpdy_decal_smudge_4": { "sound": "slime" },
+	// #endregion
+
+	/* -------------------- */
+
 	// #region doors
 	"lc:scpdy_cmd_door_1": { "sound": "iron" },
 	"lc:scpdy_easy_door_1": { "sound": "iron" },

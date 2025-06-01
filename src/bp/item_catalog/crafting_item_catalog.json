@@ -219,6 +219,21 @@
 							"lc:scpdy_lockdown_alarm_n4",
 							"lc:scpdy_lockdown_alarm_n5"
 						]
+					},
+
+					{
+						"group_identifier": {
+							"icon": "lc:scpdy_decal_blood_1",
+							"name": "lc:scpdy_itemGroup_decals"
+						},
+						"items": [
+							"lc:scpdy_decal_blood_1",
+							"lc:scpdy_decal_blood_2",
+							"lc:scpdy_decal_smudge_1",
+							"lc:scpdy_decal_smudge_2",
+							"lc:scpdy_decal_smudge_3",
+							"lc:scpdy_decal_smudge_4"
+						]
 					}
 				]
 			},
