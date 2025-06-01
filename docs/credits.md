@@ -10,6 +10,14 @@ Those who helped this project are listed here! :handshake:
   - SCP-096
   - Keycards
 
+### Habosh Gmosh Monkosh
+
+- Full 3D models
+  - SCP-096 Plushie
+  - SCP-106 Plushie
+  - SCP-427-1 Plushie
+  - SCP-5167 Plushie
+
 ### Hexablare Union
 
 - Full 3D models

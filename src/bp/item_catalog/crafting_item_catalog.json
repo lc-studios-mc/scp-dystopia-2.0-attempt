@@ -196,7 +196,12 @@
 							"icon": "lc:scpdy_scp096_plushie",
 							"name": "lc:scpdy_itemGroup_plushies"
 						},
-						"items": ["lc:scpdy_scp096_plushie", "lc:scpdy_scp427_1_plushie", "lc:scpdy_scp5167_plushie"]
+						"items": [
+							"lc:scpdy_scp096_plushie",
+							"lc:scpdy_scp106_plushie",
+							"lc:scpdy_scp427_1_plushie",
+							"lc:scpdy_scp5167_plushie"
+						]
 					},
 
 					{
