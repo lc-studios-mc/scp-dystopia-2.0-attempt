@@ -191,6 +191,7 @@ scpdy.furniture.panel_fan_static=Panel Fan (Static)
 scpdy.furniture.printer=Printer
 scpdy.furniture.radio=Radio
 tile.lc:scpdy_sink.name=Sink
+scpdy.furniture.tissue_box=Tissue Box
 tile.lc:scpdy_toilet_paper_holder.name=Toilet Paper Holder
 tile.lc:scpdy_toilet.name=Toilet
 tile.lc:scpdy_trash.name=Trash

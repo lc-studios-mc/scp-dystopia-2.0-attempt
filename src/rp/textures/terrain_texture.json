@@ -180,6 +180,7 @@
 		"scpdy_printer": { "textures": "textures/scpdy/blocks/furniture/printer" },
 		"scpdy_radio": { "textures": "textures/scpdy/blocks/furniture/radio" },
 		"scpdy_sink": { "textures": "textures/scpdy/blocks/furniture/sink" },
+		"scpdy_tissue_box": { "textures": "textures/scpdy/blocks/furniture/tissue_box" },
 		"scpdy_toilet_paper_holder": { "textures": "textures/scpdy/blocks/furniture/toilet_paper_holder" },
 		"scpdy_toilet": { "textures": "textures/scpdy/blocks/furniture/toilet" },
 		"scpdy_trash": { "textures": "textures/scpdy/blocks/furniture/trash" },
