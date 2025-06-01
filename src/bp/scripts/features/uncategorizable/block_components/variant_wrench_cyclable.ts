@@ -1,3 +1,4 @@
+import { isHoldingWrench } from "@/utils/wrench";
 import * as mc from "@minecraft/server";
 
 mc.system.beforeEvents.startup.subscribe((event) => {
@@ -11,6 +12,10 @@ const COMPONENT: mc.BlockCustomComponent = {
 };
 
 function onInteract(e: mc.BlockComponentPlayerInteractEvent, params: any): void {
+	if (!e.player) return;
+
+	if (!isHoldingWrench(e.player)) return;
+
 	let variantValues = params.variantValues;
 	if (!Array.isArray(variantValues))
 		throw new Error("variantValues parameter is required for scpdy:wrenchable_variant component");
