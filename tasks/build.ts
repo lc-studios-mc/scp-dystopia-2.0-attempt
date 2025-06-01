@@ -56,7 +56,7 @@ async function main(): Promise<void> {
 
 	console.log(chalk.gray("Starting initial pack sync..."));
 
-	const bpWatcher: any = await syncdir(bpSrcDir, bpOutDir, {
+	const bpWatcherPromise: any = syncdir(bpSrcDir, bpOutDir, {
 		watch: args.values.watch,
 		deleteOrphaned: true,
 		chokidarWatchOptions,
@@ -64,12 +64,14 @@ async function main(): Promise<void> {
 		afterEachSync,
 	});
 
-	const rpWatcher: any = await syncdir(rpSrcDir, rpOutDir, {
+	const rpWatcherPromise: any = syncdir(rpSrcDir, rpOutDir, {
 		watch: args.values.watch,
 		deleteOrphaned: true,
 		chokidarWatchOptions,
 		afterEachSync,
 	});
+
+	const [bpWatcher, rpWatcher] = await Promise.all([bpWatcherPromise, rpWatcherPromise]);
 
 	console.log("Synced!");
 
