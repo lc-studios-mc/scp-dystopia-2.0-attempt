@@ -187,6 +187,7 @@
 		"scpdy_trash": { "textures": "textures/scpdy/blocks/furniture/trash" },
 		"scpdy_warehouse_light_1": { "textures": "textures/scpdy/blocks/furniture/warehouse_light_1" },
 		"scpdy_water_dispenser": { "textures": "textures/scpdy/blocks/furniture/water_dispenser" },
+		"scpdy_wooden_crate": { "textures": "textures/scpdy/blocks/furniture/wooden_crate" },
 
 		// #endregion
 

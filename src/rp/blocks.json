@@ -90,6 +90,7 @@
 	"lc:scpdy_trash": { "sound": "iron" },
 	"lc:scpdy_warehouse_light_1": { "sound": "glass" },
 	"lc:scpdy_warehouse_light_1_hanging": { "sound": "metal" },
+	"lc:scpdy_wooden_crate": { "sound": "wood" },
 
 	// #endregion
 

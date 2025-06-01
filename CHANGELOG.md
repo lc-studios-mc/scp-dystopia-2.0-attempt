@@ -25,6 +25,7 @@ _Most_ notable changes to this project will be documented in this file.
 - Tissue Box
 - Trash Bin block.
 - Water Dispenser block.
+- Wooden Crate block.
 
 ### Fixed
 

@@ -53,3 +53,4 @@ Those who helped this project are listed here! :handshake:
   - Radio
   - Tissue Box
   - Water Dispenser
+  - Wooden Crate
