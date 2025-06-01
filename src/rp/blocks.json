@@ -441,16 +441,20 @@
 		"textures": "scpdy_cst_office_ceiling_2"
 	},
 	"lc:scpdy_cst_reinforced_panel_1": {
-		"sound": "metal",
+		"sound": "iron",
 		"textures": "scpdy_cst_reinforced_panel_1"
 	},
 	"lc:scpdy_cst_reinforced_panel_2": {
-		"sound": "metal",
+		"sound": "iron",
 		"textures": "scpdy_cst_reinforced_panel_2"
 	},
 	"lc:scpdy_cst_reinforced_panel_3": {
-		"sound": "metal",
+		"sound": "iron",
 		"textures": "scpdy_cst_reinforced_panel_3"
+	},
+	"lc:scpdy_cst_reinforced_panel_4": {
+		"sound": "iron",
+		"textures": "scpdy_cst_reinforced_panel_4"
 	}
 	// #endregion
 }

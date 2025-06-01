@@ -58,6 +58,7 @@
 		"scpdy_cst_reinforced_panel_1": { "textures": "textures/scpdy/blocks/construction/reinforced_panels/panel_1" },
 		"scpdy_cst_reinforced_panel_2": { "textures": "textures/scpdy/blocks/construction/reinforced_panels/panel_2" },
 		"scpdy_cst_reinforced_panel_3": { "textures": "textures/scpdy/blocks/construction/reinforced_panels/panel_3" },
+		"scpdy_cst_reinforced_panel_4": { "textures": "textures/scpdy/blocks/construction/reinforced_panels/panel_4" },
 		// #endregion
 
 		/* -------------------- */

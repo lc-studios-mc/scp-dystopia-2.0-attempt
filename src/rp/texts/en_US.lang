@@ -54,6 +54,7 @@ tile.lc:scpdy_cst_office_ceiling_2.name=Office Ceiling 2
 tile.lc:scpdy_cst_reinforced_panel_1.name=Reinforced Panel 1
 tile.lc:scpdy_cst_reinforced_panel_2.name=Reinforced Panel 2
 tile.lc:scpdy_cst_reinforced_panel_3.name=Reinforced Panel 3
+tile.lc:scpdy_cst_reinforced_panel_4.name=Reinforced Panel 4
 
 tile.lc:scpdy_cst_black_checker_tiles.name=Black Checker Tiles
 tile.lc:scpdy_cst_caution_block_1.name=Caution Block 1
