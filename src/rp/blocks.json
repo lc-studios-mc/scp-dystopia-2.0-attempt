@@ -85,6 +85,7 @@
 
 	// #region lkdn (Lockdown)
 
+	"lc:scpdy_lkdn_door": { "sound": "metal" },
 	"lc:scpdy_lkdn_panel": { "sound": "metal" },
 
 	// #endregion
@@ -118,14 +119,6 @@
 	// #region LEGACY
 
 	// #region door
-
-	// #region door -> lockdown
-	"lc:scpdy_lockdown_door_n1": { "sound": "netherite" },
-	"lc:scpdy_lockdown_door_n2": { "sound": "netherite" },
-	"lc:scpdy_lockdown_door_n3": { "sound": "netherite" },
-	"lc:scpdy_lockdown_door_n4": { "sound": "netherite" },
-	"lc:scpdy_lockdown_door_n5": { "sound": "netherite" },
-	// #endregion
 
 	// #region door -> standard
 	"lc:scpdy_standard_door_1": { "sound": "wood" },

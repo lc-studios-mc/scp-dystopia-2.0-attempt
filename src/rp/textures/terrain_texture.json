@@ -180,6 +180,7 @@
 
 		// #region lkdn (Lockdown)
 
+		"scpdy_lkdn_door": { "textures": "textures/scpdy/lkdn/lkdn_door" },
 		"scpdy_lkdn_panel": { "textures": "textures/scpdy/lkdn/lkdn_panel" },
 
 		// #endregion
@@ -224,10 +225,6 @@
 		// #region LEGACY
 
 		// #region door
-
-		// #region door -> lockdown
-		"scpdy_lockdown_door_n1": { "textures": "textures/scpdy/blocks/door/lockdown/door_n1" },
-		// #endregion
 
 		// #region door -> standard
 		"scpdy_standard_door_1": { "textures": "textures/scpdy/blocks/door/standard/door_1" },

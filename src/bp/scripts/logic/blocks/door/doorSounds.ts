@@ -6,41 +6,6 @@ export type DoorSoundInfo = {
 //          < Door Type ID, Door Sound Info >
 const MAP = new Map<string, DoorSoundInfo>([
 	[
-		"lc:scpdy_lockdown_door_n1",
-		{
-			openSound: { id: "scpdy.door.lockdown_door.open", volume: 1.1 },
-			closeSound: { id: "scpdy.door.lockdown_door.close", volume: 1.1 },
-		},
-	],
-	[
-		"lc:scpdy_lockdown_door_n2",
-		{
-			openSound: { id: "scpdy.door.lockdown_door.open", volume: 1.1 },
-			closeSound: { id: "scpdy.door.lockdown_door.close", volume: 1.1 },
-		},
-	],
-	[
-		"lc:scpdy_lockdown_door_n3",
-		{
-			openSound: { id: "scpdy.door.lockdown_door.open", volume: 1.1 },
-			closeSound: { id: "scpdy.door.lockdown_door.close", volume: 1.1 },
-		},
-	],
-	[
-		"lc:scpdy_lockdown_door_n4",
-		{
-			openSound: { id: "scpdy.door.lockdown_door.open", volume: 1.1 },
-			closeSound: { id: "scpdy.door.lockdown_door.close", volume: 1.1 },
-		},
-	],
-	[
-		"lc:scpdy_lockdown_door_n5",
-		{
-			openSound: { id: "scpdy.door.lockdown_door.open", volume: 1.1 },
-			closeSound: { id: "scpdy.door.lockdown_door.close", volume: 1.1 },
-		},
-	],
-	[
 		"lc:scpdy_standard_door_1",
 		{
 			openSound: { id: "scpdy.door.standard_door.open", volume: 1.1 },

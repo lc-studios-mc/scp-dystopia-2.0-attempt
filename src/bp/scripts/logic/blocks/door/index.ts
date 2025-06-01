@@ -1,2 +1,1 @@
-import "./lockdownDoor";
 import "./standardDoor";

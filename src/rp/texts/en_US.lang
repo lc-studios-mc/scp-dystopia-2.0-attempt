@@ -194,6 +194,8 @@ scpdy.actionHint.furniture.toilet.fartHint=Look 90 degrees down (or up) to fart
 
 ## --- lkdn ---
 
+scpdy.lkdnDoor=Lockdown Door
+
 scpdy.lkdnPanel=Lockdown Panel
 scpdy.lkdnPanel.targetZoneX=§7TARGET ZONE: §f%s
 scpdy.lkdnPanel.networkX=§7NETWORK: §f%s
@@ -301,7 +303,6 @@ lc:scpdy_itemGroup_scp=§7SCP:DY §8| §fSCP(-related)
 lc:scpdy_itemGroup_guns=§7SCP:DY §8| §fGuns
 lc:scpdy_itemGroup_gun_mags=§7SCP:DY §8| §fGun Magazines
 lc:scpdy_itemGroup_plushies=§7SCP:DY §8| §fPlushies
-lc:scpdy_itemGroup_lockdownDoors=§7SCP:DY §8| §fLockdown Doors
 lc:scpdy_itemGroup_standardDoors=§7SCP:DY §8| §fStandard Doors
 lc:scpdy_itemGroup_lockdownAlarms=§7SCP:DY §8| §fLockdown Alarms
 
@@ -415,9 +416,6 @@ scpdy.msg.keypad.placement.passwordTooLong=§cPassword is too long!
 
 scpdy.msg.lockdownSystem.setZone.lagWarn.line_1=§ePlease note that any lockdown system (e.g. Lockdown Doors and Alarms) has a delay between reading the latest state of its zone.
 scpdy.msg.lockdownSystem.setZone.lagWarn.line_2=This is to prevent them from slowing down the world.
-
-scpdy.msg.lockdownDoor.setZone.failed=§cFailed to set zone.
-scpdy.msg.lockdownDoor.setZone.success=§aSuccessfully set zone!
 
 scpdy.msg.lockdownAlarm.setZone.success=§aSuccessfully set zone!
 
@@ -550,12 +548,6 @@ scpdy.form.keypad.use.passwordField.label=Enter Password
 scpdy.form.keypad.use.passwordField.placeholder=Enter password here
 scpdy.form.keypad.use.submitButton=Unlock
 
-scpdy.form.lockdownDoor.setZone.title=Set facility zone
-scpdy.form.lockdownDoor.setZone.allowChangeToggle.label=Can change zone later
-scpdy.form.lockdownDoor.setZone.dropdown.label=Select zone
-scpdy.form.lockdownDoor.setZone.dropdown.option=Zone %s
-scpdy.form.lockdownDoor.setZone.submitButton=Set
-
 scpdy.form.lockdownAlarm.setZone.title=Set facility zone
 scpdy.form.lockdownAlarm.setZone.dropdown.label=Select zone
 scpdy.form.lockdownAlarm.setZone.dropdown.option=Zone %s
@@ -643,13 +635,6 @@ item.lc:scpdy_void_sword.name=Void Sword
 item.lc:scpdy_frag_grenade.name=Frag Grenade
 
 ## --- Blocks
-
-## blocks -> door -> lockdown -> ...
-tile.lc:scpdy_lockdown_door_n1.name=§dLockdown Door (Network 1)
-tile.lc:scpdy_lockdown_door_n2.name=§dLockdown Door (Network 2)
-tile.lc:scpdy_lockdown_door_n3.name=§dLockdown Door (Network 3)
-tile.lc:scpdy_lockdown_door_n4.name=§dLockdown Door (Network 4)
-tile.lc:scpdy_lockdown_door_n5.name=§dLockdown Door (Network 5)
 
 ## blocks -> door -> standard -> ...
 tile.lc:scpdy_standard_door_1.name=Standard Door 1
