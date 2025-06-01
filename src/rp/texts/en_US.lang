@@ -179,6 +179,7 @@ tile.lc:scpdy_shelf_2.name=Shelf 2 §e(+Variants)
 
 scpdy.furniture.bench=Bench
 scpdy.furniture.cardboard_box_1=Cardboard Box 1
+scpdy.furniture.coffee_machine=Coffee Machine
 tile.lc:scpdy_file_cabinet.name=File Cabinet
 tile.lc:scpdy_hanging_lamp.name=Hanging Lamp
 tile.lc:scpdy_landmine.name=Landmine

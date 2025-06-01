@@ -46,6 +46,7 @@ Those who helped this project are listed here! :handshake:
 - Full 3D models
   - Bench
   - Cardboard Box 1
+  - Coffee Machine
   - Microscope
   - Office Desk
   - Printer

@@ -169,6 +169,7 @@
 
 		"scpdy_bench": { "textures": "textures/scpdy/blocks/furniture/bench" },
 		"scpdy_cardboard_box_1": { "textures": "textures/scpdy/blocks/furniture/cardboard_box_1" },
+		"scpdy_coffee_machine": { "textures": "textures/scpdy/blocks/furniture/coffee_machine" },
 		"scpdy_file_cabinet": { "textures": "textures/scpdy/blocks/furniture/file_cabinet" },
 		"scpdy_hanging_lamp": { "textures": "textures/scpdy/blocks/furniture/hanging_lamp" },
 		"scpdy_landmine": { "textures": "textures/scpdy/blocks/furniture/landmine" },

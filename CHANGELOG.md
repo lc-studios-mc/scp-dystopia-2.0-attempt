@@ -15,6 +15,7 @@ _Most_ notable changes to this project will be documented in this file.
 - Caution blocks.
 - Bench block.
 - Cardboard Box 1 block.
+- Coffee Machine block.
 - Microscope block.
 - Office Desk block.
 - Panel Fan block.
