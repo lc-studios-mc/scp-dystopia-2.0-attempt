@@ -5,7 +5,9 @@ import * as mc from "@minecraft/server";
  * @param itemStack - The ItemStack to check.
  * @returns Clearance level number, `-1` if none or invalid.
  */
-export function getClearanceLevel(itemStack: mc.ItemStack): number {
+export function getClearanceLevel(itemStack?: mc.ItemStack): number {
+	if (!itemStack) return -1;
+
 	if (itemStack.hasTag("lc:keycard_o5")) return 6;
 	if (itemStack.hasTag("lc:keycard_lvl5")) return 5;
 	if (itemStack.hasTag("lc:keycard_lvl4")) return 4;
@@ -60,10 +62,11 @@ export function getEntityClearanceLevel(target: mc.Entity): number {
 		const equippable = target.getComponent("equippable");
 		if (!equippable) return -1;
 
-		const mainhandItemStack = equippable.getEquipment(mc.EquipmentSlot.Mainhand);
-		if (!mainhandItemStack) return -1;
+		const mainhandCl = getClearanceLevel(equippable.getEquipment(mc.EquipmentSlot.Mainhand));
 
-		return getClearanceLevel(mainhandItemStack);
+		const offhandCl = getClearanceLevel(equippable.getEquipment(mc.EquipmentSlot.Offhand));
+
+		return Math.max(mainhandCl, offhandCl);
 	}
 
 	return -1;
