@@ -77,6 +77,7 @@
 	// #endregion
 
 	"lc:scpdy_bench": { "sound": "wood" },
+	"lc:scpdy_bulletin_board": { "sound": "wood" },
 	"lc:scpdy_cardboard_box_1": { "sound": "grass" },
 	"lc:scpdy_file_cabinet": { "sound": "metal" },
 	"lc:scpdy_hanging_lamp": { "sound": "metal" },

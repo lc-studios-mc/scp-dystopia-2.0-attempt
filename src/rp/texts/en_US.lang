@@ -181,6 +181,7 @@ tile.lc:scpdy_shelf_1.name=Shelf 1 §e(Wrenchable)
 tile.lc:scpdy_shelf_2.name=Shelf 2 §e(Wrenchable)
 
 scpdy.furniture.bench=Bench
+scpdy.furniture.bulletin_board=Bulletin Board §e(Wrenchable)
 scpdy.furniture.cardboard_box_1=Cardboard Box 1
 scpdy.furniture.coffee_machine=Coffee Machine
 tile.lc:scpdy_file_cabinet.name=File Cabinet

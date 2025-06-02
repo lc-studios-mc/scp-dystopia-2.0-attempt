@@ -170,6 +170,7 @@
 		// #endregion
 
 		"scpdy_bench": { "textures": "textures/scpdy/blocks/furniture/bench" },
+		"scpdy_bulletin_board": { "textures": "textures/scpdy/blocks/furniture/bulletin_board" },
 		"scpdy_cardboard_box_1": { "textures": "textures/scpdy/blocks/furniture/cardboard_box_1" },
 		"scpdy_coffee_machine": { "textures": "textures/scpdy/blocks/furniture/coffee_machine" },
 		"scpdy_file_cabinet": { "textures": "textures/scpdy/blocks/furniture/file_cabinet" },
