@@ -1,7 +1,7 @@
 import { ensureType } from "@lib/utils/miscUtils";
 import * as vec3 from "@lib/utils/vec3";
-import { type FacilityZone, getFacilityNetwork } from "@logic/facilityNetwork/network";
 import * as mc from "@minecraft/server";
+import { getFnet, type Fzone } from "../fnet/fnet";
 
 type BlastDoorInfo = {
 	size: mc.Vector2;
@@ -35,7 +35,7 @@ function getBlastDoorInfo(blastDoor: mc.Entity): BlastDoorInfo {
 
 type ControlBlastDoorMode = "open" | "close" | "switch";
 
-function getFacilityZoneOfBlastDoor(blastDoor: mc.Entity): FacilityZone | undefined {
+function getBlastDoorFzone(blastDoor: mc.Entity): Fzone | undefined {
 	const belongsToFacilityNetwork = blastDoor.getProperty("lc:belongs_to_facility_network") === true;
 
 	if (!belongsToFacilityNetwork) return undefined;
@@ -43,7 +43,7 @@ function getFacilityZoneOfBlastDoor(blastDoor: mc.Entity): FacilityZone | undefi
 	const facilityNetworkIndex = blastDoor.getProperty("lc:facility_network_index") as number;
 	const facilityZoneIndex = blastDoor.getProperty("lc:facility_zone_index") as number;
 
-	const facilityNetwork = getFacilityNetwork(facilityNetworkIndex);
+	const facilityNetwork = getFnet(facilityNetworkIndex);
 	const facilityZone = facilityNetwork.getZone(facilityZoneIndex);
 
 	return facilityZone;
@@ -71,9 +71,9 @@ export function controlBlastDoor(blastDoor: mc.Entity, mode: ControlBlastDoorMod
 	if (isOpen && mode === "open") return false;
 	if (!isOpen && mode === "close") return false;
 
-	const facilityZone = getFacilityZoneOfBlastDoor(blastDoor);
+	const facilityZone = getBlastDoorFzone(blastDoor);
 
-	if (facilityZone && facilityZone.isLockdownActive) {
+	if (facilityZone && facilityZone.isLkdnActive) {
 		if (!isO5Access) {
 			return false;
 		}
@@ -241,10 +241,10 @@ function checkRedstone(blastDoor: mc.Entity): boolean {
 
 function updateState(blastDoor: mc.Entity): void {
 	const isOpen = blastDoor.getProperty("lc:is_open") === true;
-	const facilityZone = getFacilityZoneOfBlastDoor(blastDoor);
+	const facilityZone = getBlastDoorFzone(blastDoor);
 
 	if (facilityZone) {
-		if (facilityZone.isLockdownActive) {
+		if (facilityZone.isLkdnActive) {
 			const lockdownO5AccessTime = ensureType(blastDoor.getDynamicProperty("lockdownO5AccessTime"), "number") ?? 0;
 
 			if (lockdownO5AccessTime > 0) {

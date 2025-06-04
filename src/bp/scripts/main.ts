@@ -1,7 +1,6 @@
 // Import legacy modules
 import "./logic/advancedItem";
 import "./logic/ammo";
-import "./logic/blastDoor";
 import "./logic/blocks";
 import "./logic/cctv";
 import "./logic/components";

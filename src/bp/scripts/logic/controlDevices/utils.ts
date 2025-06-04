@@ -1,6 +1,5 @@
 import { getBlockCardinalDirection, getRelativeBlock } from "@lib/utils/blockUtils";
 import { rotationToDirection } from "@lib/utils/miscUtils";
-import { controlBlastDoor, getNearestBlastDoor } from "@logic/blastDoor/blastDoor";
 import * as mc from "@minecraft/server";
 import { ModalFormData } from "@minecraft/server-ui";
 import { activateRbPlaceholder, tellRbPlaceholderIsMissing } from "./rbPlaceholder";
@@ -57,9 +56,7 @@ export function emitControlDevicePulse(controlDevice: mc.Block | mc.Entity, opts
 			sendPowerToDoorActivators(getRelativeBlock(originBlock, dir, 1), opts?.mechDoorActivationDuration);
 			return true;
 		case CONTROL_DEVICE_MODE.openNearestBlastDoor: {
-			const blastDoor = getNearestBlastDoor(controlDevice.dimension, originBlock.center());
-			if (!blastDoor) return false;
-			return controlBlastDoor(blastDoor, opts?.onlyCloseBlastDoor ? "close" : "switch", isO5Access);
+			throw new Error("Unimplemented!");
 		}
 		case CONTROL_DEVICE_MODE.placeRedstoneBlockBelow: {
 			if (opts?.onlyCloseBlastDoor) return false;

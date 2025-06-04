@@ -1,8 +1,4 @@
-import {
-	getFacilityNetwork,
-	MAX_FACILITY_NETWORK_COUNT,
-	MAX_FACILITY_ZONE_COUNT,
-} from "@logic/facilityNetwork/network";
+import { getAllFnets } from "@/features/fnet/fnet";
 import * as mc from "@minecraft/server";
 import { ModalFormData } from "@minecraft/server-ui";
 
@@ -66,12 +62,7 @@ async function showCreationForm(previewEntity: mc.Entity, player: mc.Player): Pr
 		{ defaultValue: false },
 	);
 
-	const facilityNetworks = Array.from(
-		{
-			length: MAX_FACILITY_NETWORK_COUNT,
-		},
-		(_, index) => getFacilityNetwork(index),
-	);
+	const fnets = getAllFnets();
 
 	formData1.dropdown(
 		{
@@ -79,7 +70,7 @@ async function showCreationForm(previewEntity: mc.Entity, player: mc.Player): Pr
 		},
 		[
 			{ translate: "scpdy.form.misc.none" },
-			...facilityNetworks.map(
+			...fnets.map(
 				({ name, index }) =>
 					name ?? {
 						translate: "scpdy.form.blastDoorCreation.facilityNetworkDropdown.option",
@@ -105,14 +96,9 @@ async function showCreationForm(previewEntity: mc.Entity, player: mc.Player): Pr
 	const isFacilityNetworkSpecified = facilityNetworkSelection !== 0;
 
 	if (isFacilityNetworkSpecified) {
-		const facilityNetwork = facilityNetworks[facilityNetworkSelection - 1]!;
+		const fnet = fnets[facilityNetworkSelection - 1]!;
 
-		const zones = Array.from(
-			{
-				length: MAX_FACILITY_ZONE_COUNT,
-			},
-			(_, index) => facilityNetwork.getZone(index),
-		);
+		const zones = fnet.getAllZones();
 
 		const formData2 = new ModalFormData();
 		formData2.title({ translate: "scpdy.form.blastDoorCreation.setZone.title" });

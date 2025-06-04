@@ -1,4 +1,4 @@
-import { removeBlastDoorAtBlock } from "@logic/blastDoor/blastDoor";
+import { removeBlastDoorAtBlock } from "./blast_door";
 import * as mc from "@minecraft/server";
 
 function onPlayerDestroy(arg: mc.BlockComponentPlayerDestroyEvent): void {
