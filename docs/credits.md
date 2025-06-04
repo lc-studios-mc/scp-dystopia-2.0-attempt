@@ -58,6 +58,7 @@ Those who helped this project are listed here! :handshake:
   - Microscope
   - Office Desk
   - Printer
+  - Radiator
   - Radio
   - Tissue Box
   - Water Dispenser

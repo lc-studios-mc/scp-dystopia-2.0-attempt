@@ -21,6 +21,7 @@ _Most_ notable changes to this project will be documented in this file.
 - Office Desk block.
 - Panel Fan block.
 - Printer block.
+- Radiator block.
 - Radio block.
 - Sink block.
 - Tissue Box

@@ -181,6 +181,7 @@
 		"scpdy_office_desk": { "textures": "textures/scpdy/blocks/furniture/office_desk" },
 		"scpdy_panel_fan": { "textures": "textures/scpdy/blocks/furniture/panel_fan" },
 		"scpdy_printer": { "textures": "textures/scpdy/blocks/furniture/printer" },
+		"scpdy_radiator": { "textures": "textures/scpdy/blocks/furniture/radiator" },
 		"scpdy_radio": { "textures": "textures/scpdy/blocks/furniture/radio" },
 		"scpdy_sink": { "textures": "textures/scpdy/blocks/furniture/sink" },
 		"scpdy_tissue_box": { "textures": "textures/scpdy/blocks/furniture/tissue_box" },

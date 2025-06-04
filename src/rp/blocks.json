@@ -87,6 +87,7 @@
 	"lc:scpdy_panel_fan": { "sound": "copper" },
 	"lc:scpdy_panel_fan_static": { "sound": "copper" },
 	"lc:scpdy_printer": { "sound": "copper" },
+	"lc:scpdy_radiator": { "sound": "metal" },
 	"lc:scpdy_radio": { "sound": "copper" },
 	"lc:scpdy_tissue_box": { "sound": "bamboo" },
 	"lc:scpdy_trash": { "sound": "iron" },
