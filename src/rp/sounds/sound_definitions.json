@@ -1063,7 +1063,7 @@
 		// #region Misc
 		"scpdy.misc.alarm": {
 			"category": "hostile",
-			"max_distance": 22.0,
+			"max_distance": 14.0,
 			"min_distance": null,
 			"sounds": ["sounds/scpdy/misc/alarm"]
 		},

@@ -218,6 +218,10 @@
 					},
 
 					{
+						"items": ["lc:scpdy_alarm"]
+					},
+
+					{
 						"group_identifier": {
 							"icon": "lc:scpdy_lockdown_alarm_n5",
 							"name": "lc:scpdy_itemGroup_lockdownAlarms"

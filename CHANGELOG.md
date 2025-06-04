@@ -10,6 +10,7 @@ _Most_ notable changes to this project will be documented in this file.
 - Relay Door, as a direct replacement for Mechanical Door.
 - Easy Door, as a direct replacement for Boolean Door.
 - Command to control a Command Door: `scpdy:cmddoor`.
+- Alarm block with redstone support.
 - Foundation Researcher mob.
 - SCP plushies.
 - Caution blocks.

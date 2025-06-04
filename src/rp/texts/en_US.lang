@@ -246,6 +246,13 @@ scpdy.machinery.input.rbLifespan=Redstone Block Lifespan (Seconds)
 scpdy.machinery.input.rbLifespan.tooltip=How long a Redstone Block should stay after activation.
 scpdy.machinery.input.rbMode.tip=§aTo make this mode work, you have to place a Redstone Block Placeholder at corresponding location.
 
+## alarm
+scpdy.machinery.alarm=Alarm
+scpdy.machinery.alarm.redstoneDetectionDir=Redstone Detection Direction
+scpdy.machinery.alarm.redstoneDetectionDir.tip=Direction to find a redstone-powered block. "Backward" and "Forward" are relative to the alarm's direction, while "Up" and "Down" are absolute.
+scpdy.machinery.alarm.redstoneDetectionExtend=Redstone Detection Extend
+scpdy.machinery.alarm.redstoneDetectionExtent.tip=Determines how many blocks away from the alarm to look for a redstone-powered block.
+
 ## btn
 lc:scpdy_itemGroup_btns=§7SCP:DY §8- §fButtons
 tile.lc:scpdy_btn_1.name=Button 1
@@ -302,6 +309,12 @@ scpdy.misc.text.clearanceLevel.level_4=Level 4
 scpdy.misc.text.clearanceLevel.level_5=Level 5
 scpdy.misc.text.clearanceLevel.o5=O5
 scpdy.misc.text.youDontHaveRequiredClearanceLevel=§7You do not have the required clearance level.
+scpdy.misc.text.forward=Forward
+scpdy.misc.text.backward=Backward
+scpdy.misc.text.left=Left
+scpdy.misc.text.right=Right
+scpdy.misc.text.up=Up
+scpdy.misc.text.down=Down
 
 
 ## * <-------------------------> *
