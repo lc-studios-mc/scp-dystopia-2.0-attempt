@@ -14,6 +14,9 @@ _Most_ notable changes to this project will be documented in this file.
 - Foundation Researcher mob.
 - SCP plushies.
 - Caution blocks.
+- Gray Floor Tiles block.
+- Single Floor Tile block.
+- Gray Single Floor Tile block.
 - Bench block.
 - Cardboard Box 1 block.
 - Coffee Machine block.

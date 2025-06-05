@@ -179,9 +179,21 @@
 		"sound": "stone",
 		"textures": "scpdy_cst_generic_floor"
 	},
+	"lc:scpdy_cst_gray_floor_tiles": {
+		"sound": "stone",
+		"textures": "scpdy_cst_gray_floor_tiles"
+	},
+	"lc:scpdy_cst_gray_single_floor_tile": {
+		"sound": "stone",
+		"textures": "scpdy_cst_gray_single_floor_tile"
+	},
 	"lc:scpdy_cst_lead_block": {
 		"sound": "stone",
 		"textures": "scpdy_cst_lead_block"
+	},
+	"lc:scpdy_cst_single_floor_tile": {
+		"sound": "stone",
+		"textures": "scpdy_cst_single_floor_tile"
 	},
 	"lc:scpdy_cst_steel_block": {
 		"sound": "metal",
