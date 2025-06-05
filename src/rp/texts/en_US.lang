@@ -216,6 +216,10 @@ scpdy.actionHint.furniture.toilet.fartHint=Look 90 degrees down (or up) to fart
 
 ## --- lkdn ---
 
+lc:scpdy_itemGroup_lkdnDevices=§7SCP:DY §8- §fLockdown Devices
+
+scpdy.lkdnAlarm=Lockdown Alarm §e(Wrenchable)
+
 scpdy.lkdnDoor=Lockdown Door
 
 scpdy.lkdnPanel=Lockdown Panel
@@ -253,6 +257,8 @@ scpdy.machinery.alarm.redstoneDetectionDir=Redstone Detection Direction
 scpdy.machinery.alarm.redstoneDetectionDir.tip=Direction to find a redstone-powered block. "Backward" and "Forward" are relative to the alarm's direction, while "Up" and "Down" are absolute.
 scpdy.machinery.alarm.redstoneDetectionExtend=Redstone Detection Extend
 scpdy.machinery.alarm.redstoneDetectionExtent.tip=Determines how many blocks away from the alarm to look for a redstone-powered block.
+scpdy.machinery.alarm.soundLoop.off=Alarm Sound Loop: §7OFF
+scpdy.machinery.alarm.soundLoop.on=Alarm Sound Loop: §aON
 
 ## btn
 lc:scpdy_itemGroup_btns=§7SCP:DY §8- §fButtons
@@ -338,7 +344,6 @@ lc:scpdy_itemGroup_scp=§7SCP:DY §8| §fSCP(-related)
 lc:scpdy_itemGroup_guns=§7SCP:DY §8| §fGuns
 lc:scpdy_itemGroup_gun_mags=§7SCP:DY §8| §fGun Magazines
 lc:scpdy_itemGroup_standardDoors=§7SCP:DY §8| §fStandard Doors
-lc:scpdy_itemGroup_lockdownAlarms=§7SCP:DY §8| §fLockdown Alarms
 
 ## --- Action hints
 
@@ -450,8 +455,6 @@ scpdy.msg.keypad.placement.passwordTooLong=§cPassword is too long!
 
 scpdy.msg.lockdownSystem.setZone.lagWarn.line_1=§ePlease note that any lockdown system (e.g. Lockdown Doors and Alarms) has a delay between reading the latest state of its zone.
 scpdy.msg.lockdownSystem.setZone.lagWarn.line_2=This is to prevent them from slowing down the world.
-
-scpdy.msg.lockdownAlarm.setZone.success=§aSuccessfully set zone!
 
 scpdy.msg.theUnknownWaveSpawner.peacefulNotSupported=§7[!] §l§cDifficulty must be higher than peaceful!
 scpdy.msg.theUnknownWaveSpawner.waveBreakStarted=§7[!] §l§fWave §e%s§f is over. Wave §e%s§f is starting soon...
@@ -582,11 +585,6 @@ scpdy.form.keypad.use.passwordField.label=Enter Password
 scpdy.form.keypad.use.passwordField.placeholder=Enter password here
 scpdy.form.keypad.use.submitButton=Unlock
 
-scpdy.form.lockdownAlarm.setZone.title=Set facility zone
-scpdy.form.lockdownAlarm.setZone.dropdown.label=Select zone
-scpdy.form.lockdownAlarm.setZone.dropdown.option=Zone %s
-scpdy.form.lockdownAlarm.setZone.submitButton=Set
-
 ## --- Items
 
 ## items -> ammo -> packs -> ...
@@ -673,13 +671,6 @@ item.lc:scpdy_frag_grenade.name=Frag Grenade
 ## blocks -> door -> standard -> ...
 tile.lc:scpdy_standard_door_1.name=Standard Door 1
 tile.lc:scpdy_standard_door_2.name=Standard Door 2
-
-## blocks -> lockdown_devices -> alarm -> ...
-tile.lc:scpdy_lockdown_alarm_n1.name=§dLockdown Alarm (Network 1)
-tile.lc:scpdy_lockdown_alarm_n2.name=§dLockdown Alarm (Network 2)
-tile.lc:scpdy_lockdown_alarm_n3.name=§dLockdown Alarm (Network 3)
-tile.lc:scpdy_lockdown_alarm_n4.name=§dLockdown Alarm (Network 4)
-tile.lc:scpdy_lockdown_alarm_n5.name=§dLockdown Alarm (Network 5)
 
 ## blocks -> minigame_blocks -> ...
 tile.lc:scpdy_dash_block.name=Dash Block

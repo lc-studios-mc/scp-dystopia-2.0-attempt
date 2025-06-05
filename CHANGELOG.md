@@ -54,6 +54,7 @@ _Most_ notable changes to this project will be documented in this file.
 
 ### Changed
 
+- Big improvements on the lockdown system!
 - Slasher MK-II upgrade (faster actions and sword beams!).
 
 ### Fixed

@@ -1,15 +1,16 @@
 {
-	"format_version": "1.21.20",
+	"format_version": "1.21.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "lc:scpdy_lockdown_alarm_n5",
+			"identifier": "lc:scpdy_lkdn_alarm",
 			"menu_category": {
 				"category": "construction"
 			},
 			"states": {
-				"lc:is_activated": [false, true],
-				"lc:played_since_lockdown": [false, true],
-				"lc:facility_zone_index": { "values": { "min": 0, "max": 9 } }
+				"lc:fnet_index": [0, 1, 2, 3, 4],
+				"lc:fzone_index": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+				"lc:is_active": [false, true],
+				"lc:sound_loop": [true, false]
 			},
 			"traits": {
 				"minecraft:placement_position": {
@@ -18,54 +19,58 @@
 			}
 		},
 		"components": {
-			"minecraft:custom_components": ["scpdy:warn_lockdown_delay_on_place", "scpdy:lockdown_alarm"],
-			"minecraft:geometry": "geometry.scpdy_lockdown_alarm",
+			"scpdy:lkdn_alarm": {},
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "scpdy_alarm",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:geometry": {
+				"identifier": "geometry.scpdy_alarm",
+				"bone_visibility": {
+					"on": "q.block_state('lc:is_active')",
+					"off": "!q.block_state('lc:is_active')"
+				}
+			},
+			"minecraft:destruction_particles": {
+				"texture": "scpdy_cst_reinforced_panel_4"
+			},
+			"minecraft:display_name": "scpdy.lkdnAlarm",
 			"minecraft:destructible_by_explosion": {
-				"explosion_resistance": 7.5
+				"explosion_resistance": 2.5
 			},
 			"minecraft:destructible_by_mining": {
-				"seconds_to_destroy": 2.5
+				"seconds_to_destroy": 0.5
 			},
 			"minecraft:light_dampening": 0,
-			"minecraft:collision_box": {
-				"origin": [-3, 5, 2],
-				"size": [6, 6, 6]
-			},
 			"minecraft:selection_box": {
 				"origin": [-3, 5, 2],
 				"size": [6, 6, 6]
 			},
-			"minecraft:tick": {
-				"interval_range": [80, 80]
+			"minecraft:collision_box": {
+				"origin": [-3, 5, 2],
+				"size": [6, 6, 6]
 			},
-			"tag:lockdown_alarm": {}
+			"minecraft:tick": {
+				"interval_range": [25, 25],
+				"looping": true
+			},
+			"tag:alarm": {}
 		},
 		"permutations": [
 			{
-				"condition": "q.block_state('lc:is_activated')",
+				"condition": "!q.block_state('lc:is_active')",
 				"components": {
-					"minecraft:light_emission": 8,
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "scpdy_lockdown_alarm_on",
-							"render_method": "alpha_test"
-						}
-					}
+					"minecraft:light_emission": 0
 				}
 			},
 			{
-				"condition": "!q.block_state('lc:is_activated')",
+				"condition": "q.block_state('lc:is_active')",
 				"components": {
-					"minecraft:light_emission": 0,
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "scpdy_lockdown_alarm_off",
-							"render_method": "alpha_test"
-						}
-					}
+					"minecraft:light_emission": 5
 				}
 			},
-			// #region Facing directions
 			{
 				"condition": "q.block_state('minecraft:block_face') == 'up'",
 				"components": {
@@ -114,7 +119,6 @@
 					}
 				}
 			}
-			// #endregion
 		]
 	}
 }

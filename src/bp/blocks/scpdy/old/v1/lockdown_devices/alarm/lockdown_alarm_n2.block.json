@@ -1,0 +1,37 @@
+{
+	"format_version": "1.21.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "lc:scpdy_lockdown_alarm_n2",
+			"menu_category": {
+				"category": "none",
+				"is_hidden_in_commands": true
+			},
+			"states": {
+				"lc:facility_zone_index": { "values": { "min": 0, "max": 9 } }
+			},
+			"traits": {
+				"minecraft:placement_position": {
+					"enabled_states": ["minecraft:block_face"]
+				}
+			}
+		},
+		"components": {
+			"scpdy:upgrade_v1_lockdown_alarm": {
+				"newType": "lc:scpdy_lkdn_alarm",
+				"networkIndex": 1
+			},
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "scpdy_old_upgrade_notice",
+					"render_method": "opaque"
+				}
+			},
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:tick": {
+				"interval_range": [1, 1], // Run upgrade immediately
+				"looping": true
+			}
+		}
+	}
+}

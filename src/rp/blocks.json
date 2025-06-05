@@ -101,6 +101,7 @@
 
 	// #region lkdn (Lockdown)
 
+	"lc:scpdy_lkdn_alarm": { "sound": "copper" },
 	"lc:scpdy_lkdn_door": { "sound": "metal" },
 	"lc:scpdy_lkdn_panel": { "sound": "metal" },
 
@@ -140,18 +141,6 @@
 	// #region door -> standard
 	"lc:scpdy_standard_door_1": { "sound": "wood" },
 	"lc:scpdy_standard_door_2": { "sound": "metal" },
-	// #endregion
-
-	// #endregion
-
-	// #region lockdown_devices
-
-	// #region lockdown_devices -> alarm
-	"lc:scpdy_lockdown_alarm_n1": { "sound": "glass" },
-	"lc:scpdy_lockdown_alarm_n2": { "sound": "glass" },
-	"lc:scpdy_lockdown_alarm_n3": { "sound": "glass" },
-	"lc:scpdy_lockdown_alarm_n4": { "sound": "glass" },
-	"lc:scpdy_lockdown_alarm_n5": { "sound": "glass" },
 	// #endregion
 
 	// #endregion
