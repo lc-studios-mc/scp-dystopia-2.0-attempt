@@ -13,6 +13,8 @@
 
 </div>
 
+Latest development is done in the ["develop" branch](https://github.com/lc-studios-mc/scp-dystopia/tree/develop).
+
 See credits [here](./docs/credits.md).
 
 See attributions [here](./docs/attributions.md).
