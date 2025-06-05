@@ -31,6 +31,7 @@ _Most_ notable changes to this project will be documented in this file.
 
 ### Fixed
 
+- Alphanumeric Sign block is not placable.
 - Blast Door creation form is not displayed properly.
 - Toilets and Chairs are not sittable.
 - Dash Block does not work.
