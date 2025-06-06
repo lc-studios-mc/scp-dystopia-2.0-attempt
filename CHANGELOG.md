@@ -32,6 +32,10 @@ _Most_ notable changes to this project will be documented in this file.
 - Water Dispenser block.
 - Wooden Crate block.
 
+## Changed
+
+- Decrease the CCTV Camera model size.
+
 ### Fixed
 
 - Alphanumeric Sign block is not placable.
