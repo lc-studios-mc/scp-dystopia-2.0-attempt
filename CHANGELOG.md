@@ -7,6 +7,7 @@ _Most_ notable changes to this project will be documented in this file.
 ### Added
 
 - New SCPs:
+  - SCP-005
   - SCP-106
 - New Blocks:
   - Alarm

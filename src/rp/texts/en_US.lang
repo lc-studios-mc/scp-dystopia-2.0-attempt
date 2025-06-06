@@ -293,6 +293,15 @@ scpdy.config.text.messageOnSaveAndExit=§aSaved changes!
 ## * <-------------------------> *
 
 
+## --- scp ---
+
+scpdy.scp005=SCP-005
+scpdy.scp005.itemName=SCP-005 "Skeleton Key"\n§eLets you bypass most security locks (without holding the key)
+
+
+## * <-------------------------> *
+
+
 ## --- misc ---
 
 scpdy.misc.text.none=None

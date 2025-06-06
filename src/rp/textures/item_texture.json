@@ -99,6 +99,9 @@
 		},
 		// #endregion
 		// #region scp
+		"scpdy_scp005": {
+			"textures": "textures/scpdy/scp/scp005"
+		},
 		"scpdy_scp096_1_wand_icon": {
 			"textures": "textures/scpdy/scp/scp096_1_wand_icon"
 		},

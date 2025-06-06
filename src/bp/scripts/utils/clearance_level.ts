@@ -59,14 +59,26 @@ export function getEntityClearanceLevel(target: mc.Entity): number {
 	if (!target.isValid) return -1;
 
 	if (target instanceof mc.Player) {
+		const inventory = target.getComponent("inventory");
+		if (inventory) {
+			for (let i = 0; i < inventory.container.size; i++) {
+				const slot = inventory.container.getSlot(i);
+
+				// SCP-005 can bypass most security locks (without holding it)
+				const foundScp005 = slot.hasItem() && slot.typeId === "lc:scpdy_scp005";
+				if (foundScp005) return 6;
+			}
+		}
+
 		const equippable = target.getComponent("equippable");
-		if (!equippable) return -1;
+		if (equippable) {
+			const mainhandCl = getClearanceLevel(equippable.getEquipment(mc.EquipmentSlot.Mainhand));
+			const offhandCl = getClearanceLevel(equippable.getEquipment(mc.EquipmentSlot.Offhand));
+			const maxCl = Math.max(mainhandCl, offhandCl);
+			if (maxCl !== -1) return maxCl;
+		}
 
-		const mainhandCl = getClearanceLevel(equippable.getEquipment(mc.EquipmentSlot.Mainhand));
-
-		const offhandCl = getClearanceLevel(equippable.getEquipment(mc.EquipmentSlot.Offhand));
-
-		return Math.max(mainhandCl, offhandCl);
+		return -1;
 	}
 
 	return -1;
