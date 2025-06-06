@@ -19,6 +19,7 @@
 		"scpdy_cst_gray_floor_tiles": { "textures": "textures/scpdy/blocks/construction/gray_floor_tiles" },
 		"scpdy_cst_gray_single_floor_tile": { "textures": "textures/scpdy/blocks/construction/gray_single_floor_tile" },
 		"scpdy_cst_lead_block": { "textures": "textures/scpdy/blocks/construction/lead_block" },
+		"scpdy_cst_magnet_block": { "textures": "textures/scpdy/blocks/construction/magnet_block" },
 		"scpdy_cst_single_floor_tile": { "textures": "textures/scpdy/blocks/construction/single_floor_tile" },
 		"scpdy_cst_steel_block": { "textures": "textures/scpdy/blocks/construction/steel_block" },
 		"scpdy_cst_treadplate_side": { "textures": "textures/scpdy/blocks/construction/treadplate_side" },

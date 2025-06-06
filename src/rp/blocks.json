@@ -191,6 +191,10 @@
 		"sound": "stone",
 		"textures": "scpdy_cst_lead_block"
 	},
+	"lc:scpdy_cst_magnet_block": {
+		"sound": "metal",
+		"textures": "scpdy_cst_magnet_block"
+	},
 	"lc:scpdy_cst_single_floor_tile": {
 		"sound": "stone",
 		"textures": "scpdy_cst_single_floor_tile"

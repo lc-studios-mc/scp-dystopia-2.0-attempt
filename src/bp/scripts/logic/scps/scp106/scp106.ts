@@ -151,9 +151,15 @@ function onUpdate(scp106: mc.Entity): void {
 function onUpdateDefaultState(scp106: mc.Entity): void {
 	if (!scp106.target) return;
 
-	if (isStuck(scp106)) {
+	const isOnMagnet = isOnMagnetBlock(scp106);
+
+	if (!isOnMagnet && isStuck(scp106)) {
 		startDive(scp106, "combat");
 		return;
+	}
+
+	if (isOnMagnet) {
+		scp106.addEffect("slowness", 40, { amplifier: 1, showParticles: true });
 	}
 
 	updateCorrosionAcquisitionCooldown(scp106);
@@ -436,4 +442,13 @@ function onFinishRetreatDive(scp106: mc.Entity): void {
 	enterHiddenState(scp106);
 	scp106.triggerEvent("lc:join_default_family");
 	scp106.tryTeleport({ x: scp106.location.x, y: -63.5, z: scp106.location.z });
+}
+
+function isOnMagnetBlock(scp106: mc.Entity): boolean {
+	const block = scp106.dimension.getBlockBelow(scp106.location, {
+		maxDistance: 2.0,
+		includeTypes: ["lc:scpdy_cst_magnet_block"],
+	});
+
+	return block != undefined && block.typeId === "lc:scpdy_cst_magnet_block";
 }

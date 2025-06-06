@@ -17,6 +17,7 @@ _Most_ notable changes to this project will be documented in this file.
   - Coffee Machine
   - Gray Floor Tiles
   - Gray Single Floor Tile
+  - Magnet Block
   - Microscope
   - Office Desk
   - Panel Fan
