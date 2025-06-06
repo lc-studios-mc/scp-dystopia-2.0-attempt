@@ -6,35 +6,45 @@ _Most_ notable changes to this project will be documented in this file.
 
 ### Added
 
-- SCP-106.
-- Relay Door, as a direct replacement for Mechanical Door.
-- Easy Door, as a direct replacement for Boolean Door.
-- Command to control a Command Door: `scpdy:cmddoor`.
-- Alarm block with redstone support.
-- Foundation Researcher mob.
-- SCP plushies.
-- Caution blocks.
-- Gray Floor Tiles block.
-- Single Floor Tile block.
-- Gray Single Floor Tile block.
-- Bench block.
-- Cardboard Box 1 block.
-- Coffee Machine block.
-- Microscope block.
-- Office Desk block.
-- Panel Fan block.
-- Printer block.
-- Radiator block.
-- Radio block.
-- Sink block.
-- Tissue Box
-- Trash Bin block.
-- Water Dispenser block.
-- Wooden Crate block.
+- New mobs:
+  - SCP-106
+  - Foundation Researcher
+- New blocks:
+  - Alarm
+  - Bench
+  - Cardboard Box 1
+  - Caution blocks
+  - Coffee Machine
+  - Gray Floor Tiles
+  - Gray Single Floor Tile
+  - Microscope
+  - Office Desk
+  - Panel Fan
+  - Printer
+  - Radiator
+  - Radio
+  - SCP plushies
+  - Single Floor Tile
+  - Sink
+  - Tissue Box
+  - Trash Bin
+  - Water Dispenser
+  - Wooden Crate
+- Command to control a Command Door (`/scpdy:cmddoor`)
 
-## Changed
+### Changed
 
+- Improve the Lockdown System.
+- Change Mechanical Door to Relay Door, as a direct replacement.
+- Change Boolean Door to Easy Door, as a direct replacement.
 - Decrease the CCTV Camera model size.
+
+### Removed
+
+- Mechanical Door Activator.
+- Config Editor item (run `/scpdy:configeditor` instead).
+- Script event to control a Command Door (run `/scpdy:cmddoor` instead)
+- Slasher (in favor of the [standalone version](https://www.curseforge.com/minecraft-bedrock/addons/slasher-sword))
 
 ### Fixed
 
@@ -42,14 +52,6 @@ _Most_ notable changes to this project will be documented in this file.
 - Blast Door creation form is not displayed properly.
 - Toilets and Chairs are not sittable.
 - Dash Block does not work.
-
-### Removed
-
-- Mechanical Door.
-- Mechanical Door Activator.
-- Boolean Door.
-- Config Editor item (run the command `/scpdy:configeditor` instead).
-- Slasher (in favor of the [standalone version](https://www.curseforge.com/minecraft-bedrock/addons/slasher-sword))
 
 ## [2.0.0 Alpha 3] - 2025-03-27
 
