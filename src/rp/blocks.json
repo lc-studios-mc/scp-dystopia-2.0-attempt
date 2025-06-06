@@ -171,6 +171,10 @@
 		"sound": "cloth",
 		"textures": "scpdy_cst_cushion"
 	},
+	"lc:scpdy_cst_duct_block": {
+		"sound": "iron",
+		"textures": "scpdy_cst_duct_block"
+	},
 	"lc:scpdy_cst_floor_tiles": {
 		"sound": "stone",
 		"textures": "scpdy_cst_floor_tiles"

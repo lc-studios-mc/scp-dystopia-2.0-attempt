@@ -15,6 +15,7 @@ _Most_ notable changes to this project will be documented in this file.
   - Cardboard Box 1
   - Caution Blocks
   - Coffee Machine
+  - Duct Block
   - Gray Floor Tiles
   - Gray Single Floor Tile
   - Magnet Block

@@ -14,6 +14,7 @@
 		"scpdy_cst_caution_block_1": { "textures": "textures/scpdy/blocks/construction/caution_block_1" },
 		"scpdy_cst_caution_block_2": { "textures": "textures/scpdy/blocks/construction/caution_block_2" },
 		"scpdy_cst_caution_block_3": { "textures": "textures/scpdy/blocks/construction/caution_block_3" },
+		"scpdy_cst_duct_block": { "textures": "textures/scpdy/blocks/construction/duct_block" },
 		"scpdy_cst_floor_tiles": { "textures": "textures/scpdy/blocks/construction/floor_tiles" },
 		"scpdy_cst_generic_floor": { "textures": "textures/scpdy/blocks/construction/generic_floor" },
 		"scpdy_cst_gray_floor_tiles": { "textures": "textures/scpdy/blocks/construction/gray_floor_tiles" },

@@ -61,6 +61,7 @@ tile.lc:scpdy_cst_caution_block_1.name=Caution Block 1
 tile.lc:scpdy_cst_caution_block_2.name=Caution Block 2
 tile.lc:scpdy_cst_caution_block_3.name=Caution Block 3
 tile.lc:scpdy_cst_cushion.name=Cushion
+tile.lc:scpdy_cst_duct_block.name=Duct Block
 tile.lc:scpdy_cst_floor_tiles.name=Floor Tiles
 tile.lc:scpdy_cst_generic_floor.name=Generic Floor
 tile.lc:scpdy_cst_gray_floor_tiles.name=Gray Floor Tiles
