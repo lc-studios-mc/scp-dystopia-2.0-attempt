@@ -6,14 +6,13 @@ _Most_ notable changes to this project will be documented in this file.
 
 ### Added
 
-- New mobs:
+- New SCPs:
   - SCP-106
-  - Foundation Researcher
-- New blocks:
+- New Blocks:
   - Alarm
   - Bench
   - Cardboard Box 1
-  - Caution blocks
+  - Caution Blocks
   - Coffee Machine
   - Gray Floor Tiles
   - Gray Single Floor Tile
@@ -24,7 +23,7 @@ _Most_ notable changes to this project will be documented in this file.
   - Printer
   - Radiator
   - Radio
-  - SCP plushies
+  - SCP Plushies
   - Single Floor Tile
   - Sink
   - Tissue Box
@@ -32,6 +31,7 @@ _Most_ notable changes to this project will be documented in this file.
   - Water Dispenser
   - Wooden Crate
 - Command to control a Command Door (`/scpdy:cmddoor`)
+- Foundation Researcher mob
 
 ### Changed
 
