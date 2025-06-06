@@ -40,7 +40,7 @@ const COMPONENT: mc.BlockCustomComponent = {
 	onTick({ block, dimension }) {
 		const soundLoop = Boolean(block.permutation.getState(STATE.soundLoop));
 		const fzone = getFzone(block.permutation);
-		const shouldBeActive = fzone.isLkdnActive;
+		const shouldBeActive = fzone.isLkdnActive || fzone.isLkdnScheduled;
 		const isCurrentlyActive = Boolean(block.permutation.getState(STATE.isActive));
 
 		if (shouldBeActive && !isCurrentlyActive) {
