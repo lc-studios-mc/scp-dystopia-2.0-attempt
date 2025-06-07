@@ -54,6 +54,7 @@ _Most_ notable changes to this project will be documented in this file.
 
 - Alphanumeric Sign block is not placable.
 - Blast Door creation form is not displayed properly.
+- Construction blocks are not conducting redstone.
 - Frag Grenade not exploding in certain condition.
 - Toilets and Chairs are not sittable.
 - Dash Block does not work.
