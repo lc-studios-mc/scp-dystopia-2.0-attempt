@@ -93,6 +93,19 @@
 
 		/* -------------------- */
 
+		// #region display_contents
+		"scpdy_16_9_display_content_sample": {
+			"textures": "textures/scpdy/display_contents/16_9/16_9_display_content_sample"
+		},
+		"scpdy_16_9_display_content_1": { "textures": "textures/scpdy/display_contents/16_9/16_9_display_content_1" },
+		"scpdy_16_9_display_content_2": { "textures": "textures/scpdy/display_contents/16_9/16_9_display_content_2" },
+		"scpdy_16_9_display_content_3": { "textures": "textures/scpdy/display_contents/16_9/16_9_display_content_3" },
+		"scpdy_16_9_display_content_4": { "textures": "textures/scpdy/display_contents/16_9/16_9_display_content_4" },
+		"scpdy_16_9_display_content_5": { "textures": "textures/scpdy/display_contents/16_9/16_9_display_content_5" },
+		// #endregion
+
+		/* -------------------- */
+
 		// #region doors
 
 		// #region dividing
@@ -193,6 +206,7 @@
 		"scpdy_toilet_paper_holder": { "textures": "textures/scpdy/blocks/furniture/toilet_paper_holder" },
 		"scpdy_toilet": { "textures": "textures/scpdy/blocks/furniture/toilet" },
 		"scpdy_trash": { "textures": "textures/scpdy/blocks/furniture/trash" },
+		"scpdy_wall_monitor": { "textures": "textures/scpdy/blocks/furniture/wall_monitor" },
 		"scpdy_warehouse_light_1": { "textures": "textures/scpdy/blocks/furniture/warehouse_light_1" },
 		"scpdy_water_dispenser": { "textures": "textures/scpdy/blocks/furniture/water_dispenser" },
 		"scpdy_wooden_crate": { "textures": "textures/scpdy/blocks/furniture/wooden_crate" },

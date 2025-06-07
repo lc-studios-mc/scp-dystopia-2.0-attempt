@@ -30,6 +30,7 @@ _Most_ notable changes to this project will be documented in this file.
   - Sink
   - Tissue Box
   - Trash Bin
+  - Wall Monitor
   - Water Dispenser
   - Wooden Crate
 - Command to control a Command Door (`/scpdy:cmddoor`)

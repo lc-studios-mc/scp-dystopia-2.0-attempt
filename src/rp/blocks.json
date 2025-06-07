@@ -91,6 +91,7 @@
 	"lc:scpdy_radio": { "sound": "copper" },
 	"lc:scpdy_tissue_box": { "sound": "bamboo" },
 	"lc:scpdy_trash": { "sound": "iron" },
+	"lc:scpdy_wall_monitor": { "sound": "copper" },
 	"lc:scpdy_warehouse_light_1": { "sound": "glass" },
 	"lc:scpdy_warehouse_light_1_hanging": { "sound": "metal" },
 	"lc:scpdy_wooden_crate": { "sound": "wood" },
