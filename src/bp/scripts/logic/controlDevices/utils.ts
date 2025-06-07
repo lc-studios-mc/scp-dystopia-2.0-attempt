@@ -115,10 +115,10 @@ export function addControlDeviceModeDropdownToForm(formData: ModalFormData): voi
 	formData.dropdown(
 		{ translate: "scpdy.form.controlDevice.modeDropdown.label" },
 		[
-			{ translate: "scpdy.form.controlDevice.modeDropdown.opt0" },
-			{ translate: "scpdy.form.controlDevice.modeDropdown.opt1" },
-			{ translate: "scpdy.form.controlDevice.modeDropdown.opt2" },
-			{ translate: "scpdy.form.controlDevice.modeDropdown.opt3" },
+			{ translate: "scpdy.machinery.input.mode.text.powerRelayDoors" },
+			{ translate: "scpdy.machinery.input.mode.text.ctrlBlastDoor" },
+			{ translate: "scpdy.machinery.input.mode.text.placeRbBelow" },
+			{ translate: "scpdy.machinery.input.mode.text.placeRbBehind" },
 		],
 		{ defaultValueIndex: 0 },
 	);

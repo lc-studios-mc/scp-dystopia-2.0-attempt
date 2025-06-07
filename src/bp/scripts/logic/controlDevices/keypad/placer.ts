@@ -53,11 +53,11 @@ async function processPlacementAsync(player: mc.Player, event: mc.ItemComponentU
 	if (response.canceled) return;
 	if (!response.formValues) return;
 
-	const password = String(response.formValues[0]).trim();
-	const hint = String(response.formValues[1]);
-	const loudIncorrectBuzzer = response.formValues[2] === true;
-	const controlDeviceMode = Number(response.formValues[3]);
-	const o5Clearance = response.formValues[4] === true;
+	const password = String(response.formValues[1]).trim();
+	const hint = String(response.formValues[2]);
+	const loudIncorrectBuzzer = response.formValues[3] === true;
+	const controlDeviceMode = Number(response.formValues[5]);
+	const o5Clearance = response.formValues[6] === true;
 
 	if (password === "") {
 		player.playSound("note.bass");
