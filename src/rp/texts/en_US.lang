@@ -225,7 +225,8 @@ scpdy.actionHint.furniture.toilet.fartHint=Look 90 degrees down (or up) to fart
 
 lc:scpdy_itemGroup_lkdnDevices=§7SCP:DY §8- §fLockdown Devices
 
-scpdy.lkdnAlarm=Lockdown Alarm §e(Wrenchable)
+scpdy.lkdnAlarm=Lockdown Alarm
+scpdy.lkdnAlarm.itemName=Lockdown Alarm §e(Wrenchable)
 
 scpdy.lkdnDoor=Lockdown Door
 

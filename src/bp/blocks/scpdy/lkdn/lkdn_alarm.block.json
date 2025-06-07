@@ -36,7 +36,7 @@
 			"minecraft:destruction_particles": {
 				"texture": "scpdy_cst_reinforced_panel_4"
 			},
-			"minecraft:display_name": "scpdy.lkdnAlarm",
+			"minecraft:display_name": "scpdy.lkdnAlarm.itemName",
 			"minecraft:destructible_by_explosion": {
 				"explosion_resistance": 2.5
 			},
