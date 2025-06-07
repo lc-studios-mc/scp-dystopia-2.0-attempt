@@ -65,6 +65,7 @@
 	// #endregion
 
 	// #region furniture -> plushies
+	"lc:scpdy_klampas_plushie": { "sound": "cloth" },
 	"lc:scpdy_scp096_plushie": { "sound": "cloth" },
 	"lc:scpdy_scp106_plushie": { "sound": "cloth" },
 	"lc:scpdy_scp427_1_plushie": { "sound": "cloth" },
