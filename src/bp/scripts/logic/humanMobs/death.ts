@@ -40,6 +40,7 @@ function onHumanMobDie(
 mc.world.afterEvents.entityHurt.subscribe(
 	(event) => {
 		if (event.damageSource.cause === mc.EntityDamageCause.selfDestruct) return;
+		if (!event.hurtEntity.isValid) return;
 
 		const lootData = getHumanMobLootData(event.hurtEntity.typeId);
 

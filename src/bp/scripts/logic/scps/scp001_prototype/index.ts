@@ -226,7 +226,9 @@ mc.world.afterEvents.entityDie.subscribe((event) => {
 	const scp001Entity = event.damageSource.damagingEntity;
 
 	if (!scp001Entity) return;
+	if (!scp001Entity.isValid) return;
 	if (scp001Entity.typeId !== SCP001P_ENTITY_TYPE) return;
+	if (!event.deadEntity.isValid) return;
 
 	const deadEntityHealthComp = event.deadEntity.getComponent("health");
 

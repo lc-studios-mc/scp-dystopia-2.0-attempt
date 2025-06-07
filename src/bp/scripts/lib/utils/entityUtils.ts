@@ -12,6 +12,8 @@ export function getEntitiesInAllDimensions(options?: mc.EntityQueryOptions): mc.
  * @returns Whether the entity's health is 0.
  */
 export function isEntityDead(entity: mc.Entity): boolean {
+	if (!entity.isValid) return true;
+
 	const comp = entity.getComponent("health");
 
 	if (!comp) return false;

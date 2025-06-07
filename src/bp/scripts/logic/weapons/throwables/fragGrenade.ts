@@ -14,7 +14,9 @@ function throwFragGrenade(player: mc.Player, ticksSinceRemovedPin: number): void
 			cause: mc.EntityDamageCause.entityExplosion,
 			damagingEntity: player,
 		});
-		player.dimension.spawnEntity(`${FRAG_GRENADE_DROPPED_ENTITY_TYPE}<frag_grenade:explode>`, playerHeadLoc);
+		player.dimension.spawnEntity(FRAG_GRENADE_DROPPED_ENTITY_TYPE, playerHeadLoc, {
+			spawnEvent: "frag_grenade:explode",
+		});
 		return;
 	}
 
@@ -88,6 +90,7 @@ mc.world.afterEvents.projectileHitBlock.subscribe((event) => {
 
 mc.world.afterEvents.projectileHitEntity.subscribe((event) => {
 	if (event.projectile.typeId !== FRAG_GRENADE_THROWN_ENTITY_TYPE) return;
+	if (!event.projectile.isValid) return;
 
 	const hitEntity = event.getEntityHit().entity;
 

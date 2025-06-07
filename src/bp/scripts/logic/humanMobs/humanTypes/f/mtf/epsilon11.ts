@@ -183,6 +183,8 @@ function hideScp096Face(mtfEntity: mc.Entity): void {
 }
 
 function onEntityEventTrigger(mtfEntity: mc.Entity, eventId: string): void {
+	if (!mtfEntity.isValid) return;
+
 	const isDead = isEntityDead(mtfEntity);
 
 	switch (eventId) {
