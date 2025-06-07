@@ -14,9 +14,8 @@
 				"texture": "scpdy_wrench_icon"
 			},
 			"minecraft:display_name": {
-				"value": "item.lc:scpdy_wrench.name"
+				"value": "scpdy.wrench.itemName"
 			},
-			"minecraft:hover_text_color": "light_purple",
 			"minecraft:max_stack_size": 1,
 			"minecraft:hand_equipped": true,
 			"minecraft:allow_off_hand": false,

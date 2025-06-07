@@ -304,6 +304,15 @@ scpdy.scp005.itemName=SCP-005 "Skeleton Key"\n§eLets you bypass most security l
 ## * <-------------------------> *
 
 
+## --- utility ---
+
+scpdy.wrench=Wrench
+scpdy.wrench.itemName=Wrench\n§eCan change the variants of certain blocks
+
+
+## * <-------------------------> *
+
+
 ## --- misc ---
 
 scpdy.misc.text.none=None
@@ -654,7 +663,6 @@ item.lc:scpdy_scp427.name=SCP-427
 
 ## items -> utility -> ...
 item.lc:scpdy_facility_network_manager.name=Facility Network Manager
-item.lc:scpdy_wrench.name=Wrench (SCP: Dystopia 2.0+)
 
 ## items -> weapons -> guns -> ...
 item.lc:scpdy_gun_ar15_mag.name=AR-15 Magazine
