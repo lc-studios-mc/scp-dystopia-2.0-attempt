@@ -25,6 +25,8 @@ const args = parseArgs({
 
 const { devBehaviorPacks, devResourcePacks } = getDevPackDirs();
 
+const isDist = args.values.distDir != null;
+
 const bpSrcDir = path.resolve("src/bp");
 const bpOutDir =
 	args.values.distDir != null
@@ -54,7 +56,7 @@ async function main(): Promise<void> {
 		console.log(getCurrentTimeString(), `${info.eventType}: ${relativePath}`);
 	};
 
-	console.log(chalk.gray("Starting initial pack sync..."));
+	console.log("Starting initial compilation...");
 
 	const bpWatcherPromise: any = syncdir(bpSrcDir, bpOutDir, {
 		watch: args.values.watch,
@@ -77,71 +79,72 @@ async function main(): Promise<void> {
 
 	const srcScriptsDir = path.resolve("./src/bp/scripts/");
 
-	const outdir = path.join(bpOutDir, "scripts");
-	const outfile = path.join(outdir, "main.js");
+	const bpScriptOutdir = path.join(bpOutDir, "scripts");
+	const bpScriptutfile = path.join(bpScriptOutdir, "main.js");
 
-	await fs.ensureDir(path.dirname(outfile));
-	await fs.emptyDir(outdir);
+	await fs.ensureDir(path.dirname(bpScriptutfile));
+	await fs.emptyDir(bpScriptOutdir);
+
+	console.log(bpScriptutfile);
 
 	const esbuildOpts: esbuild.BuildOptions = {
 		entryPoints: [path.join(srcScriptsDir, "main.ts")],
-		outfile,
+		outfile: bpScriptutfile,
 		bundle: true,
 		allowOverwrite: true,
-		sourcemap: true,
-		sourceRoot: srcScriptsDir,
 		external: ["@minecraft"],
 		tsconfig: "./tsconfig.json",
 		format: "esm",
 		platform: "neutral",
 		charset: "utf8",
-		write: false, // Write functionality is in custom plugin below
-		plugins: [
-			{
-				name: "custom-write",
-				setup(build) {
-					build.onEnd((result) => {
-						if (!result.outputFiles) return;
-
-						for (const outputFile of result.outputFiles) {
-							let toWrite = outputFile.text;
-
-							// Tweak source map contents for Minecraft
-							if (path.extname(outputFile.path) === ".map") {
-								const data = JSON.parse(outputFile.text);
-								const sources = data.sources as string[];
-								const convertedSources = sources.map((x) => path.relative(srcScriptsDir, fileURLToPath(x)));
-								data.sources = convertedSources;
-								toWrite = JSON.stringify(data, null, 2);
-							}
-
-							fs.writeFileSync(outputFile.path, toWrite, "utf8");
-						}
-					});
-				},
-			},
-			{
-				name: "build-log",
-				setup(build) {
-					build.onEnd(() => {
-						console.log(getCurrentTimeString(), "Bundled scripts!");
-					});
-				},
-			},
-		],
+		plugins: [],
 	};
 
-	let esbuildCtx: esbuild.BuildContext | null = null;
+	if (!isDist) {
+		esbuildOpts.sourcemap = true;
+		esbuildOpts.sourceRoot = srcScriptsDir;
+		esbuildOpts.write = false; // Write functionality is in custom plugin below
+		esbuildOpts.plugins?.push({
+			name: "custom-write",
+			setup(build) {
+				build.onEnd((result) => {
+					if (!result.outputFiles) return;
 
-	console.log(chalk.gray("Bundling scripts..."));
+					for (const outputFile of result.outputFiles) {
+						let toWrite = outputFile.text;
+
+						// Tweak source map contents for Minecraft
+						if (path.extname(outputFile.path) === ".map") {
+							const data = JSON.parse(outputFile.text);
+							const sources = data.sources as string[];
+							const convertedSources = sources.map((x) => path.relative(srcScriptsDir, fileURLToPath(x)));
+							data.sources = convertedSources;
+							toWrite = JSON.stringify(data, null, 2);
+						}
+
+						fs.writeFileSync(outputFile.path, toWrite, "utf8");
+					}
+				});
+			},
+		});
+		esbuildOpts.plugins?.push({
+			name: "build-log",
+			setup(build) {
+				build.onEnd(() => {
+					console.log(getCurrentTimeString(), "Bundled BP scripts!");
+				});
+			},
+		});
+	}
+
+	let esbuildCtx: esbuild.BuildContext | null = null;
 
 	if (args.values.watch) {
 		esbuildCtx = await esbuild.context(esbuildOpts);
 		esbuildCtx.watch();
 	} else {
-		try {
-			await esbuild.build(esbuildOpts);
-		} catch {}
+		await esbuild.build(esbuildOpts);
+		console.log("Bundled BP scripts!");
 	}
 
 	if (!args.values.watch) {
