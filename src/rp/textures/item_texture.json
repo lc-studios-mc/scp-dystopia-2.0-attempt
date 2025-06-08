@@ -122,6 +122,9 @@
 		},
 		// #endregion
 		// #region utility
+		"scpdy_config_icon": {
+			"textures": "textures/scpdy/items/utility/config_icon"
+		},
 		"scpdy_fnet_manager_icon": {
 			"textures": "textures/scpdy/items/utility/fnet_manager"
 		},

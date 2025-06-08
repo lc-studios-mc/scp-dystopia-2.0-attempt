@@ -188,15 +188,14 @@ class ConfigBuilder<T = {}> {
 		for (let i = 0; i < response.formValues.length; i++) {
 			const formValue = response.formValues[i]!;
 
-			if (i === 0) {
-				if (formValue === true) {
-					this.resetToDefaults();
-					return;
-				}
-				continue;
+			if (i === 3 && formValue === true) {
+				this.resetToDefaults();
+				return;
 			}
 
-			const optionIndex = i - 1;
+			if (i < 5) continue;
+
+			const optionIndex = i - 5;
 
 			const callback = optionCallbacks[optionIndex];
 

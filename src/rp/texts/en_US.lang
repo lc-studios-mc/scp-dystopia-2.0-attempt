@@ -286,6 +286,7 @@ scpdy.machinery.input.kr.text=Keycard Reader
 
 ## --- config ---
 
+scpdy.configItem.old.displayName=Config (LEGACY)
 scpdy.config.text.editorFormTitle=Config Editor
 scpdy.config.text.editorFormExplanation=You can edit the options below to change various aspects of SCP: Dystopia addon in this world.
 scpdy.config.text.editorFormResetToggle.label=§eReset

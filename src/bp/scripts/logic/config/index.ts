@@ -1,1 +1,2 @@
 import "./config";
+import "./configItem";
