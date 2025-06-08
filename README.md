@@ -13,8 +13,6 @@
 
 </div>
 
-Development is often done in a separate "develop" branch.
-
 See credits [here](./docs/credits.md).
 
 See attributions [here](./docs/attributions.md).
