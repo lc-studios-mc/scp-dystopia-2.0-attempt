@@ -46,6 +46,7 @@ _Most_ notable changes to this project will be documented in this file.
 
 ### Removed
 
+- player.json
 - Mechanical Door Activator.
 - Config Editor item (run `/scpdy:configeditor` instead).
 - Script event to control a Command Door (run `/scpdy:cmddoor` instead)
