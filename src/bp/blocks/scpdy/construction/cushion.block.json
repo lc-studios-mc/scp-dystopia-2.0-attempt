@@ -16,8 +16,7 @@
 				"seconds_to_destroy": 0.8
 			},
 			"minecraft:redstone_conductivity": {
-				"redstone_conductor": true,
-				"allows_wire_to_step_down": false
+				"redstone_conductor": true
 			}
 		}
 	}

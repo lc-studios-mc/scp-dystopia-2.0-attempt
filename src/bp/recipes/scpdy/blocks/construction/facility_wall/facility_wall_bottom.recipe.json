@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "lc:scpdy_recipe_cst_facility_wall_bottom"
 		},
-		"tags": ["crafting_table", "dystopia_craftbench", "scpdy_workbench"],
+		"tags": ["crafting_table"],
 		"pattern": ["W", "D"],
 		"key": {
 			"W": {

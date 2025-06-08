@@ -1,9 +1,6 @@
 import * as playerLoop from "@logic/playerLoop";
 import * as mc from "@minecraft/server";
-import {
-	getHeadRotation as getCctvCameraHeadRot,
-	setHeadRotation as setCctvCameraHeadRot,
-} from "./cctvCamera";
+import { getHeadRotation as getCctvCameraHeadRot, setHeadRotation as setCctvCameraHeadRot } from "./cctvCamera";
 
 type PlayerCctvOptions = {
 	player: mc.Player;

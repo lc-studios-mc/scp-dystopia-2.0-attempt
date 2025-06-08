@@ -10,6 +10,14 @@ Those who helped this project are listed here! :handshake:
   - SCP-096
   - Keycards
 
+### Habosh Gmosh Monkosh
+
+- Full 3D models
+  - SCP-096 Plushie
+  - SCP-106 Plushie
+  - SCP-427-1 Plushie
+  - SCP-5167 Plushie
+
 ### Hexablare Union
 
 - Full 3D models
@@ -40,3 +48,18 @@ Those who helped this project are listed here! :handshake:
   - MP5-SD
   - SPAS-12
   - T-5000
+
+### Michi75
+
+- Full 3D models
+  - Bench
+  - Cardboard Box 1
+  - Coffee Machine
+  - Microscope
+  - Office Desk
+  - Printer
+  - Radiator
+  - Radio
+  - Tissue Box
+  - Water Dispenser
+  - Wooden Crate

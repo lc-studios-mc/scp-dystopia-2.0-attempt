@@ -1,0 +1,40 @@
+// Boolean door will be converted to Easy Door automatically since 2.0.0 Alpha 4
+{
+	"format_version": "1.21.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "lc:scpdy_boolean_door_3",
+			"menu_category": {
+				"category": "none",
+				"is_hidden_in_commands": true
+			},
+			"states": {
+				"lc:is_lower_part": [true, false],
+				"lc:is_clearance_set": [false, true],
+				"lc:minimum_clearance_level": { "values": { "min": 0, "max": 6 } }
+			},
+			"traits": {
+				"minecraft:placement_direction": {
+					"enabled_states": ["minecraft:cardinal_direction"],
+					"y_rotation_offset": 180
+				}
+			}
+		},
+		"components": {
+			"scpdy:upgrade_v1_boolean_door": {
+				"newType": "lc:scpdy_easy_door_3"
+			},
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "scpdy_old_upgrade_notice",
+					"render_method": "opaque"
+				}
+			},
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:tick": {
+				"interval_range": [1, 1], // Run upgrade immediately
+				"looping": true
+			}
+		}
+	}
+}

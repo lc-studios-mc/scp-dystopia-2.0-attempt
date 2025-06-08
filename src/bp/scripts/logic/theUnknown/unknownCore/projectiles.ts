@@ -74,10 +74,7 @@ mc.world.afterEvents.projectileHitBlock.subscribe((event) => {
 			const hitLoc = vec3.add(hitInfo.block, hitInfo.faceLocation);
 			const particleLoc = vec3.add(hitLoc, vec3.mul(event.hitVector, -1));
 
-			event.dimension.spawnParticle(
-				"lc:scpdy_unknown_core_plasma_blast_small_emitter",
-				particleLoc,
-			);
+			event.dimension.spawnParticle("lc:scpdy_unknown_core_plasma_blast_small_emitter", particleLoc);
 
 			break;
 		}

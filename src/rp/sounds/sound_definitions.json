@@ -16,6 +16,7 @@
 			]
 		},
 		// #endregion
+
 		// #region Music
 		"scpdy.music.the_unknown_battle_1": {
 			"category": "music",
@@ -60,6 +61,8 @@
 			]
 		},
 		// #endregion
+
+		// #region Interact
 		"scpdy.interact.button.click": {
 			"category": "neutral",
 			"sounds": [
@@ -133,6 +136,9 @@
 				}
 			]
 		},
+		// #endregion
+
+		// #region Blast Door
 		"scpdy.blast_door_classic.open": {
 			"category": "hostile",
 			"max_distance": 30.0,
@@ -153,6 +159,9 @@
 				"sounds/scpdy/blast_door/classic_close_3"
 			]
 		},
+		// #endregion
+
+		// #region Door
 		"scpdy.door.classic_door_1.open": {
 			"__use_legacy_max_distance": "true",
 			"category": "hostile",
@@ -203,9 +212,9 @@
 			"max_distance": 15.0,
 			"min_distance": null,
 			"sounds": [
-				"sounds/scpdy/door/classic_door_3_open_1",
-				"sounds/scpdy/door/classic_door_3_open_2",
-				"sounds/scpdy/door/classic_door_3_open_3"
+				{ "name": "sounds/scpdy/door/classic_door_3_open_1", "volume": 0.7 },
+				{ "name": "sounds/scpdy/door/classic_door_3_open_2", "volume": 0.7 },
+				{ "name": "sounds/scpdy/door/classic_door_3_open_3", "volume": 0.7 }
 			]
 		},
 		"scpdy.door.classic_door_3.close": {
@@ -214,9 +223,9 @@
 			"max_distance": 15.0,
 			"min_distance": null,
 			"sounds": [
-				"sounds/scpdy/door/classic_door_3_close_1",
-				"sounds/scpdy/door/classic_door_3_close_2",
-				"sounds/scpdy/door/classic_door_3_close_3"
+				{ "name": "sounds/scpdy/door/classic_door_3_close_1", "volume": 0.7 },
+				{ "name": "sounds/scpdy/door/classic_door_3_close_2", "volume": 0.7 },
+				{ "name": "sounds/scpdy/door/classic_door_3_close_3", "volume": 0.7 }
 			]
 		},
 		"scpdy.door.futuristic_door.open": {
@@ -274,11 +283,10 @@
 			"category": "hostile",
 			"max_distance": 10.0,
 			"min_distance": null,
-			"sounds": [
-				"sounds/scpdy/door/standard_door_close",
-				"sounds/scpdy/door/standard_door_close_metal"
-			]
+			"sounds": ["sounds/scpdy/door/standard_door_close", "sounds/scpdy/door/standard_door_close_metal"]
 		},
+		// #endregion
+
 		// #region Gore
 		"scpdy.gore.explode": {
 			"category": "hostile",
@@ -301,6 +309,7 @@
 			"sounds": ["sounds/scpdy/gore/splash"]
 		},
 		// #endregion
+
 		// #region Guns
 		"scpdy.gun.magazine.load_ammo": {
 			"category": "hostile",
@@ -481,6 +490,7 @@
 			"sounds": ["sounds/scpdy/weapons/guns/t5000/mag_remove"]
 		},
 		// #endregion
+
 		// #region Frag Grenade
 		"scpdy.frag_grenade.hit": {
 			"category": "hostile",
@@ -521,19 +531,7 @@
 			"sounds": ["sounds/scpdy/weapons/frag_grenade/throw"]
 		},
 		// #endregion
-		// #region Knife
-		"scpdy.knife.swing": {
-			"category": "hostile",
-			"max_distance": 6.0,
-			"min_distance": null,
-			"sounds": [
-				{
-					"name": "sounds/scpdy/weapons/knife/swing",
-					"volume": 0.6
-				}
-			]
-		},
-		// #endregion
+
 		// #region Projectile
 		"scpdy.projectile.bullet.ricochet": {
 			"category": "hostile",
@@ -547,15 +545,13 @@
 			]
 		},
 		// #endregion
+
 		// #region SCP-001 Prototype
 		"scpdy.scp001_proto.ambient": {
 			"category": "hostile",
 			"max_distance": 12.0,
 			"min_distance": null,
-			"sounds": [
-				"sounds/scpdy/scp/scp001_proto/ambient_1",
-				"sounds/scpdy/scp/scp001_proto/ambient_2"
-			]
+			"sounds": ["sounds/scpdy/scp/scp001_proto/ambient_1", "sounds/scpdy/scp/scp001_proto/ambient_2"]
 		},
 		"scpdy.scp001_proto.hurt": {
 			"category": "hostile",
@@ -587,6 +583,7 @@
 			"sounds": ["sounds/scpdy/scp/scp001_proto/singularity"]
 		},
 		// #endregion
+
 		// #region SCP-096
 		"scpdy.scp096.ambient_calm": {
 			"category": "hostile",
@@ -648,6 +645,67 @@
 			]
 		},
 		// #endregion
+
+		// #region SCP-106
+		"scpdy.scp106.ambient": {
+			"category": "hostile",
+			"max_distance": 12.0,
+			"min_distance": null,
+			"sounds": [
+				"sounds/scpdy/scp/scp106/ambient_1",
+				"sounds/scpdy/scp/scp106/ambient_2",
+				"sounds/scpdy/scp/scp106/ambient_3",
+				"sounds/scpdy/scp/scp106/ambient_4"
+			]
+		},
+		"scpdy.scp106.step": {
+			"category": "hostile",
+			"max_distance": 8.0,
+			"min_distance": null,
+			"sounds": [
+				{ "name": "sounds/scpdy/scp/scp106/step_1", "volume": 1.5 },
+				{ "name": "sounds/scpdy/scp/scp106/step_2", "volume": 1.5 },
+				{ "name": "sounds/scpdy/scp/scp106/step_3", "volume": 1.5 }
+			]
+		},
+		"scpdy.scp106.attack": {
+			"category": "hostile",
+			"max_distance": 12.0,
+			"min_distance": null,
+			"sounds": ["sounds/scpdy/scp/scp106/attack"]
+		},
+		"scpdy.scp106.dive": {
+			"category": "hostile",
+			"max_distance": 10.0,
+			"min_distance": null,
+			"sounds": ["sounds/scpdy/scp/scp106/dive"]
+		},
+		"scpdy.scp106.abduction": {
+			"category": "hostile",
+			"max_distance": 12.0,
+			"min_distance": null,
+			"sounds": ["sounds/scpdy/scp/scp106/abduction"]
+		},
+		"scpdy.scp106.retreat": {
+			"category": "hostile",
+			"max_distance": 20.0,
+			"min_distance": null,
+			"sounds": ["sounds/scpdy/scp/scp106/retreat"]
+		},
+		"scpdy.scp106.emerge_slow": {
+			"category": "hostile",
+			"max_distance": 10.0,
+			"min_distance": null,
+			"sounds": [{ "name": "sounds/scpdy/scp/scp106/emerge_slow", "volume": 1.1 }]
+		},
+		"scpdy.scp106.emerge_fast": {
+			"category": "hostile",
+			"max_distance": 10.0,
+			"min_distance": null,
+			"sounds": [{ "name": "sounds/scpdy/scp/scp106/emerge_fast", "volume": 1.1 }]
+		},
+		// #endregion
+
 		// #region SCP-173
 		"scpdy.scp173.spawn": {
 			"category": "hostile",
@@ -694,6 +752,7 @@
 			]
 		},
 		// #endregion
+
 		// #region SCP-427
 		"scpdy.scp427.heartbeat": {
 			"category": "music",
@@ -705,6 +764,7 @@
 			]
 		},
 		// #endregion
+
 		// #region SCP-5167
 		"scpdy.scp5167.ambient": {
 			"category": "hostile",
@@ -729,6 +789,7 @@
 			"sounds": ["sounds/scpdy/scp/scp5167/death"]
 		},
 		// #endregion
+
 		// #region The Unknown
 		"scpdy.unknown_golem.smash": {
 			"category": "hostile",
@@ -998,10 +1059,11 @@
 			"sounds": ["sounds/scpdy/the_unknown/unknown_core/sword_woosh"]
 		},
 		// #endregion
+
 		// #region Misc
 		"scpdy.misc.alarm": {
 			"category": "hostile",
-			"max_distance": 22.0,
+			"max_distance": 14.0,
 			"min_distance": null,
 			"sounds": ["sounds/scpdy/misc/alarm"]
 		},
@@ -1012,6 +1074,12 @@
 				"sounds/scpdy/misc/computer_hit_2",
 				"sounds/scpdy/misc/computer_hit_3"
 			]
+		},
+		"scpdy.misc.fan_rotation.moderate": {
+			"category": "hostile",
+			"max_distance": 6.0,
+			"min_distance": 1.0,
+			"sounds": ["sounds/scpdy/misc/fan_rotation_moderate"]
 		},
 		"scpdy.misc.fart_1": {
 			"category": "hostile",

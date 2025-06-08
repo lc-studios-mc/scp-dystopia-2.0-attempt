@@ -1,5 +1,4 @@
 import { switchClosestBlastDoor } from "@logic/blastDoor/blastDoor";
-import { tryPowerDoorActivator } from "@logic/blocks/door/doorActivator";
 import * as mc from "@minecraft/server";
 import { activateRbPlaceholder } from "./rbPlaceholder";
 
@@ -18,11 +17,7 @@ export function onInteractControlDeviceWithWrench(block: mc.Block, player: mc.Pl
 	player.playSound("random.click");
 }
 
-export function onActivateControlDevice(
-	block: mc.Block,
-	player?: mc.Player,
-	clearanceLevel = -1,
-): boolean {
+export function onActivateControlDevice(block: mc.Block, player?: mc.Player, clearanceLevel = -1): boolean {
 	const mode = block.permutation.getState("lc:mode") as number;
 
 	switch (mode) {
@@ -52,13 +47,8 @@ export function onActivateControlDevice(
 	return false;
 }
 
-function getBlockBehindControlDeviceBlock(
-	controlDeviceBlock: mc.Block,
-	steps = 1,
-): mc.Block | undefined {
-	const direction = controlDeviceBlock.permutation.getState(
-		"minecraft:cardinal_direction",
-	) as CardinalDirection;
+function getBlockBehindControlDeviceBlock(controlDeviceBlock: mc.Block, steps = 1): mc.Block | undefined {
+	const direction = controlDeviceBlock.permutation.getState("minecraft:cardinal_direction") as CardinalDirection;
 
 	let blockBehind: mc.Block | undefined;
 
@@ -126,4 +116,8 @@ function activateRbPlaceholderBelow(controlDeviceBlock: mc.Block): boolean {
 function activateRbPlaceholderBehind(controlDeviceBlock: mc.Block): boolean {
 	const block = getBlockBehindControlDeviceBlock(controlDeviceBlock, 2);
 	return activateRbPlaceholder(block);
+}
+
+function tryPowerDoorActivator(...args: unknown[]): boolean {
+	throw new Error("Door Activator is no longer available.");
 }

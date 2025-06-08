@@ -1,0 +1,39 @@
+// Old keycard reader will be converted to new one automatically since 2.0.0 Alpha 4
+{
+	"format_version": "1.21.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "lc:scpdy_keycard_reader_lvl_2",
+			"menu_category": {
+				"category": "none",
+				"is_hidden_in_commands": true
+			},
+			"states": {
+				"lc:mode": [0, 1, 2, 3]
+			},
+			"traits": {
+				"minecraft:placement_direction": {
+					"enabled_states": ["minecraft:cardinal_direction"],
+					"y_rotation_offset": 0
+				}
+			}
+		},
+		"components": {
+			"scpdy:upgrade_v1_keycard_reader": {
+				"newType": "lc:scpdy_kr_1",
+				"level": 2
+			},
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "scpdy_old_upgrade_notice",
+					"render_method": "opaque"
+				}
+			},
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:tick": {
+				"interval_range": [1, 1], // Run upgrade immediately
+				"looping": true
+			}
+		}
+	}
+}

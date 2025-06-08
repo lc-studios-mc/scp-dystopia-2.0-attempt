@@ -1,10 +1,6 @@
 import * as playerLoop from "@logic/playerLoop";
 import * as mc from "@minecraft/server";
-import {
-	AdvancedItem,
-	type AdvancedItemBaseConstructorArgs,
-	type AdvancedItemProfile,
-} from "./AdvancedItem";
+import { AdvancedItem, type AdvancedItemBaseConstructorArgs, type AdvancedItemProfile } from "./AdvancedItem";
 import * as profileRegistry from "./profileRegistry";
 
 type AdvancedItemWrapper = {
@@ -36,11 +32,9 @@ function createAdvancedItemWrapper(
 
 	if (!playerEquippable) throw new Error("Failed to get equippable component of the player.");
 
-	const playerMainhand =
-		playerComponents?.mainhandSlot ?? playerEquippable.getEquipmentSlot(mc.EquipmentSlot.Mainhand);
+	const playerMainhand = playerComponents?.mainhandSlot ?? playerEquippable.getEquipmentSlot(mc.EquipmentSlot.Mainhand);
 
-	const playerOffhand =
-		playerComponents?.offhandSlot ?? playerEquippable.getEquipmentSlot(mc.EquipmentSlot.Offhand);
+	const playerOffhand = playerComponents?.offhandSlot ?? playerEquippable.getEquipmentSlot(mc.EquipmentSlot.Offhand);
 
 	const wrapperFields: AdvancedItemWrapper["fields"] = {
 		currentTick: fieldOverrides?.currentTick ?? 0,
@@ -69,10 +63,7 @@ function createAdvancedItemWrapper(
 	return advancedItemWrapper;
 }
 
-function removeAdvancedItemWrapper(
-	player: mc.Player,
-	advancedItemWrapper?: AdvancedItemWrapper,
-): boolean {
+function removeAdvancedItemWrapper(player: mc.Player, advancedItemWrapper?: AdvancedItemWrapper): boolean {
 	if (!advancedItemWrapper) {
 		advancedItemWrapper = ADVANCED_ITEM_MAP.get(player);
 		if (!advancedItemWrapper) return false;
@@ -89,13 +80,11 @@ function removeAdvancedItemWrapper(
 playerLoop.subscribe((player) => {
 	let advancedItemWrapper = ADVANCED_ITEM_MAP.get(player);
 
-	const playerHealth =
-		advancedItemWrapper?.advancedItem.playerHealth ?? player.getComponent("health")!;
+	const playerHealth = advancedItemWrapper?.advancedItem.playerHealth ?? player.getComponent("health")!;
 
 	if (playerHealth.currentValue <= 0) return;
 
-	const playerEquippable =
-		advancedItemWrapper?.advancedItem.playerEquippable ?? player.getComponent("equippable")!;
+	const playerEquippable = advancedItemWrapper?.advancedItem.playerEquippable ?? player.getComponent("equippable")!;
 
 	const playerMainhandItemStack = playerEquippable.getEquipment(mc.EquipmentSlot.Mainhand);
 
@@ -104,9 +93,7 @@ playerLoop.subscribe((player) => {
 		return;
 	}
 
-	const advancedItemProfile = profileRegistry.getAdvancedItemProfile(
-		playerMainhandItemStack.typeId,
-	);
+	const advancedItemProfile = profileRegistry.getAdvancedItemProfile(playerMainhandItemStack.typeId);
 
 	if (!advancedItemProfile) {
 		removeAdvancedItemWrapper(player, advancedItemWrapper);

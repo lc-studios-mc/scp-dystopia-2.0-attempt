@@ -7,20 +7,61 @@
 				"groups": [
 					{
 						"group_identifier": {
+							"icon": "lc:scpdy_easy_door_1",
+							"name": "lc:scpdy_itemGroup_easyDoors"
+						},
+						// prettier-ignore
+						"items": [
+							"lc:scpdy_easy_door_1",
+							"lc:scpdy_easy_door_2",
+							"lc:scpdy_easy_door_3"
+						]
+					},
+
+					{
+						"group_identifier": {
 							"icon": "lc:scpdy_relay_door_1",
 							"name": "lc:scpdy_itemGroup_relayDoors"
 						},
 						// prettier-ignore
 						"items": [
-							"lc:scpdy_relay_door_1"
+							"lc:scpdy_relay_door_1",
+							"lc:scpdy_relay_door_2",
+							"lc:scpdy_relay_door_3",
+							"lc:scpdy_relay_door_4",
+							"lc:scpdy_relay_door_5",
+							"lc:scpdy_relay_door_6",
+							"lc:scpdy_relay_door_7",
+							"lc:scpdy_relay_door_8"
 						]
 					},
 
 					{
+						"group_identifier": {
+							"icon": "lc:scpdy_btn_1",
+							"name": "lc:scpdy_itemGroup_btns"
+						},
 						// prettier-ignore
 						"items": [
-							"lc:scpdy_activator_block"
+							"lc:scpdy_btn_1",
+							"lc:scpdy_btn_2"
 						]
+					},
+
+					{
+						"group_identifier": {
+							"icon": "lc:scpdy_kr_1",
+							"name": "lc:scpdy_itemGroup_kr"
+						},
+						// prettier-ignore
+						"items": [
+							"lc:scpdy_kr_1",
+							"lc:scpdy_kr_2"
+						]
+					},
+
+					{
+						"items": ["lc:scpdy_cmd_door_1"]
 					},
 
 					{
@@ -31,14 +72,23 @@
 						"items": [
 							"lc:scpdy_cst_floor_tiles",
 							"lc:scpdy_cst_black_checker_tiles",
+							"lc:scpdy_cst_gray_floor_tiles",
+							"lc:scpdy_cst_single_floor_tile",
+							"lc:scpdy_cst_gray_single_floor_tile",
+							"lc:scpdy_cst_caution_block_1",
+							"lc:scpdy_cst_caution_block_2",
+							"lc:scpdy_cst_caution_block_3",
 							"lc:scpdy_cst_cushion",
 							"lc:scpdy_cst_generic_floor",
 							"lc:scpdy_cst_lead_block",
+							"lc:scpdy_cst_magnet_block",
 							"lc:scpdy_cst_steel_block",
 							"lc:scpdy_cst_treadplate",
+							"lc:scpdy_cst_duct_block",
 							"lc:scpdy_cst_reinforced_panel_1",
 							"lc:scpdy_cst_reinforced_panel_2",
 							"lc:scpdy_cst_reinforced_panel_3",
+							"lc:scpdy_cst_reinforced_panel_4",
 							"lc:scpdy_cst_concrete_black",
 							"lc:scpdy_cst_concrete_gray",
 							"lc:scpdy_cst_office_ceiling_1",
@@ -47,6 +97,7 @@
 							"lc:scpdy_cst_lamp_2"
 						]
 					},
+
 					{
 						"group_identifier": {
 							"icon": "lc:scpdy_cst_facility_wall_bottom",
@@ -84,6 +135,7 @@
 							"lc:scpdy_cst_blue_wall_top"
 						]
 					},
+
 					{
 						"group_identifier": {
 							"icon": "lc:scpdy_steel_truss",
@@ -99,25 +151,43 @@
 							"lc:scpdy_small_light",
 							"lc:scpdy_small_light_blinking",
 							"lc:scpdy_vent",
-							"lc:scpdy_vent_openable"
+							"lc:scpdy_vent_openable",
+							"lc:scpdy_decor_vent_1",
+							"lc:scpdy_decor_vent_2"
 						]
 					},
+
 					{
 						"group_identifier": {
-							"icon": "lc:scpdy_hanging_lamp",
+							"icon": "lc:scpdy_bench",
 							"name": "lc:scpdy_itemGroup_furnitureAndDecor"
 						},
 						"items": [
+							"lc:scpdy_bench",
+							"lc:scpdy_cardboard_box_1",
+							"lc:scpdy_wooden_crate",
 							"lc:scpdy_hanging_lamp",
 							"lc:scpdy_file_cabinet",
 							"lc:scpdy_landmine",
+							"lc:scpdy_wall_monitor",
 							"lc:scpdy_laptop",
+							"lc:scpdy_printer",
+							"lc:scpdy_bulletin_board",
+							"lc:scpdy_radio",
+							"lc:scpdy_microscope",
+							"lc:scpdy_coffee_machine",
 							"lc:scpdy_sink",
 							"lc:scpdy_toilet",
 							"lc:scpdy_toilet_paper_holder",
+							"lc:scpdy_tissue_box",
 							"lc:scpdy_trash",
+							"lc:scpdy_water_dispenser",
 							"lc:scpdy_warehouse_light_1",
 							"lc:scpdy_warehouse_light_1_hanging",
+							"lc:scpdy_radiator",
+							"lc:scpdy_panel_fan",
+							"lc:scpdy_panel_fan_static",
+							"lc:scpdy_office_desk",
 							"lc:scpdy_connec_table_1",
 							"lc:scpdy_connec_table_2",
 							"lc:scpdy_office_chair_1",
@@ -125,11 +195,10 @@
 							"lc:scpdy_office_chair_3",
 							"lc:scpdy_shelf_1",
 							"lc:scpdy_shelf_2",
-							"lc:scpdy_decor_vent_1",
-							"lc:scpdy_decor_vent_2",
 							"lc:scpdy_alphanumeric_sign_placer"
 						]
 					},
+
 					{
 						"group_identifier": {
 							"icon": "lc:scpdy_scp096_plushie",
@@ -137,10 +206,13 @@
 						},
 						"items": [
 							"lc:scpdy_scp096_plushie",
+							"lc:scpdy_scp106_plushie",
 							"lc:scpdy_scp427_1_plushie",
-							"lc:scpdy_scp5167_plushie"
+							"lc:scpdy_scp5167_plushie",
+							"lc:scpdy_klampas_plushie"
 						]
 					},
+
 					{
 						"group_identifier": {
 							"icon": "lc:scpdy_standard_door_1",
@@ -148,80 +220,36 @@
 						},
 						"items": ["lc:scpdy_standard_door_1", "lc:scpdy_standard_door_2"]
 					},
+
 					{
 						"group_identifier": {
-							"icon": "lc:scpdy_boolean_door_1",
-							"name": "lc:scpdy_itemGroup_booleanDoors"
+							"icon": "lc:scpdy_lkdn_panel",
+							"name": "lc:scpdy_itemGroup_lkdnDevices"
+						},
+						"items": ["lc:scpdy_lkdn_panel", "lc:scpdy_lkdn_door", "lc:scpdy_lkdn_alarm"]
+					},
+
+					{
+						"items": ["lc:scpdy_alarm"]
+					},
+
+					{
+						"group_identifier": {
+							"icon": "lc:scpdy_decal_blood_1",
+							"name": "lc:scpdy_itemGroup_decals"
 						},
 						"items": [
-							"lc:scpdy_boolean_door_1",
-							"lc:scpdy_boolean_door_2",
-							"lc:scpdy_boolean_door_3"
-						]
-					},
-					{
-						"group_identifier": {
-							"icon": "lc:scpdy_mechanical_door_1",
-							"name": "lc:scpdy_itemGroup_mechanicalDoors"
-						},
-						"items": [
-							"lc:scpdy_mechanical_door_1",
-							"lc:scpdy_mechanical_door_2",
-							"lc:scpdy_mechanical_door_3",
-							"lc:scpdy_mechanical_door_4",
-							"lc:scpdy_mechanical_door_5",
-							"lc:scpdy_mechanical_door_6",
-							"lc:scpdy_mechanical_door_7"
-						]
-					},
-					{
-						"group_identifier": {
-							"icon": "lc:scpdy_command_door",
-							"name": "lc:scpdy_itemGroup_commandDoors"
-						},
-						"items": ["lc:scpdy_command_door"]
-					},
-					{
-						"group_identifier": {
-							"icon": "lc:scpdy_lockdown_door_n1",
-							"name": "lc:scpdy_itemGroup_lockdownDoors"
-						},
-						"items": [
-							"lc:scpdy_lockdown_door_n1",
-							"lc:scpdy_lockdown_door_n2",
-							"lc:scpdy_lockdown_door_n3",
-							"lc:scpdy_lockdown_door_n4",
-							"lc:scpdy_lockdown_door_n5"
-						]
-					},
-					{
-						"group_identifier": {
-							"icon": "lc:scpdy_lockdown_alarm_n5",
-							"name": "lc:scpdy_itemGroup_lockdownAlarms"
-						},
-						"items": [
-							"lc:scpdy_lockdown_alarm_n1",
-							"lc:scpdy_lockdown_alarm_n2",
-							"lc:scpdy_lockdown_alarm_n3",
-							"lc:scpdy_lockdown_alarm_n4",
-							"lc:scpdy_lockdown_alarm_n5"
-						]
-					},
-					{
-						"group_identifier": {
-							"icon": "lc:scpdy_lockdown_panel_n5",
-							"name": "lc:scpdy_itemGroup_lockdownPanels"
-						},
-						"items": [
-							"lc:scpdy_lockdown_panel_n1",
-							"lc:scpdy_lockdown_panel_n2",
-							"lc:scpdy_lockdown_panel_n3",
-							"lc:scpdy_lockdown_panel_n4",
-							"lc:scpdy_lockdown_panel_n5"
+							"lc:scpdy_decal_blood_1",
+							"lc:scpdy_decal_blood_2",
+							"lc:scpdy_decal_smudge_1",
+							"lc:scpdy_decal_smudge_2",
+							"lc:scpdy_decal_smudge_3",
+							"lc:scpdy_decal_smudge_4"
 						]
 					}
 				]
 			},
+
 			{
 				"category_name": "equipment",
 				"groups": [
@@ -240,47 +268,24 @@
 							"lc:scpdy_gun_t5000"
 						]
 					},
+
 					{
 						"group_identifier": {
 							"icon": "lc:scpdy_knife",
 							"name": "lc:scpdy_itemGroup_meleeWeapons"
 						},
-						"items": [
-							"lc:scpdy_knife",
-							"lc:scpdy_pain_sword",
-							"lc:scpdy_killer_sword",
-							"lc:scpdy_void_sword"
-						]
+						"items": ["lc:scpdy_knife", "lc:scpdy_pain_sword", "lc:scpdy_killer_sword", "lc:scpdy_void_sword"]
 					}
 				]
 			},
+
 			{
 				"category_name": "items",
 				"groups": [
 					{
-						"group_identifier": {
-							"name": "lc:scpdy_itemGroup_buttons"
-						},
-						"items": ["lc:scpdy_door_button"]
-					},
-					{
 						"items": ["lc:scpdy_keypad_placer"]
 					},
-					{
-						"group_identifier": {
-							"icon": "lc:scpdy_keycard_reader_lvl_0",
-							"name": "lc:scpdy_itemGroup_keycardReaders"
-						},
-						"items": [
-							"lc:scpdy_keycard_reader_lvl_0",
-							"lc:scpdy_keycard_reader_lvl_1",
-							"lc:scpdy_keycard_reader_lvl_2",
-							"lc:scpdy_keycard_reader_lvl_3",
-							"lc:scpdy_keycard_reader_lvl_4",
-							"lc:scpdy_keycard_reader_lvl_5",
-							"lc:scpdy_keycard_reader_o5"
-						]
-					},
+
 					{
 						"group_identifier": {
 							"icon": "lc:scpdy_keycard_lvl_0",
@@ -296,16 +301,15 @@
 							"lc:scpdy_keycard_o5"
 						]
 					},
+
 					{
 						"group_identifier": {
 							"icon": "lc:scpdy_blast_door_1_preview_placer",
 							"name": "lc:scpdy_itemGroup_blastDoors"
 						},
-						"items": [
-							"lc:scpdy_blast_door_1_preview_placer",
-							"lc:scpdy_blast_door_2_preview_placer"
-						]
+						"items": ["lc:scpdy_blast_door_1_preview_placer", "lc:scpdy_blast_door_2_preview_placer"]
 					},
+
 					{
 						"group_identifier": {
 							"icon": "lc:scpdy_cctv_camera_placer",
@@ -318,6 +322,10 @@
 							"lc:scpdy_cctv_tablet",
 							"lc:scpdy_cctv_linker"
 						]
+					},
+
+					{
+						"items": ["lc:scpdy_fnet_manager"]
 					},
 					{
 						"group_identifier": {
@@ -333,6 +341,7 @@
 							"lc:scpdy_ammo_762x51"
 						]
 					},
+
 					{
 						"group_identifier": {
 							"icon": "lc:scpdy_ammo_pack_9mm",
@@ -347,6 +356,7 @@
 							"lc:scpdy_ammo_pack_762x51"
 						]
 					},
+
 					{
 						"group_identifier": {
 							"icon": "lc:scpdy_gun_mp5_mag",
@@ -362,12 +372,13 @@
 							"lc:scpdy_gun_t5000_mag"
 						]
 					},
+
 					{
 						"group_identifier": {
-							"icon": "lc:scpdy_scp427",
+							"icon": "lc:scpdy_scp005",
 							"name": "lc:scpdy_itemGroup_scp"
 						},
-						"items": ["lc:scpdy_scp096_1_wand", "lc:scpdy_scp096_paper_bag", "lc:scpdy_scp427"]
+						"items": ["lc:scpdy_scp005", "lc:scpdy_scp096_1_wand", "lc:scpdy_scp096_paper_bag", "lc:scpdy_scp427"]
 					}
 				]
 			}

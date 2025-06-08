@@ -1,31 +1,364 @@
+## A lang file tends to get very messy. Try to keep the keys categorized and alphabetically organized.
+## And never create a vague category like "blocks" or "items" in top-level, it will quickly become a root of evil!
+
+
+## * <-------------------------> *
+
+
+## --- construction ---
+
+lc:scpdy_itemGroup_constructionBlocks=§7SCP:DY §8- §fConstruction
+lc:scpdy_itemGroup_constructionWallBlocks=§7SCP:DY §8- §fConstruction (Walls)
+
+tile.lc:scpdy_cst_concrete_black.name=Black Facility Concrete
+tile.lc:scpdy_cst_concrete_gray.name=Gray Facility Concrete
+
+tile.lc:scpdy_cst_exterior_bricks_bottom.name=Exterior Bricks (Bottom)
+tile.lc:scpdy_cst_exterior_bricks_middle.name=Generic Exterior Bricks
+tile.lc:scpdy_cst_exterior_bricks_top.name=Exterior Bricks (Top)
+
+tile.lc:scpdy_cst_blue_wall_bottom_1.name=Blue Wall (Bottom 1)
+tile.lc:scpdy_cst_blue_wall_bottom_2.name=Blue Wall (Bottom 2)
+tile.lc:scpdy_cst_blue_wall_bottom_3.name=Blue Wall (Bottom 3)
+tile.lc:scpdy_cst_blue_wall_middle.name=Blue Wall (Middle)
+tile.lc:scpdy_cst_blue_wall_top.name=Blue Wall (Top)
+tile.lc:scpdy_cst_blue_wall.name=Generic Blue Wall
+tile.lc:scpdy_cst_brown_wall_bottom.name=Brown Facility Wall (Bottom)
+tile.lc:scpdy_cst_brown_wall_top.name=Brown Facility Wall (Top)
+tile.lc:scpdy_cst_cyan_wall_bottom.name=Cyan Facility Wall (Bottom)
+tile.lc:scpdy_cst_cyan_wall_top.name=Cyan Facility Wall (Top)
+tile.lc:scpdy_cst_gray_wall_bottom.name=Gray Facility Wall (Bottom)
+tile.lc:scpdy_cst_gray_wall_top.name=Gray Facility Wall (Top)
+tile.lc:scpdy_cst_mint_wall_bottom.name=Mint Facility Wall (Bottom)
+tile.lc:scpdy_cst_mint_wall_top.name=Mint Facility Wall (Top)
+tile.lc:scpdy_cst_orange_wall_bottom.name=Orange Facility Wall (Bottom)
+tile.lc:scpdy_cst_orange_wall_top.name=Orange Facility Wall (Top)
+tile.lc:scpdy_cst_facility_wall_bottom.name=Facility Wall (Bottom)
+tile.lc:scpdy_cst_facility_wall_middle_2.name=Facility Wall (Middle)
+tile.lc:scpdy_cst_facility_wall_middle.name=Generic Facility Wall
+tile.lc:scpdy_cst_facility_wall_top.name=Facility Wall (Top)
+
+tile.lc:scpdy_cst_heavy_wall_1_bottom.name=Heavy Wall 1 (Bottom)
+tile.lc:scpdy_cst_heavy_wall_1_top.name=Heavy Wall 1 (Top)
+tile.lc:scpdy_cst_heavy_wall_1.name=Generic Heavy Wall 1
+tile.lc:scpdy_cst_heavy_wall_2_bottom.name=Heavy Wall 2 (Bottom)
+tile.lc:scpdy_cst_heavy_wall_2_top.name=Heavy Wall 2 (Top)
+tile.lc:scpdy_cst_heavy_wall_2.name=Generic Heavy Wall 2
+
+tile.lc:scpdy_cst_lamp_1.name=Lamp 1
+tile.lc:scpdy_cst_lamp_2.name=Lamp 2
+
+tile.lc:scpdy_cst_office_ceiling_1.name=Office Ceiling 1
+tile.lc:scpdy_cst_office_ceiling_2.name=Office Ceiling 2
+
+tile.lc:scpdy_cst_reinforced_panel_1.name=Reinforced Panel 1
+tile.lc:scpdy_cst_reinforced_panel_2.name=Reinforced Panel 2
+tile.lc:scpdy_cst_reinforced_panel_3.name=Reinforced Panel 3
+tile.lc:scpdy_cst_reinforced_panel_4.name=Reinforced Panel 4
+
+tile.lc:scpdy_cst_black_checker_tiles.name=Black Checker Tiles
+tile.lc:scpdy_cst_caution_block_1.name=Caution Block 1
+tile.lc:scpdy_cst_caution_block_2.name=Caution Block 2
+tile.lc:scpdy_cst_caution_block_3.name=Caution Block 3
+tile.lc:scpdy_cst_cushion.name=Cushion
+tile.lc:scpdy_cst_duct_block.name=Duct Block
+tile.lc:scpdy_cst_floor_tiles.name=Floor Tiles
+tile.lc:scpdy_cst_generic_floor.name=Generic Floor
+tile.lc:scpdy_cst_gray_floor_tiles.name=Gray Floor Tiles
+tile.lc:scpdy_cst_gray_single_floor_tile.name=Gray Single Floor Tile
+tile.lc:scpdy_cst_lead_block.name=Lead Block\n§ePrevents SCP-001 Prototype's Teleportation
+tile.lc:scpdy_cst_magnet_block.name=Magnet Block\n§ePrevents SCP-106's Teleportation
+tile.lc:scpdy_cst_single_floor_tile.name=Single Floor Tile
+tile.lc:scpdy_cst_steel_Block.name=Steel Block
+tile.lc:scpdy_cst_treadplate.name=Treadplate
+
+
+## * <-------------------------> *
+
+
+## --- construction 3d ---
+
+lc:scpdy_itemGroup_3dConstructionBlocks=§7SCP:DY §8- §f3D Construction Blocks
+
+tile.lc:scpdy_decor_vent_1.name=Decorative Vent 1
+tile.lc:scpdy_decor_vent_2.name=Decorative Vent 2
+tile.lc:scpdy_floor_grate_trap.name=Metal Floor Grate (Trap)
+tile.lc:scpdy_floor_grate.name=Metal Floor Grate
+tile.lc:scpdy_razor_wire.name=Razor Wire
+tile.lc:scpdy_small_light_blinking.name=Small Light (Blinking)
+tile.lc:scpdy_small_light.name=Small Light
+tile.lc:scpdy_steel_beam_end.name=Steel Beam (End)
+tile.lc:scpdy_steel_beam.name=Steel Beam
+tile.lc:scpdy_steel_truss.name=Steel Truss
+tile.lc:scpdy_vent_openable.name=Vent (Openable)
+tile.lc:scpdy_vent.name=Vent
+
+
+## * <-------------------------> *
+
+
+## --- decals ---
+
+lc:scpdy_itemGroup_decals=§7SCP:DY §8- §fDecals
+scpdy.decal.blood_1=Blood Decal 1
+scpdy.decal.blood_2=Blood Decal 2
+scpdy.decal.smudge_1=Smudge Decal 1
+scpdy.decal.smudge_2=Smudge Decal 2
+scpdy.decal.smudge_3=Smudge Decal 3
+scpdy.decal.smudge_4=Smudge Decal 4
+
+
+## * <-------------------------> *
+
+
 ## --- doors ---
 
+## cmd doors
+tile.lc:scpdy_cmd_door_1.name=Command Door
+scpdy.cmdDoor.text.beginnerTip=§aYou can use the command to control a Command Door: §o/scpdy:cmddoor
+
+## easy doors
+lc:scpdy_itemGroup_easyDoors=§7SCP:DY §8- §fEasy Doors
+tile.lc:scpdy_easy_door_1.name=Easy Door 1
+tile.lc:scpdy_easy_door_2.name=Easy Door 2
+tile.lc:scpdy_easy_door_3.name=Easy Door 3
+scpdy.easyDoor=Easy Door
+
 ## relay doors
-lc:scpdy_itemGroup_relayDoors=§7SCP:DY §8- §fRelay Doors (require Activator Block)
+lc:scpdy_itemGroup_relayDoors=§7SCP:DY §8- §fRelay Doors
 tile.lc:scpdy_relay_door_1.name=Relay Door 1
+tile.lc:scpdy_relay_door_2.name=Relay Door 2
+tile.lc:scpdy_relay_door_3.name=Relay Door 3
+tile.lc:scpdy_relay_door_4.name=Relay Door 4
+tile.lc:scpdy_relay_door_5.name=Relay Door 5
+tile.lc:scpdy_relay_door_6.name=Relay Door 6
+tile.lc:scpdy_relay_door_7.name=Relay Door 7
+tile.lc:scpdy_relay_door_8.name=Relay Door 8
+scpdy.relayDoor.text.redstoneDetection.off=§7Toggled redstone detection §l§cOFF
+scpdy.relayDoor.text.redstoneDetection.on=§7Toggled redstone detection §l§aON
+scpdy.relayDoor.text.redstoneDetection.warn=§eRelay doors with redstone detection can significantly degrade performance when placed in large numbers in a small area.
+scpdy.relayDoor.tip=§aYou can control a Relay Door with a button or a keycard reader, and you can also use a wrench to toggle redstone detection on/off (it will try to detect redstone 2 blocks down).
+
+
+## * <-------------------------> *
+
+
+## --- facility network (fnet) ---
+
+scpdy.fnet.nonameX=Facility Network %s
+scpdy.fnet.customNameX=Net. %s - "%s"
+
+scpdy.fzone.nonameX=Zone %s
+scpdy.fzone.customNameX=Zone %s - "%s"
+
+scpdy.fnetManager=Facility Network Manager
+scpdy.fnetManager.interact_button=Open Menu
+scpdy.fnetManager.selectFnet=Select the facility network.
+scpdy.fnetManager.selectFzone=Select the facility zone.
+scpdy.fnetManager.selectFnetToEdit=Select the facility network you want to edit.
+scpdy.fnetManager.selectedX=§7Selected:§f %s
+scpdy.fnetManager.changeName=Change Name
+scpdy.fnetManager.changeZoneNames=Change Zone Names
+scpdy.fnetManager.youCanEditZoneNames=You can edit the name of each zone!
+
+
+## * <-------------------------> *
+
+
+## --- furniture ---
+
+lc:scpdy_itemGroup_furnitureAndDecor=§7SCP:DY §8- §fFurniture & Decoration
+
+tile.lc:scpdy_connec_table_1.name=Connec™ Table 1
+tile.lc:scpdy_connec_table_2.name=Connec™ Table 2
+
+tile.lc:scpdy_office_chair_1.name=Office Chair 1
+tile.lc:scpdy_office_chair_2.name=Office Chair 2
+tile.lc:scpdy_office_chair_3.name=Office Chair 3
+
+lc:scpdy_itemGroup_plushies=§7SCP:DY §8- §fPlushies
+tile.lc:scpdy_klampas_plushie.name=Klampas Plushie
+tile.lc:scpdy_scp096_plushie.name=SCP-096 Plushie
+tile.lc:scpdy_scp106_plushie.name=SCP-106 Plushie
+tile.lc:scpdy_scp427_1_plushie.name=SCP-427-1 Plushie
+tile.lc:scpdy_scp5167_plushie.name=SCP-5167 Plushie
+
+tile.lc:scpdy_shelf_1.name=Shelf 1 §e(Wrenchable)
+tile.lc:scpdy_shelf_2.name=Shelf 2 §e(Wrenchable)
+
+scpdy.furniture.bench=Bench
+scpdy.furniture.bulletin_board=Bulletin Board §e(Wrenchable)
+scpdy.furniture.cardboard_box_1=Cardboard Box 1
+scpdy.furniture.coffee_machine=Coffee Machine
+tile.lc:scpdy_file_cabinet.name=File Cabinet
+tile.lc:scpdy_hanging_lamp.name=Hanging Lamp
+tile.lc:scpdy_landmine.name=Landmine
+tile.lc:scpdy_laptop.name=Laptop
+scpdy.furniture.microscope=Microscope
+scpdy.furniture.office_desk=Office Desk
+scpdy.furniture.panel_fan=Panel Fan
+scpdy.furniture.panel_fan_static=Panel Fan (Static)
+scpdy.furniture.printer=Printer
+scpdy.furniture.radiator=Radiator
+scpdy.furniture.radio=Radio
+tile.lc:scpdy_sink.name=Sink
+scpdy.furniture.tissue_box=Tissue Box
+tile.lc:scpdy_toilet_paper_holder.name=Toilet Paper Holder
+tile.lc:scpdy_toilet.name=Toilet
+tile.lc:scpdy_trash.name=Trash
+scpdy.furniture.wall_monitor=Wall Monitor §e(Wrenchable)
+tile.lc:scpdy_warehouse_light_1_hanging.name=Warehouse Light 1 (Hanging)
+tile.lc:scpdy_warehouse_light_1.name=Warehouse Light 1
+scpdy.furniture.water_dispenser=Water Dispenser
+scpdy.furniture.wooden_crate=Wooden Crate §e(Wrenchable)
+
+scpdy.actionHint.furniture.chair.tooFar=Too far from chair
+scpdy.actionHint.furniture.toilet.tooFar=Too far from toilet
+scpdy.actionHint.furniture.toilet.sitHint=Sneak and interact to sit
+scpdy.actionHint.furniture.toilet.fartHint=Look 90 degrees down (or up) to fart
+
+
+## * <-------------------------> *
+
+
+## --- lkdn ---
+
+lc:scpdy_itemGroup_lkdnDevices=§7SCP:DY §8- §fLockdown Devices
+
+scpdy.lkdnAlarm=Lockdown Alarm
+scpdy.lkdnAlarm.itemName=Lockdown Alarm §e(Wrenchable)
+
+scpdy.lkdnDoor=Lockdown Door
+
+scpdy.lkdnPanel=Lockdown Panel
+scpdy.lkdnPanel.targetZoneX=§7TARGET ZONE: §f%s
+scpdy.lkdnPanel.networkX=§7NETWORK: §f%s
+scpdy.lkdnPanel.startedLkdn=§aStarted the lockdown.
+scpdy.lkdnPanel.scheduledLkdn=§aScheduled the lockdown.
+scpdy.lkdnPanel.lkdnIsActive=§cLockdown is active.
+scpdy.lkdnPanel.wannaStopLkdn=§fWant to stop the lockdown?
+scpdy.lkdnPanel.stoppedLkdn=§aStopped the lockdown!
+scpdy.lkdnPanel.lkdnIsScheduled=§eLockdown is scheduled.
+scpdy.lkdnPanel.wannaCancelSchedule=§fWant to cancel the schedule?
+scpdy.lkdnPanel.canceledSchedule=§aCanceled the schedule!
+
+
+## * <-------------------------> *
 
 
 ## --- machinery ---
 
-## activator block
-tile.lc:scpdy_activator_block.name=Activator Block (for Relay Doors)
-scpdy.activatorBlock.text.redstoneDetection.off=Redstone Detection: §7OFF
-scpdy.activatorBlock.text.redstoneDetection.on=Redstone Detection: §eON
-scpdy.activatorBlock.text.redstoneDetection.warn=§eRedstone detection can significantly degrade performance when placed in large numbers in a small area.
+entity.lc:scpdy_rb_anchor.name=Redstone Block Anchor
+scpdy.machinery.input.mode.text=Input Mode
+scpdy.machinery.input.mode.text.tooltip=What happens when you use this input device.
+scpdy.machinery.input.mode.text.powerRelayDoors=Power Relay Door(s)
+scpdy.machinery.input.mode.text.ctrlBlastDoor=Control The Nearest Blast Door
+scpdy.machinery.input.mode.text.placeRbBelow=Place Redstone Block (3 Blocks Below)
+scpdy.machinery.input.mode.text.placeRbBehind=Place Redstone Block (2 Blocks Behind)
+scpdy.machinery.input.rbLifespan=Redstone Block Lifespan (Seconds)
+scpdy.machinery.input.rbLifespan.tooltip=How long a Redstone Block should stay after activation.
+scpdy.machinery.input.rbMode.tip=§aTo make this mode work, you have to place a Redstone Block Placeholder at corresponding location.
+
+## alarm
+scpdy.machinery.alarm=Alarm
+scpdy.machinery.alarm.redstoneDetectionDir=Redstone Detection Direction
+scpdy.machinery.alarm.redstoneDetectionDir.tip=Direction to find a redstone-powered block. "Backward" and "Forward" are relative to the alarm's direction, while "Up" and "Down" are absolute.
+scpdy.machinery.alarm.redstoneDetectionExtend=Redstone Detection Extend
+scpdy.machinery.alarm.redstoneDetectionExtent.tip=Determines how many blocks away from the alarm to look for a redstone-powered block.
+scpdy.machinery.alarm.soundLoop.off=Alarm Sound Loop: §7OFF
+scpdy.machinery.alarm.soundLoop.on=Alarm Sound Loop: §aON
+
+## btn
+lc:scpdy_itemGroup_btns=§7SCP:DY §8- §fButtons
+tile.lc:scpdy_btn_1.name=Button 1
+tile.lc:scpdy_btn_2.name=Button 2
+scpdy.machinery.input.btn.text=Button
+
+## kr
+lc:scpdy_itemGroup_kr=§7SCP:DY §8- §fKeycard Readers
+tile.lc:scpdy_kr_1.name=Keycard Reader 1
+tile.lc:scpdy_kr_2.name=Keycard Reader 2
+scpdy.machinery.input.kr.text=Keycard Reader
+
+
+## * <-------------------------> *
+
+
+## --- config ---
+
+scpdy.configItem.old.displayName=Config (LEGACY)
+scpdy.config.text.editorFormTitle=Config Editor
+scpdy.config.text.editorFormExplanation=You can edit the options below to change various aspects of SCP: Dystopia addon in this world.
+scpdy.config.text.editorFormResetToggle.label=§eReset
+scpdy.config.text.editorFormResetToggle.tooltip=Enabling this option will cause all options to be reset after pressing Save & Exit.
+scpdy.config.text.messageOnReset=§6Successfully reset all options!
+scpdy.config.text.messageOnSaveAndExit=§aSaved changes!
+
+
+## * <-------------------------> *
+
+
+## --- scp ---
+
+scpdy.scp005=SCP-005
+scpdy.scp005.itemName=SCP-005 "Skeleton Key"\n§eLets you bypass most security locks (without holding the key)
+
+
+## * <-------------------------> *
+
+
+## --- utility ---
+
+scpdy.wrench=Wrench
+scpdy.wrench.itemName=Wrench\n§eCan change the variants of certain blocks
+
+
+## * <-------------------------> *
 
 
 ## --- misc ---
 
+scpdy.misc.text.none=None
+scpdy.misc.text.yes=Yes
+scpdy.misc.text.no=No
+scpdy.misc.text.saveAndExit=Save & Exit
+scpdy.misc.text.duration=Duration
+scpdy.misc.text.delay=Delay
+scpdy.misc.text.infinity=Infinity
 scpdy.misc.text.wrenchIsRequired=§eWrench is required
+scpdy.misc.text.newName=New name
+scpdy.misc.text.enterNewName=Enter new name
+scpdy.misc.text.enterNumber=Enter a number
+scpdy.misc.text.leaveThisEmptyToReset=Leave this field empty to use default value.
+scpdy.misc.text.accessGranted=§aAccess granted!
+scpdy.misc.text.accessDenied=§cAccess denied.
+scpdy.misc.text.somethingWentWrong=§cSomething went wrong...
+scpdy.misc.text.clearanceLevel=Clearance Level
+scpdy.misc.text.clearanceLevel.tooltip=The minimum required clearance level.
+scpdy.misc.text.clearanceLevel.level_0=Level 0
+scpdy.misc.text.clearanceLevel.level_1=Level 1
+scpdy.misc.text.clearanceLevel.level_2=Level 2
+scpdy.misc.text.clearanceLevel.level_3=Level 3
+scpdy.misc.text.clearanceLevel.level_4=Level 4
+scpdy.misc.text.clearanceLevel.level_5=Level 5
+scpdy.misc.text.clearanceLevel.o5=O5
+scpdy.misc.text.youDontHaveRequiredClearanceLevel=§7You do not have the required clearance level.
+scpdy.misc.text.forward=Forward
+scpdy.misc.text.backward=Backward
+scpdy.misc.text.left=Left
+scpdy.misc.text.right=Right
+scpdy.misc.text.up=Up
+scpdy.misc.text.down=Down
 
 
+## * <-------------------------> *
 
-## LEGACY TRANSLATIONS BELOW
+
+## OLD KEYS BELOW SHOULD BE UPDATED SOMEDAY!
+
 
 ## --- Item Groups
 
-itemGroup.name.stoneBrick=Decorative Stone §b+ SCP:DY Construction Blocks
-itemGroup.name.sandstone=Sandstone §b+ SCP:DY 3D Blocks
 lc:scpdy_itemGroup_meleeWeapons=§7SCP:DY §8| §fMelee Weapons
 lc:scpdy_itemGroup_ammo=§7SCP:DY §8| §fAmmo
 lc:scpdy_itemGroup_ammo_packs=§7SCP:DY §8| §fAmmo Packs
@@ -35,19 +368,7 @@ lc:scpdy_itemGroup_keycards=§7SCP:DY §8| §fKeycards
 lc:scpdy_itemGroup_scp=§7SCP:DY §8| §fSCP(-related)
 lc:scpdy_itemGroup_guns=§7SCP:DY §8| §fGuns
 lc:scpdy_itemGroup_gun_mags=§7SCP:DY §8| §fGun Magazines
-lc:scpdy_itemGroup_constructionBlocks=§7SCP:DY §8| §fConstruction
-lc:scpdy_itemGroup_constructionWallBlocks=§7SCP:DY §8| §fConstruction (Walls)
-lc:scpdy_itemGroup_3dConstructionBlocks=§7SCP:DY §8| §f3D Construction Blocks
-lc:scpdy_itemGroup_keycardReaders=§7SCP:DY §8| §fKeycard Readers
-lc:scpdy_itemGroup_furnitureAndDecor=§7SCP:DY §8| §fFurniture & Decoration
-lc:scpdy_itemGroup_plushies=§7SCP:DY §8| §fPlushies
-lc:scpdy_itemGroup_booleanDoors=§7SCP:DY §8| §fBoolean Doors
-lc:scpdy_itemGroup_commandDoors=§7SCP:DY §8| §fCommand Doors
-lc:scpdy_itemGroup_lockdownDoors=§7SCP:DY §8| §fLockdown Doors
-lc:scpdy_itemGroup_mechanicalDoors=§7SCP:DY §8| §fMechanical Doors
 lc:scpdy_itemGroup_standardDoors=§7SCP:DY §8| §fStandard Doors
-lc:scpdy_itemGroup_lockdownAlarms=§7SCP:DY §8| §fLockdown Alarms
-lc:scpdy_itemGroup_lockdownPanels=§7SCP:DY §8| §fLockdown Panels
 
 ## --- Action hints
 
@@ -72,18 +393,10 @@ scpdy.actionHint.misc.accessGranted=§aACCESS GRANTED
 scpdy.actionHint.misc.accessDenied=§cACCESS DENIED
 scpdy.actionHint.misc.o5PermissionRequired=§cO5 PERMISSION REQUIRED
 
-scpdy.actionHint.doorActivator.redstoneDetectionOff=Redstone Detection: §cOFF
-scpdy.actionHint.doorActivator.redstoneDetectionOn=Redstone Detection: §aON
-
 scpdy.actionHint.controlDevice.changeMode0=Mode set to 0 §7-§f Mechanical Door activation
 scpdy.actionHint.controlDevice.changeMode1=Mode set to 1 §7-§f Open/Close the closest Blast Door
 scpdy.actionHint.controlDevice.changeMode2=Mode set to 2 §7-§f Place a redstone block 3 meters below
 scpdy.actionHint.controlDevice.changeMode3=Mode set to 3 §7-§f Place a redstone block 2 meters behind
-
-scpdy.actionHint.furniture.chair.tooFar=Too far from chair
-scpdy.actionHint.furniture.toilet.tooFar=Too far from toilet
-scpdy.actionHint.furniture.toilet.sitHint=Sneak and interact to sit
-scpdy.actionHint.furniture.toilet.fartHint=Look 90 degrees down (or up) to fart
 
 scpdy.actionHint.ammo.noLoadableInOffhand=§eNo loadable item in offhand
 scpdy.actionHint.ammo.wrongAmmoType=§cWrong ammo type
@@ -159,32 +472,14 @@ scpdy.msg.cctvTablet.cameraUnavailable=§cThe camera you selected is unavailable
 
 scpdy.msg.config.restricted=§cOnly the world leader and players with operator-level permissions can use this item!
 
-scpdy.msg.doorActivator.redstoneLagWarning=§eMech Door Activator with redstone detection enabled can cause significant lag when placed in large numbers within a simulated chunk.
-
 scpdy.msg.controlDevice.modeTip=§dYou can use wrench to change the mode of a Button or a Keycard Reader.
 scpdy.msg.controlDevice.rbPlaceholderIsAbsent=§eNo Redstone Block Placeholder was found at corresponding location.
-
-scpdy.msg.booleanDoor.clearanceAlreadySet=§cClearance level cannot be changed!
 
 scpdy.msg.keypad.placement.passwordRequired=§cPassword is required!
 scpdy.msg.keypad.placement.passwordTooLong=§cPassword is too long!
 
 scpdy.msg.lockdownSystem.setZone.lagWarn.line_1=§ePlease note that any lockdown system (e.g. Lockdown Doors and Alarms) has a delay between reading the latest state of its zone.
 scpdy.msg.lockdownSystem.setZone.lagWarn.line_2=This is to prevent them from slowing down the world.
-
-scpdy.msg.lockdownDoor.setZone.failed=§cFailed to set zone.
-scpdy.msg.lockdownDoor.setZone.success=§aSuccessfully set zone!
-
-scpdy.msg.lockdownAlarm.setZone.success=§aSuccessfully set zone!
-
-scpdy.msg.lockdownPanel.setZone.success=§aSuccessfully set zone!
-
-scpdy.msg.lockdownPanel.activate.activatedLockdown=§c%s - §lLOCKDOWN ACTIVATED
-scpdy.msg.lockdownPanel.activate.activatedLockdown.noZoneName=§cZone %s - §lLOCKDOWN ACTIVATED
-scpdy.msg.lockdownPanel.activate.startedDelayedLockdown=§c%s - §lLOCKDOWN STARTS IN %s SECONDS
-scpdy.msg.lockdownPanel.activate.startedDelayedLockdown.noZoneName=§cZone %s - §lLOCKDOWN STARTS IN %s SECONDS
-scpdy.msg.lockdownPanel.activate.deactivatedLockdown=§a%s - §lLOCKDOWN DEACTIVATED
-scpdy.msg.lockdownPanel.activate.deactivatedLockdown.noZoneName=§aZone %s - §lLOCKDOWN DEACTIVATED
 
 scpdy.msg.theUnknownWaveSpawner.peacefulNotSupported=§7[!] §l§cDifficulty must be higher than peaceful!
 scpdy.msg.theUnknownWaveSpawner.waveBreakStarted=§7[!] §l§fWave §e%s§f is over. Wave §e%s§f is starting soon...
@@ -295,13 +590,9 @@ scpdy.form.cctvTablet.chooseCamera.button.cameraElement=%s: %s
 scpdy.form.cctvTablet.chooseCamera.button.cameraElementError=%s: §cCONNECTION ERROR
 
 scpdy.form.controlDevice.modeDropdown.label=Control Device Mode
-scpdy.form.controlDevice.modeDropdown.opt0=Power a Door Activator
 scpdy.form.controlDevice.modeDropdown.opt1=Control the nearest Blast Door
 scpdy.form.controlDevice.modeDropdown.opt2=Place a Redstone Block below
 scpdy.form.controlDevice.modeDropdown.opt3=Place a Redstone Block behind
-
-scpdy.form.booleanDoor.clearanceOption.title=Set Clearance Level
-scpdy.form.booleanDoor.clearanceOption.body=§cThis cannot be changed later!
 
 scpdy.form.keypad.placementOpts.title=New Keypad
 scpdy.form.keypad.placementOpts.warning=§cThese options cannot be changed later.
@@ -318,61 +609,6 @@ scpdy.form.keypad.use.hint=§7Hint: %s
 scpdy.form.keypad.use.passwordField.label=Enter Password
 scpdy.form.keypad.use.passwordField.placeholder=Enter password here
 scpdy.form.keypad.use.submitButton=Unlock
-
-scpdy.form.lockdownDoor.setZone.title=Set facility zone
-scpdy.form.lockdownDoor.setZone.allowChangeToggle.label=Can change zone later
-scpdy.form.lockdownDoor.setZone.dropdown.label=Select zone
-scpdy.form.lockdownDoor.setZone.dropdown.option=Zone %s
-scpdy.form.lockdownDoor.setZone.submitButton=Set
-
-scpdy.form.lockdownAlarm.setZone.title=Set facility zone
-scpdy.form.lockdownAlarm.setZone.dropdown.label=Select zone
-scpdy.form.lockdownAlarm.setZone.dropdown.option=Zone %s
-scpdy.form.lockdownAlarm.setZone.submitButton=Set
-
-scpdy.form.lockdownPanel.setZone.title=Set facility zone
-scpdy.form.lockdownPanel.setZone.dropdown.label=Select zone
-scpdy.form.lockdownPanel.setZone.dropdown.option=Zone %s
-scpdy.form.lockdownPanel.setZone.submitButton=Set
-
-scpdy.form.lockdownPanel.activate.title=Lockdown Options
-scpdy.form.lockdownPanel.activate.delayField.label=Delay (in seconds)
-scpdy.form.lockdownPanel.activate.delayField.placeholder=No delay
-scpdy.form.lockdownPanel.activate.durationField.label=Duration (in seconds)
-scpdy.form.lockdownPanel.activate.durationField.placeholder=Infinity
-scpdy.form.lockdownPanel.activate.submitButton=§4§lACTIVATE
-
-scpdy.form.fnm.instructions.title=Facility Network Manager
-scpdy.form.fnm.instructions.body.line_1=§6Facility Networks§f are data objects that are saved directly into the world itself. This means that a facility network has infinite range within their world.
-scpdy.form.fnm.instructions.body.line_2=There are %s facility network slots, each of them has %s §6facility zone§f slots.
-scpdy.form.fnm.instructions.body.line_3=§bLockdown Door§f and §bAlarm§f are special blocks that can be connected to a facility zone.
-scpdy.form.fnm.instructions.body.line_4=Lockdown Doors will be locked or unlocked based on lockdown status of their zone.
-scpdy.form.fnm.instructions.body.line_5=Just like Lockdown Doors, Alarms will play alarm sounds and become red if lockdown is activated in their zone.
-scpdy.form.fnm.instructions.body.line_6=With this item, you can edit facility networks and zones in this world.
-scpdy.form.fnm.instructions.body.line_7=For details, please read the documentation at §a§oscp-dystopia.lc-studios.net§r§f
-
-scpdy.form.fnm.main.title=Facility Network Manager
-scpdy.form.fnm.main.body=Select a facility network to edit.
-scpdy.form.fnm.main.button=Network %s
-
-scpdy.form.fnm.selectNetworkAction.title=Facility Network %s
-scpdy.form.fnm.selectNetworkAction.body=Select which action to perform on this facility network.
-scpdy.form.fnm.selectNetworkAction.button1=Edit name
-scpdy.form.fnm.selectNetworkAction.button2=Show zone list
-
-scpdy.form.fnm.editNetworkName.title=Edit facility network name
-scpdy.form.fnm.editNetworkName.nameField.label=New name
-scpdy.form.fnm.editNetworkName.nameField.placeholder=Enter new name
-scpdy.form.fnm.editNetworkName.submitButton=Save
-
-scpdy.form.fnm.zoneList.title=Facility zone list
-scpdy.form.fnm.zoneList.body=Select which zone's name you want to change
-scpdy.form.fnm.zoneList.button=Zone %s
-
-scpdy.form.fnm.editZoneName.title=Edit facility zone name
-scpdy.form.fnm.editZoneName.nameField.label=New name
-scpdy.form.fnm.editZoneName.nameField.placeholder=Enter new name
-scpdy.form.fnm.editZoneName.submitButton=Save
 
 ## --- Items
 
@@ -427,10 +663,7 @@ item.lc:scpdy_scp427_open.name=SCP-427
 item.lc:scpdy_scp427.name=SCP-427
 
 ## items -> utility -> ...
-item.lc:scpdy_config.name=Config (SCP: Dystopia 2.0+)
-item.lc:scpdy_config.interact=Edit Config
 item.lc:scpdy_facility_network_manager.name=Facility Network Manager
-item.lc:scpdy_wrench.name=Wrench (SCP: Dystopia 2.0+)
 
 ## items -> weapons -> guns -> ...
 item.lc:scpdy_gun_ar15_mag.name=AR-15 Magazine
@@ -459,169 +692,9 @@ item.lc:scpdy_frag_grenade.name=Frag Grenade
 
 ## --- Blocks
 
-## blocks -> construction -> concrete -> ...
-tile.lc:scpdy_cst_concrete_black.name=Black Facility Concrete
-tile.lc:scpdy_cst_concrete_gray.name=Gray Facility Concrete
-
-## blocks -> construction -> exterior_bricks -> ...
-tile.lc:scpdy_cst_exterior_bricks_bottom.name=Exterior Bricks (Bottom)
-tile.lc:scpdy_cst_exterior_bricks_middle.name=Generic Exterior Bricks
-tile.lc:scpdy_cst_exterior_bricks_top.name=Exterior Bricks (Top)
-
-## blocks -> construction -> facility_wall -> ...
-tile.lc:scpdy_cst_blue_wall_bottom_1.name=Blue Wall (Bottom 1)
-tile.lc:scpdy_cst_blue_wall_bottom_2.name=Blue Wall (Bottom 2)
-tile.lc:scpdy_cst_blue_wall_bottom_3.name=Blue Wall (Bottom 3)
-tile.lc:scpdy_cst_blue_wall_middle.name=Blue Wall (Middle)
-tile.lc:scpdy_cst_blue_wall_top.name=Blue Wall (Top)
-tile.lc:scpdy_cst_blue_wall.name=Generic Blue Wall
-tile.lc:scpdy_cst_brown_wall_bottom.name=Brown Facility Wall (Bottom)
-tile.lc:scpdy_cst_brown_wall_top.name=Brown Facility Wall (Top)
-tile.lc:scpdy_cst_cyan_wall_bottom.name=Cyan Facility Wall (Bottom)
-tile.lc:scpdy_cst_cyan_wall_top.name=Cyan Facility Wall (Top)
-tile.lc:scpdy_cst_gray_wall_bottom.name=Gray Facility Wall (Bottom)
-tile.lc:scpdy_cst_gray_wall_top.name=Gray Facility Wall (Top)
-tile.lc:scpdy_cst_mint_wall_bottom.name=Mint Facility Wall (Bottom)
-tile.lc:scpdy_cst_mint_wall_top.name=Mint Facility Wall (Top)
-tile.lc:scpdy_cst_orange_wall_bottom.name=Orange Facility Wall (Bottom)
-tile.lc:scpdy_cst_orange_wall_top.name=Orange Facility Wall (Top)
-tile.lc:scpdy_cst_facility_wall_bottom.name=Facility Wall (Bottom)
-tile.lc:scpdy_cst_facility_wall_middle_2.name=Facility Wall (Middle)
-tile.lc:scpdy_cst_facility_wall_middle.name=Generic Facility Wall
-tile.lc:scpdy_cst_facility_wall_top.name=Facility Wall (Top)
-
-## blocks -> construction -> heavy_walls -> ...
-tile.lc:scpdy_cst_heavy_wall_1_bottom.name=Heavy Wall 1 (Bottom)
-tile.lc:scpdy_cst_heavy_wall_1_top.name=Heavy Wall 1 (Top)
-tile.lc:scpdy_cst_heavy_wall_1.name=Generic Heavy Wall 1
-tile.lc:scpdy_cst_heavy_wall_2_bottom.name=Heavy Wall 2 (Bottom)
-tile.lc:scpdy_cst_heavy_wall_2_top.name=Heavy Wall 2 (Top)
-tile.lc:scpdy_cst_heavy_wall_2.name=Generic Heavy Wall 2
-
-## blocks -> construction -> lamps -> ...
-tile.lc:scpdy_cst_lamp_1.name=Lamp 1
-tile.lc:scpdy_cst_lamp_2.name=Lamp 2
-
-## blocks -> construction -> office_ceilings -> ...
-tile.lc:scpdy_cst_office_ceiling_1.name=Office Ceiling 1
-tile.lc:scpdy_cst_office_ceiling_2.name=Office Ceiling 2
-
-## blocks -> construction -> reinforced_panels -> ...
-tile.lc:scpdy_cst_reinforced_panel_1.name=Reinforced Panel 1
-tile.lc:scpdy_cst_reinforced_panel_2.name=Reinforced Panel 2
-tile.lc:scpdy_cst_reinforced_panel_3.name=Reinforced Panel 3
-
-## blocks -> construction -> ...
-tile.lc:scpdy_cst_black_checker_tiles.name=Black Checker Tiles
-tile.lc:scpdy_cst_cushion.name=Cushion
-tile.lc:scpdy_cst_floor_tiles.name=Floor Tiles
-tile.lc:scpdy_cst_generic_floor.name=Generic Floor
-tile.lc:scpdy_cst_lead_block.name=Lead Block
-tile.lc:scpdy_cst_steel_Block.name=Steel Block
-tile.lc:scpdy_cst_treadplate.name=Treadplate
-
-## blocks -> construction_3d -> ...
-tile.lc:scpdy_floor_grate_trap.name=Metal Floor Grate (Trap)
-tile.lc:scpdy_floor_grate.name=Metal Floor Grate
-tile.lc:scpdy_razor_wire.name=Razor Wire
-tile.lc:scpdy_small_light_blinking.name=Small Light (Blinking)
-tile.lc:scpdy_small_light.name=Small Light
-tile.lc:scpdy_steel_beam_end.name=Steel Beam (End)
-tile.lc:scpdy_steel_beam.name=Steel Beam
-tile.lc:scpdy_steel_truss.name=Steel Truss
-tile.lc:scpdy_vent_openable.name=Vent (Openable)
-tile.lc:scpdy_vent.name=Vent
-
-## blocks -> control_devices -> keycard_reader -> ...
-tile.lc:scpdy_keycard_reader_lvl_0.name=SCP Keycard Reader (Level 0)
-tile.lc:scpdy_keycard_reader_lvl_1.name=SCP Keycard Reader (Level 1)
-tile.lc:scpdy_keycard_reader_lvl_2.name=SCP Keycard Reader (Level 2)
-tile.lc:scpdy_keycard_reader_lvl_3.name=SCP Keycard Reader (Level 3)
-tile.lc:scpdy_keycard_reader_lvl_4.name=SCP Keycard Reader (Level 4)
-tile.lc:scpdy_keycard_reader_lvl_5.name=SCP Keycard Reader (Level 5)
-tile.lc:scpdy_keycard_reader_o5.name=SCP Keycard Reader (O5)
-
-## blocks -> control_devices -> ...
-tile.lc:scpdy_door_button.name=Button
-
-## blocks -> decor -> vent -> ...
-tile.lc:scpdy_decor_vent_1.name=Decorative Vent 1
-tile.lc:scpdy_decor_vent_2.name=Decorative Vent 2
-
-## blocks -> door -> boolean -> ...
-tile.lc:scpdy_boolean_door_1.name=Boolean Door 1
-tile.lc:scpdy_boolean_door_2.name=Boolean Door 2
-tile.lc:scpdy_boolean_door_3.name=Boolean Door 3
-
-## blocks -> door -> command -> ...
-tile.lc:scpdy_command_door.name=§dCommand Door
-
-## blocks -> door -> lockdown -> ...
-tile.lc:scpdy_lockdown_door_n1.name=§dLockdown Door (Network 1)
-tile.lc:scpdy_lockdown_door_n2.name=§dLockdown Door (Network 2)
-tile.lc:scpdy_lockdown_door_n3.name=§dLockdown Door (Network 3)
-tile.lc:scpdy_lockdown_door_n4.name=§dLockdown Door (Network 4)
-tile.lc:scpdy_lockdown_door_n5.name=§dLockdown Door (Network 5)
-
-## blocks -> door -> mechanical -> doors -> ...
-tile.lc:scpdy_mechanical_door_1.name=Mechanical Door 1
-tile.lc:scpdy_mechanical_door_2.name=Mechanical Door 2
-tile.lc:scpdy_mechanical_door_3.name=Mechanical Door 3
-tile.lc:scpdy_mechanical_door_4.name=Mechanical Door 4
-tile.lc:scpdy_mechanical_door_5.name=Mechanical Door 5
-tile.lc:scpdy_mechanical_door_6.name=Mechanical Door 6
-tile.lc:scpdy_mechanical_door_7.name=O5 Mechanical Door
-
-## blocks -> door -> mechanical -> ...
-tile.lc:scpdy_door_activator.name=Mech Door Activator
-
 ## blocks -> door -> standard -> ...
 tile.lc:scpdy_standard_door_1.name=Standard Door 1
 tile.lc:scpdy_standard_door_2.name=Standard Door 2
-
-## blocks -> furniture -> connec_tables -> ...
-tile.lc:scpdy_connec_table_1.name=Connec™ Table 1
-tile.lc:scpdy_connec_table_2.name=Connec™ Table 2
-
-## blocks -> furniture -> office_chair -> ...
-tile.lc:scpdy_office_chair_1.name=Office Chair 1
-tile.lc:scpdy_office_chair_2.name=Office Chair 2
-tile.lc:scpdy_office_chair_3.name=Office Chair 3
-
-## blocks -> furniture -> plushies -> ...
-tile.lc:scpdy_scp096_plushie.name=SCP-096 Plushie
-tile.lc:scpdy_scp427_1_plushie.name=SCP-427-1 Plushie
-tile.lc:scpdy_scp5167_plushie.name=SCP-5167 Plushie
-
-## blocks -> furniture -> shelves -> ...
-tile.lc:scpdy_shelf_1.name=Shelf 1 §e(+Variants)
-tile.lc:scpdy_shelf_2.name=Shelf 2 §e(+Variants)
-
-## blocks -> furniture -> ...
-tile.lc:scpdy_file_cabinet.name=File Cabinet
-tile.lc:scpdy_hanging_lamp.name=Hanging Lamp
-tile.lc:scpdy_landmine.name=Landmine
-tile.lc:scpdy_laptop.name=Laptop
-tile.lc:scpdy_sink.name=Sink
-tile.lc:scpdy_toilet_paper_holder.name=Toilet Paper Holder
-tile.lc:scpdy_toilet.name=Toilet
-tile.lc:scpdy_trash.name=Trash
-tile.lc:scpdy_warehouse_light_1_hanging.name=Warehouse Light 1 (Hanging)
-tile.lc:scpdy_warehouse_light_1.name=Warehouse Light 1
-
-## blocks -> lockdown_devices -> alarm -> ...
-tile.lc:scpdy_lockdown_alarm_n1.name=§dLockdown Alarm (Network 1)
-tile.lc:scpdy_lockdown_alarm_n2.name=§dLockdown Alarm (Network 2)
-tile.lc:scpdy_lockdown_alarm_n3.name=§dLockdown Alarm (Network 3)
-tile.lc:scpdy_lockdown_alarm_n4.name=§dLockdown Alarm (Network 4)
-tile.lc:scpdy_lockdown_alarm_n5.name=§dLockdown Alarm (Network 5)
-
-## blocks -> lockdown_devices -> panel -> ...
-tile.lc:scpdy_lockdown_panel_n1.name=§dLockdown Panel (Network 1)
-tile.lc:scpdy_lockdown_panel_n2.name=§dLockdown Panel (Network 2)
-tile.lc:scpdy_lockdown_panel_n3.name=§dLockdown Panel (Network 3)
-tile.lc:scpdy_lockdown_panel_n4.name=§dLockdown Panel (Network 4)
-tile.lc:scpdy_lockdown_panel_n5.name=§dLockdown Panel (Network 5)
 
 ## blocks -> minigame_blocks -> ...
 tile.lc:scpdy_dash_block.name=Dash Block
@@ -681,6 +754,7 @@ entity.lc:scpdy_toilet_rideable.name=Sittable
 ## entities -> projectiles -> ...
 entity.lc:scpdy_bullet_m4a1.name=Bullet
 entity.lc:scpdy_bullet_mp5.name=Bullet
+entity.lc:scpdy_corrosion_projectile.name=Corrosion
 entity.lc:scpdy_scriptable_bullet_large.name=Bullet
 entity.lc:scpdy_scriptable_bullet.name=Bullet
 
@@ -691,6 +765,8 @@ entity.lc:scpdy_scp001_proto_weakened.name=SCP-001 Prototype
 entity.lc:scpdy_scp001_proto_singularity.name=Microsingularity
 entity.lc:scpdy_scp096.name=SCP-096
 item.spawn_egg.entity.lc:scpdy_scp096.name=§7SCP:DY §8| §fSCP-096
+entity.lc:scpdy_scp106.name=SCP-106
+item.spawn_egg.entity.lc:scpdy_scp106.name=§7SCP:DY §8| §fSCP-106
 entity.lc:scpdy_scp173.name=SCP-173
 item.spawn_egg.entity.lc:scpdy_scp173.name=§7SCP:DY §8| §fSCP-173
 entity.lc:scpdy_scp427_1.name=SCP-427-1

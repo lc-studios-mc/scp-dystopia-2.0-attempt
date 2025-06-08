@@ -4,6 +4,8 @@ import * as vec3 from "@lib/utils/vec3";
 import * as mc from "@minecraft/server";
 import { ModalFormData } from "@minecraft/server-ui";
 import { emitControlDevicePulse, getControlDeviceMode } from "../utils";
+import { MachineryInputEvents } from "@/features/machinery/input/events";
+import { _getModeStringFromIndex } from "@/features/machinery/input/mode";
 
 const KEYPAD_ENTITY_TYPE_ID = "lc:scpdy_keypad";
 
@@ -48,7 +50,7 @@ async function keypadInteractionAsync(player: mc.Player, keypad: mc.Entity): Pro
 	if (response.canceled) return;
 	if (!response.formValues) return;
 
-	const enteredPassword = String(response.formValues[0]);
+	const enteredPassword = String(response.formValues[1]);
 	const realPassword = getKeypadPassword(keypad);
 
 	if (enteredPassword !== realPassword) {
@@ -68,11 +70,14 @@ async function keypadInteractionAsync(player: mc.Player, keypad: mc.Entity): Pro
 function turnOn(keypad: mc.Entity, player: mc.Player): void {
 	keypad.triggerEvent("turn_on");
 
-	emitControlDevicePulse(keypad, {
+	MachineryInputEvents.emit("onActivate", {
+		mode: _getModeStringFromIndex(getControlDeviceMode(keypad)),
+		dimension: keypad.dimension,
+		location: keypad.location,
+		entity: keypad,
 		clearanceLevel: getKeypadO5Clearance(keypad) ? 6 : -1,
-		facingDirection: rotationToDirection({ x: 0, y: Number(keypad.getProperty("lc:rotation_y")) }),
+		pulseDirection: rotationToDirection({ x: 0, y: Number(keypad.getProperty("lc:rotation_y")) }),
 		source: player,
-		mechDoorActivationDuration: 15,
 	});
 }
 
@@ -133,11 +138,7 @@ export function setKeypadO5Clearance(keypad: mc.Entity, value?: boolean): void {
 	keypad.setDynamicProperty("o5Clearance", value);
 }
 
-export function attachNewKeypadEntityTo(
-	block: mc.Block,
-	blockFace: mc.Direction,
-	source?: mc.Player,
-): mc.Entity {
+export function attachNewKeypadEntityTo(block: mc.Block, blockFace: mc.Direction, source?: mc.Player): mc.Entity {
 	const location = vec3.getRelativeLocation(
 		block.bottomCenter(),
 		{
@@ -172,10 +173,7 @@ mc.world.afterEvents.entityHitEntity.subscribe(
 		if (!keypad.isValid) return;
 		if (!(damagingEntity instanceof mc.Player)) return;
 
-		if (
-			damagingEntity.getGameMode() !== mc.GameMode.creative &&
-			getKeypadSourceId(keypad) !== damagingEntity.id
-		)
+		if (damagingEntity.getGameMode() !== mc.GameMode.creative && getKeypadSourceId(keypad) !== damagingEntity.id)
 			return;
 
 		keypad.dimension.playSound("scpdy.misc.computer.hit", keypad.location);

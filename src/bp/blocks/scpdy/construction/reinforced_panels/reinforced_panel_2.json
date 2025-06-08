@@ -54,8 +54,7 @@
 				]
 			},
 			"minecraft:redstone_conductivity": {
-				"redstone_conductor": true,
-				"allows_wire_to_step_down": false
+				"redstone_conductor": true
 			}
 		}
 	}

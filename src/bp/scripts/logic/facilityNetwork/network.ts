@@ -34,25 +34,16 @@ class _FacilityZone implements FacilityZone {
 	}
 
 	get isLockdownActive(): boolean {
-		return (
-			world.getDynamicProperty(
-				`scpdy_facilityZone_${this.network.index}_${this.index}_lockdown`,
-			) === true
-		);
+		return world.getDynamicProperty(`scpdy_facilityZone_${this.network.index}_${this.index}_lockdown`) === true;
 	}
 
 	private set isLockdownActive(value: boolean | undefined) {
-		world.setDynamicProperty(
-			`scpdy_facilityZone_${this.network.index}_${this.index}_lockdown`,
-			value,
-		);
+		world.setDynamicProperty(`scpdy_facilityZone_${this.network.index}_${this.index}_lockdown`, value);
 	}
 
 	get lockdownDelay(): number | undefined {
 		return ensureType(
-			world.getDynamicProperty(
-				`scpdy_facilityZone_${this.network.index}_${this.index}_lockdownDelay`,
-			),
+			world.getDynamicProperty(`scpdy_facilityZone_${this.network.index}_${this.index}_lockdownDelay`),
 			"number",
 		);
 	}
@@ -60,17 +51,12 @@ class _FacilityZone implements FacilityZone {
 	set lockdownDelay(value: number | undefined) {
 		const val = value !== undefined && value > 0 ? Math.max(0, Math.floor(value)) : undefined;
 
-		world.setDynamicProperty(
-			`scpdy_facilityZone_${this.network.index}_${this.index}_lockdownDelay`,
-			val,
-		);
+		world.setDynamicProperty(`scpdy_facilityZone_${this.network.index}_${this.index}_lockdownDelay`, val);
 	}
 
 	get lockdownDuration(): number | undefined {
 		return ensureType(
-			world.getDynamicProperty(
-				`scpdy_facilityZone_${this.network.index}_${this.index}_lockdownDuration`,
-			),
+			world.getDynamicProperty(`scpdy_facilityZone_${this.network.index}_${this.index}_lockdownDuration`),
 			"number",
 		);
 	}
@@ -78,10 +64,7 @@ class _FacilityZone implements FacilityZone {
 	set lockdownDuration(value: number | undefined) {
 		const val = value !== undefined && value > 0 ? Math.max(0, Math.floor(value)) : undefined;
 
-		world.setDynamicProperty(
-			`scpdy_facilityZone_${this.network.index}_${this.index}_lockdownDuration`,
-			val,
-		);
+		world.setDynamicProperty(`scpdy_facilityZone_${this.network.index}_${this.index}_lockdownDuration`, val);
 	}
 
 	startLockdown(delay?: number, duration?: number): boolean {
@@ -116,10 +99,7 @@ class _FacilityNetwork implements FacilityNetwork {
 	}
 
 	get name(): string | undefined {
-		return ensureType(
-			world.getDynamicProperty(`scpdy_facilityNetwork_${this.index}_name`),
-			"string",
-		);
+		return ensureType(world.getDynamicProperty(`scpdy_facilityNetwork_${this.index}_name`), "string");
 	}
 
 	set name(value: string | undefined) {

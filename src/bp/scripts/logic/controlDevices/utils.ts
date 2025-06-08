@@ -1,7 +1,5 @@
 import { getBlockCardinalDirection, getRelativeBlock } from "@lib/utils/blockUtils";
 import { rotationToDirection } from "@lib/utils/miscUtils";
-import { controlBlastDoor, getNearestBlastDoor } from "@logic/blastDoor/blastDoor";
-import { tryPowerDoorActivator } from "@logic/blocks/door/doorActivator";
 import * as mc from "@minecraft/server";
 import { ModalFormData } from "@minecraft/server-ui";
 import { activateRbPlaceholder, tellRbPlaceholderIsMissing } from "./rbPlaceholder";
@@ -31,10 +29,7 @@ export type ControlDevicePulseOpts = {
  * @param controlDevice Control device block or entity (button, keypad, etc.)
  * @param opts Options
  */
-export function emitControlDevicePulse(
-	controlDevice: mc.Block | mc.Entity,
-	opts?: ControlDevicePulseOpts,
-): boolean {
+export function emitControlDevicePulse(controlDevice: mc.Block | mc.Entity, opts?: ControlDevicePulseOpts): boolean {
 	let mode;
 	try {
 		mode = getControlDeviceMode(controlDevice);
@@ -43,9 +38,7 @@ export function emitControlDevicePulse(
 	}
 
 	const originBlock =
-		controlDevice instanceof mc.Block
-			? controlDevice
-			: controlDevice.dimension.getBlock(controlDevice.location);
+		controlDevice instanceof mc.Block ? controlDevice : controlDevice.dimension.getBlock(controlDevice.location);
 
 	if (!originBlock) return false;
 
@@ -60,15 +53,10 @@ export function emitControlDevicePulse(
 	switch (mode) {
 		case CONTROL_DEVICE_MODE.powerDoorActivator:
 			if (opts?.onlyCloseBlastDoor) return false;
-			sendPowerToDoorActivators(
-				getRelativeBlock(originBlock, dir, 1),
-				opts?.mechDoorActivationDuration,
-			);
+			sendPowerToDoorActivators(getRelativeBlock(originBlock, dir, 1), opts?.mechDoorActivationDuration);
 			return true;
 		case CONTROL_DEVICE_MODE.openNearestBlastDoor: {
-			const blastDoor = getNearestBlastDoor(controlDevice.dimension, originBlock.center());
-			if (!blastDoor) return false;
-			return controlBlastDoor(blastDoor, opts?.onlyCloseBlastDoor ? "close" : "switch", isO5Access);
+			throw new Error("Unimplemented!");
 		}
 		case CONTROL_DEVICE_MODE.placeRedstoneBlockBelow: {
 			if (opts?.onlyCloseBlastDoor) return false;
@@ -127,10 +115,10 @@ export function addControlDeviceModeDropdownToForm(formData: ModalFormData): voi
 	formData.dropdown(
 		{ translate: "scpdy.form.controlDevice.modeDropdown.label" },
 		[
-			{ translate: "scpdy.form.controlDevice.modeDropdown.opt0" },
-			{ translate: "scpdy.form.controlDevice.modeDropdown.opt1" },
-			{ translate: "scpdy.form.controlDevice.modeDropdown.opt2" },
-			{ translate: "scpdy.form.controlDevice.modeDropdown.opt3" },
+			{ translate: "scpdy.machinery.input.mode.text.powerRelayDoors" },
+			{ translate: "scpdy.machinery.input.mode.text.ctrlBlastDoor" },
+			{ translate: "scpdy.machinery.input.mode.text.placeRbBelow" },
+			{ translate: "scpdy.machinery.input.mode.text.placeRbBehind" },
 		],
 		{ defaultValueIndex: 0 },
 	);
@@ -156,13 +144,15 @@ export function getControlDeviceMode(controlDevice: mc.Block | mc.Entity): numbe
 export function setControlDeviceMode(controlDevice: mc.Block | mc.Entity, value: number): void {
 	try {
 		if (controlDevice instanceof mc.Block) {
-			controlDevice.setPermutation(
-				controlDevice.permutation.withState("lc:control_device_mode", value),
-			);
+			controlDevice.setPermutation(controlDevice.permutation.withState("lc:control_device_mode", value));
 		} else if (controlDevice instanceof mc.Entity) {
 			controlDevice.setProperty("lc:control_device_mode", value);
 		}
 	} catch {
 		throw new Error("Failed to set control device mode");
 	}
+}
+
+function tryPowerDoorActivator(...args: unknown[]): boolean {
+	throw new Error("Door Activator is no longer available.");
 }

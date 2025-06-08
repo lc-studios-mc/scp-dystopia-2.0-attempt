@@ -1,7 +1,4 @@
-import {
-	AdvancedItem,
-	type AdvancedItemBaseConstructorArgs,
-} from "@logic/advancedItem/AdvancedItem";
+import { AdvancedItem, type AdvancedItemBaseConstructorArgs } from "@logic/advancedItem/AdvancedItem";
 import { registerAdvancedItemProfile } from "@logic/advancedItem/profileRegistry";
 import * as mc from "@minecraft/server";
 import { type AmmoType, getAmmoItemType, getAmmoType, removeAmmo } from "./ammo";
@@ -67,12 +64,7 @@ class AmmoPack extends AdvancedItem {
 
 			const maxPutAmount = Math.min(64, durabilityComponent.damage);
 
-			const putAmount = removeAmmo(
-				this.playerInventoryContainer,
-				this.ammoType,
-				maxPutAmount,
-				true,
-			);
+			const putAmount = removeAmmo(this.playerInventoryContainer, this.ammoType, maxPutAmount, true);
 
 			if (putAmount <= 0) {
 				this.player.onScreenDisplay.setActionBar({
@@ -91,15 +83,9 @@ class AmmoPack extends AdvancedItem {
 
 			this.playerMainhand.setItem(mainhandItemStack);
 
-			this.player.dimension.playSound(
-				"scpdy.gun.ammo_pack.load_ammo",
-				this.player.getHeadLocation(),
-			);
+			this.player.dimension.playSound("scpdy.gun.ammo_pack.load_ammo", this.player.getHeadLocation());
 		} else if (mode === "extractAmmo") {
-			const extractAmount = Math.min(
-				64,
-				durabilityComponent.maxDurability - durabilityComponent.damage,
-			);
+			const extractAmount = Math.min(64, durabilityComponent.maxDurability - durabilityComponent.damage);
 
 			if (extractAmount <= 0) {
 				this.player.onScreenDisplay.setActionBar({ translate: "scpdy.actionHint.ammoPack.empty" });

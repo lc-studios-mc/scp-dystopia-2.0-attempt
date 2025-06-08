@@ -1,8 +1,9 @@
 /**
  * Type definitions for event handlers
  */
-export type EventHandler<T = any> = (data: T) => void | Promise<void>;
+export type EventHandler<T = any, R = void> = (data: T) => R | Promise<R>;
 export type EventMap = Record<string, any>;
+export type ReturnTypeMap = Record<string, any>;
 
 /**
  * Options for event subscription
@@ -31,8 +32,8 @@ export interface Subscription {
 /**
  * Internal representation of a subscriber
  */
-interface Subscriber<T = any> {
-	handler: EventHandler<T>;
+interface Subscriber<T = any, R = any> {
+	handler: EventHandler<T, R>;
 	once: boolean;
 	priority: number;
 	active: boolean;
@@ -40,9 +41,52 @@ interface Subscriber<T = any> {
 }
 
 /**
- * EventEmitter class - A lightweight, high-performance event emitter
+ * A flexible and type-safe event emitter supporting synchronous and asynchronous event handling,
+ * handler priorities, one-time subscriptions, and subscription management (pause/resume/unsubscribe).
+ *
+ * @example
+ * // Define your event map
+ * interface MyEvents {
+ *   'user:login': { username: string };
+ *   'user:logout': void;
+ * }
+ * interface MyReturns {
+ *   'user:login': boolean;
+ *   'user:logout': void;
+ * }
+ *
+ * // Create an emitter instance
+ * const emitter = new EventEmitter<MyEvents, MyReturns>();
+ *
+ * // Subscribe to an event
+ * const sub = emitter.on('user:login', (data) => {
+ *   console.log(`${data.username} logged in`);
+ *   return true;
+ * });
+ *
+ * // Emit an event synchronously
+ * const results = emitter.emit('user:login', { username: 'alice' });
+ * // results: [true]
+ *
+ * // Subscribe to an event only once
+ * emitter.once('user:logout', () => {
+ *   console.log('User logged out');
+ * });
+ *
+ * // Emit asynchronously (supports async handlers)
+ * await emitter.emitAsync('user:logout', undefined);
+ *
+ * // Pause and resume a subscription
+ * sub.pause();
+ * sub.resume();
+ *
+ * // Unsubscribe
+ * sub.unsubscribe();
  */
-export class EventEmitter<Events extends EventMap = Record<string, any>> {
+export class EventEmitter<
+	Events extends EventMap = Record<string, any>,
+	Returns extends ReturnTypeMap = Record<keyof Events, void>,
+> {
 	private subscribers: Map<keyof Events, Subscriber[]> = new Map();
 	private idCounter: number = 0;
 
@@ -53,15 +97,15 @@ export class EventEmitter<Events extends EventMap = Record<string, any>> {
 	 * @param options - Subscription options
 	 * @returns Subscription object for controlling the subscription
 	 */
-	public on<K extends keyof Events>(
+	public on<K extends keyof Events & keyof Returns>(
 		eventName: K,
-		handler: EventHandler<Events[K]>,
+		handler: EventHandler<Events[K], Returns[K]>,
 		options: SubscriptionOptions = {},
 	): Subscription {
 		const { once = false, priority = 0 } = options;
 		const id = this.idCounter++;
 
-		const subscriber: Subscriber<Events[K]> = {
+		const subscriber: Subscriber<Events[K], Returns[K]> = {
 			handler,
 			once,
 			priority,
@@ -98,33 +142,36 @@ export class EventEmitter<Events extends EventMap = Record<string, any>> {
 	 * @param priority - Priority of the handler (higher numbers execute first)
 	 * @returns Subscription object for controlling the subscription
 	 */
-	public once<K extends keyof Events>(
+	public once<K extends keyof Events & keyof Returns>(
 		eventName: K,
-		handler: EventHandler<Events[K]>,
+		handler: EventHandler<Events[K], Returns[K]>,
 		priority = 0,
 	): Subscription {
 		return this.on(eventName, handler, { once: true, priority });
 	}
 
 	/**
-	 * Emit an event synchronously (does not wait for async handlers)
+	 * Emit an event synchronously and collect results
 	 * @param eventName - Name of the event to emit
 	 * @param data - Data to pass to handlers
+	 * @returns Array of results from all handlers
 	 */
-	public emit<K extends keyof Events>(eventName: K, data: Events[K]): void {
+	public emit<K extends keyof Events & keyof Returns>(eventName: K, data: Events[K]): Returns[K][] {
 		if (!this.subscribers.has(eventName)) {
-			return;
+			return [];
 		}
 
 		const subscribers = this.subscribers.get(eventName)!;
 		const toRemove: number[] = [];
+		const results: Returns[K][] = [];
 
 		// Create a copy to avoid issues if handlers modify the subscribers array
 		const activeSubscribers = [...subscribers].filter((sub) => sub.active);
 
 		for (const subscriber of activeSubscribers) {
 			try {
-				subscriber.handler(data);
+				const result = subscriber.handler(data) as Returns[K];
+				results.push(result);
 			} catch (error) {
 				// @ts-expect-error
 				console.error(`Error in event handler for "${String(eventName)}":`, error);
@@ -142,21 +189,23 @@ export class EventEmitter<Events extends EventMap = Record<string, any>> {
 				subscribers.filter((sub) => !toRemove.includes(sub.id)),
 			);
 		}
+
+		return results;
 	}
 
 	/**
-	 * Emit an event with data
+	 * Emit an event with data and collect results, including from async handlers
 	 * @param eventName - Name of the event to emit
 	 * @param data - Data to pass to handlers
-	 * @returns Promise that resolves when all handlers (including async ones) have completed
+	 * @returns Promise that resolves with an array of results from all handlers
 	 */
-	public async emitAsync<K extends keyof Events>(eventName: K, data: Events[K]): Promise<void> {
+	public async emitAsync<K extends keyof Events & keyof Returns>(eventName: K, data: Events[K]): Promise<Returns[K][]> {
 		if (!this.subscribers.has(eventName)) {
-			return;
+			return [];
 		}
 
 		const subscribers = this.subscribers.get(eventName)!;
-		const promises: Promise<void>[] = [];
+		const results: Array<Returns[K] | Promise<Returns[K]>> = [];
 		const toRemove: number[] = [];
 
 		// Create a copy to avoid issues if handlers modify the subscribers array
@@ -165,9 +214,7 @@ export class EventEmitter<Events extends EventMap = Record<string, any>> {
 		for (const subscriber of activeSubscribers) {
 			try {
 				const result = subscriber.handler(data);
-				if (result instanceof Promise) {
-					promises.push(result);
-				}
+				results.push(result);
 			} catch (error) {
 				// @ts-expect-error
 				console.error(`Error in event handler for "${String(eventName)}":`, error);
@@ -186,10 +233,8 @@ export class EventEmitter<Events extends EventMap = Record<string, any>> {
 			);
 		}
 
-		// Wait for all async handlers to complete
-		if (promises.length > 0) {
-			await Promise.all(promises);
-		}
+		// Wait for all results to resolve (whether they're promises or not)
+		return Promise.all(results);
 	}
 
 	/**
@@ -285,11 +330,7 @@ export class EventEmitter<Events extends EventMap = Record<string, any>> {
 	 * @param handlerId - ID of the handler
 	 * @param active - Active state to set
 	 */
-	private setSubscriptionState<K extends keyof Events>(
-		eventName: K,
-		handlerId: number,
-		active: boolean,
-	): void {
+	private setSubscriptionState<K extends keyof Events>(eventName: K, handlerId: number, active: boolean): void {
 		if (!this.subscribers.has(eventName)) {
 			return;
 		}

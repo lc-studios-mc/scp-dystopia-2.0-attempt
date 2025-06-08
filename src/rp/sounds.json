@@ -142,6 +142,30 @@
 				"pitch": [0.95, 1.05],
 				"volume": 1.0
 			},
+			"lc:scpdy_scp106": {
+				"events": {
+					"hurt": "sound.none",
+					"ambient": {
+						"sound": "scpdy.scp106.ambient",
+						"volume": 1.5
+					},
+					"step": {
+						"sound": "scpdy.scp106.step",
+						"volume": 1.5
+					},
+					"attack": {
+						"sound": "scpdy.scp106.attack",
+						"volume": 1.2,
+						"pitch": [0.9, 1.1]
+					},
+					"death": {
+						"sound": "scpdy.scp106.death",
+						"volume": 6.0
+					}
+				},
+				"pitch": [0.95, 1.05],
+				"volume": 1.0
+			},
 			"lc:scpdy_scp173": {
 				"events": {
 					"death": {

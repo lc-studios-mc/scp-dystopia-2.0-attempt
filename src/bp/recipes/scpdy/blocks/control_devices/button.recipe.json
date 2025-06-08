@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "lc:scpdy_recipe_door_button"
 		},
-		"tags": ["crafting_table", "dystopia_craftbench", "scpdy_workbench"],
+		"tags": ["crafting_table"],
 		"pattern": ["BR", "I "],
 		"key": {
 			"B": {

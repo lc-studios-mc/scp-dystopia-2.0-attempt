@@ -44,11 +44,7 @@ function onUse(arg: mc.ItemComponentUseEvent): void {
 
 	// Load ammo
 
-	const loadAmount = Math.min(
-		ammoTypeInfo.maxBatchLoad,
-		ammoItemStack.amount,
-		loadableDurability.damage,
-	);
+	const loadAmount = Math.min(ammoTypeInfo.maxBatchLoad, ammoItemStack.amount, loadableDurability.damage);
 
 	loadableDurability.damage -= loadAmount;
 

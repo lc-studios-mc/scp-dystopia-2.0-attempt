@@ -27,10 +27,7 @@ function onUseOn(arg: mc.ItemComponentUseOnEvent): void {
 	});
 }
 
-async function processPlacementAsync(
-	player: mc.Player,
-	event: mc.ItemComponentUseOnEvent,
-): Promise<void> {
+async function processPlacementAsync(player: mc.Player, event: mc.ItemComponentUseOnEvent): Promise<void> {
 	const formData = new ModalFormData()
 		.title({ translate: "scpdy.form.keypad.placementOpts.title" })
 		.label({ translate: "scpdy.form.keypad.placementOpts.warning" })
@@ -42,10 +39,7 @@ async function processPlacementAsync(
 			{ translate: "scpdy.form.keypad.placementOpts.hintField.label" },
 			{ translate: "scpdy.form.keypad.placementOpts.hintField.placeholder" },
 		)
-		.toggle(
-			{ translate: "scpdy.form.keypad.placementOpts.loudIncorrectBuzzerToggle.label" },
-			{ defaultValue: false },
-		)
+		.toggle({ translate: "scpdy.form.keypad.placementOpts.loudIncorrectBuzzerToggle.label" }, { defaultValue: false })
 		.divider();
 
 	addControlDeviceModeDropdownToForm(formData);
@@ -59,11 +53,11 @@ async function processPlacementAsync(
 	if (response.canceled) return;
 	if (!response.formValues) return;
 
-	const password = String(response.formValues[0]).trim();
-	const hint = String(response.formValues[1]);
-	const loudIncorrectBuzzer = response.formValues[2] === true;
-	const controlDeviceMode = Number(response.formValues[3]);
-	const o5Clearance = response.formValues[4] === true;
+	const password = String(response.formValues[1]).trim();
+	const hint = String(response.formValues[2]);
+	const loudIncorrectBuzzer = response.formValues[3] === true;
+	const controlDeviceMode = Number(response.formValues[5]);
+	const o5Clearance = response.formValues[6] === true;
 
 	if (password === "") {
 		player.playSound("note.bass");

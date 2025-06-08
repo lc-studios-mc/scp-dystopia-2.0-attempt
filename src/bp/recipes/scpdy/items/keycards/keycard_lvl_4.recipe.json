@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "lc:scpdy_recipe_keycard_lvl_4"
 		},
-		"tags": ["crafting_table", "dystopia_craftbench", "scpdy_workbench"],
+		"tags": ["crafting_table"],
 		"pattern": ["PD", "M "],
 		"key": {
 			"P": {

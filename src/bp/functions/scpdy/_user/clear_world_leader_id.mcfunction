@@ -1,1 +1,0 @@
-scriptevent scpdy:clear_world_leader_id

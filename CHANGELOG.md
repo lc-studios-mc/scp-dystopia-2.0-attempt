@@ -6,19 +6,60 @@ _Most_ notable changes to this project will be documented in this file.
 
 ### Added
 
-- Foundation Researcher mob.
-- Keypad block.
-- SCP plushies.
-- Sink block.
-- Trash Bin block.
+- New SCPs:
+  - SCP-005
+  - SCP-106
+- New Blocks:
+  - Alarm
+  - Bench
+  - Cardboard Box 1
+  - Caution Blocks
+  - Coffee Machine
+  - Duct Block
+  - Gray Floor Tiles
+  - Gray Single Floor Tile
+  - Magnet Block
+  - Microscope
+  - Office Desk
+  - Panel Fan
+  - Printer
+  - Radiator
+  - Radio
+  - SCP Plushies
+  - Single Floor Tile
+  - Sink
+  - Tissue Box
+  - Trash Bin
+  - Wall Monitor
+  - Water Dispenser
+  - Wooden Crate
+- Command to control a Command Door (`/scpdy:cmddoor`)
+- Keypad
+- Foundation Researcher mob
 
-### Fixed
+### Changed
 
-- Dash Block does not boost user velocity.
+- Improve the Lockdown System.
+- Change Mechanical Door to Relay Door, as a direct replacement.
+- Change Boolean Door to Easy Door, as a direct replacement.
+- Decrease the CCTV Camera model size.
 
 ### Removed
 
-- Slasher (in favor of [standalone version](https://www.curseforge.com/minecraft-bedrock/addons/slasher-sword))
+- player.json
+- Mechanical Door Activator.
+- Config Editor item (run `/scpdy:configeditor` instead).
+- Script event to control a Command Door (run `/scpdy:cmddoor` instead)
+- Slasher (in favor of the [standalone version](https://www.curseforge.com/minecraft-bedrock/addons/slasher-sword))
+
+### Fixed
+
+- Alphanumeric Sign block is not placable.
+- Blast Door creation form is not displayed properly.
+- Construction blocks are not conducting redstone.
+- Frag Grenade not exploding in certain condition.
+- Toilets and Chairs are not sittable.
+- Dash Block does not work.
 
 ## [2.0.0 Alpha 3] - 2025-03-27
 
@@ -30,6 +71,7 @@ _Most_ notable changes to this project will be documented in this file.
 
 ### Changed
 
+- Big improvements on the lockdown system!
 - Slasher MK-II upgrade (faster actions and sword beams!).
 
 ### Fixed

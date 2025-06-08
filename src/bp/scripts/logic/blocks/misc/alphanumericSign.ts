@@ -36,8 +36,7 @@ async function showPlacementOptionsForm(player: mc.Player): Promise<PlacementOpt
 				},
 			],
 			{
-				defaultValueIndex:
-					(player.getDynamicProperty("lastAlphanumericSignColorSelection") as number) ?? 0,
+				defaultValueIndex: (player.getDynamicProperty("lastAlphanumericSignColorSelection") as number) ?? 0,
 			},
 		)
 		.submitButton({ translate: "scpdy.form.alphanumericSignOptions.submit" })
@@ -66,9 +65,7 @@ async function asyncPlacement(
 	upOrDown: UpOrDown,
 	dir: mc.Direction,
 ): Promise<void> {
-	const playerMainhand = player
-		.getComponent("equippable")!
-		.getEquipmentSlot(mc.EquipmentSlot.Mainhand);
+	const playerMainhand = player.getComponent("equippable")!.getEquipmentSlot(mc.EquipmentSlot.Mainhand);
 	const options = await showPlacementOptionsForm(player);
 
 	if (options === undefined) return;
@@ -334,29 +331,31 @@ function getCharBlockPermutation(char: string): mc.BlockPermutation | "space" | 
 function beforeOnPlayerPlace(arg: mc.BlockComponentPlayerPlaceBeforeEvent): void {
 	arg.cancel = true;
 
-	if (!arg.player) return;
+	mc.system.run(() => {
+		if (!arg.player) return;
 
-	const upOrDown: "none" | "up" | "down" =
-		arg.face === mc.Direction.Up ? "up" : arg.face === mc.Direction.Down ? "down" : "none";
+		const upOrDown: "none" | "up" | "down" =
+			arg.face === mc.Direction.Up ? "up" : arg.face === mc.Direction.Down ? "down" : "none";
 
-	const dir = (function () {
-		const y = arg.player.getRotation().y;
+		const dir = (function () {
+			const y = arg.player.getRotation().y;
 
-		if (upOrDown !== "none") {
-			if (y >= -45 && y < 45) {
-				return mc.Direction.North;
-			} else if (y >= 45 && y < 135) {
-				return mc.Direction.East;
-			} else if (y >= 135 || y < -135) {
-				return mc.Direction.South;
+			if (upOrDown !== "none") {
+				if (y >= -45 && y < 45) {
+					return mc.Direction.North;
+				} else if (y >= 45 && y < 135) {
+					return mc.Direction.East;
+				} else if (y >= 135 || y < -135) {
+					return mc.Direction.South;
+				}
+				return mc.Direction.West;
 			}
-			return mc.Direction.West;
-		}
 
-		return arg.face;
-	})();
+			return arg.face;
+		})();
 
-	asyncPlacement(arg.player, arg.block, arg.dimension, upOrDown, dir);
+		asyncPlacement(arg.player, arg.block, arg.dimension, upOrDown, dir);
+	});
 }
 
 mc.system.beforeEvents.startup.subscribe((event) => {

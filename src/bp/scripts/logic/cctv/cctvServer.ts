@@ -2,12 +2,7 @@ import { ensureType } from "@lib/utils/miscUtils";
 import * as vec3 from "@lib/utils/vec3";
 import * as mc from "@minecraft/server";
 import { ActionFormData, ModalFormData } from "@minecraft/server-ui";
-import {
-	type CCTVCameraRef,
-	LINKER_ITEM_TYPE,
-	SERVER_ENTITY_TYPE,
-	TABLET_ITEM_TYPE,
-} from "./shared";
+import { type CCTVCameraRef, LINKER_ITEM_TYPE, SERVER_ENTITY_TYPE, TABLET_ITEM_TYPE } from "./shared";
 
 type CCTVCameraListSortMethod = "a-z" | "z-a" | "nearest" | "farthest";
 
@@ -23,10 +18,7 @@ export function setPassword(cctvServer: mc.Entity, password?: string): void {
 export async function showPasswordForm(player: mc.Player, cctvServer: mc.Entity): Promise<boolean> {
 	const password = getPassword(cctvServer);
 
-	const lastEnteredCctvPassword = ensureType(
-		player.getDynamicProperty("lastEnteredCctvPassword"),
-		"string",
-	);
+	const lastEnteredCctvPassword = ensureType(player.getDynamicProperty("lastEnteredCctvPassword"), "string");
 
 	const response = await new ModalFormData()
 		.title({

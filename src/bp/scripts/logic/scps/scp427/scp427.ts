@@ -18,9 +18,7 @@ mc.system.beforeEvents.startup.subscribe((event) => {
 			if (!arg.itemStack) return;
 
 			const newItemTypeId =
-				arg.itemStack.typeId === SCP427_CLOSED_ITEM_TYPE_ID
-					? SCP427_OPEN_ITEM_TYPE_ID
-					: SCP427_CLOSED_ITEM_TYPE_ID;
+				arg.itemStack.typeId === SCP427_CLOSED_ITEM_TYPE_ID ? SCP427_OPEN_ITEM_TYPE_ID : SCP427_CLOSED_ITEM_TYPE_ID;
 
 			const newItemStack = new mc.ItemStack(newItemTypeId, 1);
 			newItemStack.nameTag = arg.itemStack.nameTag;
@@ -117,16 +115,14 @@ playerLoop.subscribe((player, { healthComp, mainhandSlot }) => {
 		}
 	}
 
-	const isHoldingOpenScp427 =
-		mainhandSlot.hasItem() && mainhandSlot.typeId === SCP427_OPEN_ITEM_TYPE_ID;
+	const isHoldingOpenScp427 = mainhandSlot.hasItem() && mainhandSlot.typeId === SCP427_OPEN_ITEM_TYPE_ID;
 
 	if (!isHoldingOpenScp427) return;
 
 	player.setDynamicProperty("scp427TotalTime", scp427TotalTime + 1);
 
 	if (healthComp.currentValue < healthComp.effectiveMax && !player.getEffect("regeneration")) {
-		const amplifier =
-			scp427TotalTime < 150 ? 1 : scp427TotalTime < 300 ? 2 : scp427TotalTime < 500 ? 3 : 4;
+		const amplifier = scp427TotalTime < 150 ? 1 : scp427TotalTime < 300 ? 2 : scp427TotalTime < 500 ? 3 : 4;
 
 		player.addEffect("regeneration", 40, { amplifier });
 	}

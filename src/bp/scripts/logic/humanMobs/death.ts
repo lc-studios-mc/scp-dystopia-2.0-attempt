@@ -22,10 +22,7 @@ function onHumanMobDie(
 
 	const isDamageBig = damage > Math.min(30, entity.getComponent("health")!.effectiveMax);
 
-	const isExplosionDamage = [
-		mc.EntityDamageCause.entityExplosion,
-		mc.EntityDamageCause.blockExplosion,
-	].includes(cause);
+	const isExplosionDamage = [mc.EntityDamageCause.entityExplosion, mc.EntityDamageCause.blockExplosion].includes(cause);
 
 	const shouldGoreExplode =
 		damagingEntity?.typeId !== SCP173_ENTITY_TYPE &&
@@ -43,6 +40,7 @@ function onHumanMobDie(
 mc.world.afterEvents.entityHurt.subscribe(
 	(event) => {
 		if (event.damageSource.cause === mc.EntityDamageCause.selfDestruct) return;
+		if (!event.hurtEntity.isValid) return;
 
 		const lootData = getHumanMobLootData(event.hurtEntity.typeId);
 

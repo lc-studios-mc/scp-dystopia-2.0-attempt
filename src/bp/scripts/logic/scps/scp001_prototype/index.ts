@@ -27,24 +27,15 @@ function onUpdate(scp001Entity: mc.Entity): void {
 
 	const dirToTarget = vec3.normalize(vec3.sub(scp001Entity.target.location, scp001Entity.location));
 
-	const isLeadBlockingRay = testLeadBlockingRay(
-		scp001Entity.dimension,
-		scp001Entity.location,
-		dirToTarget,
-	);
+	const isLeadBlockingRay = testLeadBlockingRay(scp001Entity.dimension, scp001Entity.location, dirToTarget);
 
 	scp001Entity.setProperty("lc:is_mouth_opened", !isLeadBlockingRay && !isWeakened);
 
-	const ticksUntilSigularity =
-		ensureType(scp001Entity.getDynamicProperty("ticksUntilSingularity"), "number") ?? 0;
+	const ticksUntilSigularity = ensureType(scp001Entity.getDynamicProperty("ticksUntilSingularity"), "number") ?? 0;
 
 	scp001Entity.setDynamicProperty(
 		"ticksUntilSingularity",
-		ticksUntilSigularity > 0
-			? ticksUntilSigularity - 1
-			: target.isOnGround
-				? randomInt(20, 30)
-				: randomInt(5, 10),
+		ticksUntilSigularity > 0 ? ticksUntilSigularity - 1 : target.isOnGround ? randomInt(20, 30) : randomInt(5, 10),
 	);
 
 	if (isLeadBlockingRay) return;
@@ -69,10 +60,7 @@ function onUpdate(scp001Entity: mc.Entity): void {
 		pitch: randomFloat(0.9, 1.1),
 	});
 
-	scp001Entity.dimension.spawnEntity(
-		SCP001P_SINGULARITY_ENTITY_TYPE,
-		vec3.add(target.location, vec3.UP),
-	);
+	scp001Entity.dimension.spawnEntity(SCP001P_SINGULARITY_ENTITY_TYPE, vec3.add(target.location, vec3.UP));
 
 	target.applyDamage(12, {
 		cause: mc.EntityDamageCause.fall,
@@ -213,10 +201,7 @@ mc.world.afterEvents.entitySpawn.subscribe((event) => {
 	if (event.entity.typeId === SCP001P_ENTITY_TYPE) {
 		event.entity.setDynamicProperty("ticksUntilSingularity", 20);
 	} else if (event.entity.typeId === SCP001P_SINGULARITY_ENTITY_TYPE) {
-		event.entity.dimension.spawnParticle(
-			"lc:scpdy_singularity_energy_emitter",
-			event.entity.location,
-		);
+		event.entity.dimension.spawnParticle("lc:scpdy_singularity_energy_emitter", event.entity.location);
 	}
 });
 
@@ -241,7 +226,9 @@ mc.world.afterEvents.entityDie.subscribe((event) => {
 	const scp001Entity = event.damageSource.damagingEntity;
 
 	if (!scp001Entity) return;
+	if (!scp001Entity.isValid) return;
 	if (scp001Entity.typeId !== SCP001P_ENTITY_TYPE) return;
+	if (!event.deadEntity.isValid) return;
 
 	const deadEntityHealthComp = event.deadEntity.getComponent("health");
 
@@ -249,8 +236,7 @@ mc.world.afterEvents.entityDie.subscribe((event) => {
 
 	const scp001HealthComp = scp001Entity.getComponent("health")!;
 
-	const healAmount =
-		scp001HealthComp.currentValue + Math.min(2, Math.floor(deadEntityHealthComp.effectiveMax / 20));
+	const healAmount = scp001HealthComp.currentValue + Math.min(2, Math.floor(deadEntityHealthComp.effectiveMax / 20));
 
 	const newHealth = Math.min(scp001HealthComp.effectiveMax, healAmount);
 
@@ -260,9 +246,5 @@ mc.world.afterEvents.entityDie.subscribe((event) => {
 
 	molangVarMap.setFloat("particle_amount", Math.min(1, Math.max(5, Math.floor(healAmount * 0.5))));
 
-	scp001Entity.dimension.spawnParticle(
-		"lc:scpdy_heal_emitter",
-		scp001Entity.location,
-		molangVarMap,
-	);
+	scp001Entity.dimension.spawnParticle("lc:scpdy_heal_emitter", scp001Entity.location, molangVarMap);
 });

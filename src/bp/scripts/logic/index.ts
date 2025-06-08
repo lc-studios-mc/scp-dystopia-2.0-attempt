@@ -2,7 +2,6 @@ import { isPlayerModificationAvailable } from "@lib/utils/scpdyUtils";
 import { ItemStack, Player, system, world } from "@minecraft/server";
 import "./advancedItem";
 import "./ammo";
-import "./blastDoor";
 import "./blocks";
 import "./cctv";
 import "./components";

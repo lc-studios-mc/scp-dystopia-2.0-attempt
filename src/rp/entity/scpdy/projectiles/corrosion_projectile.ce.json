@@ -1,0 +1,27 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "lc:scpdy_corrosion_projectile",
+			"materials": {
+				"default": "entity"
+			},
+			"textures": {
+				"default": "textures/scpdy/projectiles/corrosion_projectile"
+			},
+			"geometry": {
+				"default": "geometry.scpdy_corrosion_projectile"
+			},
+			"animations": {
+				"anim.trail": "animation.scpdy_corrosion_projectile.trail"
+			},
+			"scripts": {
+				"animate": ["anim.trail"]
+			},
+			"particle_effects": {
+				"trail": "lc:scpdy_corrosion_projectile_trail_emitter"
+			},
+			"render_controllers": ["controller.render.scpdy.standard"]
+		}
+	}
+}

@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "lc:scpdy_recipe_hanging_lamp"
 		},
-		"tags": ["crafting_table", "dystopia_craftbench", "scpdy_workbench"],
+		"tags": ["crafting_table"],
 		"pattern": [" S ", " C ", "CLC"],
 		"key": {
 			"S": {
