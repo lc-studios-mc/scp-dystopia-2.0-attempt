@@ -34,6 +34,7 @@ _Most_ notable changes to this project will be documented in this file.
   - Water Dispenser
   - Wooden Crate
 - Command to control a Command Door (`/scpdy:cmddoor`)
+- Keypad
 - Foundation Researcher mob
 
 ### Changed
