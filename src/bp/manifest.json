@@ -5,7 +5,7 @@
 		"name": "SCP: Dystopia §cDEV§r",
 		"uuid": "5368765d-325d-42c7-92ac-195e5ea02966",
 		"version": [9999, 9999, 9999],
-		"min_engine_version": [1, 21, 70]
+		"min_engine_version": [1, 21, 80]
 	},
 	"modules": [
 		{
