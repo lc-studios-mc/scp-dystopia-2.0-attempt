@@ -13,6 +13,28 @@
 
 </div>
 
+## How to install the latest development build
+
+- Make sure you are on a Windows 11 computer.
+- Install Node.js.
+  - I recommend to do so using [fnm](https://github.com/Schniz/fnm).
+  - Fully read fnm's readme!
+- Install pnpm.
+  - Run `npm install -g pnpm`
+- Install [Git for Windows](https://git-scm.com/downloads/win).
+- Locate to the folder where you want your scp-dystopia clone to be.
+- Run `git clone https://github.com/lc-studios-mc/scp-dystopia.git`.
+- Open terminal in the cloned scp-dystopia folder.
+- Run `pnpm install`.
+- Run `pnpm run build`.
+  - This will compile both BP and RP, and put them into development packs folders in com.mojang.
+  - Be careful when using dev build in a serious project.
+- Run `git pull origin main` **periodically**.
+  - This will make your scp-dystopia clone up-to-date with the remote origin.
+  - I recommend to run it everytime before `pnpm run build`.
+
+## Other Information
+
 See credits [here](./docs/credits.md).
 
 See attributions [here](./docs/attributions.md).
