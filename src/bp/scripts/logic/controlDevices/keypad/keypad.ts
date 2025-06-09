@@ -177,8 +177,6 @@ mc.world.afterEvents.entityHitEntity.subscribe(
 			return;
 
 		keypad.dimension.playSound("scpdy.misc.computer.hit", keypad.location);
-
-		removeKeypad(keypad);
 	},
 	{ entityTypes: ["minecraft:player"] },
 );

@@ -2,6 +2,12 @@
 
 _Most_ notable changes to this project will be documented in this file.
 
+## [2.0.0 Alpha 4.1] - 2025-06-09
+
+### Changed
+
+- Keypad cannot be killed now unless you use the Killer Sword.
+
 ## [2.0.0 Alpha 4] - 2025-06-09
 
 ### Added
