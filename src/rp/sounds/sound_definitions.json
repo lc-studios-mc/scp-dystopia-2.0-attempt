@@ -1136,11 +1136,11 @@
 			"min_distance": 5.0,
 			"sounds": ["sounds/scpdy/misc/boom_1"]
 		},
-		"scpdy.misc.helicopter_propeller_loop": {
+		"scpdy.misc.heli_propeller_loop": {
 			"category": "hostile",
 			"max_distance": 70.0,
 			"min_distance": 8.0,
-			"sounds": ["sounds/scpdy/misc/helicopter_propeller_loop"]
+			"sounds": ["sounds/scpdy/misc/heli_propeller_loop"]
 		},
 		"scpdy.misc.faucet_water": {
 			"category": "neutral",
