@@ -70,7 +70,7 @@
 						{"origin": [0, 6, 80], "size": [1, 6, 2], "uv": [17, 13]}
 					],
 					"locators": {
-						"explosion_locator": [0, 26, -22],
+						"explosion_locator": [0, 26, 6],
 						"smoke_locator_1": [4, 49, 3],
 						"smoke_locator_2": [-3, 32, 119],
 						"flame_locator": [16, 34, 21]

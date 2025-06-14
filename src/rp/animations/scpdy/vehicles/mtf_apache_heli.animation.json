@@ -47,6 +47,67 @@
 					"rotation": ["math.clamp(q.target_x_rotation, -10, 60)", 0, 0]
 				}
 			}
+		},
+		"animation.scpdy_mtf_apache_heli.fall": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 2.5417,
+			"bones": {
+				"root": {
+					"scale": {
+						"2.4167": [1, 1, 1],
+						"2.5": [1.1, 1.1, 1.1],
+						"2.5417": {"pre": [1.1, 1.1, 1.1], "post": [0, 0, 0]}
+					}
+				},
+				"body": {
+					"rotation": {
+						"0.0": [10, 0, 0],
+						"2.5": [30, 200, 0]
+					},
+					"position": {
+						"0.0": ["math.sin(query.life_time * 150) * 5", 2, 0],
+						"2.5": [0, 0, 0]
+					}
+				},
+				"propellerRotationBase": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"2.5": [0, 1200, 0]
+					}
+				},
+				"backPropellerRotationBase": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"2.5": [-1200, 0, 0]
+					}
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "huge_explosion_level",
+					"locator": "explosion_locator"
+				},
+				"0.5": {
+					"effect": "huge_explosion_level",
+					"locator": "explosion_locator"
+				},
+				"1.0": {
+					"effect": "huge_explosion_level",
+					"locator": "explosion_locator"
+				},
+				"1.5": {
+					"effect": "huge_explosion_level",
+					"locator": "explosion_locator"
+				},
+				"2.0": {
+					"effect": "huge_explosion_level",
+					"locator": "explosion_locator"
+				},
+				"2.5": {
+					"effect": "huge_explosion_level",
+					"locator": "explosion_locator"
+				}
+			}
 		}
 	}
 }

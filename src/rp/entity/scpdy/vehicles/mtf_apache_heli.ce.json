@@ -23,12 +23,11 @@
 				"anim.propeller_rotation": "animation.scpdy_mtf_apache_heli.propeller_rotation"
 			},
 			"scripts": {
-				// prettier-ignore
 				"animate": [
 					"ctrl.main",
-					"ctrl.particle_smoke_1",
-					"ctrl.particle_smoke_2",
-					"ctrl.particle_flame"
+					{ "ctrl.particle_smoke_1": "q.health < (q.max_health / 1.4)" },
+					{ "ctrl.particle_smoke_2": "q.health < (q.max_health / 2.4)" },
+					{ "ctrl.particle_flame": "q.health < (q.max_health / 4.4)" }
 				],
 				// prettier-ignore
 				"initialize": [

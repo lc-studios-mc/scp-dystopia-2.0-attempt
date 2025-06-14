@@ -13,9 +13,6 @@
 			"initial_state": "default",
 			"states": {
 				"default": {
-					"transitions": [{ "emit_particle": "q.health < (q.max_health / 1.4)" }]
-				},
-				"emit_particle": {
 					"particle_effects": [
 						{
 							"effect": "smoke",
@@ -29,9 +26,6 @@
 			"initial_state": "default",
 			"states": {
 				"default": {
-					"transitions": [{ "emit_particle": "q.health < (q.max_health / 2.5)" }]
-				},
-				"emit_particle": {
 					"particle_effects": [
 						{
 							"effect": "smoke",
@@ -45,9 +39,6 @@
 			"initial_state": "default",
 			"states": {
 				"default": {
-					"transitions": [{ "emit_particle": "q.health < (q.max_health / 4)" }]
-				},
-				"emit_particle": {
 					"particle_effects": [
 						{
 							"effect": "flame",
