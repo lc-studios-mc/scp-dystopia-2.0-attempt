@@ -1,0 +1,12 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.scpdy.bp.mtf_apache_heli.propeller_sound_loop": {
+			"animation_length": 1.45,
+			"loop": true,
+			"timeline": {
+				"0.1": ["/playsound scpdy.misc.helicopter_propeller_loop @a[r=64] ~~~ 25"]
+			}
+		}
+	}
+}
