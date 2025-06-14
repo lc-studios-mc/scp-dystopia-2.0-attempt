@@ -33,7 +33,7 @@
 					"v.body_rot_y = math.lerprotate(v.body_rot_y, q.target_y_rotation, q.delta_time * (q.has_target ? 6 : 0.6));"
 				]
 			},
-			"render_controllers": ["controller.render.scpdy.standard"],
+			"render_controllers": ["controller.render.scpdy.mtf_apache_heli"],
 			"spawn_egg": {
 				"base_color": "#423f3d",
 				"overlay_color": "#363331"
