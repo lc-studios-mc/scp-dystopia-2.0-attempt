@@ -26,8 +26,8 @@
 				"family": ["mob", "mtf_apache_heli", "scp_foundation", "helicopter", "scpf_combatant", "mtf"]
 			},
 			"minecraft:health": {
-				"value": 110,
-				"max": 110
+				"value": 130,
+				"max": 130
 			},
 			"minecraft:breathable": {
 				"breathes_water": true,

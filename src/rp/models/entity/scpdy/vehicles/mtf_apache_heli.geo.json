@@ -71,8 +71,9 @@
 					],
 					"locators": {
 						"explosion_locator": [0, 26, -22],
-						"smoke_locator_1": [0, 38, 1],
-						"smoke_locator_2": [0, 24, 111]
+						"smoke_locator_1": [4, 49, 3],
+						"smoke_locator_2": [-3, 32, 119],
+						"flame_locator": [16, 34, 21]
 					}
 				},
 				{

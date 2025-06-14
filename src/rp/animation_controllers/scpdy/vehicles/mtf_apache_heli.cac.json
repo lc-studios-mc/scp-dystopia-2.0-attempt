@@ -8,6 +8,54 @@
 					"animations": ["anim.flying", "anim.propeller_rotation", "anim.chaingun_facing"]
 				}
 			}
+		},
+		"controller.animation.scpdy_mtf_apache_heli.particle_smoke_1": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [{ "emit_particle": "q.health < (q.max_health / 1.4)" }]
+				},
+				"emit_particle": {
+					"particle_effects": [
+						{
+							"effect": "smoke",
+							"locator": "smoke_locator_1"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.scpdy_mtf_apache_heli.particle_smoke_2": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [{ "emit_particle": "q.health < (q.max_health / 2.5)" }]
+				},
+				"emit_particle": {
+					"particle_effects": [
+						{
+							"effect": "smoke",
+							"locator": "smoke_locator_2"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.scpdy_mtf_apache_heli.particle_flame": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [{ "emit_particle": "q.health < (q.max_health / 4)" }]
+				},
+				"emit_particle": {
+					"particle_effects": [
+						{
+							"effect": "flame",
+							"locator": "flame_locator"
+						}
+					]
+				}
+			}
 		}
 	}
 }
