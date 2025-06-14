@@ -20,7 +20,7 @@
 		"components": {
 			"minecraft:is_hidden_when_invisible": {},
 			"minecraft:knockback_resistance": {
-				"value": 1
+				"value": 0.4
 			},
 			"minecraft:type_family": {
 				"family": ["mob", "mtf_apache_heli", "scp_foundation", "helicopter", "scpf_combatant", "mtf"]

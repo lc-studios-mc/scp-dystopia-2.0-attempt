@@ -34,9 +34,9 @@
 					},
 					"remove_on_hit": {}
 				},
-				"power": 4.3,
+				"power": 4.5,
 				"gravity": 0.0,
-				"inertia": 1.0,
+				"inertia": 1.01,
 				"liquid_inertia": 0.9,
 				"uncertainty_base": 2.8,
 				"uncertainty_multiplier": 1.6,
