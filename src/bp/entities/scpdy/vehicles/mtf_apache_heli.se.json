@@ -43,7 +43,7 @@
 								"test": "has_damage",
 								"value": "fatal"
 							},
-							"event": "lc:heli_start_falling"
+							"event": "lc:die"
 						},
 						"deals_damage": "no_but_side_effects_apply"
 					},
@@ -213,7 +213,7 @@
 			}
 		},
 		"component_groups": {
-			"start_falling": {
+			"death": {
 				"minecraft:transformation": {
 					"drop_equipment": true,
 					"drop_inventory": true,
@@ -227,9 +227,9 @@
 					"command": ["tp @s ~~~ 0 0 false"]
 				}
 			},
-			"lc:heli_start_falling": {
+			"lc:die": {
 				"add": {
-					"component_groups": ["start_falling"]
+					"component_groups": ["death"]
 				}
 			}
 		}
