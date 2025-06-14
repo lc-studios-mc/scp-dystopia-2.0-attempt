@@ -22,17 +22,6 @@
 				}
 			}
 		},
-		"animation.scpdy_mtf_apache_heli.body_facing": {
-			"loop": true,
-			"bones": {
-				"root": {
-					"rotation": [0, "-v.initial_yaw", 0]
-				},
-				"body": {
-					"rotation": ["v.body_rot_x", "v.body_rot_y", 0]
-				}
-			}
-		},
 		"animation.scpdy_mtf_apache_heli.propeller_rotation": {
 			"loop": true,
 			"animation_length": 0.3333,

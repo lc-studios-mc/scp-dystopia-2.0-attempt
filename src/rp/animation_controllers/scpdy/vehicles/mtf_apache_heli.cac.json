@@ -5,7 +5,7 @@
 			"initial_state": "default",
 			"states": {
 				"default": {
-					"animations": ["anim.flying", "anim.propeller_rotation", "anim.chaingun_facing", "anim.body_facing"]
+					"animations": ["anim.flying", "anim.propeller_rotation", "anim.chaingun_facing"]
 				}
 			}
 		}

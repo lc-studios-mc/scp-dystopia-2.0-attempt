@@ -82,8 +82,7 @@
 						"pivot": [0, 1.5, 2.5]
 					}
 				]
-			},
-			"minecraft:body_rotation_blocked": {}
+			}
 		},
 		"component_groups": {},
 		"events": {
