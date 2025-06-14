@@ -55,7 +55,7 @@
 				"generates_bubbles": false
 			},
 			"minecraft:shooter": {
-				"def": "lc:scpdy_bullet_m4a1"
+				"def": "lc:scpdy_bullet_apache_heli"
 			},
 			"minecraft:behavior.ranged_attack": {
 				"priority": 1,

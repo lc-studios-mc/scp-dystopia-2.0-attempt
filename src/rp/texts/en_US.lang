@@ -762,6 +762,7 @@ entity.lc:scpdy_sittable_anchor.name=Sittable
 entity.lc:scpdy_toilet_rideable.name=Sittable
 
 ## entities -> projectiles -> ...
+entity.lc:scpdy_bullet_apache_heli.name=Bullet
 entity.lc:scpdy_bullet_m4a1.name=Bullet
 entity.lc:scpdy_bullet_mp5.name=Bullet
 entity.lc:scpdy_corrosion_projectile.name=Corrosion
