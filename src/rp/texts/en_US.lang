@@ -318,7 +318,7 @@ scpdy.wrench.itemName=Wrench\n§eCan change the variants of certain blocks
 
 ## --- vehicles ---
 
-item.spawn_egg.entity.lc:scpdy_mtf_apache_heli.name=MTF Apache Helicopter Spawn Egg
+item.spawn_egg.entity.lc:scpdy_mtf_apache_heli.name=§7SCP:DY §8| §fMTF Apache Helicopter
 entity.lc:scpdy_mtf_apache_heli.name=MTF Apache Helicopter
 
 
