@@ -16,11 +16,17 @@
 				"ctrl.main": "controller.animation.scpdy_mtf_apache_heli.main",
 				"anim.land_idle": "animation.scpdy_mtf_apache_heli.land_idle",
 				"anim.flying": "animation.scpdy_mtf_apache_heli.flying",
-				"anim.propeller_rotation": "animation.scpdy_mtf_apache_heli.propeller_rotation",
-				"anim.chaingun_facing": "animation.scpdy_mtf_apache_heli.chaingun_facing"
+				"anim.body_facing": "animation.scpdy_mtf_apache_heli.body_facing",
+				"anim.chaingun_facing": "animation.scpdy_mtf_apache_heli.chaingun_facing",
+				"anim.propeller_rotation": "animation.scpdy_mtf_apache_heli.propeller_rotation"
 			},
 			"scripts": {
-				"animate": ["ctrl.main"]
+				"animate": ["ctrl.main"],
+				"initialize": ["v.body_rot_x = 0;", "v.body_rot_y = 0;"],
+				// prettier-ignore
+				"pre_animation": [
+					"v.body_rot_y = q.target_y_rotation;"
+				]
 			},
 			"render_controllers": ["controller.render.scpdy.standard"],
 			"spawn_egg": {

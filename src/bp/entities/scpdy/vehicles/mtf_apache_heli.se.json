@@ -8,10 +8,49 @@
 			"is_experimental": false
 		},
 		"components": {
+			"minecraft:is_hidden_when_invisible": {},
+			"minecraft:type_family": {
+				"family": ["mob", "mtf_apache_heli", "scp_foundation", "helicopter", "scpf_combatant", "mtf"]
+			},
+			"minecraft:breathable": {
+				"breathes_water": true,
+				"generates_bubbles": false
+			},
+			"minecraft:behavior.float": {
+				"priority": 19
+			},
+			"minecraft:behavior.float_wander": {
+				"priority": 5,
+				"additional_collision_buffer": true,
+				"navigate_around_surface": true,
+				"surface_xz_dist": 20,
+				"surface_y_dist": 100,
+				"xz_dist": 20,
+				"y_dist": 20,
+				"must_reach": true
+			},
+			"minecraft:movement": {
+				"value": 0.02
+			},
+			"minecraft:flying_speed": {
+				"value": 0.02
+			},
+			"minecraft:navigation.float": {
+				"can_path_over_water": true
+			},
+			"minecraft:jump.static": {},
+			"minecraft:can_fly": {},
+			"minecraft:game_event_movement_tracking": {
+				"emit_flap": true
+			},
 			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": true
+			},
 			"minecraft:collision_box": {
 				"height": 3,
-				"width": 2.7
+				"width": 4
 			},
 			"minecraft:custom_hit_test": {
 				"hitboxes": [
@@ -26,7 +65,8 @@
 						"pivot": [0, 1.5, 2.5]
 					}
 				]
-			}
+			},
+			"minecraft:body_rotation_blocked": {}
 		},
 		"component_groups": {},
 		"events": {}

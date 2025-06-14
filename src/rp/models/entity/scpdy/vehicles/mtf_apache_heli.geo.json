@@ -6,9 +6,9 @@
 				"identifier": "geometry.scpdy_mtf_apache_heli",
 				"texture_width": 512,
 				"texture_height": 512,
-				"visible_bounds_width": 15,
-				"visible_bounds_height": 6,
-				"visible_bounds_offset": [0, 3.5, 0]
+				"visible_bounds_width": 18,
+				"visible_bounds_height": 6.5,
+				"visible_bounds_offset": [0, 3.25, 0]
 			},
 			"bones": [
 				{
