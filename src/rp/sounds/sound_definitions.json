@@ -1136,6 +1136,18 @@
 			"min_distance": 5.0,
 			"sounds": ["sounds/scpdy/misc/boom_1"]
 		},
+		"scpdy.misc.heli_explosion_1": {
+			"category": "hostile",
+			"max_distance": 80.0,
+			"min_distance": 8.0,
+			"sounds": ["sounds/scpdy/misc/heli_explosion_1"]
+		},
+		"scpdy.misc.heli_explosion_2": {
+			"category": "hostile",
+			"max_distance": 100.0,
+			"min_distance": 8.0,
+			"sounds": [{ "name": "sounds/scpdy/misc/heli_explosion_2", "volume": 1.3 }]
+		},
 		"scpdy.misc.heli_propeller_loop": {
 			"category": "hostile",
 			"max_distance": 70.0,

@@ -320,6 +320,7 @@ scpdy.wrench.itemName=Wrench\n§eCan change the variants of certain blocks
 
 item.spawn_egg.entity.lc:scpdy_mtf_apache_heli.name=§7SCP:DY §8| §fMTF Apache Helicopter
 entity.lc:scpdy_mtf_apache_heli.name=MTF Apache Helicopter
+entity.lc:scpdy_mtf_apache_heli_falling.name=WE'RE GOING DOWN!!!
 
 
 ## * <-------------------------> *

@@ -55,8 +55,7 @@
 				"root": {
 					"scale": {
 						"2.4167": [1, 1, 1],
-						"2.5": [1.1, 1.1, 1.1],
-						"2.5417": {"pre": [1.1, 1.1, 1.1], "post": [0, 0, 0]}
+						"2.5": {"pre": [1, 1, 1], "post": [0, 0, 0]}
 					}
 				},
 				"body": {
@@ -84,27 +83,23 @@
 			},
 			"particle_effects": {
 				"0.0": {
-					"effect": "huge_explosion_level",
+					"effect": "explosion_small",
 					"locator": "explosion_locator"
 				},
 				"0.5": {
-					"effect": "huge_explosion_level",
+					"effect": "explosion_small",
 					"locator": "explosion_locator"
 				},
 				"1.0": {
-					"effect": "huge_explosion_level",
+					"effect": "explosion_small",
 					"locator": "explosion_locator"
 				},
 				"1.5": {
-					"effect": "huge_explosion_level",
+					"effect": "explosion_small",
 					"locator": "explosion_locator"
 				},
 				"2.0": {
-					"effect": "huge_explosion_level",
-					"locator": "explosion_locator"
-				},
-				"2.5": {
-					"effect": "huge_explosion_level",
+					"effect": "explosion_small",
 					"locator": "explosion_locator"
 				}
 			}

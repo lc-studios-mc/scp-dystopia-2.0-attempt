@@ -1,0 +1,38 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "lc:scpdy_mtf_apache_heli_falling",
+			"materials": {
+				"default": "entity"
+			},
+			"textures": {
+				"default": "textures/scpdy/vehicles/mtf_apache_heli"
+			},
+			"geometry": {
+				"default": "geometry.scpdy_mtf_apache_heli"
+			},
+			"animations": {
+				"ctrl.particle_smoke_1": "controller.animation.scpdy_mtf_apache_heli.particle_smoke_1",
+				"ctrl.particle_smoke_2": "controller.animation.scpdy_mtf_apache_heli.particle_smoke_2",
+				"ctrl.particle_flame": "controller.animation.scpdy_mtf_apache_heli.particle_flame",
+				"anim.fall": "animation.scpdy_mtf_apache_heli.fall"
+			},
+			"scripts": {
+				// prettier-ignore
+				"animate": [
+					"ctrl.particle_smoke_1",
+					"ctrl.particle_smoke_2",
+					"ctrl.particle_flame",
+					"anim.fall"
+				]
+			},
+			"particle_effects": {
+				"smoke": "lc:scpdy_large_smoke",
+				"flame": "lc:scpdy_large_flame",
+				"explosion_small": "lc:scpdy_heli_explosion_small"
+			},
+			"render_controllers": ["controller.render.scpdy.mtf_apache_heli"]
+		}
+	}
+}

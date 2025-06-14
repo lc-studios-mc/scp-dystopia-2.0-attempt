@@ -1,0 +1,83 @@
+{
+	"format_version": "1.21.80",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "lc:scpdy_mtf_apache_heli_falling",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false,
+			"scripts": {
+				"animate": ["ctrl.fall"]
+			},
+			"animations": {
+				"ctrl.fall": "controller.animation.scpdy.bp.mtf_apache_heli_falling.main",
+				"anim.fall": "animation.scpdy.bp.mtf_apache_heli_falling.fall"
+			}
+		},
+		"components": {
+			"minecraft:is_hidden_when_invisible": {},
+			"minecraft:knockback_resistance": {
+				"value": 1
+			},
+			"minecraft:type_family": {
+				"family": ["inanimate"]
+			},
+			"minecraft:health": {
+				"value": 6,
+				"max": 6
+			},
+			"minecraft:breathable": {
+				"breathes_water": true,
+				"generates_bubbles": false
+			},
+			"minecraft:game_event_movement_tracking": {
+				"emit_flap": false,
+				"emit_move": false,
+				"emit_swim": false
+			},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:collision_box": {
+				"height": 3.2,
+				"width": 4.2
+			},
+			"minecraft:custom_hit_test": {
+				"hitboxes": [
+					{
+						"width": 3.0,
+						"height": 3.0,
+						"pivot": [0, 1.5, 0]
+					},
+					{
+						"width": 2.5,
+						"height": 2.5,
+						"pivot": [0, 1.5, 2.5]
+					}
+				]
+			}
+		},
+		"component_groups": {
+			"explosion": {
+				"minecraft:explode": {
+					"causes_fire": true,
+					"damage_scaling": 3.0,
+					"destroy_affected_by_griefing": true,
+					"fire_affected_by_griefing": true,
+					"fuse_lit": true,
+					"knockback_scaling": 2.0,
+					"power": 9
+				}
+			}
+		},
+		"events": {
+			"explode": {
+				"add": {
+					"component_groups": ["explosion"]
+				}
+			}
+		}
+	}
+}

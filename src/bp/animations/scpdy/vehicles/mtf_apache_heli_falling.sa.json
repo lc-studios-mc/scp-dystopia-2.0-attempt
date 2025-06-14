@@ -1,0 +1,18 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.scpdy.bp.mtf_apache_heli_falling.fall": {
+			"animation_length": 3.0,
+			"timeline": {
+				"0.0": ["/effect @s slow_falling infinite 3 true"],
+				"0.01": ["/playsound scpdy.misc.heli_explosion_1 @a[r=64] ~~~ 28 1.0"],
+				"0.5": ["/playsound scpdy.misc.heli_explosion_1 @a[r=64] ~~~ 28 1.08"],
+				"1.0": ["/playsound scpdy.misc.heli_explosion_1 @a[r=64] ~~~ 28 1.0"],
+				"1.5": ["/playsound scpdy.misc.heli_explosion_1 @a[r=64] ~~~ 28 0.94"],
+				"2.0": ["/playsound scpdy.misc.heli_explosion_1 @a[r=64] ~~~ 28 1.05"],
+				"2.5": ["/playsound scpdy.misc.heli_explosion_2 @a[r=64] ~~~ 40 1.0"],
+				"2.53": ["@s explode"]
+			}
+		}
+	}
+}
