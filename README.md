@@ -4,16 +4,17 @@
 
 <hr/>
 
-[![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/lc-studios-mc/scp-dystopia/total?style=for-the-badge)](https://github.com/lc-studios-mc/scp-dystopia/releases)
-[![Static Badge](https://img.shields.io/badge/MCPEDL-%2300a52e?style=for-the-badge)](https://mcpedl.com/scp-dystopia-addon/)
-
 **SCP: Dystopia** is an add-on for Minecraft Bedrock, based on the works of the [SCP Foundation](https://scp-wiki.wikidot.com/) community.
+
+[![Static Badge](https://img.shields.io/badge/Discord-%235865F2?style=for-the-badge&logo=discord&logoColor=%23ffffff)](https://discord.gg/K2mxsJ2trE)
+[![Static Badge](https://img.shields.io/badge/CurseForge-%23f16436?style=for-the-badge&logo=curseforge&logoColor=%23ffffff)](https://www.curseforge.com/minecraft-bedrock/addons/scp-dystopia-addon)
+[![Static Badge](https://img.shields.io/badge/MCPEDL-%2300a52e?style=for-the-badge)](https://mcpedl.com/scp-dystopia-addon/)
 
 <img src="./media/banner.webp" alt="Logo" title="SCP: Dystopia" />
 
 </div>
 
-## How to install the latest development build
+## How to get the latest development build
 
 - Make sure you are on a Windows 11 computer.
 - Install Node.js.
@@ -26,8 +27,9 @@
 - Run `git clone https://github.com/lc-studios-mc/scp-dystopia.git`.
 - Open terminal in the cloned scp-dystopia folder.
 - Run `pnpm install`.
-- Run `pnpm run build`.
+- Run `pnpm run dev`.
   - This will compile both BP and RP, and put them into development packs folders in com.mojang.
+  - Press CTRL+c to stop it.
   - Be careful when using dev build in a serious project.
 - Run `git pull origin main` **periodically**.
   - This will make your scp-dystopia clone up-to-date with the remote origin.
