@@ -5,7 +5,13 @@
 			"identifier": "lc:scpdy_mtf_apache_heli",
 			"is_spawnable": true,
 			"is_summonable": true,
-			"is_experimental": false
+			"is_experimental": false,
+			"scripts": {
+				"animate": ["ctrl.main"]
+			},
+			"animations": {
+				"ctrl.main": "controller.animation.scpdy.bp.mtf_apache_heli.main"
+			}
 		},
 		"components": {
 			"minecraft:is_hidden_when_invisible": {},
@@ -24,9 +30,9 @@
 				"additional_collision_buffer": true,
 				"navigate_around_surface": true,
 				"surface_xz_dist": 20,
-				"surface_y_dist": 100,
+				"surface_y_dist": 60,
 				"xz_dist": 20,
-				"y_dist": 20,
+				"y_dist": 16,
 				"must_reach": true
 			},
 			"minecraft:movement": {
@@ -69,6 +75,12 @@
 			"minecraft:body_rotation_blocked": {}
 		},
 		"component_groups": {},
-		"events": {}
+		"events": {
+			"minecraft:entity_spawned": {
+				"queue_command": {
+					"command": ["tp @s ~~~ 0 0 false"]
+				}
+			}
+		}
 	}
 }

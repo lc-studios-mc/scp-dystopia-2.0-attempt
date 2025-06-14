@@ -22,6 +22,9 @@
 		"animation.scpdy_mtf_apache_heli.body_facing": {
 			"loop": true,
 			"bones": {
+				"root": {
+					"rotation": [0, "-v.initial_yaw", 0]
+				},
 				"body": {
 					"rotation": ["v.body_rot_x", "v.body_rot_y", 0]
 				}
@@ -48,9 +51,6 @@
 		"animation.scpdy_mtf_apache_heli.chaingun_facing": {
 			"loop": true,
 			"bones": {
-				"chaingunYaw": {
-					"rotation": [0, "math.clamp(q.target_y_rotation, -75, 75)", 0]
-				},
 				"chaingunPitch": {
 					"rotation": ["math.clamp(q.target_x_rotation, -10, 60)", 0, 0]
 				}

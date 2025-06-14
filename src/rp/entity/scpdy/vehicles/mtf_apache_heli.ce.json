@@ -22,10 +22,15 @@
 			},
 			"scripts": {
 				"animate": ["ctrl.main"],
-				"initialize": ["v.body_rot_x = 0;", "v.body_rot_y = 0;"],
 				// prettier-ignore
+				"initialize": [
+					"v.initial_yaw = q.body_y_rotation;",
+					"v.body_rot_x = 0;",
+					"v.body_rot_y = 0;"
+				],
 				"pre_animation": [
-					"v.body_rot_y = q.target_y_rotation;"
+					"v.body_rot_x = math.lerprotate(v.body_rot_x, q.target_x_rotation / 2, q.delta_time);",
+					"v.body_rot_y = math.lerprotate(v.body_rot_y, q.target_y_rotation, q.delta_time * (q.has_target ? 6 : 0.6));"
 				]
 			},
 			"render_controllers": ["controller.render.scpdy.standard"],
