@@ -3,7 +3,7 @@
 	"minecraft:entity": {
 		"description": {
 			"identifier": "lc:scpdy_mtf_apache_heli_falling",
-			"is_spawnable": true,
+			"is_spawnable": false,
 			"is_summonable": true,
 			"is_experimental": false,
 			"scripts": {
