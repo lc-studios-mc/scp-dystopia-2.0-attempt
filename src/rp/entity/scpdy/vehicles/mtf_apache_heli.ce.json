@@ -31,7 +31,6 @@
 				],
 				// prettier-ignore
 				"initialize": [
-					"v.initial_yaw = q.body_y_rotation;",
 					"v.body_rot_x = 0;",
 					"v.body_rot_y = 0;"
 				],
