@@ -2,10 +2,7 @@
 	"name": "scp-dystopia",
 	"private": true,
 	"scripts": {
-		"build": "tsx ./tasks/build.ts",
-		"build:watch": "tsx watch ./tasks/build.ts --watch",
-		"clean": "tsx ./tasks/clean.ts --inside-com-mojang",
-		"clean:dist": "tsx ./tasks/clean.ts dist",
+		"dev": "mcr build -c mcr-configs/dev/config.js",
 		"types": "tsc --noEmit",
 		"format": "prettier --write ."
 	},
@@ -16,14 +13,8 @@
 		"neverthrow": "^8.2.0"
 	},
 	"devDependencies": {
-		"@types/fs-extra": "^11.0.4",
-		"@types/node": "^22.15.3",
-		"chalk": "^5.4.1",
-		"esbuild": "^0.25.3",
-		"fs-extra": "^11.3.0",
+		"@lc-studios-mc/mcr": "github:lc-studios-mc/mcr#v0.0.2",
 		"prettier": "^3.5.3",
-		"sync-directory": "^6.0.5",
-		"tsx": "^4.19.4",
 		"typescript": "^5.7.2"
 	}
 }

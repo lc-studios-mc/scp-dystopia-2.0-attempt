@@ -9,11 +9,9 @@
 	"files.eol": "\n",
 	"files.associations": {
 		"*.json": "jsonc",
-		"package.json": "json",
-		"package-lock.json": "json"
+		"package.json": "json"
 	},
 	"search.exclude": {
-		"**/dist/**": true,
-		"**/wt/**": true
+		"dist/**": true
 	}
 }

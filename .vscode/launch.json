@@ -9,27 +9,25 @@
 		*/
 		{
 			"type": "minecraft-js",
-			"request": "attach",
 			"name": "Debug with Minecraft",
+			"request": "attach",
 			"mode": "listen",
-
-			"sourceMapRoot": "${userHome}/AppData/Local/Packages/Microsoft.MinecraftUWP_8wekyb3d8bbwe/LocalState/games/com.mojang/development_behavior_packs/SCPDY_BP/scripts/",
-			"generatedSourceRoot": "${userHome}/AppData/Local/Packages/Microsoft.MinecraftUWP_8wekyb3d8bbwe/LocalState/games/com.mojang/development_behavior_packs/SCPDY_BP/scripts/",
 			"port": 19144,
+			"targetModuleUuid": "5fa83869-172d-41dc-8fb0-bd98da2e9da6",
 
-			"targetModuleUuid": "5fa83869-172d-41dc-8fb0-bd98da2e9da6"
+			"localRoot": "${workspaceFolder}/src/bp/scripts/",
+			"sourceMapRoot": "${userHome}/AppData/Local/Packages/Microsoft.MinecraftUWP_8wekyb3d8bbwe/LocalState/games/com.mojang/development_behavior_packs/SCPDY_BP/scripts/"
 		},
 		{
 			"type": "minecraft-js",
-			"request": "attach",
 			"name": "Debug with Minecraft Preview",
+			"request": "attach",
 			"mode": "listen",
-
-			"sourceMapRoot": "${userHome}/AppData/Local/Packages/Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe/LocalState/games/com.mojang/development_behavior_packs/SCPDY_BP/scripts/",
-			"generatedSourceRoot": "${userHome}/AppData/Local/Packages/Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe/LocalState/games/com.mojang/development_behavior_packs/SCPDY_BP/scripts/",
 			"port": 19144,
+			"targetModuleUuid": "5fa83869-172d-41dc-8fb0-bd98da2e9da6",
 
-			"targetModuleUuid": "5fa83869-172d-41dc-8fb0-bd98da2e9da6"
+			"localRoot": "${workspaceFolder}/src/bp/scripts/",
+			"sourceMapRoot": "${userHome}/AppData/Local/Packages/Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe/LocalState/games/com.mojang/development_behavior_packs/SCPDY_BP/scripts/"
 		}
 	]
 }
