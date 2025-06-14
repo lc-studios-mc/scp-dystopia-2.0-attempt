@@ -18,13 +18,13 @@
 				"family": ["projectile", "bullet"]
 			},
 			"minecraft:collision_box": {
-				"width": 0.1,
-				"height": 0.1
+				"width": 0.2,
+				"height": 0.2
 			},
 			"minecraft:projectile": {
 				"on_hit": {
 					"impact_damage": {
-						"damage": 6,
+						"damage": 7,
 						"knockback": false,
 						"semi_random_diff_damage": false,
 						"destroy_on_hit": true
@@ -34,14 +34,14 @@
 					},
 					"remove_on_hit": {}
 				},
-				"power": 4.0,
+				"power": 4.3,
 				"gravity": 0.0,
 				"inertia": 1.0,
 				"liquid_inertia": 0.9,
-				"uncertainty_base": 2.5,
-				"uncertainty_multiplier": 1.5,
+				"uncertainty_base": 2.8,
+				"uncertainty_multiplier": 1.6,
 				"anchor": 2,
-				"offset": [0, -1.7, 1],
+				"offset": [0, -2.2, 1.6],
 				"reflect_on_hurt": true,
 				"catch_fire": false
 			},
