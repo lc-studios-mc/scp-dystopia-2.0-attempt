@@ -70,7 +70,7 @@
 			"explosion": {
 				"minecraft:explode": {
 					"causes_fire": true,
-					"damage_scaling": 3.0,
+					"damage_scaling": 1.5,
 					"destroy_affected_by_griefing": true,
 					"fire_affected_by_griefing": true,
 					"fuse_lit": true,
