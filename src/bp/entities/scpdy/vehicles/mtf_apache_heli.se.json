@@ -54,6 +54,94 @@
 				"breathes_water": true,
 				"generates_bubbles": false
 			},
+			"minecraft:shooter": {
+				"def": "lc:scpdy_bullet_m4a1"
+			},
+			"minecraft:behavior.ranged_attack": {
+				"priority": 1,
+				"attack_radius": 60,
+				"attack_radius_min": 0,
+				"burst_interval": 0.11,
+				"burst_shots": 40,
+				"charge_charged_trigger": 0.0,
+				"charge_shoot_trigger": 0.7,
+				"target_in_sight_time": 0.2,
+				"speed_multiplier": 1.0
+			},
+			"minecraft:behavior.hurt_by_target": {
+				"priority": 2,
+				"entity_types": [
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "has_tag",
+									"subject": "other",
+									"operator": "!=",
+									"value": "scpdy_faction_foundation"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"operator": "!=",
+									"value": "scp_foundation"
+								}
+							]
+						},
+						"max_dist": 64
+					}
+				]
+			},
+			"minecraft:behavior.nearest_attackable_target": {
+				"priority": 3,
+				"scan_interval": 11,
+				"must_see": true,
+				"must_see_forget_duration": 15.0,
+				"reselect_targets": true,
+				"entity_types": [
+					{
+						"filters": {
+							"all_of": [
+								{ "test": "is_family", "subject": "other", "value": "player" },
+								{ "test": "has_tag", "subject": "other", "value": "scpdy_faction_ci" }
+							]
+						},
+						"max_dist": 60
+					},
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"operator": "!=",
+									"value": "neutral_scp"
+								},
+								{
+									"any_of": [
+										{ "test": "was_last_hurt_by", "subject": "other" },
+										{ "test": "is_family", "subject": "other", "value": "monster" },
+										{ "test": "is_family", "subject": "other", "value": "illager" },
+										{ "test": "is_family", "subject": "other", "value": "piglin" },
+										{ "test": "is_family", "subject": "other", "value": "hostile_scp" },
+										{ "test": "is_family", "subject": "other", "value": "chaos_insurgency" }
+									]
+								}
+							]
+						},
+						"max_dist": 60
+					},
+					{
+						"filters": {
+							"all_of": [
+								{ "test": "has_tag", "subject": "self", "value": "scp096_1" },
+								{ "test": "is_family", "subject": "other", "value": "scpdy_scp096" }
+							]
+						},
+						"max_dist": 60
+					}
+				]
+			},
 			"minecraft:behavior.float": {
 				"priority": 0
 			},

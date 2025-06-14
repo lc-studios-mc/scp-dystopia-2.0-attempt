@@ -296,6 +296,16 @@
 				},
 				"pitch": [0.8, 1.2],
 				"volume": 1.0
+			},
+			"lc:scpdy_mtf_apache_heli": {
+				"events": {
+					"shoot": {
+						"sound": "scpdy.mtf_apache_heli.chaingun",
+						"volume": 20.0
+					}
+				},
+				"pitch": [0.96, 1.08],
+				"volume": 1.0
 			}
 		}
 	}

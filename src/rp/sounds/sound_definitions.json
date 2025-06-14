@@ -1060,6 +1060,38 @@
 		},
 		// #endregion
 
+		// #region vehicles
+		"scpdy.mtf_apache_heli.chaingun": {
+			"category": "hostile",
+			"max_distance": 65.0,
+			"min_distance": 5.0,
+			"sounds": ["sounds/scpdy/vehicles/mtf_apache_heli/chaingun"]
+		},
+		"scpdy.mtf_apache_heli.explosion_1": {
+			"category": "hostile",
+			"max_distance": 80.0,
+			"min_distance": 8.0,
+			"sounds": ["sounds/scpdy/vehicles/mtf_apache_heli/explosion_1"]
+		},
+		"scpdy.mtf_apache_heli.explosion_2": {
+			"category": "hostile",
+			"max_distance": 100.0,
+			"min_distance": 8.0,
+			"sounds": [
+				{
+					"name": "sounds/scpdy/vehicles/mtf_apache_heli/explosion_2",
+					"volume": 1.3
+				}
+			]
+		},
+		"scpdy.mtf_apache_heli.propeller_loop": {
+			"category": "hostile",
+			"max_distance": 70.0,
+			"min_distance": 8.0,
+			"sounds": ["sounds/scpdy/vehicles/mtf_apache_heli/propeller_loop"]
+		},
+		// #endregion
+
 		// #region Misc
 		"scpdy.misc.alarm": {
 			"category": "hostile",
@@ -1135,24 +1167,6 @@
 			"max_distance": 10.0,
 			"min_distance": 5.0,
 			"sounds": ["sounds/scpdy/misc/boom_1"]
-		},
-		"scpdy.misc.heli_explosion_1": {
-			"category": "hostile",
-			"max_distance": 80.0,
-			"min_distance": 8.0,
-			"sounds": ["sounds/scpdy/misc/heli_explosion_1"]
-		},
-		"scpdy.misc.heli_explosion_2": {
-			"category": "hostile",
-			"max_distance": 100.0,
-			"min_distance": 8.0,
-			"sounds": [{ "name": "sounds/scpdy/misc/heli_explosion_2", "volume": 1.3 }]
-		},
-		"scpdy.misc.heli_propeller_loop": {
-			"category": "hostile",
-			"max_distance": 70.0,
-			"min_distance": 8.0,
-			"sounds": ["sounds/scpdy/misc/heli_propeller_loop"]
 		},
 		"scpdy.misc.faucet_water": {
 			"category": "neutral",
