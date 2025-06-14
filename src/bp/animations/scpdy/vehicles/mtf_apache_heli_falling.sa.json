@@ -4,7 +4,7 @@
 		"animation.scpdy.bp.mtf_apache_heli_falling.fall": {
 			"animation_length": 3.0,
 			"timeline": {
-				"0.0": ["/effect @s slow_falling infinite 3 true"],
+				"0.0": ["/effect @s slow_falling infinite 2 true"],
 				"0.01": ["/playsound scpdy.misc.heli_explosion_1 @a[r=64] ~~~ 28 1.0"],
 				"0.5": ["/playsound scpdy.misc.heli_explosion_1 @a[r=64] ~~~ 28 1.08"],
 				"1.0": ["/playsound scpdy.misc.heli_explosion_1 @a[r=64] ~~~ 28 1.0"],
