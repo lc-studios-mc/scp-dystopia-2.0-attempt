@@ -1,0 +1,34 @@
+{
+	"format_version": "1.21.80",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "lc:scpdy_mtf_apache_heli",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"components": {
+			"minecraft:physics": {},
+			"minecraft:collision_box": {
+				"height": 3,
+				"width": 2.7
+			},
+			"minecraft:custom_hit_test": {
+				"hitboxes": [
+					{
+						"width": 3.0,
+						"height": 3.0,
+						"pivot": [0, 1.5, 0]
+					},
+					{
+						"width": 2.5,
+						"height": 2.5,
+						"pivot": [0, 1.5, 2.5]
+					}
+				]
+			}
+		},
+		"component_groups": {},
+		"events": {}
+	}
+}

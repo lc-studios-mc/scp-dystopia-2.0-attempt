@@ -316,6 +316,15 @@ scpdy.wrench.itemName=Wrench\n§eCan change the variants of certain blocks
 ## * <-------------------------> *
 
 
+## --- vehicles ---
+
+item.spawn_egg.entity.lc:scpdy_mtf_apache_heli.name=MTF Apache Helicopter Spawn Egg
+entity.lc:scpdy_mtf_apache_heli.name=MTF Apache Helicopter
+
+
+## * <-------------------------> *
+
+
 ## --- misc ---
 
 scpdy.misc.text.none=None

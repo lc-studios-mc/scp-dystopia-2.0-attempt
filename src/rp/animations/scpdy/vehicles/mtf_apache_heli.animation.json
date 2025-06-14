@@ -1,0 +1,52 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.scpdy_mtf_apache_heli.land_idle": {
+			"loop": true,
+			"bones": {
+				"root": {
+					"rotation": [-1.5, 0, 0],
+					"position": [0, 3.7, 0]
+				}
+			}
+		},
+		"animation.scpdy_mtf_apache_heli.flying": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"rotation": [3, "math.sin(query.life_time * 160) * 0.3", "math.sin(query.life_time * 100) * 0.6"],
+					"position": ["math.sin(query.life_time * 90) * 0.3", 0, "math.sin(query.life_time * 110) * 0.5"]
+				}
+			}
+		},
+		"animation.scpdy_mtf_apache_heli.propeller_rotation": {
+			"loop": true,
+			"animation_length": 0.3333,
+			"bones": {
+				"propellerRotationBase": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.3333": [0, 360, 0]
+					}
+				},
+				"backPropellerRotationBase": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.3333": [-360, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.scpdy_mtf_apache_heli.chaingun_facing": {
+			"loop": true,
+			"bones": {
+				"chaingunYaw": {
+					"rotation": [0, "math.clamp(q.target_y_rotation, -75, 75)", 0]
+				},
+				"chaingunPitch": {
+					"rotation": ["math.clamp(q.target_x_rotation, -10, 60)", 0, 0]
+				}
+			}
+		}
+	}
+}

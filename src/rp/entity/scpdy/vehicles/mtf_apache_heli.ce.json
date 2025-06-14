@@ -1,0 +1,32 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "lc:scpdy_mtf_apache_heli",
+			"materials": {
+				"default": "entity"
+			},
+			"textures": {
+				"default": "textures/scpdy/vehicles/mtf_apache_heli"
+			},
+			"geometry": {
+				"default": "geometry.scpdy_mtf_apache_heli"
+			},
+			"animations": {
+				"ctrl.main": "controller.animation.scpdy_mtf_apache_heli.main",
+				"anim.land_idle": "animation.scpdy_mtf_apache_heli.land_idle",
+				"anim.flying": "animation.scpdy_mtf_apache_heli.flying",
+				"anim.propeller_rotation": "animation.scpdy_mtf_apache_heli.propeller_rotation",
+				"anim.chaingun_facing": "animation.scpdy_mtf_apache_heli.chaingun_facing"
+			},
+			"scripts": {
+				"animate": ["ctrl.main"]
+			},
+			"render_controllers": ["controller.render.scpdy.standard"],
+			"spawn_egg": {
+				"base_color": "#423f3d",
+				"overlay_color": "#363331"
+			}
+		}
+	}
+}

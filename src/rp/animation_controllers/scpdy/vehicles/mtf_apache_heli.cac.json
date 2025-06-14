@@ -1,0 +1,13 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.scpdy_mtf_apache_heli.main": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": ["anim.flying", "anim.propeller_rotation", "anim.chaingun_facing"]
+				}
+			}
+		}
+	}
+}
