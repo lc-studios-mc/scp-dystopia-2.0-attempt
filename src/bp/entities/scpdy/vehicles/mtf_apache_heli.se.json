@@ -31,13 +31,13 @@
 				"generates_bubbles": false
 			},
 			"minecraft:behavior.float": {
-				"priority": 19
+				"priority": 0
 			},
 			"minecraft:behavior.float_wander": {
 				"priority": 5,
 				"additional_collision_buffer": true,
 				"navigate_around_surface": true,
-				"surface_xz_dist": 20,
+				"surface_xz_dist": 30,
 				"surface_y_dist": 50,
 				"xz_dist": 20,
 				"y_dist": 16,
@@ -63,8 +63,8 @@
 				"is_pushable_by_piston": true
 			},
 			"minecraft:collision_box": {
-				"height": 3,
-				"width": 4
+				"height": 3.2,
+				"width": 4.2
 			},
 			"minecraft:custom_hit_test": {
 				"hitboxes": [
