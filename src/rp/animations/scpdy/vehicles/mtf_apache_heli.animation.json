@@ -14,8 +14,11 @@
 			"loop": true,
 			"bones": {
 				"body": {
-					"rotation": [10, "math.sin(query.life_time * 160) * 0.3", "math.sin(query.life_time * 100) * 0.6"],
-					"position": ["math.sin(query.life_time * 90) * 0.3", 0, "math.sin(query.life_time * 110) * 0.5"]
+					"rotation": [10, "math.sin(query.life_time * 160) * 0.3", "math.sin(query.life_time * 70) * 3"],
+					"position": ["math.sin(query.life_time * 90) * 0.3", "math.sin(query.life_time * -100) * 1", "math.sin(query.life_time * 110) * 0.5"]
+				},
+				"root": {
+					"position": [0, 2, 0]
 				}
 			}
 		},

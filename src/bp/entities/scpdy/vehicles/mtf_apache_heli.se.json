@@ -30,7 +30,7 @@
 				"additional_collision_buffer": true,
 				"navigate_around_surface": true,
 				"surface_xz_dist": 20,
-				"surface_y_dist": 60,
+				"surface_y_dist": 50,
 				"xz_dist": 20,
 				"y_dist": 16,
 				"must_reach": true
