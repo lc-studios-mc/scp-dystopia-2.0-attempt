@@ -46,6 +46,21 @@
 							"event": "lc:heli_start_falling"
 						},
 						"deals_damage": "no_but_side_effects_apply"
+					},
+					{
+						"cause": "entity_explosion",
+						"damage_multiplier": 0.9,
+						"deals_damage": "yes"
+					},
+					{
+						"cause": "block_explosion",
+						"damage_multiplier": 0.9,
+						"deals_damage": "yes"
+					},
+					{
+						"cause": "all",
+						"damage_multiplier": 0.7,
+						"deals_damage": "yes"
 					}
 				]
 			},
@@ -185,14 +200,14 @@
 			"minecraft:custom_hit_test": {
 				"hitboxes": [
 					{
-						"width": 3.0,
-						"height": 3.0,
-						"pivot": [0, 1.5, 0]
+						"width": 3.8,
+						"height": 3.8,
+						"pivot": [0, 1.7, 0]
 					},
 					{
-						"width": 2.5,
-						"height": 2.5,
-						"pivot": [0, 1.5, 2.5]
+						"width": 3.0,
+						"height": 2.8,
+						"pivot": [0, 1.6, 3.0]
 					}
 				]
 			}
