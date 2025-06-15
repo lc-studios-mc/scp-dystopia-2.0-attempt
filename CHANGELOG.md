@@ -2,6 +2,20 @@
 
 _Most_ notable changes to this project will be documented in this file.
 
+## Unreleased
+
+### Added
+
+- Tactical CBRN Helmet
+- Tactical Body Armor
+- Tactical Boots
+- Tactical Leg Protector
+- T.R.O. Helmet
+
+### Changed
+
+- Made thrown Frag Grenade smoother.
+
 ## [2.0.0 Alpha 4.1] - 2025-06-09
 
 ### Changed
