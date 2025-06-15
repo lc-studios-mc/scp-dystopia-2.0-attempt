@@ -1,0 +1,15 @@
+{
+	"format_version": "1.8.0",
+	"render_controllers": {
+		"controller.render.scpdy.armor.tac_boots": {
+			"geometry": "Geometry.tac_boots",
+			"materials": [{ "*": "Material.tac_boots" }],
+			"textures": ["Texture.tac_boots"]
+		},
+		"controller.render.scpdy.armor.tac_boots.attachable": {
+			"geometry": "Geometry.default",
+			"materials": [{ "*": "v.is_enchanted ? Material.enchanted : Material.default" }],
+			"textures": ["Texture.default", "Texture.enchanted"]
+		}
+	}
+}

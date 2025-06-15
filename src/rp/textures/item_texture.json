@@ -2,6 +2,24 @@
 	"resource_pack_name": "scpdystopia",
 	"texture_name": "atlas.items",
 	"texture_data": {
+		// #region armors
+		"scpdy_tac_body_armor_icon": {
+			"textures": "textures/scpdy/armors/tac_body_armor_icon"
+		},
+		"scpdy_tac_boots_icon": {
+			"textures": "textures/scpdy/armors/tac_boots_icon"
+		},
+		"scpdy_tac_cbrn_helmet_icon": {
+			"textures": "textures/scpdy/armors/tac_cbrn_helmet_icon"
+		},
+		"scpdy_tac_leg_protector_icon": {
+			"textures": "textures/scpdy/armors/tac_leg_protector_icon"
+		},
+		"scpdy_tro_helmet_icon": {
+			"textures": "textures/scpdy/armors/tro_helmet_icon"
+		},
+		// #endregion
+
 		// #region ammo
 		"scpdy_ammo_9mm_icon": {
 			"textures": "textures/scpdy/items/ammo/9mm_icon"

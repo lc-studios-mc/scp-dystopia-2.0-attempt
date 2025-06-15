@@ -1,0 +1,23 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:attachable": {
+		"description": {
+			"identifier": "lc:scpdy_tac_leg_protector",
+			"materials": {
+				"default": "armor",
+				"enchanted": "armor_enchanted"
+			},
+			"textures": {
+				"default": "textures/scpdy/armors/tac_leg_protector",
+				"enchanted": "textures/misc/enchanted_item_glint"
+			},
+			"geometry": {
+				"default": "geometry.scpdy_tac_leg_protector"
+			},
+			"scripts": {
+				"parent_setup": "v.chest_layer_visible = 0.0;"
+			},
+			"render_controllers": ["controller.render.scpdy.armor.tac_leg_protector.attachable"]
+		}
+	}
+}

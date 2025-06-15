@@ -5,6 +5,18 @@
 ## * <-------------------------> *
 
 
+## --- armors ---
+
+scpdy.tac_body_armor=Tactical Body Armor
+scpdy.tac_boots=Tactical Boots
+scpdy.tac_cbrn_Helmet=Tactical CBRN Helmet
+scpdy.tac_leg_protector=Tactical Leg Protector
+scpdy.tro_helmet=T.R.O. Helmet
+
+
+## * <-------------------------> *
+
+
 ## --- construction ---
 
 lc:scpdy_itemGroup_constructionBlocks=§7SCP:DY §8- §fConstruction
