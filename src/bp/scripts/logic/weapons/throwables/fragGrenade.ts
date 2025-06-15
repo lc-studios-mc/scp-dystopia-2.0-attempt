@@ -23,7 +23,7 @@ function throwFragGrenade(player: mc.Player, ticksSinceRemovedPin: number): void
 	player.dimension.playSound("scpdy.frag_grenade.throw", playerHeadLoc, { volume: 1.1 });
 
 	const throwForceMultiplierMax = player.isSneaking ? 0.9 : 1.9;
-	const throwForceMultiplier = Math.min(throwForceMultiplierMax, Math.max(0.6, ticksSinceRemovedPin / 15));
+	const throwForceMultiplier = Math.min(throwForceMultiplierMax, Math.max(1.0, ticksSinceRemovedPin / 10));
 
 	const impulse = vec3.chain(vec3.FORWARD).mul(throwForceMultiplier).changeDir(player.getViewDirection()).done();
 
