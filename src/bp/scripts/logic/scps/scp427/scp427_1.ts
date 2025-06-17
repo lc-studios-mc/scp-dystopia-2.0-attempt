@@ -1,6 +1,6 @@
 import { randomInt } from "@lib/utils/mathUtils";
 import * as vec3 from "@lib/utils/vec3";
-import { spawnGoreExplosion } from "@logic/gore/gibs";
+import { spawnGoreExplosion } from "@/features/gore/gibs";
 import * as mc from "@minecraft/server";
 
 export const SCP427_1_ENTITY_TYPE = "lc:scpdy_scp427_1";

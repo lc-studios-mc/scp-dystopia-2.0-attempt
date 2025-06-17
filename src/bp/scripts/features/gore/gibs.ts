@@ -133,8 +133,10 @@ mc.world.afterEvents.playerInteractWithEntity.subscribe((event) => {
 	if (!event.target.typeId.startsWith("lc:scpdy_gib")) return;
 
 	event.player.dimension.playSound("random.eat", event.player.getHeadLocation());
-	event.player.addEffect("saturation", 2, { amplifier: 1, showParticles: false });
 	event.target.remove();
+
+	event.player.addEffect("saturation", 2, { amplifier: 1, showParticles: false });
+	event.player.addEffect("regeneration", 5, { amplifier: 1, showParticles: true });
 });
 
 mc.system.afterEvents.scriptEventReceive.subscribe((event) => {

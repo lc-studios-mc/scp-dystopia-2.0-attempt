@@ -1,4 +1,4 @@
-import { spawnGoreExplosion } from "@logic/gore/gibs";
+import { spawnGoreExplosion } from "@/features/gore/gibs";
 import * as mc from "@minecraft/server";
 import { canDamageCauseBodyExplosion, HUMAN_MOB_CORPSE_TYPE_ARRAY } from "./shared";
 

@@ -1,6 +1,6 @@
 import { isEntityDead } from "@lib/utils/entityUtils";
 import * as vec3 from "@lib/utils/vec3";
-import { spawnGoreExplosion } from "@logic/gore/gibs";
+import { spawnGoreExplosion } from "@/features/gore/gibs";
 import { SCP096_ENTITY_TYPE } from "@logic/scps/scp096/shared";
 import { SCP173_ENTITY_TYPE } from "@logic/scps/scp173/shared";
 import * as mc from "@minecraft/server";
