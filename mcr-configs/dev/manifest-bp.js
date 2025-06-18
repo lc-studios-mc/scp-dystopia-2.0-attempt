@@ -2,7 +2,7 @@ export default {
 	format_version: 2,
 	header: {
 		description:
-			"§l§cEARLY ACCESS!§r \n§eRequires 'Beta APIs' and 'Custom Components V2' experiments.§r \n§4May not work properly on future MC versions.",
+			"§l§cEARLY ACCESS!§r \n§eRequires 'Beta APIs' experiment.§r \n§4May not work properly on future MC versions.",
 		name: "SCP: Dystopia §cDEV§r",
 		uuid: "5368765d-325d-42c7-92ac-195e5ea02966",
 		version: [0, 0, 1],
