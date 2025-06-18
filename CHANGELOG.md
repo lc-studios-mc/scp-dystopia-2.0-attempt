@@ -13,7 +13,7 @@ _Most_ notable changes to this project will be documented in this file.
   - Tactical Leg Protector
   - T.R.O. Helmet
 
-## Fixed
+### Fixed
 
 - 1.21.90 compatibility.
 
