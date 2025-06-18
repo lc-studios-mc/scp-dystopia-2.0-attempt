@@ -9,7 +9,7 @@ export function spreadBlood(dimension: mc.Dimension, location: mc.Vector3, fast?
 
 	if (raycastHit) {
 		spawnLoc = vec3.add(raycastHit.block.location, raycastHit.faceLocation);
-		spawnLoc = vec3.add(spawnLoc, { x: 0, y: 0.05, z: 0 });
+		spawnLoc = vec3.add(spawnLoc, { x: 0, y: 1.0, z: 0 });
 	} else {
 		spawnLoc = {
 			x: location.x,
