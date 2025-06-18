@@ -2,15 +2,20 @@
 
 _Most_ notable changes to this project will be documented in this file.
 
-## Unreleased
+## [2.0.0 Alpha 4.2] - 2025-06-18
 
 ### Added
 
-- Tactical CBRN Helmet
-- Tactical Body Armor
-- Tactical Boots
-- Tactical Leg Protector
-- T.R.O. Helmet
+- Finally some armors!
+  - Tactical CBRN Helmet
+  - Tactical Body Armor
+  - Tactical Boots
+  - Tactical Leg Protector
+  - T.R.O. Helmet
+
+## Fixed
+
+- 1.21.90 compatibility.
 
 ### Changed
 
