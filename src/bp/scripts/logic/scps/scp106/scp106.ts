@@ -391,7 +391,7 @@ function onUpdateRetreatHiding(scp106: mc.Entity, hidingTick: number): void {
 			.filter((entity) => {
 				if (entity instanceof mc.Player) {
 					// Ignore creative players
-					if ([mc.GameMode.creative, mc.GameMode.spectator].includes(entity.getGameMode())) return;
+					if ([mc.GameMode.Creative, mc.GameMode.Spectator].includes(entity.getGameMode())) return;
 				} else if (!entity.matches({ families: ["mob"] })) return;
 
 				return entity;

@@ -40,6 +40,7 @@ async function showPlacementOptionsForm(player: mc.Player): Promise<PlacementOpt
 			},
 		)
 		.submitButton({ translate: "scpdy.form.alphanumericSignOptions.submit" })
+		// @ts-expect-error
 		.show(player);
 
 	if (response.canceled) return;
@@ -127,7 +128,7 @@ async function asyncPlacement(
 		}
 
 		if (sequenceElement instanceof mc.BlockPermutation) {
-			if (player.getGameMode() !== mc.GameMode.creative) {
+			if (player.getGameMode() !== mc.GameMode.Creative) {
 				const itemStack = playerMainhand.getItem();
 
 				if (!itemStack || itemStack.typeId !== "lc:scpdy_alphanumeric_sign_placer") {

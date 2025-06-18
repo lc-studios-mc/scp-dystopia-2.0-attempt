@@ -387,6 +387,7 @@ export class ConfigBuilder<Data = {}> {
 			}
 		}
 
+		// @ts-expect-error
 		const response = await formData.show(target);
 
 		if (response.canceled) return;

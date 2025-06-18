@@ -45,6 +45,7 @@ const COMPONENT: mc.BlockCustomComponent = {
 				tooltip: "scpdy.machinery.input.rbLifespan.tooltip",
 			});
 
+			// @ts-expect-error
 			const response = await formData.show(arg.player);
 
 			if (response.canceled) return;

@@ -76,13 +76,13 @@ function onPlace(arg: mc.BlockComponentOnPlaceEvent): void {
 	updateConnections(arg.block, arg.block.typeId);
 }
 
-function onPlayerDestroy(arg: mc.BlockComponentPlayerDestroyEvent): void {
-	updateConnections(arg.block, arg.destroyedBlockPermutation.type.id);
+function onPlayerBreak(arg: mc.BlockComponentPlayerBreakEvent): void {
+	updateConnections(arg.block, arg.brokenBlockPermutation.type.id);
 }
 
 mc.system.beforeEvents.startup.subscribe((event) => {
 	event.blockComponentRegistry.registerCustomComponent("scpdy:connec_table", {
 		onPlace,
-		onPlayerDestroy,
+		onPlayerBreak,
 	});
 });

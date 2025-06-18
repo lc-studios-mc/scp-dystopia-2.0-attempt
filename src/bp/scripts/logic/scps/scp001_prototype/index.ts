@@ -153,7 +153,7 @@ function onSingularityInhale(singularityEntity: mc.Entity): void {
 		if (entity instanceof mc.Player) {
 			entity.runCommand("camerashake add @s 0.2 0.3 positional");
 
-			if ([mc.GameMode.creative, mc.GameMode.spectator].includes(entity.getGameMode())) continue;
+			if ([mc.GameMode.Creative, mc.GameMode.Spectator].includes(entity.getGameMode())) continue;
 		}
 
 		entity.applyImpulse(force);

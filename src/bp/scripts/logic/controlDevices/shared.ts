@@ -1,4 +1,4 @@
-import { switchClosestBlastDoor } from "@logic/blastDoor/blastDoor";
+import { switchClosestBlastDoor } from "@/features/blast_door/blast_door";
 import * as mc from "@minecraft/server";
 import { activateRbPlaceholder } from "./rbPlaceholder";
 

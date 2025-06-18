@@ -61,11 +61,11 @@ const COMPONENT: mc.BlockCustomComponent = {
 
 		blockAbove.setPermutation(upperPartPermutation);
 	},
-	onPlayerDestroy({ block, destroyedBlockPermutation }) {
-		const isBottomPart = Boolean(destroyedBlockPermutation.getState(STATE.isBottomPart));
+	onPlayerBreak({ block, brokenBlockPermutation }) {
+		const isBottomPart = Boolean(brokenBlockPermutation.getState(STATE.isBottomPart));
 		const otherPartBlock = isBottomPart ? block.above() : block.below();
 
-		if (!otherPartBlock || otherPartBlock.typeId !== destroyedBlockPermutation.type.id) return;
+		if (!otherPartBlock || otherPartBlock.typeId !== brokenBlockPermutation.type.id) return;
 
 		destroyBlock(otherPartBlock);
 	},
@@ -111,6 +111,7 @@ async function showPlacementForm(player: mc.Player, e: mc.BlockComponentPlayerPl
 	formData1.body({ translate: "scpdy.fnetManager.selectFnet" });
 	fnets.forEach((fnet) => formData1.button(fnet.name));
 
+	// @ts-expect-error
 	const response1 = await formData1.show(player);
 
 	if (!player.isValid) return;
@@ -126,6 +127,7 @@ async function showPlacementForm(player: mc.Player, e: mc.BlockComponentPlayerPl
 	formData2.body({ translate: "scpdy.fnetManager.selectFzone" });
 	zones.forEach((zone) => formData2.button(zone.name));
 
+	// @ts-expect-error
 	const response2 = await formData2.show(player);
 
 	if (!player.isValid) return;

@@ -4,7 +4,7 @@ import { showConfigEditorForm } from "./config";
 function onUse(arg: mc.ItemComponentUseEvent): void {
 	const player = arg.source;
 
-	if (player.hasTag("scpdy_world_leader") || player.isOp()) {
+	if (player.hasTag("scpdy_world_leader") || player.playerPermissionLevel === mc.PlayerPermissionLevel.Operator) {
 		showConfigEditorForm(player);
 		return;
 	}

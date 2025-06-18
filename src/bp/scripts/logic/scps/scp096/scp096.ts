@@ -374,7 +374,7 @@ function onScp096Die(oldScp096Entity: mc.Entity, damageSource: mc.EntityDamageSo
 }
 
 function isCreativeOrSpectator(entity: mc.Entity): boolean {
-	return entity instanceof mc.Player && [mc.GameMode.creative, mc.GameMode.spectator].includes(entity.getGameMode());
+	return entity instanceof mc.Player && [mc.GameMode.Creative, mc.GameMode.Spectator].includes(entity.getGameMode());
 }
 
 mc.world.afterEvents.dataDrivenEntityTrigger.subscribe(

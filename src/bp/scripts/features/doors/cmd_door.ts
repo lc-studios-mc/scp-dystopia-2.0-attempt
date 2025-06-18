@@ -172,11 +172,11 @@ const COMPONENT: mc.BlockCustomComponent = {
 
 		blockAbove.setPermutation(upperPartPermutation);
 	},
-	onPlayerDestroy({ block, destroyedBlockPermutation }) {
-		const isBottomPart = Boolean(destroyedBlockPermutation.getState(STATE.isBottomPart));
+	onPlayerBreak({ block, brokenBlockPermutation }) {
+		const isBottomPart = Boolean(brokenBlockPermutation.getState(STATE.isBottomPart));
 		const otherPartBlock = isBottomPart ? block.above() : block.below();
 
-		if (!otherPartBlock || otherPartBlock.typeId !== destroyedBlockPermutation.type.id) return;
+		if (!otherPartBlock || otherPartBlock.typeId !== brokenBlockPermutation.type.id) return;
 
 		destroyBlock(otherPartBlock);
 	},

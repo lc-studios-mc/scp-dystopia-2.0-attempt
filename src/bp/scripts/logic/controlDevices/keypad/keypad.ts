@@ -43,6 +43,7 @@ async function keypadInteractionAsync(player: mc.Player, keypad: mc.Entity): Pro
 		formData.label({ translate: "scpdy.form.keypad.use.hint", with: [hint] });
 	}
 
+	// @ts-expect-error
 	const response = await formData.show(player);
 
 	if (!keypad.isValid) return;
@@ -173,7 +174,7 @@ mc.world.afterEvents.entityHitEntity.subscribe(
 		if (!keypad.isValid) return;
 		if (!(damagingEntity instanceof mc.Player)) return;
 
-		if (damagingEntity.getGameMode() !== mc.GameMode.creative && getKeypadSourceId(keypad) !== damagingEntity.id)
+		if (damagingEntity.getGameMode() !== mc.GameMode.Creative && getKeypadSourceId(keypad) !== damagingEntity.id)
 			return;
 
 		keypad.dimension.playSound("scpdy.misc.computer.hit", keypad.location);

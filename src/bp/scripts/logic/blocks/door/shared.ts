@@ -7,7 +7,7 @@ export function dropDoorItem(
 	destroyer?: mc.Player,
 ): void {
 	if (!mc.world.gameRules.doTileDrops) return;
-	if (destroyer && destroyer.getGameMode() === mc.GameMode.creative) return;
+	if (destroyer && destroyer.getGameMode() === mc.GameMode.Creative) return;
 
 	const itemStack = new mc.ItemStack(doorTypeId, 1);
 

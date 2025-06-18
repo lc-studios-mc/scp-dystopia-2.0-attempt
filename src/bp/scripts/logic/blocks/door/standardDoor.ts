@@ -88,12 +88,12 @@ function onPlayerInteract(arg: mc.BlockComponentPlayerInteractEvent): void {
 	}
 }
 
-function onPlayerDestroy(arg: mc.BlockComponentPlayerDestroyEvent): void {
-	const { block, destroyedBlockPermutation, dimension, player } = arg;
+function onPlayerBreak(arg: mc.BlockComponentPlayerBreakEvent): void {
+	const { block, brokenBlockPermutation, dimension, player } = arg;
 
-	dropDoorItem(destroyedBlockPermutation.type.id, dimension, block.center(), player);
+	dropDoorItem(brokenBlockPermutation.type.id, dimension, block.center(), player);
 
-	const isLowerPart = destroyedBlockPermutation.getState(STATE_NAMES.isLowerPart) === true;
+	const isLowerPart = brokenBlockPermutation.getState(STATE_NAMES.isLowerPart) === true;
 
 	let otherPartBlock: mc.Block | undefined;
 
@@ -103,7 +103,7 @@ function onPlayerDestroy(arg: mc.BlockComponentPlayerDestroyEvent): void {
 		otherPartBlock = block.below();
 	}
 
-	if (!otherPartBlock || otherPartBlock.typeId !== destroyedBlockPermutation.type.id) return;
+	if (!otherPartBlock || otherPartBlock.typeId !== brokenBlockPermutation.type.id) return;
 
 	otherPartBlock.setType("minecraft:air");
 }
@@ -112,6 +112,6 @@ mc.system.beforeEvents.startup.subscribe((event) => {
 	event.blockComponentRegistry.registerCustomComponent("scpdy:standard_door", {
 		onPlace,
 		onPlayerInteract,
-		onPlayerDestroy,
+		onPlayerBreak,
 	});
 });

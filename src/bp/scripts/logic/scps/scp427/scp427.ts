@@ -37,7 +37,7 @@ mc.system.beforeEvents.startup.subscribe((event) => {
 
 playerLoop.subscribe((player, { healthComp, mainhandSlot }) => {
 	if (mc.system.currentTick % SCP427_TICK_INTERVAL !== 0) return; // Delay to reduce lags
-	if ([mc.GameMode.creative, mc.GameMode.spectator].includes(player.getGameMode())) return;
+	if ([mc.GameMode.Creative, mc.GameMode.Spectator].includes(player.getGameMode())) return;
 
 	scp427CurrentTick++;
 
@@ -138,7 +138,7 @@ mc.world.afterEvents.entityDie.subscribe(
 );
 
 mc.world.beforeEvents.playerGameModeChange.subscribe((event) => {
-	if (![mc.GameMode.creative, mc.GameMode.spectator].includes(event.toGameMode)) return;
+	if (![mc.GameMode.Creative, mc.GameMode.Spectator].includes(event.toGameMode)) return;
 
 	clearScp427RelatedDynamicProperties(event.player);
 });

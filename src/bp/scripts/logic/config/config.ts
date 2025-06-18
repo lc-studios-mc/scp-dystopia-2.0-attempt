@@ -180,6 +180,7 @@ class ConfigBuilder<T = {}> {
 			}
 		}
 
+		// @ts-expect-error
 		const response = await formData.show(player);
 
 		if (response.canceled) return;

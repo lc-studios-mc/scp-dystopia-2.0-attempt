@@ -25,13 +25,13 @@ function onPlace(arg: mc.BlockComponentOnPlaceEvent): void {
 	updateHangingLamp(arg.block);
 }
 
-function onPlayerDestroy(arg: mc.BlockComponentPlayerDestroyEvent): void {
+function onPlayerBreak(arg: mc.BlockComponentPlayerBreakEvent): void {
 	updateHangingLamp(arg.block);
 }
 
 mc.system.beforeEvents.startup.subscribe((event) => {
 	event.blockComponentRegistry.registerCustomComponent("scpdy:hanging_lamp", {
 		onPlace,
-		onPlayerDestroy,
+		onPlayerBreak,
 	});
 });

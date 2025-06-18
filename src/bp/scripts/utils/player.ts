@@ -8,7 +8,7 @@ import * as mc from "@minecraft/server";
 export function isCreativeOrSpectator(player: mc.Player): boolean {
 	if (!player.isValid) return false;
 	const gameMode = player.getGameMode();
-	return gameMode === mc.GameMode.creative || gameMode === mc.GameMode.spectator;
+	return gameMode === mc.GameMode.Creative || gameMode === mc.GameMode.Spectator;
 }
 
 interface ConsumeHandItemOptions {

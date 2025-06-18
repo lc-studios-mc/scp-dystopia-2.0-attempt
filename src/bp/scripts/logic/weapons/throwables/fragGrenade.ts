@@ -157,7 +157,7 @@ mc.world.afterEvents.itemStopUse.subscribe((event) => {
 
 	throwFragGrenade(player, Math.floor(Math.max(0, heldTicks - 10)));
 
-	if (player.getGameMode() === mc.GameMode.creative) return;
+	if (player.getGameMode() === mc.GameMode.Creative) return;
 
 	mc.system.runTimeout(() => {
 		if (mainhandSlot.typeId !== FRAG_GRENADE_ITEM_TYPE) {

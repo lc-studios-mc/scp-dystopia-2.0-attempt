@@ -48,6 +48,7 @@ async function processPlacementAsync(player: mc.Player, event: mc.ItemComponentU
 		.toggle({ translate: "scpdy.form.keypad.placementOpts.O5ClearanceToggle.label" })
 		.submitButton({ translate: "scpdy.form.keypad.placementOpts.submitButton" });
 
+	// @ts-expect-error
 	const response = await formData.show(player);
 
 	if (response.canceled) return;
@@ -71,7 +72,7 @@ async function processPlacementAsync(player: mc.Player, event: mc.ItemComponentU
 		return;
 	}
 
-	if (player.getGameMode() !== mc.GameMode.creative) {
+	if (player.getGameMode() !== mc.GameMode.Creative) {
 		const equippable = player.getComponent("equippable");
 		if (!equippable) return;
 

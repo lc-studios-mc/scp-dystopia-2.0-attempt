@@ -48,7 +48,7 @@ function onPlayerInteract(event: mc.BlockComponentPlayerInteractEvent): void {
 	event.block.setPermutation(newPermutation);
 }
 
-function onPlayerDestroy(event: mc.BlockComponentPlayerDestroyEvent): void {
+function onPlayerBreak(event: mc.BlockComponentPlayerBreakEvent): void {
 	stopSoundAt(event.dimension, event.block, "scpdy.misc.faucet_water");
 	stopSoundAt(event.dimension, event.block, "scpdy.misc.faucet_water_drip");
 }
@@ -68,7 +68,7 @@ function onTick(event: mc.BlockComponentTickEvent): void {
 mc.system.beforeEvents.startup.subscribe((event) => {
 	event.blockComponentRegistry.registerCustomComponent("scpdy:sink", {
 		onPlayerInteract,
-		onPlayerDestroy,
+		onPlayerBreak,
 		onTick,
 	});
 });

@@ -4,7 +4,7 @@ function onStepOn(arg: mc.BlockComponentStepOnEvent): void {
 	const { block, dimension, entity } = arg;
 
 	if (!entity) return;
-	if (entity instanceof mc.Player && entity.getGameMode() === mc.GameMode.creative) return;
+	if (entity instanceof mc.Player && entity.getGameMode() === mc.GameMode.Creative) return;
 
 	try {
 		const result = entity.applyDamage(2, {
@@ -23,7 +23,7 @@ function onStepOff(arg: mc.BlockComponentStepOnEvent): void {
 	const { entity } = arg;
 
 	if (!entity) return;
-	if (entity instanceof mc.Player && entity.getGameMode() === mc.GameMode.creative) return;
+	if (entity instanceof mc.Player && entity.getGameMode() === mc.GameMode.Creative) return;
 
 	try {
 		entity.applyDamage(1, {

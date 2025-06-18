@@ -46,7 +46,7 @@ function playerCameraBlinking(): void {
 	for (let i = 0; i < players.length; i++) {
 		const player = players[i]!;
 
-		if (player.getGameMode() === mc.GameMode.creative) continue;
+		if (player.getGameMode() === mc.GameMode.Creative) continue;
 
 		SCP173_EQO_REUSE.location = player.location;
 

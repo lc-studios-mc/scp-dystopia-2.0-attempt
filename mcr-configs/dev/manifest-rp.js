@@ -5,7 +5,7 @@ export default {
 		name: "SCP: Dystopia §cDEV §7[RES]§r",
 		uuid: "807f0464-6ecc-42c5-8bc3-9ad7fd5dfb57",
 		version: [0, 0, 1],
-		min_engine_version: [1, 21, 80],
+		min_engine_version: [1, 21, 90],
 	},
 	modules: [
 		{

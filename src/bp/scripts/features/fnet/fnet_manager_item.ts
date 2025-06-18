@@ -23,6 +23,7 @@ async function showFnetSelectionForm(player: mc.Player): Promise<void> {
 
 	fnets.forEach((fnet) => formData.button(fnet.name));
 
+	// @ts-expect-error
 	const response = await formData.show(player);
 
 	if (!player.isValid) return;
@@ -44,6 +45,7 @@ async function showFnetEditForm(player: mc.Player, fnet: Fnet): Promise<void> {
 	formData.button({ translate: "scpdy.fnetManager.changeName" });
 	formData.button({ translate: "scpdy.fnetManager.changeZoneNames" });
 
+	// @ts-expect-error
 	const response = await formData.show(player);
 
 	if (!player.isValid) return;
@@ -70,6 +72,7 @@ async function showChangeFnetNameForm(player: mc.Player, fnet: Fnet): Promise<vo
 		},
 	);
 
+	// @ts-expect-error
 	const response = await formData.show(player);
 
 	if (!player.isValid) return;
@@ -107,6 +110,7 @@ async function showChangeFzoneNamesForm(player: mc.Player, fnet: Fnet): Promise<
 		);
 	}
 
+	// @ts-expect-error
 	const response = await formData.show(player);
 
 	if (!player.isValid) return;

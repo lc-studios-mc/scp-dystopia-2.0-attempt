@@ -99,6 +99,7 @@ async function beforeOnPlayerPlaceAsync(e: mc.BlockComponentPlayerPlaceBeforeEve
 		tooltip: { translate: "scpdy.machinery.alarm.redstoneDetectionExtent.tip" },
 	});
 
+	// @ts-expect-error
 	const response = await formData.show(e.player);
 
 	if (!e.player.isValid) return;

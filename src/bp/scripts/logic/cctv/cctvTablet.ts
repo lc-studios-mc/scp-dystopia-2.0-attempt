@@ -120,6 +120,7 @@ async function showCameraList(player: mc.Player, cctvServer: mc.Entity, cctvTabl
 		cameraListForm.button(button.label);
 	}
 
+	// @ts-expect-error
 	const response = await cameraListForm.show(player);
 
 	if (response.canceled || response.selection === undefined) {
@@ -141,6 +142,7 @@ function onUseCctvTablet(player: mc.Player, itemStack: mc.ItemStack): void {
 			.title({ translate: "scpdy.form.cctvTablet.notLinkedToServer.title" })
 			.body({ translate: "scpdy.form.cctvTablet.notLinkedToServer.body" })
 			.button({ translate: "scpdy.form.misc.close" })
+			// @ts-expect-error
 			.show(player);
 
 		return;
@@ -153,6 +155,7 @@ function onUseCctvTablet(player: mc.Player, itemStack: mc.ItemStack): void {
 			.title({ translate: "scpdy.form.cctvTablet.failedToGetServer.title" })
 			.body({ translate: "scpdy.form.cctvTablet.failedToGetServer.body" })
 			.button({ translate: "scpdy.form.cctvTablet.failedToGetServer.removeLinkButton" })
+			// @ts-expect-error
 			.show(player)
 			.then((response) => {
 				if (mainhandSlot.typeId !== TABLET_ITEM_TYPE) return;

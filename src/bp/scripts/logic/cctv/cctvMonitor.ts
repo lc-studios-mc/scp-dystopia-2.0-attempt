@@ -106,6 +106,7 @@ async function showCameraList(player: mc.Player, cctvServer: mc.Entity, cctvMoni
 		cameraListForm.button(button.label);
 	}
 
+	// @ts-expect-error
 	const response = await cameraListForm.show(player);
 
 	if (response.canceled || response.selection === undefined) {
@@ -130,6 +131,7 @@ function onInteract(player: mc.Player, cctvMonitor: mc.Entity): void {
 			.title({ translate: "scpdy.form.cctvMonitor.notLinkedToServer.title" })
 			.body({ translate: "scpdy.form.cctvMonitor.notLinkedToServer.body" })
 			.button({ translate: "scpdy.form.misc.close" })
+			// @ts-expect-error
 			.show(player);
 
 		return;
@@ -142,6 +144,7 @@ function onInteract(player: mc.Player, cctvMonitor: mc.Entity): void {
 			.title({ translate: "scpdy.form.cctvMonitor.failedToGetServer.title" })
 			.body({ translate: "scpdy.form.cctvMonitor.failedToGetServer.body" })
 			.button({ translate: "scpdy.form.cctvMonitor.failedToGetServer.removeLinkButton" })
+			// @ts-expect-error
 			.show(player)
 			.then((response) => {
 				if (response.canceled) return;
