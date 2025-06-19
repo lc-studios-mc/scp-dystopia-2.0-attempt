@@ -319,6 +319,15 @@ scpdy.scp005.itemName=SCP-005 "Skeleton Key"\n§eLets you bypass most security l
 ## * <-------------------------> *
 
 
+## --- throwables ---
+
+scpdy.frag_grenade=Frag Grenade
+entity.lc:scpdy_auto_frag_grenade.name=Frag Grenade
+
+
+## * <-------------------------> *
+
+
 ## --- utility ---
 
 scpdy.wrench=Wrench

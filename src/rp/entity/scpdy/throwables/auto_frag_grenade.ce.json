@@ -1,0 +1,30 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "lc:scpdy_auto_frag_grenade",
+			"materials": {
+				"default": "entity"
+			},
+			"textures": {
+				"default": "textures/scpdy/throwables/frag_grenade"
+			},
+			"geometry": {
+				"default": "geometry.scpdy_frag_grenade_world"
+			},
+			"animations": {
+				"ctrl.main": "controller.animation.scpdy.auto_frag_grenade.main",
+
+				"anim.fly": "animation.scpdy.frag_grenade_world.fly",
+				"anim.ground": "animation.scpdy.frag_grenade_world.ground",
+				"anim.bounce": "animation.scpdy.frag_grenade_world.bounce"
+			},
+			"scripts": {
+				"animate": ["ctrl.main"],
+				"initialize": ["v.is_stopped = false;"],
+				"pre_animation": ["v.is_stopped = q.property('lc:is_stopped');"]
+			},
+			"render_controllers": ["controller.render.scpdy.frag_grenade_world"]
+		}
+	}
+}
