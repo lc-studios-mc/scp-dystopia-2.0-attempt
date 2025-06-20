@@ -287,6 +287,17 @@
 		},
 		// #endregion
 
+		// #region footsteps
+		"scpdy.footstep.mtf": {
+			"category": "hostile",
+			"sounds": [
+				"sounds/scpdy/footsteps/mtf_step_1",
+				"sounds/scpdy/footsteps/mtf_step_2",
+				"sounds/scpdy/footsteps/mtf_step_3"
+			]
+		},
+		// #endregion
+
 		// #region Gore
 		"scpdy.gore.explode": {
 			"category": "hostile",
@@ -307,6 +318,45 @@
 			"max_distance": 6.0,
 			"min_distance": null,
 			"sounds": ["sounds/scpdy/gore/splash"]
+		},
+		// #endregion
+
+		// #region guns
+		"scpdy.gun.g36.fire": {
+			"category": "hostile",
+			"max_distance": 20.0,
+			"min_distance": 3.0,
+			"sounds": ["sounds/scpdy/guns/g36_fire"]
+		},
+		"scpdy.gun.load_fast": {
+			"category": "hostile",
+			"max_distance": 6.0,
+			"min_distance": null,
+			"sounds": [{ "name": "sounds/scpdy/guns/load_fast", "volume": 1.1 }]
+		},
+		"scpdy.gun.p90.fire": {
+			"category": "hostile",
+			"max_distance": 15.0,
+			"min_distance": 3.0,
+			"sounds": ["sounds/scpdy/guns/p90_fire"]
+		},
+		"scpdy.gun.suppressed.fire_1": {
+			"category": "hostile",
+			"max_distance": 15.0,
+			"min_distance": null,
+			"sounds": ["sounds/scpdy/guns/suppressed_fire_1"]
+		},
+		"scpdy.gun.suppressed.fire_2": {
+			"category": "hostile",
+			"max_distance": 16.0,
+			"min_distance": null,
+			"sounds": ["sounds/scpdy/guns/suppressed_fire_2"]
+		},
+		"scpdy.gun.suppressed.fire_3": {
+			"category": "hostile",
+			"max_distance": 17.0,
+			"min_distance": null,
+			"sounds": ["sounds/scpdy/guns/suppressed_fire_3"]
 		},
 		// #endregion
 
@@ -529,6 +579,47 @@
 			"max_distance": 8.0,
 			"min_distance": null,
 			"sounds": ["sounds/scpdy/weapons/frag_grenade/throw"]
+		},
+		// #endregion
+
+		// #region mobs
+		"scpdy.mob.f_mtf_epsilon11.ambient": {
+			"category": "hostile",
+			"max_distance": 6.0,
+			"min_distance": null,
+			"sounds": [
+				"sounds/scpdy/mobs/f_mtf_epsilon11/ambient_1",
+				"sounds/scpdy/mobs/f_mtf_epsilon11/ambient_2",
+				"sounds/scpdy/mobs/f_mtf_epsilon11/ambient_3",
+				"sounds/scpdy/mobs/f_mtf_epsilon11/ambient_4",
+				"sounds/scpdy/mobs/f_mtf_epsilon11/ambient_5",
+				"sounds/scpdy/mobs/f_mtf_epsilon11/ambient_6",
+				"sounds/scpdy/mobs/f_mtf_epsilon11/ambient_7",
+				"sounds/scpdy/mobs/f_mtf_epsilon11/ambient_8"
+			]
+		},
+		"scpdy.mob.f_mtf_epsilon11.angry": {
+			"category": "hostile",
+			"max_distance": 8.0,
+			"min_distance": null,
+			"sounds": [
+				"sounds/scpdy/mobs/f_mtf_epsilon11/angry_1",
+				"sounds/scpdy/mobs/f_mtf_epsilon11/angry_2",
+				"sounds/scpdy/mobs/f_mtf_epsilon11/angry_3",
+				"sounds/scpdy/mobs/f_mtf_epsilon11/angry_4"
+			]
+		},
+		"scpdy.mob.f_mtf_epsilon11.death": {
+			"category": "hostile",
+			"max_distance": 12.0,
+			"min_distance": null,
+			"sounds": ["sounds/scpdy/mobs/f_mtf_epsilon11/death"]
+		},
+		"scpdy.mob.f_tro.angry": {
+			"category": "hostile",
+			"max_distance": 8.0,
+			"min_distance": null,
+			"sounds": ["sounds/scpdy/mobs/f_tro/angry_1", "sounds/scpdy/mobs/f_tro/angry_2"]
 		},
 		// #endregion
 
@@ -1151,6 +1242,12 @@
 			"max_distance": 10.0,
 			"min_distance": null,
 			"sounds": ["sounds/scpdy/misc/monster_attack"]
+		},
+		"scpdy.misc.punch": {
+			"category": "hostile",
+			"max_distance": 6.0,
+			"min_distance": null,
+			"sounds": ["sounds/scpdy/misc/punch_1", "sounds/scpdy/misc/punch_2", "sounds/scpdy/misc/punch_3"]
 		},
 		"scpdy.misc.small_light.off": {
 			"category": "neutral",

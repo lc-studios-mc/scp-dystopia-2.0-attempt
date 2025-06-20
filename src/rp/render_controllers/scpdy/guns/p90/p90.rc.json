@@ -1,0 +1,10 @@
+{
+	"format_version": "1.8.0",
+	"render_controllers": {
+		"controller.render.scpdy.gun.p90.tp": {
+			"geometry": "Geometry.p90_tp",
+			"materials": [{ "*": "Material.p90_tp" }],
+			"textures": ["Texture.p90_tp"]
+		}
+	}
+}

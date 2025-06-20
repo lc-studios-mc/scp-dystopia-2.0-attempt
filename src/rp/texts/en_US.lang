@@ -310,6 +310,23 @@ scpdy.config.text.messageOnSaveAndExit=§aSaved changes!
 ## * <-------------------------> *
 
 
+## --- mobs ---
+
+item.spawn_egg.entity.lc:scpdy_f_mtf_epsilon11.name=MTF Epsilon-11 Spawn Egg
+entity.lc:scpdy_f_mtf_epsilon11.name=MTF Epsilon-11
+entity.lc:scpdy_f_mtf_epsilon11_dead.name=Corpse
+
+item.spawn_egg.entity.lc:scpdy_f_researcher.name=SCP Foundation Researcher Spawn Egg
+entity.lc:scpdy_f_researcher.name=Researcher
+entity.lc:scpdy_f_researcher_dead.name=Corpse
+
+item.spawn_egg.entity.lc:scpdy_f_tro.name=SCP Foundation TRO Spawn Egg
+entity.lc:scpdy_f_tro.name=TRO
+entity.lc:scpdy_f_tro_dead.name=Corpse
+
+## * <-------------------------> *
+
+
 ## --- scp ---
 
 scpdy.scp005=SCP-005
@@ -330,6 +347,10 @@ entity.lc:scpdy_auto_frag_grenade.name=Frag Grenade
 
 ## --- utility ---
 
+scpdy.mob_stationary_toggler=Mob Stationary Toggler
+scpdy.mob_stationary_toggler.displayName=Mob Stationary Toggler\n§eLets you toggle the stationary mode of certain mobs.
+scpdy.tame_scpf_mob=Tame SCP Foundation Mob
+scpdy.tame_scpf_mob.displayName=Tame SCP Foundation Mob\n§eLets you tame SCP Foundation mobs, including MTF operators.
 scpdy.wrench=Wrench
 scpdy.wrench.itemName=Wrench\n§eCan change the variants of certain blocks
 
@@ -754,27 +775,16 @@ entity.lc:scpdy_50bmg_explosion.name=50 Cal
 entity.lc:scpdy_gib_small.name=Gib
 entity.lc:scpdy_gib_medium.name=Gib
 
-## entities -> human -> f -> mtf
-entity.lc:scpdy_f_mtf_epsilon11.name=MTF Epsilon-11 Operator
-item.spawn_egg.entity.lc:scpdy_f_mtf_epsilon11.name=§7SCP:DY §8| §fMTF Epsilon-11 Operator
-entity.lc:scpdy_f_mtf_epsilon11_dead.name=Corpse
-
-## entities -> human -> f -> ...
-entity.lc:scpdy_f_researcher.name=Researcher
-item.spawn_egg.entity.lc:scpdy_f_researcher.name=§7SCP:DY §8| §fFoundation Researcher
-entity.lc:scpdy_f_researcher_dead.name=Corpse
-entity.lc:scpdy_f_tro.name=TRO
-item.spawn_egg.entity.lc:scpdy_f_tro.name=§7SCP:DY §8| §fFoundation TRO
-entity.lc:scpdy_f_tro_dead.name=Corpse
-
 ## entities -> misc -> ...
 entity.lc:scpdy_rb_placeholder_anchor.name=RB Placeholder Anchor
 entity.lc:scpdy_sittable_anchor.name=Sittable
 entity.lc:scpdy_toilet_rideable.name=Sittable
 
 ## entities -> projectiles -> ...
+entity.lc:scpdy_bullet_g36c.name=Bullet
 entity.lc:scpdy_bullet_m4a1.name=Bullet
 entity.lc:scpdy_bullet_mp5.name=Bullet
+entity.lc:scpdy_bullet_p90.name=Bullet
 entity.lc:scpdy_corrosion_projectile.name=Corrosion
 entity.lc:scpdy_scriptable_bullet_large.name=Bullet
 entity.lc:scpdy_scriptable_bullet.name=Bullet

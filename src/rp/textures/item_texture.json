@@ -146,6 +146,12 @@
 		"scpdy_fnet_manager_icon": {
 			"textures": "textures/scpdy/items/utility/fnet_manager"
 		},
+		"scpdy_mob_stationary_toggler_icon": {
+			"textures": "textures/scpdy/items/utility/mob_stationary_toggler_icon"
+		},
+		"scpdy_tame_scpf_mob_icon": {
+			"textures": "textures/scpdy/items/utility/tame_scpf_mob_icon"
+		},
 		"scpdy_wrench_icon": {
 			"textures": "textures/scpdy/items/utility/wrench_icon"
 		},

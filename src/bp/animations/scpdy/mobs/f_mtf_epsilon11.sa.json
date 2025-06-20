@@ -1,0 +1,21 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.scpdy.bp.f_mtf_epsilon11.throw_frag_grenade": {
+			"animation_length": 2.0,
+			"loop": false,
+			"timeline": {
+				"0.5": ["@s lc:throw_frag_grenade"],
+				"1.0": ["@s lc:on_end_throwing_frag_grenade"]
+			}
+		},
+		"animation.scpdy.bp.f_mtf_epsilon11.contain_target": {
+			"animation_length": 2.0,
+			"loop": false,
+			"timeline": {
+				"0.3": ["@s lc:contain_target"],
+				"1.0": ["@s lc:on_end_containing_target"]
+			}
+		}
+	}
+}

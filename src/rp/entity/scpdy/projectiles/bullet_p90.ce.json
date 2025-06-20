@@ -1,0 +1,21 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "lc:scpdy_bullet_p90",
+			"materials": {
+				"default": "entity_emissive_alpha"
+			},
+			"textures": {
+				"default": "textures/scpdy/projectiles/bullet_standard"
+			},
+			"geometry": {
+				"default": "geometry.scpdy_bullet_standard"
+			},
+			"scripts": {
+				"scale": "0.8"
+			},
+			"render_controllers": ["controller.render.scpdy.bullet.standard"]
+		}
+	}
+}

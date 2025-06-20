@@ -1,0 +1,39 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "lc:scpdy_f_researcher",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"researcher_var_0": "textures/scpdy/mobs/f_researcher_var_0",
+				"researcher_var_1": "textures/scpdy/mobs/f_researcher_var_1",
+				"researcher_var_2": "textures/scpdy/mobs/f_researcher_var_2",
+				"researcher_var_3": "textures/scpdy/mobs/f_researcher_bb607",
+				"researcher_var_4": "textures/scpdy/mobs/f_researcher_lc45",
+				"researcher_var_5": "textures/scpdy/mobs/f_researcher_lbb"
+			},
+			"geometry": {
+				"default": "geometry.scpdy_f_researcher"
+			},
+			"animations": {
+				"ctrl.main": "controller.animation.scpdy.f_researcher.main",
+
+				"anim.look_at_target": "animation.scpdy.humanoid_base.look_at_target",
+				"anim.walk.legs": "animation.scpdy.humanoid_base.walk.legs",
+				"anim.walk.arms": "animation.scpdy.humanoid_base.walk.arms",
+				"anim.idle": "animation.scpdy_humanoid_base.idle"
+			},
+			"scripts": {
+				"scale": "0.9375",
+				"animate": ["ctrl.main"]
+			},
+			"render_controllers": ["controller.render.scpdy.f_researcher"],
+			"spawn_egg": {
+				"base_color": "#dfdace",
+				"overlay_color": "#645e4f"
+			}
+		}
+	}
+}

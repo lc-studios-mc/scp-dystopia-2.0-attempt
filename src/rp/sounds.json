@@ -65,22 +65,53 @@
 				"pitch": [0.9, 1.1],
 				"volume": 1.0
 			},
-			"lc:scpdy_f_tro": {
+			"lc:scpdy_f_researcher": {
 				"events": {
-					"shoot": {
-						"sound": "scpdy.gun.mp5sd.shoot",
-						"volume": 1.5
+					"death": {
+						"sound": "random.hurt",
+						"volume": 1.1
 					}
 				},
-				"pitch": [1.0, 1.0],
+				"pitch": [0.95, 1.05],
+				"volume": 1.0
+			},
+			"lc:scpdy_f_tro": {
+				"events": {
+					"attack": "scpdy.misc.punch",
+					"shoot": {
+						"sound": "scpdy.gun.g36.fire",
+						"volume": 1.5
+					},
+					"angry": {
+						"sound": "scpdy.mob.f_tro.angry",
+						"volume": 0.88
+					},
+					"step": "scpdy.footstep.mtf"
+				},
+				"pitch": [0.95, 1.05],
 				"volume": 1.0
 			},
 			"lc:scpdy_f_mtf_epsilon11": {
 				"events": {
+					"attack": "scpdy.misc.punch",
 					"shoot": {
-						"sound": "scpdy.gun.m4a1.shoot",
-						"volume": 1.6
-					}
+						"sound": "scpdy.gun.p90.fire",
+						"volume": 1.3
+					},
+					"ambient": {
+						"sound": "scpdy.mob.f_mtf_epsilon11.ambient",
+						"volume": 1.0
+					},
+					"angry": {
+						"sound": "scpdy.mob.f_mtf_epsilon11.angry",
+						"volume": 1.2
+					},
+					"death": {
+						"sound": "scpdy.mob.f_mtf_epsilon11.death",
+						"volume": 1.3,
+						"pitch": 1.02
+					},
+					"step": "scpdy.footstep.mtf"
 				},
 				"pitch": [0.95, 1.05],
 				"volume": 1.0

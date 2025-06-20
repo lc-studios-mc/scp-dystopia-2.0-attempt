@@ -1,0 +1,10 @@
+{
+	"format_version": "1.8.0",
+	"render_controllers": {
+		"controller.render.scpdy.gunatt.lasersight": {
+			"geometry": "Geometry.gunatt_lasersight",
+			"materials": [{ "*": "Material.gunatt_lasersight" }],
+			"textures": ["Texture.gunatt_lasersight"]
+		}
+	}
+}

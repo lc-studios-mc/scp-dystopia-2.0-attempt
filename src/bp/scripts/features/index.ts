@@ -10,5 +10,6 @@ import "./furniture";
 import "./gore";
 import "./lkdn";
 import "./machinery";
+import "./mobs";
 import "./throwables";
 import "./uncategorizable";

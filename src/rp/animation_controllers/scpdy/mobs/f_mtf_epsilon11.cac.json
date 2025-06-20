@@ -1,0 +1,108 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.scpdy.f_mtf_epsilon11.main": {
+			"initial_state": "idle",
+			"states": {
+				"idle": {
+					"animations": ["anim.look_at_target", "anim.walk.legs", "anim.gun.hold"],
+					"transitions": [
+						{
+							"normal": "v.state == 10"
+						},
+						{
+							"throwing_frag_grenade": "v.state == 11"
+						},
+						{
+							"chasing_target": "v.state == 20"
+						},
+						{
+							"containing_target": "v.state == 21"
+						}
+					],
+					"blend_transition": 0.2
+				},
+				"normal": {
+					"animations": ["ctrl.normal"],
+					"transitions": [
+						{
+							"throwing_frag_grenade": "v.state == 11"
+						},
+						{
+							"idle": "v.state != 10"
+						}
+					],
+					"blend_transition": 0.2
+				},
+				"throwing_frag_grenade": {
+					"animations": ["anim.look_at_target", "anim.walk.legs", "anim.throw_frag_grenade"],
+					"transitions": [
+						{
+							"normal": "v.state != 11"
+						}
+					],
+					"blend_transition": 0.2
+				},
+				"chasing_target": {
+					"animations": ["anim.look_at_target", "anim.walk.legs", "anim.gun.aim"],
+					"transitions": [
+						{
+							"containing_target": "v.state == 21"
+						},
+						{
+							"idle": "v.state != 20"
+						}
+					],
+					"blend_transition": 0.2
+				},
+				"containing_target": {
+					"animations": ["anim.look_at_target", "anim.walk.legs", "anim.gun.melee"],
+					"transitions": [
+						{
+							"idle": "v.state != 21"
+						}
+					],
+					"blend_transition": 0.2
+				}
+			}
+		},
+		"controller.animation.scpdy.f_mtf_epsilon11.normal": {
+			"initial_state": "aim",
+			"states": {
+				"aim": {
+					"animations": ["anim.look_at_target", "anim.walk.legs", "anim.gun.aim"],
+					"transitions": [
+						{
+							"reload": "v.is_reloading"
+						},
+						{
+							"melee": "v.is_melee_attacking"
+						}
+					],
+					"blend_transition": 0.2
+				},
+				"melee": {
+					"animations": ["anim.look_at_target", "anim.walk.legs", "anim.gun.melee"],
+					"transitions": [
+						{
+							"aim": "!v.is_melee_attacking && q.has_target"
+						}
+					],
+					"blend_transition": 0.16
+				},
+				"reload": {
+					"animations": ["anim.look_at_target", "anim.walk.legs", "anim.gun.reload"],
+					"transitions": [
+						{
+							"aim": "!v.is_reloading"
+						},
+						{
+							"melee": "v.is_melee_attacking"
+						}
+					],
+					"blend_transition": 0.16
+				}
+			}
+		}
+	}
+}

@@ -8,7 +8,6 @@ import "./components";
 import "./config";
 import "./controlDevices";
 import "./facilityNetwork";
-import "../features/gore";
 import "./humanMobs";
 import "./scps";
 import "./theUnknown";

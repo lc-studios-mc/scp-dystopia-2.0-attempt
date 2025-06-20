@@ -7,7 +7,6 @@ import "./logic/components";
 import "./logic/config";
 import "./logic/controlDevices";
 import "./logic/facilityNetwork";
-import "./logic/humanMobs";
 import "./logic/scps";
 import "./logic/theUnknown";
 import "./logic/uncategorized";
