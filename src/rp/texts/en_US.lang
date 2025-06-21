@@ -769,9 +769,6 @@ entity.lc:scpdy_blast_door_1_preview.name=Blast Door Preview
 entity.lc:scpdy_blast_door_2.name=Blast Door
 entity.lc:scpdy_blast_door_2_preview.name=Blast Door Preview
 
-## entities -> blood -> ...
-entity.lc:scpdy_blood.name=Blood
-
 ## entities -> cctv -> ...
 entity.lc:scpdy_cctv_camera.name=CCTV Camera
 entity.lc:scpdy_cctv_monitor.name=CCTV Monitor
