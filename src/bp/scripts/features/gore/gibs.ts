@@ -62,7 +62,7 @@ mc.world.afterEvents.entityDie.subscribe(
 		} catch {}
 	},
 	{
-		entityTypes: [GIB_CHOP_ENTITY_TYPE, GIB_LIMB_ENTITY_TYPE],
+		entityTypes: [GIB_CHOP_ENTITY_TYPE, GIB_LIMB_ENTITY_TYPE, GIB_HEAD_ENTITY_TYPE],
 	},
 );
 
