@@ -1,0 +1,18 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:attachable": {
+		"description": {
+			"identifier": "lc:scpdy_throwable_head",
+			"materials": {
+				"default": "entity"
+			},
+			"textures": {
+				"default": "textures/scpdy/gore/gib_head"
+			},
+			"geometry": {
+				"default": "geometry.scpdy_throwable_head"
+			},
+			"render_controllers": ["controller.render.scpdy.standard"]
+		}
+	}
+}

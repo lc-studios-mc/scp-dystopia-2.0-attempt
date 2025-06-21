@@ -1,6 +1,6 @@
+import { spawnGoreExplosion } from "@/features/gore/gore";
 import { randomInt } from "@lib/utils/mathUtils";
 import * as vec3 from "@lib/utils/vec3";
-import { spawnGoreExplosion } from "@/features/gore/gibs";
 import * as mc from "@minecraft/server";
 
 export const SCP427_1_ENTITY_TYPE = "lc:scpdy_scp427_1";
@@ -25,7 +25,10 @@ mc.world.afterEvents.dataDrivenEntityTrigger.subscribe(
 
 		entity.dimension.spawnItem(itemStack, entity.location);
 
-		spawnGoreExplosion(entity.dimension, vec3.add(entity.location, vec3.UP));
+		spawnGoreExplosion({
+			dimension: entity.dimension,
+			location: vec3.add(entity.location, vec3.UP),
+		});
 		entity.remove();
 	},
 	{

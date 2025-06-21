@@ -1,0 +1,29 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.scpdy.bp.gib.main": {
+			"initial_state": "not_grounded",
+			"states": {
+				"not_grounded": {
+					"on_exit": [
+						"/particle lc:scpdy_blood_splash_small_particle ~ ~0.05 ~",
+						"/playsound scpdy.gore.drop @a[r=10] ~ ~ ~",
+						"@s lc:on_grounded"
+					],
+					"transitions": [
+						{
+							"grounded": "q.is_on_ground"
+						}
+					]
+				},
+				"grounded": {
+					"transitions": [
+						{
+							"not_grounded": "!q.is_on_ground"
+						}
+					]
+				}
+			}
+		}
+	}
+}

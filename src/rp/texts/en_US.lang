@@ -233,6 +233,17 @@ scpdy.actionHint.furniture.toilet.fartHint=Look 90 degrees down (or up) to fart
 ## * <-------------------------> *
 
 
+## --- gore ---
+
+entity.lc:scpdy_gib_chop.name=Gib
+entity.lc:scpdy_gib_head.name=Gib
+entity.lc:scpdy_gib_limb.name=Gib
+scpdy.gore.gib.eat=Eat
+
+
+## * <-------------------------> *
+
+
 ## --- lkdn ---
 
 lc:scpdy_itemGroup_lkdnDevices=§7SCP:DY §8- §fLockdown Devices
@@ -340,6 +351,8 @@ scpdy.scp005.itemName=SCP-005 "Skeleton Key"\n§eLets you bypass most security l
 
 scpdy.frag_grenade=Frag Grenade
 entity.lc:scpdy_auto_frag_grenade.name=Frag Grenade
+scpdy.throwable_head=Throwable Head
+entity.lc:scpdy_thrown_head.name=Thrown Head
 
 
 ## * <-------------------------> *
@@ -770,10 +783,6 @@ entity.lc:scpdy_keypad.name=Keypad
 ## entities -> explosion -> ...
 entity.lc:scpdy_landmine_explosion.name=Landmine
 entity.lc:scpdy_50bmg_explosion.name=50 Cal
-
-## entities -> gibs -> ...
-entity.lc:scpdy_gib_small.name=Gib
-entity.lc:scpdy_gib_medium.name=Gib
 
 ## entities -> misc -> ...
 entity.lc:scpdy_rb_placeholder_anchor.name=RB Placeholder Anchor

@@ -1,0 +1,63 @@
+{
+	"format_version": "1.21.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "lc:scpdy_thrown_head",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false,
+			"runtime_identifier": "minecraft:arrow"
+		},
+		"component_groups": {
+			"despawn": {
+				"minecraft:instant_despawn": {}
+			}
+		},
+		"components": {
+			"minecraft:type_family": {
+				"family": ["projectile", "thrown_head"]
+			},
+			"minecraft:collision_box": {
+				"width": 0.4,
+				"height": 0.4
+			},
+			"minecraft:projectile": {
+				"on_hit": {
+					"impact_damage": {
+						"damage": 12,
+						"knockback": true,
+						"semi_random_diff_damage": false,
+						"destroy_on_hit": true
+					},
+					"definition_event": {
+						"affect_projectile": true
+					},
+					"remove_on_hit": {}
+				},
+				"power": 1.0,
+				"gravity": 0.06,
+				"inertia": 1.0,
+				"liquid_inertia": 0.3,
+				"uncertainty_base": 1.0,
+				"uncertainty_multiplier": 1.0,
+				"anchor": 1,
+				"offset": [0, 0.02, 0.1],
+				"reflect_on_hurt": true,
+				"catch_fire": false
+			},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": false
+			},
+			"minecraft:conditional_bandwidth_optimization": {}
+		},
+		"events": {
+			"despawn": {
+				"add": {
+					"component_groups": ["despawn"]
+				}
+			}
+		}
+	}
+}

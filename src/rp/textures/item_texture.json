@@ -139,6 +139,13 @@
 			"textures": "textures/scpdy/scp/scp427/scp427_1_flesh_raw"
 		},
 		// #endregion
+
+		// #region throwables
+		"scpdy_throwable_head_icon": {
+			"textures": "textures/scpdy/throwables/throwable_head_icon"
+		},
+		// #endregion
+
 		// #region utility
 		"scpdy_config_icon": {
 			"textures": "textures/scpdy/items/utility/config_icon"

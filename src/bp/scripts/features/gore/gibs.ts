@@ -1,151 +1,89 @@
-import { CONFIG } from "@logic/config/config";
+import { randf } from "@/utils/math";
 import * as mc from "@minecraft/server";
-import { spreadBlood } from "./blood";
-import { GIB_MEDIUM_ENTITY_TYPE, GIB_SMALL_ENTITY_TYPE } from "./shared";
+import * as vec3 from "@/utils/vec3";
+import { spawnSmallBloodSplashParticle } from "./gore";
 
-type GibType = "small" | "medium";
+const GIB_CHOP_ENTITY_TYPE = "lc:scpdy_gib_chop";
+const GIB_HEAD_ENTITY_TYPE = "lc:scpdy_gib_head";
+const GIB_LIMB_ENTITY_TYPE = "lc:scpdy_gib_limb";
 
-export function spawnGoreExplosion(dimension: mc.Dimension, location: mc.Vector3): void {
-	dimension.playSound("scpdy.gore.explode", location, { volume: 1.6 });
+export function spawnGibChop(dimension: mc.Dimension, location: mc.Vector3): void {
+	location = vec3.add(location, {
+		x: randf(-0.15, 0.15),
+		y: randf(0.0, 0.15),
+		z: randf(-0.15, 0.15),
+	});
 
-	dimension.spawnParticle("lc:scpdy_body_explosion_particle", location);
-	dimension.spawnParticle("lc:scpdy_blood_splash_emitter", location);
+	const gib = dimension.spawnEntity(GIB_CHOP_ENTITY_TYPE, location);
 
-	for (let i = 0; i < 3; i++) {
-		mc.system.runTimeout(() => {
-			dimension.spawnParticle("lc:scpdy_blood_splash_emitter", {
-				x: location.x + (Math.random() - 0.5),
-				y: location.y + 0.1,
-				z: location.z + (Math.random() - 0.5),
-			});
-		}, i);
-	}
+	gib.setProperty("lc:yaw", randf(-180, 180));
 
-	if (CONFIG.disableExpensiveGoreEffects) return;
-
-	spreadBlood(dimension, location, true);
-
-	const existingGibCount = dimension.getEntities({ families: ["gib"] }).length;
-
-	for (let i = 0; i < 3; i++) {
-		spawnGib("medium", dimension, location, {
-			x: (Math.random() - 0.5) / 1.5,
-			y: 0.1,
-			z: (Math.random() - 0.5) / 1.5,
-		});
-	}
-
-	let i = 0;
-	let runId = -1;
-
-	function spawnSmallGib(): void {
-		spawnGib("small", dimension, location, {
-			x: (Math.random() - 0.5) / 6,
-			y: 0.25 * (i / 3.5) + Math.random() / 2.7,
-			z: (Math.random() - 0.5) / 6,
-		});
-	}
-
-	function spawnMediumGib(): void {
-		spawnGib("medium", dimension, location, {
-			x: (Math.random() - 0.5) / 4,
-			y: 0.2 * (i / 5) + Math.random() / 3,
-			z: (Math.random() - 0.5) / 4,
-		});
-	}
-
-	try {
-		runId = mc.system.runInterval(() => {
-			if (existingGibCount < 20) {
-				if (i < 7) {
-					spawnSmallGib();
-				} else if (i < 11) {
-					spawnMediumGib();
-				} else {
-					mc.system.clearRun(runId);
-					return;
-				}
-			} else if (existingGibCount < 40) {
-				if (i < 4) {
-					spawnSmallGib();
-				} else if (i < 7) {
-					spawnMediumGib();
-				} else {
-					mc.system.clearRun(runId);
-					return;
-				}
-			} else if (existingGibCount < 60) {
-				if (i < 2) {
-					spawnSmallGib();
-				} else if (i < 4) {
-					spawnMediumGib();
-				} else {
-					mc.system.clearRun(runId);
-					return;
-				}
-			} else {
-				mc.system.clearRun(runId);
-			}
-
-			i++;
-		}, 1);
-	} catch {
-		mc.system.clearRun(runId);
-	}
+	gib.applyImpulse({
+		x: randf(-0.1, 0.1),
+		y: randf(0.3, 0.41),
+		z: randf(-0.1, 0.1),
+	});
 }
 
-function spawnGib(type: GibType, dimension: mc.Dimension, location: mc.Vector3, impulse?: mc.Vector3): void {
-	const entityType = type === "medium" ? "lc:scpdy_gib_medium" : "lc:scpdy_gib_small";
-	const gibEntity = dimension.spawnEntity(entityType, location);
+export function spawnGibHead(dimension: mc.Dimension, location: mc.Vector3): void {
+	const gib = dimension.spawnEntity(GIB_HEAD_ENTITY_TYPE, location);
 
-	if (impulse) {
-		gibEntity.applyImpulse(impulse);
-	}
+	gib.setProperty("lc:yaw", randf(-180, 180));
+
+	gib.applyImpulse({
+		x: randf(-0.12, 0.12),
+		y: randf(0.1, 0.15),
+		z: randf(-0.12, 0.12),
+	});
 }
 
-function onGibEntityDie(gibEntity: mc.Entity): void {
-	try {
-		const particleLoc: mc.Vector3 = {
-			x: gibEntity.location.x,
-			y: gibEntity.location.y + 0.1,
-			z: gibEntity.location.z,
-		};
+export function spawnGibLimb(dimension: mc.Dimension, location: mc.Vector3): void {
+	location = vec3.add(location, {
+		x: randf(-0.15, 0.15),
+		y: randf(0.0, 0.15),
+		z: randf(-0.15, 0.15),
+	});
 
-		gibEntity.dimension.spawnParticle("lc:scpdy_blood_splash_small_emitter", particleLoc);
-	} finally {
-		gibEntity.remove();
-	}
+	const gib = dimension.spawnEntity(GIB_LIMB_ENTITY_TYPE, location);
+
+	gib.setProperty("lc:yaw", randf(-180, 180));
+
+	gib.applyImpulse({
+		x: randf(-0.2, 0.2),
+		y: randf(0.2, 0.4),
+		z: randf(-0.2, 0.2),
+	});
 }
 
 mc.world.afterEvents.entityDie.subscribe(
-	(event) => {
-		if (event.damageSource.cause === mc.EntityDamageCause.selfDestruct) return;
-		if (event.damageSource.cause === mc.EntityDamageCause.lava) return;
-
-		onGibEntityDie(event.deadEntity);
+	(e) => {
+		try {
+			e.deadEntity.remove();
+		} catch {}
 	},
 	{
-		entityTypes: [GIB_SMALL_ENTITY_TYPE, GIB_MEDIUM_ENTITY_TYPE],
+		entityTypes: [GIB_CHOP_ENTITY_TYPE, GIB_LIMB_ENTITY_TYPE],
 	},
 );
 
-mc.world.afterEvents.playerInteractWithEntity.subscribe((event) => {
-	if (!event.target.typeId.startsWith("lc:scpdy_gib")) return;
+mc.world.afterEvents.playerInteractWithEntity.subscribe((e) => {
+	if (e.target.typeId === GIB_CHOP_ENTITY_TYPE) {
+		e.player.addEffect("absorption", 15 * mc.TicksPerSecond, { amplifier: 1 });
+		e.player.addEffect("saturation", 2, { amplifier: 1, showParticles: false });
 
-	event.player.dimension.playSound("random.eat", event.player.getHeadLocation());
-	event.target.remove();
+		spawnSmallBloodSplashParticle(e.target.dimension, vec3.midpoint(e.target.location, e.player.getHeadLocation()));
+		e.player.dimension.playSound("random.eat", e.player.getHeadLocation());
+		e.target.remove();
+	} else if (e.target.typeId === GIB_LIMB_ENTITY_TYPE) {
+		e.player.addEffect("regeneration", 4 * mc.TicksPerSecond, { amplifier: 2 });
+		e.player.addEffect("saturation", 2, { amplifier: 1, showParticles: false });
 
-	event.player.addEffect("saturation", 2, { amplifier: 1, showParticles: false });
-	event.player.addEffect("regeneration", 5, { amplifier: 1, showParticles: true });
-});
-
-mc.system.afterEvents.scriptEventReceive.subscribe((event) => {
-	if (event.id !== "scpdy:gore_explosion") return;
-
-	const sourceDim = event.sourceEntity?.dimension ?? event.sourceBlock?.dimension;
-	const sourceLoc = event.sourceEntity?.location ?? event.sourceBlock?.location;
-
-	if (!sourceDim || !sourceLoc) return;
-
-	spawnGoreExplosion(sourceDim, sourceLoc);
+		spawnSmallBloodSplashParticle(e.target.dimension, vec3.midpoint(e.target.location, e.player.getHeadLocation()));
+		e.player.dimension.playSound("random.eat", e.player.getHeadLocation());
+		e.target.remove();
+	} else if (e.target.typeId === GIB_HEAD_ENTITY_TYPE) {
+		e.player.dimension.spawnItem(new mc.ItemStack("lc:scpdy_throwable_head"), e.player.getHeadLocation());
+		e.player.dimension.playSound("random.pop", e.player.getHeadLocation(), { pitch: 1.3, volume: 0.7 });
+		e.target.remove();
+	}
 });

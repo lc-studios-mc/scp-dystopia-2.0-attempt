@@ -15,6 +15,13 @@
 				"sounds/scpdy/misc/bullet_casing_drop_5"
 			]
 		},
+		"copper.wax.on": {
+			// Changed to gore sound (flesh piece drop)
+			"category": "hostile",
+			"max_distance": 5.0,
+			"min_distance": 0.6,
+			"sounds": ["sounds/scpdy/gore/drop_1", "sounds/scpdy/gore/small_1", "sounds/scpdy/gore/small_2"]
+		},
 		// #endregion
 
 		// #region Music
@@ -304,6 +311,12 @@
 			"max_distance": 12.0,
 			"min_distance": null,
 			"sounds": ["sounds/scpdy/gore/explode"]
+		},
+		"scpdy.gore.impact": {
+			"category": "hostile",
+			"max_distance": 8.0,
+			"min_distance": 0.5,
+			"sounds": ["sounds/scpdy/gore/impact"]
 		},
 		"scpdy.gore.small": {
 			"category": "hostile",
