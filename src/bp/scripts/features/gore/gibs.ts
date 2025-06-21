@@ -67,6 +67,8 @@ mc.world.afterEvents.entityDie.subscribe(
 );
 
 mc.world.afterEvents.playerInteractWithEntity.subscribe((e) => {
+	if (!e.target.isValid) return;
+
 	if (e.target.typeId === GIB_CHOP_ENTITY_TYPE) {
 		e.player.addEffect("absorption", 15 * mc.TicksPerSecond, { amplifier: 1 });
 		e.player.addEffect("saturation", 2, { amplifier: 1, showParticles: false });
