@@ -244,6 +244,14 @@ scpdy.gore.gib.eat=Eat
 ## * <-------------------------> *
 
 
+## --- guns ---
+
+scpdy.gun.noMag=§cNO MAGAZINE§r
+
+
+## * <-------------------------> *
+
+
 ## --- lkdn ---
 
 lc:scpdy_itemGroup_lkdnDevices=§7SCP:DY §8- §fLockdown Devices
