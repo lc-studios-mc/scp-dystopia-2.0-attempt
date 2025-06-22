@@ -88,6 +88,13 @@
 			"textures": "textures/scpdy/control_devices/keypad/icon"
 		},
 		// #endregion
+
+		// #region guns
+		"scpdy_gun_m17_icon": {
+			"textures": "textures/scpdy/guns/m17_icon"
+		},
+		// #endregion
+
 		// #region keycards
 		"scpdy_keycard_lvl_0": {
 			"textures": "textures/scpdy/items/keycards/keycard_lvl_0"

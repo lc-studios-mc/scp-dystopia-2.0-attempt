@@ -347,6 +347,12 @@
 			"min_distance": null,
 			"sounds": [{ "name": "sounds/scpdy/guns/load_fast", "volume": 1.1 }]
 		},
+		"scpdy.gun.m17.fire": {
+			"category": "hostile",
+			"max_distance": 30.0,
+			"min_distance": 3.0,
+			"sounds": ["sounds/scpdy/guns/m17_fire"]
+		},
 		"scpdy.gun.p90.fire": {
 			"category": "hostile",
 			"max_distance": 15.0,

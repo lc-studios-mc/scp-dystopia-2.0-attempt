@@ -1,0 +1,28 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		// Manage main animations such as shooting and reloading
+		"controller.animation.scpdy.gun.m17.fp.main": {
+			"initial_state": "general",
+			"states": {
+				"general": {
+					"animations": ["anim.fp.general"]
+				}
+			}
+		},
+
+		// Manage extra animations such as bobbing and ADS
+		"controller.animation.scpdy.gun.m17.fp.extras": {
+			"initial_state": "general",
+			"states": {
+				"general": {
+					// prettier-ignore
+					"animations": [
+						"anim.fp.bob",
+						"anim.fp.ads"
+					]
+				}
+			}
+		}
+	}
+}

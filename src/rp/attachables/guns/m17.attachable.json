@@ -1,0 +1,65 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:attachable": {
+		"description": {
+			"identifier": "lc:scpdy_gun_m17",
+			"materials": {
+				"m17_fp": "entity_emissive_alpha",
+				"m17_tp": "entity_emissive_alpha"
+			},
+			"textures": {
+				"m17_fp": "textures/scpdy/guns/m17_fp",
+				"m17_tp": "textures/scpdy/guns/m17"
+			},
+			"geometry": {
+				"m17_fp": "geometry.scpdy_gun_m17_fp",
+				"m17_tp": "geometry.scpdy_gun_m17_tp"
+			},
+			"animations": {
+				"ctrl.fp.main": "controller.animation.scpdy.gun.m17.fp.main",
+				"ctrl.fp.extras": "controller.animation.scpdy.gun.m17.fp.extras",
+
+				"anim.fp.bob": "animation.scpdy.gun.m17.fp.bob",
+				"anim.fp.ads": "animation.scpdy.gun.m17.fp.ads",
+				"anim.fp.general": "animation.scpdy.gun.m17.fp.general",
+
+				"anim.tp.base": "animation.scpdy.gun.m17.tp.base"
+			},
+			"scripts": {
+				"animate": [
+					{ "ctrl.fp.main": "c.is_first_person" },
+					{ "ctrl.fp.extras": "c.is_first_person" },
+					{ "anim.tp.base": "!c.is_first_person" }
+				],
+				// prettier-ignore
+				"initialize": [
+					"v.ads_speed = 5.0;",
+					"v.ads_time_update = 0;"
+				],
+				"pre_animation": [
+					// Retrieve cooldowns to use in various logics
+					"v.pick_up_cd = q.cooldown_time_remaining('scpdy_gun_g36c_pick_up');",
+					"v.shoot_1_cd = q.cooldown_time_remaining('scpdy_gun_m17_shoot_1');",
+					"v.shoot_2_cd = q.cooldown_time_remaining('scpdy_gun_m17_shoot_2');",
+					"v.is_shooting = v.shoot_1_cd > 0 || v.shoot_2_cd > 0;",
+					"v.reload_cd = q.cooldown_time_remaining('scpdy_gun_m17_reload');",
+					"v.reload_tac_cd = q.cooldown_time_remaining('scpdy_gun_m17_reload_tac');",
+					"v.is_reloading = v.reload_cd > 0 || v.reload_tac_cd > 0;",
+
+					"v.should_ads = q.is_sneaking && !v.pick_up_cd && v.reload_cd <= 0 && v.reload_cd <= 0 && !q.is_item_name_any('slot.weapon.offhand', 'minecraft:shield');",
+					"v.ads_time_update = v.should_ads > 0 ? ( v.ads_time_update < 1 ? v.ads_time_update + ( q.delta_time * v.ads_speed ) : 1 ) : v.ads_time_update > 0 ? v.ads_time_update - ( q.delta_time * v.ads_speed ) : 0;",
+					"v.ads_height = 1.75;",
+
+					"v.bob_time_update = q.modified_distance_moved / 11;",
+					"v.bob_blend_weight_next = !q.is_on_ground || v.is_shooting || v.should_ads ? 0 : math.clamp(q.modified_move_speed / (q.is_sprinting ? 2.5 : 4), 0, 1);",
+					"v.bob_blend_weight = math.lerp(v.bob_blend_weight ?? 0, v.bob_blend_weight_next, q.delta_time * 7.0);"
+				]
+			},
+			"render_controllers": [
+				// Base gun
+				{ "controller.render.scpdy.gun.m17.fp": "c.is_first_person" },
+				{ "controller.render.scpdy.gun.m17.tp": "!c.is_first_person" }
+			]
+		}
+	}
+}
