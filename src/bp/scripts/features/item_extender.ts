@@ -157,3 +157,12 @@ mc.world.afterEvents.entityHitEntity.subscribe(
 		entityTypes: ["minecraft:player"],
 	},
 );
+
+mc.world.beforeEvents.playerLeave.subscribe(({ player }) => {
+	const extendedItemHandler = extendedItemHandlersByPlayer.get(player);
+	if (!extendedItemHandler) return;
+
+	extendedItemHandlersByPlayer.delete(player);
+
+	extendedItemHandler.onDelete?.();
+});
