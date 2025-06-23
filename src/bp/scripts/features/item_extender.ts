@@ -1,12 +1,6 @@
 import * as mc from "@minecraft/server";
 
-export interface ExtendedItemHandler {
-	readonly extender: ItemExtender;
-	readonly args: ExtendedItemHandlerArgs;
-	elapsedTick: number;
-	isUsing: boolean;
-	deleteOnNextTick?: boolean;
-
+export interface ExtendedItemEventHandlers {
 	onCreate?(): void;
 	onDelete?(): void;
 	onTick?(currentItemStack: mc.ItemStack): void;
@@ -15,6 +9,14 @@ export interface ExtendedItemHandler {
 	onStopUse?(e: mc.ItemStopUseAfterEvent): void;
 	onHitBlock?(e: mc.EntityHitBlockAfterEvent): void;
 	onHitEntity?(e: mc.EntityHitEntityAfterEvent): void;
+}
+
+export interface ExtendedItemHandler extends ExtendedItemEventHandlers {
+	readonly extender: ItemExtender;
+	readonly args: ExtendedItemHandlerArgs;
+	elapsedTick: number;
+	isUsing: boolean;
+	deleteOnNextTick?: boolean;
 }
 
 export interface ExtendedItemHandlerArgs {
