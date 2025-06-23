@@ -10,7 +10,7 @@ export interface ExtendedItemHandler {
 	onCreate?(): void;
 	onDelete?(): void;
 	onTick?(currentItemStack: mc.ItemStack): void;
-	canUse?(): boolean;
+	canUse?(e: mc.ItemStartUseAfterEvent): boolean;
 	onStartUse?(e: mc.ItemStartUseAfterEvent): void;
 	onStopUse?(e: mc.ItemStopUseAfterEvent): void;
 	onHitBlock?(e: mc.EntityHitBlockAfterEvent): void;
@@ -113,7 +113,7 @@ mc.world.afterEvents.itemStartUse.subscribe((e) => {
 	const extendedItemHandler = extendedItemHandlersByPlayer.get(e.source);
 	if (!extendedItemHandler) return;
 
-	const canUse = extendedItemHandler.canUse?.() ?? true;
+	const canUse = extendedItemHandler.canUse?.(e) ?? true;
 	if (!canUse) return;
 
 	extendedItemHandler.isUsing = true;
