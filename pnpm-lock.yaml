@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@lc-studios-mc/scripting-utils':
+        specifier: github:lc-studios-mc/scripting-utils#v0.0.4
+        version: https://codeload.github.com/lc-studios-mc/scripting-utils/tar.gz/a33f4eb300d665fcf258ade352f679d9b6250c0f(@minecraft/server@2.1.0-beta.1.21.90-stable(@minecraft/vanilla-data@1.21.81))
       '@minecraft/server':
         specifier: 2.1.0-beta.1.21.90-stable
         version: 2.1.0-beta.1.21.90-stable(@minecraft/vanilla-data@1.21.81)
@@ -202,6 +205,12 @@ packages:
     version: 0.0.1
     engines: {node: '>= 22'}
     hasBin: true
+
+  '@lc-studios-mc/scripting-utils@https://codeload.github.com/lc-studios-mc/scripting-utils/tar.gz/a33f4eb300d665fcf258ade352f679d9b6250c0f':
+    resolution: {tarball: https://codeload.github.com/lc-studios-mc/scripting-utils/tar.gz/a33f4eb300d665fcf258ade352f679d9b6250c0f}
+    version: 0.0.4
+    peerDependencies:
+      '@minecraft/server': ^2.0.0
 
   '@minecraft/common@1.2.0':
     resolution: {integrity: sha512-JdmEq4P3Z/FtoBzhLijFgMSVFnFRrUoLwY8DHHrgtFo0mfLTOLTB1RErYjLMsA6b7BGVNxkX/pfFRiH7QZ0XwQ==}
@@ -575,6 +584,10 @@ snapshots:
       zod: 3.25.58
     transitivePeerDependencies:
       - typescript
+
+  '@lc-studios-mc/scripting-utils@https://codeload.github.com/lc-studios-mc/scripting-utils/tar.gz/a33f4eb300d665fcf258ade352f679d9b6250c0f(@minecraft/server@2.1.0-beta.1.21.90-stable(@minecraft/vanilla-data@1.21.81))':
+    dependencies:
+      '@minecraft/server': 2.1.0-beta.1.21.90-stable(@minecraft/vanilla-data@1.21.81)
 
   '@minecraft/common@1.2.0': {}
 
