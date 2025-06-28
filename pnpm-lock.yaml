@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@lc-studios-mc/scripting-utils':
-        specifier: github:lc-studios-mc/scripting-utils#v0.0.4
-        version: https://codeload.github.com/lc-studios-mc/scripting-utils/tar.gz/a33f4eb300d665fcf258ade352f679d9b6250c0f(@minecraft/server@2.1.0-beta.1.21.90-stable(@minecraft/vanilla-data@1.21.81))
+        specifier: github:lc-studios-mc/scripting-utils#v0.0.5
+        version: https://codeload.github.com/lc-studios-mc/scripting-utils/tar.gz/0b6cd215e3bfd7614cd812db18f1368724ad0f8b(@minecraft/server@2.1.0-beta.1.21.90-stable(@minecraft/vanilla-data@1.21.81))
       '@minecraft/server':
         specifier: 2.1.0-beta.1.21.90-stable
         version: 2.1.0-beta.1.21.90-stable(@minecraft/vanilla-data@1.21.81)
@@ -206,9 +206,9 @@ packages:
     engines: {node: '>= 22'}
     hasBin: true
 
-  '@lc-studios-mc/scripting-utils@https://codeload.github.com/lc-studios-mc/scripting-utils/tar.gz/a33f4eb300d665fcf258ade352f679d9b6250c0f':
-    resolution: {tarball: https://codeload.github.com/lc-studios-mc/scripting-utils/tar.gz/a33f4eb300d665fcf258ade352f679d9b6250c0f}
-    version: 0.0.4
+  '@lc-studios-mc/scripting-utils@https://codeload.github.com/lc-studios-mc/scripting-utils/tar.gz/0b6cd215e3bfd7614cd812db18f1368724ad0f8b':
+    resolution: {tarball: https://codeload.github.com/lc-studios-mc/scripting-utils/tar.gz/0b6cd215e3bfd7614cd812db18f1368724ad0f8b}
+    version: 0.0.5
     peerDependencies:
       '@minecraft/server': ^2.0.0
 
@@ -585,7 +585,7 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@lc-studios-mc/scripting-utils@https://codeload.github.com/lc-studios-mc/scripting-utils/tar.gz/a33f4eb300d665fcf258ade352f679d9b6250c0f(@minecraft/server@2.1.0-beta.1.21.90-stable(@minecraft/vanilla-data@1.21.81))':
+  '@lc-studios-mc/scripting-utils@https://codeload.github.com/lc-studios-mc/scripting-utils/tar.gz/0b6cd215e3bfd7614cd812db18f1368724ad0f8b(@minecraft/server@2.1.0-beta.1.21.90-stable(@minecraft/vanilla-data@1.21.81))':
     dependencies:
       '@minecraft/server': 2.1.0-beta.1.21.90-stable(@minecraft/vanilla-data@1.21.81)
 
