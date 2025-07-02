@@ -8,7 +8,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@lc-studios-mc/scripting-utils": "github:lc-studios-mc/scripting-utils#v0.0.5",
+		"@lc-studios-mc/scripting-utils": "github:lc-studios-mc/scripting-utils#semver:^1.0.0",
 		"@minecraft/server": "2.1.0-beta.1.21.90-stable",
 		"@minecraft/server-ui": "2.1.0-beta.1.21.90-stable",
 		"neverthrow": "^8.2.0"
