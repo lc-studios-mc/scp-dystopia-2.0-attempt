@@ -160,6 +160,22 @@ mc.world.afterEvents.entityHitEntity.subscribe(
 	},
 );
 
+mc.world.afterEvents.entityDie.subscribe(
+	({ deadEntity: player }) => {
+		if (!(player instanceof mc.Player)) return;
+
+		const extendedItemHandler = extendedItemHandlersByPlayer.get(player);
+		if (!extendedItemHandler) return;
+
+		extendedItemHandlersByPlayer.delete(player);
+
+		extendedItemHandler.onDelete?.();
+	},
+	{
+		entityTypes: ["minecraft:player"],
+	},
+);
+
 mc.world.beforeEvents.playerLeave.subscribe(({ player }) => {
 	const extendedItemHandler = extendedItemHandlersByPlayer.get(player);
 	if (!extendedItemHandler) return;
