@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@lc-studios-mc/scripting-utils':
         specifier: github:lc-studios-mc/scripting-utils#semver:^1.0.0
-        version: https://codeload.github.com/lc-studios-mc/scripting-utils/tar.gz/b1e5580ea076c0f404606d26b87bb44f9cd1b0a7(@minecraft/server@2.1.0-beta.1.21.90-stable(@minecraft/vanilla-data@1.21.81))
+        version: https://codeload.github.com/lc-studios-mc/scripting-utils/tar.gz/b17c894c389a8378f7117dbcc482bc5f3ff6fa31(@minecraft/server@2.1.0-beta.1.21.90-stable(@minecraft/vanilla-data@1.21.81))
       '@minecraft/server':
         specifier: 2.1.0-beta.1.21.90-stable
         version: 2.1.0-beta.1.21.90-stable(@minecraft/vanilla-data@1.21.81)
@@ -206,9 +206,9 @@ packages:
     engines: {node: '>= 22'}
     hasBin: true
 
-  '@lc-studios-mc/scripting-utils@https://codeload.github.com/lc-studios-mc/scripting-utils/tar.gz/b1e5580ea076c0f404606d26b87bb44f9cd1b0a7':
-    resolution: {tarball: https://codeload.github.com/lc-studios-mc/scripting-utils/tar.gz/b1e5580ea076c0f404606d26b87bb44f9cd1b0a7}
-    version: 1.0.2
+  '@lc-studios-mc/scripting-utils@https://codeload.github.com/lc-studios-mc/scripting-utils/tar.gz/b17c894c389a8378f7117dbcc482bc5f3ff6fa31':
+    resolution: {tarball: https://codeload.github.com/lc-studios-mc/scripting-utils/tar.gz/b17c894c389a8378f7117dbcc482bc5f3ff6fa31}
+    version: 1.1.0
     peerDependencies:
       '@minecraft/server': ^2.0.0
 
@@ -585,7 +585,7 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@lc-studios-mc/scripting-utils@https://codeload.github.com/lc-studios-mc/scripting-utils/tar.gz/b1e5580ea076c0f404606d26b87bb44f9cd1b0a7(@minecraft/server@2.1.0-beta.1.21.90-stable(@minecraft/vanilla-data@1.21.81))':
+  '@lc-studios-mc/scripting-utils@https://codeload.github.com/lc-studios-mc/scripting-utils/tar.gz/b17c894c389a8378f7117dbcc482bc5f3ff6fa31(@minecraft/server@2.1.0-beta.1.21.90-stable(@minecraft/vanilla-data@1.21.81))':
     dependencies:
       '@minecraft/server': 2.1.0-beta.1.21.90-stable(@minecraft/vanilla-data@1.21.81)
 
