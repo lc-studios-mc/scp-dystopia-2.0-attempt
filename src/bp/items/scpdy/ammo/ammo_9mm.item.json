@@ -27,7 +27,7 @@
 			"minecraft:hand_equipped": false,
 			"minecraft:allow_off_hand": false,
 			"minecraft:tags": {
-				"tags": ["ammo", "scpdy:ammo", "bullet", "ammo_type:9mm"]
+				"tags": ["ammo", "scpdy:ammo", "bullet", "lc:ammo_item", "ammo_type:9mm"]
 			}
 		}
 	}

@@ -249,6 +249,7 @@ scpdy.gore.gib.eat=Eat
 scpdy.gun.noMag=§cNO MAGAZINE§r
 
 scpdy.gun.m17=M17
+scpdy.gun.m17.mag=M17 17rd Magazine
 
 
 ## * <-------------------------> *
@@ -802,6 +803,7 @@ entity.lc:scpdy_bullet_m4a1.name=Bullet
 entity.lc:scpdy_bullet_mp5.name=Bullet
 entity.lc:scpdy_bullet_p90.name=Bullet
 entity.lc:scpdy_corrosion_projectile.name=Corrosion
+entity.lc:scpdy_custom_bullet.name=Bullet
 entity.lc:scpdy_scriptable_bullet_large.name=Bullet
 entity.lc:scpdy_scriptable_bullet.name=Bullet
 

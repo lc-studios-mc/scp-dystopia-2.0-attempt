@@ -93,6 +93,9 @@
 		"scpdy_gun_m17_icon": {
 			"textures": "textures/scpdy/guns/m17_icon"
 		},
+		"scpdy_gun_m17_mag_icon": {
+			"textures": "textures/scpdy/guns/m17_mag_icon"
+		},
 		// #endregion
 
 		// #region keycards
