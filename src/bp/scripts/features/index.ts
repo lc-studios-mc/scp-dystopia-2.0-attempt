@@ -6,6 +6,7 @@ import "./doors";
 import "./fnet";
 import "./furniture";
 import "./gore";
+import "./gun";
 import "./lkdn";
 import "./machinery";
 import "./mobs";
