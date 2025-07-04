@@ -1,4 +1,4 @@
-import { Timeline, utils } from "@lc-studios-mc/scripting-utils";
+import type { Range, TimelineRecord } from "@lc-studios-mc/scripting-utils";
 import type * as mc from "@minecraft/server";
 import type { GunHandler } from "./gun_handler";
 
@@ -14,7 +14,7 @@ export type GunStats = {
 	fireFullAuto: boolean;
 
 	projectileType: string;
-	projectileQuantity: number | utils.Range;
+	projectileQuantity: number | Range;
 	projectileForceHipfire: number;
 	projectileForceAds: number;
 	projectileUncertainyHipfire: number;
@@ -37,21 +37,25 @@ export type GunStats = {
 };
 
 export type GunAmmoConfig = {
-	magType: number;
+	magType: string;
 };
 
 export type GunAttachmentConfig = {
-	compatibleAttachmentIds: string[];
+	compatibleAttachmentIds: Record<string, string[]>;
+};
+
+export type GunSoundConfigEntry = {
+	id: string;
+	pitch?: number | Range;
+	volume?: number | Range;
 };
 
 export type GunSoundConfig = {
-	[x: string]:
-		| {
-				id: string;
-				pitch?: number | utils.Range;
-				volume?: number | utils.Range;
-		  }
-		| undefined;
+	click?: GunSoundConfigEntry;
+	fire?: GunSoundConfigEntry;
+	dryfire?: GunSoundConfigEntry;
+	rattle?: GunSoundConfigEntry;
+	[x: string]: GunSoundConfigEntry | undefined;
 };
 
 export type GunTimelineArgs = {
@@ -60,10 +64,10 @@ export type GunTimelineArgs = {
 };
 
 export type GunTimelineConfig = {
-	pickup?: Timeline.TimelineRecord<GunTimelineArgs>;
-	fire?: Timeline.TimelineRecord<GunTimelineArgs>;
-	reload?: Timeline.TimelineRecord<GunTimelineArgs>;
-	tacReload?: Timeline.TimelineRecord<GunTimelineArgs>;
+	pickup?: TimelineRecord<GunTimelineArgs>;
+	fire?: TimelineRecord<GunTimelineArgs>;
+	reload?: TimelineRecord<GunTimelineArgs>;
+	tacReload?: TimelineRecord<GunTimelineArgs>;
 };
 
 export type GunConfig = {
@@ -72,5 +76,6 @@ export type GunConfig = {
 	stats: GunStats;
 	ammo: GunAmmoConfig;
 	attachmentConfig?: GunAttachmentConfig;
+	sounds: GunSoundConfig;
 	timelines: GunTimelineConfig;
 };

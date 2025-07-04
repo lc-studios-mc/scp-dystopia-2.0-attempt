@@ -1,6 +1,6 @@
 import * as mc from "@minecraft/server";
 import type { GunDamageStrategyArgs, GunDamageStrategy } from "./types";
-import { utils } from "@lc-studios-mc/scripting-utils";
+import { calculateFinalDamage } from "@lc-studios-mc/scripting-utils";
 
 export default class implements GunDamageStrategy {
 	calculateDamage(args: GunDamageStrategyArgs): number {
@@ -18,7 +18,7 @@ export default class implements GunDamageStrategy {
 		damage *= damageMultiplier;
 
 		if (args.gunStats.projectileDamageReduction) {
-			damage = utils.calculateFinalDamage(args.hitEntity, damage, mc.EntityDamageCause.projectile);
+			damage = calculateFinalDamage(args.hitEntity, damage, mc.EntityDamageCause.projectile);
 		}
 
 		return Math.floor(damage);

@@ -73,13 +73,7 @@ export class AttachmentContext {
 	}
 
 	createRecordNullable(): Record<string, AttachmentConfig | null> {
-		const record: Record<string, AttachmentConfig | null> = {};
-
-		for (const [slotType, att] of this.map) {
-			record[slotType] = att;
-		}
-
-		return record;
+		return Object.fromEntries(this.map.entries());
 	}
 
 	apply(itemStack: ItemStack): void {
