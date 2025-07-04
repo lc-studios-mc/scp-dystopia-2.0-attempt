@@ -248,6 +248,11 @@ scpdy.gore.gib.eat=Eat
 
 scpdy.gun.noMag=§cNO MAGAZINE§r
 
+scpdy.gun.att.slot.optic=Optic
+scpdy.gun.att.slot.underbarrel=Underbarrel
+scpdy.gun.att.slot.muzzle=Muzzle
+scpdy.gun.att.slot.tactical=Tactical
+
 scpdy.gun.m17=M17
 scpdy.gun.m17.mag=M17 17rd Magazine
 
