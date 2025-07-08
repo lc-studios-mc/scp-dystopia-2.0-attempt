@@ -366,6 +366,22 @@
 			"min_distance": null,
 			"sounds": [{ "name": "sounds/scpdy/guns/load_fast", "volume": 1.1 }]
 		},
+		"scpdy.gun.headshot": {
+			"category": "hostile",
+			"max_distance": 8.0,
+			"min_distance": 1.0,
+			"sounds": [
+				"sounds/scpdy/guns/headshot_1",
+				"sounds/scpdy/guns/headshot_2",
+				"sounds/scpdy/guns/headshot_3",
+				"sounds/scpdy/guns/headshot_4",
+				"sounds/scpdy/guns/headshot_5"
+			]
+		},
+		"scpdy.gun.hitmarker": {
+			"category": "music",
+			"sounds": ["sounds/scpdy/guns/hitmarker"]
+		},
 		"scpdy.gun.load_fast": {
 			"category": "hostile",
 			"max_distance": 6.0,

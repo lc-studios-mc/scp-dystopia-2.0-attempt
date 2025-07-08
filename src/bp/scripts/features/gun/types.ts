@@ -13,17 +13,17 @@ export type GunStats = {
 	fireDuration: number;
 	fireFullAuto: boolean;
 
-	projectileType: string;
-	projectileQuantity: number | Range;
-	projectileForceHipfire: number;
-	projectileForceAds: number;
-	projectileUncertainyHipfire: number;
-	projectileUncertainyAds: number;
-	projectileCreateBulletHole: boolean;
-	projectileMaxEntityHits: number;
-	projectileDamageCause: mc.EntityDamageCause;
-	projectileDamageReduction: boolean;
-	baseProjectileDamage: number;
+	bulletEntityType: string;
+	bulletQuantity: number | Range;
+	bulletUncertainyHipfire: number | Range;
+	bulletUncertainyAds: number | Range;
+	bulletCreateHole: boolean;
+	bulletMaxEntityHits: number | Range;
+	bulletDamageCause: mc.EntityDamageCause;
+	bulletDamageReduction: boolean;
+	baseBulletDamage: number | Range;
+	bulletForceHipfire: number | Range;
+	bulletForceAds: number | Range;
 	damageStrategyId: "default" | (string & {});
 
 	reloadDuration: number;

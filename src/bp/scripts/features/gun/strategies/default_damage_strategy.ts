@@ -1,10 +1,10 @@
 import * as mc from "@minecraft/server";
 import type { GunDamageStrategyArgs, GunDamageStrategy } from "./types";
-import { calculateFinalDamage } from "@lc-studios-mc/scripting-utils";
+import { calculateFinalDamage, resolveRangeInt } from "@lc-studios-mc/scripting-utils";
 
 export default class implements GunDamageStrategy {
 	calculateDamage(args: GunDamageStrategyArgs): number {
-		let damage = args.gunStats.baseProjectileDamage;
+		let damage = resolveRangeInt(args.gunStats.baseBulletDamage);
 
 		if (args.isHeadshot) {
 			damage *= 2;
@@ -17,7 +17,7 @@ export default class implements GunDamageStrategy {
 		}
 		damage *= damageMultiplier;
 
-		if (args.gunStats.projectileDamageReduction) {
+		if (args.gunStats.bulletDamageReduction) {
 			damage = calculateFinalDamage(args.hitEntity, damage, mc.EntityDamageCause.projectile);
 		}
 

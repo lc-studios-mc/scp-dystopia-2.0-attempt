@@ -14,19 +14,20 @@ import {
 	Vec3,
 	type HookedItemContext,
 } from "@lc-studios-mc/scripting-utils";
+import { fireBullet } from "./bullet";
 
 export class GunHandler extends HookedItem {
 	readonly config: GunConfig;
 	readonly stats: GunStats;
 	readonly damageStrategy: GunDamageStrategy;
 	readonly attachmentContext: AttachmentContext;
-	readonly inventoryContainer: mc.Container;
 
 	state: GunStateBase;
 	pickupTimeline?: Timeline<GunTimelineArgs>;
 	fireTimeline?: Timeline<GunTimelineArgs>;
 	reloadTimeline?: Timeline<GunTimelineArgs>;
 	tacReloadTimeline?: Timeline<GunTimelineArgs>;
+	nextFireAnimCooldownIndex = 0;
 
 	magContext?: GunMagContext;
 	ammoCountInInventory = 0;
@@ -47,8 +48,6 @@ export class GunHandler extends HookedItem {
 			itemStack: this.initialItemStack,
 			slotTypes: Array.from(Object.keys(config.attachmentConfig?.compatibleAttachmentIds ?? {})),
 		});
-
-		this.inventoryContainer = this.player.getComponent("inventory")!.container;
 
 		this.state = new PickupState(this);
 		this.state.onEnter();
@@ -84,7 +83,7 @@ export class GunHandler extends HookedItem {
 
 	private updateMagContext(): void {
 		if (this.magContext && this.magContext.isValid) return;
-		this.magContext = GunMagContext.findMag(this.inventoryContainer, this.config.ammo.magType);
+		this.magContext = GunMagContext.findMag(this.inventory.container, this.config.ammo.magType);
 	}
 
 	private updateAmmoCountInInventory(): void {
@@ -93,7 +92,7 @@ export class GunHandler extends HookedItem {
 			return;
 		}
 
-		this.ammoCountInInventory = getAmmoCountInContainer(this.inventoryContainer, this.magContext.ammoType);
+		this.ammoCountInInventory = getAmmoCountInContainer(this.inventory.container, this.magContext.ammoType);
 	}
 
 	showAmmoDisplay(gray = false): void {
@@ -108,6 +107,14 @@ export class GunHandler extends HookedItem {
 		const finalString = `${color}${magAmmoString} [${this.ammoCountInInventory}]`;
 
 		this.player.onScreenDisplay.setActionBar(finalString);
+	}
+
+	canReload(): boolean {
+		if (!this.magContext) return false;
+		if (this.magContext.expendedAmmoCount <= 0) return false;
+		if (this.ammoCountInInventory <= 0) return false;
+
+		return true;
 	}
 
 	override onDelete(): void {}
@@ -207,9 +214,116 @@ class PickupState extends GunStateBase {
 class IdleState extends GunStateBase {
 	override onTick(): void {
 		this.g.showAmmoDisplay();
+
+		if (!this.g.magContext) return;
+		if (!this.g.isUsing) return;
+
+		if (!this.g.magContext.isEmpty && this.g.stats.fireFullAuto) {
+			this.g.changeState(new FireState(this.g));
+		}
+
+		if (this.g.magContext.isEmpty && this.g.canReload()) {
+			this.g.changeState(new ReloadState(this.g));
+		}
+	}
+
+	override onStartUse(e: mc.ItemStartUseAfterEvent): void {
+		if (!this.g.magContext) return;
+		if (this.g.stats.fireFullAuto) return;
+		if (this.g.magContext.isEmpty) return;
+
+		this.g.changeState(new FireState(this.g));
+	}
+
+	override onHitBlock(e: mc.EntityHitBlockAfterEvent): void {
+		if (!this.g.magContext) return;
+		if (this.g.magContext.isEmpty && this.g.canReload()) {
+			this.g.changeState(new ReloadState(this.g));
+		}
 	}
 }
 
-class FireState extends GunStateBase {}
+class FireState extends GunStateBase {
+	ticksUntilComplete = 20;
+
+	get fireTick(): number {
+		return this.g.stats.fireDuration - this.ticksUntilComplete;
+	}
+
+	override onEnter(): void {
+		super.onEnter();
+
+		this.ticksUntilComplete = this.g.stats.fireDuration;
+
+		this.fire();
+
+		this.g.fireTimeline?.reset();
+
+		if (!this.g.fireTimeline && this.g.config.timelines.fire) {
+			this.g.fireTimeline = new Timeline(this.g.stats.fireDuration, this.g.config.timelines.fire);
+		}
+
+		this.processTimeline();
+	}
+
+	override onTick(): void {
+		this.processTimeline();
+
+		this.g.showAmmoDisplay();
+
+		if (this.ticksUntilComplete > 0) {
+			this.ticksUntilComplete--;
+			return;
+		}
+
+		if (this.g.isUsing && this.g.stats.fireFullAuto) {
+			this.ticksUntilComplete = this.g.stats.fireDuration;
+			this.g.fireTimeline?.reset();
+			this.processTimeline();
+			this.fire();
+			return;
+		}
+
+		this.g.changeState(new IdleState(this.g));
+	}
+
+	private processTimeline(): void {
+		this.g.fireTimeline?.process(this.fireTick, {
+			handler: this.g,
+			currentTick: this.currentTick,
+		});
+	}
+
+	private fire(): void {
+		// Start item cooldown to trigger animation
+		if (this.g.nextFireAnimCooldownIndex === 0) {
+			this.g.startItemCooldown("fire_1", Math.max(2, this.g.stats.fireDuration));
+			this.g.startItemCooldown("fire_2", 0);
+			this.g.nextFireAnimCooldownIndex = 1;
+		} else {
+			this.g.startItemCooldown("fire_2", Math.max(2, this.g.stats.fireDuration));
+			this.g.startItemCooldown("fire_1", 0);
+			this.g.nextFireAnimCooldownIndex = 0;
+		}
+
+		// Consume ammo
+		if (this.g.magContext) {
+			this.g.magContext.consumeAmmo(1);
+			this.g.magContext.apply();
+		}
+
+		// Fire bullet
+		fireBullet({
+			source: this.g.player,
+			dimension: this.g.player.dimension,
+			origin: this.g.player.getHeadLocation(),
+			direction: this.g.player.getViewDirection(),
+			isAds: false, // TODO: ADS Condition
+			gunStats: this.g.config.stats,
+			attachmentContext: this.g.attachmentContext,
+			damageStrategy: this.g.damageStrategy,
+		});
+	}
+}
 
 class ReloadState extends GunStateBase {}

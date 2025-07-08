@@ -1,6 +1,6 @@
 import * as mc from "@minecraft/server";
 
-export function getAmmoTypeOfItemStack(itemStack: mc.ItemStack): string | undefined {
+export const getAmmoTypeOfItemStack = (itemStack: mc.ItemStack): string | undefined => {
 	const tags = itemStack.getTags();
 
 	for (let i = 0; i < tags.length; i++) {
@@ -10,9 +10,9 @@ export function getAmmoTypeOfItemStack(itemStack: mc.ItemStack): string | undefi
 		const split = tag.split(":");
 		return split[1];
 	}
-}
+};
 
-export function getAmmoCountInContainer(container: mc.Container, requiredAmmoType: string): number {
+export const getAmmoCountInContainer = (container: mc.Container, requiredAmmoType: string): number => {
 	let accumulated = 0;
 
 	for (let i = 0; i < container.size; i++) {
@@ -37,9 +37,13 @@ export function getAmmoCountInContainer(container: mc.Container, requiredAmmoTyp
 	}
 
 	return accumulated;
-}
+};
 
-export function consumeAmmoInContainer(container: mc.Container, requiredAmmoType: string, maxCount = Infinity): number {
+export const consumeAmmoInContainer = (
+	container: mc.Container,
+	requiredAmmoType: string,
+	maxCount = Infinity,
+): number => {
 	let consumed = 0;
 	let consumableCount = Math.floor(maxCount);
 
@@ -87,4 +91,4 @@ export function consumeAmmoInContainer(container: mc.Container, requiredAmmoType
 	}
 
 	return consumed;
-}
+};
