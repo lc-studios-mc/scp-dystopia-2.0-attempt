@@ -247,6 +247,7 @@ scpdy.gore.gib.eat=Eat
 ## --- guns ---
 
 scpdy.gun.noMag=§cNO MAGAZINE§r
+scpdy.gun.reloading=§eRELOADING...§r
 
 scpdy.gun.att.slot.optic=Optic
 scpdy.gun.att.slot.underbarrel=Underbarrel

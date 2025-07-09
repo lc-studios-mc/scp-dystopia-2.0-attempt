@@ -31,6 +31,8 @@ export type GunStats = {
 
 	muzzleOffset?: Partial<mc.Vector3>;
 	muzzleOffsetAds?: Partial<mc.Vector3>;
+	muzzleFlashParticleId?: string;
+	muzzleSmokeParticleId?: string;
 	ejectionOffset?: Partial<mc.Vector3>;
 	ejectionOffsetAds?: Partial<mc.Vector3>;
 	ejectionParticleId?: string;
@@ -52,8 +54,9 @@ export type GunSoundConfigEntry = {
 
 export type GunSoundConfig = {
 	click?: GunSoundConfigEntry;
-	fire?: GunSoundConfigEntry;
 	dryfire?: GunSoundConfigEntry;
+	fire?: GunSoundConfigEntry;
+	pickup?: GunSoundConfigEntry;
 	rattle?: GunSoundConfigEntry;
 	[x: string]: GunSoundConfigEntry | undefined;
 };

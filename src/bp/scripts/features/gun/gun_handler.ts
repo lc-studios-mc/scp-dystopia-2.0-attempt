@@ -5,10 +5,11 @@ import type { GunConfig, GunStats, GunTimelineArgs } from "./types";
 import type { GunDamageStrategy } from "./strategies/types";
 import { AttachmentContext } from "../gun_attachment/attachment_context";
 import { GunMagContext } from "./gun_mag_context";
-import { getAmmoCountInContainer } from "../ammo/ammo";
+import { consumeAmmoInContainer, getAmmoCountInContainer } from "../ammo/ammo";
 import {
 	console,
 	HookedItem,
+	randf,
 	resolveRangeFloat,
 	Timeline,
 	Vec3,
@@ -22,11 +23,11 @@ export class GunHandler extends HookedItem {
 	readonly damageStrategy: GunDamageStrategy;
 	readonly attachmentContext: AttachmentContext;
 
+	adsTick = 0;
+
 	state: GunStateBase;
 	pickupTimeline?: Timeline<GunTimelineArgs>;
 	fireTimeline?: Timeline<GunTimelineArgs>;
-	reloadTimeline?: Timeline<GunTimelineArgs>;
-	tacReloadTimeline?: Timeline<GunTimelineArgs>;
 	nextFireAnimCooldownIndex = 0;
 
 	magContext?: GunMagContext;
@@ -51,6 +52,14 @@ export class GunHandler extends HookedItem {
 
 		this.state = new PickupState(this);
 		this.state.onEnter();
+	}
+
+	get isAds(): boolean {
+		return this.adsTick >= this.stats.adsSwayDuration;
+	}
+
+	get isAdsSwayInProgress(): boolean {
+		return this.adsTick > 0 && this.adsTick < this.stats.adsSwayDuration;
 	}
 
 	changeState(newState: GunStateBase): void {
@@ -81,6 +90,89 @@ export class GunHandler extends HookedItem {
 		});
 	}
 
+	getMuzzleLocation(): mc.Vector3 {
+		const hipfireOffset = Vec3.create(this.stats.muzzleOffset);
+		const adsOffset = Vec3.create(this.stats.muzzleOffsetAds);
+
+		const offset = this.isAds
+			? adsOffset
+			: this.isAdsSwayInProgress
+				? Vec3.midpoint(hipfireOffset, adsOffset)
+				: hipfireOffset;
+
+		const relativeToHead = Vec3.getRelativeToHead(
+			this.player.getHeadLocation(),
+			this.player.getViewDirection(),
+			offset,
+		);
+
+		const final = Vec3.add(relativeToHead, Vec3.scale(this.player.getVelocity(), 0.4));
+
+		return final;
+	}
+
+	getEjectionLocation(): mc.Vector3 {
+		const hipfireOffset = Vec3.create(this.stats.ejectionOffset);
+		const adsOffset = Vec3.create(this.stats.ejectionOffsetAds);
+
+		const offset = this.isAds
+			? adsOffset
+			: this.isAdsSwayInProgress
+				? Vec3.midpoint(hipfireOffset, adsOffset)
+				: hipfireOffset;
+
+		const relativeToHead = Vec3.getRelativeToHead(
+			this.player.getHeadLocation(),
+			this.player.getViewDirection(),
+			offset,
+		);
+
+		const final = Vec3.add(relativeToHead, Vec3.scale(this.player.getVelocity(), 0.4));
+
+		return final;
+	}
+
+	emitMuzzleFlash(): void {
+		if (!this.stats.muzzleFlashParticleId) return;
+
+		const location = this.getMuzzleLocation();
+		this.dimension.spawnParticle(this.stats.muzzleFlashParticleId, location);
+	}
+
+	emitMuzzleSmoke(): void {
+		if (!this.stats.muzzleSmokeParticleId) return;
+
+		const location = this.getMuzzleLocation();
+		this.dimension.spawnParticle(this.stats.muzzleSmokeParticleId, location);
+	}
+
+	emitEjection(): void {
+		if (!this.stats.ejectionParticleId) return;
+
+		const particleLoc = this.getEjectionLocation();
+
+		const viewDirection = this.player.getViewDirection();
+		const rightDirection = Vec3.cross(viewDirection, Vec3.up);
+
+		const particleDirection = Vec3.add(
+			Vec3.add(
+				Vec3.scale(viewDirection, -randf(1.3, 1.5)), // Go backwards
+				Vec3.scale(rightDirection, randf(0.6, 0.7)), // Go right
+			),
+			Vec3.fromPartial({
+				x: randf(-0.1, 0.1),
+				y: randf(1.1, 1.3), // Go up
+				z: randf(-0.1, 0.1),
+			}),
+		);
+
+		const molangVarMap = new mc.MolangVariableMap();
+		molangVarMap.setFloat("speed", randf(5, 6));
+		molangVarMap.setVector3("direction", particleDirection);
+
+		this.dimension.spawnParticle(this.stats.ejectionParticleId, particleLoc, molangVarMap);
+	}
+
 	private updateMagContext(): void {
 		if (this.magContext && this.magContext.isValid) return;
 		this.magContext = GunMagContext.findMag(this.inventory.container, this.config.ammo.magType);
@@ -93,6 +185,41 @@ export class GunHandler extends HookedItem {
 		}
 
 		this.ammoCountInInventory = getAmmoCountInContainer(this.inventory.container, this.magContext.ammoType);
+	}
+
+	private updateAdsInfo(): void {
+		const isInStateThatPreventsAds = this.state instanceof PickupState || this.state instanceof ReloadState;
+
+		const shouldAds = this.player.isSneaking && !isInStateThatPreventsAds;
+
+		if (shouldAds && this.adsTick < this.stats.adsSwayDuration) {
+			this.adsTick++;
+		}
+
+		if (!shouldAds && this.adsTick > 0) {
+			this.adsTick--;
+		}
+	}
+
+	private applyAdsSlowness(): void {
+		if (!this.isAds) return;
+		if (this.stats.adsSlownessAmplifier < 0) return;
+
+		this.player.addEffect("slowness", 4, {
+			amplifier: this.stats.adsSlownessAmplifier,
+			showParticles: false,
+		});
+	}
+
+	private updateCrosshair(): void {
+		const show = (this.stats.showCrosshairHipfire && !this.isAds) || (this.stats.showCrosshairAds && this.isAds);
+		const visibility = show ? mc.HudVisibility.Reset : mc.HudVisibility.Hide;
+
+		this.player.onScreenDisplay.setHudVisibility(visibility, [mc.HudElement.Crosshair]);
+	}
+
+	private resetCrosshair(): void {
+		this.player.onScreenDisplay.setHudVisibility(mc.HudVisibility.Reset, [mc.HudElement.Crosshair]);
 	}
 
 	showAmmoDisplay(gray = false): void {
@@ -117,7 +244,12 @@ export class GunHandler extends HookedItem {
 		return true;
 	}
 
-	override onDelete(): void {}
+	override onDelete(): void {
+		try {
+			// This will throw error if the player is leaving the world
+			this.resetCrosshair();
+		} catch {}
+	}
 
 	override onTick(currentItemStack: mc.ItemStack): void {
 		if (!this.attachmentContext.lastEditTimeEquals(currentItemStack)) {
@@ -127,10 +259,13 @@ export class GunHandler extends HookedItem {
 
 		this.updateMagContext();
 		this.updateAmmoCountInInventory();
+		this.updateAdsInfo();
+		this.updateCrosshair();
 
 		this.state.tickFromHandler();
 
 		this.magContext?.apply();
+		this.applyAdsSlowness();
 	}
 
 	override canUse(e: mc.ItemStartUseAfterEvent): boolean {
@@ -184,6 +319,8 @@ class PickupState extends GunStateBase {
 		this.ticksUntilComplete = this.g.stats.pickupDuration;
 		this.g.startItemCooldown("pickup", this.ticksUntilComplete);
 
+		this.g.playSound("pickup");
+
 		this.g.pickupTimeline?.reset();
 
 		if (!this.g.pickupTimeline && this.g.config.timelines.pickup) {
@@ -223,23 +360,28 @@ class IdleState extends GunStateBase {
 		}
 
 		if (this.g.magContext.isEmpty && this.g.canReload()) {
-			this.g.changeState(new ReloadState(this.g));
+			this.g.changeState(new ReloadState(this.g, false));
 		}
 	}
 
 	override onStartUse(e: mc.ItemStartUseAfterEvent): void {
 		if (!this.g.magContext) return;
-		if (this.g.stats.fireFullAuto) return;
-		if (this.g.magContext.isEmpty) return;
+		if (this.g.magContext.isEmpty) {
+			if (this.g.ammoCountInInventory <= 0) this.g.playSound("dryfire");
+			return;
+		}
 
+		if (this.g.stats.fireFullAuto) return;
+
+		this.g.playSound("click");
 		this.g.changeState(new FireState(this.g));
 	}
 
 	override onHitBlock(e: mc.EntityHitBlockAfterEvent): void {
 		if (!this.g.magContext) return;
-		if (this.g.magContext.isEmpty && this.g.canReload()) {
-			this.g.changeState(new ReloadState(this.g));
-		}
+		if (!this.g.canReload()) return;
+
+		this.g.changeState(new ReloadState(this.g, !this.g.magContext.isEmpty));
 	}
 }
 
@@ -295,6 +437,8 @@ class FireState extends GunStateBase {
 	}
 
 	private fire(): void {
+		this.g.playSound("fire");
+
 		// Start item cooldown to trigger animation
 		if (this.g.nextFireAnimCooldownIndex === 0) {
 			this.g.startItemCooldown("fire_1", Math.max(2, this.g.stats.fireDuration));
@@ -306,19 +450,25 @@ class FireState extends GunStateBase {
 			this.g.nextFireAnimCooldownIndex = 0;
 		}
 
-		// Consume ammo
+		// Mag-related
 		if (this.g.magContext) {
 			this.g.magContext.consumeAmmo(1);
 			this.g.magContext.apply();
+
+			if (this.g.magContext.isEmpty) {
+				this.g.playSound("dryfire");
+			} else if (this.g.magContext.isLow) {
+				this.g.playSound("rattle");
+			}
 		}
 
 		// Fire bullet
 		fireBullet({
 			source: this.g.player,
 			dimension: this.g.player.dimension,
-			origin: this.g.player.getHeadLocation(),
+			origin: Vec3.add(this.g.player.getHeadLocation(), { x: 0, y: 0.1, z: 0 }),
 			direction: this.g.player.getViewDirection(),
-			isAds: false, // TODO: ADS Condition
+			isAds: this.g.isAds,
 			gunStats: this.g.config.stats,
 			attachmentContext: this.g.attachmentContext,
 			damageStrategy: this.g.damageStrategy,
@@ -326,4 +476,53 @@ class FireState extends GunStateBase {
 	}
 }
 
-class ReloadState extends GunStateBase {}
+class ReloadState extends GunStateBase {
+	tac: boolean;
+	ticksUntilComplete = 20;
+
+	private timeline?: Timeline<GunTimelineArgs>;
+
+	constructor(g: GunHandler, tac: boolean) {
+		super(g);
+		this.tac = tac;
+	}
+
+	override onEnter(): void {
+		const duration = this.tac ? this.g.stats.tacReloadDuration : this.g.stats.reloadDuration;
+		this.ticksUntilComplete = duration;
+
+		const timelineRecord = this.tac ? this.g.config.timelines.tacReload : this.g.config.timelines.reload;
+
+		if (timelineRecord) {
+			this.timeline = new Timeline(duration, timelineRecord);
+		}
+
+		this.g.startItemCooldown(this.tac ? "reload_tac" : "reload", this.ticksUntilComplete);
+	}
+
+	override onTick(): void {
+		this.g.player.onScreenDisplay.setActionBar({ translate: "scpdy.gun.reloading" });
+
+		this.timeline?.process(this.currentTick, {
+			currentTick: this.currentTick,
+			handler: this.g,
+		});
+
+		if (this.ticksUntilComplete > 0) {
+			this.ticksUntilComplete--;
+			return;
+		}
+
+		this.g.changeState(new IdleState(this.g));
+
+		if (!this.g.magContext) return;
+
+		const consumed = consumeAmmoInContainer(
+			this.g.inventory.container,
+			this.g.magContext.ammoType,
+			this.g.magContext.expendedAmmoCount,
+		);
+
+		this.g.magContext.remainingAmmoCount += consumed;
+	}
+}

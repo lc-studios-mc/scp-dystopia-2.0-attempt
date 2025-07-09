@@ -71,7 +71,7 @@
 				]
 			},
 			"sound_effects": {
-				"gun.load_fast": "scpdy.gun.load_fast"
+				"gun.load_fast": "scpdy.gun.load_2"
 			},
 			"render_controllers": [
 				"controller.render.scpdy.f_tro",

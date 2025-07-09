@@ -127,4 +127,8 @@ export class GunMagContext {
 	get isEmpty(): boolean {
 		return this.durability.damage >= this.durability.maxDurability;
 	}
+
+	get isLow(): boolean {
+		return this.remainingAmmoCount <= this.lowAmmoCount;
+	}
 }

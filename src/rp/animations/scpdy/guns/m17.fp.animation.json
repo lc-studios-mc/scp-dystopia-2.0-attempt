@@ -407,7 +407,7 @@
 		},
 		"animation.scpdy.gun.m17.fp.reload_tac": {
 			"loop": "hold_on_last_frame",
-			"animation_length": 0.6528,
+			"animation_length": 0.6944,
 			"bones": {
 				"fp_g": {
 					"rotation": {
@@ -418,7 +418,11 @@
 							"lerp_mode": "catmullrom"
 						},
 						"0.2083": {
-							"post": [-14.92292, -0.76124, 3.42618],
+							"post": [-19.92292, -0.76124, 3.42618],
+							"lerp_mode": "catmullrom"
+						},
+						"0.3194": {
+							"post": [-12.18501, -1.03525, 1.08566],
 							"lerp_mode": "catmullrom"
 						},
 						"0.3889": {
@@ -426,14 +430,18 @@
 							"lerp_mode": "catmullrom"
 						},
 						"0.5": {
-							"post": [8.42547, -3.18599, -11.82599],
+							"post": [-1.57453, -3.18599, -11.82599],
 							"lerp_mode": "catmullrom"
 						},
-						"0.5694": {
-							"post": [-1.76715, -1.89032, -3.70444],
+						"0.5278": {
+							"post": [-4.90223, -2.57299, -5.53153],
 							"lerp_mode": "catmullrom"
 						},
-						"0.6528": [0, 0, 8]
+						"0.5833": {
+							"post": [-11.85141, -1.86137, -3.52488],
+							"lerp_mode": "catmullrom"
+						},
+						"0.6806": [0, 0, 8]
 					},
 					"position": {
 						"0.0": [-3, -2, -14],
@@ -454,7 +462,7 @@
 							"post": [-3.82, -0.45, -13.94],
 							"lerp_mode": "catmullrom"
 						},
-						"0.6528": [-3, -2, -14]
+						"0.6806": [-3, -2, -14]
 					}
 				},
 				"fp_mainhand": {

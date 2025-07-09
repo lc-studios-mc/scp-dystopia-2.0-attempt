@@ -345,7 +345,7 @@
 			"category": "hostile",
 			"max_distance": 30.0,
 			"min_distance": 3.0,
-			"sounds": ["sounds/scpdy/guns/specific/m17_fire"]
+			"sounds": [{ "name": "sounds/scpdy/guns/specific/m17_fire", "volume": 0.86 }]
 		},
 		"scpdy.gun.p90.fire": {
 			"category": "hostile",
@@ -354,21 +354,32 @@
 			"sounds": ["sounds/scpdy/guns/specific/p90_fire"]
 		},
 
-		"scpdy.gun.click_1": {
+		"scpdy.gun.bullet_hit_block": {
 			"category": "hostile",
-			"max_distance": 7.0,
+			"max_distance": 6.0,
 			"min_distance": null,
-			"sounds": ["sounds/scpdy/guns/click_1"]
+			"sounds": [
+				"sounds/scpdy/guns/bullet_hit_block_1",
+				"sounds/scpdy/guns/bullet_hit_block_2",
+				"sounds/scpdy/guns/bullet_hit_block_3",
+				"sounds/scpdy/guns/bullet_hit_block_4"
+			]
 		},
-		"scpdy.gun.click_2": {
+		"scpdy.gun.click": {
 			"category": "hostile",
-			"max_distance": 7.0,
+			"max_distance": 5.0,
 			"min_distance": null,
-			"sounds": [{ "name": "sounds/scpdy/guns/load_fast", "volume": 1.1 }]
+			"sounds": ["sounds/scpdy/guns/click"]
+		},
+		"scpdy.gun.dryfire": {
+			"category": "hostile",
+			"max_distance": 13.0,
+			"min_distance": 1.0,
+			"sounds": ["sounds/scpdy/guns/dryfire"]
 		},
 		"scpdy.gun.headshot": {
 			"category": "hostile",
-			"max_distance": 8.0,
+			"max_distance": 9.0,
 			"min_distance": 1.0,
 			"sounds": [
 				"sounds/scpdy/guns/headshot_1",
@@ -380,13 +391,19 @@
 		},
 		"scpdy.gun.hitmarker": {
 			"category": "music",
-			"sounds": ["sounds/scpdy/guns/hitmarker"]
+			"sounds": [{ "name": "sounds/scpdy/guns/hitmarker", "volume": 1.5 }]
 		},
-		"scpdy.gun.load_fast": {
+		"scpdy.gun.load_1": {
 			"category": "hostile",
 			"max_distance": 6.0,
 			"min_distance": null,
-			"sounds": [{ "name": "sounds/scpdy/guns/load_fast", "volume": 1.1 }]
+			"sounds": ["sounds/scpdy/guns/load_1"]
+		},
+		"scpdy.gun.load_2": {
+			"category": "hostile",
+			"max_distance": 6.0,
+			"min_distance": null,
+			"sounds": [{ "name": "sounds/scpdy/guns/load_2", "volume": 1.1 }]
 		},
 		"scpdy.gun.mag_add_1": {
 			"category": "hostile",
@@ -402,7 +419,7 @@
 		},
 		"scpdy.gun.rattle": {
 			"category": "hostile",
-			"max_distance": 10.0,
+			"max_distance": 11.0,
 			"min_distance": 1.0,
 			"sounds": [{ "name": "sounds/scpdy/guns/rattle" }]
 		},
@@ -423,6 +440,12 @@
 			"max_distance": 17.0,
 			"min_distance": null,
 			"sounds": ["sounds/scpdy/guns/suppressed_fire_3"]
+		},
+		"scpdy.gun.unholster_1": {
+			"category": "hostile",
+			"max_distance": 7.0,
+			"min_distance": 1.0,
+			"sounds": ["sounds/scpdy/guns/unholster_1"]
 		},
 		// #endregion
 
