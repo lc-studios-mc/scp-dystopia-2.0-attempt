@@ -85,7 +85,7 @@ const COMPONENT: mc.BlockCustomComponent = {
 function getZone(block: mc.Block): Fzone {
 	const fnet = getFnet(Number(block.permutation.getState(STATE.fnetIndex)));
 	const zoneIndexUnflat = getZoneIndexUnflat(block.permutation);
-	const zoneIndex = flattenCoordinates(zoneIndexUnflat.major, zoneIndexUnflat.minor);
+	const zoneIndex = flattenCoordinates(zoneIndexUnflat.major, zoneIndexUnflat.minor, 3);
 	const zone = fnet.getZone(zoneIndex);
 	return zone;
 }
