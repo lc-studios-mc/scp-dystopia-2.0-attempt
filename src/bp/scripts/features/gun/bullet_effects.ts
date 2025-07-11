@@ -27,10 +27,22 @@ export const playBulletHitSound = (dimension: mc.Dimension, location: mc.Vector3
 	});
 };
 
-export const spawnBulletHitParticle = (dimension: mc.Dimension, location: mc.Vector3, direction?: mc.Vector3): void => {
-	const particleMolangVarMap = new mc.MolangVariableMap();
-	const dir = direction ?? Vec3.zero;
-	particleMolangVarMap.setVector3("direction", Vec3.scale(dir, -1));
+export const spawnBulletTraceParticle = (
+	dimension: mc.Dimension,
+	location: mc.Vector3,
+	direction: mc.Vector3,
+	sizeY: number,
+): void => {
+	const molangVars = new mc.MolangVariableMap();
+	molangVars.setVector3("direction", direction);
+	molangVars.setFloat("size_y", sizeY);
 
-	dimension.spawnParticle("minecraft:basic_crit_particle", location, particleMolangVarMap);
+	dimension.spawnParticle("lc:scpdy_bullet_trace_particle", location, molangVars);
+};
+
+export const spawnBulletHitParticle = (dimension: mc.Dimension, location: mc.Vector3, direction: mc.Vector3): void => {
+	const molangVars = new mc.MolangVariableMap();
+	molangVars.setVector3("direction", Vec3.scale(direction, -1));
+
+	dimension.spawnParticle("minecraft:basic_crit_particle", location, molangVars);
 };

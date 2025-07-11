@@ -31,6 +31,7 @@ export default {
 		bulletUncertainyHipfire: 1.3,
 		bulletUncertainyAds: 0.2,
 		bulletCreateHole: true,
+		bulletSpawnTraceParticles: true,
 		bulletMaxEntityHits: 1,
 		bulletDamageCause: mc.EntityDamageCause.override,
 		bulletDamageReduction: true,

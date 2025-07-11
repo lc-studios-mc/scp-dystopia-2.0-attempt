@@ -418,7 +418,7 @@ class FireState extends GunStateBase {
 			return;
 		}
 
-		if (this.g.isUsing && this.g.stats.fireFullAuto) {
+		if (this.g.isUsing && this.g.stats.fireFullAuto && !this.g.magContext?.isEmpty) {
 			this.ticksUntilComplete = this.g.stats.fireDuration;
 			this.g.fireTimeline?.reset();
 			this.processTimeline();
@@ -466,6 +466,7 @@ class FireState extends GunStateBase {
 		fireBullet({
 			source: this.g.player,
 			dimension: this.g.player.dimension,
+			muzzleLocation: this.g.getMuzzleLocation(),
 			origin: Vec3.add(this.g.player.getHeadLocation(), { x: 0, y: 0.1, z: 0 }),
 			direction: this.g.player.getViewDirection(),
 			isAds: this.g.isAds,

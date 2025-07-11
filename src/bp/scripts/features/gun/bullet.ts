@@ -3,11 +3,17 @@ import type { GunStats } from "./types";
 import type { AttachmentContext } from "../gun_attachment/attachment_context";
 import { console, randf, resolveRangeFloat, resolveRangeInt, Vec3 } from "@lc-studios-mc/scripting-utils";
 import type { GunDamageStrategy } from "./strategies/types";
-import { playBulletHitSound, spawnBulletHitParticle, spawnBulletHole } from "./bullet_effects";
+import {
+	playBulletHitSound,
+	spawnBulletHitParticle,
+	spawnBulletHole,
+	spawnBulletTraceParticle,
+} from "./bullet_effects";
 
 type FireBulletArgs = {
 	source: mc.Player;
 	dimension: mc.Dimension;
+	muzzleLocation: mc.Vector3;
 	origin: mc.Vector3;
 	direction: mc.Vector3;
 	isAds: boolean;
@@ -26,9 +32,11 @@ interface BulletInstance {
 const bulletInstancesById = new Map<string, BulletInstance>();
 
 const fireBulletProjectile = (args: FireBulletArgs): void => {
-	const uncertainy = resolveRangeFloat(
+	const uncertainy_0 = resolveRangeFloat(
 		args.isAds ? args.gunStats.bulletUncertainyAds : args.gunStats.bulletUncertainyHipfire,
 	);
+
+	const uncertainy = randf(-uncertainy_0, uncertainy_0);
 
 	const force = resolveRangeFloat(args.isAds ? args.gunStats.bulletForceAds : args.gunStats.bulletForceHipfire);
 
@@ -67,17 +75,22 @@ mc.world.afterEvents.projectileHitBlock.subscribe((e) => {
 		spawnBulletHitParticle(e.dimension, e.location, e.hitVector);
 		playBulletHitSound(e.dimension, e.location);
 
-		const shouldCreateBulletHole = bulletInstance.args.gunStats.bulletCreateHole;
-
-		if (shouldCreateBulletHole) {
+		if (bulletInstance.args.gunStats.bulletCreateHole) {
 			const bulletHoleLocation = new Vec3(e.hitVector).scale(-1).scale(0.03).add(e.location);
 			spawnBulletHole(e.dimension, bulletHoleLocation, e.getBlockHit().face);
 		}
 
+		if (bulletInstance.args.gunStats.bulletSpawnTraceParticles) {
+			spawnBulletTraceParticle(
+				e.dimension,
+				e.location,
+				Vec3.normalize(Vec3.sub(e.location, bulletInstance.args.muzzleLocation)),
+				Vec3.distance(e.location, bulletInstance.args.muzzleLocation) / 2,
+			);
+		}
+
 		e.projectile.remove();
-	} catch (error) {
-		console.warn(`Error on custom bullet hit block: ${error}`);
-	}
+	} catch (error) {}
 });
 
 mc.world.afterEvents.projectileHitEntity.subscribe((e) => {
@@ -121,7 +134,7 @@ mc.world.afterEvents.projectileHitEntity.subscribe((e) => {
 			e.projectile.remove();
 		}
 	} catch (error) {
-		console.warn(`Error on custom bullet hit entity: ${error}`);
+		console.error(`Error on custom bullet hit entity: ${error}`);
 	}
 
 	if (!damaged) return;

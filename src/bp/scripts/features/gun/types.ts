@@ -18,6 +18,7 @@ export type GunStats = {
 	bulletUncertainyHipfire: number | Range;
 	bulletUncertainyAds: number | Range;
 	bulletCreateHole: boolean;
+	bulletSpawnTraceParticles: boolean;
 	bulletMaxEntityHits: number | Range;
 	bulletDamageCause: mc.EntityDamageCause;
 	bulletDamageReduction: boolean;
