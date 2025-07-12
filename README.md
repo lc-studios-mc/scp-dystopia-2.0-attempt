@@ -52,6 +52,6 @@ See attributions [here](./docs/attributions.md).
 
 For bug reports and suggestions: [Create a new issue](https://github.com/lc-studios-mc/scp-dystopia/issues).
 
-For questions and general usage: [Discord](https://discord.gg/K2mxsJ2trE).
+For questions and general conversation: [Discord](https://discord.gg/K2mxsJ2trE).
 
 Email: info@lc-studios.net
