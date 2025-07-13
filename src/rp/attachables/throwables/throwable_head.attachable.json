@@ -12,6 +12,17 @@
 			"geometry": {
 				"default": "geometry.scpdy_throwable_head"
 			},
+			"animations": {
+				"anim.fp.general": "animation.scpdy.throwable_head.fp.general",
+				"anim.tp.general": "animation.scpdy.throwable_head.tp.general"
+			},
+			"scripts": {
+				// prettier-ignore
+				"animate": [
+					{ "anim.fp.general": "c.is_first_person" },
+					{ "anim.tp.general": "!c.is_first_person" }
+				]
+			},
 			"render_controllers": ["controller.render.scpdy.standard"]
 		}
 	}
