@@ -529,8 +529,20 @@
 					"component_groups": ["transform_into_dead"]
 				}
 			},
-			"lc:on_target_acquired": {},
-			"lc:on_target_escape": {},
+			"lc:on_target_acquired": {
+				// prettier-ignore
+				"sequence": [
+					{ "trigger": "lc:start_anger" },
+					{ "trigger": "lc:start_combat:gun_and_melee" }
+				]
+			},
+			"lc:on_target_escape": {
+				// prettier-ignore
+				"sequence": [
+					{ "trigger": "lc:stop_anger" },
+					{ "trigger": "lc:stop_combat" }
+				]
+			},
 			"lc:start_anger": {
 				"add": {
 					"component_groups": ["angry"]
