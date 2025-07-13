@@ -24,6 +24,9 @@
 			},
 			"minecraft:durability": {
 				"max_durability": 300
+			},
+			"minecraft:tags": {
+				"tags": ["armor:6"]
 			}
 		}
 	}
