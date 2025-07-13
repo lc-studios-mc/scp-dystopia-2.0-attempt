@@ -525,7 +525,7 @@
 					"time": [3, 8],
 					"time_down_event": {
 						"event": "lc:on_frag_grenade_throw_timer_end",
-						"target": "sefl"
+						"target": "self"
 					}
 				}
 			},
