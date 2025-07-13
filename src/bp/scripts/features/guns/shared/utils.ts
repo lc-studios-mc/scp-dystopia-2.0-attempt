@@ -16,7 +16,7 @@ export const displayAmmoCountOfBasicMagFedGun = (opts: {
 		opts.magContext.remainingAmmoCount <= 0 ? "§c" : opts.magContext.expendedAmmoCount > 0 ? "§e" : "";
 	const leftAmmoText = opts.magContext.remainingAmmoCount;
 	const rightAmmoText = opts.magContext.remainingAmmoCount + opts.inventoryAmmoCount;
-	const final = `${leftAmmoColor}${leftAmmoText} | §7${rightAmmoText}`;
+	const final = `${leftAmmoColor}${leftAmmoText} §8| §7${rightAmmoText}`;
 
 	opts.player.onScreenDisplay.setActionBar(final);
 };
