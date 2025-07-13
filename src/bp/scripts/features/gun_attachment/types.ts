@@ -1,5 +1,6 @@
 export type AttachmentStats = {
 	damageMultiplier?: number;
+	markGunAsSuppressed?: boolean;
 };
 
 export type AttachmentConfig = {

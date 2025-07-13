@@ -1,6 +1,6 @@
 import type { ItemStack } from "@minecraft/server";
-import type { AttachmentConfig } from "./types";
-import { attachmentConfigsById } from "./configs/attachment_configs";
+import type { AttachmentConfig, AttachmentStats } from "./types";
+import { attachmentConfigsById } from "./configs";
 import { console } from "@lc-studios-mc/scripting-utils";
 
 export type AttachmentContextArgs = {
@@ -9,13 +9,17 @@ export type AttachmentContextArgs = {
 };
 
 export class AttachmentContext {
-	private map = new Map<string, AttachmentConfig | null>();
-	private lastEditTime: number = 0;
+	readonly lastEditTime: number = 0;
+	readonly map: ReadonlyMap<string, AttachmentConfig | null> = new Map();
+	readonly array: readonly AttachmentConfig[] = [];
 
 	constructor(args: AttachmentContextArgs) {
+		const map = new Map<string, AttachmentConfig | null>();
+		const array: AttachmentConfig[] = [];
+
 		if (args.slotTypes) {
 			for (const slotType of args.slotTypes) {
-				this.map.set(slotType, null);
+				map.set(slotType, null);
 			}
 		}
 
@@ -33,7 +37,7 @@ export class AttachmentContext {
 
 			const attId = args.itemStack.getDynamicProperty(propId);
 			if (typeof attId !== "string") {
-				this.map.set(slotType, null);
+				map.set(slotType, null);
 				continue;
 			}
 
@@ -43,13 +47,12 @@ export class AttachmentContext {
 				continue;
 			}
 
-			this.map.set(slotType, att);
+			map.set(slotType, att);
+			array.push(att);
 		}
-	}
 
-	set(slotType: string, attachment?: AttachmentConfig): void {
-		this.map.set(slotType, attachment ?? null);
-		this.lastEditTime = Date.now();
+		this.map = map;
+		this.array = array;
 	}
 
 	get(slotType: string): AttachmentConfig | undefined {
@@ -57,23 +60,17 @@ export class AttachmentContext {
 		if (value) return value;
 	}
 
-	createArray(): AttachmentConfig[] {
-		return Array.from(this.map.values()).filter((att) => att != null);
-	}
+	combineStats(): Required<AttachmentStats> {
+		const base: Required<AttachmentStats> = {
+			damageMultiplier: 1,
+			markGunAsSuppressed: false,
+		};
 
-	createRecord(): Record<string, AttachmentConfig> {
-		const record: Record<string, AttachmentConfig> = {};
+		const final = this.array.reduce((acc, currentOverride) => {
+			return { ...acc, ...currentOverride };
+		}, base);
 
-		for (const [slotType, att] of this.map) {
-			if (!att) continue;
-			record[slotType] = att;
-		}
-
-		return record;
-	}
-
-	createRecordNullable(): Record<string, AttachmentConfig | null> {
-		return Object.fromEntries(this.map.entries());
+		return final;
 	}
 
 	apply(itemStack: ItemStack): void {
@@ -85,7 +82,7 @@ export class AttachmentContext {
 		itemStack.setDynamicProperty("lastAttachmentEditTime", this.lastEditTime);
 	}
 
-	lastEditTimeEquals(another: AttachmentContext | ItemStack): boolean {
+	compareLastEditTime(another: AttachmentContext | ItemStack): boolean {
 		if (another instanceof AttachmentContext) return this.lastEditTime === another.lastEditTime;
 
 		const lastEditTimeItemStack = another.getDynamicProperty("lastAttachmentEditTime") ?? 0;

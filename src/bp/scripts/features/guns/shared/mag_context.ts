@@ -2,7 +2,7 @@ import * as mc from "@minecraft/server";
 import { getAmmoTypeOfItemStack } from "@/features/ammo/ammo";
 import { clamp, console, findContainerSlot } from "@lc-studios-mc/scripting-utils";
 
-export class GunMagContext {
+export class MagContext {
 	private readonly containerSlot: mc.ContainerSlot;
 	private readonly magItemType: string;
 	private readonly itemStack: mc.ItemStack;
@@ -28,11 +28,11 @@ export class GunMagContext {
 		this.ammoType = ammoType;
 	}
 
-	static findMag(container: mc.Container, magItemType: string): GunMagContext | undefined {
+	static findMag(container: mc.Container, magItemType: string): MagContext | undefined {
 		const slot = findContainerSlot(container, (slot) => slot.hasItem() && slot.typeId === magItemType);
 		if (!slot) return;
 
-		const ctx = new GunMagContext(slot);
+		const ctx = new MagContext(slot);
 		return ctx;
 	}
 
