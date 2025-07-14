@@ -64,10 +64,7 @@
 				{
 					"name": "rightItem",
 					"parent": "rightArm",
-					"pivot": [-6, 15, 1],
-					"locators": {
-						"lead_hold": [-6, 15, 1]
-					}
+					"pivot": [-6, 15, 1]
 				},
 				{
 					"name": "leftLeg",
