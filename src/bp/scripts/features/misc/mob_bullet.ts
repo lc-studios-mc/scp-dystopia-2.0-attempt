@@ -1,4 +1,9 @@
-import { playBulletHitSound, spawnBulletHitParticle, spawnBulletHole } from "@/features/bullets/effects";
+import {
+	playBulletHitSound,
+	spawnBulletHitParticle,
+	spawnBulletHole,
+	spawnBulletTraceParticle,
+} from "@/features/bullets/effects";
 import { Vec3 } from "@lc-studios-mc/scripting-utils";
 import * as vec3 from "@lib/utils/vec3";
 import { world } from "@minecraft/server";
@@ -24,6 +29,15 @@ world.afterEvents.projectileHitBlock.subscribe((e) => {
 
 	spawnBulletHitParticle(e.dimension, e.location, e.hitVector);
 	playBulletHitSound(e.dimension, e.location);
+
+	if (Math.random() > 0.5) {
+		spawnBulletTraceParticle(
+			e.dimension,
+			e.location,
+			e.hitVector,
+			e.source?.location ? Vec3.distance(e.source.location, e.location) / 2 : 3,
+		);
+	}
 
 	const createBulletHole = !config.disableBulletHoles;
 	if (createBulletHole) {
