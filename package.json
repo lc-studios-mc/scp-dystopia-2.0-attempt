@@ -4,7 +4,7 @@
 	"scripts": {
 		"dev": "mcr build -c mcr-configs/dev/config.js",
 		"types": "tsc --noEmit",
-		"format": "prettier --write ."
+		"format": "dprint fmt"
 	},
 	"type": "module",
 	"dependencies": {
@@ -15,7 +15,7 @@
 	},
 	"devDependencies": {
 		"@lc-studios-mc/mcr": "github:lc-studios-mc/mcr#v0.0.2",
-		"prettier": "^3.5.3",
+		"dprint": "^0.50.1",
 		"typescript": "^5.7.2"
 	}
 }
