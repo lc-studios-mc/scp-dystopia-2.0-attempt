@@ -1,5 +1,5 @@
 {
-	"format_version": "1.19.80",
+	"format_version": "1.21.90",
 	"minecraft:entity": {
 		"description": {
 			"identifier": "lc:scpdy_scp096",
@@ -49,6 +49,167 @@
 				}
 			}
 		},
+
+		"components": {
+			"minecraft:is_hidden_when_invisible": {},
+
+			"minecraft:knockback_resistance": {
+				"value": 0.5
+			},
+
+			"minecraft:health": {
+				"value": 114514,
+				"max": 114514
+			},
+
+			"minecraft:attack": {
+				"damage": 0
+			},
+
+			"minecraft:follow_range": {
+				"value": 9999,
+				"max": 9999
+			},
+
+			"minecraft:behavior.hurt_by_target": {
+				"priority": 2
+			},
+
+			"minecraft:behavior.nearest_attackable_target": {
+				"priority": 1,
+				"must_see": false,
+				"scan_interval": 10,
+				"reselect_targets": true,
+				"target_invisible_multiplier": 1.0,
+				"target_sneak_visibility_multiplier": 1.0,
+				"entity_types": [
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "has_tag",
+									"subject": "other",
+									"value": "scp096_1"
+								}
+							]
+						},
+						"max_dist": 256,
+						"reevaluate_description": true
+					}
+				]
+			},
+
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "fall",
+						"deals_damage": "no"
+					}
+				]
+			},
+
+			"minecraft:interact": {
+				"interactions": [
+					{
+						"on_interact": {
+							"filters": {
+								"all_of": [
+									{
+										"test": "bool_property",
+										"subject": "self",
+										"domain": "lc:is_face_hidden",
+										"operator": "not"
+									},
+									{ "test": "is_family", "subject": "other", "value": "player" },
+									{
+										"test": "has_equipment",
+										"domain": "hand",
+										"subject": "other",
+										"value": "lc:scpdy_scp096_paper_bag"
+									}
+								]
+							},
+							"event": "scp096:equip_paper_bag",
+							"target": "self"
+						},
+						"cooldown": 0.1,
+						"use_item": true,
+						"swing": true,
+						"interact_text": "scpdy.action.interact.scp096.hideFace"
+					},
+					{
+						"on_interact": {
+							"filters": {
+								"all_of": [
+									{ "test": "bool_property", "subject": "self", "domain": "lc:is_face_hidden" },
+									{ "test": "is_family", "subject": "other", "value": "player" }
+								]
+							},
+							"event": "scp096:remove_paper_bag",
+							"target": "self"
+						},
+						"cooldown": 0.1,
+						"swing": true,
+						"interact_text": "scpdy.action.interact.scp096.removePaperBag",
+						"spawn_items": { "table": "loot_tables/scpdy/entities/remove_scp096_paper_bag.json" }
+					}
+				]
+			},
+
+			"minecraft:preferred_path": {
+				"max_fall_blocks": 384
+			},
+
+			"minecraft:break_blocks": {
+				"breakable_blocks": [
+					"minecraft:iron_door",
+					"minecraft:scaffolding",
+					"minecraft:fence",
+					"minecraft:fence_gate",
+					"minecraft:glass",
+					"minecraft:glass_pane",
+					"minecraft:stained_glass",
+					"minecraft:stained_glass_pane"
+				]
+			},
+
+			"minecraft:movement.generic": {
+				"max_turn": 360.0
+			},
+			"minecraft:jump.static": {},
+			"minecraft:can_climb": {},
+			"minecraft:movement": {
+				"value": 0.1
+			},
+			"minecraft:underwater_movement": {
+				"value": 0.12
+			},
+			"minecraft:navigation.generic": {
+				"can_walk": true,
+				"can_swim": true,
+				"can_break_doors": true,
+				"can_path_from_air": true,
+				"can_path_over_lava": true,
+				"can_path_over_water": true,
+				"can_walk_in_lava": true
+			},
+			"minecraft:annotation.break_door": {
+				"break_time": 0.3,
+				"min_difficulty": "easy"
+			},
+
+			"minecraft:physics": {},
+
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+
+			"minecraft:nameable": {},
+
+			"minecraft:persistent": {}
+		},
+
 		"component_groups": {
 			"collision_tall": {
 				"minecraft:collision_box": {
@@ -56,60 +217,47 @@
 					"height": 2.9
 				}
 			},
+
 			"collision_short": {
 				"minecraft:collision_box": {
 					"width": 0.6,
 					"height": 1.9
 				}
 			},
+
 			"no_paper_bag": {
-				"minecraft:lookat": {
-					"search_radius": 100.0,
-					"set_target": true,
+				"minecraft:looked_at": {
+					"field_of_view": 36,
+					"search_radius": 64.0,
+					"min_looked_at_duration": 0.1,
 					"filters": {
-						"all_of": [
-							{
-								"test": "is_family",
-								"subject": "other",
-								"operator": "!=",
-								"value": "inanimate"
-							},
-							{
-								"test": "is_family",
-								"subject": "other",
-								"operator": "!=",
-								"value": "mtf_epsilon11"
-							},
-							{
-								"test": "is_family",
-								"subject": "other",
-								"operator": "!=",
-								"value": "scpdy_scp096"
-							},
-							{
-								"test": "has_component",
-								"subject": "other",
-								"operator": "!=",
-								"value": "minecraft:projectile"
-							}
+						"none_of": [
+							{ "test": "is_family", "subject": "other", "value": "inanimate" },
+							{ "test": "is_family", "subject": "other", "value": "can_safely_look_at_scp096" },
+							{ "test": "is_family", "subject": "other", "value": "scpdy_scp096" },
+							{ "test": "has_component", "subject": "other", "value": "minecraft:projectile" }
 						]
-					}
+					},
+					"set_target": "once_and_keep_scanning"
 				},
 				"minecraft:type_family": {
 					"family": ["mob", "monster", "hostile_scp", "scp", "scp096", "scpdy_scp096"]
 				}
 			},
+
 			"paper_bagged": {
 				"minecraft:type_family": {
 					"family": ["mob", "monster", "neutral_scp", "scp", "scp096", "scpdy_scp096"]
 				}
 			},
+
 			"attacker_dummy": {
 				"minecraft:behavior.delayed_attack": {
 					"priority": 0,
 					"attack_duration": 10.0
 				}
 			},
+
 			"attacker_real": {
 				"minecraft:behavior.delayed_attack": {
 					"priority": 0,
@@ -124,6 +272,7 @@
 					"speed_multiplier": 2.0
 				}
 			},
+
 			"calm": {
 				"minecraft:behavior.random_stroll": {
 					"priority": 6,
@@ -146,6 +295,7 @@
 					"jump_prevented_value": 0.5625
 				}
 			},
+
 			"triggered_screaming": {
 				"minecraft:timer": {
 					"looping": false,
@@ -157,6 +307,7 @@
 					}
 				}
 			},
+
 			"angry_looking_for_target": {
 				"minecraft:timer": {
 					"looping": false,
@@ -224,170 +375,14 @@
 				}
 			}
 		},
-		"components": {
-			"minecraft:is_hidden_when_invisible": {},
-			"minecraft:knockback_resistance": {
-				"value": 0.5
-			},
-			"minecraft:health": {
-				"value": 114514,
-				"max": 114514
-			},
-			"minecraft:attack": {
-				"damage": 0
-			},
-			"minecraft:follow_range": {
-				"value": 9999,
-				"max": 9999
-			},
-			"minecraft:behavior.hurt_by_target": {
-				"priority": 2
-			},
-			"minecraft:behavior.nearest_attackable_target": {
-				"priority": 1,
-				"must_see": false,
-				"scan_interval": 10,
-				"reselect_targets": true,
-				"target_invisible_multiplier": 1.0,
-				"target_sneak_visibility_multiplier": 1.0,
-				"entity_types": [
-					{
-						"filters": {
-							"all_of": [
-								{
-									"test": "has_tag",
-									"subject": "other",
-									"value": "scp096_1"
-								}
-							]
-						},
-						"max_dist": 256,
-						"reevaluate_description": true
-					}
-				]
-			},
-			"minecraft:damage_sensor": {
-				"triggers": [
-					{
-						"cause": "fall",
-						"deals_damage": false
-					}
-				]
-			},
-			"minecraft:interact": {
-				"interactions": [
-					{
-						"on_interact": {
-							"filters": {
-								"all_of": [
-									{
-										"test": "bool_property",
-										"subject": "self",
-										"domain": "lc:is_face_hidden",
-										"value": false
-									},
-									{
-										"test": "is_family",
-										"subject": "other",
-										"value": "player"
-									},
-									{
-										"test": "has_equipment",
-										"domain": "hand",
-										"subject": "other",
-										"value": "lc:scpdy_scp096_paper_bag"
-									}
-								]
-							},
-							"event": "scp096:equip_paper_bag",
-							"target": "self"
-						},
-						"cooldown": 0.1,
-						"use_item": true,
-						"swing": true,
-						"interact_text": "scpdy.action.interact.scp096.hideFace"
-					},
-					{
-						"on_interact": {
-							"filters": {
-								"all_of": [
-									{
-										"test": "bool_property",
-										"subject": "self",
-										"domain": "lc:is_face_hidden",
-										"value": true
-									},
-									{
-										"test": "is_family",
-										"subject": "other",
-										"operator": "==",
-										"value": "player"
-									}
-								]
-							},
-							"event": "scp096:remove_paper_bag",
-							"target": "self"
-						},
-						"cooldown": 0.1,
-						"swing": true,
-						"interact_text": "scpdy.action.interact.scp096.removePaperBag",
-						"spawn_items": { "table": "loot_tables/scpdy/entities/remove_scp096_paper_bag.json" }
-					}
-				]
-			},
-			"minecraft:preferred_path": {
-				"max_fall_blocks": 384
-			},
-			"minecraft:break_blocks": {
-				"breakable_blocks": [
-					"minecraft:iron_door",
-					"minecraft:scaffolding",
-					"minecraft:fence",
-					"minecraft:fence_gate",
-					"minecraft:glass",
-					"minecraft:glass_pane",
-					"minecraft:stained_glass",
-					"minecraft:stained_glass_pane"
-				]
-			},
-			"minecraft:navigation.generic": {
-				"can_walk": true,
-				"can_swim": true,
-				"can_break_doors": true,
-				"can_path_from_air": true,
-				"can_path_over_lava": true,
-				"can_path_over_water": true,
-				"can_walk_in_lava": true
-			},
-			"minecraft:movement.generic": {
-				"max_turn": 360.0
-			},
-			"minecraft:jump.static": {},
-			"minecraft:can_climb": {},
-			"minecraft:movement": {
-				"value": 0.1
-			},
-			"minecraft:underwater_movement": {
-				"value": 0.12
-			},
-			"minecraft:annotation.break_door": {
-				"break_time": 0.3,
-				"min_difficulty": "easy"
-			},
-			"minecraft:physics": {},
-			"minecraft:pushable": {
-				"is_pushable": true,
-				"is_pushable_by_piston": true
-			},
-			"minecraft:nameable": {},
-			"minecraft:persistent": {}
-		},
+
 		"events": {
 			"minecraft:entity_spawned": {
 				"add": {
 					"component_groups": ["collision_tall", "no_paper_bag", "attacker_dummy", "calm"]
 				}
 			},
+
 			"scp096:equip_paper_bag": {
 				"remove": {
 					"component_groups": ["no_paper_bag"]
@@ -399,6 +394,7 @@
 					"lc:is_face_hidden": true
 				}
 			},
+
 			"scp096:remove_paper_bag": {
 				"remove": {
 					"component_groups": ["paper_bagged"]
@@ -410,6 +406,7 @@
 					"lc:is_face_hidden": false
 				}
 			},
+
 			"scp096:target_acquired_while_calm": {
 				"remove": {
 					"component_groups": ["attacker_dummy", "calm"]
@@ -421,9 +418,11 @@
 					"lc:state": 1
 				}
 			},
+
 			"scp096:triggered_scream_complete": {
 				"trigger": "scp096:become_angry"
 			},
+
 			"scp096:become_angry": {
 				"remove": {
 					"component_groups": [
@@ -442,6 +441,7 @@
 					"lc:state": 2
 				}
 			},
+
 			"scp096:target_acquired_to_kill": {
 				"remove": {
 					"component_groups": ["angry_looking_for_target"]
@@ -450,6 +450,7 @@
 					"component_groups": ["angry_chasing_target"]
 				}
 			},
+
 			"scp096:target_lost_while_chasing": {
 				"remove": {
 					"component_groups": ["angry_chasing_target"]
@@ -458,6 +459,7 @@
 					"component_groups": ["angry_looking_for_target"]
 				}
 			},
+
 			"scp096:start_trying_to_calm": {
 				"remove": {
 					"component_groups": ["angry_chasing_target", "angry_looking_for_target"]
@@ -469,9 +471,11 @@
 					"lc:state": 3
 				}
 			},
+
 			"scp096:interrupt_trying_to_calm": {
 				"trigger": "scp096:become_angry"
 			},
+
 			"scp096:become_calm": {
 				"remove": {
 					"component_groups": [
@@ -490,6 +494,7 @@
 					"lc:state": 0
 				}
 			},
+
 			"scp096:spawn_angry": {
 				"add": {
 					"component_groups": ["collision_short", "attacker_real", "angry_looking_for_target"]
@@ -498,7 +503,9 @@
 					"lc:state": 2
 				}
 			},
+
 			"scp096:on_attack": {},
+
 			"scp096:force_remove": {}
 		}
 	}
