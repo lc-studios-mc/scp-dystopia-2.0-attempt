@@ -1,4 +1,4 @@
-import { _getModeStringFromIndex } from "@/features/machinery/input/mode";
+import { getInputDeviceModeFromIndex } from "@/features/input_devices/mode";
 import { createBlockStatesString } from "@/utils/block";
 import { getBlockCardinalDirection, reverseDirection } from "@/utils/direction";
 import * as mc from "@minecraft/server";
@@ -17,7 +17,7 @@ const COMPONENT: mc.BlockCustomComponent = {
 		if (newType === "") return;
 
 		const modeIndex = Number(block.permutation.getState("lc:mode"));
-		const modeString = _getModeStringFromIndex(modeIndex);
+		const modeString = getInputDeviceModeFromIndex(modeIndex);
 
 		const cardinalDir = getBlockCardinalDirection(block.permutation) ?? mc.Direction.North;
 		const reversedDir = reverseDirection(cardinalDir);

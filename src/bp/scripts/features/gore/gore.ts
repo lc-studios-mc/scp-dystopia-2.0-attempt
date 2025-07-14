@@ -4,6 +4,7 @@ import { randf, randi } from "@/utils/math";
 import * as vec3 from "@/utils/vec3";
 import { getBlockRaycastHitLocation } from "@/utils/direction";
 import { spawnGibChop, spawnGibHead, spawnGibLimb } from "./gibs";
+import { config } from "@/features/config/config";
 
 const BLOOD_EXPLOSION_PARTICLE_ID = "lc:scpdy_blood_explosion_particle";
 const BLOOD_SPLASH_SMALL_PARTICLE_ID = "lc:scpdy_blood_splash_small_particle";
@@ -34,7 +35,7 @@ export function spawnGoreExplosion(opts: SpawnGoreOpts): void {
 
 	spawnBloodExplosionParticle(dim, origin);
 
-	const noExpensive = false; // TODO: Allow disabling expensive gore effect via config
+	const noExpensive = config.disableExpensiveGoreEffects;
 
 	if (!noExpensive) {
 		dim.spawnParticle("lc:scpdy_small_flesh_piece_burst_emitter", origin);
@@ -42,11 +43,9 @@ export function spawnGoreExplosion(opts: SpawnGoreOpts): void {
 
 	dim.spawnParticle(BLOOD_MIST_PARTICLE_ID, origin);
 
-	mc.system.run(() => {
-		spawnGibHead(dim, origin);
-	});
-
 	if (!noExpensive && !opts.disableExtraGibs) {
+		spawnGibHead(dim, origin);
+
 		mc.system.runTimeout(() => {
 			spawnGibLimb(dim, origin);
 		}, 1);

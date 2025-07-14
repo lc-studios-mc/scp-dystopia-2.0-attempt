@@ -1,2 +1,3 @@
+// TODO: Upgrade guns
+
 import "./guns";
-import "./throwables";

@@ -1,7 +1,7 @@
-import { MachineryInputEvents } from "../machinery/input/events";
+import { InputDeviceEvents } from "../input_devices/events";
 import { controlBlastDoor, getNearestBlastDoor } from "./blast_door";
 
-MachineryInputEvents.on("onActivate", (data) => {
+InputDeviceEvents.on("onActivate", (data) => {
 	if (data.mode !== "ctrlBlastDoor") return;
 
 	const nearbyBlastDoor = getNearestBlastDoor(data.dimension, data.location, 12);

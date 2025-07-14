@@ -1,3 +1,5 @@
+// TODO: Upgrade standard door and remove this directory for good
+
 import { isAirOrLiquid } from "@lib/utils/blockUtils";
 import * as mc from "@minecraft/server";
 import { getDoorSoundInfo } from "./doorSounds";

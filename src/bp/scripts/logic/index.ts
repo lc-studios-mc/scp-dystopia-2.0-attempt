@@ -3,15 +3,10 @@ import { ItemStack, Player, system, world } from "@minecraft/server";
 import "./advancedItem";
 import "./ammo";
 import "./blocks";
-import "./cctv";
-import "./components";
 import "./config";
-import "./controlDevices";
 import "./facilityNetwork";
 import "./humanMobs";
 import "./scps";
-import "./theUnknown";
-import "./uncategorized";
 import "./weapons";
 
 function onInitialize(): void {

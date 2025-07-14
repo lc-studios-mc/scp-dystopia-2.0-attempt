@@ -1,12 +1,18 @@
 import * as mc from "@minecraft/server";
 import { ConfigBuilder } from "./ConfigBuilder";
 
-const BUILDER = new ConfigBuilder(mc.world);
+const builder = new ConfigBuilder(mc.world);
 
-const CONFIG_INTERNAL = BUILDER.build();
+const configInternal = builder
+	// Define config properties with method chain
+	.toggle("disableExpensiveGoreEffects", { translate: "scpdy.config.disableExpensiveGoreEffects" }, false, {
+		translate: "scpdy.config.disableExpensiveGoreEffects.tooltip",
+	})
+	.toggle("disableDestructiveScp096Behavior", { translate: "scpdy.config.disableDestructiveScp096Behavior" })
+	.toggle("disableBlackScreenWhileBlinking", { translate: "scpdy.config.disableBlackScreenWhileBlinking" })
+	.toggle("disableBulletHoles", { translate: "scpdy.config.disableBulletHoles" })
+	.build();
 
-export const CONFIG: Readonly<typeof CONFIG_INTERNAL> = CONFIG_INTERNAL;
+export const config: Readonly<typeof configInternal> = configInternal;
 
-export async function showConfigEditorForm(target: mc.Player): Promise<void> {
-	await BUILDER.showEditorForm(target);
-}
+export const showConfigEditorForm = (target: mc.Player) => builder.showEditorForm(target);

@@ -12,10 +12,10 @@ import {
 } from "@lc-studios-mc/scripting-utils";
 import * as mc from "@minecraft/server";
 import { consumeAmmoInContainer, getAmmoCountInContainer } from "../ammo/ammo";
-import { fireBullet } from "./shared/bullet";
-import { createBasicBulletDamageFunction } from "./shared/bullet/damage_functions";
-import { createBasicBulletHitBlockHandler } from "./shared/bullet/hit_block_handlers";
-import { createBasicBulletHitEntityHandler } from "./shared/bullet/hit_entity_handlers";
+import { fireBullet } from "../bullets";
+import { createBasicBulletDamageFunction } from "@/features/bullets/damage_functions";
+import { createBasicBulletHitBlockHandler } from "@/features/bullets/hit_block_handlers";
+import { createBasicBulletHitEntityHandler } from "@/features/bullets/hit_entity_handlers";
 import { MagContext } from "./shared/mag_context";
 import {
 	applyConditionalAdsSlowness,

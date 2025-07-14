@@ -1,5 +1,4 @@
-## A lang file tends to get very messy. Try to keep the keys categorized and alphabetically organized.
-## And never create a vague category like "blocks" or "items" in top-level, it will quickly become a root of evil!
+## Avoid excessive modularization of categories!!
 
 
 ## * <-------------------------> *
@@ -327,12 +326,18 @@ scpdy.machinery.input.kr.text=Keycard Reader
 ## --- config ---
 
 scpdy.configItem.old.displayName=Config (LEGACY)
+scpdy.config.editor=Config Editor
 scpdy.config.text.editorFormTitle=Config Editor
 scpdy.config.text.editorFormExplanation=You can edit the options below to change various aspects of SCP: Dystopia addon in this world.
 scpdy.config.text.editorFormResetToggle.label=§eReset
 scpdy.config.text.editorFormResetToggle.tooltip=Enabling this option will cause all options to be reset after pressing Save & Exit.
 scpdy.config.text.messageOnReset=§6Successfully reset all options!
 scpdy.config.text.messageOnSaveAndExit=§aSaved changes!
+scpdy.config.disableExpensiveGoreEffects=Disable expensive gore effects
+scpdy.config.disableExpensiveGoreEffects.tooltip=Disables advanced blood splats and gibbing.
+scpdy.config.disableDestructiveScp096Behavior=Disable destructive SCP-096 behavior
+scpdy.config.disableBlackScreenWhileBlinking=Disable black screen while blinking
+scpdy.config.disableBulletHoles=Disable bullet holes
 
 
 ## * <-------------------------> *

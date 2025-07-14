@@ -8,14 +8,14 @@
 			}
 		},
 		"components": {
-			"scpdy:config_item": {},
+			"scpdy:config_editor_item": {},
 			"minecraft:icon": {
 				"textures": {
 					"default": "scpdy_config_icon"
 				}
 			},
 			"minecraft:display_name": {
-				"value": "scpdy.configItem.old.displayName"
+				"value": "scpdy.config.editor"
 			},
 			"minecraft:hover_text_color": "aqua",
 			"minecraft:max_stack_size": 1,

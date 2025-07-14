@@ -1,7 +1,7 @@
 import { destroyBlock } from "@/utils/block";
 import { flattenCoordinates, unflattenToCoordinates } from "@/utils/math";
 import * as mc from "@minecraft/server";
-import { MachineryInputEvents } from "../machinery/input/events";
+import { InputDeviceEvents } from "@/features/input_devices/events";
 import { getRelativeBlockAtDirection } from "@/utils/direction";
 import { isHoldingWrench } from "@/utils/wrench";
 
@@ -227,7 +227,7 @@ function checkRedstonePower(block: mc.Block): boolean {
 	return false;
 }
 
-MachineryInputEvents.on("onActivate", (data) => {
+InputDeviceEvents.on("onActivate", (data) => {
 	if (data.mode !== "powerRelayDoors") return;
 
 	const block = data.block ?? data.dimension.getBlock(data.location);
