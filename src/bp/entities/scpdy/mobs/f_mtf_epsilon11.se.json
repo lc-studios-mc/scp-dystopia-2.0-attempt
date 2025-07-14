@@ -35,11 +35,14 @@
 				}
 			}
 		},
+
 		"components": {
 			"minecraft:is_hidden_when_invisible": {},
+
 			"minecraft:knockback_resistance": {
 				"value": 0.3
 			},
+
 			"minecraft:type_family": {
 				"family": [
 					"mob",
@@ -48,36 +51,40 @@
 					"scpf",
 					"scp_foundation",
 					"combatant",
+					"armed",
 					"mtf",
 					"mtf_epsilon11",
 					"can_safely_look_at_scp096"
 				]
 			},
+
 			"minecraft:health": {
 				"value": 60,
 				"max": 60
 			},
+
 			"minecraft:attack": {
 				"damage": 5
 			},
+
 			"minecraft:hurt_on_condition": {
 				"damage_conditions": [
 					{
 						"filters": {
 							"test": "in_lava",
-							"subject": "self",
-							"operator": "==",
-							"value": true
+							"subject": "self"
 						},
 						"cause": "lava",
 						"damage_per_tick": 4
 					}
 				]
 			},
+
 			"minecraft:breathable": {
 				"total_supply": 20,
 				"suffocate_time": 0
 			},
+
 			"minecraft:behavior.avoid_mob_type": {
 				"priority": 0,
 				"entity_types": [
@@ -95,9 +102,11 @@
 					}
 				]
 			},
+
 			"minecraft:behavior.float": {
 				"priority": 0
 			},
+
 			"minecraft:damage_sensor": {
 				"triggers": [
 					// Don't take damage from members of the same faction
@@ -136,6 +145,7 @@
 					}
 				]
 			},
+
 			"minecraft:target_nearby_sensor": {
 				"inside_range": 1.4,
 				"on_inside_range": {
@@ -148,18 +158,22 @@
 					"target": "self"
 				}
 			},
+
 			"minecraft:on_target_acquired": {
 				"event": "lc:on_target_acquired",
 				"target": "self"
 			},
+
 			"minecraft:on_target_escape": {
 				"event": "lc:on_target_escape",
 				"target": "self"
 			},
+
 			"minecraft:follow_range": {
 				"value": 64,
 				"max": 64
 			},
+
 			"minecraft:interact": {
 				"interactions": [
 					{
@@ -172,11 +186,7 @@
 										"domain": "lc:is_stationary",
 										"operator": "!="
 									},
-									{
-										"test": "is_family",
-										"subject": "other",
-										"value": "player"
-									},
+									{ "test": "is_family", "subject": "other", "value": "player" },
 									{
 										"test": "has_equipment",
 										"domain": "hand",
@@ -201,11 +211,7 @@
 										"domain": "lc:is_stationary",
 										"operator": "=="
 									},
-									{
-										"test": "is_family",
-										"subject": "other",
-										"value": "player"
-									},
+									{ "test": "is_family", "subject": "other", "value": "player" },
 									{
 										"test": "has_equipment",
 										"domain": "hand",
@@ -222,18 +228,19 @@
 					}
 				]
 			},
+
 			"minecraft:behavior.random_look_around": {
-				"priority": 13,
+				"priority": 23,
 				"min_angle_of_view_horizontal": -24,
 				"max_angle_of_view_horizontal": 24
 			},
 			"minecraft:behavior.look_at_player": {
-				"priority": 11,
+				"priority": 21,
 				"look_distance": 3.0,
 				"probability": 0.02
 			},
 			"minecraft:behavior.look_at_entity": {
-				"priority": 12,
+				"priority": 22,
 				"look_distance": 5.5,
 				"probability": 0.03,
 				"filters": {
@@ -242,30 +249,35 @@
 					"value": "mtf"
 				}
 			},
-			"minecraft:annotation.open_door": {},
-			"minecraft:behavior.open_door": {
-				"priority": 10,
-				"close_door_after": true
-			},
-			"minecraft:navigation.walk": {
-				"avoid_damage_blocks": true,
-				"can_open_doors": true,
-				"can_path_over_water": true
-			},
+
 			"minecraft:movement.basic": {},
 			"minecraft:jump.static": {},
 			"minecraft:can_climb": {},
 			"minecraft:water_movement": {
 				"drag_factor": 0.9
 			},
+			"minecraft:navigation.walk": {
+				"avoid_damage_blocks": true,
+				"can_open_doors": true,
+				"can_path_over_water": true
+			},
+			"minecraft:annotation.open_door": {},
+			"minecraft:behavior.open_door": {
+				"priority": 1,
+				"close_door_after": true
+			},
+
 			"minecraft:physics": {},
 			"minecraft:collision_box": {
 				"width": 0.6,
 				"height": 1.9
 			},
+
 			"minecraft:nameable": {},
+
 			"minecraft:persistent": {}
 		},
+
 		"component_groups": {
 			"ambient_normal": {
 				"minecraft:ambient_sound_interval": {
@@ -274,10 +286,11 @@
 					"range": 15
 				}
 			},
+
 			"move_freely": {
 				"minecraft:movement": { "value": 0.25 },
 				"minecraft:behavior.random_stroll": {
-					"priority": 11,
+					"priority": 20,
 					"speed_multiplier": 0.8,
 					"xz_dist": 7
 				},
@@ -286,13 +299,15 @@
 					"is_pushable_by_piston": true
 				}
 			},
+
 			"stationary": {
 				"minecraft:movement": { "value": 0.0 },
 				"minecraft:pushable": {
 					"is_pushable": false,
-					"is_pushable_by_piston": false
+					"is_pushable_by_piston": true
 				}
 			},
+
 			"transform_into_dead": {
 				"minecraft:transformation": {
 					"drop_equipment": true,
@@ -300,6 +315,7 @@
 					"into": "lc:scpdy_f_mtf_epsilon11_dead"
 				}
 			},
+
 			"not_tamed": {
 				"minecraft:tameable": {
 					"probability": 1.0,
@@ -310,21 +326,10 @@
 					}
 				}
 			},
+
 			"tamed": {
 				"minecraft:is_tamed": {},
-				"minecraft:behavior.teleport_to_owner": {
-					"priority": 1,
-					"filters": {
-						"all_of": [
-							{
-								"test": "owner_distance",
-								"operator": ">",
-								"value": 24
-							},
-							{ "test": "has_target" }
-						]
-					}
-				},
+
 				"minecraft:behavior.owner_hurt_by_target": {
 					"priority": 4,
 					"entity_types": [
@@ -349,6 +354,7 @@
 						}
 					]
 				},
+
 				"minecraft:behavior.owner_hurt_target": {
 					"priority": 3,
 					"entity_types": [
@@ -367,17 +373,35 @@
 						}
 					]
 				},
+
+				"minecraft:behavior.teleport_to_owner": {
+					"priority": 12,
+					"filters": {
+						"all_of": [
+							{
+								"test": "owner_distance",
+								"operator": ">",
+								"value": 24
+							},
+							{ "test": "has_target" }
+						]
+					}
+				},
+
 				"minecraft:behavior.follow_owner": {
-					"priority": 6,
+					"priority": 11,
 					"speed_multiplier": 1.0,
 					"start_distance": 10,
 					"stop_distance": 2
 				},
+
+				"minecraft:sittable": {},
+
 				"minecraft:behavior.stay_while_sitting": {
-					"priority": 6
-				},
-				"minecraft:sittable": {}
+					"priority": 10
+				}
 			},
+
 			"targeting": {
 				"minecraft:behavior.hurt_by_target": {
 					"priority": 4,
@@ -403,6 +427,7 @@
 						}
 					]
 				},
+
 				"minecraft:behavior.nearest_attackable_target": {
 					"priority": 3,
 					"must_see": true,
@@ -411,29 +436,20 @@
 					"target_invisible_multiplier": 0.01,
 					"target_sneak_visibility_multiplier": 0.4,
 					"entity_types": [
+						// Main combat targeting
 						{
 							"filters": {
 								"all_of": [
 									{
-										"test": "is_family",
-										"subject": "other",
-										"operator": "!=",
-										"value": "neutral_scp"
-									},
-									{
-										"test": "is_family",
-										"subject": "other",
-										"operator": "!=",
-										"value": "neutralized"
-									},
-									{
-										"test": "is_family",
-										"subject": "other",
-										"operator": "!=",
-										"value": "scpdy_scp096" // Special filter for SCP-096 below
+										"none_of": [
+											{ "test": "is_family", "subject": "other", "value": "neutral_scp" },
+											{ "test": "is_family", "subject": "other", "value": "neutralized" },
+											{ "test": "is_family", "subject": "other", "value": "scpdy_scp096" }
+										]
 									},
 									{
 										"any_of": [
+											{ "test": "has_tag", "subject": "other", "value": "scpdy_faction_ci" },
 											{ "test": "is_family", "subject": "other", "value": "monster" },
 											{ "test": "is_family", "subject": "other", "value": "illager" },
 											{ "test": "is_family", "subject": "other", "value": "piglin" },
@@ -446,7 +462,7 @@
 							"max_dist": 28
 						},
 
-						// Neutralized containable mobs
+						// Containable mobs
 						{
 							"filters": {
 								"all_of": [
@@ -467,7 +483,7 @@
 							"max_dist": 28
 						},
 
-						// SCP-096 without its face being hidden
+						// SCP-096 with visible face
 						{
 							"filters": {
 								"all_of": [
@@ -482,21 +498,11 @@
 							},
 							"max_dist": 28,
 							"reevaluate_description": true
-						},
-
-						// Players in CI faction
-						{
-							"filters": {
-								"all_of": [
-									{ "test": "is_family", "subject": "other", "value": "player" },
-									{ "test": "has_tag", "subject": "other", "value": "scpdy_faction_ci" }
-								]
-							},
-							"max_dist": 28
 						}
 					]
 				}
 			},
+
 			"angry": {
 				"minecraft:ambient_sound_interval": {
 					"value": 9999
@@ -513,13 +519,9 @@
 						"target": "self"
 					},
 					"filters": {
-						"all_of": [
-							{
-								"test": "is_family",
-								"subject": "other",
-								"operator": "!=",
-								"value": "scp_foundation"
-							}
+						"none_of": [
+							{ "test": "is_family", "subject": "other", "value": "scp_foundation" },
+							{ "test": "is_family", "subject": "other", "value": "scp096" }
 						]
 					},
 					"angry_sound": "angry",
@@ -529,10 +531,9 @@
 					}
 				}
 			},
+
 			"ranged_combat": {
-				"minecraft:shooter": {
-					"def": "lc:scpdy_bullet_p90"
-				},
+				"minecraft:shooter": { "def": "lc:scpdy_bullet_p90" },
 				"minecraft:behavior.ranged_attack": {
 					"priority": 1,
 					"attack_radius": 28,
@@ -546,6 +547,7 @@
 					"speed_multiplier": 1.04
 				}
 			},
+
 			"melee_combat": {
 				"minecraft:behavior.melee_box_attack": {
 					"priority": 1,
@@ -555,6 +557,7 @@
 					"track_target": true
 				}
 			},
+
 			"frag_grenade_throw_timer": {
 				"minecraft:timer": {
 					"looping": true,
@@ -566,6 +569,7 @@
 					}
 				}
 			},
+
 			"throwing_frag_grenade": {
 				"minecraft:behavior.look_at_target": {
 					"priority": 1,
@@ -574,6 +578,7 @@
 					"probability": 3
 				}
 			},
+
 			"chase_target": {
 				// Chase the target but do nothing else
 				"minecraft:behavior.delayed_attack": {
@@ -582,6 +587,7 @@
 					"speed_multiplier": 1.06
 				}
 			},
+
 			"containing_target": {
 				"minecraft:behavior.look_at_target": {
 					"priority": 1,
@@ -591,73 +597,63 @@
 				}
 			}
 		},
+
 		"events": {
 			"minecraft:entity_spawned": {
-				"add": {
-					"component_groups": ["ambient_normal", "move_freely", "not_tamed", "targeting"]
-				}
+				"add": { "component_groups": ["ambient_normal", "move_freely", "not_tamed", "targeting"] }
 			},
+
 			"minecraft:on_tame": {
-				"add": {
-					"component_groups": ["tamed"]
-				},
-				"remove": {
-					"component_groups": ["not_tamed"]
-				}
+				"add": { "component_groups": ["tamed"] },
+				"remove": { "component_groups": ["not_tamed"] }
 			},
+
 			"lc:enable_stationary": {
-				"add": {
-					"component_groups": ["stationary"]
-				},
-				"remove": {
-					"component_groups": ["move_freely"]
-				},
+				"add": { "component_groups": ["stationary"] },
+				"remove": { "component_groups": ["move_freely"] },
 				"set_property": {
 					"lc:is_stationary": true
 				}
 			},
+
 			"lc:disable_stationary": {
-				"add": {
-					"component_groups": ["move_freely"]
-				},
-				"remove": {
-					"component_groups": ["stationary"]
-				},
+				"add": { "component_groups": ["move_freely"] },
+				"remove": { "component_groups": ["stationary"] },
 				"set_property": {
 					"lc:is_stationary": false
 				}
 			},
+
 			"lc:gib": {},
+
 			"lc:transform_into_dead": {
-				"add": {
-					"component_groups": ["transform_into_dead"]
-				}
+				"add": { "component_groups": ["transform_into_dead"] }
 			},
+
 			"lc:on_target_acquired": {
 				"trigger": "lc:update_script"
 			},
+
 			"lc:on_target_escape": {
 				"trigger": "lc:update_script"
 			},
+
 			"lc:on_target_inside_nearby_range": {},
+
 			"lc:on_target_outside_nearby_range": {},
+
 			"lc:update_script": {},
+
 			"lc:start_anger": {
-				"add": {
-					"component_groups": ["angry"]
-				},
-				"remove": {
-					"component_groups": ["ambient_normal"]
-				}
+				"add": { "component_groups": ["angry"] },
+				"remove": { "component_groups": ["ambient_normal"] }
 			},
+
 			"lc:stop_anger": {
-				"add": {
-					"component_groups": ["ambient_normal"]
-				},
-				"remove": {
-					"component_groups": ["angry"]
-				}
+				"add": { "component_groups": ["ambient_normal"] },
+				"remove": { "component_groups": ["angry"] }
 			},
+
 			"lc:remove_combat_component_groups": {
 				"remove": {
 					"component_groups": [
@@ -673,66 +669,42 @@
 
 			// Related to gunning and meleeing combat
 			"lc:switch_to_melee_combat": {
-				"add": {
-					"component_groups": ["melee_combat"]
-				},
-				"remove": {
-					"component_groups": ["ranged_combat"]
-				}
+				"add": { "component_groups": ["melee_combat"] },
+				"remove": { "component_groups": ["ranged_combat"] }
 			},
 			"lc:switch_to_ranged_combat": {
-				"add": {
-					"component_groups": ["ranged_combat"]
-				},
-				"remove": {
-					"component_groups": ["melee_combat"]
-				}
+				"add": { "component_groups": ["ranged_combat"] },
+				"remove": { "component_groups": ["melee_combat"] }
 			},
 			"lc:add_frag_grenade_throw_timer": {
-				"add": {
-					"component_groups": ["frag_grenade_throw_timer"]
-				}
+				"add": { "component_groups": ["frag_grenade_throw_timer"] }
 			},
 			"lc:remove_frag_grenade_throw_timer": {
-				"remove": {
-					"component_groups": ["frag_grenade_throw_timer"]
-				}
+				"remove": { "component_groups": ["frag_grenade_throw_timer"] }
 			},
 			"lc:on_frag_grenade_throw_timer_end": {},
 			"lc:start_throwing_frag_grenade": {
-				"add": {
-					"component_groups": ["throwing_frag_grenade"]
-				},
+				"add": { "component_groups": ["throwing_frag_grenade"] },
 				"remove": {
 					"component_groups": ["frag_grenade_throw_timer", "ranged_combat", "melee_combat"]
 				}
 			},
 			"lc:throw_frag_grenade": {},
 			"lc:on_end_throwing_frag_grenade": {
-				"remove": {
-					"component_groups": ["throwing_frag_grenade"]
-				}
+				"remove": { "component_groups": ["throwing_frag_grenade"] }
 			},
 
 			// Related to chasing and containing target
 			"lc:start_chasing_target": {
-				"add": {
-					"component_groups": ["chase_target"]
-				}
+				"add": { "component_groups": ["chase_target"] }
 			},
 			"lc:start_containing_target": {
-				"add": {
-					"component_groups": ["containing_target"]
-				},
-				"remove": {
-					"component_groups": ["chase_target"]
-				}
+				"add": { "component_groups": ["containing_target"] },
+				"remove": { "component_groups": ["chase_target"] }
 			},
 			"lc:contain_target": {},
 			"lc:on_end_containing_target": {
-				"remove": {
-					"component_groups": ["containing_target"]
-				}
+				"remove": { "component_groups": ["containing_target"] }
 			}
 		}
 	}

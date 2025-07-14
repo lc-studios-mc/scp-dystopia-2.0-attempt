@@ -24,51 +24,23 @@
 				}
 			}
 		},
-		"component_groups": {
-			"var_0": { "minecraft:variant": { "value": 0 } },
-			"var_1": { "minecraft:variant": { "value": 1 } },
-			"var_2": { "minecraft:variant": { "value": 2 } },
-			"var_3": { "minecraft:variant": { "value": 3 } },
-			"var_4": { "minecraft:variant": { "value": 4 } },
-			"var_5": { "minecraft:variant": { "value": 5 } },
-			"just_spawned_timer": {
-				"minecraft:timer": {
-					"looping": false,
-					"randomInterval": false,
-					"time": 0.5,
-					"time_down_event": {
-						"event": "dead_human:on_just_spawned_timer_end",
-						"target": "self"
-					}
-				}
-			},
-			"despawn_timer": {
-				"minecraft:timer": {
-					"looping": false,
-					"randomInterval": false,
-					"time": 90.0,
-					"time_down_event": {
-						"event": "despawn",
-						"target": "self"
-					}
-				}
-			},
-			"despawn": {
-				"minecraft:instant_despawn": {}
-			}
-		},
+
 		"components": {
 			"minecraft:is_hidden_when_invisible": {},
+
 			"minecraft:type_family": {
 				"family": ["mob", "dead_body", "corpse", "scpdy_human_corpse"]
 			},
+
 			"minecraft:knockback_resistance": {
 				"value": 0.4
 			},
+
 			"minecraft:health": {
 				"value": 14,
 				"max": 14
 			},
+
 			"minecraft:hurt_on_condition": {
 				"damage_conditions": [
 					{
@@ -83,6 +55,7 @@
 					}
 				]
 			},
+
 			"minecraft:damage_sensor": {
 				"triggers": [
 					// Fatality should cause gibbing
@@ -95,23 +68,25 @@
 					}
 				]
 			},
+
 			"minecraft:breathable": {
 				"breathes_water": true,
 				"generates_bubbles": false
 			},
-			"minecraft:physics": {
-				"has_collision": true,
-				"has_gravity": true
-			},
-			"minecraft:pushable": {
-				"is_pushable": false,
-				"is_pushable_by_piston": true
-			},
+
+			"minecraft:physics": {},
 			"minecraft:collision_box": {
 				"width": 0.6,
 				"height": 0.9
 			},
+
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": true
+			},
+
 			"minecraft:nameable": {},
+
 			"minecraft:conditional_bandwidth_optimization": {
 				"default_values": {
 					"max_optimized_distance": 30.0,
@@ -120,6 +95,44 @@
 				}
 			}
 		},
+
+		"component_groups": {
+			"var_0": { "minecraft:variant": { "value": 0 } },
+			"var_1": { "minecraft:variant": { "value": 1 } },
+			"var_2": { "minecraft:variant": { "value": 2 } },
+			"var_3": { "minecraft:variant": { "value": 3 } },
+			"var_4": { "minecraft:variant": { "value": 4 } },
+			"var_5": { "minecraft:variant": { "value": 5 } },
+
+			"just_spawned_timer": {
+				"minecraft:timer": {
+					"looping": false,
+					"randomInterval": false,
+					"time": 0.5,
+					"time_down_event": {
+						"event": "dead_human:on_just_spawned_timer_end",
+						"target": "self"
+					}
+				}
+			},
+
+			"despawn_timer": {
+				"minecraft:timer": {
+					"looping": false,
+					"randomInterval": false,
+					"time": 90.0,
+					"time_down_event": {
+						"event": "despawn",
+						"target": "self"
+					}
+				}
+			},
+
+			"despawn": {
+				"minecraft:instant_despawn": {}
+			}
+		},
+
 		"events": {
 			"minecraft:entity_spawned": {
 				"sequence": [
@@ -132,6 +145,7 @@
 					{ "trigger": "randomize_variant" }
 				]
 			},
+
 			"randomize_variant": {
 				"randomize": [
 					{
@@ -160,14 +174,17 @@
 					}
 				]
 			},
+
 			"randomize_death_anim_index": {
 				"set_property": { "lc:death_anim_index": "math.random_integer(0, 2)" }
 			},
+
 			"despawn": {
 				"add": {
 					"component_groups": ["despawn"]
 				}
 			},
+
 			"minecraft:entity_transformed": {
 				"sequence": [
 					{
@@ -209,6 +226,7 @@
 					}
 				]
 			},
+
 			"lc:on_just_spawned_timer_end": {
 				"sequence": [
 					{
@@ -224,11 +242,13 @@
 					}
 				]
 			},
+
 			"lc:stop_despawn_timer": {
 				"remove": {
 					"component_groups": ["despawn_timer"]
 				}
 			},
+
 			"lc:gib": {}
 		}
 	}
