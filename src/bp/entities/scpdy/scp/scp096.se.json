@@ -207,7 +207,13 @@
 
 			"minecraft:nameable": {},
 
-			"minecraft:persistent": {}
+			"minecraft:persistent": {},
+
+			// Chunk loader, sort of.
+			"minecraft:tick_world": {
+				"never_despawn": true,
+				"radius": 2
+			}
 		},
 
 		"component_groups": {
