@@ -54,7 +54,7 @@
 		"components": {
 			"minecraft:is_hidden_when_invisible": {},
 			"minecraft:type_family": {
-				"family": ["mob", "dead_body", "corpse", "scpdy_human_corpse"]
+				"family": ["mob", "dead_body", "corpse", "scpdy_human_corpse", "armed"]
 			},
 			"minecraft:knockback_resistance": {
 				"value": 0.4

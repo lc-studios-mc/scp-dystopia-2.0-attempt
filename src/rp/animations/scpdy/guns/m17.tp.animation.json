@@ -6,7 +6,7 @@
 			"bones": {
 				"gun": {
 					"rotation": [90, 0, 0],
-					"position": [0, -3.25, -2.25],
+					"position": [0.75, -3.25, -2.25],
 					"scale": 0.7
 				}
 			}

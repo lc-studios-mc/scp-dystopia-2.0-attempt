@@ -4,7 +4,10 @@
 		"description": {
 			"identifier": "lc:scpdy_f_researcher",
 			"materials": {
-				"default": "entity_alphatest"
+				"default": "entity_alphatest",
+
+				// Gun
+				"m17_tp": "entity"
 			},
 			"textures": {
 				"researcher_var_0": "textures/scpdy/mobs/f_researcher_basic_male_1",
@@ -12,25 +15,56 @@
 				"researcher_var_2": "textures/scpdy/mobs/f_researcher_basic_female_1",
 				"researcher_var_3": "textures/scpdy/mobs/f_researcher_bb607",
 				"researcher_var_4": "textures/scpdy/mobs/f_researcher_lc45",
-				"researcher_var_5": "textures/scpdy/mobs/f_researcher_lbb"
+				"researcher_var_5": "textures/scpdy/mobs/f_researcher_lbb",
+
+				// Gun
+				"m17_tp": "textures/scpdy/guns/m17"
 			},
 			"geometry": {
 				"base": "geometry.scpdy_humanoid_base",
-				"base_slim": "geometry.scpdy_humanoid_base_slim"
+				"base_slim": "geometry.scpdy_humanoid_base_slim",
+
+				// Gun
+				"m17_tp": "geometry.scpdy_gun_m17_tp"
 			},
 			"animations": {
 				"ctrl.main": "controller.animation.scpdy.f_researcher.main",
+				"ctrl.armed": "controller.animation.scpdy.f_researcher.armed",
 
 				"anim.look_at_target": "animation.scpdy.humanoid_base.look_at_target",
 				"anim.walk.legs": "animation.scpdy.humanoid_base.walk.legs",
 				"anim.walk.arms": "animation.scpdy.humanoid_base.walk.arms",
-				"anim.idle": "animation.scpdy_humanoid_base.idle"
+				"anim.idle": "animation.scpdy_humanoid_base.idle",
+				"anim.gun.pickup": "animation.scpdy.humanoid_base.gun.pickup",
+				"anim.gun.hold": "animation.scpdy.humanoid_base.gun.hold_2",
+				"anim.gun.aim": "animation.scpdy.humanoid_base.gun.aim_2",
+				"anim.gun.reload": "animation.scpdy.humanoid_base.gun.pistol_cocking",
+
+				"anim.m17.tp.base": "animation.scpdy.gun.m17.tp.base"
+			},
+			"sound_effects": {
+				"gun.pickup": "scpdy.gun.unholster_1",
+				"gun.pistol_cocking": "scpdy.gun.pistol_cocking"
 			},
 			"scripts": {
 				"scale": "0.9375",
-				"animate": ["ctrl.main"]
+				// prettier-ignore
+				"animate": [
+					"ctrl.main",
+					{ "anim.m17.tp.base": "v.is_armed" }
+				],
+				// prettier-ignore
+				"pre_animation": [
+					"v.is_armed = q.property('lc:is_armed');",
+					"v.is_reloading = q.is_charged;"
+				]
 			},
-			"render_controllers": ["controller.render.scpdy.f_researcher"],
+			"render_controllers": [
+				"controller.render.scpdy.f_researcher",
+
+				// Gun
+				{ "controller.render.scpdy.gun.m17.tp": "v.is_armed" }
+			],
 			"spawn_egg": {
 				"base_color": "#dfdace",
 				"overlay_color": "#645e4f"
