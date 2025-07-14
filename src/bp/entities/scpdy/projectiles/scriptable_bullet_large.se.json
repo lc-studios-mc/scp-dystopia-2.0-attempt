@@ -42,6 +42,7 @@
 				"height": 0.4
 			},
 			"minecraft:physics": {},
+			"minecraft:transient": {},
 			"minecraft:dimension_bound": {}
 		},
 		"events": {

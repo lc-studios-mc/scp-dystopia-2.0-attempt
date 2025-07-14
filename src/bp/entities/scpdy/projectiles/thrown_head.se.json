@@ -50,6 +50,7 @@
 				"is_pushable": false,
 				"is_pushable_by_piston": false
 			},
+			"minecraft:transient": {},
 			"minecraft:conditional_bandwidth_optimization": {}
 		},
 		"events": {
