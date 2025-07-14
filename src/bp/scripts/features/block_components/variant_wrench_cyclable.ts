@@ -17,12 +17,16 @@ function onInteract(e: mc.BlockComponentPlayerInteractEvent, params: any): void 
 	if (!isHoldingWrench(e.player)) return;
 
 	let variantValues = params.variantValues;
-	if (!Array.isArray(variantValues))
+	if (!Array.isArray(variantValues)) {
 		throw new Error("variantValues parameter is required for scpdy:wrenchable_variant component");
+	}
 
 	let variantStateName = String(params.variantStateName).trim();
-	if (variantStateName === "")
-		throw new Error("variantStateName parameter is required for scpdy:wrenchable_variant component");
+	if (variantStateName === "") {
+		throw new Error(
+			"variantStateName parameter is required for scpdy:wrenchable_variant component",
+		);
+	}
 
 	const currentVariant = e.block.permutation.getState(variantStateName);
 	const currentVariantIndex = variantValues.indexOf(currentVariant);

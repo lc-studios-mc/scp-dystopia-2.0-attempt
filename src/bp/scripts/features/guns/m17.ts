@@ -1,21 +1,21 @@
+import { createBasicBulletDamageFunction } from "@/features/bullets/damage_functions";
+import { createBasicBulletHitBlockHandler } from "@/features/bullets/hit_block_handlers";
+import { createBasicBulletHitEntityHandler } from "@/features/bullets/hit_entity_handlers";
 import { AttachmentContext } from "@/features/gun_attachment/attachment_context";
 import {
 	addCameraShake,
 	getEntityHeadFrontLocation,
+	type HookedItemContext,
 	HookedItemState,
 	ItemHookRegistry,
 	randf,
 	StateDrivenHookedItem,
 	Timeline,
 	Vec3,
-	type HookedItemContext,
 } from "@lc-studios-mc/scripting-utils";
 import * as mc from "@minecraft/server";
 import { consumeAmmoInContainer, getAmmoCountInContainer } from "../ammo/ammo";
 import { fireBullet } from "../bullets";
-import { createBasicBulletDamageFunction } from "@/features/bullets/damage_functions";
-import { createBasicBulletHitBlockHandler } from "@/features/bullets/hit_block_handlers";
-import { createBasicBulletHitEntityHandler } from "@/features/bullets/hit_entity_handlers";
 import { MagContext } from "./shared/mag_context";
 import {
 	applyConditionalAdsSlowness,
@@ -93,8 +93,8 @@ class Gun extends StateDrivenHookedItem {
 	}
 
 	private updateAdsInfo(): void {
-		const isInStateThatPreventsAds =
-			this.state instanceof PickupState || this.state instanceof ReloadState || this.state instanceof TacReloadState;
+		const isInStateThatPreventsAds = this.state instanceof PickupState
+			|| this.state instanceof ReloadState || this.state instanceof TacReloadState;
 
 		const shouldAds = this.player.isSneaking && !isInStateThatPreventsAds;
 
@@ -135,8 +135,8 @@ class Gun extends StateDrivenHookedItem {
 		const offset = this.isAds
 			? adsOffset
 			: this.isAdsSwayInProgress
-				? Vec3.midpoint(hipfireOffset, adsOffset)
-				: hipfireOffset;
+			? Vec3.midpoint(hipfireOffset, adsOffset)
+			: hipfireOffset;
 
 		const relativeToHead = Vec3.getRelativeToHead(
 			this.player.getHeadLocation(),
@@ -156,8 +156,8 @@ class Gun extends StateDrivenHookedItem {
 		const offset = this.isAds
 			? adsOffset
 			: this.isAdsSwayInProgress
-				? Vec3.midpoint(hipfireOffset, adsOffset)
-				: hipfireOffset;
+			? Vec3.midpoint(hipfireOffset, adsOffset)
+			: hipfireOffset;
 
 		const relativeToHead = Vec3.getRelativeToHead(
 			this.player.getHeadLocation(),
@@ -191,7 +191,9 @@ class Gun extends StateDrivenHookedItem {
 
 	override onDelete(): void {
 		try {
-			this.player.onScreenDisplay.setHudVisibility(mc.HudVisibility.Reset, [mc.HudElement.Crosshair]);
+			this.player.onScreenDisplay.setHudVisibility(mc.HudVisibility.Reset, [
+				mc.HudElement.Crosshair,
+			]);
 		} catch {}
 
 		super.onDelete();

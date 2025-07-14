@@ -6,7 +6,8 @@ import * as mc from "@minecraft/server";
 export const METEORITE_ENTITY_TYPE = "lc:scpdy_unknown_core_meteorite";
 
 function getFallLocation(meteorite: mc.Entity): mc.Vector3 {
-	const fallbackFallLoc = ensureType(meteorite.getDynamicProperty("fallbackFallLoc"), "Vector3") ?? meteorite.location;
+	const fallbackFallLoc = ensureType(meteorite.getDynamicProperty("fallbackFallLoc"), "Vector3")
+		?? meteorite.location;
 
 	const targetEntityId = ensureType(meteorite.getDynamicProperty("targetEntityId"), "string");
 
@@ -24,7 +25,10 @@ function getFallLocation(meteorite: mc.Entity): mc.Vector3 {
 	velocity = vec3.normalize(velocity);
 	velocity = vec3.mul(velocity, velocityLength * randomFloat(3, 10));
 
-	const fallLocXZ = vec3.add(vec3.add(target.location, velocity), vec3.mul(vec3.random(), randomFloat(-3, 3)));
+	const fallLocXZ = vec3.add(
+		vec3.add(target.location, velocity),
+		vec3.mul(vec3.random(), randomFloat(-3, 3)),
+	);
 
 	const raycastHit = meteorite.dimension.getBlockFromRay(
 		{

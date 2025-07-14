@@ -95,7 +95,12 @@
 						"on_interact": {
 							"filters": {
 								"all_of": [
-									{ "test": "bool_property", "subject": "self", "domain": "lc:is_stationary", "operator": "!=" },
+									{
+										"test": "bool_property",
+										"subject": "self",
+										"domain": "lc:is_stationary",
+										"operator": "!="
+									},
 									{ "test": "is_family", "subject": "other", "value": "player" },
 									{
 										"test": "has_equipment",
@@ -350,7 +355,16 @@
 
 			"armed": {
 				"minecraft:type_family": {
-					"family": ["mob", "villager", "human", "scpf", "scp_foundation", "researcher", "combatant", "armed"]
+					"family": [
+						"mob",
+						"villager",
+						"human",
+						"scpf",
+						"scp_foundation",
+						"researcher",
+						"combatant",
+						"armed"
+					]
 				},
 
 				"minecraft:follow_range": {
@@ -410,7 +424,12 @@
 					"priority": 3,
 					"entity_types": [
 						{
-							"filters": { "test": "is_family", "subject": "other", "operator": "!=", "value": "scp_foundation" },
+							"filters": {
+								"test": "is_family",
+								"subject": "other",
+								"operator": "!=",
+								"value": "scp_foundation"
+							},
 							"max_dist": 25
 						}
 					]
@@ -420,7 +439,12 @@
 					"priority": 3,
 					"entity_types": [
 						{
-							"filters": { "test": "is_family", "subject": "other", "operator": "!=", "value": "scp_foundation" },
+							"filters": {
+								"test": "is_family",
+								"subject": "other",
+								"operator": "!=",
+								"value": "scp_foundation"
+							},
 							"max_dist": 25
 						}
 					]

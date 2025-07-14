@@ -267,7 +267,11 @@ export function changeDir(vec: Vector3, dir: Vector3): Vector3 {
 	return vec;
 }
 
-export function getRelativeLocation(origin: Vector3, relative: Vector3, direction = Direction.North): Vector3 {
+export function getRelativeLocation(
+	origin: Vector3,
+	relative: Vector3,
+	direction = Direction.North,
+): Vector3 {
 	switch (direction) {
 		case Direction.South:
 			return add(origin, rotateDeg(relative, UP, 180));
@@ -281,7 +285,11 @@ export function getRelativeLocation(origin: Vector3, relative: Vector3, directio
 	}
 }
 
-export function getRelativeToHead(headLocation: Vector3, viewDirection: Vector3, move?: Partial<Vector3>): Vector3 {
+export function getRelativeToHead(
+	headLocation: Vector3,
+	viewDirection: Vector3,
+	move?: Partial<Vector3>,
+): Vector3 {
 	const forward = viewDirection;
 	const up = { x: 0, y: 1, z: 0 };
 	const right = normalize(cross(forward, up));
@@ -369,11 +377,15 @@ export function round(vec: Vector3): Vector3 {
 	return { x: Math.round(vec.x), y: Math.round(vec.y), z: Math.round(vec.z) };
 }
 
-export function toString<TVector extends Vector3>(vec: TVector): `(${TVector["x"]}, ${TVector["y"]}, ${TVector["z"]})` {
+export function toString<TVector extends Vector3>(
+	vec: TVector,
+): `(${TVector["x"]}, ${TVector["y"]}, ${TVector["z"]})` {
 	return `(${vec.x}, ${vec.y}, ${vec.z})`;
 }
 
-export function toString2<TVector extends Vector3>(vec: TVector): `${TVector["x"]} ${TVector["y"]} ${TVector["z"]}` {
+export function toString2<TVector extends Vector3>(
+	vec: TVector,
+): `${TVector["x"]} ${TVector["y"]} ${TVector["z"]}` {
 	return `${vec.x} ${vec.y} ${vec.z}`;
 }
 
@@ -450,8 +462,9 @@ export function fromString(string: string, relativeTo?: Entity | Partial<Vector3
 			continue;
 		}
 
-		const addHyphen =
-			char === "-" && (currentStrArray.length === 0 || (currentStrArray[0] === "~" && currentStrArray.length === 1));
+		const addHyphen = char === "-"
+			&& (currentStrArray.length === 0
+				|| (currentStrArray[0] === "~" && currentStrArray.length === 1));
 
 		if (addHyphen) {
 			currentStrArray.push("-");
@@ -495,7 +508,9 @@ export function fromString(string: string, relativeTo?: Entity | Partial<Vector3
 	return { x, y, z };
 }
 
-export function toArray<TVector extends Vector3>(vec: TVector): [TVector["x"], TVector["y"], TVector["z"]] {
+export function toArray<TVector extends Vector3>(
+	vec: TVector,
+): [TVector["x"], TVector["y"], TVector["z"]] {
 	return [vec.x, vec.y, vec.z];
 }
 

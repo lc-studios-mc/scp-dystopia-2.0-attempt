@@ -1,8 +1,8 @@
+import { config } from "@/features/config/config";
 import { SCP173_ENTITY_TYPE } from "@/features/mobs/scp173/shared";
+import { randf, randi, Vec3 } from "@lc-studios-mc/scripting-utils";
 import * as mc from "@minecraft/server";
 import { SCP096_1_TAG, SCP096_ENTITY_TYPE } from "./shared";
-import { config } from "@/features/config/config";
-import { randf, randi, Vec3 } from "@lc-studios-mc/scripting-utils";
 
 function onUpdateScp096(scp096Entity: mc.Entity): void {
 	const scp096State = scp096Entity.getProperty("lc:state") as number;
@@ -54,7 +54,9 @@ function onUpdateScp096(scp096Entity: mc.Entity): void {
 
 	// Stuck checker below
 
-	let ticksUntilNextLocCheck = Number(scp096Entity.getDynamicProperty("ticksUntilNextLocCheck") ?? 0);
+	let ticksUntilNextLocCheck = Number(
+		scp096Entity.getDynamicProperty("ticksUntilNextLocCheck") ?? 0,
+	);
 
 	if (ticksUntilNextLocCheck === undefined) {
 		ticksUntilNextLocCheck = 2;
@@ -94,21 +96,22 @@ function onUpdateScp096(scp096Entity: mc.Entity): void {
 }
 
 function onDetectedScp096Stuck(scp096Entity: mc.Entity): void {
-	const dirToTarget = Vec3.normalize(Vec3.sub(scp096Entity.target!.location, Vec3.add(scp096Entity.location, Vec3.up)));
+	const dirToTarget = Vec3.normalize(
+		Vec3.sub(scp096Entity.target!.location, Vec3.add(scp096Entity.location, Vec3.up)),
+	);
 
-	const isNearInXZ =
-		Vec3.distance(
-			{
-				x: scp096Entity.location.x,
-				y: 0,
-				z: scp096Entity.location.z,
-			},
-			{
-				x: scp096Entity.target!.location.x,
-				y: 0,
-				z: scp096Entity.target!.location.z,
-			},
-		) < 10.0;
+	const isNearInXZ = Vec3.distance(
+		{
+			x: scp096Entity.location.x,
+			y: 0,
+			z: scp096Entity.location.z,
+		},
+		{
+			x: scp096Entity.target!.location.x,
+			y: 0,
+			z: scp096Entity.target!.location.z,
+		},
+	) < 10.0;
 
 	if (scp096Entity.location.y > scp096Entity.target!.location.y - 3) {
 		if (mc.world.gameRules.mobGriefing && !config.disableDestructiveScp096Behavior) {
@@ -139,9 +142,13 @@ function onDetectedScp096Stuck(scp096Entity: mc.Entity): void {
 		}
 
 		if (mc.world.gameRules.mobGriefing && !config.disableDestructiveScp096Behavior) {
-			const raycastHit = scp096Entity.dimension.getBlockFromRay(scp096Entity.location, dirToTarget, {
-				maxDistance: 10,
-			});
+			const raycastHit = scp096Entity.dimension.getBlockFromRay(
+				scp096Entity.location,
+				dirToTarget,
+				{
+					maxDistance: 10,
+				},
+			);
 
 			if (raycastHit) {
 				const locStr = Vec3.stringify(raycastHit.block.center(), 1);
@@ -245,7 +252,11 @@ function onScp096HitWither(scp096Entity: mc.Entity, wither: mc.Entity): void {
 	}, 1);
 }
 
-function emitScp096AttackParticle(dimension: mc.Dimension, location: mc.Vector3, playSound: boolean): void {
+function emitScp096AttackParticle(
+	dimension: mc.Dimension,
+	location: mc.Vector3,
+	playSound: boolean,
+): void {
 	dimension.spawnParticle("minecraft:critical_hit_emitter", Vec3.add(location, Vec3.up));
 
 	if (!playSound) return;
@@ -357,7 +368,10 @@ function onScp096Die(oldScp096Entity: mc.Entity, damageSource: mc.EntityDamageSo
 	newScp096Entity.setProperty("lc:is_face_hidden", wasFaceHidden);
 
 	if (damageSource.damagingEntity) {
-		const damagerDist = Vec3.distance(damageSource.damagingEntity.location, oldScp096Entity.location);
+		const damagerDist = Vec3.distance(
+			damageSource.damagingEntity.location,
+			oldScp096Entity.location,
+		);
 
 		if (damagerDist < 5) {
 			damageSource.damagingEntity.applyDamage(randi(350, 400), {
@@ -369,7 +383,8 @@ function onScp096Die(oldScp096Entity: mc.Entity, damageSource: mc.EntityDamageSo
 }
 
 function isCreativeOrSpectator(entity: mc.Entity): boolean {
-	return entity instanceof mc.Player && [mc.GameMode.Creative, mc.GameMode.Spectator].includes(entity.getGameMode());
+	return entity instanceof mc.Player
+		&& [mc.GameMode.Creative, mc.GameMode.Spectator].includes(entity.getGameMode());
 }
 
 mc.world.afterEvents.dataDrivenEntityTrigger.subscribe(

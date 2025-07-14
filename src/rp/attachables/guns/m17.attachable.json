@@ -35,7 +35,7 @@
 					{ "ctrl.fp.extras": "c.is_first_person" },
 					{ "anim.tp.base": "!c.is_first_person" }
 				],
-				// prettier-ignore
+
 				"initialize": [
 					"v.ads_speed = 5.0;",
 					"v.ads_time_update = 0;"

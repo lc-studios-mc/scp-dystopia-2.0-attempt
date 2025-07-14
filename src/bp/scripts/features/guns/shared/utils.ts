@@ -1,6 +1,6 @@
+import { randf, Vec3 } from "@lc-studios-mc/scripting-utils";
 import * as mc from "@minecraft/server";
 import type { MagContext } from "./mag_context";
-import { randf, Vec3 } from "@lc-studios-mc/scripting-utils";
 
 export const displayAmmoCountOfBasicMagFedGun = (opts: {
 	player: mc.Player;
@@ -12,8 +12,11 @@ export const displayAmmoCountOfBasicMagFedGun = (opts: {
 		return;
 	}
 
-	const leftAmmoColor =
-		opts.magContext.remainingAmmoCount <= 0 ? "§c" : opts.magContext.expendedAmmoCount > 0 ? "§e" : "";
+	const leftAmmoColor = opts.magContext.remainingAmmoCount <= 0
+		? "§c"
+		: opts.magContext.expendedAmmoCount > 0
+		? "§e"
+		: "";
 	const leftAmmoText = opts.magContext.remainingAmmoCount;
 	const rightAmmoText = opts.magContext.remainingAmmoCount + opts.inventoryAmmoCount;
 	const final = `${leftAmmoColor}${leftAmmoText} §8| §7${rightAmmoText}`;

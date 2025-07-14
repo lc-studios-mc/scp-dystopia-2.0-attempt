@@ -2,17 +2,23 @@ import * as vec3 from "@lib/utils/vec3";
 import * as mc from "@minecraft/server";
 
 const onTick = (arg: mc.BlockComponentTickEvent): void => {
-	const ticksUntilActiveAgain = arg.block.permutation.getState("lc:ticks_until_active_again") as number;
+	const ticksUntilActiveAgain = arg.block.permutation.getState(
+		"lc:ticks_until_active_again",
+	) as number;
 
 	if (ticksUntilActiveAgain <= 0) return;
 
-	arg.block.setPermutation(arg.block.permutation.withState("lc:ticks_until_active_again", ticksUntilActiveAgain - 1));
+	arg.block.setPermutation(
+		arg.block.permutation.withState("lc:ticks_until_active_again", ticksUntilActiveAgain - 1),
+	);
 };
 
 const onStepOn = (arg: mc.BlockComponentStepOnEvent): void => {
 	if (!arg.entity) return;
 
-	const ticksUntilActiveAgain = arg.block.permutation.getState("lc:ticks_until_active_again") as number;
+	const ticksUntilActiveAgain = arg.block.permutation.getState(
+		"lc:ticks_until_active_again",
+	) as number;
 
 	if (ticksUntilActiveAgain > 0) return;
 

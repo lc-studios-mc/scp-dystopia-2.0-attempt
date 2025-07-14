@@ -1,5 +1,5 @@
-import * as mc from "@minecraft/server";
 import * as vec3 from "@lib/utils/vec3";
+import * as mc from "@minecraft/server";
 
 export type HideContext = "combat" | "retreat";
 
@@ -17,7 +17,10 @@ export const SCP106_STATE = {
 	retreating: 100,
 } as const;
 
-export function calculateCombatEmergeLocation(scp106: mc.Entity, targetArg?: mc.Entity): mc.Vector3 {
+export function calculateCombatEmergeLocation(
+	scp106: mc.Entity,
+	targetArg?: mc.Entity,
+): mc.Vector3 {
 	const target = targetArg ?? scp106.target;
 
 	if (!target) {
@@ -48,11 +51,11 @@ export function calculateCombatEmergeLocation(scp106: mc.Entity, targetArg?: mc.
 	const targetLoc = target.location;
 
 	return (
-		test(vec3.add(targetLoc, { x: 1, y: 0, z: 0 })) ??
-		test(vec3.add(targetLoc, { x: 0, y: 0, z: 1 })) ??
-		test(vec3.add(targetLoc, { x: -1, y: 0, z: 0 })) ??
-		test(vec3.add(targetLoc, { x: 0, y: 0, z: -1 })) ??
-		targetLoc
+		test(vec3.add(targetLoc, { x: 1, y: 0, z: 0 }))
+			?? test(vec3.add(targetLoc, { x: 0, y: 0, z: 1 }))
+			?? test(vec3.add(targetLoc, { x: -1, y: 0, z: 0 }))
+			?? test(vec3.add(targetLoc, { x: 0, y: 0, z: -1 }))
+			?? targetLoc
 	);
 }
 

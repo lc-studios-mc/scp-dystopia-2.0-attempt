@@ -57,7 +57,10 @@
 				"condition": "q.block_state('lc:variant') == 1",
 				"components": {
 					"minecraft:material_instances": {
-						"display_content": { "texture": "scpdy_16_9_display_content_1", "render_method": "alpha_test" },
+						"display_content": {
+							"texture": "scpdy_16_9_display_content_1",
+							"render_method": "alpha_test"
+						},
 						"*": { "texture": "scpdy_wall_monitor", "render_method": "alpha_test" }
 					}
 				}
@@ -66,7 +69,10 @@
 				"condition": "q.block_state('lc:variant') == 2",
 				"components": {
 					"minecraft:material_instances": {
-						"display_content": { "texture": "scpdy_16_9_display_content_2", "render_method": "alpha_test" },
+						"display_content": {
+							"texture": "scpdy_16_9_display_content_2",
+							"render_method": "alpha_test"
+						},
 						"*": { "texture": "scpdy_wall_monitor", "render_method": "alpha_test" }
 					}
 				}
@@ -75,7 +81,10 @@
 				"condition": "q.block_state('lc:variant') == 3",
 				"components": {
 					"minecraft:material_instances": {
-						"display_content": { "texture": "scpdy_16_9_display_content_3", "render_method": "alpha_test" },
+						"display_content": {
+							"texture": "scpdy_16_9_display_content_3",
+							"render_method": "alpha_test"
+						},
 						"*": { "texture": "scpdy_wall_monitor", "render_method": "alpha_test" }
 					}
 				}
@@ -84,7 +93,10 @@
 				"condition": "q.block_state('lc:variant') == 4",
 				"components": {
 					"minecraft:material_instances": {
-						"display_content": { "texture": "scpdy_16_9_display_content_4", "render_method": "alpha_test" },
+						"display_content": {
+							"texture": "scpdy_16_9_display_content_4",
+							"render_method": "alpha_test"
+						},
 						"*": { "texture": "scpdy_wall_monitor", "render_method": "alpha_test" }
 					}
 				}
@@ -93,7 +105,10 @@
 				"condition": "q.block_state('lc:variant') == 5",
 				"components": {
 					"minecraft:material_instances": {
-						"display_content": { "texture": "scpdy_16_9_display_content_5", "render_method": "alpha_test" },
+						"display_content": {
+							"texture": "scpdy_16_9_display_content_5",
+							"render_method": "alpha_test"
+						},
 						"*": { "texture": "scpdy_wall_monitor", "render_method": "alpha_test" }
 					}
 				}

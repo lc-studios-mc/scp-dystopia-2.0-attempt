@@ -5,7 +5,7 @@
 			"identifier": "lc:scpdy_recipe_cst_caution_block_2"
 		},
 		"tags": ["crafting_table"],
-		// prettier-ignore
+
 		"pattern": [
 			"Y ",
 			"XY",

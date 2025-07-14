@@ -1,8 +1,11 @@
-import * as mc from "@minecraft/server";
 import * as vec3 from "@/utils/vec3";
+import * as mc from "@minecraft/server";
 
 mc.system.beforeEvents.startup.subscribe((event) => {
-	event.blockComponentRegistry.registerCustomComponent("scpdy:change_block_type_on_tick", COMPONENT);
+	event.blockComponentRegistry.registerCustomComponent(
+		"scpdy:change_block_type_on_tick",
+		COMPONENT,
+	);
 });
 
 const COMPONENT: mc.BlockCustomComponent = {

@@ -1,10 +1,13 @@
-import { getBlockCardinalDirection } from "@/utils/direction";
-import * as mc from "@minecraft/server";
-import * as vec3 from "@/utils/vec3";
 import { createBlockStatesString } from "@/utils/block";
+import { getBlockCardinalDirection } from "@/utils/direction";
+import * as vec3 from "@/utils/vec3";
+import * as mc from "@minecraft/server";
 
 mc.system.beforeEvents.startup.subscribe((event) => {
-	event.blockComponentRegistry.registerCustomComponent("scpdy:upgrade_mechanical_door_to_relay_door", COMPONENT);
+	event.blockComponentRegistry.registerCustomComponent(
+		"scpdy:upgrade_mechanical_door_to_relay_door",
+		COMPONENT,
+	);
 });
 
 const COMPONENT: mc.BlockCustomComponent = {
@@ -38,6 +41,8 @@ const COMPONENT: mc.BlockCustomComponent = {
 		dimension.runCommand(cmd);
 
 		// @ts-expect-error
-		console.log(`Converted ${oldPermutation.type.id} at ${vec3.toString(block)} to ${relayDoorType}`);
+		console.log(
+			`Converted ${oldPermutation.type.id} at ${vec3.toString(block)} to ${relayDoorType}`,
+		);
 	},
 };

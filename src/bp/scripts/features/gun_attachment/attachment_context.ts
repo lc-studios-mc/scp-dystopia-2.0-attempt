@@ -1,7 +1,7 @@
-import type { ItemStack } from "@minecraft/server";
-import type { AttachmentConfig, AttachmentStats } from "./types";
-import { attachmentConfigsById } from "./configs";
 import { console } from "@lc-studios-mc/scripting-utils";
+import type { ItemStack } from "@minecraft/server";
+import { attachmentConfigsById } from "./configs";
+import type { AttachmentConfig, AttachmentStats } from "./types";
 
 export type AttachmentContextArgs = {
 	itemStack?: ItemStack;

@@ -12,7 +12,8 @@ const STATE_NAME = {
 } as const;
 
 const updateConnections = (block: mc.Block, tableTypeId: string, iter = 0): void => {
-	const isConnecTable = (block?: mc.Block): boolean => block !== undefined && block.typeId === tableTypeId;
+	const isConnecTable = (block?: mc.Block): boolean =>
+		block !== undefined && block.typeId === tableTypeId;
 
 	const n = block.north();
 	const s = block.south();

@@ -17,8 +17,9 @@ mc.system.beforeEvents.startup.subscribe((event) => {
 		onUse(arg) {
 			if (!arg.itemStack) return;
 
-			const newItemTypeId =
-				arg.itemStack.typeId === SCP427_CLOSED_ITEM_TYPE_ID ? SCP427_OPEN_ITEM_TYPE_ID : SCP427_CLOSED_ITEM_TYPE_ID;
+			const newItemTypeId = arg.itemStack.typeId === SCP427_CLOSED_ITEM_TYPE_ID
+				? SCP427_OPEN_ITEM_TYPE_ID
+				: SCP427_CLOSED_ITEM_TYPE_ID;
 
 			const newItemStack = new mc.ItemStack(newItemTypeId, 1);
 			newItemStack.nameTag = arg.itemStack.nameTag;
@@ -69,18 +70,17 @@ playerLoop.subscribe((player, { healthComp, mainhandSlot }) => {
 	}
 
 	if (scp427TotalTime > 50) {
-		const progressionInterval =
-			scp427TotalTime < 100
-				? 10
-				: scp427TotalTime < 250
-					? 6
-					: scp427TotalTime < 350
-						? 4
-						: scp427TotalTime < 400
-							? 3
-							: scp427TotalTime < 450
-								? 2
-								: 1;
+		const progressionInterval = scp427TotalTime < 100
+			? 10
+			: scp427TotalTime < 250
+			? 6
+			: scp427TotalTime < 350
+			? 4
+			: scp427TotalTime < 400
+			? 3
+			: scp427TotalTime < 450
+			? 2
+			: 1;
 
 		if (scp427CurrentTick % progressionInterval === 0) {
 			const newProgress = scp427_1_progress + 1;
@@ -115,14 +115,21 @@ playerLoop.subscribe((player, { healthComp, mainhandSlot }) => {
 		}
 	}
 
-	const isHoldingOpenScp427 = mainhandSlot.hasItem() && mainhandSlot.typeId === SCP427_OPEN_ITEM_TYPE_ID;
+	const isHoldingOpenScp427 = mainhandSlot.hasItem()
+		&& mainhandSlot.typeId === SCP427_OPEN_ITEM_TYPE_ID;
 
 	if (!isHoldingOpenScp427) return;
 
 	player.setDynamicProperty("scp427TotalTime", scp427TotalTime + 1);
 
 	if (healthComp.currentValue < healthComp.effectiveMax && !player.getEffect("regeneration")) {
-		const amplifier = scp427TotalTime < 150 ? 1 : scp427TotalTime < 300 ? 2 : scp427TotalTime < 500 ? 3 : 4;
+		const amplifier = scp427TotalTime < 150
+			? 1
+			: scp427TotalTime < 300
+			? 2
+			: scp427TotalTime < 500
+			? 3
+			: 4;
 
 		player.addEffect("regeneration", 40, { amplifier });
 	}
@@ -130,7 +137,7 @@ playerLoop.subscribe((player, { healthComp, mainhandSlot }) => {
 
 mc.world.afterEvents.entityDie.subscribe(
 	(event) => {
-		clearScp427RelatedDynamicProperties(<mc.Player>event.deadEntity);
+		clearScp427RelatedDynamicProperties(<mc.Player> event.deadEntity);
 	},
 	{
 		entityTypes: ["minecraft:player"],

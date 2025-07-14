@@ -61,16 +61,16 @@
 			},
 			"scripts": {
 				"scale": "0.9375",
-				// prettier-ignore
+
 				"animate": [
 					"ctrl.main",
 					"anim.p90.tp.base"
 				],
-				// prettier-ignore
+
 				"initialize": [
 					"v.state = 0;"
 				],
-				// prettier-ignore
+
 				"pre_animation": [
 					"v.state = q.property('lc:state');",
 					"v.is_melee_attacking = v.attack_time > 0;",

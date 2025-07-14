@@ -13,7 +13,9 @@ type PlacementOptions = {
 
 type PlacementSequenceElement = mc.BlockPermutation | "space";
 
-const showPlacementOptionsForm = async (player: mc.Player): Promise<PlacementOptions | undefined> => {
+const showPlacementOptionsForm = async (
+	player: mc.Player,
+): Promise<PlacementOptions | undefined> => {
 	const response = await new ModalFormData()
 		.title({ translate: "scpdy.form.alphanumericSignOptions.title" })
 		.textField(
@@ -36,7 +38,8 @@ const showPlacementOptionsForm = async (player: mc.Player): Promise<PlacementOpt
 				},
 			],
 			{
-				defaultValueIndex: (player.getDynamicProperty("lastAlphanumericSignColorSelection") as number) ?? 0,
+				defaultValueIndex:
+					(player.getDynamicProperty("lastAlphanumericSignColorSelection") as number) ?? 0,
 			},
 		)
 		.submitButton({ translate: "scpdy.form.alphanumericSignOptions.submit" })
@@ -65,7 +68,9 @@ const asyncPlacement = async (
 	upOrDown: UpOrDown,
 	dir: mc.Direction,
 ): Promise<void> => {
-	const playerMainhand = player.getComponent("equippable")!.getEquipmentSlot(mc.EquipmentSlot.Mainhand);
+	const playerMainhand = player.getComponent("equippable")!.getEquipmentSlot(
+		mc.EquipmentSlot.Mainhand,
+	);
 	const options = await showPlacementOptionsForm(player);
 
 	if (options === undefined) return;
@@ -319,7 +324,7 @@ const getCharBlockPermutation = (char: string): mc.BlockPermutation | "space" | 
 			return mc.BlockPermutation.resolve("lc:scpdy_symbol_sign_2", {
 				"lc:symbol": "quote",
 			});
-		case '"':
+		case "\"":
 			return mc.BlockPermutation.resolve("lc:scpdy_symbol_sign_2", {
 				"lc:symbol": "dbquotes",
 			});
@@ -334,10 +339,13 @@ const beforeOnPlayerPlace = (arg: mc.BlockComponentPlayerPlaceBeforeEvent): void
 	mc.system.run(() => {
 		if (!arg.player) return;
 
-		const upOrDown: "none" | "up" | "down" =
-			arg.face === mc.Direction.Up ? "up" : arg.face === mc.Direction.Down ? "down" : "none";
+		const upOrDown: "none" | "up" | "down" = arg.face === mc.Direction.Up
+			? "up"
+			: arg.face === mc.Direction.Down
+			? "down"
+			: "none";
 
-		const dir = (function () {
+		const dir = (function() {
 			const y = arg.player.getRotation().y;
 
 			if (upOrDown !== "none") {

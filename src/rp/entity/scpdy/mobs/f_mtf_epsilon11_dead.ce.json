@@ -43,7 +43,7 @@
 			"scripts": {
 				"scale": "0.9375",
 				"animate": ["ctrl.main"],
-				// prettier-ignore
+
 				"initialize": [
 					"v.death_anim_index = 0;",
 					"v.is_just_spawned = true;"

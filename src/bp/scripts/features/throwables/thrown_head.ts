@@ -1,7 +1,7 @@
-import * as mc from "@minecraft/server";
 import { spawnBloodExplosionParticle } from "@/features/gore/gore";
 import { randf } from "@/utils/math";
 import * as vec3 from "@/utils/vec3";
+import * as mc from "@minecraft/server";
 
 const THROWN_HEAD_ENTITY_TYPE = "lc:scpdy_thrown_head";
 

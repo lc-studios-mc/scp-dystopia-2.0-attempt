@@ -9,9 +9,11 @@ import {
 } from "@minecraft/server-ui";
 
 /** Utility type to prettify and flatten a type for better intellisense. */
-type Prettify<T> = {
-	[K in keyof T]: T[K];
-} & {}; // https://youtu.be/lraHlXpuhKs?feature=shared&t=420
+type Prettify<T> =
+	& {
+		[K in keyof T]: T[K];
+	}
+	& {}; // https://youtu.be/lraHlXpuhKs?feature=shared&t=420
 
 /** Represents a string or a Minecraft RawMessage. */
 type Text = string | RawMessage;
@@ -22,16 +24,28 @@ type ModalFormElement =
 	| { type: "header"; text: Text }
 	| { type: "label"; text: Text }
 	| { type: "toggle"; id: string; label: Text; options?: ModalFormDataToggleOptions }
-	| { type: "textField"; id: string; label: Text; placeholderText: Text; options?: ModalFormDataTextFieldOptions }
 	| {
-			type: "slider";
-			id: string;
-			label: Text;
-			minimumValue: number;
-			maximumValue: number;
-			options?: ModalFormDataSliderOptions;
-	  }
-	| { type: "dropdown"; id: string; label: Text; items: Text[]; options?: ModalFormDataDropdownOptions };
+		type: "textField";
+		id: string;
+		label: Text;
+		placeholderText: Text;
+		options?: ModalFormDataTextFieldOptions;
+	}
+	| {
+		type: "slider";
+		id: string;
+		label: Text;
+		minimumValue: number;
+		maximumValue: number;
+		options?: ModalFormDataSliderOptions;
+	}
+	| {
+		type: "dropdown";
+		id: string;
+		label: Text;
+		items: Text[];
+		options?: ModalFormDataDropdownOptions;
+	};
 
 /**
  * A builder class for creating Minecraft modal forms with a fluent API.
@@ -125,7 +139,12 @@ export class ModalFormBuilder<T extends Record<string, boolean | number | string
 	 * @param options
 	 * @returns ModalFormBuilder with updated type
 	 */
-	addTextField<Id extends string>(id: Id, label: Text, placeholderText: Text, options?: ModalFormDataTextFieldOptions) {
+	addTextField<Id extends string>(
+		id: Id,
+		label: Text,
+		placeholderText: Text,
+		options?: ModalFormDataTextFieldOptions,
+	) {
 		this.elements.push({
 			type: "textField",
 			id,
@@ -172,7 +191,12 @@ export class ModalFormBuilder<T extends Record<string, boolean | number | string
 	 * @param options
 	 * @returns ModalFormBuilder with updated type
 	 */
-	addDropdown<Id extends string>(id: Id, label: Text, items: Text[], options?: ModalFormDataDropdownOptions) {
+	addDropdown<Id extends string>(
+		id: Id,
+		label: Text,
+		items: Text[],
+		options?: ModalFormDataDropdownOptions,
+	) {
 		this.elements.push({
 			type: "dropdown",
 			id,
@@ -228,7 +252,11 @@ export class ModalFormBuilder<T extends Record<string, boolean | number | string
 			for (let i = 0; i < response.formValues.length; i++) {
 				const formValue = response.formValues[i];
 				const e = this.elements[i];
-				if (!e) throw new Error(`Element of index ${i} was not found... This was not supposed to happen!!!`);
+				if (!e) {
+					throw new Error(
+						`Element of index ${i} was not found... This was not supposed to happen!!!`,
+					);
+				}
 				switch (e.type) {
 					case "divider":
 						break;
@@ -251,7 +279,9 @@ export class ModalFormBuilder<T extends Record<string, boolean | number | string
 				}
 			}
 
-			if (Object.keys(finalObject).length !== this.elements.length) throw new Error("What the fuck!?");
+			if (Object.keys(finalObject).length !== this.elements.length) {
+				throw new Error("What the fuck!?");
+			}
 
 			return finalObject as T;
 		};

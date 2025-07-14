@@ -248,7 +248,10 @@
 			"scp173:attack_target": {},
 			"scp173:shake": {
 				"queue_command": {
-					"command": ["playsound dig.stone @a[r=8] ~ ~ ~", "playanimation @s animation.scpdy_scp173.shake"]
+					"command": [
+						"playsound dig.stone @a[r=8] ~ ~ ~",
+						"playanimation @s animation.scpdy_scp173.shake"
+					]
 				}
 			},
 			"scp173:on_fatal": {

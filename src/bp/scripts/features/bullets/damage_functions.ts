@@ -11,7 +11,10 @@ export type BulletDamageContext = {
 
 export type BulletDamageFunction = (ctx: BulletDamageContext) => number;
 
-export const createBasicBulletDamageFunction = (baseDamage: number, reduceDamage: boolean): BulletDamageFunction => {
+export const createBasicBulletDamageFunction = (
+	baseDamage: number,
+	reduceDamage: boolean,
+): BulletDamageFunction => {
 	return (ctx) => {
 		let damage = resolveRangeInt(baseDamage);
 

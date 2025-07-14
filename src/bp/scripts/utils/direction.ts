@@ -1,5 +1,5 @@
-import * as mc from "@minecraft/server";
 import * as vec3 from "@/utils/vec3";
+import * as mc from "@minecraft/server";
 
 /**
  * Calculates the world location of a block face hit by a raycast.
@@ -89,7 +89,9 @@ export function getRelativeBlockAtDirection(
  * @param permutation - Block permutation.
  * @returns Direction, undefined if the state does not exist.
  */
-export function getBlockCardinalDirection(permutation: mc.BlockPermutation): mc.Direction | undefined {
+export function getBlockCardinalDirection(
+	permutation: mc.BlockPermutation,
+): mc.Direction | undefined {
 	const blockDir = permutation.getState("minecraft:cardinal_direction");
 
 	switch (blockDir) {

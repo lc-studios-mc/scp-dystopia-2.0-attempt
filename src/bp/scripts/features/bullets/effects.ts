@@ -1,7 +1,11 @@
 import { Vec3 } from "@lc-studios-mc/scripting-utils";
 import * as mc from "@minecraft/server";
 
-export const spawnBulletHole = (dimension: mc.Dimension, location: mc.Vector3, face: mc.Direction): void => {
+export const spawnBulletHole = (
+	dimension: mc.Dimension,
+	location: mc.Vector3,
+	face: mc.Direction,
+): void => {
 	let type: string;
 	switch (face) {
 		case mc.Direction.Down:
@@ -40,7 +44,11 @@ export const spawnBulletTraceParticle = (
 	dimension.spawnParticle("lc:scpdy_bullet_trace_particle", location, molangVars);
 };
 
-export const spawnBulletHitParticle = (dimension: mc.Dimension, location: mc.Vector3, direction: mc.Vector3): void => {
+export const spawnBulletHitParticle = (
+	dimension: mc.Dimension,
+	location: mc.Vector3,
+	direction: mc.Vector3,
+): void => {
 	const molangVars = new mc.MolangVariableMap();
 	molangVars.setVector3("direction", Vec3.scale(direction, -1));
 

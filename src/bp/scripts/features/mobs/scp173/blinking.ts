@@ -1,6 +1,6 @@
+import { config } from "@/features/config/config";
 import * as mc from "@minecraft/server";
 import { SCP173_ENTITY_TYPE } from "./shared";
-import { config } from "@/features/config/config";
 
 const BLINK_START_TICK = 50;
 const CAMERA_FADE_START_TICK = 52;

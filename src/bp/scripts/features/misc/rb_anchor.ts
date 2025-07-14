@@ -1,6 +1,6 @@
-import * as mc from "@minecraft/server";
 import { InputDeviceEvents } from "@/features/input_devices/events";
 import { getRelativeBlockAtDirection } from "@lc-studios-mc/scripting-utils";
+import * as mc from "@minecraft/server";
 
 const RB_ANCHOR_ENTITY_TYPE = "lc:scpdy_rb_anchor";
 const RB_PLACEHOLDER_BLOCK_TYPE = "lc:scpdy_rb_placeholder";

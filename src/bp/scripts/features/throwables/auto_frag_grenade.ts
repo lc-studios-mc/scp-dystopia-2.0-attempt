@@ -1,5 +1,5 @@
-import * as mc from "@minecraft/server";
 import * as vec3 from "@/utils/vec3";
+import * as mc from "@minecraft/server";
 
 const ENTITY_TYPE = "lc:scpdy_auto_frag_grenade";
 
@@ -34,20 +34,19 @@ export function calculateAutoFragGrenadePath(
 
 		if (!testHoleAtHeight(height)) continue;
 
-		const isThereBlockBetweenNextHeight =
-			raycastForBlockBetween(
-				dimension,
-				{
-					x: origin.x,
-					y: height,
-					z: origin.z,
-				},
-				{
-					x: origin.x,
-					y: height + 1,
-					z: origin.z,
-				},
-			) !== undefined;
+		const isThereBlockBetweenNextHeight = raycastForBlockBetween(
+			dimension,
+			{
+				x: origin.x,
+				y: height,
+				z: origin.z,
+			},
+			{
+				x: origin.x,
+				y: height + 1,
+				z: origin.z,
+			},
+		) !== undefined;
 
 		if (isThereBlockBetweenNextHeight) break;
 
@@ -78,7 +77,11 @@ export function calculateAutoFragGrenadePath(
 	};
 }
 
-function raycastForBlockBetween(dimension: mc.Dimension, a: mc.Vector3, b: mc.Vector3): mc.BlockRaycastHit | undefined {
+function raycastForBlockBetween(
+	dimension: mc.Dimension,
+	a: mc.Vector3,
+	b: mc.Vector3,
+): mc.BlockRaycastHit | undefined {
 	const dir = vec3.normalize(vec3.sub(b, a));
 	const raycastHit = dimension.getBlockFromRay(a, dir, {
 		includePassableBlocks: false,
@@ -159,7 +162,10 @@ function onUpdate(fragGrenade: mc.Entity): void {
 		return;
 	}
 
-	if (data.currentPointIndex > data.path.points.length - 1 && !fragGrenade.getProperty("lc:is_stopped")) {
+	if (
+		data.currentPointIndex > data.path.points.length - 1
+		&& !fragGrenade.getProperty("lc:is_stopped")
+	) {
 		fragGrenade.triggerEvent("lc:stop");
 		fragGrenade.triggerEvent("lc:add_explosion_timer");
 		fragGrenade.dimension.playSound("scpdy.frag_grenade.hit", fragGrenade.location, {

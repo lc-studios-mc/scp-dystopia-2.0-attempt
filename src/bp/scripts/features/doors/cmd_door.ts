@@ -1,7 +1,7 @@
-import { flattenCoordinates, unflattenToCoordinates } from "@/utils/math";
-import * as mc from "@minecraft/server";
-import * as vec3 from "@/utils/vec3";
 import { destroyBlock } from "@/utils/block";
+import { flattenCoordinates, unflattenToCoordinates } from "@/utils/math";
+import * as vec3 from "@/utils/vec3";
+import * as mc from "@minecraft/server";
 
 interface CmdDoorComponentParams {
 	openSound?: {
@@ -52,11 +52,10 @@ mc.system.beforeEvents.startup.subscribe((event) => {
 			],
 		},
 		(origin, unknownMode, location) => {
-			const dimension =
-				origin.initiator?.dimension ??
-				origin.sourceBlock?.dimension ??
-				origin.sourceEntity?.dimension ??
-				mc.world.getDimension("overworld");
+			const dimension = origin.initiator?.dimension
+				?? origin.sourceBlock?.dimension
+				?? origin.sourceEntity?.dimension
+				?? mc.world.getDimension("overworld");
 
 			if (!vec3.isVector3(location)) return;
 
@@ -64,11 +63,12 @@ mc.system.beforeEvents.startup.subscribe((event) => {
 
 			const block = dimension.getBlock(location);
 
-			if (!block)
+			if (!block) {
 				return {
 					status: mc.CustomCommandStatus.Failure,
 					message: `Failed to get a block at ${vec3.toString2(location)}`,
 				};
+			}
 
 			try {
 				tryControl(block, mode);
@@ -81,7 +81,9 @@ mc.system.beforeEvents.startup.subscribe((event) => {
 
 			return {
 				status: mc.CustomCommandStatus.Success,
-				message: `Successfully sent a control signal to the Command Door at ${vec3.toString2(block)}`,
+				message: `Successfully sent a control signal to the Command Door at ${
+					vec3.toString2(block)
+				}`,
 			};
 		},
 	);
@@ -101,11 +103,17 @@ const COMPONENT: mc.BlockCustomComponent = {
 
 		const { major: currentStepMajor, minor: currentStepMinor } = getStep(block.permutation);
 		const currentStepIndex = flattenCoordinates(currentStepMajor, currentStepMinor);
-		const newStepIndex = getUpdatedStepIndex(currentStepIndex, nextAction, minStepIndex, maxStepIndex);
+		const newStepIndex = getUpdatedStepIndex(
+			currentStepIndex,
+			nextAction,
+			minStepIndex,
+			maxStepIndex,
+		);
 
 		const newNextAction: NextAction =
 			// maybe i can make this cleaner but im too lazy
-			mc.system.currentTick % 2 === 0 && (newStepIndex <= minStepIndex || newStepIndex >= maxStepIndex)
+			mc.system.currentTick % 2 === 0
+				&& (newStepIndex <= minStepIndex || newStepIndex >= maxStepIndex)
 				? "none"
 				: nextAction;
 
@@ -216,11 +224,16 @@ function tryControl(cmdDoorBlock: mc.Block, mode: ControlMode): void {
 	const newNextAction = getAppropriateNextActionForControl(cmdDoorBlock.permutation, mode);
 
 	mc.system.run(() => {
-		cmdDoorBlock.setPermutation(cmdDoorBlock.permutation.withState(STATE.nextAction, newNextAction));
+		cmdDoorBlock.setPermutation(
+			cmdDoorBlock.permutation.withState(STATE.nextAction, newNextAction),
+		);
 	});
 }
 
-function getAppropriateNextActionForControl(permutation: mc.BlockPermutation, mode: ControlMode): NextAction {
+function getAppropriateNextActionForControl(
+	permutation: mc.BlockPermutation,
+	mode: ControlMode,
+): NextAction {
 	const { major: currentStepMajor, minor: currentStepMinor } = getStep(permutation);
 	const currentStepIndex = flattenCoordinates(currentStepMajor, currentStepMinor);
 	const currentNextAction = permutation.getState(STATE.nextAction) as NextAction;
@@ -234,7 +247,7 @@ function getAppropriateNextActionForControl(permutation: mc.BlockPermutation, mo
 			return currentStepIndex < maxStepIndex || currentNextAction === "close"
 				? "open"
 				: currentStepIndex > minStepIndex || currentNextAction === "open"
-					? "close"
-					: "none";
+				? "close"
+				: "none";
 	}
 }

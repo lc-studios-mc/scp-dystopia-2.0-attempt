@@ -17,9 +17,9 @@ async function onPlayerInitialSpawn(player: Player): Promise<void> {
 	let isWorldLeader = false;
 	const allPlayers = world.getPlayers();
 	if (
-		world.getDynamicProperty("scpdy_world_leader") === undefined &&
-		allPlayers.length === 1 &&
-		allPlayers[0] === player
+		world.getDynamicProperty("scpdy_world_leader") === undefined
+		&& allPlayers.length === 1
+		&& allPlayers[0] === player
 	) {
 		world.setDynamicProperty("worldLeaderId", player.id);
 		player.addTag("scpdy_world_leader");

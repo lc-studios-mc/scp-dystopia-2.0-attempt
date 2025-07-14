@@ -1,8 +1,8 @@
+import { randf, Vec3 } from "@lc-studios-mc/scripting-utils";
 import * as mc from "@minecraft/server";
 import type { BulletHitEntityHandler } from ".";
-import { spawnBulletHitParticle } from "./effects";
-import { randf, Vec3 } from "@lc-studios-mc/scripting-utils";
 import type { BulletDamageFunction } from "./damage_functions";
+import { spawnBulletHitParticle } from "./effects";
 
 export const createBasicBulletHitEntityHandler = (opts: {
 	damageFunction: BulletDamageFunction;

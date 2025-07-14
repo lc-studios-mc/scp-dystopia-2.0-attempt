@@ -5,7 +5,10 @@ type CardinalDirection = "north" | "south" | "east" | "west";
 
 const SITTABLE_ANCHOR_TYPE = "lc:scpdy_sittable_anchor";
 
-const onPlayerInteract = (arg: mc.BlockComponentPlayerInteractEvent, arg1: mc.CustomComponentParameters): void => {
+const onPlayerInteract = (
+	arg: mc.BlockComponentPlayerInteractEvent,
+	arg1: mc.CustomComponentParameters,
+): void => {
 	const { block, dimension, player } = arg;
 	const params = arg1.params as any;
 
@@ -30,17 +33,18 @@ const onPlayerInteract = (arg: mc.BlockComponentPlayerInteractEvent, arg1: mc.Cu
 		z: center.z,
 	};
 
-	const sittableAnchorAlreadyExists =
-		dimension.getEntities({
-			type: SITTABLE_ANCHOR_TYPE,
-			closest: 1,
-			maxDistance: 0.5,
-			location: sitLoc,
-		}).length > 0;
+	const sittableAnchorAlreadyExists = dimension.getEntities({
+		type: SITTABLE_ANCHOR_TYPE,
+		closest: 1,
+		maxDistance: 0.5,
+		location: sitLoc,
+	}).length > 0;
 
 	if (sittableAnchorAlreadyExists) return;
 
-	const blockDirection = block.permutation.getState("minecraft:cardinal_direction") as CardinalDirection;
+	const blockDirection = block.permutation.getState(
+		"minecraft:cardinal_direction",
+	) as CardinalDirection;
 
 	let sittableAnchorSpawnEvent: string;
 

@@ -12,7 +12,10 @@ export const getAmmoTypeOfItemStack = (itemStack: mc.ItemStack): string | undefi
 	}
 };
 
-export const getAmmoCountInContainer = (container: mc.Container, requiredAmmoType: string): number => {
+export const getAmmoCountInContainer = (
+	container: mc.Container,
+	requiredAmmoType: string,
+): number => {
 	let accumulated = 0;
 
 	for (let i = 0; i < container.size; i++) {

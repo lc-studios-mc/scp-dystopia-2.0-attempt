@@ -20,7 +20,11 @@
 			"category": "hostile",
 			"max_distance": 5.0,
 			"min_distance": 0.6,
-			"sounds": ["sounds/scpdy/gore/drop_1", "sounds/scpdy/gore/small_1", "sounds/scpdy/gore/small_2"]
+			"sounds": [
+				"sounds/scpdy/gore/drop_1",
+				"sounds/scpdy/gore/small_1",
+				"sounds/scpdy/gore/small_2"
+			]
 		},
 		// #endregion
 
@@ -290,7 +294,10 @@
 			"category": "hostile",
 			"max_distance": 10.0,
 			"min_distance": null,
-			"sounds": ["sounds/scpdy/door/standard_door_close", "sounds/scpdy/door/standard_door_close_metal"]
+			"sounds": [
+				"sounds/scpdy/door/standard_door_close",
+				"sounds/scpdy/door/standard_door_close_metal"
+			]
 		},
 		// #endregion
 
@@ -737,7 +744,10 @@
 			"category": "hostile",
 			"max_distance": 12.0,
 			"min_distance": null,
-			"sounds": ["sounds/scpdy/scp/scp001_proto/ambient_1", "sounds/scpdy/scp/scp001_proto/ambient_2"]
+			"sounds": [
+				"sounds/scpdy/scp/scp001_proto/ambient_1",
+				"sounds/scpdy/scp/scp001_proto/ambient_2"
+			]
 		},
 		"scpdy.scp001_proto.hurt": {
 			"category": "hostile",
@@ -1342,7 +1352,11 @@
 			"category": "hostile",
 			"max_distance": 6.0,
 			"min_distance": null,
-			"sounds": ["sounds/scpdy/misc/punch_1", "sounds/scpdy/misc/punch_2", "sounds/scpdy/misc/punch_3"]
+			"sounds": [
+				"sounds/scpdy/misc/punch_1",
+				"sounds/scpdy/misc/punch_2",
+				"sounds/scpdy/misc/punch_3"
+			]
 		},
 		"scpdy.misc.small_light.off": {
 			"category": "neutral",

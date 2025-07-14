@@ -9,7 +9,10 @@ export type BulletInstance = {
 	isValid: boolean;
 };
 
-export type BulletHitBlockHandler = (instance: BulletInstance, event: mc.ProjectileHitBlockAfterEvent) => void;
+export type BulletHitBlockHandler = (
+	instance: BulletInstance,
+	event: mc.ProjectileHitBlockAfterEvent,
+) => void;
 
 export type BulletHitEntityHandler = (
 	instance: BulletInstance,

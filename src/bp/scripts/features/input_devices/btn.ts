@@ -55,16 +55,19 @@ const COMPONENT: mc.BlockCustomComponent = {
 			const mode = getInputDeviceModeFromIndex(modeIndex);
 			const rbLifespan = Number(response.formValues[1]);
 
-			const newPermutation = arg.permutationToPlace.withState(STATE.mode, mode).withState(STATE.rbLifespan, rbLifespan);
+			const newPermutation = arg.permutationToPlace.withState(STATE.mode, mode).withState(
+				STATE.rbLifespan,
+				rbLifespan,
+			);
 
 			if (!arg.block.isAir && !arg.block.isLiquid) return;
 
-			const abort =
-				!isCreativeOrSpectator(arg.player) &&
-				consumeHandItem(arg.player, {
-					filter: (itemStack) => itemStack.typeId === arg.permutationToPlace.getItemStack()?.typeId,
-					max: 1,
-				}) <= 0;
+			const abort = !isCreativeOrSpectator(arg.player)
+				&& consumeHandItem(arg.player, {
+						filter: (itemStack) =>
+							itemStack.typeId === arg.permutationToPlace.getItemStack()?.typeId,
+						max: 1,
+					}) <= 0;
 
 			if (abort) return;
 

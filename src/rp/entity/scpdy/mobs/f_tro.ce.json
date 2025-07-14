@@ -59,12 +59,12 @@
 			},
 			"scripts": {
 				"scale": "0.9375",
-				// prettier-ignore
+
 				"animate": [
 					"ctrl.main",
 					"anim.g36c.tp.base"
 				],
-				// prettier-ignore
+
 				"pre_animation": [
 					"v.is_melee_attacking = v.attack_time > 0;",
 					"v.is_reloading = q.is_charged;"

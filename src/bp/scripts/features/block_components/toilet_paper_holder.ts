@@ -2,7 +2,9 @@ import * as mc from "@minecraft/server";
 
 const TOILET_PAPER_ROLL_ITEM_TYPE = "lc:scpdy_toilet_paper_roll";
 
-const onPlayerInteract = ({ block, player, dimension }: mc.BlockComponentPlayerInteractEvent): void => {
+const onPlayerInteract = (
+	{ block, player, dimension }: mc.BlockComponentPlayerInteractEvent,
+): void => {
 	if (!player) return;
 
 	const holderHasPaperRoll = block.permutation.getState("lc:has_paper_roll") === true;

@@ -10,7 +10,7 @@
 							"icon": "lc:scpdy_easy_door_1",
 							"name": "lc:scpdy_itemGroup_easyDoors"
 						},
-						// prettier-ignore
+
 						"items": [
 							"lc:scpdy_easy_door_1",
 							"lc:scpdy_easy_door_2",
@@ -23,7 +23,7 @@
 							"icon": "lc:scpdy_relay_door_1",
 							"name": "lc:scpdy_itemGroup_relayDoors"
 						},
-						// prettier-ignore
+
 						"items": [
 							"lc:scpdy_relay_door_1",
 							"lc:scpdy_relay_door_2",
@@ -41,7 +41,7 @@
 							"icon": "lc:scpdy_btn_1",
 							"name": "lc:scpdy_itemGroup_btns"
 						},
-						// prettier-ignore
+
 						"items": [
 							"lc:scpdy_btn_1",
 							"lc:scpdy_btn_2"
@@ -53,7 +53,7 @@
 							"icon": "lc:scpdy_kr_1",
 							"name": "lc:scpdy_itemGroup_kr"
 						},
-						// prettier-ignore
+
 						"items": [
 							"lc:scpdy_kr_1",
 							"lc:scpdy_kr_2"
@@ -274,7 +274,12 @@
 							"icon": "lc:scpdy_knife",
 							"name": "lc:scpdy_itemGroup_meleeWeapons"
 						},
-						"items": ["lc:scpdy_knife", "lc:scpdy_pain_sword", "lc:scpdy_killer_sword", "lc:scpdy_void_sword"]
+						"items": [
+							"lc:scpdy_knife",
+							"lc:scpdy_pain_sword",
+							"lc:scpdy_killer_sword",
+							"lc:scpdy_void_sword"
+						]
 					}
 				]
 			},
@@ -307,7 +312,10 @@
 							"icon": "lc:scpdy_blast_door_1_preview_placer",
 							"name": "lc:scpdy_itemGroup_blastDoors"
 						},
-						"items": ["lc:scpdy_blast_door_1_preview_placer", "lc:scpdy_blast_door_2_preview_placer"]
+						"items": [
+							"lc:scpdy_blast_door_1_preview_placer",
+							"lc:scpdy_blast_door_2_preview_placer"
+						]
 					},
 
 					{
@@ -378,7 +386,12 @@
 							"icon": "lc:scpdy_scp005",
 							"name": "lc:scpdy_itemGroup_scp"
 						},
-						"items": ["lc:scpdy_scp005", "lc:scpdy_scp096_1_wand", "lc:scpdy_scp096_paper_bag", "lc:scpdy_scp427"]
+						"items": [
+							"lc:scpdy_scp005",
+							"lc:scpdy_scp096_1_wand",
+							"lc:scpdy_scp096_paper_bag",
+							"lc:scpdy_scp427"
+						]
 					}
 				]
 			}

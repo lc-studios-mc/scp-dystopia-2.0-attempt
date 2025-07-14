@@ -25,13 +25,18 @@ type OnBulletHitBlockEventCallback = {
 	callback: (event: mc.ProjectileHitBlockAfterEvent, sharedState: FlyingBulletSharedState) => void;
 };
 
-export type OnBulletHitBlockEvent = (
-	| OnBulletHitBlockEventRemoveBullet
-	| OnBulletHitBlockEventCallback
-	| OnBulletHitBlockEventSpawnRicochet
-) & {
-	condition?: (event: mc.ProjectileHitBlockAfterEvent, sharedState: FlyingBulletSharedState) => boolean;
-};
+export type OnBulletHitBlockEvent =
+	& (
+		| OnBulletHitBlockEventRemoveBullet
+		| OnBulletHitBlockEventCallback
+		| OnBulletHitBlockEventSpawnRicochet
+	)
+	& {
+		condition?: (
+			event: mc.ProjectileHitBlockAfterEvent,
+			sharedState: FlyingBulletSharedState,
+		) => boolean;
+	};
 
 type OnBulletHitEntityEventSpawnRicochet = {
 	type: "spawnRicochet";
@@ -58,18 +63,20 @@ type OnBulletHitEntityEventCallback = {
 	) => void;
 };
 
-export type OnBulletHitEntityEvent = (
-	| OnBulletHitEntityEventDamage
-	| OnBulletHitEntityEventRemoveBullet
-	| OnBulletHitEntityEventCallback
-	| OnBulletHitEntityEventSpawnRicochet
-) & {
-	condition?: (
-		event: mc.ProjectileHitEntityAfterEvent,
-		hitEntity: mc.Entity,
-		sharedState: FlyingBulletSharedState,
-	) => boolean;
-};
+export type OnBulletHitEntityEvent =
+	& (
+		| OnBulletHitEntityEventDamage
+		| OnBulletHitEntityEventRemoveBullet
+		| OnBulletHitEntityEventCallback
+		| OnBulletHitEntityEventSpawnRicochet
+	)
+	& {
+		condition?: (
+			event: mc.ProjectileHitEntityAfterEvent,
+			hitEntity: mc.Entity,
+			sharedState: FlyingBulletSharedState,
+		) => boolean;
+	};
 
 export type ShootOptions = {
 	initialLocation: mc.Vector3;
@@ -97,9 +104,13 @@ type FlyingBulletInfo = {
 const FLYING_BULLET_MAP = new Map<string, FlyingBulletInfo>();
 
 export function shootBullet(bulletType: BulletType, shootOptions: ShootOptions): void {
-	const entity = shootOptions.dimension.spawnEntity(BULLET_TYPE_OBJ[bulletType], shootOptions.initialLocation, {
-		initialRotation: shootOptions.initialRotation,
-	});
+	const entity = shootOptions.dimension.spawnEntity(
+		BULLET_TYPE_OBJ[bulletType],
+		shootOptions.initialLocation,
+		{
+			initialRotation: shootOptions.initialRotation,
+		},
+	);
 
 	entity.applyImpulse(shootOptions.initialVelocity);
 
@@ -206,10 +217,9 @@ mc.world.afterEvents.projectileHitEntity.subscribe((hitEvent) => {
 				return;
 			} else if (event.type === "damageEntity") {
 				const oldVelocity = hitEntity.getVelocity();
-				const damage =
-					event.canDamageBeModified === true
-						? Math.max(1, getModifiedDamageNumber(event.damage, hitEntity))
-						: event.damage;
+				const damage = event.canDamageBeModified === true
+					? Math.max(1, getModifiedDamageNumber(event.damage, hitEntity))
+					: event.damage;
 
 				hitEntity.applyDamage(damage, {
 					cause: event.damageCause,
@@ -229,7 +239,9 @@ mc.world.afterEvents.projectileHitEntity.subscribe((hitEvent) => {
 
 					if (event.knockbackPower === undefined) continue;
 
-					const impulse = vec3.chain(vec3.FORWARD).scale(event.knockbackPower).changeDir(hitEvent.hitVector).done();
+					const impulse = vec3.chain(vec3.FORWARD).scale(event.knockbackPower).changeDir(
+						hitEvent.hitVector,
+					).done();
 
 					hitEntity.applyImpulse(impulse);
 				}

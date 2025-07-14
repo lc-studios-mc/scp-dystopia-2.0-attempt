@@ -1,6 +1,9 @@
 import { randomFloat } from "@lib/utils/mathUtils";
 import * as vec3 from "@lib/utils/vec3";
-import { AdvancedItem, type AdvancedItemBaseConstructorArgs } from "@logic/advancedItem/AdvancedItem";
+import {
+	AdvancedItem,
+	type AdvancedItemBaseConstructorArgs,
+} from "@logic/advancedItem/AdvancedItem";
 import { registerAdvancedItemProfile } from "@logic/advancedItem/profileRegistry";
 import { getAmmoType, getTotalAmmoCount, removeAmmo } from "@logic/ammo/ammo";
 import { CONFIG } from "@logic/config/config";
@@ -122,7 +125,9 @@ class MP5SD extends AdvancedItem {
 
 		if (this.tpAnimVars.ticksUntilADSTransitionEnd <= 0) {
 			this.playTPAnimIfNotDuringSpecialAnimTime(
-				this.tpAnimVars.isADS ? "animation.scpdy_player.mp5.aim" : "animation.scpdy_player.mp5.ready",
+				this.tpAnimVars.isADS
+					? "animation.scpdy_player.mp5.aim"
+					: "animation.scpdy_player.mp5.ready",
 			);
 		}
 	}
@@ -148,8 +153,8 @@ class MP5SD extends AdvancedItem {
 					? this.aimTick + 1
 					: AIM_DURATION
 				: this.aimTick > 0
-					? this.aimTick - 1
-					: 0;
+				? this.aimTick - 1
+				: 0;
 
 			if (this.tpAnimVars.ticksUntilSpecialAnimTimeEnd <= 0) {
 				if (this.player.isSneaking) {
@@ -170,12 +175,16 @@ class MP5SD extends AdvancedItem {
 			});
 
 			if (!this.wasCrosshairHidden) {
-				this.player.onScreenDisplay.setHudVisibility(mc.HudVisibility.Hide, [mc.HudElement.Crosshair]);
+				this.player.onScreenDisplay.setHudVisibility(mc.HudVisibility.Hide, [
+					mc.HudElement.Crosshair,
+				]);
 
 				this.wasCrosshairHidden = true;
 			}
 		} else if (this.wasCrosshairHidden) {
-			this.player.onScreenDisplay.setHudVisibility(mc.HudVisibility.Reset, [mc.HudElement.Crosshair]);
+			this.player.onScreenDisplay.setHudVisibility(mc.HudVisibility.Reset, [
+				mc.HudElement.Crosshair,
+			]);
 
 			this.wasCrosshairHidden = false;
 		}
@@ -203,7 +212,11 @@ class MP5SD extends AdvancedItem {
 		const invAmmoCountNow = getTotalAmmoCount(this.playerInventoryContainer, magAmmoType);
 
 		// Display ammo count
-		const ammoDisplayText = getAmmoDisplayText(magAmmoCountNow, magDurabilityComp.maxDurability, invAmmoCountNow);
+		const ammoDisplayText = getAmmoDisplayText(
+			magAmmoCountNow,
+			magDurabilityComp.maxDurability,
+			invAmmoCountNow,
+		);
 		this.player.onScreenDisplay.setActionBar(`${ammoDisplayText}`);
 
 		if (this.currentTick < PICK_DURATION) return; // Stop here if still picking
@@ -272,7 +285,11 @@ class MP5SD extends AdvancedItem {
 
 					this.playSoundAtHead("scpdy.gun.mp5sd.mag_attach", { volume: 1.2 });
 
-					const reloadAmount = removeAmmo(this.playerInventoryContainer, magAmmoType, magDurabilityComp.damage);
+					const reloadAmount = removeAmmo(
+						this.playerInventoryContainer,
+						magAmmoType,
+						magDurabilityComp.damage,
+					);
 					magDurabilityComp.damage -= reloadAmount;
 					this.playerOffhand.setItem(magItemStack);
 				}
@@ -312,7 +329,11 @@ class MP5SD extends AdvancedItem {
 
 					this.playSoundAtHead("scpdy.gun.mp5sd.ch_slap", { volume: 1.2 });
 
-					const reloadAmount = removeAmmo(this.playerInventoryContainer, magAmmoType, magDurabilityComp.damage);
+					const reloadAmount = removeAmmo(
+						this.playerInventoryContainer,
+						magAmmoType,
+						magDurabilityComp.damage,
+					);
 					magDurabilityComp.damage -= reloadAmount;
 					this.playerOffhand.setItem(magItemStack);
 				}
@@ -407,15 +428,15 @@ class MP5SD extends AdvancedItem {
 		// Amount of movement in each direction
 		const move: Partial<mc.Vector3> = ads
 			? {
-					x: 0.0,
-					y: -0.12,
-					z: 1.3,
-				}
+				x: 0.0,
+				y: -0.12,
+				z: 1.3,
+			}
 			: {
-					x: 0.13,
-					y: 0.0,
-					z: 1.6,
-				};
+				x: 0.13,
+				y: 0.0,
+				z: 1.6,
+			};
 
 		// Get location relative to player head
 		const muzzleLoc = vec3.add(
@@ -446,13 +467,12 @@ class MP5SD extends AdvancedItem {
 
 		// Shoot bullet
 
-		const bulletSpread =
-			shotsFired === 1
-				? 0
-				: (0.01 +
-						Math.min(0.15, (ads ? 0.02 : 0.03) * shotsFired) +
-						Math.min(0.1, vec3.length(this.player.getVelocity()) / 4)) *
-					0.23;
+		const bulletSpread = shotsFired === 1
+			? 0
+			: (0.01
+				+ Math.min(0.15, (ads ? 0.02 : 0.03) * shotsFired)
+				+ Math.min(0.1, vec3.length(this.player.getVelocity()) / 4))
+				* 0.23;
 
 		const shootBulletVelocity: mc.Vector3 = vec3
 			.chain(vec3.FORWARD)
@@ -508,15 +528,15 @@ class MP5SD extends AdvancedItem {
 				this.player.getViewDirection(),
 				ads
 					? {
-							x: 0.05,
-							y: 0.02,
-							z: 0.67,
-						}
+						x: 0.05,
+						y: 0.02,
+						z: 0.67,
+					}
 					: {
-							x: 0.3,
-							y: -0.1,
-							z: 1.0,
-						},
+						x: 0.3,
+						y: -0.1,
+						z: 1.0,
+					},
 			);
 
 			const viewDirection = this.player.getViewDirection();
@@ -538,7 +558,11 @@ class MP5SD extends AdvancedItem {
 			molangVarMap.setFloat("speed", 6);
 			molangVarMap.setVector3("direction", particleDirection);
 
-			this.player.dimension.spawnParticle("lc:scpdy_bullet_casing_drop_var0_particle", particleLoc, molangVarMap);
+			this.player.dimension.spawnParticle(
+				"lc:scpdy_bullet_casing_drop_var0_particle",
+				particleLoc,
+				molangVarMap,
+			);
 		}
 
 		// Play sound

@@ -41,7 +41,9 @@ const getBlockForRedstoneDetection = (alarm: mc.Block): mc.Block | undefined => 
 	}
 };
 
-const beforeOnPlayerPlaceAsync = async (e: mc.BlockComponentPlayerPlaceBeforeEvent): Promise<void> => {
+const beforeOnPlayerPlaceAsync = async (
+	e: mc.BlockComponentPlayerPlaceBeforeEvent,
+): Promise<void> => {
 	if (!e.player) return;
 
 	const formData = new ModalFormData();
@@ -81,12 +83,11 @@ const beforeOnPlayerPlaceAsync = async (e: mc.BlockComponentPlayerPlaceBeforeEve
 
 	if (!e.block.isAir && !e.block.isLiquid) return;
 
-	const abort =
-		!isCreativeOrSpectator(e.player) &&
-		consumeHandItem(e.player, {
-			filter: (itemStack) => itemStack.typeId === e.permutationToPlace.getItemStack()?.typeId,
-			max: 1,
-		}) <= 0;
+	const abort = !isCreativeOrSpectator(e.player)
+		&& consumeHandItem(e.player, {
+				filter: (itemStack) => itemStack.typeId === e.permutationToPlace.getItemStack()?.typeId,
+				max: 1,
+			}) <= 0;
 
 	if (abort) return;
 

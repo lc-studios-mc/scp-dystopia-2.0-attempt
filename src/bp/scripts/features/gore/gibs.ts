@@ -1,6 +1,6 @@
 import { randf } from "@/utils/math";
-import * as mc from "@minecraft/server";
 import * as vec3 from "@/utils/vec3";
+import * as mc from "@minecraft/server";
 import { spawnSmallBloodSplashParticle } from "./gore";
 
 const GIB_CHOP_ENTITY_TYPE = "lc:scpdy_gib_chop";
@@ -73,19 +73,31 @@ mc.world.afterEvents.playerInteractWithEntity.subscribe((e) => {
 		e.player.addEffect("absorption", 15 * mc.TicksPerSecond, { amplifier: 1 });
 		e.player.addEffect("saturation", 2, { amplifier: 1, showParticles: false });
 
-		spawnSmallBloodSplashParticle(e.target.dimension, vec3.midpoint(e.target.location, e.player.getHeadLocation()));
+		spawnSmallBloodSplashParticle(
+			e.target.dimension,
+			vec3.midpoint(e.target.location, e.player.getHeadLocation()),
+		);
 		e.player.dimension.playSound("random.eat", e.player.getHeadLocation());
 		e.target.remove();
 	} else if (e.target.typeId === GIB_LIMB_ENTITY_TYPE) {
 		e.player.addEffect("regeneration", 4 * mc.TicksPerSecond, { amplifier: 2 });
 		e.player.addEffect("saturation", 2, { amplifier: 1, showParticles: false });
 
-		spawnSmallBloodSplashParticle(e.target.dimension, vec3.midpoint(e.target.location, e.player.getHeadLocation()));
+		spawnSmallBloodSplashParticle(
+			e.target.dimension,
+			vec3.midpoint(e.target.location, e.player.getHeadLocation()),
+		);
 		e.player.dimension.playSound("random.eat", e.player.getHeadLocation());
 		e.target.remove();
 	} else if (e.target.typeId === GIB_HEAD_ENTITY_TYPE) {
-		e.player.dimension.spawnItem(new mc.ItemStack("lc:scpdy_throwable_head"), e.player.getHeadLocation());
-		e.player.dimension.playSound("random.pop", e.player.getHeadLocation(), { pitch: 1.3, volume: 0.7 });
+		e.player.dimension.spawnItem(
+			new mc.ItemStack("lc:scpdy_throwable_head"),
+			e.player.getHeadLocation(),
+		);
+		e.player.dimension.playSound("random.pop", e.player.getHeadLocation(), {
+			pitch: 1.3,
+			volume: 0.7,
+		});
 		e.target.remove();
 	}
 });

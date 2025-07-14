@@ -1,7 +1,7 @@
 import { createBlockStatesString } from "@/utils/block";
 import { getBlockCardinalDirection } from "@/utils/direction";
-import * as mc from "@minecraft/server";
 import * as vec3 from "@/utils/vec3";
+import * as mc from "@minecraft/server";
 
 mc.system.beforeEvents.startup.subscribe((event) => {
 	event.blockComponentRegistry.registerCustomComponent("scpdy:upgrade_v1_lockdown_panel", {

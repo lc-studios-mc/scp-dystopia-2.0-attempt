@@ -91,11 +91,17 @@ const COMPONENT: mc.BlockCustomComponent = {
 
 		const { major: currentStepMajor, minor: currentStepMinor } = getStep(block.permutation);
 		const currentStepIndex = flattenCoordinates(currentStepMajor, currentStepMinor);
-		const newStepIndex = getUpdatedStepIndex(currentStepIndex, nextAction, MIN_STEP_INDEX, MAX_STEP_INDEX);
+		const newStepIndex = getUpdatedStepIndex(
+			currentStepIndex,
+			nextAction,
+			MIN_STEP_INDEX,
+			MAX_STEP_INDEX,
+		);
 
 		const newNextAction: NextAction =
 			// idk wtf is going on
-			mc.system.currentTick % 2 === 0 && (newStepIndex <= MIN_STEP_INDEX || newStepIndex >= MAX_STEP_INDEX)
+			mc.system.currentTick % 2 === 0
+				&& (newStepIndex <= MIN_STEP_INDEX || newStepIndex >= MAX_STEP_INDEX)
 				? "none"
 				: nextAction;
 
@@ -155,7 +161,10 @@ const COMPONENT: mc.BlockCustomComponent = {
 	},
 };
 
-async function showPlacementForm(player: mc.Player, e: mc.BlockComponentPlayerPlaceBeforeEvent): Promise<void> {
+async function showPlacementForm(
+	player: mc.Player,
+	e: mc.BlockComponentPlayerPlaceBeforeEvent,
+): Promise<void> {
 	const formData = new ModalFormData();
 
 	formData.title({ translate: "scpdy.easyDoor" });
@@ -192,12 +201,11 @@ async function showPlacementForm(player: mc.Player, e: mc.BlockComponentPlayerPl
 	if (!e.block.isValid) return;
 	if (!e.block.isAir && !e.block.isLiquid) return;
 
-	const shouldAbort =
-		!isCreativeOrSpectator(player) &&
-		consumeHandItem(player, {
-			filter: (itemStack) => itemStack.typeId === e.permutationToPlace.getItemStack()?.typeId,
-			max: 1,
-		}) <= 0;
+	const shouldAbort = !isCreativeOrSpectator(player)
+		&& consumeHandItem(player, {
+				filter: (itemStack) => itemStack.typeId === e.permutationToPlace.getItemStack()?.typeId,
+				max: 1,
+			}) <= 0;
 
 	if (shouldAbort) return;
 
@@ -239,10 +247,15 @@ function tryControl(easyDoorBlock: mc.Block, mode: ControlMode): void {
 
 	const newNextAction = getAppropriateNextActionForControl(easyDoorBlock.permutation, mode);
 
-	easyDoorBlock.setPermutation(easyDoorBlock.permutation.withState(STATE.nextAction, newNextAction));
+	easyDoorBlock.setPermutation(
+		easyDoorBlock.permutation.withState(STATE.nextAction, newNextAction),
+	);
 }
 
-function getAppropriateNextActionForControl(permutation: mc.BlockPermutation, mode: ControlMode): NextAction {
+function getAppropriateNextActionForControl(
+	permutation: mc.BlockPermutation,
+	mode: ControlMode,
+): NextAction {
 	const { major: currentStepMajor, minor: currentStepMinor } = getStep(permutation);
 	const currentStepIndex = flattenCoordinates(currentStepMajor, currentStepMinor);
 	const currentNextAction = permutation.getState(STATE.nextAction) as NextAction;
@@ -256,7 +269,7 @@ function getAppropriateNextActionForControl(permutation: mc.BlockPermutation, mo
 			return currentStepIndex < MAX_STEP_INDEX || currentNextAction === "close"
 				? "open"
 				: currentStepIndex > MIN_STEP_INDEX || currentNextAction === "open"
-					? "close"
-					: "none";
+				? "close"
+				: "none";
 	}
 }

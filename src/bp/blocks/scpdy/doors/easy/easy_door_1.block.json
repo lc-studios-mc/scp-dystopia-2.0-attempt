@@ -159,43 +159,57 @@
 			{
 				"condition": "q.block_state('lc:clearance_level') == 0",
 				"components": {
-					"minecraft:material_instances": { "*": { "texture": "scpdy_easy_door_1_lvl_0", "render_method": "opaque" } }
+					"minecraft:material_instances": {
+						"*": { "texture": "scpdy_easy_door_1_lvl_0", "render_method": "opaque" }
+					}
 				}
 			},
 			{
 				"condition": "q.block_state('lc:clearance_level') == 1",
 				"components": {
-					"minecraft:material_instances": { "*": { "texture": "scpdy_easy_door_1_lvl_1", "render_method": "opaque" } }
+					"minecraft:material_instances": {
+						"*": { "texture": "scpdy_easy_door_1_lvl_1", "render_method": "opaque" }
+					}
 				}
 			},
 			{
 				"condition": "q.block_state('lc:clearance_level') == 2",
 				"components": {
-					"minecraft:material_instances": { "*": { "texture": "scpdy_easy_door_1_lvl_2", "render_method": "opaque" } }
+					"minecraft:material_instances": {
+						"*": { "texture": "scpdy_easy_door_1_lvl_2", "render_method": "opaque" }
+					}
 				}
 			},
 			{
 				"condition": "q.block_state('lc:clearance_level') == 3",
 				"components": {
-					"minecraft:material_instances": { "*": { "texture": "scpdy_easy_door_1_lvl_3", "render_method": "opaque" } }
+					"minecraft:material_instances": {
+						"*": { "texture": "scpdy_easy_door_1_lvl_3", "render_method": "opaque" }
+					}
 				}
 			},
 			{
 				"condition": "q.block_state('lc:clearance_level') == 4",
 				"components": {
-					"minecraft:material_instances": { "*": { "texture": "scpdy_easy_door_1_lvl_4", "render_method": "opaque" } }
+					"minecraft:material_instances": {
+						"*": { "texture": "scpdy_easy_door_1_lvl_4", "render_method": "opaque" }
+					}
 				}
 			},
 			{
 				"condition": "q.block_state('lc:clearance_level') == 5",
 				"components": {
-					"minecraft:material_instances": { "*": { "texture": "scpdy_easy_door_1_lvl_5", "render_method": "opaque" } }
+					"minecraft:material_instances": {
+						"*": { "texture": "scpdy_easy_door_1_lvl_5", "render_method": "opaque" }
+					}
 				}
 			},
 			{
 				"condition": "q.block_state('lc:clearance_level') == 6",
 				"components": {
-					"minecraft:material_instances": { "*": { "texture": "scpdy_easy_door_1_o5", "render_method": "opaque" } }
+					"minecraft:material_instances": {
+						"*": { "texture": "scpdy_easy_door_1_o5", "render_method": "opaque" }
+					}
 				}
 			},
 			{

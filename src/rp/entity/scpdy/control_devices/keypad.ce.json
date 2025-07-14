@@ -19,7 +19,10 @@
 			"scripts": {
 				"animate": ["anim.rotation"],
 				"initialize": ["v.is_on = false;", "v.rotation_y = 0.0;"],
-				"pre_animation": ["v.is_on = q.property('lc:is_on');", "v.rotation_y = q.property('lc:rotation_y');"]
+				"pre_animation": [
+					"v.is_on = q.property('lc:is_on');",
+					"v.rotation_y = q.property('lc:rotation_y');"
+				]
 			},
 			"render_controllers": ["controller.render.scpdy.keypad"]
 		}

@@ -1,9 +1,9 @@
-import * as mc from "@minecraft/server";
-import { Fzone, getAllFnets, getFnet } from "../fnet/fnet";
-import { ActionFormData } from "@minecraft/server-ui";
-import { consumeHandItem, isCreativeOrSpectator } from "@/utils/player";
-import { flattenCoordinates, unflattenToCoordinates } from "@/utils/math";
 import { destroyBlock } from "@/utils/block";
+import { flattenCoordinates, unflattenToCoordinates } from "@/utils/math";
+import { consumeHandItem, isCreativeOrSpectator } from "@/utils/player";
+import * as mc from "@minecraft/server";
+import { ActionFormData } from "@minecraft/server-ui";
+import { Fzone, getAllFnets, getFnet } from "../fnet/fnet";
 
 interface LkdnDoorComponentParams {
 	openSound?: {
@@ -102,7 +102,10 @@ function getStep(permutation: mc.BlockPermutation): { major: number; minor: numb
 	return { major, minor };
 }
 
-async function showPlacementForm(player: mc.Player, e: mc.BlockComponentPlayerPlaceBeforeEvent): Promise<void> {
+async function showPlacementForm(
+	player: mc.Player,
+	e: mc.BlockComponentPlayerPlaceBeforeEvent,
+): Promise<void> {
 	const fnets = getAllFnets();
 
 	const formData1 = new ActionFormData();
@@ -139,12 +142,11 @@ async function showPlacementForm(player: mc.Player, e: mc.BlockComponentPlayerPl
 	if (!e.block.isValid) return;
 	if (!e.block.isAir && !e.block.isLiquid) return;
 
-	const shouldAbort =
-		!isCreativeOrSpectator(player) &&
-		consumeHandItem(player, {
-			filter: (itemStack) => itemStack.typeId === e.permutationToPlace.getItemStack()?.typeId,
-			max: 1,
-		}) <= 0;
+	const shouldAbort = !isCreativeOrSpectator(player)
+		&& consumeHandItem(player, {
+				filter: (itemStack) => itemStack.typeId === e.permutationToPlace.getItemStack()?.typeId,
+				max: 1,
+			}) <= 0;
 
 	if (shouldAbort) return;
 
@@ -159,7 +161,10 @@ async function showPlacementForm(player: mc.Player, e: mc.BlockComponentPlayerPl
 	e.dimension.playSound("place.iron", e.block.center(), { pitch: 0.81 });
 }
 
-function onTick({ block, dimension }: mc.BlockComponentTickEvent, params: LkdnDoorComponentParams): void {
+function onTick(
+	{ block, dimension }: mc.BlockComponentTickEvent,
+	params: LkdnDoorComponentParams,
+): void {
 	const isBottomPart = Boolean(block.permutation.getState(STATE.isBottomPart));
 	if (!isBottomPart) return; // Only the bottom part should be updated
 
@@ -170,7 +175,11 @@ function onTick({ block, dimension }: mc.BlockComponentTickEvent, params: LkdnDo
 	const currentStepIndex = flattenCoordinates(currentStepMajor, currentStepMinor);
 
 	const currentNextAction = block.permutation.getState(STATE.nextAction) as NextAction;
-	const newNextAction = updateNextActionBasedOnZoneState(block, currentStepIndex, currentNextAction);
+	const newNextAction = updateNextActionBasedOnZoneState(
+		block,
+		currentStepIndex,
+		currentNextAction,
+	);
 
 	const newStepIndex = getUpdatedStepIndex(currentStepIndex, newNextAction);
 

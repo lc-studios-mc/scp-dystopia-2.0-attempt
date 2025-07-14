@@ -1,7 +1,12 @@
-import type { BulletHitBlockHandler } from ".";
 import { config } from "@/features/config/config";
-import { playBulletHitSound, spawnBulletHitParticle, spawnBulletHole, spawnBulletTraceParticle } from "./effects";
 import { Vec3 } from "@lc-studios-mc/scripting-utils";
+import type { BulletHitBlockHandler } from ".";
+import {
+	playBulletHitSound,
+	spawnBulletHitParticle,
+	spawnBulletHole,
+	spawnBulletTraceParticle,
+} from "./effects";
 
 export const createBasicBulletHitBlockHandler = (opts?: {
 	disableBulletHole?: boolean;

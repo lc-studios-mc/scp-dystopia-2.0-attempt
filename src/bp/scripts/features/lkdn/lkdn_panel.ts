@@ -1,8 +1,12 @@
+import { Fzone, getAllFnets, getFnet } from "@/features/fnet/fnet";
+import {
+	getBlockCardinalDirection,
+	getRelativeBlockAtDirection,
+	reverseDirection,
+} from "@/utils/direction";
+import { consumeHandItem, isCreativeOrSpectator } from "@/utils/player";
 import * as mc from "@minecraft/server";
 import { ActionFormData, ModalFormData } from "@minecraft/server-ui";
-import { Fzone, getAllFnets, getFnet } from "@/features/fnet/fnet";
-import { consumeHandItem, isCreativeOrSpectator } from "@/utils/player";
-import { getBlockCardinalDirection, getRelativeBlockAtDirection, reverseDirection } from "@/utils/direction";
 
 const STATE = {
 	isLkdnActive: "lc:is_lkdn_active",
@@ -51,7 +55,9 @@ function updateVisual(panelBlock: mc.Block): void {
 
 	if (isPanelActive == zone.isLkdnActive) return;
 
-	panelBlock.setPermutation(panelBlock.permutation.withState(STATE.isLkdnActive, zone.isLkdnActive));
+	panelBlock.setPermutation(
+		panelBlock.permutation.withState(STATE.isLkdnActive, zone.isLkdnActive),
+	);
 
 	panelBlock.dimension.playSound("scpdy.interact.lever.flip", panelBlock.center(), { volume: 1.1 });
 }
@@ -59,7 +65,9 @@ function updateVisual(panelBlock: mc.Block): void {
 function updateRedstonePowering(panelBlock: mc.Block): void {
 	const zone = getZone(panelBlock);
 
-	const previouslyDetectedRedstone = Boolean(panelBlock.permutation.getState(STATE.detectedRedstone));
+	const previouslyDetectedRedstone = Boolean(
+		panelBlock.permutation.getState(STATE.detectedRedstone),
+	);
 	const currentlyDetectedRedstone = checkRedstonePower(panelBlock);
 
 	if (previouslyDetectedRedstone && !currentlyDetectedRedstone) {
@@ -72,7 +80,9 @@ function updateRedstonePowering(panelBlock: mc.Block): void {
 		updateVisual(panelBlock);
 	}
 
-	panelBlock.setPermutation(panelBlock.permutation.withState(STATE.detectedRedstone, currentlyDetectedRedstone));
+	panelBlock.setPermutation(
+		panelBlock.permutation.withState(STATE.detectedRedstone, currentlyDetectedRedstone),
+	);
 }
 
 function checkRedstonePower(panelBlock: mc.Block): boolean {
@@ -89,7 +99,10 @@ function checkRedstonePower(panelBlock: mc.Block): boolean {
 	return true;
 }
 
-async function showPlacementForm(player: mc.Player, e: mc.BlockComponentPlayerPlaceBeforeEvent): Promise<void> {
+async function showPlacementForm(
+	player: mc.Player,
+	e: mc.BlockComponentPlayerPlaceBeforeEvent,
+): Promise<void> {
 	const fnets = getAllFnets();
 
 	const formData1 = new ActionFormData();
@@ -126,12 +139,11 @@ async function showPlacementForm(player: mc.Player, e: mc.BlockComponentPlayerPl
 	if (!e.block.isValid) return;
 	if (!e.block.isAir && !e.block.isLiquid) return;
 
-	const shouldAbort =
-		!isCreativeOrSpectator(player) &&
-		consumeHandItem(player, {
-			filter: (itemStack) => itemStack.typeId === e.permutationToPlace.getItemStack()?.typeId,
-			max: 1,
-		}) <= 0;
+	const shouldAbort = !isCreativeOrSpectator(player)
+		&& consumeHandItem(player, {
+				filter: (itemStack) => itemStack.typeId === e.permutationToPlace.getItemStack()?.typeId,
+				max: 1,
+			}) <= 0;
 
 	if (shouldAbort) return;
 

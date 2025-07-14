@@ -1,10 +1,10 @@
+import { InputDeviceEvents } from "@/features/input_devices/events";
+import { getInputDeviceModeFromIndex } from "@/features/input_devices/mode";
 import { directionToRotation, reversedDirection, rotationToDirection } from "@lib/utils/miscUtils";
 import { getClearanceLevel } from "@lib/utils/scpdyUtils";
 import * as vec3 from "@lib/utils/vec3";
 import * as mc from "@minecraft/server";
 import { ModalFormData } from "@minecraft/server-ui";
-import { InputDeviceEvents } from "@/features/input_devices/events";
-import { getInputDeviceModeFromIndex } from "@/features/input_devices/mode";
 
 const KEYPAD_ENTITY_TYPE_ID = "lc:scpdy_keypad";
 
@@ -140,7 +140,11 @@ export function setKeypadO5Clearance(keypad: mc.Entity, value?: boolean): void {
 	keypad.setDynamicProperty("o5Clearance", value);
 }
 
-export function attachNewKeypadEntityTo(block: mc.Block, blockFace: mc.Direction, source?: mc.Player): mc.Entity {
+export function attachNewKeypadEntityTo(
+	block: mc.Block,
+	blockFace: mc.Direction,
+	source?: mc.Player,
+): mc.Entity {
 	const location = vec3.getRelativeLocation(
 		block.bottomCenter(),
 		{
@@ -175,8 +179,12 @@ mc.world.afterEvents.entityHitEntity.subscribe(
 		if (!keypad.isValid) return;
 		if (!(damagingEntity instanceof mc.Player)) return;
 
-		if (damagingEntity.getGameMode() !== mc.GameMode.Creative && getKeypadSourceId(keypad) !== damagingEntity.id)
+		if (
+			damagingEntity.getGameMode() !== mc.GameMode.Creative
+			&& getKeypadSourceId(keypad) !== damagingEntity.id
+		) {
 			return;
+		}
 
 		keypad.dimension.playSound("scpdy.misc.computer.hit", keypad.location);
 	},

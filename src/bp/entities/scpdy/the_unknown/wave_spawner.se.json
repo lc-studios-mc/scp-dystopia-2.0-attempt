@@ -19,7 +19,8 @@
 						// 0 - None
 						// 1 - Wave Break
 						// 2 - Wave Battle
-						0, 2
+						0,
+						2
 					],
 					"default": 0
 				},
@@ -221,7 +222,11 @@
 			},
 			"the_unknown_wave_spawner:on_finish_wave_break": {
 				"remove": {
-					"component_groups": ["wave_break_timer:easy", "wave_break_timer:normal", "wave_break_timer:hard"]
+					"component_groups": [
+						"wave_break_timer:easy",
+						"wave_break_timer:normal",
+						"wave_break_timer:hard"
+					]
 				},
 				"add": {
 					"component_groups": ["wave_battle_tick_timer"]

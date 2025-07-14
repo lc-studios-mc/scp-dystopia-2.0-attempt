@@ -57,14 +57,16 @@ export function getAllFnets(): readonly Fnet[] {
 
 function throwIfFnetIndexIsInvalid(index: number): void {
 	if (index < 0) throw new Error(`Provided index (${index}) is less than 0.`);
-	if (index > MAX_FNET_COUNT)
+	if (index > MAX_FNET_COUNT) {
 		throw new RangeError(`Provided index (${index}) exceeds the maximum facility network count.`);
+	}
 }
 
 function throwIfFzoneIndexIsInvalid(index: number): void {
 	if (index < 0) throw new Error(`Provided index (${index}) is less than 0.`);
-	if (index > MAX_FZONE_COUNT)
+	if (index > MAX_FZONE_COUNT) {
 		throw new RangeError(`Provided index (${index}) exceeds the maximum facility zone count.`);
+	}
 }
 
 mc.world.afterEvents.worldLoad.subscribe(() => {
@@ -224,7 +226,7 @@ export class Fzone {
 	/**
 	 * @param index - The index of the facility network (zero-based).
 	 * @param fnet - The facility network this zone belongs to.
-	 **/
+	 */
 	constructor(index: number, fnet: Fnet) {
 		index = Math.floor(index);
 
@@ -296,7 +298,7 @@ export class Fzone {
 	 *
 	 * **Do not call this method directly!**
 	 * Use {@link startLkdn} instead.
-	 **/
+	 */
 	setLkdnActive(value?: boolean): void {
 		const propId = this.prefix("isLkdnActive");
 
@@ -318,7 +320,7 @@ export class Fzone {
 	 *
 	 * **Do not call this method directly!**
 	 * Use {@link scheduleLkdn} instead.
-	 **/
+	 */
 	setScheduledLkdnDelay(value?: number): void {
 		const propId = this.prefix("lkdnDelay");
 
@@ -341,7 +343,7 @@ export class Fzone {
 	 *
 	 * **Do not call this method directly!**
 	 * Use {@link startLkdn} or {@link scheduleLkdn} instead.
-	 **/
+	 */
 	setLkdnDuration(value?: number): void {
 		const propId = this.prefix("lkdnDuration");
 

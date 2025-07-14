@@ -1,10 +1,10 @@
-import { isVector3 } from "@/utils/vec3";
-import * as mc from "@minecraft/server";
-import { randf, randi } from "@/utils/math";
-import * as vec3 from "@/utils/vec3";
-import { getBlockRaycastHitLocation } from "@/utils/direction";
-import { spawnGibChop, spawnGibHead, spawnGibLimb } from "./gibs";
 import { config } from "@/features/config/config";
+import { getBlockRaycastHitLocation } from "@/utils/direction";
+import { randf, randi } from "@/utils/math";
+import { isVector3 } from "@/utils/vec3";
+import * as vec3 from "@/utils/vec3";
+import * as mc from "@minecraft/server";
+import { spawnGibChop, spawnGibHead, spawnGibLimb } from "./gibs";
 
 const BLOOD_EXPLOSION_PARTICLE_ID = "lc:scpdy_blood_explosion_particle";
 const BLOOD_SPLASH_SMALL_PARTICLE_ID = "lc:scpdy_blood_splash_small_particle";
@@ -105,14 +105,20 @@ export function spawnGoreExplosion(opts: SpawnGoreOpts): void {
 
 		mc.system.runTimeout(
 			() => {
-				const bloodStainLoc = vec3.add(hitLoc, vec3.scale(vec3.normalize(vec3.sub(origin, hitLoc)), 0.04));
+				const bloodStainLoc = vec3.add(
+					hitLoc,
+					vec3.scale(vec3.normalize(vec3.sub(origin, hitLoc)), 0.04),
+				);
 
 				spawnBloodStain(dim, bloodStainLoc, raycastHit.face);
 
 				if (raycastHit.face === mc.Direction.Up) return;
 				if (Math.random() > 0.6) return;
 
-				const fleshDripLoc = vec3.add(hitLoc, vec3.scale(vec3.normalize(vec3.sub(origin, hitLoc)), 0.1));
+				const fleshDripLoc = vec3.add(
+					hitLoc,
+					vec3.scale(vec3.normalize(vec3.sub(origin, hitLoc)), 0.1),
+				);
 
 				dim.spawnParticle("lc:scpdy_small_flesh_piece_drip_emitter", fleshDripLoc);
 			},
@@ -129,14 +135,22 @@ export function spawnSmallBloodSplashParticle(dimension: mc.Dimension, location:
 	dimension.spawnParticle(BLOOD_SPLASH_SMALL_PARTICLE_ID, location);
 }
 
-export function spawnBloodImmediateFlyParticle(dimension: mc.Dimension, location: mc.Vector3, dir: mc.Vector3): void {
+export function spawnBloodImmediateFlyParticle(
+	dimension: mc.Dimension,
+	location: mc.Vector3,
+	dir: mc.Vector3,
+): void {
 	const vars = new mc.MolangVariableMap();
 	vars.setVector3("direction", dir);
 
 	dimension.spawnParticle(BLOOD_IMMEDIATE_FLY_PARTICLE_ID, location, vars);
 }
 
-export function spawnBloodStain(dimension: mc.Dimension, location: mc.Vector3, face: mc.Direction): void {
+export function spawnBloodStain(
+	dimension: mc.Dimension,
+	location: mc.Vector3,
+	face: mc.Direction,
+): void {
 	const altVariant = Math.random() > 0.5;
 
 	let type: string;
@@ -177,7 +191,8 @@ mc.system.beforeEvents.startup.subscribe((e) => {
 			],
 		},
 		(origin, locationParam) => {
-			const location = locationParam ?? origin.sourceEntity?.getHeadLocation() ?? origin.sourceBlock?.center();
+			const location = locationParam ?? origin.sourceEntity?.getHeadLocation()
+				?? origin.sourceBlock?.center();
 
 			if (!isVector3(location)) return;
 
@@ -207,18 +222,16 @@ mc.world.afterEvents.entityHurt.subscribe((e) => {
 	if (!health) return;
 	if (health.currentValue > 0) return;
 
-	const doesDamageCausePreventGib =
-		e.damageSource.cause === mc.EntityDamageCause.selfDestruct ||
-		e.damageSource.cause === mc.EntityDamageCause.void ||
-		e.damageSource.cause === mc.EntityDamageCause.fire ||
-		e.damageSource.cause === mc.EntityDamageCause.fireTick ||
-		e.damageSource.cause === mc.EntityDamageCause.campfire;
+	const doesDamageCausePreventGib = e.damageSource.cause === mc.EntityDamageCause.selfDestruct
+		|| e.damageSource.cause === mc.EntityDamageCause.void
+		|| e.damageSource.cause === mc.EntityDamageCause.fire
+		|| e.damageSource.cause === mc.EntityDamageCause.fireTick
+		|| e.damageSource.cause === mc.EntityDamageCause.campfire;
 
 	if (doesDamageCausePreventGib) return;
 
-	const isExplosionDamage =
-		e.damageSource.cause === mc.EntityDamageCause.blockExplosion ||
-		e.damageSource.cause === mc.EntityDamageCause.entityExplosion;
+	const isExplosionDamage = e.damageSource.cause === mc.EntityDamageCause.blockExplosion
+		|| e.damageSource.cause === mc.EntityDamageCause.entityExplosion;
 
 	const instantGib = e.hurtEntity.matches({ families: ["instant_gib_on_death"] });
 

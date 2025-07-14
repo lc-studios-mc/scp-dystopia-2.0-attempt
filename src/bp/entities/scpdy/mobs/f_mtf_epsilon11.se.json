@@ -23,7 +23,8 @@
 						// 11 - Throwing a frag grenade.
 						// 20 - Chasing the target to contain them.
 						// 21 - Containing the target.
-						0, 100
+						0,
+						100
 					],
 					"default": 0,
 					"client_sync": true
@@ -452,7 +453,11 @@
 									{ "test": "is_family", "subject": "other", "value": "mtf_epsilon11_can_contain" },
 									{
 										"any_of": [
-											{ "test": "is_family", "subject": "other", "value": "can_be_contained_without_neutralization" },
+											{
+												"test": "is_family",
+												"subject": "other",
+												"value": "can_be_contained_without_neutralization"
+											},
 											{ "test": "is_family", "subject": "other", "value": "neutralized" },
 											{ "test": "has_tag", "subject": "other", "value": "scpdy_neutralized" }
 										]
@@ -467,7 +472,12 @@
 							"filters": {
 								"all_of": [
 									{ "test": "is_family", "subject": "other", "value": "scpdy_scp096" },
-									{ "test": "bool_property", "subject": "other", "operator": "!=", "domain": "lc:is_face_hidden" }
+									{
+										"test": "bool_property",
+										"subject": "other",
+										"operator": "!=",
+										"domain": "lc:is_face_hidden"
+									}
 								]
 							},
 							"max_dist": 28,

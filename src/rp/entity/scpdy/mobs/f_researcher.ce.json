@@ -48,12 +48,12 @@
 			},
 			"scripts": {
 				"scale": "0.9375",
-				// prettier-ignore
+
 				"animate": [
 					"ctrl.main",
 					{ "anim.m17.tp.base": "v.is_armed" }
 				],
-				// prettier-ignore
+
 				"pre_animation": [
 					"v.is_armed = q.property('lc:is_armed');",
 					"v.is_reloading = q.is_charged;"

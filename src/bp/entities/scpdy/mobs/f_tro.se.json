@@ -12,7 +12,8 @@
 					"range": [
 						// 0  - Mainly use the gun, melee if the target is close.
 						// 10 - Get close to the target and melee them.
-						0, 10
+						0,
+						10
 					],
 					"default": 0,
 					"client_sync": true
@@ -410,7 +411,12 @@
 							"filters": {
 								"all_of": [
 									{ "test": "is_family", "subject": "other", "value": "scpdy_scp096" },
-									{ "test": "bool_property", "subject": "other", "operator": "!=", "domain": "lc:is_face_hidden" }
+									{
+										"test": "bool_property",
+										"subject": "other",
+										"operator": "!=",
+										"domain": "lc:is_face_hidden"
+									}
 								]
 							},
 							"max_dist": 25,
@@ -552,14 +558,12 @@
 				}
 			},
 			"lc:on_target_acquired": {
-				// prettier-ignore
 				"sequence": [
 					{ "trigger": "lc:start_anger" },
 					{ "trigger": "lc:start_combat:gun_and_melee" }
 				]
 			},
 			"lc:on_target_escape": {
-				// prettier-ignore
 				"sequence": [
 					{ "trigger": "lc:stop_anger" },
 					{ "trigger": "lc:stop_combat" }

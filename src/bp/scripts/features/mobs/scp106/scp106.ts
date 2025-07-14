@@ -1,5 +1,6 @@
-import * as mc from "@minecraft/server";
+import { clamp, randomFloat, randomInt } from "@/lib/utils/mathUtils";
 import * as vec3 from "@lib/utils/vec3";
+import * as mc from "@minecraft/server";
 import {
 	calculateCombatEmergeLocation,
 	getCorrosionAcquisitionCooldown,
@@ -11,6 +12,7 @@ import {
 	getLastLocation,
 	getState,
 	getStuckDuration,
+	type HideContext,
 	SCP106_ENTITY_TYPE_ID,
 	SCP106_STATE,
 	SCP106_TRAIL_ENTITY_TYPE_ID,
@@ -23,9 +25,7 @@ import {
 	setLastLocation,
 	setState,
 	setStuckDuration,
-	type HideContext,
 } from "./shared";
-import { clamp, randomFloat, randomInt } from "@/lib/utils/mathUtils";
 
 mc.system.afterEvents.scriptEventReceive.subscribe(
 	(event) => {
@@ -104,7 +104,10 @@ mc.world.afterEvents.entityDie.subscribe(
 );
 
 function deathExplosion(scp106: mc.Entity): void {
-	scp106.dimension.spawnParticle("lc:scpdy_corrosion_burst_emitter", vec3.sub(scp106.getHeadLocation(), vec3.UP));
+	scp106.dimension.spawnParticle(
+		"lc:scpdy_corrosion_burst_emitter",
+		vec3.sub(scp106.getHeadLocation(), vec3.UP),
+	);
 
 	scp106.remove();
 }
@@ -170,7 +173,8 @@ function onUpdateDefaultState(scp106: mc.Entity): void {
 }
 
 function isStuck(scp106: mc.Entity): boolean {
-	const isTargetVeryClose = scp106.target && vec3.distance(scp106.location, scp106.target.location) <= 0.6;
+	const isTargetVeryClose = scp106.target
+		&& vec3.distance(scp106.location, scp106.target.location) <= 0.6;
 	return !isTargetVeryClose && updateStuckDuration(scp106) > 2;
 }
 
@@ -206,7 +210,9 @@ function updateCorrosionAcquisitionCooldown(scp106: mc.Entity): void {
 		return;
 	}
 
-	const newCooldown = mc.world.getDifficulty() === mc.Difficulty.Hard ? randomInt(3, 5) : randomInt(8, 12);
+	const newCooldown = mc.world.getDifficulty() === mc.Difficulty.Hard
+		? randomInt(3, 5)
+		: randomInt(8, 12);
 
 	setCorrosionAcquisitionCooldown(scp106, newCooldown);
 
@@ -242,7 +248,9 @@ function updateCorrosionThrowCooldown(scp106: mc.Entity): void {
 
 	if (!isSeeingTarget) return; // Do not throw corrosion when cannot see target
 
-	const newCooldown = mc.world.getDifficulty() === mc.Difficulty.Hard ? randomInt(1, 2) : randomInt(2, 4);
+	const newCooldown = mc.world.getDifficulty() === mc.Difficulty.Hard
+		? randomInt(1, 2)
+		: randomInt(2, 4);
 
 	setCorrosionThrowCooldown(scp106, newCooldown);
 	throwCorrosion(scp106);
@@ -368,9 +376,13 @@ function onUpdateCombatHiding(scp106: mc.Entity, hidingTick: number): void {
 function onUpdateRetreatHiding(scp106: mc.Entity, hidingTick: number): void {
 	// Slowly heal itself
 	const healthComp = scp106.getComponent("health")!;
-	const healAmount = mc.world.getDifficulty() !== mc.Difficulty.Hard ? randomInt(4, 7) : randomInt(1, 2);
+	const healAmount = mc.world.getDifficulty() !== mc.Difficulty.Hard
+		? randomInt(4, 7)
+		: randomInt(1, 2);
 	healthComp.setCurrentValue(
-		Math.floor(clamp(healthComp.currentValue + healAmount, healthComp.effectiveMin, healthComp.effectiveMax)),
+		Math.floor(
+			clamp(healthComp.currentValue + healAmount, healthComp.effectiveMin, healthComp.effectiveMax),
+		),
 	);
 
 	if (healthComp.currentValue < 300) return;

@@ -1,6 +1,6 @@
-import * as mc from "@minecraft/server";
 import { getAmmoTypeOfItemStack } from "@/features/ammo/ammo";
 import { clamp, console, findContainerSlot } from "@lc-studios-mc/scripting-utils";
+import * as mc from "@minecraft/server";
 
 export class MagContext {
 	private readonly containerSlot: mc.ContainerSlot;
@@ -18,18 +18,25 @@ export class MagContext {
 		this.itemStack = containerSlot.getItem()!;
 
 		const durability = this.itemStack.getComponent("durability");
-		if (!durability) throw new Error(`Mag item (ID: ${this.itemStack.typeId}) is missing a durability component.`);
+		if (!durability) {
+			throw new Error(`Mag item (ID: ${this.itemStack.typeId}) is missing a durability component.`);
+		}
 		this.durability = durability;
 		this.midAmmoCount = Math.min(20, Math.floor(this.durability.maxDurability / 2.5));
 		this.lowAmmoCount = Math.min(10, Math.floor(this.durability.maxDurability / 4.0));
 
 		const ammoType = getAmmoTypeOfItemStack(this.itemStack);
-		if (!ammoType) throw new Error(`Mag item (ID: ${this.itemStack.typeId}) has no ammo type defined.`);
+		if (!ammoType) {
+			throw new Error(`Mag item (ID: ${this.itemStack.typeId}) has no ammo type defined.`);
+		}
 		this.ammoType = ammoType;
 	}
 
 	static findMag(container: mc.Container, magItemType: string): MagContext | undefined {
-		const slot = findContainerSlot(container, (slot) => slot.hasItem() && slot.typeId === magItemType);
+		const slot = findContainerSlot(
+			container,
+			(slot) => slot.hasItem() && slot.typeId === magItemType,
+		);
 		if (!slot) return;
 
 		const ctx = new MagContext(slot);
@@ -41,12 +48,11 @@ export class MagContext {
 	 */
 	createRemainingAmmoDisplayString(colored = true): string {
 		if (colored) {
-			const color =
-				this.remainingAmmoCount <= this.lowAmmoCount
-					? "§c"
-					: this.remainingAmmoCount <= this.midAmmoCount
-						? "§e"
-						: "§f";
+			const color = this.remainingAmmoCount <= this.lowAmmoCount
+				? "§c"
+				: this.remainingAmmoCount <= this.midAmmoCount
+				? "§e"
+				: "§f";
 
 			return `${color}${this.remainingAmmoCount}§r / ${this.maxAmmoCount}`;
 		}

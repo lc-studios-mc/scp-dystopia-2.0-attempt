@@ -3,7 +3,12 @@ import * as vec3 from "@lib/utils/vec3";
 import * as mc from "@minecraft/server";
 import { ActionFormData } from "@minecraft/server-ui";
 import * as cctvServerMod from "./cctv_server";
-import { LINKER_ITEM_TYPE, MONITOR_ENTITY_TYPE, SERVER_ENTITY_TYPE, TABLET_ITEM_TYPE } from "./shared";
+import {
+	LINKER_ITEM_TYPE,
+	MONITOR_ENTITY_TYPE,
+	SERVER_ENTITY_TYPE,
+	TABLET_ITEM_TYPE,
+} from "./shared";
 import { removeCctvUsage, setCctvUsage } from "./tick";
 
 export function getCctvServerId(cctvMonitor: mc.Entity): string | undefined {
@@ -43,7 +48,11 @@ function onSelectCameraToUse(
 	});
 }
 
-async function showCameraList(player: mc.Player, cctvServer: mc.Entity, cctvMonitor: mc.Entity): Promise<void> {
+async function showCameraList(
+	player: mc.Player,
+	cctvServer: mc.Entity,
+	cctvMonitor: mc.Entity,
+): Promise<void> {
 	const cameraRefs = cctvServerMod.getCameraRefs(cctvServer);
 
 	const cameraListForm = new ActionFormData()
@@ -79,7 +88,9 @@ async function showCameraList(player: mc.Player, cctvServer: mc.Entity, cctvMoni
 					translate: "scpdy.form.cctvMonitor.chooseCamera.button.cameraElement",
 					with: [
 						cameraRefIndex.toString(),
-						cameraEntity.nameTag.trim() ? cameraEntity.nameTag : `${vec3.toString(vec3.round(cameraEntity.location))}`,
+						cameraEntity.nameTag.trim()
+							? cameraEntity.nameTag
+							: `${vec3.toString(vec3.round(cameraEntity.location))}`,
 					],
 				},
 				async callback() {

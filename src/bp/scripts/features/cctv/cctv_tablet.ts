@@ -49,8 +49,14 @@ function onSelectCameraToUse(
 	});
 }
 
-async function showCameraList(player: mc.Player, cctvServer: mc.Entity, cctvTabletItem: mc.ItemStack): Promise<void> {
-	const mainhandSlot = player.getComponent("equippable")!.getEquipmentSlot(mc.EquipmentSlot.Mainhand);
+async function showCameraList(
+	player: mc.Player,
+	cctvServer: mc.Entity,
+	cctvTabletItem: mc.ItemStack,
+): Promise<void> {
+	const mainhandSlot = player.getComponent("equippable")!.getEquipmentSlot(
+		mc.EquipmentSlot.Mainhand,
+	);
 
 	if (mainhandSlot.typeId !== TABLET_ITEM_TYPE) return;
 
@@ -89,7 +95,9 @@ async function showCameraList(player: mc.Player, cctvServer: mc.Entity, cctvTabl
 					translate: "scpdy.form.cctvTablet.chooseCamera.button.cameraElement",
 					with: [
 						cameraRefIndex.toString(),
-						cameraEntity.nameTag.trim() ? cameraEntity.nameTag : `${vec3.toString(vec3.round(cameraEntity.location))}`,
+						cameraEntity.nameTag.trim()
+							? cameraEntity.nameTag
+							: `${vec3.toString(vec3.round(cameraEntity.location))}`,
 					],
 				},
 				async callback() {
@@ -131,7 +139,9 @@ async function showCameraList(player: mc.Player, cctvServer: mc.Entity, cctvTabl
 }
 
 function onUseCctvTablet(player: mc.Player, itemStack: mc.ItemStack): void {
-	const mainhandSlot = player.getComponent("equippable")!.getEquipmentSlot(mc.EquipmentSlot.Mainhand);
+	const mainhandSlot = player.getComponent("equippable")!.getEquipmentSlot(
+		mc.EquipmentSlot.Mainhand,
+	);
 
 	if (mainhandSlot.typeId !== TABLET_ITEM_TYPE) return;
 
@@ -176,8 +186,14 @@ function onUseCctvTablet(player: mc.Player, itemStack: mc.ItemStack): void {
 	showCameraList(player, cctvServer, itemStack);
 }
 
-function onInteractCctvServerAuthorized(player: mc.Player, cctvServer: mc.Entity, itemStack: mc.ItemStack): void {
-	const mainhandSlot = player.getComponent("equippable")!.getEquipmentSlot(mc.EquipmentSlot.Mainhand);
+function onInteractCctvServerAuthorized(
+	player: mc.Player,
+	cctvServer: mc.Entity,
+	itemStack: mc.ItemStack,
+): void {
+	const mainhandSlot = player.getComponent("equippable")!.getEquipmentSlot(
+		mc.EquipmentSlot.Mainhand,
+	);
 
 	if (mainhandSlot.typeId !== TABLET_ITEM_TYPE) return;
 
@@ -191,7 +207,11 @@ function onInteractCctvServerAuthorized(player: mc.Player, cctvServer: mc.Entity
 	});
 }
 
-function onInteractCctvServer(player: mc.Player, itemStack: mc.ItemStack, cctvServer: mc.Entity): void {
+function onInteractCctvServer(
+	player: mc.Player,
+	itemStack: mc.ItemStack,
+	cctvServer: mc.Entity,
+): void {
 	const savedServerId = getCctvServerId(itemStack);
 
 	if (savedServerId !== undefined) {

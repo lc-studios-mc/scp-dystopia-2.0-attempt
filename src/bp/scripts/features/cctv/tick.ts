@@ -1,6 +1,9 @@
 import * as playerLoop from "@logic/playerLoop";
 import * as mc from "@minecraft/server";
-import { getHeadRotation as getCctvCameraHeadRot, setHeadRotation as setCctvCameraHeadRot } from "./cctv_camera";
+import {
+	getHeadRotation as getCctvCameraHeadRot,
+	setHeadRotation as setCctvCameraHeadRot,
+} from "./cctv_camera";
 
 type PlayerCctvOptions = {
 	player: mc.Player;
@@ -82,12 +85,11 @@ function onTickPlayer(player: mc.Player): void {
 
 		const newRotation: mc.Vector2 = {
 			x: cctvCameraHeadRot.x,
-			y:
-				cctvCameraRot.y < 0
-					? cctvCameraRot.y + cctvCameraHeadRot.y
-					: cctvCameraRot.y > 0
-						? cctvCameraRot.y - cctvCameraHeadRot.y
-						: 0,
+			y: cctvCameraRot.y < 0
+				? cctvCameraRot.y + cctvCameraHeadRot.y
+				: cctvCameraRot.y > 0
+				? cctvCameraRot.y - cctvCameraHeadRot.y
+				: 0,
 		};
 
 		player.teleport(player.location, { rotation: newRotation });

@@ -4,10 +4,10 @@ import {
 	spawnBulletHole,
 	spawnBulletTraceParticle,
 } from "@/features/bullets/effects";
+import { config } from "@/features/config/config";
 import { Vec3 } from "@lc-studios-mc/scripting-utils";
 import * as vec3 from "@lib/utils/vec3";
 import { world } from "@minecraft/server";
-import { config } from "@/features/config/config";
 
 const isBlockBreakable = (type: string): boolean => {
 	if (type === "lc:scpdy_bulletproof_glass") return false;

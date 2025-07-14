@@ -1,4 +1,8 @@
-export type InputDeviceMode = "powerRelayDoors" | "ctrlBlastDoor" | "placeRbBelow" | "placeRbBehind";
+export type InputDeviceMode =
+	| "powerRelayDoors"
+	| "ctrlBlastDoor"
+	| "placeRbBelow"
+	| "placeRbBehind";
 
 export const getInputDeviceModeFromIndex = (index: number): InputDeviceMode => {
 	switch (index) {

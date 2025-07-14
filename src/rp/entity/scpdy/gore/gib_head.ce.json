@@ -30,11 +30,11 @@
 						"anim.emit_blood": "v.emit_blood"
 					}
 				],
-				// prettier-ignore
+
 				"initialize": [
 					"v.scale = 0.94;"
 				],
-				// prettier-ignore
+
 				"pre_animation": [
 					"v.ground_y_rot = q.modified_distance_moved * 30;",
 					"v.yaw = q.property('lc:yaw');",

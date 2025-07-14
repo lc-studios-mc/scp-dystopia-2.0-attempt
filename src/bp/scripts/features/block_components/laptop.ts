@@ -29,7 +29,10 @@ const onPlayerInteract = (arg: mc.BlockComponentPlayerInteractEvent): void => {
 	}
 
 	arg.block.setPermutation(
-		arg.block.permutation.withState("lc:interaction", interactionIndex < 3 ? interactionIndex + 1 : 0),
+		arg.block.permutation.withState(
+			"lc:interaction",
+			interactionIndex < 3 ? interactionIndex + 1 : 0,
+		),
 	);
 };
 

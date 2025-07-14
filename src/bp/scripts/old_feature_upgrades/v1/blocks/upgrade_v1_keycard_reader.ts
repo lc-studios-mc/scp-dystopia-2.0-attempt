@@ -1,12 +1,15 @@
 import { getInputDeviceModeFromIndex } from "@/features/input_devices/mode";
 import { createBlockStatesString } from "@/utils/block";
 import { getBlockCardinalDirection, reverseDirection } from "@/utils/direction";
-import * as mc from "@minecraft/server";
-import * as vec3 from "@/utils/vec3";
 import { clamp } from "@/utils/math";
+import * as vec3 from "@/utils/vec3";
+import * as mc from "@minecraft/server";
 
 mc.system.beforeEvents.startup.subscribe((event) => {
-	event.blockComponentRegistry.registerCustomComponent("scpdy:upgrade_v1_keycard_reader", COMPONENT);
+	event.blockComponentRegistry.registerCustomComponent(
+		"scpdy:upgrade_v1_keycard_reader",
+		COMPONENT,
+	);
 });
 
 const COMPONENT: mc.BlockCustomComponent = {
