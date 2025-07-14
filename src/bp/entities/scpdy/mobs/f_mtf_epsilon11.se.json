@@ -36,6 +36,9 @@
 		},
 		"components": {
 			"minecraft:is_hidden_when_invisible": {},
+			"minecraft:knockback_resistance": {
+				"value": 0.3
+			},
 			"minecraft:type_family": {
 				"family": [
 					"mob",
@@ -46,8 +49,7 @@
 					"combatant",
 					"mtf",
 					"mtf_epsilon11",
-					"can_safely_look_at_scp096",
-					"gibbable_on_death"
+					"can_safely_look_at_scp096"
 				]
 			},
 			"minecraft:health": {
@@ -97,24 +99,39 @@
 			},
 			"minecraft:damage_sensor": {
 				"triggers": [
+					// Don't take damage from members of the same faction
 					{
 						"on_damage": {
-							"filters": {
-								"all_of": [{ "test": "is_family", "subject": "other", "value": "scp_foundation" }]
-							}
+							"filters": { "test": "is_family", "subject": "other", "value": "scp_foundation" }
 						},
 						"deals_damage": "no"
 					},
+
+					// Don't take damage from weapons of the same faction
 					{
 						"on_damage": {
-							"filters": {
-								"any_of": [
-									{ "test": "is_family", "subject": "damager", "value": "mtf_weapon" },
-									{ "test": "is_family", "subject": "damager", "value": "scpf_weapon" }
-								]
-							}
+							"filters": { "test": "is_family", "subject": "damager", "value": "scpf_weapon" }
 						},
 						"deals_damage": "no"
+					},
+
+					// Fatality (instant body explosion)
+					{
+						"on_damage": {
+							"filters": { "test": "has_damage", "value": "fatal" },
+							"event": "lc:gib"
+						},
+						"cause": "entity_explosion",
+						"deals_damage": "no_but_side_effects_apply"
+					},
+
+					// Fatality (transform into dead)
+					{
+						"on_damage": {
+							"filters": { "test": "has_damage", "value": "fatal" },
+							"event": "lc:transform_into_dead"
+						},
+						"deals_damage": "no_but_side_effects_apply"
 					}
 				]
 			},
@@ -241,10 +258,6 @@
 				"drag_factor": 0.9
 			},
 			"minecraft:physics": {},
-			"minecraft:pushable": {
-				"is_pushable": true,
-				"is_pushable_by_piston": true
-			},
 			"minecraft:collision_box": {
 				"width": 0.6,
 				"height": 1.9
@@ -256,20 +269,28 @@
 			"ambient_normal": {
 				"minecraft:ambient_sound_interval": {
 					"event_name": "ambient",
-					"value": 5,
-					"range": 13
+					"value": 6,
+					"range": 15
 				}
 			},
 			"move_freely": {
-				"minecraft:movement": { "value": 0.3 },
+				"minecraft:movement": { "value": 0.25 },
 				"minecraft:behavior.random_stroll": {
-					"priority": 10,
+					"priority": 11,
 					"speed_multiplier": 0.8,
 					"xz_dist": 7
+				},
+				"minecraft:pushable": {
+					"is_pushable": true,
+					"is_pushable_by_piston": true
 				}
 			},
 			"stationary": {
-				"minecraft:movement": { "value": 0.0 }
+				"minecraft:movement": { "value": 0.0 },
+				"minecraft:pushable": {
+					"is_pushable": false,
+					"is_pushable_by_piston": false
+				}
 			},
 			"transform_into_dead": {
 				"minecraft:transformation": {
@@ -309,6 +330,12 @@
 						{
 							"filters": {
 								"all_of": [
+									{
+										"test": "is_family",
+										"subject": "other",
+										"operator": "!=",
+										"value": "scp_foundation"
+									},
 									{
 										"test": "is_family",
 										"subject": "other",
@@ -367,7 +394,7 @@
 										"test": "is_family",
 										"subject": "other",
 										"operator": "!=",
-										"value": "scpf"
+										"value": "scp_foundation"
 									}
 								]
 							},
@@ -487,8 +514,8 @@
 					},
 					"angry_sound": "angry",
 					"sound_interval": {
-						"range_min": 4.0,
-						"range_max": 6.0
+						"range_min": 6.0,
+						"range_max": 9.0
 					}
 				}
 			},

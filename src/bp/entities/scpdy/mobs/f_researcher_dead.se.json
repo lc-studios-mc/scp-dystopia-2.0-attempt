@@ -60,10 +60,10 @@
 		"components": {
 			"minecraft:is_hidden_when_invisible": {},
 			"minecraft:type_family": {
-				"family": ["mob", "dead_body", "corpse", "scpdy_human_corpse", "gibbable_on_death", "instant_gib_on_death"]
+				"family": ["mob", "dead_body", "corpse", "scpdy_human_corpse"]
 			},
 			"minecraft:knockback_resistance": {
-				"value": 0.2
+				"value": 0.4
 			},
 			"minecraft:health": {
 				"value": 14,
@@ -85,14 +85,13 @@
 			},
 			"minecraft:damage_sensor": {
 				"triggers": [
+					// Fatality should cause gibbing
 					{
 						"on_damage": {
-							"filters": {
-								"all_of": [{ "test": "is_family", "subject": "damager", "value": "scpdy_grenade" }]
-							}
+							"filters": { "test": "has_damage", "value": "fatal" },
+							"event": "lc:gib"
 						},
-						"cause": "entity_explosion",
-						"damage_multiplier": 3.0
+						"deals_damage": "no_but_side_effects_apply"
 					}
 				]
 			},

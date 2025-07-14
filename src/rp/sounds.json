@@ -101,16 +101,6 @@
 				"pitch": [0.9, 1.1],
 				"volume": 1.0
 			},
-			"lc:scpdy_f_researcher": {
-				"events": {
-					"death": {
-						"sound": "random.hurt",
-						"volume": 1.1
-					}
-				},
-				"pitch": [0.95, 1.05],
-				"volume": 1.0
-			},
 			"lc:scpdy_f_tro": {
 				"events": {
 					"attack": "scpdy.misc.punch",
@@ -136,11 +126,11 @@
 					},
 					"ambient": {
 						"sound": "scpdy.mob.f_mtf_epsilon11.ambient",
-						"volume": 1.0
+						"volume": 0.8
 					},
 					"angry": {
 						"sound": "scpdy.mob.f_mtf_epsilon11.angry",
-						"volume": 1.2
+						"volume": 1.15
 					},
 					"death": {
 						"sound": "scpdy.mob.f_mtf_epsilon11.death",

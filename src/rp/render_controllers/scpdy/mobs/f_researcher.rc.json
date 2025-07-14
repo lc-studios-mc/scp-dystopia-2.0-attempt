@@ -3,6 +3,16 @@
 	"render_controllers": {
 		"controller.render.scpdy.f_researcher": {
 			"arrays": {
+				"geometries": {
+					"Array.geos": [
+						"Geometry.base",
+						"Geometry.base",
+						"Geometry.base_slim",
+						"Geometry.base",
+						"Geometry.base",
+						"Geometry.base"
+					]
+				},
 				"textures": {
 					"Array.skins": [
 						"Texture.researcher_var_0",
@@ -14,7 +24,7 @@
 					]
 				}
 			},
-			"geometry": "Geometry.default",
+			"geometry": "Array.geos[q.variant]",
 			"materials": [{ "*": "Material.default" }],
 			"textures": ["Array.skins[q.variant]"]
 		}

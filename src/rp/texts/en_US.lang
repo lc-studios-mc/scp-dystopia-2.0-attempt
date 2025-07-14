@@ -377,6 +377,11 @@ entity.lc:scpdy_thrown_head.name=Thrown Head
 
 ## --- utility ---
 
+scpdy.faction_changer=Faction Changer
+scpdy.faction_changer.displayName=Faction Changer\n§eChanges the faction you're in, which affects certain mobs' behavior.
+scpdy.faction_changer.joinCi=Join Chaos Insurgency
+scpdy.faction_changer.joinScpf=Join SCP Foundation
+scpdy.faction_changer.updatedTags=§aUpdated faction tags!
 scpdy.mob_stationary_toggler=Mob Stationary Toggler
 scpdy.mob_stationary_toggler.displayName=Mob Stationary Toggler\n§eLets you toggle the stationary mode of certain mobs.
 scpdy.tame_scpf_mob=Tame SCP Foundation Mob

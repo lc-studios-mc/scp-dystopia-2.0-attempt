@@ -7,15 +7,16 @@
 				"default": "entity_alphatest"
 			},
 			"textures": {
-				"researcher_var_0": "textures/scpdy/mobs/f_researcher_var_0",
-				"researcher_var_1": "textures/scpdy/mobs/f_researcher_var_1",
-				"researcher_var_2": "textures/scpdy/mobs/f_researcher_var_2",
+				"researcher_var_0": "textures/scpdy/mobs/f_researcher_basic_male_1",
+				"researcher_var_1": "textures/scpdy/mobs/f_researcher_basic_male_2",
+				"researcher_var_2": "textures/scpdy/mobs/f_researcher_basic_female_1",
 				"researcher_var_3": "textures/scpdy/mobs/f_researcher_bb607",
 				"researcher_var_4": "textures/scpdy/mobs/f_researcher_lc45",
 				"researcher_var_5": "textures/scpdy/mobs/f_researcher_lbb"
 			},
 			"geometry": {
-				"default": "geometry.scpdy_f_researcher"
+				"base": "geometry.scpdy_humanoid_base",
+				"base_slim": "geometry.scpdy_humanoid_base_slim"
 			},
 			"animations": {
 				"ctrl.main": "controller.animation.scpdy.dead_human.main",
