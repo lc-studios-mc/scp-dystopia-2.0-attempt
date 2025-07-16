@@ -2,7 +2,7 @@
 	"format_version": "1.21.90",
 	"minecraft:entity": {
 		"description": {
-			"identifier": "lc:scpdy_f_researcher",
+			"identifier": "lc:scpdy_f_classd",
 			"is_spawnable": true,
 			"is_summonable": true,
 			"is_experimental": false,
@@ -23,8 +23,8 @@
 			"minecraft:is_hidden_when_invisible": {},
 
 			"minecraft:health": {
-				"value": 20,
-				"max": 20
+				"value": 24,
+				"max": 24
 			},
 
 			"minecraft:behavior.float": {
@@ -46,18 +46,18 @@
 
 			"minecraft:damage_sensor": {
 				"triggers": [
-					// Don't take damage from members of the same faction
+					// Don't take damage from members of friendly faction
 					{
 						"on_damage": {
-							"filters": { "test": "is_family", "subject": "other", "value": "scp_foundation" }
+							"filters": { "test": "is_family", "subject": "other", "value": "chaos_insurgency" }
 						},
 						"deals_damage": "no"
 					},
 
-					// Don't take damage from weapons of the same faction
+					// Don't take damage from weapons of friendly faction
 					{
 						"on_damage": {
-							"filters": { "test": "is_family", "subject": "damager", "value": "scpf_weapon" }
+							"filters": { "test": "is_family", "subject": "damager", "value": "ci_weapon" }
 						},
 						"deals_damage": "no"
 					},
@@ -155,26 +155,28 @@
 			"minecraft:annotation.open_door": {},
 			"minecraft:behavior.open_door": {
 				"priority": 1,
-				"close_door_after": true
+				"close_door_after": false
 			},
 
 			"minecraft:behavior.random_look_around": {
-				"priority": 25
+				"priority": 21
 			},
 			"minecraft:behavior.look_at_entity": {
-				"priority": 21,
-				"look_distance": 3.0,
+				"priority": 23,
+				"look_distance": 6.0,
 				"filters": {
 					"any_of": [
-						{ "test": "is_family", "subject": "other", "value": "researcher" },
-						{ "test": "is_family", "subject": "other", "value": "scp" }
+						{ "test": "is_family", "subject": "other", "value": "villager" },
+						{ "test": "is_family", "subject": "other", "value": "scp_foundation" },
+						{ "test": "is_family", "subject": "other", "value": "classd" },
+						{ "test": "is_family", "subject": "other", "value": "chaos_insurgency" }
 					]
 				},
-				"probability": 0.015
+				"probability": 0.02
 			},
 			"minecraft:behavior.look_at_player": {
 				"priority": 22,
-				"look_distance": 5.0
+				"look_distance": 6.0
 			},
 
 			"minecraft:collision_box": {
@@ -201,11 +203,13 @@
 				"minecraft:movement": {
 					"value": 0.3
 				},
+				"minecraft:water_movement": {
+					"drag_factor": 0.9
+				},
 
 				"minecraft:behavior.random_stroll": {
-					"priority": 24,
-					"xz_dist": 5,
-					"speed_multiplier": 0.72
+					"priority": 20,
+					"speed_multiplier": 0.75
 				},
 
 				"minecraft:pushable": {
@@ -228,7 +232,7 @@
 			"not_tamed": {
 				"minecraft:tameable": {
 					"probability": 1.0,
-					"tame_items": "lc:scpdy_tame_scpf_mob",
+					"tame_items": ["lc:scpdy_tame_ci_mob", "lc:scpdy_tame_scpf_mob"],
 					"tame_event": {
 						"event": "minecraft:on_tame",
 						"target": "self"
@@ -270,18 +274,13 @@
 				"minecraft:transformation": {
 					"drop_equipment": true,
 					"drop_inventory": true,
-					"into": "lc:scpdy_f_researcher_dead"
+					"into": "lc:scpdy_f_classd_dead"
 				}
 			},
 
 			"unarmed": {
 				"minecraft:type_family": {
-					"family": ["mob", "villager", "human", "scpf", "scp_foundation", "researcher"]
-				},
-
-				"minecraft:behavior.panic": {
-					"priority": 0,
-					"speed_multiplier": 1.3
+					"family": ["mob", "villager", "human", "scpf", "scp_foundation", "classd"]
 				},
 
 				"minecraft:behavior.avoid_mob_type": {
@@ -296,50 +295,23 @@
 								]
 							},
 							"max_dist": 8,
-							"walk_speed_multiplier": 1.1,
-							"sprint_speed_multiplier": 1.3
-						},
-
-						// Avoid anyone fighting
-						{
-							"filters": {
-								"test": "has_target",
-								"subject": "other"
-							},
-							"max_dist": 7,
-							"walk_speed_multiplier": 1.0,
-							"sprint_speed_multiplier": 1.2
+							"walk_speed_multiplier": 1.2,
+							"sprint_speed_multiplier": 1.4
 						},
 
 						// Avoid enemies
 						{
 							"filters": {
-								"all_of": [
-									{
-										"any_of": [
-											{ "test": "has_tag", "subject": "other", "value": "scpdy_faction_ci" },
-											{ "test": "is_family", "subject": "other", "value": "monster" },
-											{ "test": "is_family", "subject": "other", "value": "hostile_scp" },
-											{ "test": "is_family", "subject": "other", "value": "chaos" },
-											{ "test": "is_family", "subject": "other", "value": "ci" }
-										]
-									}
+								"any_of": [
+									{ "test": "is_family", "subject": "other", "value": "monster" },
+									{ "test": "is_family", "subject": "other", "value": "hostile_scp" },
+									{ "test": "is_family", "subject": "other", "value": "tro" },
+									{ "test": "is_family", "subject": "other", "value": "mtf" }
 								]
 							},
-							"max_dist": 15,
-							"walk_speed_multiplier": 1.2,
-							"sprint_speed_multiplier": 1.4
-						},
-
-						{
-							"filters": {
-								"test": "is_family",
-								"subject": "other",
-								"value": "classd"
-							},
-							"max_dist": 3,
-							"walk_speed_multiplier": 0.7,
-							"sprint_speed_multiplier": 0.9
+							"max_dist": 10,
+							"walk_speed_multiplier": 0.8,
+							"sprint_speed_multiplier": 1.0
 						}
 					]
 				},
@@ -370,9 +342,9 @@
 						"mob",
 						"villager",
 						"human",
-						"scpf",
-						"scp_foundation",
-						"researcher",
+						"ci",
+						"chaos_insurgency",
+						"classd",
 						"combatant",
 						"armed"
 					]
@@ -384,7 +356,7 @@
 				},
 
 				"minecraft:behavior.avoid_mob_type": {
-					"priority": 1,
+					"priority": 0,
 					"entity_types": [
 						// Avoid explosives (frag grenades)
 						{
@@ -394,24 +366,9 @@
 									{ "test": "is_family", "subject": "other", "value": "frag_grenade" }
 								]
 							},
-							"max_dist": 7,
-							"walk_speed_multiplier": 1.1,
+							"max_dist": 8,
+							"walk_speed_multiplier": 1.2,
 							"sprint_speed_multiplier": 1.4
-						},
-
-						// Avoid some mobs that researchers don't wanna fight
-						{
-							"filters": {
-								"any_of": [
-									{ "test": "is_family", "subject": "other", "value": "hostile_scp" },
-									{ "test": "is_family", "subject": "other", "value": "ravager" },
-									{ "test": "is_family", "subject": "other", "value": "warden" }
-								]
-							},
-							"max_dist": 13,
-							"walk_speed_multiplier": 1.1,
-							"sprint_speed_multiplier": 1.3,
-							"remove_target": true
 						}
 					]
 				},
@@ -422,8 +379,9 @@
 						{
 							"filters": {
 								"none_of": [
-									{ "test": "has_tag", "subject": "other", "value": "scpdy_faction_scpf" },
-									{ "test": "is_family", "subject": "other", "value": "scp_foundation" }
+									{ "test": "has_tag", "subject": "other", "value": "scpdy_faction_ci" },
+									{ "test": "is_family", "subject": "other", "value": "classd" },
+									{ "test": "is_family", "subject": "other", "value": "chaos_insurgency" }
 								]
 							},
 							"max_dist": 25
@@ -436,10 +394,10 @@
 					"entity_types": [
 						{
 							"filters": {
-								"test": "is_family",
-								"subject": "other",
-								"operator": "!=",
-								"value": "scp_foundation"
+								"none_of": [
+									{ "test": "is_family", "subject": "other", "value": "classd" },
+									{ "test": "is_family", "subject": "other", "value": "chaos_insurgency" }
+								]
 							},
 							"max_dist": 25
 						}
@@ -451,10 +409,10 @@
 					"entity_types": [
 						{
 							"filters": {
-								"test": "is_family",
-								"subject": "other",
-								"operator": "!=",
-								"value": "scp_foundation"
+								"none_of": [
+									{ "test": "is_family", "subject": "other", "value": "classd" },
+									{ "test": "is_family", "subject": "other", "value": "chaos_insurgency" }
+								]
 							},
 							"max_dist": 25
 						}
@@ -464,7 +422,7 @@
 				"minecraft:behavior.nearest_attackable_target": {
 					"priority": 4,
 					"must_see": true,
-					"must_see_forget_duration": 9.0,
+					"must_see_forget_duration": 15.0,
 					"reselect_targets": true,
 					"target_invisible_multiplier": 0.01,
 					"target_sneak_visibility_multiplier": 0.4,
@@ -474,40 +432,43 @@
 								"all_of": [
 									{
 										"none_of": [
-											{ "test": "is_family", "subject": "other", "value": "neutral_scp" },
-											{ "test": "is_family", "subject": "other", "value": "neutralized" },
-											{ "test": "is_family", "subject": "other", "value": "scpdy_scp096" }
+											{ "test": "has_tag", "subject": "other", "value": "scpdy_faction_ci" },
+											{ "test": "is_family", "subject": "other", "value": "classd" },
+											{ "test": "is_family", "subject": "other", "value": "ci" },
+											{ "test": "is_family", "subject": "other", "value": "chaos_insurgency" }
 										]
 									},
 									{
 										"any_of": [
-											{ "test": "has_tag", "subject": "other", "value": "scpdy_faction_ci" },
+											{ "test": "has_tag", "subject": "other", "value": "scpdy_faction_scpf" },
 											{ "test": "is_family", "subject": "other", "value": "monster" },
 											{ "test": "is_family", "subject": "other", "value": "illager" },
 											{ "test": "is_family", "subject": "other", "value": "piglin" },
+											{ "test": "is_family", "subject": "other", "value": "neutral_scp" },
 											{ "test": "is_family", "subject": "other", "value": "hostile_scp" },
-											{ "test": "is_family", "subject": "other", "value": "chaos_insurgency" }
+											{ "test": "is_family", "subject": "other", "value": "scpf" },
+											{ "test": "is_family", "subject": "other", "value": "scp_foundation" }
 										]
 									}
 								]
 							},
-							"max_dist": 18
+							"max_dist": 22
 						}
 					]
 				},
 
-				"minecraft:shooter": { "def": "lc:scpdy_bullet_m17" },
+				"minecraft:shooter": { "def": "lc:scpdy_bullet_m17", "power": 3 },
 				"minecraft:behavior.ranged_attack": {
 					"priority": 1,
-					"attack_radius": 20,
-					"attack_radius_min": 2.3,
-					"burst_interval": 0.56,
-					"burst_shots": 7,
+					"attack_radius": 28,
+					"attack_radius_min": 0,
+					"burst_interval": 0.4,
+					"burst_shots": 11,
 					"charge_charged_trigger": 0.1, // Time before reload
 					"charge_shoot_trigger": 0.5, // Reload time
 					"swing": true,
-					"target_in_sight_time": 0.4,
-					"speed_multiplier": 1.1
+					"target_in_sight_time": 0.3,
+					"speed_multiplier": 1.16
 				}
 			}
 		},

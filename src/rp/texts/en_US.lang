@@ -599,3 +599,6 @@ scpdy.attachment_editor.apply=Apply Changes
 scpdy.attachment_editor.canceled=§eCanceled editing attachments.
 scpdy.attachment_editor.x_is_unavailable=§c%s is unavailable!
 scpdy.attachment_editor.default=Default / None
+item.spawn_egg.entity.lc:scpdy_f_classd.name=Class-D Personnel Spawn Egg
+entity.lc:scpdy_f_classd.name=Class-D
+entity.lc:scpdy_f_classd_dead.name=Corpse

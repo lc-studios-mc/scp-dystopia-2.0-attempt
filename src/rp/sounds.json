@@ -66,6 +66,21 @@
 				"volume": 1.0
 			},
 
+			"lc:scpdy_f_classd": {
+				"events": {
+					"attack": "scpdy.misc.punch",
+					"shoot": {
+						"sound": "scpdy.gun.m17.fire",
+						"volume": 1.8
+					}
+				},
+				"pitch": [
+					0.95,
+					1.05
+				],
+				"volume": 1.0
+			},
+
 			"lc:scpdy_f_researcher": {
 				"events": {
 					"attack": "scpdy.misc.punch",
