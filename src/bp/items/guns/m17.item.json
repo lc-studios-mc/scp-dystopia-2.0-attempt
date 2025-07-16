@@ -8,6 +8,11 @@
 			}
 		},
 		"components": {
+			"scpdy:attachment_support": {
+				"muzzle": ["suppressor"],
+				"optic": ["reddotsight"],
+				"tactical": ["lasersightp"]
+			},
 			"minecraft:icon": {
 				"textures": {
 					"default": "scpdy_gun_m17_icon"
@@ -27,7 +32,7 @@
 				"use_duration": 3600
 			},
 			"minecraft:tags": {
-				"tags": ["lc:scpdy_gun", "gun_id:m17"] // Used by gun manager script
+				"tags": ["gun"]
 			}
 		}
 	}

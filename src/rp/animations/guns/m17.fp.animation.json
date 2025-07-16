@@ -1,6 +1,20 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
+		"animation.scpdy.gun.m17.fp.base": {
+			"loop": true,
+			"bones": {
+				"lasersightp": {
+					"position": [0, 1.35, -3.1]
+				},
+				"reddotsight": {
+					"position": [0, 3.3, 1.4]
+				},
+				"suppressor": {
+					"position": [0, 3, -5.75]
+				}
+			}
+		},
 		"animation.scpdy.gun.m17.fp.bob": {
 			"loop": true,
 			"animation_length": 1,
@@ -590,8 +604,14 @@
 					},
 					"scale": {
 						"0.1944": [1, 1, 1],
-						"0.2361": {"pre": [1, 1, 1], "post": [0, 0, 0]},
-						"0.3194": {"pre": [0, 0, 0], "post": [1, 1, 1]}
+						"0.2361": {
+							"pre": [1, 1, 1],
+							"post": [0, 0, 0]
+						},
+						"0.3194": {
+							"pre": [0, 0, 0],
+							"post": [1, 1, 1]
+						}
 					}
 				}
 			}

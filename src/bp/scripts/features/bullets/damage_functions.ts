@@ -22,13 +22,6 @@ export const createBasicBulletDamageFunction = (
 			damage *= 2;
 		}
 
-		let damageMultiplier = 1.0;
-		for (const attachment of Object.values(ctx.options.attachmentContext.array)) {
-			if (attachment.stats.damageMultiplier === undefined) continue;
-			damageMultiplier *= attachment.stats.damageMultiplier;
-		}
-		damage *= damageMultiplier;
-
 		if (reduceDamage) {
 			damage = calculateFinalDamage(ctx.hitEntity, damage, mc.EntityDamageCause.projectile);
 		}

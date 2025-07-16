@@ -7,6 +7,7 @@ import "./cctv";
 import "./doors";
 import "./fnet";
 import "./gore";
+import "./gun_attachment";
 import "./guns";
 import "./input_devices";
 import "./item_components";

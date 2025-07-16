@@ -55,7 +55,7 @@
 			"initial_state": "general",
 			"states": {
 				"general": {
-					"animations": ["anim.fp.bob", "anim.fp.ads"]
+					"animations": ["anim.fp.base", "anim.fp.bob", "anim.fp.ads"]
 				}
 			}
 		}

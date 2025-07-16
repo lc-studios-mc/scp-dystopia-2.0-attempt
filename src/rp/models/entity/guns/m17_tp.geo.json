@@ -701,6 +701,41 @@
 							}
 						}
 					]
+				},
+				{
+					"name": "atts",
+					"parent": "gun",
+					"pivot": [-6, 15, 1]
+				},
+				{
+					"name": "optic",
+					"parent": "atts",
+					"pivot": [-6, 15, 1]
+				},
+				{
+					"name": "reddotsight",
+					"parent": "optic",
+					"pivot": [-6, 15, 1]
+				},
+				{
+					"name": "tactical",
+					"parent": "atts",
+					"pivot": [-6, 15, 1]
+				},
+				{
+					"name": "lasersightp",
+					"parent": "tactical",
+					"pivot": [-6, 15, 1]
+				},
+				{
+					"name": "muzzle",
+					"parent": "atts",
+					"pivot": [-6, 15, 1]
+				},
+				{
+					"name": "suppressor",
+					"parent": "muzzle",
+					"pivot": [-6, 15, 1]
 				}
 			]
 		}

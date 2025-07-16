@@ -16,17 +16,17 @@ import {
 import * as mc from "@minecraft/server";
 import { consumeAmmoInContainer, getAmmoCountInContainer } from "../ammo/ammo";
 import { fireBullet } from "../bullets";
+import type { AttachmentStats } from "../gun_attachment/shared";
 import { MagContext } from "./shared/mag_context";
 import {
 	applyConditionalAdsSlowness,
 	displayAmmoCountOfBasicMagFedGun,
 	spawnCartridgeEjectionParticle,
+	transferAttachmentVariables,
 } from "./shared/utils";
 
 const gunItemType = "lc:scpdy_gun_m17";
 const magItemType = "lc:scpdy_gun_m17_mag";
-const compatibleAttachments: Record<string, string[]> = {};
-const attachmentSlotTypes = Array.from(Object.keys(compatibleAttachments));
 const muzzleOffset = { x: 0.13, z: 1.0 };
 const muzzleOffsetAds = { y: 0.07, z: 1.2 };
 const muzzleFlashParticleId = "lc:scpdy_muzzle_flash_particle";
@@ -46,7 +46,8 @@ ItemHookRegistry.register(gunItemType, (ctx) => new Gun(ctx));
 class Gun extends StateDrivenHookedItem {
 	override state: HookedItemState<Gun>;
 	readonly aimSwayDuration = 4;
-	attachmentContext: AttachmentContext;
+	readonly attachmentContext: AttachmentContext;
+	readonly combinedAttachmentStats: AttachmentStats;
 	magContext?: MagContext;
 	inventoryAmmoCount = 0;
 	adsTick = 0;
@@ -55,10 +56,8 @@ class Gun extends StateDrivenHookedItem {
 	constructor(ctx: HookedItemContext) {
 		super(ctx);
 
-		this.attachmentContext = new AttachmentContext({
-			itemStack: this.initialItemStack,
-			slotTypes: attachmentSlotTypes,
-		});
+		this.attachmentContext = new AttachmentContext(this.initialItemStack);
+		this.combinedAttachmentStats = this.attachmentContext.createCombinedStats();
 
 		this.magContext = MagContext.findMag(this.inventory.container, magItemType);
 
@@ -205,11 +204,16 @@ class Gun extends StateDrivenHookedItem {
 			return;
 		}
 
+		// Periodically transfer attachment variables to client-side
+		if (this.currentTick % 50 === 0) {
+			transferAttachmentVariables(this.player, this.attachmentContext);
+		}
+
 		this.updateMagContext();
 		this.updateAmmoCountInInventory();
 		this.updateAdsInfo();
 		this.updateCrosshair();
-		applyConditionalAdsSlowness(this.player, this.isAds, 0);
+		applyConditionalAdsSlowness(this.player, this.isAds, 0 + this.combinedAttachmentStats.adsSlownessAmplifierAdd);
 
 		super.onTick(currentItemStack);
 
@@ -290,20 +294,22 @@ class FireState extends HookedItemState<Gun> {
 	}
 
 	private fire(): void {
-		this.owner.playSoundAtHeadFrontLocation("scpdy.gun.m17.fire", {
-			volume: 2.0,
-			pitch: randf(0.93, 1.07),
+		fireBullet({
+			attachmentContext: this.owner.attachmentContext,
+			dimension: this.owner.dimension,
+			direction: this.owner.player.getViewDirection(),
+			flyForce: 15,
+			muzzleLocation: this.owner.getMuzzleLocation(),
+			origin: Vec3.add(this.owner.player.getHeadLocation(), { x: 0, y: 0.1, z: 0 }),
+			projectileType: "lc:scpdy_custom_bullet",
+			quantity: 1,
+			source: this.owner.player,
+			uncertainy: this.owner.isAds
+				? 0.4 * this.owner.combinedAttachmentStats.uncertainyMultiplierAds
+				: 1.6 * this.owner.combinedAttachmentStats.uncertainyMultiplierHipfire,
+			onHitBlock,
+			onHitEntity,
 		});
-
-		if (this.owner.nextFireAnimCooldownIndex === 0) {
-			this.owner.startItemCooldown("fire_1", 2);
-			this.owner.startItemCooldown("fire_2", 0);
-			this.owner.nextFireAnimCooldownIndex = 1;
-		} else {
-			this.owner.startItemCooldown("fire_2", 2);
-			this.owner.startItemCooldown("fire_1", 0);
-			this.owner.nextFireAnimCooldownIndex = 0;
-		}
 
 		if (this.owner.magContext) {
 			this.owner.magContext.consumeAmmo(1);
@@ -320,22 +326,30 @@ class FireState extends HookedItemState<Gun> {
 			}
 		}
 
-		fireBullet({
-			attachmentContext: this.owner.attachmentContext,
-			dimension: this.owner.dimension,
-			direction: this.owner.player.getViewDirection(),
-			flyForce: 15,
-			muzzleLocation: this.owner.getMuzzleLocation(),
-			origin: Vec3.add(this.owner.player.getHeadLocation(), { x: 0, y: 0.1, z: 0 }),
-			projectileType: "lc:scpdy_custom_bullet",
-			quantity: 1,
-			source: this.owner.player,
-			uncertainy: this.owner.isAds ? 0.2 : 1.3,
-			onHitBlock,
-			onHitEntity,
-		});
+		if (this.owner.nextFireAnimCooldownIndex === 0) {
+			this.owner.startItemCooldown("fire_1", 2);
+			this.owner.startItemCooldown("fire_2", 0);
+			this.owner.nextFireAnimCooldownIndex = 1;
+		} else {
+			this.owner.startItemCooldown("fire_2", 2);
+			this.owner.startItemCooldown("fire_1", 0);
+			this.owner.nextFireAnimCooldownIndex = 0;
+		}
 
-		this.owner.dimension.spawnParticle(muzzleFlashParticleId, this.owner.getMuzzleLocation());
+		if (this.owner.combinedAttachmentStats.markGunAsSuppressed) {
+			this.owner.playSoundAtHeadFrontLocation("scpdy.gun.suppressed_fire_1", {
+				volume: 1.0,
+				pitch: randf(0.93, 1.07),
+			});
+		} else {
+			this.owner.playSoundAtHeadFrontLocation("scpdy.gun.m17.fire", {
+				volume: 2.0,
+				pitch: randf(0.93, 1.07),
+			});
+
+			this.owner.dimension.spawnParticle(muzzleFlashParticleId, this.owner.getMuzzleLocation());
+		}
+
 		this.owner.dimension.spawnParticle(muzzleSmokeParticleId, this.owner.getMuzzleLocation());
 
 		spawnCartridgeEjectionParticle({
