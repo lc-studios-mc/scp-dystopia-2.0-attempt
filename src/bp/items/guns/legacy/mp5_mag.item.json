@@ -4,8 +4,7 @@
 		"description": {
 			"identifier": "lc:scpdy_gun_mp5_mag",
 			"menu_category": {
-				"category": "items",
-				"is_hidden_in_commands": false
+				"category": "equipment"
 			}
 		},
 		"components": {

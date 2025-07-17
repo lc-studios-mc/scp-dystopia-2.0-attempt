@@ -254,31 +254,40 @@
 				"category_name": "equipment",
 				"groups": [
 					{
-						"group_identifier": {
-							"icon": "lc:scpdy_gun_mp5sd",
-							"name": "lc:scpdy_itemGroup_guns"
-						},
 						"items": [
-							// "lc:scpdy_gun_glock17",
-							// "lc:scpdy_gun_gm6",
-							// "lc:scpdy_gun_hk21",
-							// "lc:scpdy_gun_m4a1",
-							"lc:scpdy_gun_mp5sd",
-							// "lc:scpdy_gun_spas12",
-							"lc:scpdy_gun_t5000"
+							"lc:scpdy_wrench"
 						]
 					},
 
 					{
 						"group_identifier": {
-							"icon": "lc:scpdy_knife",
-							"name": "lc:scpdy_itemGroup_meleeWeapons"
+							"icon": "lc:scpdy_gun_m17",
+							"name": "lc:scpdy_itemGroup_guns_and_mags"
 						},
 						"items": [
+							"lc:scpdy_gun_m17",
+							"lc:scpdy_gun_m17_mag",
+							"lc:scpdy_gun_mp5sd",
+							"lc:scpdy_gun_mp5_mag",
+							"lc:scpdy_gun_t5000",
+							"lc:scpdy_gun_t5000_mag"
+						]
+					},
+
+					{
+						"items": [
 							"lc:scpdy_knife",
-							"lc:scpdy_pain_sword",
-							"lc:scpdy_killer_sword",
-							"lc:scpdy_void_sword"
+							"lc:scpdy_frag_grenade",
+							"lc:scpdy_throwable_head"
+						]
+					},
+
+					{
+						"items": [
+							"lc:scpdy_entity_damager",
+							"lc:scpdy_entity_killer",
+							"lc:scpdy_entity_remover",
+							"lc:scpdy_corpse_perpetuator"
 						]
 					}
 				]
@@ -362,22 +371,6 @@
 							"lc:scpdy_ammo_pack_338magnum",
 							"lc:scpdy_ammo_pack_556mm",
 							"lc:scpdy_ammo_pack_762x51"
-						]
-					},
-
-					{
-						"group_identifier": {
-							"icon": "lc:scpdy_gun_mp5_mag",
-							"name": "lc:scpdy_itemGroup_gun_mags"
-						},
-						"items": [
-							// "lc:scpdy_gun_ar15_mag",
-							// "lc:scpdy_gun_glock17_mag",
-							// "lc:scpdy_gun_gm6_mag",
-							// "lc:scpdy_gun_hk21_mag",
-							"lc:scpdy_gun_mp5_mag",
-							// "lc:scpdy_gun_spas12_mag",
-							"lc:scpdy_gun_t5000_mag"
 						]
 					},
 

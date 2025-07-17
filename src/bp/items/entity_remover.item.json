@@ -1,0 +1,22 @@
+{
+	"format_version": "1.21.90",
+	"minecraft:item": {
+		"description": {
+			"identifier": "lc:scpdy_entity_remover",
+			"menu_category": {
+				"category": "equipment"
+			}
+		},
+		"components": {
+			"scpdy:entity_remover": {},
+			"minecraft:icon": {
+				"textures": { "default": "scpdy_entity_remover_icon" }
+			},
+			"minecraft:display_name": { "value": "scpdy.entity_remover" },
+			"minecraft:hover_text_color": "light_purple",
+			"minecraft:max_stack_size": 1,
+			"minecraft:can_destroy_in_creative": { "value": false },
+			"minecraft:allow_off_hand": false
+		}
+	}
+}

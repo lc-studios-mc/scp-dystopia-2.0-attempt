@@ -22,6 +22,10 @@
 		"scpdy_cctv_server_icon": { "textures": "textures/scpdy/cctv/server_icon" },
 		"scpdy_cctv_tablet_icon": { "textures": "textures/scpdy/cctv/tablet_icon" },
 		"scpdy_config_icon": { "textures": "textures/scpdy/items/config" },
+		"scpdy_corpse_perpetuator_icon": { "textures": "textures/scpdy/items/corpse_perpetuator" },
+		"scpdy_entity_damager_icon": { "textures": "textures/scpdy/items/entity_damager" },
+		"scpdy_entity_killer_icon": { "textures": "textures/scpdy/items/entity_killer" },
+		"scpdy_entity_remover_icon": { "textures": "textures/scpdy/items/entity_remover" },
 		"scpdy_faction_changer_icon": { "textures": "textures/scpdy/items/faction_changer" },
 		"scpdy_fnet_manager_icon": { "textures": "textures/scpdy/items/fnet_manager" },
 		"scpdy_frag_grenade_icon": { "textures": "textures/scpdy/frag_grenade_icon" },
@@ -40,10 +44,8 @@
 		"scpdy_keycard_lvl_5": { "textures": "textures/scpdy/items/keycards/keycard_lvl_5" },
 		"scpdy_keycard_o5": { "textures": "textures/scpdy/items/keycards/keycard_o5" },
 		"scpdy_keypad_icon": { "textures": "textures/scpdy/input_devices/keypad/icon" },
-		"scpdy_killer_sword_icon": { "textures": "textures/scpdy/items/killer_sword" },
 		"scpdy_knife_icon": { "textures": "textures/scpdy/knife_icon" },
 		"scpdy_mob_stationary_toggler_icon": { "textures": "textures/scpdy/items/mob_stationary_toggler" },
-		"scpdy_pain_sword_icon": { "textures": "textures/scpdy/items/pain_sword" },
 		"scpdy_scp005": { "textures": "textures/scpdy/scp/scp005" },
 		"scpdy_scp096_1_wand_icon": { "textures": "textures/scpdy/scp/scp096_1_wand_icon" },
 		"scpdy_scp096_paper_bag": { "textures": "textures/scpdy/scp/scp096_paper_bag_icon" },
@@ -58,7 +60,6 @@
 		"scpdy_tame_scpf_mob_icon": { "textures": "textures/scpdy/items/tame_scpf_mob" },
 		"scpdy_toilet_paper_roll": { "textures": "textures/scpdy/items/toilet_paper_roll" },
 		"scpdy_tro_helmet_icon": { "textures": "textures/scpdy/armors/tro_helmet_icon" },
-		"scpdy_void_sword_icon": { "textures": "textures/scpdy/items/void_sword" },
 		"scpdy_wrench_icon": { "textures": "textures/scpdy/items/wrench" }
 	}
 }

@@ -18,7 +18,7 @@
 					"default": true,
 					"client_sync": true
 				},
-				"lc:was_transformed": {
+				"lc:can_start_despawn_timer": {
 					"type": "bool",
 					"default": false
 				}
@@ -72,6 +72,30 @@
 			"minecraft:breathable": {
 				"breathes_water": true,
 				"generates_bubbles": false
+			},
+
+			"minecraft:interact": {
+				"interactions": [
+					{
+						"on_interact": {
+							"filters": {
+								"all_of": [
+									{ "test": "bool_property", "domain": "lc:can_start_despawn_timer" },
+									{ "test": "is_family", "subject": "other", "value": "player" },
+									{
+										"test": "has_equipment",
+										"domain": "hand",
+										"subject": "other",
+										"value": "lc:scpdy_corpse_perpetuator"
+									}
+								]
+							},
+							"event": "lc:stop_despawn_timer",
+							"target": "self"
+						},
+						"swing": true
+					}
+				]
 			},
 
 			"minecraft:physics": {},
@@ -189,7 +213,7 @@
 				"sequence": [
 					{
 						"set_property": {
-							"lc:was_transformed": true
+							"lc:can_start_despawn_timer": true
 						}
 					},
 					{
@@ -235,7 +259,7 @@
 						}
 					},
 					{
-						"filters": { "test": "bool_property", "domain": "lc:was_transformed" },
+						"filters": { "test": "bool_property", "domain": "lc:can_start_despawn_timer" },
 						"add": {
 							"component_groups": ["despawn_timer"]
 						}
@@ -246,6 +270,9 @@
 			"lc:stop_despawn_timer": {
 				"remove": {
 					"component_groups": ["despawn_timer"]
+				},
+				"set_property": {
+					"lc:can_start_despawn_timer": false
 				}
 			},
 
