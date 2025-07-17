@@ -3,6 +3,7 @@
 	"minecraft:client_entity": {
 		"description": {
 			"identifier": "lc:scpdy_f_tro_dead",
+
 			"materials": {
 				"default": "entity_alphatest",
 
@@ -12,6 +13,7 @@
 				"tac_leg_protector": "armor",
 				"tac_boots": "armor"
 			},
+
 			"textures": {
 				"default": "textures/scpdy/mobs/f_tro",
 
@@ -21,6 +23,7 @@
 				"tac_leg_protector": "textures/scpdy/armors/tac_leg_protector",
 				"tac_boots": "textures/scpdy/armors/tac_boots"
 			},
+
 			"geometry": {
 				"default": "geometry.scpdy_humanoid_base",
 
@@ -30,6 +33,7 @@
 				"tac_leg_protector": "geometry.scpdy_tac_leg_protector",
 				"tac_boots": "geometry.scpdy_tac_boots"
 			},
+
 			"animations": {
 				"ctrl.main": "controller.animation.scpdy.dead_human.main",
 
@@ -40,6 +44,11 @@
 				"anim.death_3": "animation.scpdy.humanoid_base.death_3",
 				"anim.death_3.keep": "animation.scpdy.humanoid_base.death_3.keep"
 			},
+
+			"sound_effects": {
+				"body_fall": "scpdy.misc.body_fall"
+			},
+
 			"scripts": {
 				"scale": "0.9375",
 
@@ -56,6 +65,7 @@
 					"v.is_just_spawned = q.property('lc:is_just_spawned');"
 				]
 			},
+
 			"render_controllers": [
 				"controller.render.scpdy.f_tro",
 

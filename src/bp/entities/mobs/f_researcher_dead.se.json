@@ -111,6 +111,8 @@
 
 			"minecraft:nameable": {},
 
+			"minecraft:body_rotation_blocked": {},
+
 			"minecraft:conditional_bandwidth_optimization": {
 				"default_values": {
 					"max_optimized_distance": 30.0,
@@ -212,16 +214,18 @@
 			"minecraft:entity_transformed": {
 				"sequence": [
 					{
-						"set_property": {
-							"lc:can_start_despawn_timer": true
-						}
-					},
-					{
 						"add": {
 							"component_groups": ["just_spawned_timer"]
-						}
-					},
-					{
+						},
+						"set_property": {
+							"lc:can_start_despawn_timer": true
+						},
+						"queue_command": {
+							"command": [
+								"playsound game.player.hurt @a ~~~",
+								"particle lc:scpdy_small_flesh_piece_burst_emitter ~~1.6~"
+							]
+						},
 						"trigger": "randomize_death_anim_index"
 					},
 					{

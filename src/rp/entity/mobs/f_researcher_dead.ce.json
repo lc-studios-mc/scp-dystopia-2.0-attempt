@@ -3,9 +3,11 @@
 	"minecraft:client_entity": {
 		"description": {
 			"identifier": "lc:scpdy_f_researcher_dead",
+
 			"materials": {
 				"default": "entity_alphatest"
 			},
+
 			"textures": {
 				"researcher_var_0": "textures/scpdy/mobs/f_researcher_basic_male_1",
 				"researcher_var_1": "textures/scpdy/mobs/f_researcher_basic_male_2",
@@ -14,10 +16,12 @@
 				"researcher_var_4": "textures/scpdy/mobs/f_researcher_lc45",
 				"researcher_var_5": "textures/scpdy/mobs/f_researcher_lbb"
 			},
+
 			"geometry": {
 				"base": "geometry.scpdy_humanoid_base",
 				"base_slim": "geometry.scpdy_humanoid_base_slim"
 			},
+
 			"animations": {
 				"ctrl.main": "controller.animation.scpdy.dead_human.main",
 
@@ -28,6 +32,11 @@
 				"anim.death_3": "animation.scpdy.humanoid_base.death_3",
 				"anim.death_3.keep": "animation.scpdy.humanoid_base.death_3.keep"
 			},
+
+			"sound_effects": {
+				"body_fall": "scpdy.misc.body_fall"
+			},
+
 			"scripts": {
 				"scale": "0.9375",
 
@@ -44,6 +53,7 @@
 					"v.is_just_spawned = q.property('lc:is_just_spawned');"
 				]
 			},
+
 			"render_controllers": ["controller.render.scpdy.f_researcher"]
 		}
 	}

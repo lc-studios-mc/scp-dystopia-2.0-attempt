@@ -849,6 +849,15 @@
 			]
 		},
 
+		"scpdy.misc.body_fall": {
+			"category": "hostile",
+			"max_distance": 7.0,
+			"min_distance": null,
+			"sounds": [
+				"sounds/scpdy/misc/body_fall"
+			]
+		},
+
 		"scpdy.misc.boom_1": {
 			"__use_legacy_max_distance": "true",
 			"category": "hostile",

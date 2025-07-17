@@ -37,6 +37,10 @@
 				"anim.death_3.keep": "animation.scpdy.humanoid_base.death_3.keep"
 			},
 
+			"sound_effects": {
+				"body_fall": "scpdy.misc.body_fall"
+			},
+
 			"scripts": {
 				"scale": "0.9375",
 
