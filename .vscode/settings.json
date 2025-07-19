@@ -1,5 +1,5 @@
 {
-	"[markdown]": {
+	"[markdown][yaml]": {
 		"editor.insertSpaces": true,
 		"editor.tabSize": 2
 	},
@@ -10,8 +10,5 @@
 	"files.associations": {
 		"*.json": "jsonc",
 		"package.json": "json"
-	},
-	"search.exclude": {
-		"dist/**": true
 	}
 }

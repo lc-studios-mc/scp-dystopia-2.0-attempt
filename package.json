@@ -14,7 +14,7 @@
 		"neverthrow": "^8.2.0"
 	},
 	"devDependencies": {
-		"@lc-studios-mc/mcr": "github:lc-studios-mc/mcr#v0.0.2",
+		"@lc-studios-mc/mcr": "github:lc-studios-mc/mcr#semver:^0.1.0",
 		"dprint": "^0.50.1",
 		"typescript": "^5.7.2"
 	}

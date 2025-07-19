@@ -12,6 +12,7 @@
 	},
 	"excludes": [
 		"**/node_modules",
+		"**/dist",
 		"**/*-lock.json",
 		"**/*-lock.yaml",
 		"**/*.animation.json",
