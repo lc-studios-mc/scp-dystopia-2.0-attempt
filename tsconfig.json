@@ -14,7 +14,6 @@
 			"@logic/*": ["./src/bp/scripts/logic/*"],
 			"@lib/*": ["./src/bp/scripts/lib/*"]
 		},
-		"types": ["neverthrow"],
 
 		/* JavaScript Support */
 		"allowJs": true,

@@ -17,9 +17,6 @@ importers:
       '@minecraft/server-ui':
         specifier: 2.1.0-beta.1.21.90-stable
         version: 2.1.0-beta.1.21.90-stable(@minecraft/vanilla-data@1.21.81)
-      neverthrow:
-        specifier: ^8.2.0
-        version: 8.2.0
     devDependencies:
       '@lc-studios-mc/mcr':
         specifier: github:lc-studios-mc/mcr#semver:^0.1.0
@@ -290,11 +287,6 @@ packages:
   '@minecraft/vanilla-data@1.21.81':
     resolution: {integrity: sha512-YODTWnkEiFc9VjKOGOuLXZZQpkLQw9EIsxAoHtBT+K8huDv5nWLheX5hc1Z9OqY/+iFaIT7ueJNfBbXW/WOF1A==}
 
-  '@rollup/rollup-linux-x64-gnu@4.41.0':
-    resolution: {integrity: sha512-XMLeKjyH8NsEDCRptf6LO8lJk23o9wvB+dJwcXMaH6ZQbbkHu2dbGIUindbMtRN6ux1xKi16iXWu6q9mu7gDhQ==}
-    cpu: [x64]
-    os: [linux]
-
   ansi-regex@5.0.1:
     resolution: {integrity: sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==}
     engines: {node: '>=8'}
@@ -436,10 +428,6 @@ packages:
   minipass@7.1.2:
     resolution: {integrity: sha512-qOOzS1cBTWYF4BH8fVePDBOO9iptMnGUEZwNc/cMWnTV2nVLZ7VoNWEPHkYczZA0pdoA7dl6e7FL659nX9S2aw==}
     engines: {node: '>=16 || 14 >=14.17'}
-
-  neverthrow@8.2.0:
-    resolution: {integrity: sha512-kOCT/1MCPAxY5iUV3wytNFUMUolzuwd/VF/1KCx7kf6CutrOsTie+84zTGTpgQycjvfLdBBdvBvFLqFD2c0wkQ==}
-    engines: {node: '>=18'}
 
   package-json-from-dist@1.0.1:
     resolution: {integrity: sha512-UEZIS3/by4OC8vL3P2dTXRETpebLI2NiI5vIrjaD/5UtrkFX/tNbwjTSRAGC/+7CAo2pIcBaRgWmcBBHcsaCIw==}
@@ -698,9 +686,6 @@ snapshots:
 
   '@minecraft/vanilla-data@1.21.81': {}
 
-  '@rollup/rollup-linux-x64-gnu@4.41.0':
-    optional: true
-
   ansi-regex@5.0.1: {}
 
   ansi-regex@6.1.0: {}
@@ -857,10 +842,6 @@ snapshots:
       '@isaacs/brace-expansion': 5.0.0
 
   minipass@7.1.2: {}
-
-  neverthrow@8.2.0:
-    optionalDependencies:
-      '@rollup/rollup-linux-x64-gnu': 4.41.0
 
   package-json-from-dist@1.0.1: {}
 
