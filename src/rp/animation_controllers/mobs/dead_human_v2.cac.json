@@ -1,0 +1,44 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.scpdy.dead_human_v2": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{ "death_1": "v.death_anim_index == 0" },
+						{ "death_2": "v.death_anim_index == 1" },
+						{ "death_3": "v.death_anim_index == 2" },
+						{ "death_4": "v.death_anim_index == 3" },
+						{ "death_5": "v.death_anim_index == 4" },
+						{ "death_weakened": "v.death_anim_index == 69" }
+					]
+				},
+
+				"death_1": {
+					"animations": ["anim.death_1"]
+				},
+
+				"death_2": {
+					"animations": ["anim.death_2"]
+				},
+
+				"death_3": {
+					"animations": ["anim.death_3"]
+				},
+
+				"death_4": {
+					"animations": ["anim.death_4"]
+				},
+
+				"death_5": {
+					"animations": ["anim.death_5"]
+				},
+
+				"death_weakened": {
+					"animations": ["anim.death_weakened"]
+				}
+			}
+		}
+	}
+}

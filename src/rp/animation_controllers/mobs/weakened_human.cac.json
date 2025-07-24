@@ -1,0 +1,33 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.scpdy.weakened_human": {
+			"initial_state": "falling",
+			"states": {
+				"falling": {
+					"animations": ["anim.falling", "anim.look_at_target"],
+					"transitions": [
+						{ "fallen": "q.all_animations_finished" },
+						{ "getting_up": "v.state == 1" },
+						{ "getting_cuffed": "v.state == 2" }
+					],
+					"blend_transition": 0.22
+				},
+				"fallen": {
+					"animations": ["anim.fallen", "anim.look_at_target"],
+					"transitions": [
+						{ "getting_up": "v.state == 1" },
+						{ "getting_cuffed": "v.state == 2" }
+					],
+					"blend_transition": 0.22
+				},
+				"getting_up": {
+					"animations": ["anim.getting_up"]
+				},
+				"getting_cuffed": {
+					"animations": ["anim.getting_cuffed"]
+				}
+			}
+		}
+	}
+}

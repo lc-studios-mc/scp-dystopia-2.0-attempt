@@ -36,6 +36,7 @@
 		"scpdy_gun_mp5sd_icon": { "textures": "textures/scpdy/guns/legacy/mp5sd/icon" },
 		"scpdy_gun_t5000_icon": { "textures": "textures/scpdy/guns/legacy/t5000/icon" },
 		"scpdy_gun_t5000_mag_icon": { "textures": "textures/scpdy/guns/legacy/t5000/mag" },
+		"scpdy_handcuffs_icon": { "textures": "textures/scpdy/items/handcuffs" },
 		"scpdy_keycard_lvl_0": { "textures": "textures/scpdy/items/keycards/keycard_lvl_0" },
 		"scpdy_keycard_lvl_1": { "textures": "textures/scpdy/items/keycards/keycard_lvl_1" },
 		"scpdy_keycard_lvl_2": { "textures": "textures/scpdy/items/keycards/keycard_lvl_2" },

@@ -6,30 +6,63 @@
 			"states": {
 				"default": {
 					"transitions": [
-						{
-							"unarmed": "!v.is_armed"
-						},
-						{
-							"armed": "v.is_armed"
-						}
+						{ "cuffed": "v.is_cuffed" },
+						{ "unarmed": "!v.is_armed" },
+						{ "armed": "v.is_armed" }
 					]
 				},
 
 				"unarmed": {
-					"animations": ["anim.look_at_target", "anim.walk.legs", "anim.walk.arms", "anim.idle"],
-					"transitions": [{ "pickup_gun": "v.is_armed" }],
+					"animations": [
+						"anim.look_at_target",
+						"anim.walk.legs",
+						"anim.walk.arms",
+						"anim.idle",
+						"anim.punch"
+					],
+					"transitions": [
+						{ "pickup_gun": "v.is_armed" },
+						{ "faltered": "v.is_faltered" },
+						{ "cuffed": "v.is_cuffed" }
+					],
 					"blend_transition": 0.2
 				},
 
 				"pickup_gun": {
 					"animations": ["anim.look_at_target", "anim.walk.legs", "anim.gun.pickup"],
-					"transitions": [{ "armed": "q.all_animations_finished" }],
+					"transitions": [
+						{ "armed": "q.all_animations_finished" },
+						{ "faltered": "v.is_faltered" },
+						{ "cuffed": "v.is_cuffed" }
+					],
 					"blend_transition": 0.2
 				},
 
 				"armed": {
 					"animations": ["ctrl.armed"],
-					"transitions": [{ "unarmed": "!v.is_armed" }],
+					"transitions": [
+						{ "unarmed": "!v.is_armed" },
+						{ "faltered": "v.is_faltered" },
+						{ "cuffed": "v.is_cuffed" }
+					],
+					"blend_transition": 0.2
+				},
+
+				"faltered": {
+					"animations": ["anim.walk.legs", "anim.walk.arms", "anim.faltered"],
+					"transitions": [
+						{ "unarmed": "!v.is_faltered && !v.is_armed" },
+						{ "armed": "!v.is_faltered && v.is_armed" },
+						{ "cuffed": "v.is_cuffed" }
+					],
+					"blend_transition": 0.2
+				},
+
+				"cuffed": {
+					"animations": ["anim.look_at_target", "anim.walk.legs", "anim.cuffed"],
+					"transitions": [
+						{ "unarmed": "!v.is_cuffed" }
+					],
 					"blend_transition": 0.2
 				}
 			}

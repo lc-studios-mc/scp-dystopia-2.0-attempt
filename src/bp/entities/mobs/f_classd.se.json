@@ -11,6 +11,16 @@
 					"type": "bool",
 					"default": false
 				},
+				"lc:is_faltered": {
+					"type": "bool",
+					"default": false,
+					"client_sync": true
+				},
+				"lc:is_cuffed": {
+					"type": "bool",
+					"default": false,
+					"client_sync": true
+				},
 				"lc:is_armed": {
 					"type": "bool",
 					"default": false,
@@ -21,16 +31,13 @@
 
 		"components": {
 			"minecraft:is_hidden_when_invisible": {},
-
 			"minecraft:health": {
 				"value": 24,
 				"max": 24
 			},
-
-			"minecraft:behavior.float": {
-				"priority": 1
+			"minecraft:attack": {
+				"damage": 3
 			},
-
 			"minecraft:hurt_on_condition": {
 				"damage_conditions": [
 					{
@@ -43,27 +50,23 @@
 					}
 				]
 			},
-
 			"minecraft:damage_sensor": {
 				"triggers": [
-					// Don't take damage from members of friendly faction
 					{
+						// Don't take damage from members of a friendly faction
 						"on_damage": {
-							"filters": { "test": "is_family", "subject": "other", "value": "chaos_insurgency" }
+							"filters": {
+								"any_of": [
+									{ "test": "is_family", "subject": "other", "value": "classd" },
+									{ "test": "is_family", "subject": "other", "value": "chaos_insurgency" },
+									{ "test": "is_family", "subject": "damager", "value": "ci_weapon" }
+								]
+							}
 						},
 						"deals_damage": "no"
 					},
-
-					// Don't take damage from weapons of friendly faction
 					{
-						"on_damage": {
-							"filters": { "test": "is_family", "subject": "damager", "value": "ci_weapon" }
-						},
-						"deals_damage": "no"
-					},
-
-					// Fatality (instant body explosion)
-					{
+						// Instant gibbing
 						"on_damage": {
 							"filters": { "test": "has_damage", "value": "fatal" },
 							"event": "lc:gib"
@@ -71,36 +74,163 @@
 						"cause": "entity_explosion",
 						"deals_damage": "no_but_side_effects_apply"
 					},
-
-					// Fatality (transform into dead)
 					{
+						// Die
 						"on_damage": {
 							"filters": { "test": "has_damage", "value": "fatal" },
-							"event": "lc:transform_into_dead"
+							"event": "lc:on_fatality"
 						},
-						"deals_damage": "no_but_side_effects_apply"
+						"deals_damage": "yes"
+					},
+					{
+						// Falter from explosion
+						"on_damage": {
+							"filters": {
+								"all_of": [
+									{ "test": "bool_property", "domain": "lc:is_cuffed", "value": false },
+									{ "test": "bool_property", "domain": "lc:is_faltered", "value": false }
+								]
+							},
+							"event": "lc:become_faltered"
+						},
+						"cause": "entity_explosion",
+						"deals_damage": "yes"
 					}
 				]
 			},
-
+			"minecraft:behavior.hurt_by_target": {
+				"priority": 10,
+				"entity_types": [
+					{
+						"filters": {
+							"none_of": [
+								{ "test": "has_tag", "subject": "other", "value": "scpdy_faction_ci" },
+								{ "test": "is_family", "subject": "other", "value": "classd" },
+								{ "test": "is_family", "subject": "other", "value": "chaos_insurgency" }
+							]
+						}
+					}
+				]
+			},
+			"minecraft:behavior.avoid_mob_type": {
+				"priority": 5,
+				"entity_types": [
+					{
+						// Avoid explosives
+						"filters": {
+							"any_of": [
+								{ "test": "has_component", "subject": "other", "value": "minecraft:explode" },
+								{ "test": "is_family", "subject": "other", "value": "frag_grenade" }
+							]
+						},
+						"max_dist": 6,
+						"walk_speed_multiplier": 1.1,
+						"sprint_speed_multiplier": 1.3
+					},
+					{
+						// Be extra cautious when cuffed
+						"filters": {
+							"all_of": [
+								{ "test": "bool_property", "domain": "lc:is_cuffed" },
+								{
+									"any_of": [
+										{ "test": "was_last_hurt_by", "subject": "other" },
+										{ "test": "has_target", "subject": "other" },
+										{ "test": "is_family", "subject": "other", "value": "monster" },
+										{ "test": "is_family", "subject": "other", "value": "illager" },
+										{ "test": "is_family", "subject": "other", "value": "hostile_scp" }
+									]
+								}
+							]
+						},
+						"max_dist": 6,
+						"walk_speed_multiplier": 1.1,
+						"sprint_speed_multiplier": 1.3
+					}
+				]
+			},
+			"minecraft:entity_sensor": {
+				"relative_range": false,
+				"subsensors": [
+					{
+						// Become armed when there's an armed dead body nearby.
+						// Can be interpreted as picking up a gun from a dead body.
+						"event": "lc:become_armed",
+						"cooldown": 1.0,
+						"range": [2.5, 1.5],
+						"minimum_count": 1,
+						"event_filters": {
+							"all_of": [
+								{ "test": "bool_property", "domain": "lc:is_armed", "value": false },
+								{ "test": "bool_property", "domain": "lc:is_cuffed", "value": false },
+								{ "test": "bool_property", "domain": "lc:is_faltered", "value": false },
+								{ "test": "is_family", "subject": "other", "value": "dead_body" },
+								{ "test": "is_family", "subject": "other", "value": "armed" }
+							]
+						}
+					},
+					{
+						// Become cuffed when there's another mob that can cuff this mob
+						"event": "lc:become_cuffed",
+						"cooldown": 1.0,
+						"range": [2.5, 1.2],
+						"minimum_count": 1,
+						"event_filters": {
+							"all_of": [
+								{ "test": "bool_property", "domain": "lc:is_armed", "value": false },
+								{ "test": "bool_property", "domain": "lc:is_cuffed", "value": false },
+								{ "test": "is_family", "subject": "other", "value": "can_put_handcuffs_on_classd" }
+							]
+						}
+					},
+					{
+						// Remove handcuffs when there's a non-cuffed friendly mob nearby.
+						// Can be interpreted as his friends can help him remove handcuffs.
+						"event": "lc:exit_cuffed",
+						"cooldown": 1.0,
+						"range": [2.0, 1.5],
+						"minimum_count": 1,
+						"event_filters": {
+							"all_of": [
+								{ "test": "bool_property", "domain": "lc:is_cuffed" },
+								{ "test": "bool_property", "subject": "other", "domain": "lc:is_cuffed", "value": false },
+								{ "test": "bool_property", "subject": "other", "domain": "lc:is_faltered", "value": false },
+								{ "test": "has_target", "subject": "other", "value": false },
+								{ "test": "is_avoiding_mobs", "subject": "other", "value": false },
+								{
+									"any_of": [
+										{ "test": "is_family", "subject": "other", "value": "classd" },
+										{ "test": "is_family", "subject": "other", "value": "chaos_insurgency" }
+									]
+								}
+							]
+						}
+					}
+				]
+			},
+			"minecraft:on_target_acquired": {
+				"event": "minecraft:become_angry",
+				"target": "self"
+			},
+			"minecraft:follow_range": {
+				"value": 40,
+				"max": 40
+			},
 			"minecraft:breathable": {
 				"total_supply": 15,
 				"suffocate_time": 0
 			},
-
+			"minecraft:behavior.float": {
+				"priority": 1
+			},
 			"minecraft:interact": {
 				"interactions": [
-					// Enable stationary
 					{
+						// Enable stationary
 						"on_interact": {
 							"filters": {
 								"all_of": [
-									{
-										"test": "bool_property",
-										"subject": "self",
-										"domain": "lc:is_stationary",
-										"operator": "!="
-									},
+									{ "test": "bool_property", "domain": "lc:is_stationary", "value": false },
 									{ "test": "is_family", "subject": "other", "value": "player" },
 									{
 										"test": "has_equipment",
@@ -113,16 +243,16 @@
 							"event": "lc:enable_stationary",
 							"target": "self"
 						},
-						"cooldown": 0.1,
+						"interact_text": "scpdy.action.enable_stationary",
+						"cooldown": 0.3,
 						"swing": true
 					},
-
-					// Disable stationary
 					{
+						// Disable stationary
 						"on_interact": {
 							"filters": {
 								"all_of": [
-									{ "test": "bool_property", "subject": "self", "domain": "lc:is_stationary" },
+									{ "test": "bool_property", "domain": "lc:is_stationary" },
 									{ "test": "is_family", "subject": "other", "value": "player" },
 									{
 										"test": "has_equipment",
@@ -135,62 +265,124 @@
 							"event": "lc:disable_stationary",
 							"target": "self"
 						},
-						"cooldown": 0.1,
+						"interact_text": "scpdy.action.disable_stationary",
+						"cooldown": 0.3,
+						"swing": true
+					},
+					{
+						// Put handcuffs
+						"on_interact": {
+							"filters": {
+								"all_of": [
+									{ "test": "bool_property", "domain": "lc:is_cuffed", "value": false },
+									{ "test": "is_family", "subject": "other", "value": "player" },
+									{
+										"test": "has_equipment",
+										"domain": "hand",
+										"subject": "other",
+										"value": "lc:scpdy_handcuffs"
+									},
+									{
+										// Must be either non-armed or faltered
+										"any_of": [
+											{ "test": "bool_property", "domain": "lc:is_armed", "value": false },
+											{ "test": "bool_property", "domain": "lc:is_faltered" }
+										]
+									}
+								]
+							},
+							"event": "lc:become_cuffed",
+							"target": "self"
+						},
+						"interact_text": "scpdy.action.put_handcuffs",
+						"cooldown": 0.3,
+						"swing": true
+					},
+					{
+						// Remove handcuffs
+						"on_interact": {
+							"filters": {
+								"all_of": [
+									{ "test": "bool_property", "domain": "lc:is_cuffed" },
+									{ "test": "is_leashed", "value": false },
+									{ "test": "is_family", "subject": "other", "value": "player" },
+									{
+										"test": "has_equipment",
+										"domain": "hand",
+										"subject": "other",
+										"operator": "not",
+										"value": "minecraft:lead"
+									}
+								]
+							},
+							"event": "lc:exit_cuffed",
+							"target": "self"
+						},
+						"interact_text": "scpdy.action.remove_handcuffs",
+						"cooldown": 0.3,
 						"swing": true
 					}
 				]
 			},
-
 			"minecraft:movement.basic": {},
 			"minecraft:jump.static": {},
 			"minecraft:can_climb": {},
+			"minecraft:movement": {
+				"value": 0.3
+			},
 			"minecraft:navigation.walk": {
-				"is_amphibious": true,
+				"avoid_damage_blocks": true,
 				"can_path_over_water": true,
 				"can_pass_doors": true,
-				"can_open_doors": true,
-				"can_walk": true,
-				"avoid_water": true
+				"can_open_doors": true
 			},
 			"minecraft:annotation.open_door": {},
 			"minecraft:behavior.open_door": {
 				"priority": 1,
 				"close_door_after": false
 			},
-
 			"minecraft:behavior.random_look_around": {
-				"priority": 21
+				"priority": 29
 			},
 			"minecraft:behavior.look_at_entity": {
-				"priority": 23,
-				"look_distance": 6.0,
+				"priority": 27,
+				"look_distance": 5.0,
 				"filters": {
 					"any_of": [
-						{ "test": "is_family", "subject": "other", "value": "villager" },
-						{ "test": "is_family", "subject": "other", "value": "scp_foundation" },
 						{ "test": "is_family", "subject": "other", "value": "classd" },
-						{ "test": "is_family", "subject": "other", "value": "chaos_insurgency" }
+						{ "test": "is_family", "subject": "other", "value": "chaos_insurgency" },
+						{ "test": "is_family", "subject": "other", "value": "scp_foundation" },
+						{ "test": "is_family", "subject": "other", "value": "scp" }
 					]
 				},
 				"probability": 0.02
 			},
 			"minecraft:behavior.look_at_player": {
-				"priority": 22,
-				"look_distance": 6.0
+				"priority": 23,
+				"look_distance": 4.0
 			},
-
+			"minecraft:physics": {},
 			"minecraft:collision_box": {
 				"width": 0.6,
 				"height": 1.9
 			},
-			"minecraft:physics": {},
-
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:leashable": {},
+			"minecraft:leashable_to": {},
 			"minecraft:nameable": {},
-
 			"minecraft:persistent": {},
-
-			"minecraft:conditional_bandwidth_optimization": {}
+			"minecraft:conditional_bandwidth_optimization": {
+				"default_values": {
+					"max_optimized_distance": 80.0,
+					"max_dropped_ticks": 10,
+					"use_motion_prediction_hints": true
+				}
+			}
 		},
+
 		"component_groups": {
 			"var_0": { "minecraft:variant": { "value": 0 } },
 			"var_1": { "minecraft:variant": { "value": 1 } },
@@ -199,40 +391,106 @@
 			"var_4": { "minecraft:variant": { "value": 4 } },
 			"var_5": { "minecraft:variant": { "value": 5 } },
 
-			"move_freely": {
+			"low_initial_health": {
+				"minecraft:health": {
+					"value": 12,
+					"max": 24
+				}
+			},
+
+			"stationary_false": {
 				"minecraft:movement": {
 					"value": 0.3
 				},
-				"minecraft:water_movement": {
-					"drag_factor": 0.9
-				},
-
 				"minecraft:behavior.random_stroll": {
-					"priority": 20,
+					"priority": 25,
 					"speed_multiplier": 0.75
 				},
-
+				"minecraft:behavior.follow_mob": {
+					"priority": 15,
+					"search_range": 16,
+					"stop_distance": 2,
+					"speed_multiplier": 1.12,
+					"filters": {
+						"any_of": [
+							{
+								// Get close to a cuffed friend and help him
+								"all_of": [
+									{ "test": "bool_property", "domain": "lc:is_faltered", "value": false },
+									{
+										"any_of": [
+											{
+												"all_of": [
+													{ "test": "bool_property", "domain": "lc:is_cuffed", "value": false },
+													{ "test": "bool_property", "subject": "other", "domain": "lc:is_cuffed" }
+												]
+											},
+											{
+												"all_of": [
+													{ "test": "bool_property", "domain": "lc:is_cuffed" },
+													{ "test": "bool_property", "subject": "other", "domain": "lc:is_cuffed", "value": false }
+												]
+											}
+										]
+									},
+									{
+										"any_of": [
+											{ "test": "is_family", "subject": "other", "value": "classd" },
+											{ "test": "is_family", "subject": "other", "value": "chaos_insurgency" }
+										]
+									}
+								]
+							},
+							{
+								// Get close to an armed dead body to pickup a gun from it
+								"all_of": [
+									{ "test": "bool_property", "domain": "lc:is_armed", "value": false },
+									{ "test": "bool_property", "domain": "lc:is_cuffed", "value": false },
+									{ "test": "bool_property", "domain": "lc:is_faltered", "value": false },
+									{ "test": "is_family", "subject": "other", "value": "dead_body" },
+									{ "test": "is_family", "subject": "other", "value": "armed" }
+								]
+							}
+						]
+					}
+				},
 				"minecraft:pushable": {
 					"is_pushable": true,
 					"is_pushable_by_piston": true
 				}
 			},
 
-			"stationary": {
+			"stationary_true": {
 				"minecraft:movement": {
 					"value": 0.0
 				},
-
 				"minecraft:pushable": {
 					"is_pushable": false,
 					"is_pushable_by_piston": true
 				}
 			},
 
-			"not_tamed": {
+			"transform_into_dead": {
+				"minecraft:transformation": {
+					"into": "lc:scpdy_f_classd_dead",
+					"drop_equipment": true,
+					"drop_inventory": true,
+					"delay": { "value": 0.2 }
+				}
+			},
+
+			"transform_into_weakened": {
+				"minecraft:transformation": {
+					"into": "lc:scpdy_f_classd_weakened",
+					"preserve_equipment": true,
+					"delay": { "value": 0.2 }
+				}
+			},
+
+			"wild": {
 				"minecraft:tameable": {
 					"probability": 1.0,
-					"tame_items": ["lc:scpdy_tame_ci_mob", "lc:scpdy_tame_scpf_mob"],
+					"tame_items": ["lc:scpdy_tame_scpf_mob", "lc:scpdy_tame_ci_mob"],
 					"tame_event": {
 						"event": "minecraft:on_tame",
 						"target": "self"
@@ -242,21 +500,18 @@
 
 			"tamed": {
 				"minecraft:is_tamed": {},
-
 				"minecraft:sittable": {},
 				"minecraft:behavior.stay_while_sitting": {
-					"priority": 10
+					"priority": 0
 				},
-
 				"minecraft:behavior.follow_owner": {
-					"priority": 11,
+					"priority": 15,
 					"speed_multiplier": 0.9,
-					"start_distance": 10,
-					"stop_distance": 2
+					"start_distance": 8,
+					"stop_distance": 3
 				},
-
 				"minecraft:behavior.teleport_to_owner": {
-					"priority": 12,
+					"priority": 1,
 					"filters": {
 						"all_of": [
 							{
@@ -267,71 +522,91 @@
 							{ "test": "has_target" }
 						]
 					}
+				},
+				"minecraft:behavior.owner_hurt_target": {
+					"priority": 9,
+					"entity_types": [
+						{
+							"filters": {
+								"none_of": [
+									{ "test": "has_tag", "subject": "other", "value": "scpdy_faction_ci" },
+									{ "test": "is_family", "subject": "other", "value": "classd" },
+									{ "test": "is_family", "subject": "other", "value": "chaos_insurgency" }
+								]
+							}
+						}
+					]
+				},
+				"minecraft:behavior.owner_hurt_by_target": {
+					"priority": 8,
+					"entity_types": [
+						{
+							"filters": {
+								"none_of": [
+									{ "test": "has_tag", "subject": "other", "value": "scpdy_faction_ci" },
+									{ "test": "is_family", "subject": "other", "value": "classd" },
+									{ "test": "is_family", "subject": "other", "value": "chaos_insurgency" }
+								]
+							},
+							"sprint_speed_multiplier": 1.3
+						}
+					]
 				}
 			},
 
-			"transform_into_dead": {
-				"minecraft:transformation": {
-					"drop_equipment": true,
-					"drop_inventory": true,
-					"into": "lc:scpdy_f_classd_dead"
+			"melee_attack_ai_fallback": {
+				"minecraft:behavior.melee_box_attack": {
+					"priority": 9,
+					"can_spread_on_fire": true,
+					"cooldown_time": 1,
+					"speed_multiplier": 1.2
 				}
+			},
+
+			"angry": {
+				"minecraft:angry": {
+					"broadcast_anger": true,
+					"broadcast_anger_when_dying": false,
+					"broadcast_range": 16,
+					"broadcast_targets": ["receive_classd_anger_broadcast"],
+					"calm_event": {
+						"event": "minecraft:on_calm",
+						"target": "self"
+					},
+					"duration": 60,
+					"duration_delta": 10
+				}
+			},
+
+			"faltered": {
+				"minecraft:behavior.hold_ground": {
+					"priority": -1,
+					"min_radius": 100
+				},
+				"minecraft:timer": {
+					"looping": false,
+					"randomInterval": false,
+					"time": 2.5,
+					"time_down_event": {
+						"event": "lc:exit_faltered",
+						"target": "self"
+					}
+				}
+			},
+
+			"cuffed": {
 			},
 
 			"unarmed": {
 				"minecraft:type_family": {
-					"family": ["mob", "villager", "human", "scpf", "scp_foundation", "classd"]
-				},
-
-				"minecraft:behavior.avoid_mob_type": {
-					"priority": 5,
-					"entity_types": [
-						// Avoid explosives (frag grenades)
-						{
-							"filters": {
-								"any_of": [
-									{ "test": "has_component", "subject": "other", "value": "minecraft:explode" },
-									{ "test": "is_family", "subject": "other", "value": "frag_grenade" }
-								]
-							},
-							"max_dist": 8,
-							"walk_speed_multiplier": 1.2,
-							"sprint_speed_multiplier": 1.4
-						},
-
-						// Avoid enemies
-						{
-							"filters": {
-								"any_of": [
-									{ "test": "is_family", "subject": "other", "value": "monster" },
-									{ "test": "is_family", "subject": "other", "value": "hostile_scp" },
-									{ "test": "is_family", "subject": "other", "value": "tro" },
-									{ "test": "is_family", "subject": "other", "value": "mtf" }
-								]
-							},
-							"max_dist": 10,
-							"walk_speed_multiplier": 0.8,
-							"sprint_speed_multiplier": 1.0
-						}
-					]
-				},
-
-				// Sense armed dead bodies to pickup a gun from
-				"minecraft:entity_sensor": {
-					"relative_range": false,
-					"subsensors": [
-						{
-							"event": "lc:become_armed",
-							"cooldown": 0.2,
-							"range": [3.0, 1.5],
-							"minimum_count": 1,
-							"event_filters": {
-								"all_of": [
-									{ "test": "is_family", "subject": "other", "value": "dead_body" },
-									{ "test": "is_family", "subject": "other", "value": "armed" }
-								]
-							}
-						}
+					"family": [
+						"mob",
+						"villager",
+						"human",
+						"scpf",
+						"scp_foundation",
+						"classd",
+						"receive_classd_anger_broadcast"
 					]
 				}
 			},
@@ -345,84 +620,13 @@
 						"ci",
 						"chaos_insurgency",
 						"classd",
-						"combatant",
-						"armed"
+						"receive_classd_anger_broadcast"
 					]
 				},
-
-				"minecraft:follow_range": {
-					"value": 32,
-					"max": 32
-				},
-
-				"minecraft:behavior.avoid_mob_type": {
-					"priority": 0,
-					"entity_types": [
-						// Avoid explosives (frag grenades)
-						{
-							"filters": {
-								"any_of": [
-									{ "test": "has_component", "subject": "other", "value": "minecraft:explode" },
-									{ "test": "is_family", "subject": "other", "value": "frag_grenade" }
-								]
-							},
-							"max_dist": 8,
-							"walk_speed_multiplier": 1.2,
-							"sprint_speed_multiplier": 1.4
-						}
-					]
-				},
-
-				"minecraft:behavior.hurt_by_target": {
-					"priority": 5,
-					"entity_types": [
-						{
-							"filters": {
-								"none_of": [
-									{ "test": "has_tag", "subject": "other", "value": "scpdy_faction_ci" },
-									{ "test": "is_family", "subject": "other", "value": "classd" },
-									{ "test": "is_family", "subject": "other", "value": "chaos_insurgency" }
-								]
-							},
-							"max_dist": 25
-						}
-					]
-				},
-
-				"minecraft:behavior.owner_hurt_by_target": {
-					"priority": 3,
-					"entity_types": [
-						{
-							"filters": {
-								"none_of": [
-									{ "test": "is_family", "subject": "other", "value": "classd" },
-									{ "test": "is_family", "subject": "other", "value": "chaos_insurgency" }
-								]
-							},
-							"max_dist": 25
-						}
-					]
-				},
-
-				"minecraft:behavior.owner_hurt_target": {
-					"priority": 3,
-					"entity_types": [
-						{
-							"filters": {
-								"none_of": [
-									{ "test": "is_family", "subject": "other", "value": "classd" },
-									{ "test": "is_family", "subject": "other", "value": "chaos_insurgency" }
-								]
-							},
-							"max_dist": 25
-						}
-					]
-				},
-
 				"minecraft:behavior.nearest_attackable_target": {
-					"priority": 4,
+					"priority": 11,
 					"must_see": true,
-					"must_see_forget_duration": 15.0,
+					"must_see_forget_duration": 12.0,
 					"reselect_targets": true,
 					"target_invisible_multiplier": 0.01,
 					"target_sneak_visibility_multiplier": 0.4,
@@ -433,20 +637,19 @@
 									{
 										"none_of": [
 											{ "test": "has_tag", "subject": "other", "value": "scpdy_faction_ci" },
-											{ "test": "is_family", "subject": "other", "value": "classd" },
-											{ "test": "is_family", "subject": "other", "value": "ci" },
-											{ "test": "is_family", "subject": "other", "value": "chaos_insurgency" }
+											{ "test": "is_family", "subject": "other", "value": "chaos_insurgency" },
+											{ "test": "is_family", "subject": "other", "value": "classd" }
 										]
 									},
 									{
 										"any_of": [
 											{ "test": "has_tag", "subject": "other", "value": "scpdy_faction_scpf" },
+											{ "test": "was_last_hurt_by", "subject": "other" },
 											{ "test": "is_family", "subject": "other", "value": "monster" },
 											{ "test": "is_family", "subject": "other", "value": "illager" },
 											{ "test": "is_family", "subject": "other", "value": "piglin" },
 											{ "test": "is_family", "subject": "other", "value": "neutral_scp" },
 											{ "test": "is_family", "subject": "other", "value": "hostile_scp" },
-											{ "test": "is_family", "subject": "other", "value": "scpf" },
 											{ "test": "is_family", "subject": "other", "value": "scp_foundation" }
 										]
 									}
@@ -456,31 +659,78 @@
 						}
 					]
 				},
-
-				"minecraft:shooter": { "def": "lc:scpdy_bullet_m17", "power": 3 },
+				"minecraft:shooter": { "def": "lc:scpdy_bullet_m17" },
 				"minecraft:behavior.ranged_attack": {
-					"priority": 1,
-					"attack_radius": 28,
-					"attack_radius_min": 0,
+					"priority": 6,
+					"attack_radius": 24,
+					"attack_radius_min": 0.0,
 					"burst_interval": 0.4,
 					"burst_shots": 11,
 					"charge_charged_trigger": 0.1, // Time before reload
 					"charge_shoot_trigger": 0.5, // Reload time
 					"swing": true,
-					"target_in_sight_time": 0.3,
-					"speed_multiplier": 1.16
+					"target_in_sight_time": 0.25,
+					"speed_multiplier": 1.13
 				}
 			}
 		},
 
 		"events": {
 			"minecraft:entity_spawned": {
-				"sequence": [
-					{
-						"add": { "component_groups": ["not_tamed", "move_freely", "unarmed"] }
-					},
-					{ "trigger": "randomize_variant" }
-				]
+				"add": {
+					"component_groups": [
+						"stationary_false",
+						"wild",
+						"melee_attack_ai_fallback",
+						"unarmed"
+					]
+				},
+				"trigger": "randomize_variant"
+			},
+
+			"minecraft:entity_transformed": {
+				"add": {
+					"component_groups": [
+						"stationary_false",
+						"melee_attack_ai_fallback",
+						"wild",
+						"unarmed"
+					]
+				},
+				"trigger": "inherit_variant_from_other"
+			},
+
+			"lc:transformed_from_weakened": {
+				"add": {
+					"component_groups": [
+						"stationary_false",
+						"unarmed",
+						"wild",
+						"melee_attack_ai_fallback"
+					]
+				},
+				"queue_command": {
+					"command": ["scriptevent scpdy:set_self_health 7"]
+				},
+				"trigger": "inherit_variant_from_other"
+			},
+
+			"lc:transformed_from_weakened_cuffed": {
+				"add": {
+					"component_groups": [
+						"stationary_false",
+						"unarmed",
+						"wild",
+						"cuffed"
+					]
+				},
+				"set_property": {
+					"lc:is_cuffed": true
+				},
+				"queue_command": {
+					"command": ["scriptevent scpdy:set_self_health 7"]
+				},
+				"trigger": "inherit_variant_from_other"
 			},
 
 			"randomize_variant": {
@@ -512,17 +762,87 @@
 				]
 			},
 
+			"inherit_variant_from_other": {
+				"sequence": [
+					{
+						"filters": { "test": "is_variant", "subject": "other", "value": 0 },
+						"add": { "component_groups": ["var_0"] }
+					},
+					{
+						"filters": { "test": "is_variant", "subject": "other", "value": 1 },
+						"add": { "component_groups": ["var_1"] }
+					},
+					{
+						"filters": { "test": "is_variant", "subject": "other", "value": 2 },
+						"add": { "component_groups": ["var_2"] }
+					},
+					{
+						"filters": { "test": "is_variant", "subject": "other", "value": 3 },
+						"add": { "component_groups": ["var_3"] }
+					},
+					{
+						"filters": { "test": "is_variant", "subject": "other", "value": 4 },
+						"add": { "component_groups": ["var_4"] }
+					},
+					{
+						"filters": { "test": "is_variant", "subject": "other", "value": 5 },
+						"add": { "component_groups": ["var_5"] }
+					}
+				]
+			},
+
+			"lc:on_fatality": {
+				"sequence": [
+					{
+						"filters": {
+							"test": "bool_property",
+							"domain": "lc:is_cuffed"
+						},
+						"trigger": "lc:exit_cuffed"
+					},
+					{
+						"queue_command": {
+							"command": [
+								"playanimation @s animation.scpdy.humanoid_base.shock",
+								"playsound game.player.hurt @a ~~~",
+								"execute anchored eyes run particle lc:scpdy_blood_splash_small_particle ^^^1"
+							]
+						}
+					},
+					{
+						"randomize": [
+							{
+								"weight": 2,
+								"add": { "component_groups": ["transform_into_dead"] },
+								"queue_command": {
+									"command": [
+										"particle lc:scpdy_blood_mist_emitter ~~1.1~",
+										"particle lc:scpdy_small_flesh_piece_burst_emitter ~~1.6~"
+									]
+								}
+							},
+							{
+								"weight": 3,
+								"add": { "component_groups": ["transform_into_weakened"] }
+							}
+						]
+					}
+				]
+			},
+
+			"lc:gib": {},
+
 			"lc:enable_stationary": {
-				"add": { "component_groups": ["stationary"] },
-				"remove": { "component_groups": ["move_freely"] },
+				"add": { "component_groups": ["stationary_true"] },
+				"remove": { "component_groups": ["stationary_false"] },
 				"set_property": {
 					"lc:is_stationary": true
 				}
 			},
 
 			"lc:disable_stationary": {
-				"add": { "component_groups": ["move_freely"] },
-				"remove": { "component_groups": ["stationary"] },
+				"add": { "component_groups": ["stationary_false"] },
+				"remove": { "component_groups": ["stationary_true"] },
 				"set_property": {
 					"lc:is_stationary": false
 				}
@@ -530,13 +850,62 @@
 
 			"minecraft:on_tame": {
 				"add": { "component_groups": ["tamed"] },
-				"remove": { "component_groups": ["not_tamed"] }
+				"remove": { "component_groups": ["wild"] }
 			},
 
-			"lc:gib": {},
+			"minecraft:become_angry": {
+				"add": { "component_groups": ["angry"] }
+			},
 
-			"lc:transform_into_dead": {
-				"add": { "component_groups": ["transform_into_dead"] }
+			"minecraft:on_calm": {
+				"remove": { "component_groups": ["angry"] }
+			},
+
+			"lc:become_faltered": {
+				"add": { "component_groups": ["faltered"] },
+				"set_property": {
+					"lc:is_faltered": true
+				},
+				"queue_command": {
+					"command": ["effect @s slowness 2 3"]
+				}
+			},
+
+			"lc:exit_faltered": {
+				"remove": { "component_groups": ["faltered"] },
+				"set_property": {
+					"lc:is_faltered": false
+				}
+			},
+
+			"lc:become_cuffed": {
+				"sequence": [
+					{
+						"add": { "component_groups": ["cuffed"] },
+						"remove": { "component_groups": ["melee_attack_ai_fallback"] },
+						"set_property": {
+							"lc:is_cuffed": true
+						},
+						"queue_command": {
+							"command": ["playsound use.chain @a[r=10] ~~~"]
+						}
+					},
+					{ "trigger": "lc:exit_faltered" },
+					{ "trigger": "lc:exit_armed" }
+				]
+			},
+
+			"lc:exit_cuffed": {
+				"add": { "component_groups": ["melee_attack_ai_fallback"] },
+				"remove": { "component_groups": ["cuffed"] },
+				"set_property": {
+					"lc:is_cuffed": false
+				},
+				"queue_command": {
+					"command": [
+						"playsound dig.chain @a[r=10] ~~~"
+					]
+				}
 			},
 
 			"lc:become_armed": {
@@ -544,6 +913,14 @@
 				"remove": { "component_groups": ["unarmed"] },
 				"set_property": {
 					"lc:is_armed": true
+				}
+			},
+
+			"lc:exit_armed": {
+				"add": { "component_groups": ["unarmed"] },
+				"remove": { "component_groups": ["armed"] },
+				"set_property": {
+					"lc:is_armed": false
 				}
 			}
 		}
