@@ -25,6 +25,10 @@
 					"type": "bool",
 					"default": false,
 					"client_sync": true
+				},
+				"lc:is_revived_from_weakened": {
+					"type": "bool",
+					"default": false
 				}
 			}
 		},
@@ -149,62 +153,52 @@
 					}
 				]
 			},
-			"minecraft:entity_sensor": {
-				"relative_range": false,
-				"subsensors": [
+			"minecraft:behavior.send_event": {
+				"priority": 15,
+				"event_choices": [
 					{
-						// Become armed when there's an armed dead body nearby.
-						// Can be interpreted as picking up a gun from a dead body.
-						"event": "lc:become_armed",
-						"cooldown": 1.0,
-						"range": [2.5, 1.5],
-						"minimum_count": 1,
-						"event_filters": {
+						"weight": 1,
+						"min_activation_range": 0.0,
+						"max_activation_range": 2.0,
+						"cooldown_time": 1.0,
+						"cast_duration": 0.0,
+						"filters": {
 							"all_of": [
 								{ "test": "bool_property", "domain": "lc:is_armed", "value": false },
 								{ "test": "bool_property", "domain": "lc:is_cuffed", "value": false },
 								{ "test": "bool_property", "domain": "lc:is_faltered", "value": false },
-								{ "test": "is_family", "subject": "other", "value": "dead_body" },
-								{ "test": "is_family", "subject": "other", "value": "armed" }
+								{ "test": "is_family", "subject": "other", "value": "dropped_weapon_pickable" }
 							]
-						}
+						},
+						"sequence": [
+							{
+								"base_delay": 0.0,
+								"event": "lc:request_pickup"
+							}
+						]
 					},
 					{
-						// Become cuffed when there's another mob that can cuff this mob
-						"event": "lc:become_cuffed",
-						"cooldown": 1.0,
-						"range": [2.5, 1.2],
-						"minimum_count": 1,
-						"event_filters": {
+						// Remove handcuffs from a friendly mob nearby.
+						"weight": 1,
+						"min_activation_range": 0.0,
+						"max_activation_range": 2.0,
+						"cooldown_time": 1.5,
+						"cast_duration": 0.0,
+						"filters": {
 							"all_of": [
-								{ "test": "bool_property", "domain": "lc:is_armed", "value": false },
 								{ "test": "bool_property", "domain": "lc:is_cuffed", "value": false },
-								{ "test": "is_family", "subject": "other", "value": "can_put_handcuffs_on_classd" }
+								{ "test": "bool_property", "domain": "lc:is_faltered", "value": false },
+								{ "test": "bool_property", "subject": "other", "domain": "lc:is_cuffed" },
+								{ "test": "is_family", "subject": "other", "value": "classd_should_uncuff" },
+								{ "test": "is_family", "subject": "other", "operator": "not", "value": "weakened" }
 							]
-						}
-					},
-					{
-						// Remove handcuffs when there's a non-cuffed friendly mob nearby.
-						// Can be interpreted as his friends can help him remove handcuffs.
-						"event": "lc:exit_cuffed",
-						"cooldown": 1.0,
-						"range": [2.0, 1.5],
-						"minimum_count": 1,
-						"event_filters": {
-							"all_of": [
-								{ "test": "bool_property", "domain": "lc:is_cuffed" },
-								{ "test": "bool_property", "subject": "other", "domain": "lc:is_cuffed", "value": false },
-								{ "test": "bool_property", "subject": "other", "domain": "lc:is_faltered", "value": false },
-								{ "test": "has_target", "subject": "other", "value": false },
-								{ "test": "is_avoiding_mobs", "subject": "other", "value": false },
-								{
-									"any_of": [
-										{ "test": "is_family", "subject": "other", "value": "classd" },
-										{ "test": "is_family", "subject": "other", "value": "chaos_insurgency" }
-									]
-								}
-							]
-						}
+						},
+						"sequence": [
+							{
+								"base_delay": 0.0,
+								"event": "lc:exit_cuffed"
+							}
+						]
 					}
 				]
 			},
@@ -408,15 +402,17 @@
 				},
 				"minecraft:behavior.follow_mob": {
 					"priority": 15,
-					"search_range": 16,
+					"search_range": 11,
 					"stop_distance": 2,
-					"speed_multiplier": 1.12,
+					"speed_multiplier": 1.08,
 					"filters": {
 						"any_of": [
 							{
-								// Get close to a cuffed friend and help him
+								// Get close to a cuffed friend and help him,
+								// or get close to a non-cuffed friend and let him help this mob.
 								"all_of": [
 									{ "test": "bool_property", "domain": "lc:is_faltered", "value": false },
+									{ "test": "is_family", "subject": "other", "operator": "not", "value": "weakened" },
 									{
 										"any_of": [
 											{
@@ -442,13 +438,13 @@
 								]
 							},
 							{
-								// Get close to an armed dead body to pickup a gun from it
+								// Get close to a dropped M17 pistol
 								"all_of": [
 									{ "test": "bool_property", "domain": "lc:is_armed", "value": false },
 									{ "test": "bool_property", "domain": "lc:is_cuffed", "value": false },
 									{ "test": "bool_property", "domain": "lc:is_faltered", "value": false },
-									{ "test": "is_family", "subject": "other", "value": "dead_body" },
-									{ "test": "is_family", "subject": "other", "value": "armed" }
+									{ "test": "is_family", "subject": "other", "value": "dropped_weapon_pickable" },
+									{ "test": "is_family", "subject": "other", "value": "m17" }
 								]
 							}
 						]
@@ -606,7 +602,9 @@
 						"scpf",
 						"scp_foundation",
 						"classd",
-						"receive_classd_anger_broadcast"
+						"classd_should_uncuff",
+						"receive_classd_anger_broadcast",
+						"can_pickup_dropped_weapon"
 					]
 				}
 			},
@@ -709,6 +707,9 @@
 						"melee_attack_ai_fallback"
 					]
 				},
+				"set_property": {
+					"lc:is_revived_from_weakened": true
+				},
 				"queue_command": {
 					"command": ["scriptevent scpdy:set_self_health 7"]
 				},
@@ -725,7 +726,8 @@
 					]
 				},
 				"set_property": {
-					"lc:is_cuffed": true
+					"lc:is_cuffed": true,
+					"lc:is_revived_from_weakened": true
 				},
 				"queue_command": {
 					"command": ["scriptevent scpdy:set_self_health 7"]
@@ -801,6 +803,13 @@
 						"trigger": "lc:exit_cuffed"
 					},
 					{
+						"filters": {
+							"test": "bool_property",
+							"domain": "lc:is_armed"
+						},
+						"trigger": "lc:exit_armed"
+					},
+					{
 						"queue_command": {
 							"command": [
 								"playanimation @s animation.scpdy.humanoid_base.shock",
@@ -810,6 +819,11 @@
 						}
 					},
 					{
+						"filters": {
+							"test": "bool_property",
+							"domain": "lc:is_revived_from_weakened",
+							"value": false
+						},
 						"randomize": [
 							{
 								"weight": 2,
@@ -826,6 +840,20 @@
 								"add": { "component_groups": ["transform_into_weakened"] }
 							}
 						]
+					},
+					{
+						// 100% death if already experienced the weakened state
+						"filters": {
+							"test": "bool_property",
+							"domain": "lc:is_revived_from_weakened"
+						},
+						"add": { "component_groups": ["transform_into_dead"] },
+						"queue_command": {
+							"command": [
+								"particle lc:scpdy_blood_mist_emitter ~~1.1~",
+								"particle lc:scpdy_small_flesh_piece_burst_emitter ~~1.6~"
+							]
+						}
 					}
 				]
 			},
@@ -891,7 +919,13 @@
 						}
 					},
 					{ "trigger": "lc:exit_faltered" },
-					{ "trigger": "lc:exit_armed" }
+					{
+						"filters": {
+							"test": "bool_property",
+							"domain": "lc:is_armed"
+						},
+						"trigger": "lc:exit_armed"
+					}
 				]
 			},
 
@@ -921,7 +955,25 @@
 				"remove": { "component_groups": ["armed"] },
 				"set_property": {
 					"lc:is_armed": false
+				},
+				"queue_command": {
+					"command": ["summon lc:scpdy_dropped_m17 ~ ~1 ~ 0 0 lc:dropped_by_mob"]
 				}
+			},
+
+			"lc:try_equip_m17": {
+				"sequence": [
+					{
+						"filters": {
+							"all_of": [
+								{ "test": "bool_property", "domain": "lc:is_armed", "value": false },
+								{ "test": "bool_property", "domain": "lc:is_cuffed", "value": false },
+								{ "test": "bool_property", "domain": "lc:is_faltered", "value": false }
+							]
+						},
+						"trigger": "lc:become_armed"
+					}
+				]
 			}
 		}
 	}

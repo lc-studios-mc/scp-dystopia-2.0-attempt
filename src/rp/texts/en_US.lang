@@ -621,3 +621,4 @@ scpdy.action.put_handcuffs=Put Handcuffs
 scpdy.action.remove_handcuffs=Remove Handcuffs
 scpdy.handcuffs=Handcuffs
 scpdy.handcuffs.display_name=Handcuffs\n§eCan be used against certain faltered/weakened human mobs.
+entity.lc:scpdy_dropped_m17.name=M17

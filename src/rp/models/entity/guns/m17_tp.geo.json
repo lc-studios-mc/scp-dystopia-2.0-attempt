@@ -6,7 +6,7 @@
 				"identifier": "geometry.scpdy_gun_m17_tp",
 				"texture_width": 56,
 				"texture_height": 56,
-				"visible_bounds_width": 2,
+				"visible_bounds_width": 3,
 				"visible_bounds_height": 2.5,
 				"visible_bounds_offset": [0, 0.75, 0]
 			},

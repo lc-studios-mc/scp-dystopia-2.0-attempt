@@ -1,0 +1,39 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "lc:scpdy_dropped_m17",
+
+			"materials": {
+				"m17_tp": "entity"
+			},
+
+			"textures": {
+				"m17_tp": "textures/scpdy/guns/m17"
+			},
+
+			"geometry": {
+				"m17_tp": "geometry.scpdy_gun_m17_tp"
+			},
+
+			"animations": {
+				"anim.m17.tp.base": "animation.scpdy.gun.m17.tp.base",
+				"anim.general": "animation.scpdy.dropped_m17.general"
+			},
+
+			"scripts": {
+				"animate": [
+					"anim.m17.tp.base",
+					"anim.general"
+				],
+				"pre_animation": [
+					"v.yaw = q.modified_distance_moved * 30;"
+				]
+			},
+
+			"render_controllers": [
+				"controller.render.scpdy.gun.m17.tp"
+			]
+		}
+	}
+}
