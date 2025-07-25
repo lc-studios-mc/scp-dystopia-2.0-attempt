@@ -7,6 +7,10 @@
 			"is_summonable": true,
 			"is_experimental": false,
 			"properties": {
+				"lc:is_from_mob": {
+					"type": "bool",
+					"default": false
+				},
 				"lc:should_despawn": {
 					"type": "bool",
 					"default": false
@@ -47,6 +51,7 @@
 						"on_interact": {
 							"filters": {
 								"all_of": [
+									{ "test": "bool_property", "domain": "lc:is_from_mob" },
 									{ "test": "bool_property", "domain": "lc:is_available" },
 									{ "test": "is_family", "subject": "other", "value": "player" },
 									{ "test": "is_sneaking", "subject": "other", "value": false }
@@ -57,6 +62,23 @@
 						},
 						"cooldown": 0.1,
 						"swing": true
+					},
+					{
+						"on_interact": {
+							"filters": {
+								"all_of": [
+									{ "test": "bool_property", "domain": "lc:is_from_mob", "value": false },
+									{ "test": "bool_property", "domain": "lc:is_available" },
+									{ "test": "is_family", "subject": "other", "value": "player" },
+									{ "test": "is_sneaking", "subject": "other", "value": false }
+								]
+							},
+							"event": "despawn",
+							"target": "self"
+						},
+						"cooldown": 0.1,
+						"swing": true,
+						"spawn_items": { "table": "loot_tables/scpdy/guns/m17_single.json" }
 					}
 				]
 			},
@@ -128,6 +150,7 @@
 			"lc:dropped_by_mob": {
 				"add": { "component_groups": ["despawn_timer"] },
 				"set_property": {
+					"lc:is_from_mob": true,
 					"lc:should_despawn": true
 				}
 			},
