@@ -601,6 +601,7 @@
 						"human",
 						"scpf",
 						"scp_foundation",
+						"neutral_towards_scpf",
 						"classd",
 						"classd_should_uncuff",
 						"receive_classd_anger_broadcast",
@@ -617,6 +618,7 @@
 						"human",
 						"ci",
 						"chaos_insurgency",
+						"hostile_towards_scpf",
 						"classd",
 						"receive_classd_anger_broadcast"
 					]
