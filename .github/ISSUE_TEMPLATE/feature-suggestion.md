@@ -1,7 +1,7 @@
 ---
 name: Feature Suggestion
 about: Suggest an idea for this project
-title: 'suggestion: untitled'
+title: 'Feature: Untitled'
 labels: enhancement
 assignees: ''
 

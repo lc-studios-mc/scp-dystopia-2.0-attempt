@@ -1,7 +1,7 @@
 ---
 name: Bug Report
 about: Create a report to help us improve
-title: 'bug: untitled'
+title: 'Bug: Untitled'
 labels: bug
 assignees: ''
 
@@ -26,9 +26,10 @@ If applicable, add screenshots to help explain your problem.
 **Environment (please complete the following information):**
  - OS: [e.g. Android]
  - OS Version: [e.g. 22]
+ - Addon Version [e.g. 2.0.0 Alpha 4.2]
  - Minecraft Version [e.g. 1.21.90]
 
-**Other addons used at the same time**
+**Any other addons used at the same time**
 - SCP: C...
 
 **Additional context**
