@@ -1,5 +1,5 @@
 ---
-name: Bug report
+name: Bug Report
 about: Create a report to help us improve
 title: 'bug: untitled'
 labels: bug
@@ -27,6 +27,9 @@ If applicable, add screenshots to help explain your problem.
  - OS: [e.g. Android]
  - OS Version: [e.g. 22]
  - Minecraft Version [e.g. 1.21.90]
+
+**Other addons used at the same time**
+- SCP: C...
 
 **Additional context**
 Add any other context about the problem here.
