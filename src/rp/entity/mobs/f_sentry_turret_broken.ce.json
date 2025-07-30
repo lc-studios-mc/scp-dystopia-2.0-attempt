@@ -1,0 +1,58 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "lc:scpdy_f_sentry_turret_broken",
+
+			"materials": {
+				"default": "entity_emissive_alpha"
+			},
+
+			"textures": {
+				"default": "textures/scpdy/mobs/f_sentry_turret"
+			},
+
+			"geometry": {
+				"default": "geometry.scpdy_sentry_turret"
+			},
+
+			"animations": {
+				"anim.look": "animation.scpdy.sentry_turret.look",
+				"anim.gun_roll": "animation.scpdy.sentry_turret.gun_roll",
+				"anim.broken": "animation.scpdy.sentry_turret.broken",
+				"anim.smoke": "animation.scpdy.sentry_turret.smoke",
+				"anim.eye.dead": "animation.scpdy.sentry_turret.eye.dead"
+			},
+
+			"scripts": {
+				"scale": "1",
+
+				"animate": [
+					"anim.look",
+					"anim.gun_roll",
+					"anim.broken",
+					"anim.smoke",
+					"anim.eye.dead"
+				],
+
+				"initialize": [
+					"v.gun_roll_anim_time = math.random(0, 1);"
+				],
+
+				"pre_animation": [
+					"v.look_x = q.target_x_rotation;",
+					"v.look_y = q.target_y_rotation;",
+					"v.broken_anim_time = q.property('lc:played_death_anim') ? 69 : (v.broken_anim_time ?? 0) + q.delta_time;"
+				]
+			},
+
+			"particle_effects": {
+				"smoke": "lc:scpdy_sentry_turret_smoke_emitter"
+			},
+
+			"render_controllers": [
+				"controller.render.scpdy.sentry_turret"
+			]
+		}
+	}
+}

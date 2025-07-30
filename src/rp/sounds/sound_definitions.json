@@ -470,6 +470,18 @@
 			]
 		},
 
+		"scpdy.gun.load_3": {
+			"category": "hostile",
+			"max_distance": 9.0,
+			"min_distance": null,
+			"sounds": [
+				{
+					"name": "sounds/scpdy/guns/load_3",
+					"volume": 1.1
+				}
+			]
+		},
+
 		"scpdy.gun.m17.fire": {
 			"category": "hostile",
 			"max_distance": 30.0,
@@ -652,6 +664,18 @@
 			"min_distance": 10.0,
 			"sounds": [
 				"sounds/scpdy/weapons/guns/spas12/shoot"
+			]
+		},
+
+		"scpdy.gun.strong_fire": {
+			"category": "hostile",
+			"max_distance": 25.0,
+			"min_distance": 1.0,
+			"sounds": [
+				{
+					"name": "sounds/scpdy/guns/strong_fire",
+					"volume": 0.9
+				}
 			]
 		},
 
@@ -974,6 +998,15 @@
 			]
 		},
 
+		"scpdy.misc.machine_noise_1": {
+			"category": "neutral",
+			"max_distance": 8.0,
+			"min_distance": null,
+			"sounds": [
+				"sounds/scpdy/misc/machine_noise_1"
+			]
+		},
+
 		"scpdy.misc.monster.attack": {
 			"category": "hostile",
 			"max_distance": 10.0,
@@ -1038,6 +1071,18 @@
 				{
 					"load_on_low_memory": true,
 					"name": "sounds/scpdy/misc/toilet_flush_normal"
+				}
+			]
+		},
+
+		"scpdy.misc.turret_activation": {
+			"category": "hostile",
+			"max_distance": 13.0,
+			"min_distance": null,
+			"sounds": [
+				{
+					"name": "sounds/scpdy/misc/turret_activation",
+					"volume": 0.8
 				}
 			]
 		},

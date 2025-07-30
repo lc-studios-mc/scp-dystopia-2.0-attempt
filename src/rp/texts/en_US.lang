@@ -622,3 +622,7 @@ scpdy.action.remove_handcuffs=Remove Handcuffs
 scpdy.handcuffs=Handcuffs
 scpdy.handcuffs.display_name=Handcuffs\n§eCan be used against certain faltered/weakened human mobs.
 entity.lc:scpdy_dropped_m17.name=M17
+entity.lc:scpdy_f_sentry_turret.name=Sentry Turret
+entity.lc:scpdy_f_sentry_turret_broken.name=Sentry Turret
+item.spawn_egg.entity.lc:scpdy_f_sentry_turret.name=SCP Foundation Sentry Turret Spawn Egg
+entity.lc:scpdy_bullet_sentry_turret.name=Bullet

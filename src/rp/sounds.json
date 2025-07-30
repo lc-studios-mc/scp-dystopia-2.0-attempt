@@ -96,6 +96,48 @@
 				"volume": 1.0
 			},
 
+			"lc:scpdy_f_sentry_turret": {
+				"events": {
+					"ambient": "scpdy.misc.machine_noise_1",
+					"shoot": {
+						"sound": "scpdy.gun.strong_fire",
+						"volume": 2.5
+					},
+					"hurt": {
+						"sound": "scpdy.misc.computer.hit",
+						"pitch": 0.55,
+						"volume": 0.8
+					},
+					"irongolem.repair": "mob.irongolem.repair",
+					"death": {
+						"sound": "random.explode",
+						"pitch": [1.0, 1.2]
+					}
+				},
+				"pitch": [
+					0.95,
+					1.05
+				],
+				"volume": 1.0
+			},
+
+			"lc:scpdy_f_sentry_turret_broken": {
+				"events": {
+					"hurt": {
+						"sound": "scpdy.misc.computer.hit",
+						"pitch": 0.55,
+						"volume": 0.8
+					},
+					"irongolem.repair": "mob.irongolem.repair",
+					"death": "dig.stone"
+				},
+				"pitch": [
+					0.95,
+					1.05
+				],
+				"volume": 1.0
+			},
+
 			"lc:scpdy_f_tro": {
 				"events": {
 					"angry": {

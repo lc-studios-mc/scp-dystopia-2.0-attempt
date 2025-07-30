@@ -1,0 +1,23 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.scpdy.bp.sentry_turret.reload_sound": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{ "reloading": "q.is_charged" }
+					]
+				},
+				"reloading": {
+					"on_entry": [
+						"/playsound scpdy.misc.turret_activation @a[r=30] ~ ~ ~ 1.5"
+					],
+					"transitions": [
+						{ "default": "!q.is_charged" }
+					]
+				}
+			}
+		}
+	}
+}

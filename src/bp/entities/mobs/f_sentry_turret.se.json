@@ -1,0 +1,239 @@
+{
+	"format_version": "1.21.90",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "lc:scpdy_f_sentry_turret",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false,
+			"animations": {
+				"ctrl.reload_sound": "controller.animation.scpdy.bp.sentry_turret.reload_sound"
+			},
+			"scripts": {
+				"animate": [
+					"ctrl.reload_sound"
+				]
+			}
+		},
+
+		"components": {
+			"minecraft:is_hidden_when_invisible": {},
+			"minecraft:health": {
+				"value": 60,
+				"max": 60
+			},
+			"minecraft:knockback_resistance": {
+				"value": 1.0
+			},
+			"minecraft:type_family": {
+				"family": [
+					"mob",
+					"machine",
+					"sentry_turret",
+					"scpf",
+					"scp_foundation",
+					"friendly_towards_scpf"
+				]
+			},
+			"minecraft:breathable": {
+				"breathes_water": true,
+				"generates_bubbles": false
+			},
+			"minecraft:fire_immune": {},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						// Don't take damage from friendly mobs
+						"on_damage": {
+							"filters": {
+								"test": "is_family",
+								"subject": "other",
+								"value": "friendly_towards_scpf"
+							}
+						},
+						"deals_damage": "no"
+					},
+					{
+						// Immune to fall damage
+						"cause": "fall",
+						"deals_damage": "no"
+					},
+					{
+						// Die
+						"on_damage": {
+							"filters": { "test": "has_damage", "value": "fatal" },
+							"event": "lc:on_fatality"
+						},
+						"deals_damage": "yes"
+					},
+					{
+						// Increased explosion damage
+						"cause": "entity_explosion",
+						"damage_multiplier": 1.5,
+						"deals_damage": "yes"
+					}
+				]
+			},
+			"minecraft:interact": {
+				"interactions": [
+					{
+						"on_interact": {
+							"filters": {
+								"all_of": [
+									{ "test": "is_family", "subject": "other", "value": "player" },
+									{ "test": "has_equipment", "domain": "hand", "subject": "other", "value": "iron_ingot" },
+									{ "test": "is_missing_health" }
+								]
+							}
+						},
+						"use_item": true,
+						"health_amount": 20,
+						"play_sounds": "irongolem.repair",
+						"interact_text": "action.interact.repair"
+					}
+				]
+			},
+			"minecraft:behavior.nearest_attackable_target": {
+				"priority": 10,
+				"must_see": true,
+				"must_see_forget_duration": 3.0,
+				"reselect_targets": true,
+				"target_invisible_multiplier": 1.0,
+				"target_sneak_visibility_multiplier": 1.0,
+				"entity_types": [
+					{
+						"filters": {
+							"all_of": [
+								{
+									"none_of": [
+										{ "test": "has_tag", "subject": "other", "value": "scpdy_faction_scpf" },
+										{ "test": "is_family", "subject": "other", "value": "scp_foundation" },
+										{ "test": "is_family", "subject": "other", "value": "scpf" },
+										{ "test": "is_family", "subject": "other", "value": "scp096" }
+									]
+								},
+								{
+									"any_of": [
+										{ "test": "was_last_hurt_by", "subject": "other" },
+										{ "test": "has_tag", "subject": "other", "value": "scpdy_faction_ci" },
+										{ "test": "is_family", "subject": "other", "value": "chaos_insurgency" },
+										{ "test": "is_family", "subject": "other", "value": "monster" },
+										{ "test": "is_family", "subject": "other", "value": "hostile_scp" }
+									]
+								}
+							]
+						},
+						"max_dist": 32
+					}
+				]
+			},
+			"minecraft:behavior.hurt_by_target": {
+				"priority": 10,
+				"entity_types": [
+					{
+						"filters": {
+							"none_of": [
+								{ "test": "has_tag", "subject": "other", "value": "scpdy_faction_scpf" },
+								{ "test": "is_family", "subject": "other", "value": "friendly_towards_scpf" }
+							]
+						},
+						"max_dist": 40
+					}
+				]
+			},
+			"minecraft:follow_range": {
+				"value": 40,
+				"max": 40
+			},
+			"minecraft:shooter": { "def": "lc:scpdy_bullet_sentry_turret" },
+			"minecraft:behavior.ranged_attack": {
+				"priority": 5,
+				"attack_radius": 40,
+				"attack_radius_min": 0.0,
+				"burst_interval": 0.1,
+				"burst_shots": 50,
+				"charge_charged_trigger": 0.0,
+				"charge_shoot_trigger": 0.6,
+				"swing": true,
+				"target_in_sight_time": 0.3,
+				"speed_multiplier": 1.13
+			},
+			"minecraft:navigation.generic": {},
+			"minecraft:movement.basic": {},
+			"minecraft:movement": {
+				"value": 0.0
+			},
+			"minecraft:behavior.random_look_around": {
+				"priority": 35
+			},
+			"minecraft:behavior.look_at_entity": {
+				"priority": 33,
+				"look_distance": 10.0,
+				"filters": {
+					"all_of": [
+						{ "test": "is_family", "subject": "other", "operator": "not", "value": "sentry_turret" },
+						{
+							"any_of": [
+								{ "test": "is_family", "subject": "other", "value": "neutral_towards_scpf" },
+								{ "test": "is_family", "subject": "other", "value": "iron_golem" }
+							]
+						}
+					]
+				}
+			},
+			"minecraft:physics": {},
+			"minecraft:collision_box": {
+				"width": 0.7,
+				"height": 1.42
+			},
+			"minecraft:is_collidable": {},
+			"minecraft:nameable": {},
+			"minecraft:leashable": {
+				"presets": [
+					{
+						"soft_distance": 2,
+						"hard_distance": 4,
+						"max_distance": 69
+					}
+				]
+			},
+			"minecraft:leashable_to": {},
+			"minecraft:persistent": {},
+			"minecraft:conditional_bandwidth_optimization": {
+				"default_values": {
+					"max_optimized_distance": 60.0,
+					"max_dropped_ticks": 10,
+					"use_motion_prediction_hints": true
+				}
+			}
+		},
+
+		"component_groups": {
+			"transform_into_broken": {
+				"minecraft:transformation": {
+					"into": "lc:scpdy_f_sentry_turret_broken",
+					"drop_equipment": true,
+					"drop_inventory": true
+				}
+			}
+		},
+
+		"events": {
+			"minecraft:entity_spawned": {
+				"queue_command": {
+					"command": ["playsound random.anvil_land @a[r=15] ~ ~ ~ 1 0.9"]
+				}
+			},
+
+			"lc:transformed_from_weakened": {
+				"queue_command": {
+					"command": ["scriptevent scpdy:set_self_health 10"]
+				}
+			},
+
+			"lc:on_fatality": {
+				"add": { "component_groups": ["transform_into_broken"] }
+			}
+		}
+	}
+}
