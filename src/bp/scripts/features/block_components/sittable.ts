@@ -26,7 +26,15 @@ const onPlayerInteract = (
 		return;
 	}
 
-	const height = typeof params.height === "number" ? params.height : center.y - 0.2;
+	const centerHeight = center.y;
+
+	let height: number;
+	try {
+		height = centerHeight + params.height;
+	} catch {
+		height = centerHeight - 0.2;
+	}
+
 	const sitLoc = {
 		x: center.x,
 		y: height,
