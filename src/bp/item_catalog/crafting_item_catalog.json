@@ -153,7 +153,8 @@
 							"lc:scpdy_vent",
 							"lc:scpdy_vent_openable",
 							"lc:scpdy_decor_vent_1",
-							"lc:scpdy_decor_vent_2"
+							"lc:scpdy_decor_vent_2",
+							"lc:scpdy_thick_pipe"
 						]
 					},
 

@@ -162,6 +162,7 @@
 		"scpdy_standard_door_2": { "textures": "textures/scpdy/doors/standard/standard_door_2" },
 		"scpdy_steel_beam": { "textures": "textures/scpdy/blocks/decor/steel_beam" },
 		"scpdy_steel_truss": { "textures": "textures/scpdy/blocks/decor/steel_truss" },
+		"scpdy_thick_pipe": { "textures": "textures/scpdy/blocks/decor/thick_pipe" },
 		"scpdy_tissue_box": { "textures": "textures/scpdy/blocks/decor/tissue_box" },
 		"scpdy_toilet_paper_holder": { "textures": "textures/scpdy/blocks/decor/toilet_paper_holder" },
 		"scpdy_toilet": { "textures": "textures/scpdy/blocks/decor/toilet" },

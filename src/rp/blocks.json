@@ -269,6 +269,7 @@
 	"lc:scpdy_steel_beam": { "sound": "metal" },
 	"lc:scpdy_steel_beam_end": { "sound": "metal" },
 	"lc:scpdy_steel_truss": { "sound": "metal" },
+	"lc:scpdy_thick_pipe": { "sound": "iron" },
 	"lc:scpdy_tissue_box": { "sound": "bamboo" },
 	"lc:scpdy_trash": { "sound": "iron" },
 	"lc:scpdy_vent": { "sound": "metal" },

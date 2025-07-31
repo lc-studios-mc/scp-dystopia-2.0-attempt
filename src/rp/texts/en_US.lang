@@ -626,3 +626,4 @@ entity.lc:scpdy_f_sentry_turret.name=Sentry Turret
 entity.lc:scpdy_f_sentry_turret_broken.name=Sentry Turret
 item.spawn_egg.entity.lc:scpdy_f_sentry_turret.name=SCP Foundation Sentry Turret Spawn Egg
 entity.lc:scpdy_bullet_sentry_turret.name=Bullet
+scpdy.decor.thicc_pipe=Thick Pipe
