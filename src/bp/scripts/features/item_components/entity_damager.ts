@@ -1,6 +1,9 @@
 import * as mc from "@minecraft/server";
 import { ModalFormData } from "@minecraft/server-ui";
 
+const DEFAULT_DAMAGE = 100;
+const DEFAULT_MULTIPLIER = 1;
+
 const ensurePlayerIsOperator = (player: mc.Player): boolean => {
 	const isOp = player.playerPermissionLevel >= mc.PlayerPermissionLevel.Operator;
 	if (!isOp) {
@@ -17,8 +20,8 @@ const onUse = ({ source, itemStack }: mc.ItemComponentUseEvent): void => {
 	const equippable = source.getComponent("equippable");
 	if (!equippable) throw new Error("Failed to get player equippable component");
 
-	const currentDamage = Number(itemStack.getDynamicProperty("damage") ?? 20);
-	const currentMultiplier = Number(itemStack.getDynamicProperty("multiplier") ?? 1);
+	const currentDamage = Number(itemStack.getDynamicProperty("damage") ?? DEFAULT_DAMAGE);
+	const currentMultiplier = Number(itemStack.getDynamicProperty("multiplier") ?? DEFAULT_MULTIPLIER);
 
 	const form = new ModalFormData()
 		.title({ translate: "scpdy.entity_damager.configuration_form_title" })
@@ -72,8 +75,8 @@ const onHitEntity = ({ itemStack, attackingEntity, hitEntity }: mc.ItemComponent
 	if (!ensurePlayerIsOperator(source)) return;
 
 	try {
-		const damage = Number(itemStack.getDynamicProperty("damage") ?? 20);
-		const multiplier = Number(itemStack.getDynamicProperty("multiplier") ?? 1);
+		const damage = Number(itemStack.getDynamicProperty("damage") ?? DEFAULT_DAMAGE);
+		const multiplier = Number(itemStack.getDynamicProperty("multiplier") ?? DEFAULT_MULTIPLIER);
 
 		const finalDamage = Math.floor(damage * multiplier);
 
