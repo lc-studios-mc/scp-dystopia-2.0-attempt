@@ -14,6 +14,11 @@ Third party attributions are listed in [attributions.md](./attributions.md)
 - LLAMA BLA BLO
 - Blazik
 
+## 3D Animations
+
+- LuckedCoronet45
+- Hexablare Union
+
 ## Additional Concepts
 
 - LuckedCoronet45
