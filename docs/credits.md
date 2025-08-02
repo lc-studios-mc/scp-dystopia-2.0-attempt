@@ -1,65 +1,29 @@
 # Credits
 
-Those who helped this project are listed here! :handshake:
+Third party attributions are listed in [attributions.md](./attributions.md)
 
-### Blazik
+## Coding
 
-- Full 3D models
-  - Blast Door 1
-- Textures
-  - SCP-096
-  - Keycards
+- LuckedCoronet45
 
-### Habosh Gmosh Monkosh
+## 3D Design
 
-- Full 3D models
-  - SCP-096 Plushie
-  - SCP-106 Plushie
-  - SCP-427-1 Plushie
-  - SCP-5167 Plushie
+- LuckedCoronet45
+- Hexablare Union
+- Michi75
+- LLAMA BLA BLO
+- Blazik
 
-### Hexablare Union
+## 3D Animations
 
-- Full 3D models
-  - Laptop block
-  - Office Chair blocks
-  - Shelf blocks
-  - Toilet block
-  - Toilet Paper Holder block
-  - Trash Bin block
-- Textures
-  - Blue Wall blocks
-  - Brown Facility Wall blocks
-  - Cyan Facility Wall blocks
-  - Exterior Brick blocks
-  - Facility Wall blocks (including colored ones)
-  - Lamp (2D) blocks
-  - Office Ceiling blocks
-  - Reinforced Panel blocks
-  - Toilet Paper Roll item
-  - Treadplate block
+- LuckedCoronet45
+- Hexablare Union
 
-### LLAMA BLA BLO
+## Additional Concepts
 
-- Full 3D models
-  - Glock-17
-  - GM6 LYNX
-  - HK21
-  - MP5-SD
-  - SPAS-12
-  - T-5000
+- LuckedCoronet45
+- Hexablare Union
 
-### Michi75
+## Beta Testing
 
-- Full 3D models
-  - Bench
-  - Cardboard Box 1
-  - Coffee Machine
-  - Microscope
-  - Office Desk
-  - Printer
-  - Radiator
-  - Radio
-  - Tissue Box
-  - Water Dispenser
-  - Wooden Crate
+- Hexablare Union
