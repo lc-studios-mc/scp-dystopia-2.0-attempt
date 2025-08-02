@@ -7,6 +7,7 @@
 - [Among Us](https://www.innersloth.com/games/among-us/) — Imposter appearance and sound effects
 - [Zapsplat](https://www.zapsplat.com/) — Sound effects
 - [Pixabay](https://pixabay.com/) — Sound effects
+- [Freesound](https://freesound.org/) — Sound effects
 
 ## SCP articles
 
