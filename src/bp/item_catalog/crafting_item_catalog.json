@@ -10,7 +10,6 @@
 							"icon": "lc:scpdy_easy_door_1",
 							"name": "lc:scpdy_itemGroup_easyDoors"
 						},
-
 						"items": [
 							"lc:scpdy_easy_door_1",
 							"lc:scpdy_easy_door_2",
@@ -23,7 +22,6 @@
 							"icon": "lc:scpdy_relay_door_1",
 							"name": "lc:scpdy_itemGroup_relayDoors"
 						},
-
 						"items": [
 							"lc:scpdy_relay_door_1",
 							"lc:scpdy_relay_door_2",
@@ -41,7 +39,6 @@
 							"icon": "lc:scpdy_btn_1",
 							"name": "lc:scpdy_itemGroup_btns"
 						},
-
 						"items": [
 							"lc:scpdy_btn_1",
 							"lc:scpdy_btn_2"
@@ -53,7 +50,6 @@
 							"icon": "lc:scpdy_kr_1",
 							"name": "lc:scpdy_itemGroup_kr"
 						},
-
 						"items": [
 							"lc:scpdy_kr_1",
 							"lc:scpdy_kr_2"
@@ -197,6 +193,28 @@
 							"lc:scpdy_shelf_1",
 							"lc:scpdy_shelf_2",
 							"lc:scpdy_alphanumeric_sign_placer"
+						]
+					},
+
+					{
+						"group_identifier": {
+							"icon": "lc:scpdy_sign_a",
+							"name": "lc:scpdy_itemGroup_signs"
+						},
+						"items": [
+							"lc:scpdy_sign_a",
+							"lc:scpdy_sign_b",
+							"lc:scpdy_sign_c",
+							"lc:scpdy_sign_d",
+							"lc:scpdy_sign_cafeteria",
+							"lc:scpdy_sign_caution",
+							"lc:scpdy_sign_gun",
+							"lc:scpdy_sign_maint",
+							"lc:scpdy_sign_no_gun",
+							"lc:scpdy_sign_stop",
+							"lc:scpdy_sign_toilet",
+							"lc:scpdy_sign_toilet_female",
+							"lc:scpdy_sign_toilet_male"
 						]
 					},
 
