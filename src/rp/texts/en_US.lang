@@ -42,6 +42,7 @@ entity.lc:scpdy_custom_bullet.name=Bullet
 entity.lc:scpdy_f_mtf_epsilon11_dead.name=Corpse
 entity.lc:scpdy_f_mtf_epsilon11.name=MTF Epsilon-11
 entity.lc:scpdy_f_researcher_dead.name=Corpse
+entity.lc:scpdy_f_researcher_weakened.name=Researcher
 entity.lc:scpdy_f_researcher.name=Researcher
 entity.lc:scpdy_f_tro_dead.name=Corpse
 entity.lc:scpdy_f_tro.name=TRO

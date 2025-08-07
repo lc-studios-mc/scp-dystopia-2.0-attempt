@@ -5,12 +5,12 @@
 			"arrays": {
 				"geometries": {
 					"Array.geos": [
-						"Geometry.base",
-						"Geometry.base",
-						"Geometry.base_slim",
-						"Geometry.base",
-						"Geometry.base",
-						"Geometry.base"
+						"Geometry.researcher_var_0",
+						"Geometry.researcher_var_1",
+						"Geometry.researcher_var_2",
+						"Geometry.researcher_var_3",
+						"Geometry.researcher_var_4",
+						"Geometry.researcher_var_5"
 					]
 				},
 				"textures": {

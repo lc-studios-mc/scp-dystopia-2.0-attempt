@@ -385,13 +385,6 @@
 			"var_4": { "minecraft:variant": { "value": 4 } },
 			"var_5": { "minecraft:variant": { "value": 5 } },
 
-			"low_initial_health": {
-				"minecraft:health": {
-					"value": 12,
-					"max": 24
-				}
-			},
-
 			"stationary_false": {
 				"minecraft:movement": {
 					"value": 0.3
@@ -575,9 +568,10 @@
 			},
 
 			"faltered": {
-				"minecraft:behavior.hold_ground": {
-					"priority": -1,
-					"min_radius": 100
+				"minecraft:behavior.random_stroll": {
+					"priority": 0,
+					"interval": 1,
+					"speed_multiplier": 0.0
 				},
 				"minecraft:timer": {
 					"looping": false,
@@ -616,6 +610,8 @@
 						"mob",
 						"villager",
 						"human",
+						"armed",
+						"combatant",
 						"ci",
 						"chaos_insurgency",
 						"hostile_towards_scpf",

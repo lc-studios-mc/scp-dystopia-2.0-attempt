@@ -98,7 +98,9 @@
 			"spawn_egg": {
 				"base_color": "#e86123",
 				"overlay_color": "#ab4618"
-			}
+			},
+
+			"enable_attachables": true
 		}
 	}
 }

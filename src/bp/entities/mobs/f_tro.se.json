@@ -39,6 +39,7 @@
 					"human",
 					"scpf",
 					"scp_foundation",
+					"friendly_towards_scpf",
 					"combatant",
 					"armed",
 					"tro"
@@ -101,15 +102,11 @@
 					// Don't take damage from members of the same faction
 					{
 						"on_damage": {
-							"filters": { "test": "is_family", "subject": "other", "value": "scp_foundation" }
-						},
-						"deals_damage": "no"
-					},
-
-					// Don't take damage from weapons of the same faction
-					{
-						"on_damage": {
-							"filters": { "test": "is_family", "subject": "damager", "value": "scpf_weapon" }
+							"filters": {
+								"test": "is_family",
+								"subject": "other",
+								"value": "friendly_towards_scpf"
+							}
 						},
 						"deals_damage": "no"
 					},
@@ -308,10 +305,13 @@
 					"entity_types": [
 						{
 							"filters": {
-								"test": "is_family",
-								"subject": "other",
-								"operator": "!=",
-								"value": "scp_foundation"
+								"none_of": [
+									{
+										"test": "is_family",
+										"subject": "other",
+										"value": "friendly_towards_scpf"
+									}
+								]
 							},
 							"max_dist": 32
 						}
@@ -323,10 +323,13 @@
 					"entity_types": [
 						{
 							"filters": {
-								"test": "is_family",
-								"subject": "other",
-								"operator": "!=",
-								"value": "scp_foundation"
+								"none_of": [
+									{
+										"test": "is_family",
+										"subject": "other",
+										"value": "friendly_towards_scpf"
+									}
+								]
 							},
 							"max_dist": 32
 						}
@@ -369,7 +372,11 @@
 							"filters": {
 								"none_of": [
 									{ "test": "has_tag", "subject": "other", "value": "scpdy_faction_scpf" },
-									{ "test": "is_family", "subject": "other", "value": "scp_foundation" }
+									{
+										"test": "is_family",
+										"subject": "other",
+										"value": "friendly_towards_scpf"
+									}
 								]
 							},
 							"max_dist": 50
