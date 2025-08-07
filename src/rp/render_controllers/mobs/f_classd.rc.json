@@ -1,0 +1,32 @@
+{
+	"format_version": "1.8.0",
+	"render_controllers": {
+		"controller.render.scpdy.f_classd": {
+			"arrays": {
+				"geometries": {
+					"Array.geos": [
+						"Geometry.classd_var_0",
+						"Geometry.classd_var_1",
+						"Geometry.classd_var_2",
+						"Geometry.classd_var_3",
+						"Geometry.classd_var_4",
+						"Geometry.classd_var_5"
+					]
+				},
+				"textures": {
+					"Array.skins": [
+						"Texture.classd_var_0",
+						"Texture.classd_var_1",
+						"Texture.classd_var_2",
+						"Texture.classd_var_3",
+						"Texture.classd_var_4",
+						"Texture.classd_var_5"
+					]
+				}
+			},
+			"geometry": "Array.geos[q.variant]",
+			"materials": [{ "*": "Material.default" }],
+			"textures": ["Array.skins[q.variant]"]
+		}
+	}
+}

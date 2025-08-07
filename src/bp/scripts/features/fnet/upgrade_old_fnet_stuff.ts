@@ -22,8 +22,12 @@ world.afterEvents.worldLoad.subscribe(() => {
 
 			const oldZoneName = world.getDynamicProperty(`scpdy_facilityZone_${i}_${j}_name`);
 			const oldZoneLkdnActive = world.getDynamicProperty(`scpdy_facilityZone_${i}_${j}_lockdown`);
-			const oldZoneLkdnDelay = world.getDynamicProperty(`scpdy_facilityZone_${i}_${j}_lockdownDelay`);
-			const oldZoneLkdnDuration = world.getDynamicProperty(`scpdy_facilityZone_${i}_${j}_lockdownDuration`);
+			const oldZoneLkdnDelay = world.getDynamicProperty(
+				`scpdy_facilityZone_${i}_${j}_lockdownDelay`,
+			);
+			const oldZoneLkdnDuration = world.getDynamicProperty(
+				`scpdy_facilityZone_${i}_${j}_lockdownDuration`,
+			);
 
 			if (typeof oldZoneName === "string") newZone.setCustomName(oldZoneName);
 			if (oldZoneLkdnActive === true) newZone.setLkdnActive(true);

@@ -1,33 +1,17 @@
 {
 	"version": "0.3.0",
 	"configurations": [
-		/*
-			Download the debugger extension from:
-			https://marketplace.visualstudio.com/items?itemName=mojang-studios.minecraft-debugger
-
-			"targetModuleUuid" must match with the UUID of the "script" module in the behavior pack manifest.json
-		*/
+		// Debugger extension: https://marketplace.visualstudio.com/items?itemName=mojang-studios.minecraft-debugger
 		{
 			"type": "minecraft-js",
 			"name": "Debug with Minecraft",
 			"request": "attach",
 			"mode": "listen",
 			"port": 19144,
-			"targetModuleUuid": "5fa83869-172d-41dc-8fb0-bd98da2e9da6",
+			"targetModuleUuid": "5fa83869-172d-41dc-8fb0-bd98da2e9da6", // Must be same as the UUID of the behavior pack script module
 
 			"localRoot": "${workspaceFolder}/src/bp/scripts/",
 			"sourceMapRoot": "${userHome}/AppData/Local/Packages/Microsoft.MinecraftUWP_8wekyb3d8bbwe/LocalState/games/com.mojang/development_behavior_packs/SCPDY_BP/scripts/"
-		},
-		{
-			"type": "minecraft-js",
-			"name": "Debug with Minecraft Preview",
-			"request": "attach",
-			"mode": "listen",
-			"port": 19144,
-			"targetModuleUuid": "5fa83869-172d-41dc-8fb0-bd98da2e9da6",
-
-			"localRoot": "${workspaceFolder}/src/bp/scripts/",
-			"sourceMapRoot": "${userHome}/AppData/Local/Packages/Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe/LocalState/games/com.mojang/development_behavior_packs/SCPDY_BP/scripts/"
 		}
 	]
 }

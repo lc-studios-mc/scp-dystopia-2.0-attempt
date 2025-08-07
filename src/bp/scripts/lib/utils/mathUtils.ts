@@ -35,8 +35,8 @@ export function getIndexOfClosestLargerValue(arr: number[], target: number): num
 	let closestIndex = -1;
 	for (let i = 0; i < arr.length; i++) {
 		if (
-			arr[i]! > target &&
-			(closestIndex === -1 || Math.abs(target - arr[i]!) < Math.abs(target - arr[closestIndex]!))
+			arr[i]! > target
+			&& (closestIndex === -1 || Math.abs(target - arr[i]!) < Math.abs(target - arr[closestIndex]!))
 		) {
 			closestIndex = i;
 		}
@@ -48,8 +48,8 @@ export function getIndexOfClosestSmallerValue(arr: number[], target: number): nu
 	let closestIndex = -1;
 	for (let i = 0; i < arr.length; i++) {
 		if (
-			arr[i]! < target &&
-			(closestIndex === -1 || Math.abs(target - arr[i]!) < Math.abs(target - arr[closestIndex]!))
+			arr[i]! < target
+			&& (closestIndex === -1 || Math.abs(target - arr[i]!) < Math.abs(target - arr[closestIndex]!))
 		) {
 			closestIndex = i;
 		}

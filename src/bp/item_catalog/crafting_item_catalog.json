@@ -10,7 +10,6 @@
 							"icon": "lc:scpdy_easy_door_1",
 							"name": "lc:scpdy_itemGroup_easyDoors"
 						},
-						// prettier-ignore
 						"items": [
 							"lc:scpdy_easy_door_1",
 							"lc:scpdy_easy_door_2",
@@ -23,7 +22,6 @@
 							"icon": "lc:scpdy_relay_door_1",
 							"name": "lc:scpdy_itemGroup_relayDoors"
 						},
-						// prettier-ignore
 						"items": [
 							"lc:scpdy_relay_door_1",
 							"lc:scpdy_relay_door_2",
@@ -41,7 +39,6 @@
 							"icon": "lc:scpdy_btn_1",
 							"name": "lc:scpdy_itemGroup_btns"
 						},
-						// prettier-ignore
 						"items": [
 							"lc:scpdy_btn_1",
 							"lc:scpdy_btn_2"
@@ -53,7 +50,6 @@
 							"icon": "lc:scpdy_kr_1",
 							"name": "lc:scpdy_itemGroup_kr"
 						},
-						// prettier-ignore
 						"items": [
 							"lc:scpdy_kr_1",
 							"lc:scpdy_kr_2"
@@ -153,7 +149,8 @@
 							"lc:scpdy_vent",
 							"lc:scpdy_vent_openable",
 							"lc:scpdy_decor_vent_1",
-							"lc:scpdy_decor_vent_2"
+							"lc:scpdy_decor_vent_2",
+							"lc:scpdy_thick_pipe"
 						]
 					},
 
@@ -196,6 +193,28 @@
 							"lc:scpdy_shelf_1",
 							"lc:scpdy_shelf_2",
 							"lc:scpdy_alphanumeric_sign_placer"
+						]
+					},
+
+					{
+						"group_identifier": {
+							"icon": "lc:scpdy_sign_a",
+							"name": "lc:scpdy_itemGroup_signs"
+						},
+						"items": [
+							"lc:scpdy_sign_a",
+							"lc:scpdy_sign_b",
+							"lc:scpdy_sign_c",
+							"lc:scpdy_sign_d",
+							"lc:scpdy_sign_cafeteria",
+							"lc:scpdy_sign_caution",
+							"lc:scpdy_sign_gun",
+							"lc:scpdy_sign_maint",
+							"lc:scpdy_sign_no_gun",
+							"lc:scpdy_sign_stop",
+							"lc:scpdy_sign_toilet",
+							"lc:scpdy_sign_toilet_female",
+							"lc:scpdy_sign_toilet_male"
 						]
 					},
 
@@ -254,27 +273,41 @@
 				"category_name": "equipment",
 				"groups": [
 					{
-						"group_identifier": {
-							"icon": "lc:scpdy_gun_mp5sd",
-							"name": "lc:scpdy_itemGroup_guns"
-						},
 						"items": [
-							// "lc:scpdy_gun_glock17",
-							// "lc:scpdy_gun_gm6",
-							// "lc:scpdy_gun_hk21",
-							// "lc:scpdy_gun_m4a1",
-							"lc:scpdy_gun_mp5sd",
-							// "lc:scpdy_gun_spas12",
-							"lc:scpdy_gun_t5000"
+							"lc:scpdy_wrench"
 						]
 					},
 
 					{
 						"group_identifier": {
-							"icon": "lc:scpdy_knife",
-							"name": "lc:scpdy_itemGroup_meleeWeapons"
+							"icon": "lc:scpdy_gun_m17",
+							"name": "lc:scpdy_itemGroup_guns_and_mags"
 						},
-						"items": ["lc:scpdy_knife", "lc:scpdy_pain_sword", "lc:scpdy_killer_sword", "lc:scpdy_void_sword"]
+						"items": [
+							"lc:scpdy_gun_m17",
+							"lc:scpdy_gun_m17_mag",
+							"lc:scpdy_gun_mp5sd",
+							"lc:scpdy_gun_mp5_mag",
+							"lc:scpdy_gun_t5000",
+							"lc:scpdy_gun_t5000_mag"
+						]
+					},
+
+					{
+						"items": [
+							"lc:scpdy_knife",
+							"lc:scpdy_frag_grenade",
+							"lc:scpdy_throwable_head"
+						]
+					},
+
+					{
+						"items": [
+							"lc:scpdy_entity_damager",
+							"lc:scpdy_entity_killer",
+							"lc:scpdy_entity_remover",
+							"lc:scpdy_corpse_perpetuator"
+						]
 					}
 				]
 			},
@@ -307,7 +340,10 @@
 							"icon": "lc:scpdy_blast_door_1_preview_placer",
 							"name": "lc:scpdy_itemGroup_blastDoors"
 						},
-						"items": ["lc:scpdy_blast_door_1_preview_placer", "lc:scpdy_blast_door_2_preview_placer"]
+						"items": [
+							"lc:scpdy_blast_door_1_preview_placer",
+							"lc:scpdy_blast_door_2_preview_placer"
+						]
 					},
 
 					{
@@ -359,26 +395,15 @@
 
 					{
 						"group_identifier": {
-							"icon": "lc:scpdy_gun_mp5_mag",
-							"name": "lc:scpdy_itemGroup_gun_mags"
-						},
-						"items": [
-							// "lc:scpdy_gun_ar15_mag",
-							// "lc:scpdy_gun_glock17_mag",
-							// "lc:scpdy_gun_gm6_mag",
-							// "lc:scpdy_gun_hk21_mag",
-							"lc:scpdy_gun_mp5_mag",
-							// "lc:scpdy_gun_spas12_mag",
-							"lc:scpdy_gun_t5000_mag"
-						]
-					},
-
-					{
-						"group_identifier": {
 							"icon": "lc:scpdy_scp005",
 							"name": "lc:scpdy_itemGroup_scp"
 						},
-						"items": ["lc:scpdy_scp005", "lc:scpdy_scp096_1_wand", "lc:scpdy_scp096_paper_bag", "lc:scpdy_scp427"]
+						"items": [
+							"lc:scpdy_scp005",
+							"lc:scpdy_scp096_1_wand",
+							"lc:scpdy_scp096_paper_bag",
+							"lc:scpdy_scp427"
+						]
 					}
 				]
 			}

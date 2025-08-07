@@ -1,0 +1,331 @@
+{
+	"format_version": "1.21.90",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "lc:scpdy_f_researcher_weakened",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false,
+			"properties": {
+				"lc:state": {
+					"type": "int",
+					"range": [
+						// 0: None
+						// 1: Getting up
+						// 2: Getting cuffed
+						0,
+						2
+					],
+					"default": 0,
+					"client_sync": true
+				}
+			}
+		},
+
+		"components": {
+			"minecraft:is_hidden_when_invisible": {},
+			"minecraft:type_family": {
+				"family": [
+					"mob",
+					"villager",
+					"human",
+					"scpf",
+					"scp_foundation",
+					"researcher",
+					"weakened"
+				]
+			},
+			"minecraft:knockback_resistance": {
+				"value": 0.4
+			},
+			"minecraft:health": {
+				"value": 12,
+				"max": 12
+			},
+			"minecraft:hurt_on_condition": {
+				"damage_conditions": [
+					{
+						"filters": {
+							"test": "in_lava",
+							"subject": "self",
+							"operator": "==",
+							"value": true
+						},
+						"cause": "lava",
+						"damage_per_tick": 4
+					}
+				]
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						// Don't take damage from members of a friendly faction
+						"on_damage": {
+							"filters": {
+								"all_of": [
+									{
+										"none_of": [
+											{ "test": "is_family", "subject": "other", "value": "classd" }
+										]
+									},
+									{
+										"any_of": [
+											{ "test": "is_family", "subject": "other", "value": "scpf" },
+											{ "test": "is_family", "subject": "other", "value": "scp_foundation" },
+											{ "test": "is_family", "subject": "damager", "value": "scpf_weapon" }
+										]
+									}
+								]
+							}
+						},
+						"deals_damage": "no"
+					},
+					{
+						// Instant gibbing
+						"on_damage": {
+							"filters": { "test": "has_damage", "value": "fatal" },
+							"event": "lc:gib"
+						},
+						"cause": "entity_explosion",
+						"deals_damage": "no_but_side_effects_apply"
+					},
+					{
+						// Die
+						"on_damage": {
+							"filters": { "test": "has_damage", "value": "fatal" },
+							"event": "lc:on_fatality"
+						},
+						"deals_damage": "no_but_side_effects_apply"
+					}
+				]
+			},
+			"minecraft:breathable": {
+				"total_supply": 15,
+				"suffocate_time": 0
+			},
+			"minecraft:physics": {},
+			"minecraft:collision_box": {
+				"width": 0.6,
+				"height": 0.9
+			},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:leashable": {},
+			"minecraft:leashable_to": {},
+			"minecraft:body_rotation_blocked": {},
+			"minecraft:nameable": {},
+			"minecraft:persistent": {},
+			"minecraft:conditional_bandwidth_optimization": {}
+		},
+
+		"component_groups": {
+			"var_0": { "minecraft:variant": { "value": 0 } },
+			"var_1": { "minecraft:variant": { "value": 1 } },
+			"var_2": { "minecraft:variant": { "value": 2 } },
+			"var_3": { "minecraft:variant": { "value": 3 } },
+			"var_4": { "minecraft:variant": { "value": 4 } },
+			"var_5": { "minecraft:variant": { "value": 5 } },
+
+			"waiting": {
+				"minecraft:behavior.random_look_around": {
+					"priority": 6,
+					"look_time": [3, 5],
+					"min_angle_of_view_horizontal": 20,
+					"max_angle_of_view_horizontal": 20
+				},
+				"minecraft:timer": {
+					"looping": false,
+					"randomInterval": true,
+					"time": [8, 16],
+					"time_down_event": {
+						"event": "lc:get_up_or_die",
+						"target": "self"
+					}
+				},
+				"minecraft:interact": {
+					"interactions": [
+						{
+							"on_interact": {
+								"filters": {
+									"all_of": [
+										{ "test": "int_property", "domain": "lc:state", "value": 0 },
+										{ "test": "is_family", "subject": "other", "value": "player" },
+										{
+											"test": "has_equipment",
+											"domain": "hand",
+											"subject": "other",
+											"value": "lc:scpdy_handcuffs"
+										}
+									]
+								},
+								"event": "lc:become_cuffed",
+								"target": "self"
+							},
+							"interact_text": "scpdy.action.put_handcuffs",
+							"cooldown": 0.3,
+							"swing": true
+						}
+					]
+				}
+			},
+
+			"transform_into_dead": {
+				"minecraft:transformation": {
+					"into": "lc:scpdy_f_researcher_dead<lc:transformed_from_weakened>",
+					"drop_equipment": true,
+					"drop_inventory": true,
+					"delay": { "value": 0.1 }
+				}
+			},
+
+			"getting_up": {
+				"minecraft:transformation": {
+					"into": "lc:scpdy_f_researcher<lc:transformed_from_weakened>",
+					"preserve_equipment": true,
+					"delay": { "value": 2.5 }
+				}
+			},
+
+			"getting_cuffed": {
+				"minecraft:transformation": {
+					"into": "lc:scpdy_f_researcher<lc:transformed_from_weakened_cuffed>",
+					"preserve_equipment": true,
+					"delay": { "value": 2 }
+				}
+			}
+		},
+
+		"events": {
+			"minecraft:entity_spawned": {
+				"add": { "component_groups": ["waiting"] },
+				"trigger": "randomize_variant"
+			},
+
+			"randomize_variant": {
+				"randomize": [
+					{
+						"weight": 1,
+						"add": { "component_groups": ["var_0"] }
+					},
+					{
+						"weight": 1,
+						"add": { "component_groups": ["var_1"] }
+					},
+					{
+						"weight": 1,
+						"add": { "component_groups": ["var_2"] }
+					},
+					{
+						"weight": 1,
+						"add": { "component_groups": ["var_3"] }
+					},
+					{
+						"weight": 1,
+						"add": { "component_groups": ["var_4"] }
+					},
+					{
+						"weight": 1,
+						"add": { "component_groups": ["var_5"] }
+					}
+				]
+			},
+
+			"inherit_variant_from_other": {
+				"sequence": [
+					{
+						"filters": { "test": "is_variant", "subject": "other", "value": 0 },
+						"add": { "component_groups": ["var_0"] }
+					},
+					{
+						"filters": { "test": "is_variant", "subject": "other", "value": 1 },
+						"add": { "component_groups": ["var_1"] }
+					},
+					{
+						"filters": { "test": "is_variant", "subject": "other", "value": 2 },
+						"add": { "component_groups": ["var_2"] }
+					},
+					{
+						"filters": { "test": "is_variant", "subject": "other", "value": 3 },
+						"add": { "component_groups": ["var_3"] }
+					},
+					{
+						"filters": { "test": "is_variant", "subject": "other", "value": 4 },
+						"add": { "component_groups": ["var_4"] }
+					},
+					{
+						"filters": { "test": "is_variant", "subject": "other", "value": 5 },
+						"add": { "component_groups": ["var_5"] }
+					}
+				]
+			},
+
+			"minecraft:entity_transformed": {
+				"add": { "component_groups": ["waiting"] },
+				"trigger": "inherit_variant_from_other"
+			},
+
+			"lc:get_up_or_die": {
+				"randomize": [
+					{
+						"weight": 2,
+						"trigger": "lc:get_up"
+					},
+					{
+						"weight": 5,
+						"add": { "component_groups": ["transform_into_dead"] }
+					}
+				]
+			},
+
+			"lc:gib": {},
+
+			"lc:on_fatality": {
+				"sequence": [
+					{
+						"add": { "component_groups": ["transform_into_dead"] },
+						"queue_command": {
+							"command": [
+								"playsound game.player.hurt @a ~~~",
+								"particle lc:scpdy_blood_mist_emitter ^^0.2^1",
+								"particle lc:scpdy_small_flesh_piece_burst_emitter ^^0.2^1"
+							]
+						}
+					},
+					{
+						"filters": {
+							"test": "int_property",
+							"domain": "lc:state",
+							"value": 2
+						},
+						"queue_command": {
+							"command": [
+								"playsound dig.chain @a[r=10] ~~~"
+							]
+						}
+					}
+				]
+			},
+
+			"lc:get_up": {
+				"add": { "component_groups": ["getting_up"] },
+				"remove": { "component_groups": ["waiting"] },
+				"set_property": {
+					"lc:state": 1
+				}
+			},
+
+			"lc:become_cuffed": {
+				"add": { "component_groups": ["getting_cuffed"] },
+				"remove": { "component_groups": ["waiting"] },
+				"set_property": {
+					"lc:state": 2
+				},
+				"queue_command": {
+					"command": ["playsound use.chain @a[r=10] ~~~"]
+				}
+			}
+		}
+	}
+}

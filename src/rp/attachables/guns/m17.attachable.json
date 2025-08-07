@@ -1,0 +1,96 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:attachable": {
+		"description": {
+			"identifier": "lc:scpdy_gun_m17",
+			"materials": {
+				"m17_fp": "entity_emissive_alpha",
+				"m17_tp": "entity_emissive_alpha",
+
+				"gunatt_lasersightp": "entity_emissive_alpha",
+				"gunatt_reddotsight": "entity_emissive_alpha",
+				"gunatt_suppressor": "entity"
+			},
+			"textures": {
+				"m17_fp": "textures/scpdy/guns/m17_fp",
+				"m17_tp": "textures/scpdy/guns/m17",
+
+				"gunatt_lasersightp": "textures/scpdy/gunatts/lasersightp",
+				"gunatt_reddotsight": "textures/scpdy/gunatts/reddotsight",
+				"gunatt_suppressor": "textures/scpdy/gunatts/suppressor"
+			},
+			"geometry": {
+				"m17_fp": "geometry.scpdy_gun_m17_fp",
+				"m17_tp": "geometry.scpdy_gun_m17_tp",
+
+				"gunatt_lasersightp_fp": "geometry.scpdy_gunatt_lasersightp_fp",
+				"gunatt_lasersightp_tp": "geometry.scpdy_gunatt_lasersightp_tp",
+				"gunatt_reddotsight_fp": "geometry.scpdy_gunatt_reddotsight_fp",
+				"gunatt_reddotsight_tp": "geometry.scpdy_gunatt_reddotsight_tp",
+				"gunatt_suppressor_fp": "geometry.scpdy_gunatt_suppressor_fp",
+				"gunatt_suppressor_tp": "geometry.scpdy_gunatt_suppressor_tp"
+			},
+			"animations": {
+				"ctrl.fp.main": "controller.animation.scpdy.gun.m17.fp.main",
+				"ctrl.fp.extras": "controller.animation.scpdy.gun.m17.fp.extras",
+
+				"anim.fp.base": "animation.scpdy.gun.m17.fp.base",
+				"anim.fp.bob": "animation.scpdy.gun.m17.fp.bob",
+				"anim.fp.ads": "animation.scpdy.gun.m17.fp.ads",
+				"anim.fp.pickup": "animation.scpdy.gun.m17.fp.pickup",
+				"anim.fp.general": "animation.scpdy.gun.m17.fp.general",
+				"anim.fp.shoot": "animation.scpdy.gun.m17.fp.shoot",
+				"anim.fp.reload": "animation.scpdy.gun.m17.fp.reload",
+				"anim.fp.reload_tac": "animation.scpdy.gun.m17.fp.reload_tac",
+
+				"anim.tp.base": "animation.scpdy.gun.m17.tp.base"
+			},
+			"scripts": {
+				"animate": [
+					{ "ctrl.fp.main": "c.is_first_person" },
+					{ "ctrl.fp.extras": "c.is_first_person" },
+					{ "anim.tp.base": "!c.is_first_person" }
+				],
+				"initialize": [
+					"v.ads_speed = 5.0;",
+					"v.ads_time_update = 0;"
+				],
+				"pre_animation": [
+					// Retrieve attachment info
+					"v.update_atts = q.is_owner_identifier_any('minecraft:player') && q.is_name_any(t.xfr_player ?? '');",
+					"v.update_atts ? { v.att_muzzle = t.gunatt_muzzle ?? ''; };",
+					"v.update_atts ? { v.att_optic = t.gunatt_optic ?? ''; };",
+					"v.update_atts ? { v.att_tactical = t.gunatt_tactical ?? ''; };",
+					"v.update_atts ? { t.xfr_player = ''; };", // Prevent potential infinite loop of attachment info updates
+
+					// Retrieve cooldowns to use in various logics
+					"v.pickup_cd = q.cooldown_time_remaining('scpdy_gun_m17_pickup');",
+					"v.fire_1_cd = q.cooldown_time_remaining('scpdy_gun_m17_fire_1');",
+					"v.fire_2_cd = q.cooldown_time_remaining('scpdy_gun_m17_fire_2');",
+					"v.is_firing = v.fire_1_cd > 0 || v.fire_2_cd > 0;",
+					"v.reload_cd = q.cooldown_time_remaining('scpdy_gun_m17_reload');",
+					"v.reload_tac_cd = q.cooldown_time_remaining('scpdy_gun_m17_reload_tac');",
+					"v.is_reloading = v.reload_cd > 0 || v.reload_tac_cd > 0;",
+
+					"v.should_ads = q.is_sneaking && !v.pickup_cd && !v.is_reloading && !q.is_item_name_any('slot.weapon.offhand', 'minecraft:shield');",
+					"v.ads_time_update = v.should_ads > 0 ? ( v.ads_time_update < 1 ? v.ads_time_update + ( q.delta_time * v.ads_speed ) : 1 ) : v.ads_time_update > 0 ? v.ads_time_update - ( q.delta_time * v.ads_speed ) : 0;",
+					"v.ads_height = (v.att_optic ?? '') == 'reddotsight' ? 1.54 : 1.75;",
+
+					"v.bob_time_update = q.modified_distance_moved / 11;",
+					"v.bob_blend_weight_next = !q.is_on_ground || v.is_firing || v.should_ads ? 0 : math.clamp(q.modified_move_speed / (q.is_sprinting ? 2.5 : 4), 0, 1);",
+					"v.bob_blend_weight = math.lerp(v.bob_blend_weight ?? 0, v.bob_blend_weight_next, q.delta_time * 7.0);"
+				]
+			},
+			"render_controllers": [
+				// Base gun
+				{ "controller.render.scpdy.gun.m17.fp": "c.is_first_person" },
+				{ "controller.render.scpdy.gun.m17.tp": "!c.is_first_person" },
+
+				// Attachments
+				{ "controller.render.scpdy.gunatt.lasersightp.attachable": "(v.att_tactical ?? '') == 'lasersightp'" },
+				{ "controller.render.scpdy.gunatt.reddotsight.attachable": "(v.att_optic ?? '') == 'reddotsight'" },
+				{ "controller.render.scpdy.gunatt.suppressor.attachable": "(v.att_muzzle ?? '') == 'suppressor'" }
+			]
+		}
+	}
+}

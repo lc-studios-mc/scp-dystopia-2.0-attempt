@@ -1,7 +1,7 @@
 import { createBlockStatesString } from "@/utils/block";
 import { getBlockCardinalDirection } from "@/utils/direction";
-import * as mc from "@minecraft/server";
 import * as vec3 from "@/utils/vec3";
+import * as mc from "@minecraft/server";
 
 mc.system.beforeEvents.startup.subscribe((event) => {
 	event.blockComponentRegistry.registerCustomComponent("scpdy:upgrade_v1_command_door", COMPONENT);
@@ -12,7 +12,10 @@ const COMPONENT: mc.BlockCustomComponent = {
 	onRandomTick: onTick,
 };
 
-function onTick({ block, dimension }: mc.BlockComponentTickEvent, arg1: mc.CustomComponentParameters): void {
+function onTick(
+	{ block, dimension }: mc.BlockComponentTickEvent,
+	arg1: mc.CustomComponentParameters,
+): void {
 	const params = arg1.params as any;
 
 	const isLowerPart = Boolean(block.permutation.getState("lc:is_lower_part"));

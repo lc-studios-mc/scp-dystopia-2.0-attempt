@@ -1,7 +1,7 @@
 import { ensureType } from "@lib/utils/miscUtils";
 import * as vec3 from "@lib/utils/vec3";
 import * as mc from "@minecraft/server";
-import { getFnet, type Fzone } from "../fnet/fnet";
+import { type Fzone, getFnet } from "../fnet/fnet";
 
 type BlastDoorInfo = {
 	size: mc.Vector2;
@@ -64,7 +64,11 @@ function setIsOpen(blastDoor: mc.Entity, mode: ControlBlastDoorMode): void {
 	}
 }
 
-export function controlBlastDoor(blastDoor: mc.Entity, mode: ControlBlastDoorMode, isO5Access: boolean): boolean {
+export function controlBlastDoor(
+	blastDoor: mc.Entity,
+	mode: ControlBlastDoorMode,
+	isO5Access: boolean,
+): boolean {
 	const blastDoorInfo = getBlastDoorInfo(blastDoor);
 	const isOpen = blastDoor.getProperty("lc:is_open") === true;
 
@@ -168,7 +172,9 @@ function beforeRemoveBlastDoor(blastDoor: mc.Entity): void {
 	const entityTypeId = blastDoor.typeId;
 	const isOpen = blastDoor.getProperty("lc:is_open") === true;
 	const detectRedstone = blastDoor.getProperty("lc:detect_redstone") === true;
-	const belongsToFacilityNetwork = blastDoor.getProperty("lc:belongs_to_facility_network") as boolean;
+	const belongsToFacilityNetwork = blastDoor.getProperty(
+		"lc:belongs_to_facility_network",
+	) as boolean;
 	const facilityNetworkIndex = blastDoor.getProperty("lc:facility_network_index") as number;
 	const facilityZoneIndex = blastDoor.getProperty("lc:facility_zone_index") as number;
 	const oldBlastDoorDynamicProps = blastDoor.getDynamicPropertyIds().map((propId) => {
@@ -245,7 +251,8 @@ function updateState(blastDoor: mc.Entity): void {
 
 	if (facilityZone) {
 		if (facilityZone.isLkdnActive) {
-			const lockdownO5AccessTime = ensureType(blastDoor.getDynamicProperty("lockdownO5AccessTime"), "number") ?? 0;
+			const lockdownO5AccessTime =
+				ensureType(blastDoor.getDynamicProperty("lockdownO5AccessTime"), "number") ?? 0;
 
 			if (lockdownO5AccessTime > 0) {
 				setIsOpen(blastDoor, "open");

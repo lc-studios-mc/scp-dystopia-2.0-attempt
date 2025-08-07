@@ -199,7 +199,10 @@ export class EventEmitter<
 	 * @param data - Data to pass to handlers
 	 * @returns Promise that resolves with an array of results from all handlers
 	 */
-	public async emitAsync<K extends keyof Events & keyof Returns>(eventName: K, data: Events[K]): Promise<Returns[K][]> {
+	public async emitAsync<K extends keyof Events & keyof Returns>(
+		eventName: K,
+		data: Events[K],
+	): Promise<Returns[K][]> {
 		if (!this.subscribers.has(eventName)) {
 			return [];
 		}
@@ -330,7 +333,11 @@ export class EventEmitter<
 	 * @param handlerId - ID of the handler
 	 * @param active - Active state to set
 	 */
-	private setSubscriptionState<K extends keyof Events>(eventName: K, handlerId: number, active: boolean): void {
+	private setSubscriptionState<K extends keyof Events>(
+		eventName: K,
+		handlerId: number,
+		active: boolean,
+	): void {
 		if (!this.subscribers.has(eventName)) {
 			return;
 		}

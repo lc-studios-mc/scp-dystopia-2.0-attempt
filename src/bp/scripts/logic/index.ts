@@ -3,15 +3,10 @@ import { ItemStack, Player, system, world } from "@minecraft/server";
 import "./advancedItem";
 import "./ammo";
 import "./blocks";
-import "./cctv";
-import "./components";
 import "./config";
-import "./controlDevices";
 import "./facilityNetwork";
 import "./humanMobs";
 import "./scps";
-import "./theUnknown";
-import "./uncategorized";
 import "./weapons";
 
 function onInitialize(): void {
@@ -22,9 +17,9 @@ async function onPlayerInitialSpawn(player: Player): Promise<void> {
 	let isWorldLeader = false;
 	const allPlayers = world.getPlayers();
 	if (
-		world.getDynamicProperty("scpdy_world_leader") === undefined &&
-		allPlayers.length === 1 &&
-		allPlayers[0] === player
+		world.getDynamicProperty("scpdy_world_leader") === undefined
+		&& allPlayers.length === 1
+		&& allPlayers[0] === player
 	) {
 		world.setDynamicProperty("worldLeaderId", player.id);
 		player.addTag("scpdy_world_leader");

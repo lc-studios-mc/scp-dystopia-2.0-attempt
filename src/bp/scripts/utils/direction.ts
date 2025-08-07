@@ -1,4 +1,32 @@
+import * as vec3 from "@/utils/vec3";
 import * as mc from "@minecraft/server";
+
+/**
+ * Calculates the world location of a block face hit by a raycast.
+ * @param hit - The BlockRaycastHit object containing information about the hit.
+ * @returns The world Vector3 location corresponding to the face that was hit.
+ */
+export function getBlockRaycastHitLocation(hit: mc.BlockRaycastHit): mc.Vector3 {
+	const faceLoc = hit.faceLocation;
+
+	let relativeLoc: mc.Vector3;
+
+	switch (hit.face) {
+		case mc.Direction.Up:
+			relativeLoc = { ...faceLoc, y: 1 };
+			break;
+		case mc.Direction.South:
+			relativeLoc = { ...faceLoc, z: 1 };
+			break;
+		case mc.Direction.East:
+			relativeLoc = { ...faceLoc, x: 1 };
+			break;
+		default:
+			relativeLoc = faceLoc;
+	}
+
+	return vec3.add(hit.block.location, relativeLoc);
+}
 
 /**
  * Reverse a direction.
@@ -61,7 +89,9 @@ export function getRelativeBlockAtDirection(
  * @param permutation - Block permutation.
  * @returns Direction, undefined if the state does not exist.
  */
-export function getBlockCardinalDirection(permutation: mc.BlockPermutation): mc.Direction | undefined {
+export function getBlockCardinalDirection(
+	permutation: mc.BlockPermutation,
+): mc.Direction | undefined {
 	const blockDir = permutation.getState("minecraft:cardinal_direction");
 
 	switch (blockDir) {

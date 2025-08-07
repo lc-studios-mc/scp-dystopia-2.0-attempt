@@ -37,7 +37,11 @@ export function anyConnectedBlockHasRedstonePower(block: mc.Block): boolean {
 /**
  * @returns Another block in relative position of the given block.
  */
-export function getRelativeBlock(origin: mc.Block, direction: mc.Direction, steps: number = 1): mc.Block | undefined {
+export function getRelativeBlock(
+	origin: mc.Block,
+	direction: mc.Direction,
+	steps: number = 1,
+): mc.Block | undefined {
 	switch (direction) {
 		case mc.Direction.Down:
 			return origin.below(steps);
@@ -55,7 +59,11 @@ export function getRelativeBlock(origin: mc.Block, direction: mc.Direction, step
 }
 
 export function getBlockCardinalDirection(permutation: mc.BlockPermutation): mc.Direction {
-	const direction = permutation.getState("minecraft:cardinal_direction") as "north" | "south" | "west" | "east";
+	const direction = permutation.getState("minecraft:cardinal_direction") as
+		| "north"
+		| "south"
+		| "west"
+		| "east";
 
 	switch (direction) {
 		default:

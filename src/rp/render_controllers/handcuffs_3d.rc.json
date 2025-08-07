@@ -1,0 +1,10 @@
+{
+	"format_version": "1.8.0",
+	"render_controllers": {
+		"controller.render.scpdy.handcuffs_3d": {
+			"geometry": "Geometry.handcuffs",
+			"materials": [{ "*": "Material.handcuffs" }],
+			"textures": ["Texture.handcuffs"]
+		}
+	}
+}

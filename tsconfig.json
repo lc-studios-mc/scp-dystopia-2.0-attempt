@@ -1,11 +1,8 @@
 {
 	"compilerOptions": {
-		/* Language and Environment */
 		"target": "es2023",
 		"lib": ["es2023"],
 		"moduleDetection": "force",
-
-		/* Modules */
 		"module": "preserve",
 		"moduleResolution": "bundler",
 		"rootDir": "./src/bp/scripts/",
@@ -14,28 +11,16 @@
 			"@logic/*": ["./src/bp/scripts/logic/*"],
 			"@lib/*": ["./src/bp/scripts/lib/*"]
 		},
-		"types": ["neverthrow"],
-
-		/* JavaScript Support */
 		"allowJs": true,
-		"checkJs": true,
-
-		/* Emit */
 		"noEmit": true,
-
-		/* Interop Constraints */
 		"isolatedModules": true,
 		"verbatimModuleSyntax": true,
 		"forceConsistentCasingInFileNames": true,
+		"skipLibCheck": true,
 
-		/* Type Checking */
 		"strict": true,
 		"noUncheckedIndexedAccess": true,
-		"noImplicitOverride": true,
-
-		/* Completeness */
-		"skipLibCheck": true
+		"noImplicitOverride": true
 	},
-	"include": ["./src/bp/scripts/**/*"],
-	"exclude": ["**/.old/**/*"]
+	"include": ["./src/bp/scripts/**/*"]
 }

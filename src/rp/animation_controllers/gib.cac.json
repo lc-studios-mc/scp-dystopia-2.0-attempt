@@ -1,0 +1,39 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.scpdy.gib.main": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"fall": "v.is_falling"
+						},
+						{
+							"ground": "!v.is_falling"
+						}
+					]
+				},
+				"fall": {
+					"animations": ["anim.fall"],
+					"transitions": [
+						{
+							"bounce": "!v.is_falling"
+						}
+					]
+				},
+				"bounce": {
+					"animations": ["anim.bounce"],
+					"transitions": [
+						{
+							"ground": "q.all_animations_finished"
+						}
+					]
+				},
+				"ground": {
+					"animations": ["anim.ground"]
+				}
+			}
+		}
+	}
+}

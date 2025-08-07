@@ -1,0 +1,286 @@
+{
+	"format_version": "1.21.80",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "lc:scpdy_f_researcher_dead",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false,
+			"properties": {
+				"lc:death_anim_index": {
+					"type": "int",
+					"range": [0, 69],
+					"default": "math.random_integer(0, 4)",
+					"client_sync": true
+				},
+				"lc:played_death_anim": {
+					"type": "bool",
+					"default": false,
+					"client_sync": true
+				},
+				"lc:stopped_despawn_timer": {
+					"type": "bool",
+					"default": false
+				}
+			}
+		},
+
+		"components": {
+			"minecraft:is_hidden_when_invisible": {},
+			"minecraft:type_family": {
+				"family": [
+					"mob",
+					"dead_body",
+					"corpse"
+				]
+			},
+			"minecraft:knockback_resistance": {
+				"value": 0.4
+			},
+			"minecraft:health": {
+				"value": 12,
+				"max": 12
+			},
+			"minecraft:hurt_on_condition": {
+				"damage_conditions": [
+					{
+						"filters": {
+							"test": "in_lava",
+							"subject": "self",
+							"operator": "==",
+							"value": true
+						},
+						"cause": "lava",
+						"damage_per_tick": 4
+					}
+				]
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						// Fatality should cause instant gibbing
+						"on_damage": {
+							"filters": { "test": "has_damage", "value": "fatal" },
+							"event": "lc:gib"
+						},
+						"deals_damage": "no_but_side_effects_apply"
+					}
+				]
+			},
+			"minecraft:breathable": {
+				"breathes_water": true,
+				"generates_bubbles": false
+			},
+			"minecraft:interact": {
+				"interactions": [
+					{
+						"on_interact": {
+							"filters": {
+								"all_of": [
+									{ "test": "bool_property", "domain": "lc:stopped_despawn_timer", "value": false },
+									{ "test": "is_family", "subject": "other", "value": "player" },
+									{
+										"test": "has_equipment",
+										"domain": "hand",
+										"subject": "other",
+										"value": "lc:scpdy_corpse_perpetuator"
+									}
+								]
+							},
+							"event": "lc:stop_despawn_timer",
+							"target": "self"
+						},
+						"swing": true
+					}
+				]
+			},
+			"minecraft:physics": {},
+			"minecraft:collision_box": {
+				"width": 0.6,
+				"height": 0.9
+			},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:leashable": {},
+			"minecraft:leashable_to": {},
+			"minecraft:nameable": {},
+			"minecraft:body_rotation_blocked": {},
+			"minecraft:conditional_bandwidth_optimization": {
+				"default_values": {
+					"max_optimized_distance": 80.0,
+					"max_dropped_ticks": 10,
+					"use_motion_prediction_hints": true
+				}
+			}
+		},
+
+		"component_groups": {
+			"var_0": { "minecraft:variant": { "value": 0 } },
+			"var_1": { "minecraft:variant": { "value": 1 } },
+			"var_2": { "minecraft:variant": { "value": 2 } },
+			"var_3": { "minecraft:variant": { "value": 3 } },
+			"var_4": { "minecraft:variant": { "value": 4 } },
+			"var_5": { "minecraft:variant": { "value": 5 } },
+
+			"death_anim_completion_timer": {
+				"minecraft:timer": {
+					"looping": false,
+					"randomInterval": false,
+					"time": 3,
+					"time_down_event": {
+						"event": "lc:on_complete_death_anim",
+						"target": "self"
+					}
+				}
+			},
+
+			"despawn_timer": {
+				"minecraft:timer": {
+					"looping": false,
+					"randomInterval": true,
+					"time": [90, 120],
+					"time_down_event": {
+						"event": "despawn",
+						"target": "self"
+					}
+				}
+			},
+
+			"despawn": {
+				"minecraft:instant_despawn": {}
+			}
+		},
+
+		"events": {
+			"minecraft:entity_spawned": {
+				"sequence": [
+					{
+						"add": {
+							"component_groups": ["death_anim_completion_timer"]
+						}
+					},
+					{ "trigger": "randomize_variant" }
+				]
+			},
+
+			"randomize_variant": {
+				"randomize": [
+					{
+						"weight": 1,
+						"add": { "component_groups": ["var_0"] }
+					},
+					{
+						"weight": 1,
+						"add": { "component_groups": ["var_1"] }
+					},
+					{
+						"weight": 1,
+						"add": { "component_groups": ["var_2"] }
+					},
+					{
+						"weight": 1,
+						"add": { "component_groups": ["var_3"] }
+					},
+					{
+						"weight": 1,
+						"add": { "component_groups": ["var_4"] }
+					},
+					{
+						"weight": 1,
+						"add": { "component_groups": ["var_5"] }
+					}
+				]
+			},
+
+			"inherit_variant_from_other": {
+				"sequence": [
+					{
+						"filters": { "test": "is_variant", "subject": "other", "value": 0 },
+						"add": { "component_groups": ["var_0"] }
+					},
+					{
+						"filters": { "test": "is_variant", "subject": "other", "value": 1 },
+						"add": { "component_groups": ["var_1"] }
+					},
+					{
+						"filters": { "test": "is_variant", "subject": "other", "value": 2 },
+						"add": { "component_groups": ["var_2"] }
+					},
+					{
+						"filters": { "test": "is_variant", "subject": "other", "value": 3 },
+						"add": { "component_groups": ["var_3"] }
+					},
+					{
+						"filters": { "test": "is_variant", "subject": "other", "value": 4 },
+						"add": { "component_groups": ["var_4"] }
+					},
+					{
+						"filters": { "test": "is_variant", "subject": "other", "value": 5 },
+						"add": { "component_groups": ["var_5"] }
+					}
+				]
+			},
+
+			"minecraft:entity_transformed": {
+				"sequence": [
+					{
+						"add": {
+							"component_groups": ["death_anim_completion_timer"]
+						},
+						"trigger": "inherit_variant_from_other"
+					}
+				]
+			},
+
+			"lc:transformed_from_weakened": {
+				"sequence": [
+					{
+						"add": {
+							"component_groups": ["death_anim_completion_timer"]
+						},
+						"set_property": {
+							"lc:death_anim_index": 69
+						},
+						"queue_command": {
+							"command": ["scriptevent scpdy:set_self_health 6"]
+						},
+						"trigger": "inherit_variant_from_other"
+					}
+				]
+			},
+
+			"lc:on_complete_death_anim": {
+				"sequence": [
+					{
+						"filters": { "test": "bool_property", "domain": "lc:stopped_despawn_timer", "value": false },
+						"add": {
+							"component_groups": ["despawn_timer"]
+						},
+						"set_property": {
+							"lc:played_death_anim": true
+						}
+					}
+				]
+			},
+
+			"lc:stop_despawn_timer": {
+				"remove": {
+					"component_groups": ["despawn_timer"]
+				},
+				"set_property": {
+					"lc:stopped_despawn_timer": false
+				}
+			},
+
+			"lc:gib": {},
+
+			"despawn": {
+				"add": {
+					"component_groups": ["despawn"]
+				}
+			}
+		}
+	}
+}

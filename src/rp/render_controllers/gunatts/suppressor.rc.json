@@ -1,0 +1,15 @@
+{
+	"format_version": "1.8.0",
+	"render_controllers": {
+		"controller.render.scpdy.gunatt.suppressor": {
+			"geometry": "Geometry.gunatt_suppressor",
+			"materials": [{ "*": "Material.gunatt_suppressor" }],
+			"textures": ["Texture.gunatt_suppressor"]
+		},
+		"controller.render.scpdy.gunatt.suppressor.attachable": {
+			"geometry": "c.is_first_person ? Geometry.gunatt_suppressor_fp : Geometry.gunatt_suppressor_tp",
+			"materials": [{ "*": "Material.gunatt_suppressor" }],
+			"textures": ["Texture.gunatt_suppressor"]
+		}
+	}
+}

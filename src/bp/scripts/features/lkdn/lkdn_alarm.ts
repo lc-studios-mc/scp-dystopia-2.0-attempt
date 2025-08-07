@@ -1,8 +1,8 @@
-import * as mc from "@minecraft/server";
-import { getAllFnets, getFnet, type Fzone } from "@/features/fnet/fnet";
-import { ActionFormData } from "@minecraft/server-ui";
+import { type Fzone, getAllFnets, getFnet } from "@/features/fnet/fnet";
 import { consumeHandItem, isCreativeOrSpectator } from "@/utils/player";
 import { isHoldingWrench } from "@/utils/wrench";
+import * as mc from "@minecraft/server";
+import { ActionFormData } from "@minecraft/server-ui";
 
 const STATE = {
 	fnetIndex: "lc:fnet_index",
@@ -106,12 +106,11 @@ async function beforeOnPlayerPlaceAsync(e: mc.BlockComponentPlayerPlaceBeforeEve
 	if (!e.block.isValid) return;
 	if (!e.block.isAir && !e.block.isLiquid) return;
 
-	const shouldAbort =
-		!isCreativeOrSpectator(e.player) &&
-		consumeHandItem(e.player, {
-			filter: (itemStack) => itemStack.typeId === e.permutationToPlace.getItemStack()?.typeId,
-			max: 1,
-		}) <= 0;
+	const shouldAbort = !isCreativeOrSpectator(e.player)
+		&& consumeHandItem(e.player, {
+				filter: (itemStack) => itemStack.typeId === e.permutationToPlace.getItemStack()?.typeId,
+				max: 1,
+			}) <= 0;
 
 	if (shouldAbort) return;
 

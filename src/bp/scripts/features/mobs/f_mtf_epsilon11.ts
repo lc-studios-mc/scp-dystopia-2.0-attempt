@@ -1,6 +1,9 @@
-import * as mc from "@minecraft/server";
+import {
+	calculateAutoFragGrenadePath,
+	throwAutoFragGrenade,
+} from "@/features/throwables/auto_frag_grenade";
 import * as vec3 from "@/utils/vec3";
-import { calculateAutoFragGrenadePath, throwAutoFragGrenade } from "@/features/throwables/auto_frag_grenade";
+import * as mc from "@minecraft/server";
 
 const STATE = {
 	idle: 0,
@@ -70,8 +73,9 @@ mc.world.afterEvents.dataDrivenEntityTrigger.subscribe(
 
 		const currentState = getState(entity);
 
-		if (currentState !== STATE.gunAndMelee)
+		if (currentState !== STATE.gunAndMelee) {
 			throw new Error("Frag grenade throw timer was ended during unexpected state.");
+		}
 
 		if (!entity.target) return;
 		if (vec3.distance(entity.location, entity.target.location) > 28) return;
@@ -99,8 +103,9 @@ mc.world.afterEvents.dataDrivenEntityTrigger.subscribe(
 		if (!entity.isValid) return;
 
 		const currentState = getState(entity);
-		if (currentState !== STATE.throwingFragGrenade)
+		if (currentState !== STATE.throwingFragGrenade) {
 			throw new Error("Frag grenade event was invoked during unexpected state.");
+		}
 
 		if (!entity.target) return;
 
@@ -127,8 +132,9 @@ mc.world.afterEvents.dataDrivenEntityTrigger.subscribe(
 		if (!entity.isValid) return;
 
 		const currentState = getState(entity);
-		if (currentState !== STATE.throwingFragGrenade)
+		if (currentState !== STATE.throwingFragGrenade) {
 			throw new Error("Frag grenade event was invoked during unexpected state.");
+		}
 
 		setState(entity, STATE.gunAndMelee);
 		entity.triggerEvent("lc:add_frag_grenade_throw_timer");
@@ -150,8 +156,9 @@ mc.world.afterEvents.dataDrivenEntityTrigger.subscribe(
 		if (!entity.isValid) return;
 
 		const currentState = getState(entity);
-		if (currentState !== STATE.containingTarget)
+		if (currentState !== STATE.containingTarget) {
 			throw new Error("Contain target event was invoked during unexpected state.");
+		}
 
 		if (!entity.target) return;
 		if (vec3.distance(entity.location, entity.target.location) > 3) return;
@@ -172,8 +179,9 @@ mc.world.afterEvents.dataDrivenEntityTrigger.subscribe(
 		if (!entity.isValid) return;
 
 		const currentState = getState(entity);
-		if (currentState !== STATE.containingTarget)
+		if (currentState !== STATE.containingTarget) {
 			throw new Error("Contain target event was invoked during unexpected state.");
+		}
 
 		setState(entity, STATE.idle);
 		entity.triggerEvent("lc:remove_combat_component_groups");
@@ -191,7 +199,8 @@ mc.world.afterEvents.dataDrivenEntityTrigger.subscribe(
 
 function onUpdate(entity: mc.Entity): void {
 	const currentState = getState(entity);
-	const canChangeState = currentState !== STATE.throwingFragGrenade && currentState !== STATE.containingTarget;
+	const canChangeState = currentState !== STATE.throwingFragGrenade
+		&& currentState !== STATE.containingTarget;
 
 	const hasTarget = entity.target !== undefined;
 
@@ -234,8 +243,8 @@ function setState(entity: mc.Entity, value: number): void {
 
 function canContain(target: mc.Entity): boolean {
 	return (
-		target.matches({ families: [FAMILY_CAN_CONTAIN] }) ||
-		target.matches({
+		target.matches({ families: [FAMILY_CAN_CONTAIN] })
+		|| target.matches({
 			families: ["scpdy_scp096"],
 			propertyOptions: [
 				{

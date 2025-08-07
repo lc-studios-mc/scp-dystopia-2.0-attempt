@@ -65,13 +65,12 @@ export function isVector3(value: unknown): value is Vector3 {
 	if (typeof value !== "object") return false;
 	if (Array.isArray(value)) return false;
 
-	const hasXYZ =
-		"x" in value &&
-		typeof value.x === "number" &&
-		"y" in value &&
-		typeof value.y === "number" &&
-		"z" in value &&
-		typeof value.z === "number";
+	const hasXYZ = "x" in value
+		&& typeof value.x === "number"
+		&& "y" in value
+		&& typeof value.y === "number"
+		&& "z" in value
+		&& typeof value.z === "number";
 
 	return hasXYZ;
 }
@@ -300,9 +299,18 @@ export function midpoint(vecA: Vector3, vecB: Vector3): Vector3 {
  */
 export function clamp(vec: Vector3, min: Vector3 | number, max: Vector3 | number): Vector3 {
 	return {
-		x: Math.max(typeof min === "number" ? min : min.x, Math.min(typeof max === "number" ? max : max.x, vec.x)),
-		y: Math.max(typeof min === "number" ? min : min.y, Math.min(typeof max === "number" ? max : max.y, vec.y)),
-		z: Math.max(typeof min === "number" ? min : min.z, Math.min(typeof max === "number" ? max : max.z, vec.z)),
+		x: Math.max(
+			typeof min === "number" ? min : min.x,
+			Math.min(typeof max === "number" ? max : max.x, vec.x),
+		),
+		y: Math.max(
+			typeof min === "number" ? min : min.y,
+			Math.min(typeof max === "number" ? max : max.y, vec.y),
+		),
+		z: Math.max(
+			typeof min === "number" ? min : min.z,
+			Math.min(typeof max === "number" ? max : max.z, vec.z),
+		),
 	};
 }
 
@@ -453,7 +461,11 @@ export function changeDir(vec: Vector3, dir: Vector3): Vector3 {
  * @param cardinalDirection - The cardinal direction (default North).
  * @returns The relative location vector.
  */
-export function getRelativeLocation(origin: Vector3, relative: Vector3, cardinalDirection = Direction.North) {
+export function getRelativeLocation(
+	origin: Vector3,
+	relative: Vector3,
+	cardinalDirection = Direction.North,
+) {
 	switch (cardinalDirection) {
 		default:
 		case Direction.North:
@@ -474,7 +486,11 @@ export function getRelativeLocation(origin: Vector3, relative: Vector3, cardinal
  * @param move - The movement vector (partial).
  * @returns The new relative position vector.
  */
-export function getRelativeToHead(headLocation: Vector3, viewDirection: Vector3, move: Partial<Vector3>): Vector3 {
+export function getRelativeToHead(
+	headLocation: Vector3,
+	viewDirection: Vector3,
+	move: Partial<Vector3>,
+): Vector3 {
 	const forward = viewDirection;
 	const up = { x: 0, y: 1, z: 0 };
 	const right = normalize(cross(forward, up));

@@ -1,0 +1,21 @@
+{
+	"format_version": "1.21.90",
+	"minecraft:item": {
+		"description": {
+			"identifier": "lc:scpdy_corpse_perpetuator",
+			"menu_category": {
+				"category": "equipment"
+			}
+		},
+		"components": {
+			"minecraft:icon": {
+				"textures": { "default": "scpdy_corpse_perpetuator_icon" }
+			},
+			"minecraft:display_name": { "value": "scpdy.corpse_perpetuator" },
+			"minecraft:hover_text_color": "light_purple",
+			"minecraft:max_stack_size": 1,
+			"minecraft:can_destroy_in_creative": { "value": false },
+			"minecraft:allow_off_hand": false
+		}
+	}
+}

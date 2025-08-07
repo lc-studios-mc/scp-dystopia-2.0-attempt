@@ -22,7 +22,10 @@ export function isRecord(item: unknown): item is Record<string, any> {
  * // Output: { a: 1, b: { c: 4, d: 3, f: 6 }, e: { h: 8 }, g: 7 }
  * ```
  */
-export function deepMerge<T extends Record<string, any>, U extends Record<string, any>>(target: T, source: U): T & U {
+export function deepMerge<T extends Record<string, any>, U extends Record<string, any>>(
+	target: T,
+	source: U,
+): T & U {
 	// Create a new object to avoid modifying the original target object.
 	// We use 'as any' here because the type will be built up dynamically.
 	const output: any = { ...target };
@@ -91,7 +94,9 @@ export function areObjectsEqual(obj1: any, obj2: any): boolean {
 	// Check if all keys and their values are equal recursively
 	for (const key of keys1) {
 		// Check if key exists in obj2 and if the values are deeply equal
-		if (!Object.prototype.hasOwnProperty.call(obj2, key) || !areObjectsEqual(obj1[key], obj2[key])) {
+		if (
+			!Object.prototype.hasOwnProperty.call(obj2, key) || !areObjectsEqual(obj1[key], obj2[key])
+		) {
 			return false;
 		}
 	}

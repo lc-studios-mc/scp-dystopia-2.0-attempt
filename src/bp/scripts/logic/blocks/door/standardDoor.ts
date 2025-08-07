@@ -1,3 +1,5 @@
+// TODO: Upgrade standard door and remove this directory for good
+
 import { isAirOrLiquid } from "@lib/utils/blockUtils";
 import * as mc from "@minecraft/server";
 import { getDoorSoundInfo } from "./doorSounds";
@@ -53,9 +55,9 @@ function onPlayerInteract(arg: mc.BlockComponentPlayerInteractEvent): void {
 	}
 
 	if (
-		!otherPartBlock ||
-		otherPartBlock.typeId !== block.typeId ||
-		otherPartBlock.permutation.getState(STATE_NAMES.isLowerPart) === isLowerPart
+		!otherPartBlock
+		|| otherPartBlock.typeId !== block.typeId
+		|| otherPartBlock.permutation.getState(STATE_NAMES.isLowerPart) === isLowerPart
 	) {
 		block.setType("minecraft:air");
 		return;
@@ -65,7 +67,9 @@ function onPlayerInteract(arg: mc.BlockComponentPlayerInteractEvent): void {
 
 	block.setPermutation(block.permutation.withState(STATE_NAMES.isOpened, !isOpened));
 
-	otherPartBlock.setPermutation(otherPartBlock.permutation.withState(STATE_NAMES.isOpened, !isOpened));
+	otherPartBlock.setPermutation(
+		otherPartBlock.permutation.withState(STATE_NAMES.isOpened, !isOpened),
+	);
 
 	if (isOpened) {
 		const doorSoundInfo = getDoorSoundInfo(block.typeId);

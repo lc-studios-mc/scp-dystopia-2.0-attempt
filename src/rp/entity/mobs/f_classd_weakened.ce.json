@@ -1,0 +1,70 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "lc:scpdy_f_classd_weakened",
+
+			"materials": {
+				"default": "entity_alphatest",
+
+				"handcuffs": "entity"
+			},
+
+			"textures": {
+				"default": "textures/scpdy/mobs/f_classd_basic_male_1",
+				"classd_var_0": "textures/scpdy/mobs/f_classd_basic_male_1",
+				"classd_var_1": "textures/scpdy/mobs/f_classd_basic_male_2",
+				"classd_var_2": "textures/scpdy/mobs/f_classd_basic_male_3",
+				"classd_var_3": "textures/scpdy/mobs/f_classd_basic_female_1",
+				"classd_var_4": "textures/scpdy/mobs/f_classd_basic_female_2",
+				"classd_var_5": "textures/scpdy/mobs/f_classd_basic_female_3",
+
+				"handcuffs": "textures/scpdy/handcuffs_3d"
+			},
+
+			"geometry": {
+				"classd_var_0": "geometry.scpdy_humanoid_base",
+				"classd_var_1": "geometry.scpdy_humanoid_base",
+				"classd_var_2": "geometry.scpdy_humanoid_base",
+				"classd_var_3": "geometry.scpdy_humanoid_base_slim",
+				"classd_var_4": "geometry.scpdy_humanoid_base_slim",
+				"classd_var_5": "geometry.scpdy_humanoid_base_slim",
+
+				"humanoid_lead_locators": "geometry.scpdy_humanoid_lead_locators",
+
+				"handcuffs": "geometry.scpdy_handcuffs_3d_tp"
+			},
+
+			"animations": {
+				"ctrl.main": "controller.animation.scpdy.weakened_human",
+
+				"anim.look_at_target": "animation.scpdy.humanoid_base.look_at_target",
+				"anim.falling": "animation.scpdy.humanoid_base.become_weakened",
+				"anim.fallen": "animation.scpdy.humanoid_base.weakened",
+				"anim.getting_up": "animation.scpdy.humanoid_base.weakened_to_normal",
+				"anim.getting_cuffed": "animation.scpdy.humanoid_base.weakened_to_cuffed"
+			},
+
+			"sound_effects": {
+				"body_fall": "scpdy.misc.body_fall"
+			},
+
+			"scripts": {
+				"scale": "0.9375",
+				"animate": [
+					"ctrl.main"
+				],
+				"pre_animation": [
+					"v.state = q.property('lc:state');"
+				]
+			},
+
+			"render_controllers": [
+				"controller.render.scpdy.f_classd",
+				"controller.render.scpdy.humanoid_lead_locators",
+
+				{ "controller.render.scpdy.handcuffs_3d": "v.state == 2" }
+			]
+		}
+	}
+}

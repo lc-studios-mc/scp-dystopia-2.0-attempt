@@ -1,9 +1,9 @@
+import { InputDeviceEvents } from "@/features/input_devices/events";
 import { destroyBlock } from "@/utils/block";
-import { flattenCoordinates, unflattenToCoordinates } from "@/utils/math";
-import * as mc from "@minecraft/server";
-import { MachineryInputEvents } from "../machinery/input/events";
 import { getRelativeBlockAtDirection } from "@/utils/direction";
+import { flattenCoordinates, unflattenToCoordinates } from "@/utils/math";
 import { isHoldingWrench } from "@/utils/wrench";
+import * as mc from "@minecraft/server";
 
 interface RelayDoorComponentParams {
 	openSound?: {
@@ -50,16 +50,28 @@ const COMPONENT: mc.BlockCustomComponent = {
 		if (!otherPartBlock || otherPartBlock.typeId !== block.typeId) return;
 
 		// --- Power Level Logic ---
-		const { major: currentPowerLevelMajor, minor: currentPowerLevelMinor } = getPowerLevel(block.permutation);
+		const { major: currentPowerLevelMajor, minor: currentPowerLevelMinor } = getPowerLevel(
+			block.permutation,
+		);
 		const currentPowerLevel = flattenCoordinates(currentPowerLevelMajor, currentPowerLevelMinor, 3);
 		const detectRedstone = Boolean(block.permutation.getState(STATE.detectRedstone));
 		const isRedstoneDetected = detectRedstone && checkRedstonePower(block);
-		let newPowerLevel = getUpdatedPowerLevel(currentPowerLevel, detectRedstone, block, isRedstoneDetected);
+		let newPowerLevel = getUpdatedPowerLevel(
+			currentPowerLevel,
+			detectRedstone,
+			block,
+			isRedstoneDetected,
+		);
 
 		// --- Step Logic ---
 		const { major: currentStepMajor, minor: currentStepMinor } = getStep(block.permutation);
 		const currentStepIndex = flattenCoordinates(currentStepMajor, currentStepMinor);
-		const newStepIndex = getUpdatedStepIndex(currentStepIndex, currentPowerLevel, minStepIndex, maxStepIndex);
+		const newStepIndex = getUpdatedStepIndex(
+			currentStepIndex,
+			currentPowerLevel,
+			minStepIndex,
+			maxStepIndex,
+		);
 
 		// --- Apply State Changes ---
 		const newPowerLevelUnflat = unflattenToCoordinates(newPowerLevel, 3);
@@ -143,7 +155,9 @@ const COMPONENT: mc.BlockCustomComponent = {
 
 		if (!isHoldingWrench(player)) return;
 
-		const block = blockUnchecked.hasTag("lc:door_top_part") ? blockUnchecked.below()! : blockUnchecked;
+		const block = blockUnchecked.hasTag("lc:door_top_part")
+			? blockUnchecked.below()!
+			: blockUnchecked;
 
 		const detectRedstone = Boolean(block.permutation.getState(STATE.detectRedstone));
 
@@ -227,7 +241,7 @@ function checkRedstonePower(block: mc.Block): boolean {
 	return false;
 }
 
-MachineryInputEvents.on("onActivate", (data) => {
+InputDeviceEvents.on("onActivate", (data) => {
 	if (data.mode !== "powerRelayDoors") return;
 
 	const block = data.block ?? data.dimension.getBlock(data.location);

@@ -1,0 +1,241 @@
+{
+	"format_version": "1.21.40",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "lc:scpdy_the_unknown_wave_spawner",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false,
+			"runtime_identifier": "minecraft:snowball",
+			"properties": {
+				"lc:difficulty": {
+					"type": "int",
+					"range": [0, 3],
+					"default": 2
+				},
+				"lc:state": {
+					"type": "int",
+					"range": [
+						// 0 - None
+						// 1 - Wave Break
+						// 2 - Wave Battle
+						0,
+						2
+					],
+					"default": 0
+				},
+				"lc:wave_count": {
+					"type": "int",
+					"range": [0, 99],
+					"default": 0
+				}
+			}
+		},
+		"component_groups": {
+			"despawn": {
+				"minecraft:instant_despawn": {}
+			},
+			"wave_battle_tick_timer": {
+				"minecraft:timer": {
+					"looping": true,
+					"randomInterval": false,
+					"time": 2.0,
+					"time_down_event": {
+						"event": "the_unknown_wave_spawner:on_tick_wave_battle",
+						"target": "self"
+					}
+				}
+			},
+			"wave_break_timer:easy": {
+				"minecraft:timer": {
+					"looping": false,
+					"randomInterval": false,
+					"time": 7.0,
+					"time_down_event": {
+						"event": "the_unknown_wave_spawner:on_finish_wave_break",
+						"target": "self"
+					}
+				}
+			},
+			"wave_break_timer:normal": {
+				"minecraft:timer": {
+					"looping": false,
+					"randomInterval": false,
+					"time": 5.0,
+					"time_down_event": {
+						"event": "the_unknown_wave_spawner:on_finish_wave_break",
+						"target": "self"
+					}
+				}
+			},
+			"wave_break_timer:hard": {
+				"minecraft:timer": {
+					"looping": false,
+					"randomInterval": false,
+					"time": 3.0,
+					"time_down_event": {
+						"event": "the_unknown_wave_spawner:on_finish_wave_break",
+						"target": "self"
+					}
+				}
+			}
+		},
+		"components": {
+			"minecraft:type_family": {
+				"family": ["inanimate"]
+			},
+			"minecraft:health": {
+				"value": 20,
+				"max": 20
+			},
+			"minecraft:breathable": {
+				"breathes_lava": true,
+				"breathes_solids": true,
+				"breathes_water": true,
+				"generates_bubbles": false
+			},
+			"minecraft:fire_immune": {},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "all",
+						"deals_damage": "no"
+					}
+				]
+			},
+			"minecraft:collision_box": {
+				"width": 0.1,
+				"height": 0.1
+			},
+			"minecraft:physics": {
+				"has_collision": true,
+				"has_gravity": false
+			},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": false
+			},
+			"minecraft:custom_hit_test": {
+				"hitboxes": [
+					{
+						"width": 0.1,
+						"height": 0.1,
+						"pivot": [0, 100, 0]
+					}
+				]
+			},
+			"minecraft:persistent": {},
+			"minecraft:conditional_bandwidth_optimization": {}
+		},
+		"events": {
+			"minecraft:entity_spawned": {
+				"sequence": [
+					{
+						"filters": {
+							"test": "is_difficulty",
+							"value": "peaceful"
+						},
+						"set_property": {
+							"lc:difficulty": 0
+						}
+					},
+					{
+						"filters": {
+							"test": "is_difficulty",
+							"value": "easy"
+						},
+						"set_property": {
+							"lc:difficulty": 1
+						}
+					},
+					{
+						"filters": {
+							"test": "is_difficulty",
+							"value": "normal"
+						},
+						"set_property": {
+							"lc:difficulty": 2
+						}
+					},
+					{
+						"filters": {
+							"test": "is_difficulty",
+							"value": "hard"
+						},
+						"set_property": {
+							"lc:difficulty": 3
+						}
+					}
+				]
+			},
+			"despawn": {
+				"add": {
+					"component_groups": ["despawn"]
+				}
+			},
+			"the_unknown_wave_spawner:start_wave_break": {
+				"sequence": [
+					{
+						"remove": {
+							"component_groups": ["wave_battle_tick_timer"]
+						}
+					},
+					{
+						"filters": {
+							"test": "int_property",
+							"domain": "lc:difficulty",
+							"operator": "==",
+							"value": 1
+						},
+						"add": {
+							"component_groups": ["wave_break_timer:easy"]
+						}
+					},
+					{
+						"filters": {
+							"test": "int_property",
+							"domain": "lc:difficulty",
+							"operator": "==",
+							"value": 2
+						},
+						"add": {
+							"component_groups": ["wave_break_timer:normal"]
+						}
+					},
+					{
+						"filters": {
+							"test": "int_property",
+							"domain": "lc:difficulty",
+							"operator": "==",
+							"value": 3
+						},
+						"add": {
+							"component_groups": ["wave_break_timer:hard"]
+						}
+					},
+					{
+						"set_property": {
+							"lc:state": 1
+						}
+					}
+				]
+			},
+			"the_unknown_wave_spawner:on_finish_wave_break": {
+				"remove": {
+					"component_groups": [
+						"wave_break_timer:easy",
+						"wave_break_timer:normal",
+						"wave_break_timer:hard"
+					]
+				},
+				"add": {
+					"component_groups": ["wave_battle_tick_timer"]
+				},
+				"set_property": {
+					"lc:state": 2
+				}
+			},
+			"the_unknown_wave_spawner:on_tick_wave_battle": {}
+		}
+	}
+}

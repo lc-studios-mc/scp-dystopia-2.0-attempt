@@ -1,0 +1,187 @@
+{
+	"format_version": "1.21.20",
+	"minecraft:block": {
+		"description": {
+			"identifier": "lc:scpdy_alphabet_sign_2",
+			"states": {
+				"lc:char": ["q", "r", "s", "t", "u", "v", "w", "x", "y", "z"],
+				"lc:color": ["white", "black"],
+				"lc:dir": ["north", "south", "west", "east"],
+				"lc:updown": ["none", "up", "down"]
+			}
+		},
+		"components": {
+			"minecraft:custom_components": ["scpdy:cannot_be_placed_by_player"],
+			"minecraft:geometry": {
+				"identifier": "geometry.scpdy_alphabet_sign",
+				"bone_visibility": {
+					"a": false,
+					"b": false,
+					"c": false,
+					"d": false,
+					"e": false,
+					"f": false,
+					"g": false,
+					"h": false,
+					"i": false,
+					"j": false,
+					"k": false,
+					"l": false,
+					"m": false,
+					"n": false,
+					"o": false,
+					"p": false,
+					"q": "q.block_state('lc:char') == 'q'",
+					"r": "q.block_state('lc:char') == 'r'",
+					"s": "q.block_state('lc:char') == 's'",
+					"t": "q.block_state('lc:char') == 't'",
+					"u": "q.block_state('lc:char') == 'u'",
+					"v": "q.block_state('lc:char') == 'v'",
+					"w": "q.block_state('lc:char') == 'w'",
+					"x": "q.block_state('lc:char') == 'x'",
+					"y": "q.block_state('lc:char') == 'y'",
+					"z": "q.block_state('lc:char') == 'z'"
+				}
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 0
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0.1
+			},
+			"minecraft:loot": "loot_tables/scpdy/blocks/alphanumeric_sign.json",
+			"minecraft:light_dampening": 0,
+			"minecraft:selection_box": {
+				"origin": [-8, 0, 7],
+				"size": [16, 16, 1]
+			},
+			"minecraft:collision_box": false
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('lc:color') == 'white'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "scpdy_alphanumeric_chars_white",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('lc:color') == 'black'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "scpdy_alphanumeric_chars_black",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+
+			// #region Facing directions
+
+			{
+				"condition": "q.block_state('lc:updown') == 'none' && q.block_state('lc:dir') == 'north'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [0, 0, 0]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('lc:updown') == 'none' && q.block_state('lc:dir') == 'south'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [0, 180, 0]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('lc:updown') == 'none' && q.block_state('lc:dir') == 'west'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [0, 90, 0]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('lc:updown') == 'none' && q.block_state('lc:dir') == 'east'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [0, 270, 0]
+					}
+				}
+			},
+
+			{
+				"condition": "q.block_state('lc:updown') == 'up' && q.block_state('lc:dir') == 'north'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [90, 0, 0]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('lc:updown') == 'up' && q.block_state('lc:dir') == 'south'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [90, 180, 0]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('lc:updown') == 'up' && q.block_state('lc:dir') == 'west'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [90, 90, 0]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('lc:updown') == 'up' && q.block_state('lc:dir') == 'east'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [90, 270, 0]
+					}
+				}
+			},
+
+			{
+				"condition": "q.block_state('lc:updown') == 'down' && q.block_state('lc:dir') == 'north'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [-90, 0, 0]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('lc:updown') == 'down' && q.block_state('lc:dir') == 'south'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [-90, 180, 0]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('lc:updown') == 'down' && q.block_state('lc:dir') == 'west'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [-90, 90, 0]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('lc:updown') == 'down' && q.block_state('lc:dir') == 'east'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [-90, 270, 0]
+					}
+				}
+			}
+			// #endregion
+		]
+	}
+}

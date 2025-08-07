@@ -1,0 +1,79 @@
+{
+	"format_version": "1.21.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "lc:scpdy_bullet_m4a1",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false,
+			"runtime_identifier": "minecraft:snowball"
+		},
+		"component_groups": {
+			"despawn": {
+				"minecraft:instant_despawn": {}
+			}
+		},
+		"components": {
+			"minecraft:type_family": {
+				"family": ["projectile", "bullet"]
+			},
+			"minecraft:collision_box": {
+				"width": 0.1,
+				"height": 0.1
+			},
+			"minecraft:projectile": {
+				"on_hit": {
+					"impact_damage": {
+						"damage": 6,
+						"knockback": false,
+						"semi_random_diff_damage": false,
+						"destroy_on_hit": true
+					},
+					"definition_event": {
+						"affect_projectile": true
+					},
+					"remove_on_hit": {}
+				},
+				"power": 2.3,
+				"gravity": 0.0,
+				"inertia": 1.0,
+				"liquid_inertia": 0.9,
+				"uncertainty_base": 9.0,
+				"uncertainty_multiplier": 2.0,
+				"anchor": 1,
+				"offset": [0, -0.1, 0],
+				"reflect_on_hurt": false,
+				"catch_fire": false
+			},
+			"minecraft:timer": {
+				"looping": false,
+				"randomInterval": true,
+				"time": [0.8, 1.5],
+				"time_down_event": {
+					"event": "despawn",
+					"target": "self"
+				}
+			},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": false
+			},
+			"minecraft:transient": {},
+			"minecraft:conditional_bandwidth_optimization": {
+				"default_values": {
+					"max_optimized_distance": 80.0,
+					"max_dropped_ticks": 7,
+					"use_motion_prediction_hints": true
+				}
+			}
+		},
+		"events": {
+			"despawn": {
+				"add": {
+					"component_groups": ["despawn"]
+				}
+			}
+		}
+	}
+}

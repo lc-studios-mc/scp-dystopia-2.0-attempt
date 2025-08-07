@@ -1,0 +1,32 @@
+{
+	"format_version": "1.8.0",
+	"render_controllers": {
+		"controller.render.scpdy.f_researcher": {
+			"arrays": {
+				"geometries": {
+					"Array.geos": [
+						"Geometry.researcher_var_0",
+						"Geometry.researcher_var_1",
+						"Geometry.researcher_var_2",
+						"Geometry.researcher_var_3",
+						"Geometry.researcher_var_4",
+						"Geometry.researcher_var_5"
+					]
+				},
+				"textures": {
+					"Array.skins": [
+						"Texture.researcher_var_0",
+						"Texture.researcher_var_1",
+						"Texture.researcher_var_2",
+						"Texture.researcher_var_3",
+						"Texture.researcher_var_4",
+						"Texture.researcher_var_5"
+					]
+				}
+			},
+			"geometry": "Array.geos[q.variant]",
+			"materials": [{ "*": "Material.default" }],
+			"textures": ["Array.skins[q.variant]"]
+		}
+	}
+}

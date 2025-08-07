@@ -1,5 +1,5 @@
 import { clamp } from "@/utils/math";
-import { world, type Player, type RawMessage, type Vector3 } from "@minecraft/server";
+import { type Player, type RawMessage, type Vector3, world } from "@minecraft/server";
 import { ModalFormData } from "@minecraft/server-ui";
 
 interface DynamicPropertyAccess {
@@ -15,53 +15,53 @@ type DropdownChoiceArray = { name: string; text: Text }[];
 export class ConfigBuilder<Data = {}> {
 	private elements: (
 		| {
-				type: "toggle";
-				name: string;
-				get: () => boolean;
-				set: (value: boolean) => void;
-				reset: () => void;
-				defaultValue: boolean;
-				label: Text;
-				tooltip?: Text;
-		  }
+			type: "toggle";
+			name: string;
+			get: () => boolean;
+			set: (value: boolean) => void;
+			reset: () => void;
+			defaultValue: boolean;
+			label: Text;
+			tooltip?: Text;
+		}
 		| {
-				type: "slider";
-				name: string;
-				get: () => number;
-				set: (value: number) => void;
-				reset: () => void;
-				minValue: number;
-				maxValue: number;
-				defaultValue: number;
-				valueStep: number;
-				label: Text;
-				tooltip?: Text;
-		  }
+			type: "slider";
+			name: string;
+			get: () => number;
+			set: (value: number) => void;
+			reset: () => void;
+			minValue: number;
+			maxValue: number;
+			defaultValue: number;
+			valueStep: number;
+			label: Text;
+			tooltip?: Text;
+		}
 		| {
-				type: "textField";
-				name: string;
-				get: () => string;
-				set: (value: string) => void;
-				reset: () => void;
-				defaultValue: string;
-				placeholderText: Text;
-				label: Text;
-				tooltip?: Text;
-		  }
+			type: "textField";
+			name: string;
+			get: () => string;
+			set: (value: string) => void;
+			reset: () => void;
+			defaultValue: string;
+			placeholderText: Text;
+			label: Text;
+			tooltip?: Text;
+		}
 		| {
-				type: "dropdown";
-				name: string;
-				get: () => string;
-				getIndex: () => number;
-				set: (value: string) => void;
-				setIndex: (value: number) => void;
-				reset: () => void;
-				choiceArray: DropdownChoiceArray;
-				defaultValue: string;
-				defaultValueIndex: number;
-				label: Text;
-				tooltip?: Text;
-		  }
+			type: "dropdown";
+			name: string;
+			get: () => string;
+			getIndex: () => number;
+			set: (value: string) => void;
+			setIndex: (value: number) => void;
+			reset: () => void;
+			choiceArray: DropdownChoiceArray;
+			defaultValue: string;
+			defaultValueIndex: number;
+			label: Text;
+			tooltip?: Text;
+		}
 		| { type: "header"; text: Text }
 		| { type: "label"; text: Text }
 		| { type: "divider" }
@@ -90,7 +90,8 @@ export class ConfigBuilder<Data = {}> {
 		});
 
 		return this as ConfigBuilder<
-			Data & {
+			& Data
+			& {
 				[P in Name]: boolean;
 			}
 		>;
@@ -136,13 +137,20 @@ export class ConfigBuilder<Data = {}> {
 		});
 
 		return this as ConfigBuilder<
-			Data & {
+			& Data
+			& {
 				[P in Name]: number;
 			}
 		>;
 	}
 
-	textField<Name extends string>(name: Name, label: Text, placeholderText: Text, defaultValue = "", tooltip?: Text) {
+	textField<Name extends string>(
+		name: Name,
+		label: Text,
+		placeholderText: Text,
+		defaultValue = "",
+		tooltip?: Text,
+	) {
 		this.elements.push({
 			type: "textField",
 			name,
@@ -164,7 +172,8 @@ export class ConfigBuilder<Data = {}> {
 		});
 
 		return this as ConfigBuilder<
-			Data & {
+			& Data
+			& {
 				[P in Name]: string;
 			}
 		>;
@@ -223,7 +232,8 @@ export class ConfigBuilder<Data = {}> {
 		});
 
 		return this as ConfigBuilder<
-			Data & {
+			& Data
+			& {
 				[P in Name]: keyof Choices;
 			}
 		>;

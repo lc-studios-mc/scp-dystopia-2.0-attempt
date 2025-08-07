@@ -6,7 +6,7 @@ export default {
 		name: "SCP: Dystopia §cDEV§r",
 		uuid: "5368765d-325d-42c7-92ac-195e5ea02966",
 		version: [0, 0, 1],
-		min_engine_version: [1, 21, 90],
+		min_engine_version: [1, 21, 100],
 	},
 	modules: [
 		{
@@ -32,7 +32,7 @@ export default {
 		},
 		{
 			module_name: "@minecraft/server",
-			version: "2.1.0-beta",
+			version: "2.2.0-beta",
 		},
 		{
 			module_name: "@minecraft/server-ui",
