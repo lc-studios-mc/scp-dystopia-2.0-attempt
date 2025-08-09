@@ -1,3 +1,44 @@
+# Important Notice
+
+> [!IMPORTANT]
+> Please read this section carefully.
+
+## Context
+
+SCP: Dystopia addon "v2" is a remake.
+I'm rebuilding because the v1 (2021~2023) has been obliterated by recent Minecraft updates.
+
+Actually, this is my second attempt to remake it.
+First attempt was few years ago: https://mcpedl.com/scp-dystopia-redefined/
+
+Now, this one (the *second attempt* you're looking at right now) was suppoed to be focusing on simply making the old features,
+and that's why I named it "v2".
+
+**I've lost quite some development velocity on this one**. This is what happened:
+1. I added many new features.
+2. Maintenance of new features took precedence.
+3. Some parts of new features got messy and outdated.
+4. <ins>Taking so long to upgrade "outdated new features", which I still haven't finished it yet.</ins>
+
+I'm very much annoyed by what I stated above, all of this and still in alpha development stage. :sob:
+
+## What will happen
+
+I decided to leave this repository for now, and move on to a [separate repository](https://github.com/lc-studios-mc/scp-dystopia-v1-restoration) for a clearer goal: **Restoration.**
+
+Note that the separate repository will not contain "new features" that this repository have, such as CCTV, Lockdown, etc.
+But I'd like to add them back once the restoration part is 90% done.
+
+<ins>This repository will be used again when I'm ready to merge the restored features.</ins>
+
+## Lastly
+
+I'm sorry for taking so long. I hope you understand that frequent direction changes can be common in alpha development stage.
+
+Thanks for reading, and thanks for your support!
+
+<hr/>
+
 <div align="center">
 
 <img src="./media/logo.webp" alt="Logo" title="SCP: Dystopia" height="80" />
