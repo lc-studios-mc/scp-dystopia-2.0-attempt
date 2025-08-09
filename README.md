@@ -1,3 +1,27 @@
+# Important Notice
+
+> [!IMPORTANT]
+> This repo has been archived.
+
+SCP: Dystopia addon "v2" is a remake.
+We're rebuilding because the v1 (2021~2023) has been obliterated by recent Minecraft updates.
+
+Actually, this is our second attempt to remake it.
+First attempt was few years ago: https://mcpedl.com/scp-dystopia-redefined/
+
+Now, this one (the second attempt you're looking at right now) was suppoed to be focusing on simply making the old features,
+and that's why I named it "v2".
+
+We've lost quite some development velocity on this one. This is what happened:
+1. We added many new features.
+2. Maintenance of new features took precedence.
+3. Some parts of new features got messy and outdated.
+4. Taking so long to upgrade "outdated new features". Still haven't finished it yet.
+
+We decided to this repository as legacy, and move on to the newly created one for clearer goal: https://github.com/lc-studios-mc/scp-dystopia-v2-next
+
+<hr/>
+
 <div align="center">
 
 <img src="./media/logo.webp" alt="Logo" title="SCP: Dystopia" height="80" />
