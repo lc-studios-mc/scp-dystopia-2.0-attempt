@@ -27,7 +27,7 @@ I'm very much annoyed by what I stated above, all of this and still in alpha dev
 I decided to leave this repository for now, and move on to a [separate repository](https://github.com/lc-studios-mc/scp-dystopia-v1-restoration) for a clearer goal: **Restoration.**
 
 Note that the separate repository will not contain "new features" that this repository had, such as CCTV, Lockdown, etc.
-<ins>But I'd like to add them back once the restoration part is complete.</ins>
+<ins>But I'd like to add them back once the restoration part is 90% done.</ins>
 
 ## Lastly
 
