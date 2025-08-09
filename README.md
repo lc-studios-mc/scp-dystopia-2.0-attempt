@@ -33,9 +33,9 @@ But I'd like to add them back once the restoration part is 90% done.
 
 ## Lastly
 
-I'm sorry for taking so long.
+I'm sorry for taking so long. I hope you understand that frequent direction changes can be common in alpha development stage.
 
-Thank you for your support!
+Thanks for reading, and thanks for your support!
 
 <hr/>
 
