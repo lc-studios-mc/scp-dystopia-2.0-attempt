@@ -3,6 +3,8 @@
 > [!IMPORTANT]
 > Please read this section carefully.
 
+## Context
+
 SCP: Dystopia addon "v2" is a remake.
 We're rebuilding because the v1 (2021~2023) has been obliterated by recent Minecraft updates.
 
@@ -20,10 +22,11 @@ and that's why I named it "v2".
 
 We are very much annoyed by what I stated above, all of this and still in alpha development stage. :sob:
 
-**We decided to mark this repository as legacy, and move on to the newly created one for clearer goal**: https://github.com/lc-studios-mc/scp-dystopia-v1-restoration
+## What will happen
 
-New primaly focus will be restoration.
-**Note that the new repository will not contain "new features" that this repository had, such as CCTV, Lockdown, etc.**
+We decided to mark this repository as legacy, and move on to the [new repository](https://github.com/lc-studios-mc/scp-dystopia-v1-restoration) for a clearer goal: **Restoration.**
+
+Note that the new repository will not contain "new features" that this repository had, such as CCTV, Lockdown, etc.
 
 <hr/>
 
