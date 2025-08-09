@@ -11,7 +11,7 @@ We're rebuilding because the v1 (2021~2023) has been obliterated by recent Minec
 Actually, this is our second attempt to remake it.
 First attempt was few years ago: https://mcpedl.com/scp-dystopia-redefined/
 
-Now, this one (the second attempt you're looking at right now) was suppoed to be focusing on simply making the old features,
+Now, this one (the *second attempt* you're looking at right now) was suppoed to be focusing on simply making the old features,
 and that's why I named it "v2".
 
 **We've lost quite some development velocity on this one**. This is what happened:
@@ -24,9 +24,14 @@ We are very much annoyed by what I stated above, all of this and still in alpha 
 
 ## What will happen
 
-We decided to mark this repository as legacy, and move on to the [new repository](https://github.com/lc-studios-mc/scp-dystopia-v1-restoration) for a clearer goal: **Restoration.**
+We decided to mark this repository as legacy, and move on to a [separate repository](https://github.com/lc-studios-mc/scp-dystopia-v1-restoration) for a clearer goal: **Restoration.**
 
-Note that the new repository will not contain "new features" that this repository had, such as CCTV, Lockdown, etc.
+Note that the separate repository will not contain "new features" that this repository had, such as CCTV, Lockdown, etc.
+<ins>We'd like to add them back once the restoration part is complete.</ins>
+
+## Lastly
+
+...
 
 <hr/>
 
