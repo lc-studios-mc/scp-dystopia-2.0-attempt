@@ -3,8 +3,8 @@
 I will create [another addon](https://github.com/lc-studios-mc/scp-dystopia-v1-restoration) that aims to restore SCP: Dystopia v1.8.1,
 and I'm pausing development on this repository for a while.
 
-The repository is currently in a state where maintenance is a pain due to half-baked new features,
-and it is not focused on the original goal of restoration.
+The repository is currently in a maintenance slump with half-baked new features,
+making it difficult to focus on the original goal of restoration.
 
 ## Details
 
