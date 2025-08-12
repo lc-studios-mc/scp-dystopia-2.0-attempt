@@ -1,4 +1,20 @@
-# Important Notice
+<div align="center">
+
+<img src="./media/logo.webp" alt="Logo" title="SCP: Dystopia" height="80" />
+
+<hr/>
+
+**SCP: Dystopia** is an add-on for Minecraft Bedrock, based on the works of the [SCP Foundation](https://scp-wiki.wikidot.com/) community.
+
+[![Static Badge](https://img.shields.io/badge/Discord-%235865F2?style=for-the-badge&logo=discord&logoColor=%23ffffff)](https://discord.gg/K2mxsJ2trE)
+[![Static Badge](https://img.shields.io/badge/CurseForge-%23f16436?style=for-the-badge&logo=curseforge&logoColor=%23ffffff)](https://www.curseforge.com/minecraft-bedrock/addons/scp-dystopia-addon)
+[![Static Badge](https://img.shields.io/badge/MCPEDL-%2300a52e?style=for-the-badge)](https://mcpedl.com/scp-dystopia-addon/)
+
+<img src="./media/banner.webp" alt="Logo" title="SCP: Dystopia" />
+
+</div>
+
+## Important Notice
 
 I will create [another addon](https://github.com/lc-studios-mc/scp-dystopia-v1-restoration) that aims to restore SCP: Dystopia v1.8.1,
 and I'm pausing development on this repository for a while.
@@ -6,7 +22,7 @@ and I'm pausing development on this repository for a while.
 The repository is currently in a maintenance slump with half-baked new features,
 making it difficult to focus on the original goal of restoration.
 
-## Details
+### Details
 
 SCP: Dystopia addon "v2" is a remake.
 I'm rebuilding because the v1 (2021~2023) has been obliterated by recent Minecraft updates.
@@ -35,24 +51,6 @@ But I'd like to add them back once the restoration part is 90% done.
 I'm sorry for taking so long. I hope you understand that frequent direction changes can be common in alpha development stage.
 
 Thanks for reading, and thanks for your support!
-
-<hr/>
-
-<div align="center">
-
-<img src="./media/logo.webp" alt="Logo" title="SCP: Dystopia" height="80" />
-
-<hr/>
-
-**SCP: Dystopia** is an add-on for Minecraft Bedrock, based on the works of the [SCP Foundation](https://scp-wiki.wikidot.com/) community.
-
-[![Static Badge](https://img.shields.io/badge/Discord-%235865F2?style=for-the-badge&logo=discord&logoColor=%23ffffff)](https://discord.gg/K2mxsJ2trE)
-[![Static Badge](https://img.shields.io/badge/CurseForge-%23f16436?style=for-the-badge&logo=curseforge&logoColor=%23ffffff)](https://www.curseforge.com/minecraft-bedrock/addons/scp-dystopia-addon)
-[![Static Badge](https://img.shields.io/badge/MCPEDL-%2300a52e?style=for-the-badge)](https://mcpedl.com/scp-dystopia-addon/)
-
-<img src="./media/banner.webp" alt="Logo" title="SCP: Dystopia" />
-
-</div>
 
 ## Information
 
