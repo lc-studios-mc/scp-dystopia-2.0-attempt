@@ -1,9 +1,12 @@
 # Important Notice
 
-> [!IMPORTANT]
-> Please read this section carefully.
+I will create [another addon](https://github.com/lc-studios-mc/scp-dystopia-v1-restoration) that aims to restore SCP: Dystopia v1.8.1,
+and I'm pausing development on this repository for a while.
 
-## Context
+The repository is currently in a state where maintenance is a pain due to half-baked new features,
+and it is not focused on the original goal of restoration.
+
+## Details
 
 SCP: Dystopia addon "v2" is a remake.
 I'm rebuilding because the v1 (2021~2023) has been obliterated by recent Minecraft updates.
@@ -22,16 +25,12 @@ and that's why I named it "v2".
 
 I'm very much annoyed by what I stated above, all of this and still in alpha development stage. :sob:
 
-## What will happen
-
 I decided to leave this repository for now, and move on to a [separate repository](https://github.com/lc-studios-mc/scp-dystopia-v1-restoration) for a clearer goal: **Restoration.**
 
 Note that the separate repository will not contain "new features" that this repository have, such as CCTV, Lockdown, etc.
 But I'd like to add them back once the restoration part is 90% done.
 
 <ins>This repository will be used again when I'm ready to merge the restored features.</ins>
-
-## Lastly
 
 I'm sorry for taking so long. I hope you understand that frequent direction changes can be common in alpha development stage.
 
