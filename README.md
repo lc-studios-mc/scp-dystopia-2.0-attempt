@@ -1,3 +1,16 @@
+## Important Notice
+
+__I'm temporarily moving to [separate repo](https://github.com/lc-studios-mc/scp-dystopia-v1-restoration)
+where we mainly focus on restoring old features from v1.8.__
+
+It's because the current codebase (this repo) is not in a healthy state.
+I'm unable to develop comfortably.
+
+<ins>After the work is mostly done in that separate repo,
+I'll come back to this repo to merge those changes.</ins>
+
+<hr/>
+
 <div align="center">
 
 <img src="./media/logo.webp" alt="Logo" title="SCP: Dystopia" height="80" />
