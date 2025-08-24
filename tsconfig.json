@@ -1,26 +1,17 @@
 {
+	"extends": "./tsconfig.base.json",
 	"compilerOptions": {
 		"target": "es2023",
 		"lib": ["es2023"],
-		"moduleDetection": "force",
+		"types": [],
 		"module": "preserve",
 		"moduleResolution": "bundler",
-		"rootDir": "./src/bp/scripts/",
+		"rootDir": "src/bp/scripts",
 		"paths": {
 			"@/*": ["./src/bp/scripts/*"],
 			"@logic/*": ["./src/bp/scripts/logic/*"],
 			"@lib/*": ["./src/bp/scripts/lib/*"]
-		},
-		"allowJs": true,
-		"noEmit": true,
-		"isolatedModules": true,
-		"verbatimModuleSyntax": true,
-		"forceConsistentCasingInFileNames": true,
-		"skipLibCheck": true,
-
-		"strict": true,
-		"noUncheckedIndexedAccess": true,
-		"noImplicitOverride": true
+		}
 	},
-	"include": ["./src/bp/scripts/**/*"]
+	"include": ["src/bp/scripts/**/*"]
 }

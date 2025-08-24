@@ -3,7 +3,7 @@
 	"private": true,
 	"scripts": {
 		"dev": "dotenv -- mcpacker --config=tools/mcpacker.js --dev",
-		"types": "tsc --noEmit",
+		"lint": "tsc",
 		"clean": "shx rm -rf dist",
 		"format": "prettier --write ."
 	},
