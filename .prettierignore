@@ -1,0 +1,8 @@
+node_modules/
+dist/
+
+pnpm-lock.yaml
+LICENSE
+
+*.animation.json
+*.geo.json
