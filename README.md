@@ -1,13 +1,6 @@
-## Important Notice
-
-__I'm temporarily moving to [separate repo](https://github.com/lc-studios-mc/scp-dystopia-v1-restoration)
-where we mainly focus on restoring old features from v1.8.__
-
-It's because the current codebase (this repo) is not in a healthy state.
-I'm unable to develop comfortably.
-
-<ins>After the work is mostly done in that separate repo,
-I'll come back to this repo to merge those changes.</ins>
+> [!CAUTION]
+> We're currently working on version 2.0, which is a complete rewrite. It's not yet in a stable development stage and **will introduce breaking changes.**
+> You should not use it in a serious project for now!
 
 <hr/>
 
@@ -26,6 +19,8 @@ I'll come back to this repo to merge those changes.</ins>
 <img src="./media/banner.webp" alt="Logo" title="SCP: Dystopia" />
 
 </div>
+
+## Other Information
 
 Credits: [here](./docs/credits.md)
 
