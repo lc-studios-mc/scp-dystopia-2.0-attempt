@@ -20,6 +20,18 @@
 
 </div>
 
+## Developer Setup
+
+### Prerequisites
+
+- Git
+- Node.js (v22 or later)
+- pnpm
+- Minecraft: Bedrock Edition
+- Visual Studio Code (for debugger)
+
+### Installation
+
 ## Other Information
 
 Credits: [here](./docs/credits.md)
