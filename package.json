@@ -2,7 +2,7 @@
 	"name": "scp-dystopia",
 	"private": true,
 	"scripts": {
-		"dev": "dotenv -- mcpacker --config=tools/mcpacker.js --dev",
+		"dev": "dotenv -- mcpacker --dev --watch",
 		"lint": "tsc",
 		"clean": "shx rm -rf dist",
 		"format": "prettier --write ."
