@@ -20,7 +20,7 @@
 
 </div>
 
-## Developer Setup
+## :computer: Development
 
 ### Prerequisites
 
@@ -30,7 +30,36 @@
 - Minecraft: Bedrock Edition
 - Visual Studio Code (for debugger)
 
-### Installation
+### Setup
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/lc-studios-mc/scp-dystopia.git
+cd scp-dystopia
+```
+
+2. Install dependencies
+
+```bash
+pnpm install
+```
+
+3. Set environment variables
+
+Create a file named `.env` and paste this text:
+
+```env
+# Replace {User} with your username
+DEV_BP_OUTDIR="C:\Users\{User}\AppData\Local\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang\development_behavior_packs\SCPDY_BP_DEV"
+DEV_RP_OUTDIR="C:\Users\{User}\AppData\Local\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang\development_resource_packs\SCPDY_RP_DEV"
+```
+
+4. Test
+
+```bash
+pnpm run dev # This will compile the addon and output the packs into the folders you specified with .env
+```
 
 ## Other Information
 
