@@ -8,10 +8,10 @@
 			"request": "attach",
 			"mode": "listen",
 			"port": 19144,
-			"targetModuleUuid": "5fa83869-172d-41dc-8fb0-bd98da2e9da6", // Must be same as the UUID of the behavior pack script module
+			"targetModuleUuid": "0d359555-6f1f-4b60-998b-c935e22ac452", // UUID of the BP script module
 
 			"localRoot": "${workspaceFolder}/src/bp/scripts/",
-			"sourceMapRoot": "${userHome}/AppData/Local/Packages/Microsoft.MinecraftUWP_8wekyb3d8bbwe/LocalState/games/com.mojang/development_behavior_packs/SCPDY_BP/scripts/"
+			"sourceMapRoot": "${userHome}/AppData/Local/Packages/Microsoft.MinecraftUWP_8wekyb3d8bbwe/LocalState/games/com.mojang/development_behavior_packs/SCPDY_BP_DEV/scripts/"
 		}
 	]
 }
