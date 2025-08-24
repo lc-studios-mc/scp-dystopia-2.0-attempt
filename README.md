@@ -20,7 +20,7 @@
 
 </div>
 
-## :computer: Development
+## :computer: Developer Setup
 
 ### Prerequisites
 
@@ -28,7 +28,7 @@
 - Node.js (v22 or later)
 - pnpm
 - Minecraft: Bedrock Edition
-- Visual Studio Code (for debugger)
+- Visual Studio Code (for debugging)
 
 ### Setup
 
@@ -61,7 +61,32 @@ DEV_RP_OUTDIR="C:\Users\{User}\AppData\Local\Packages\Microsoft.MinecraftUWP_8we
 pnpm run dev # This will compile the addon and output the packs into the folders you specified with .env
 ```
 
-## Other Information
+### Debugging
+
+You must install [Minecraft Bedrock Debugger](https://marketplace.visualstudio.com/items?itemName=mojang-studios.minecraft-debugger) to Visual Studio Code.
+
+Open PowerShell as administrator and run these commands. [Source](https://github.com/Mojang/minecraft-debugger?tab=readme-ov-file#ensure-that-the-minecraft-bedrock-client-can-make-loopback-requests)
+
+```pwsh
+CheckNetIsolation.exe LoopbackExempt -a -p=S-1-15-2-1958404141-86561845-1752920682-3514627264-368642714-62675701-733520436
+CheckNetIsolation.exe LoopbackExempt -a -p=S-1-15-2-424268864-5579737-879501358-346833251-474568803-887069379-4040235476
+```
+
+Open the scp-dystopia folder you cloned earlier in Visual Studio Code.
+
+Compile the addon by running `pnpm run dev` in terminal.
+
+Within Visual Studio Code, click the "Debug with Minecraft" option under the Run menu (or hit F5) to start debugging. This will place Visual Studio Code into "Listen Mode", where it awaits a connection from Minecraft.
+
+Start Minecraft and load into a world with the SCP: Dystopia behavior pack.
+
+Run the command `/script debugger connect` in Minecraft.
+
+**You should see a "Debugger connected to host" response from this command if the connection is successful!**
+
+In scripts (TypeScript), you can set breakpoints in your code by clicking on the left-hand side of the editor, on specific lines of code.
+
+## :memo: Other Information
 
 Credits: [here](./docs/credits.md)
 
