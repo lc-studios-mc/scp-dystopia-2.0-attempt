@@ -11,5 +11,7 @@
 	"editor.rulers": [100],
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.formatOnSave": true,
-	"editor.insertSpaces": false
+	"editor.insertSpaces": false,
+	"json5.validate.enable": true,
+	"json5.format.enable": false
 }
