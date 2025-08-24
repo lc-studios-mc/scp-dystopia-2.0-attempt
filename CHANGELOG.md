@@ -1,8 +1,8 @@
-For changelogs since 2.0, please see the [GitHub Releases page](https://github.com/lc-studios-mc/scp-dystopia/releases).
+**Please see the [GitHub Releases page](https://github.com/lc-studios-mc/scp-dystopia/releases).**
 
 <hr/>
 
-**Pre 2.0.0 Alpha 5**
+# Changelog (ore 2.0.0 Alpha 5)
 
 ## [2.0.0 Alpha 4.2] - 2025-06-18
 
