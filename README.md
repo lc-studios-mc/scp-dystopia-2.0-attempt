@@ -88,12 +88,8 @@ In scripts (TypeScript), you can set breakpoints in your code by clicking on the
 
 ## :memo: Other Information
 
-Credits: [here](./docs/credits.md)
-
-Attributions: [here](./docs/attributions.md)
-
-Bug reports and suggestions: [Create a new issue](https://github.com/lc-studios-mc/scp-dystopia/issues)
-
-Questions and general conversation: [Discord](https://discord.gg/K2mxsJ2trE)
-
-Email: info@lc-studios.net
+- Credits: [here](./docs/credits.md)
+- Third-party attributions: [here](./docs/attributions.md)
+- Bug reports and suggestions: [Create a new issue](https://github.com/lc-studios-mc/scp-dystopia/issues)
+- Questions and general conversation: [Discord](https://discord.gg/K2mxsJ2trE)
+- Email: info@lc-studios.net
