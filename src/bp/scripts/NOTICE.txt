@@ -1,3 +1,0 @@
-These folders are legacy, and should be removed someday:
-- lib
-- logic
