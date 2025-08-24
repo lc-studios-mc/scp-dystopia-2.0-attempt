@@ -2,7 +2,7 @@
 
 <hr/>
 
-# Changelog (ore 2.0.0 Alpha 5)
+# Changelog (Pre 2.0.0 Alpha 5)
 
 ## [2.0.0 Alpha 4.2] - 2025-06-18
 
