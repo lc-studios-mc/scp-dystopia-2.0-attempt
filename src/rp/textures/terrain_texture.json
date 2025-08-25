@@ -6,6 +6,9 @@
 	"texture_data": {
 		"scpdy:floor_tiles": {
 			"textures": "textures/scpdy/blocks/floor_tiles"
+		},
+		"scpdy:generic_floor_1": {
+			"textures": "textures/scpdy/blocks/generic_floor_1"
 		}
 	}
 }
