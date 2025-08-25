@@ -1,10 +1,2 @@
-// Import legacy modules
-import "./logic/advancedItem";
-import "./logic/ammo";
-import "./logic/blocks";
-import "./logic/config";
-import "./logic/weapons";
-
-import "./features";
-
-import "./old_feature_upgrades/v1";
+// This is the entry point script, whose only purpose is to import other
+// modules that contain the actual business logic.

@@ -8,9 +8,7 @@
 		"moduleResolution": "bundler",
 		"rootDir": "src/bp/scripts",
 		"paths": {
-			"@/*": ["./src/bp/scripts/*"],
-			"@logic/*": ["./src/bp/scripts/logic/*"],
-			"@lib/*": ["./src/bp/scripts/lib/*"]
+			"@/*": ["./src/bp/scripts/*"]
 		}
 	},
 	"include": ["src/bp/scripts/**/*"]

@@ -1,2 +1,0 @@
-import "./keypad";
-import "./placer";
