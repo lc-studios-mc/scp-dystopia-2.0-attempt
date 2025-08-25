@@ -4,6 +4,18 @@
 	padding: 8,
 	num_mip_levels: 4,
 	texture_data: {
+		"scpdy:facility_wall": {
+			textures: "textures/scpdy/blocks/facility_wall",
+		},
+		"scpdy:facility_wall_bottom": {
+			textures: "textures/scpdy/blocks/facility_wall_bottom",
+		},
+		"scpdy:facility_wall_middle": {
+			textures: "textures/scpdy/blocks/facility_wall_middle",
+		},
+		"scpdy:facility_wall_top": {
+			textures: "textures/scpdy/blocks/facility_wall_top",
+		},
 		"scpdy:generic_floor_1": {
 			textures: "textures/scpdy/blocks/generic_floor_1",
 		},

@@ -1,4 +1,8 @@
 scpdy:item_group_standard_blocks=§fStandard Blocks §7(SCP:DY)
+tile.scpdy:facility_wall.name=Facility Wall
+tile.scpdy:facility_wall_bottom.name=Facility Wall (Bottom)
+tile.scpdy:facility_wall_middle.name=Facility Wall (Middle)
+tile.scpdy:facility_wall_top.name=Facility Wall (Top)
 tile.scpdy:generic_floor_1.name=Generic Floor 1
 tile.scpdy:generic_floor_2.name=Generic Floor 2
 tile.scpdy:tile_floor.name=Tile Floor
