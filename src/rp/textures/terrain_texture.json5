@@ -64,6 +64,12 @@
 		"scpdy:lime_wall_top": {
 			textures: "textures/scpdy/blocks/lime_wall_top",
 		},
+		"scpdy:office_ceiling_1": {
+			textures: "textures/scpdy/blocks/office_ceiling_1",
+		},
+		"scpdy:office_ceiling_2": {
+			textures: "textures/scpdy/blocks/office_ceiling_2",
+		},
 		"scpdy:orange_wall_bottom": {
 			textures: "textures/scpdy/blocks/orange_wall_bottom",
 		},
