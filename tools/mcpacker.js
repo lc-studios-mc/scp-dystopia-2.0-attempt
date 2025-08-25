@@ -6,14 +6,14 @@ const MIN_ENGINE_VERSION = [1, 21, 100];
 
 /**
  * @param {import("@lc-studios-js/mcpacker").CliArgs} args
- * @returns {{ text: string; array: [number,number,number]; isEarlyAccess: boolean; }}
+ * @returns {{ text: string; array: [number,number,number]; isSnapshot: boolean; }}
  */
 const createPackVersion = (args) => {
 	if (args.dev) {
 		return {
 			text: "DEV",
 			array: [0, 0, 1],
-			isEarlyAccess: false,
+			isSnapshot: false,
 		};
 	}
 
@@ -24,9 +24,9 @@ const createPackVersion = (args) => {
 		const array = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
 
 		return {
-			text: `EARLY ACCESS ${array.join("-")}`, // yyyy-mm-dd
+			text: `Snapshot-${array.join("-")}`, // yyyy-mm-dd
 			array,
-			isEarlyAccess: true,
+			isSnapshot: true,
 		};
 	}
 
@@ -34,14 +34,14 @@ const createPackVersion = (args) => {
 		return {
 			text: `v${args.packVersion.join(".")}`,
 			array: args.packVersion,
-			isEarlyAccess: false,
+			isSnapshot: false,
 		};
 	}
 
 	return {
 		text: "UNRESOLVED",
 		array: [0, 0, 0],
-		isEarlyAccess: false,
+		isSnapshot: false,
 	};
 };
 
@@ -78,8 +78,8 @@ const createManifests = (args) => {
 
 	const description = args.dev
 		? "Development build. Do not publish this."
-		: version.isEarlyAccess
-			? "EARLY ACCESS - You should not use this version for serious projects!"
+		: version.isSnapshot
+			? "EARLY ACCESS - Not recommended to use this version in a serious project!"
 			: "SCP addon by LC Studios MC.";
 
 	const bpHeaderUuid = args.dev
@@ -96,7 +96,7 @@ const createManifests = (args) => {
 		format_version: 2,
 		header: {
 			description,
-			name: `SCP: Dystopia ${version.text}`,
+			name: `SCP: Dystopia §7${version.text}`,
 			uuid: bpHeaderUuid,
 			version: version.array,
 			min_engine_version: MIN_ENGINE_VERSION,
@@ -136,7 +136,7 @@ const createManifests = (args) => {
 		format_version: 2,
 		header: {
 			description: `(Resource Pack) ${description}`,
-			name: `SCP: Dystopia ${version.text} [RP]`,
+			name: `SCP: Dystopia §7${version.text} [RP]`,
 			uuid: rpHeaderUuid,
 			version: version.array,
 			min_engine_version: MIN_ENGINE_VERSION,
