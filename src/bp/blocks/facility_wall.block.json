@@ -25,7 +25,7 @@
 				"redstone_conductor": true
 			},
 			"minecraft:destructible_by_explosion": {
-				"explosion_resistance": 9
+				"explosion_resistance": 15
 			},
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 5,
