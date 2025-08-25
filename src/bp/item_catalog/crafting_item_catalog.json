@@ -10,7 +10,7 @@
 							"icon": "scpdy:floor_tiles",
 							"name": "scpdy:item_group_construction_blocks"
 						},
-						"items": ["scpdy:floor_tiles", "scpdy:generic_floor_1"]
+						"items": ["scpdy:floor_tiles", "scpdy:generic_floor_1", "scpdy:generic_floor_2"]
 					}
 				]
 			}
