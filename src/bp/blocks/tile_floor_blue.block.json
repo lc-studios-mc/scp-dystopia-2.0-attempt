@@ -2,21 +2,21 @@
 	"format_version": "1.21.100",
 	"minecraft:block": {
 		"description": {
-			"identifier": "scpdy:floor_tiles",
+			"identifier": "scpdy:tile_floor_blue",
 			"menu_category": {
 				"category": "construction"
 			}
 		},
 		"components": {
-			"minecraft:light_dampening": 15,
+			"minecraft:light_dampening": 10,
 			"minecraft:light_emission": 0,
 			"minecraft:map_color": "#cfcfcf",
 			"minecraft:geometry": {
-				"identifier": "minecraft:geometry.full_block"
+				"identifier": "geometry.scpdy.tile_floor"
 			},
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "scpdy:floor_tiles",
+					"texture": "scpdy:tile_floor_blue",
 					"render_method": "opaque"
 				}
 			},

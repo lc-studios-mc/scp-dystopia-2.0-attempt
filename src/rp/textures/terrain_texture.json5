@@ -4,8 +4,23 @@
 	padding: 8,
 	num_mip_levels: 4,
 	texture_data: {
-		"scpdy:floor_tiles": { textures: "textures/scpdy/blocks/floor_tiles" },
-		"scpdy:generic_floor_1": { textures: "textures/scpdy/blocks/generic_floor_1" },
-		"scpdy:generic_floor_2": { textures: "textures/scpdy/blocks/generic_floor_2" },
+		"scpdy:generic_floor_1": {
+			textures: "textures/scpdy/blocks/generic_floor_1",
+		},
+		"scpdy:generic_floor_2": {
+			textures: "textures/scpdy/blocks/generic_floor_2",
+		},
+		"scpdy:tile_floor": {
+			textures: "textures/scpdy/blocks/tile_floor",
+		},
+		"scpdy:tile_floor_black": {
+			textures: "textures/scpdy/blocks/tile_floor_black",
+		},
+		"scpdy:tile_floor_blue": {
+			textures: "textures/scpdy/blocks/tile_floor_blue",
+		},
+		"scpdy:tile_floor_cyan": {
+			textures: "textures/scpdy/blocks/tile_floor_cyan",
+		},
 	},
 }

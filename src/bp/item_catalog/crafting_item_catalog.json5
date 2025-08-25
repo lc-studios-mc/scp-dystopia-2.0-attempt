@@ -1,0 +1,26 @@
+{
+	format_version: "1.21.60",
+	"minecraft:crafting_items_catalog": {
+		categories: [
+			{
+				category_name: "construction",
+				groups: [
+					{
+						group_identifier: {
+							icon: "scpdy:tile_floor",
+							name: "scpdy:item_group_construction_blocks",
+						},
+						items: [
+							"scpdy:tile_floor",
+							"scpdy:tile_floor_black",
+							"scpdy:tile_floor_blue",
+							"scpdy:tile_floor_cyan",
+							"scpdy:generic_floor_1",
+							"scpdy:generic_floor_2",
+						],
+					},
+				],
+			},
+		],
+	},
+}
