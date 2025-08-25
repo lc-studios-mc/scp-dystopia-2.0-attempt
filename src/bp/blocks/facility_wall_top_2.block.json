@@ -2,7 +2,7 @@
 	"format_version": "1.21.100",
 	"minecraft:block": {
 		"description": {
-			"identifier": "scpdy:facility_wall_bottom",
+			"identifier": "scpdy:facility_wall_top_2",
 			"menu_category": {
 				"category": "construction"
 			}
@@ -16,7 +16,7 @@
 			},
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "scpdy:facility_wall_bottom",
+					"texture": "scpdy:facility_wall_top_2",
 					"render_method": "opaque"
 				},
 				"up": {

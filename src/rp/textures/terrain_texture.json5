@@ -25,14 +25,20 @@
 		"scpdy:facility_wall": {
 			textures: "textures/scpdy/blocks/facility_wall",
 		},
-		"scpdy:facility_wall_bottom": {
-			textures: "textures/scpdy/blocks/facility_wall_bottom",
+		"scpdy:facility_wall_bottom_1": {
+			textures: "textures/scpdy/blocks/facility_wall_bottom_1",
+		},
+		"scpdy:facility_wall_bottom_2": {
+			textures: "textures/scpdy/blocks/facility_wall_bottom_2",
 		},
 		"scpdy:facility_wall_middle": {
 			textures: "textures/scpdy/blocks/facility_wall_middle",
 		},
-		"scpdy:facility_wall_top": {
-			textures: "textures/scpdy/blocks/facility_wall_top",
+		"scpdy:facility_wall_top_1": {
+			textures: "textures/scpdy/blocks/facility_wall_top_1",
+		},
+		"scpdy:facility_wall_top_2": {
+			textures: "textures/scpdy/blocks/facility_wall_top_2",
 		},
 		"scpdy:generic_floor_1": {
 			textures: "textures/scpdy/blocks/generic_floor_1",
