@@ -8,7 +8,7 @@
 					{
 						group_identifier: {
 							icon: "scpdy:tile_floor",
-							name: "scpdy:item_group_construction_blocks",
+							name: "scpdy:item_group_standard_blocks",
 						},
 						items: [
 							"scpdy:tile_floor",
