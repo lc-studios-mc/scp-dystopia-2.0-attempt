@@ -1,5 +1,9 @@
 scpdy:item_group_standard_blocks=Standard Blocks §7(SCP:DY)
 
+tile.scpdy:black_wall_bottom.name=Black Wall (Bottom)
+tile.scpdy:black_wall_top.name=Black Wall (Top)
+tile.scpdy:blue_wall_bottom.name=Blue Wall (Bottom)
+tile.scpdy:blue_wall_top.name=Blue Wall (Bottom)
 tile.scpdy:concrete_gray.name=Gray Concrete
 tile.scpdy:concrete_light_gray.name=Light Gray Concrete
 tile.scpdy:exterior_wall.name=Exterior Wall
@@ -14,6 +18,12 @@ tile.scpdy:facility_wall_top_1.name=Facility Wall (Top 1)
 tile.scpdy:facility_wall_top_2.name=Facility Wall (Top 2)
 tile.scpdy:generic_floor_1.name=Generic Floor 1
 tile.scpdy:generic_floor_2.name=Generic Floor 2
+tile.scpdy:lime_wall_bottom.name=Lime Wall (Bottom)
+tile.scpdy:lime_wall_top.name=Lime Wall (Top)
+tile.scpdy:orange_wall_bottom.name=Orange Wall (Bottom)
+tile.scpdy:orange_wall_top.name=Orange Wall (Top)
+tile.scpdy:red_wall_bottom.name=Red Wall (Bottom)
+tile.scpdy:red_wall_top.name=Red Wall (Top)
 tile.scpdy:tile_floor.name=Tile Floor
 tile.scpdy:tile_floor_black.name=Black Checkered Tile Floor
 tile.scpdy:tile_floor_blue.name=Blue Checkered Tile Floor
