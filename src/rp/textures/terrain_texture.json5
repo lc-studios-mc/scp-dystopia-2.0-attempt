@@ -10,6 +10,18 @@
 		"scpdy:concrete_light_gray": {
 			textures: "textures/scpdy/blocks/concrete_light_gray",
 		},
+		"scpdy:exterior_wall": {
+			textures: "textures/scpdy/blocks/exterior_wall",
+		},
+		"scpdy:exterior_wall_bottom": {
+			textures: "textures/scpdy/blocks/exterior_wall_bottom",
+		},
+		"scpdy:exterior_wall_middle_1": {
+			textures: "textures/scpdy/blocks/exterior_wall_middle_1",
+		},
+		"scpdy:exterior_wall_middle_2": {
+			textures: "textures/scpdy/blocks/exterior_wall_middle_2",
+		},
 		"scpdy:facility_wall": {
 			textures: "textures/scpdy/blocks/facility_wall",
 		},
