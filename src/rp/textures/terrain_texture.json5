@@ -4,6 +4,12 @@
 	padding: 8,
 	num_mip_levels: 4,
 	texture_data: {
+		"scpdy:concrete_gray": {
+			textures: "textures/scpdy/blocks/concrete_gray",
+		},
+		"scpdy:concrete_light_gray": {
+			textures: "textures/scpdy/blocks/concrete_light_gray",
+		},
 		"scpdy:facility_wall": {
 			textures: "textures/scpdy/blocks/facility_wall",
 		},

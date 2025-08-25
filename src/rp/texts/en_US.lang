@@ -1,5 +1,7 @@
 scpdy:item_group_standard_blocks=Standard Blocks §7(SCP:DY)
 
+tile.scpdy:concrete_gray.name=Gray Concrete
+tile.scpdy:concrete_light_gray.name=Light Gray Concrete
 tile.scpdy:facility_wall.name=Facility Wall
 tile.scpdy:facility_wall_bottom.name=Facility Wall (Bottom)
 tile.scpdy:facility_wall_middle.name=Facility Wall (Middle)
