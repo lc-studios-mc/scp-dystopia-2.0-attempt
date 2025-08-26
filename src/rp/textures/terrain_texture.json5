@@ -21,142 +21,142 @@
 		},
 
 		"scpdy:black_wall_bottom": {
-			textures: "textures/scpdy/blocks/black_wall_bottom",
+			textures: "textures/scpdy/blocks/standard/black_wall_bottom",
 		},
 		"scpdy:black_wall_top": {
-			textures: "textures/scpdy/blocks/black_wall_top",
+			textures: "textures/scpdy/blocks/standard/black_wall_top",
 		},
 		"scpdy:blue_wall_bottom": {
-			textures: "textures/scpdy/blocks/blue_wall_bottom",
+			textures: "textures/scpdy/blocks/standard/blue_wall_bottom",
 		},
 		"scpdy:blue_wall_top": {
-			textures: "textures/scpdy/blocks/blue_wall_top",
+			textures: "textures/scpdy/blocks/standard/blue_wall_top",
 		},
 		"scpdy:caution_block_1": {
-			textures: "textures/scpdy/blocks/caution_block_1",
+			textures: "textures/scpdy/blocks/standard/caution_block_1",
 		},
 		"scpdy:caution_block_2": {
-			textures: "textures/scpdy/blocks/caution_block_2",
+			textures: "textures/scpdy/blocks/standard/caution_block_2",
 		},
 		"scpdy:caution_block_3": {
-			textures: "textures/scpdy/blocks/caution_block_3",
+			textures: "textures/scpdy/blocks/standard/caution_block_3",
 		},
 		"scpdy:concrete_gray": {
-			textures: "textures/scpdy/blocks/concrete_gray",
+			textures: "textures/scpdy/blocks/standard/concrete_gray",
 		},
 		"scpdy:concrete_light_gray": {
-			textures: "textures/scpdy/blocks/concrete_light_gray",
+			textures: "textures/scpdy/blocks/standard/concrete_light_gray",
 		},
 		"scpdy:cushion": {
-			textures: "textures/scpdy/blocks/cushion",
+			textures: "textures/scpdy/blocks/standard/cushion",
 		},
 		"scpdy:exterior_wall": {
-			textures: "textures/scpdy/blocks/exterior_wall",
+			textures: "textures/scpdy/blocks/standard/exterior_wall",
 		},
 		"scpdy:exterior_wall_bottom": {
-			textures: "textures/scpdy/blocks/exterior_wall_bottom",
+			textures: "textures/scpdy/blocks/standard/exterior_wall_bottom",
 		},
 		"scpdy:exterior_wall_middle_1": {
-			textures: "textures/scpdy/blocks/exterior_wall_middle_1",
+			textures: "textures/scpdy/blocks/standard/exterior_wall_middle_1",
 		},
 		"scpdy:exterior_wall_middle_2": {
-			textures: "textures/scpdy/blocks/exterior_wall_middle_2",
+			textures: "textures/scpdy/blocks/standard/exterior_wall_middle_2",
 		},
 		"scpdy:facility_lamp_1": {
-			textures: "textures/scpdy/blocks/facility_lamp_1",
+			textures: "textures/scpdy/blocks/standard/facility_lamp_1",
 		},
 		"scpdy:facility_lamp_1_off": {
-			textures: "textures/scpdy/blocks/facility_lamp_1_off",
+			textures: "textures/scpdy/blocks/standard/facility_lamp_1_off",
 		},
 		"scpdy:facility_lamp_2": {
-			textures: "textures/scpdy/blocks/facility_lamp_2",
+			textures: "textures/scpdy/blocks/standard/facility_lamp_2",
 		},
 		"scpdy:facility_lamp_2_off": {
-			textures: "textures/scpdy/blocks/facility_lamp_2_off",
+			textures: "textures/scpdy/blocks/standard/facility_lamp_2_off",
 		},
 		"scpdy:facility_wall": {
-			textures: "textures/scpdy/blocks/facility_wall",
+			textures: "textures/scpdy/blocks/standard/facility_wall",
 		},
 		"scpdy:facility_wall_bottom_1": {
-			textures: "textures/scpdy/blocks/facility_wall_bottom_1",
+			textures: "textures/scpdy/blocks/standard/facility_wall_bottom_1",
 		},
 		"scpdy:facility_wall_bottom_2": {
-			textures: "textures/scpdy/blocks/facility_wall_bottom_2",
+			textures: "textures/scpdy/blocks/standard/facility_wall_bottom_2",
 		},
 		"scpdy:facility_wall_middle": {
-			textures: "textures/scpdy/blocks/facility_wall_middle",
+			textures: "textures/scpdy/blocks/standard/facility_wall_middle",
 		},
 		"scpdy:facility_wall_top_1": {
-			textures: "textures/scpdy/blocks/facility_wall_top_1",
+			textures: "textures/scpdy/blocks/standard/facility_wall_top_1",
 		},
 		"scpdy:facility_wall_top_2": {
-			textures: "textures/scpdy/blocks/facility_wall_top_2",
+			textures: "textures/scpdy/blocks/standard/facility_wall_top_2",
 		},
 		"scpdy:generic_floor_1": {
-			textures: "textures/scpdy/blocks/generic_floor_1",
+			textures: "textures/scpdy/blocks/standard/generic_floor_1",
 		},
 		"scpdy:generic_floor_2": {
-			textures: "textures/scpdy/blocks/generic_floor_2",
+			textures: "textures/scpdy/blocks/standard/generic_floor_2",
 		},
 		"scpdy:heavy_floor": {
-			textures: "textures/scpdy/blocks/heavy_floor",
+			textures: "textures/scpdy/blocks/standard/heavy_floor",
 		},
 		"scpdy:heavy_wall": {
-			textures: "textures/scpdy/blocks/heavy_wall",
+			textures: "textures/scpdy/blocks/standard/heavy_wall",
 		},
 		"scpdy:heavy_wall_bottom": {
-			textures: "textures/scpdy/blocks/heavy_wall_bottom",
+			textures: "textures/scpdy/blocks/standard/heavy_wall_bottom",
 		},
 		"scpdy:heavy_wall_top": {
-			textures: "textures/scpdy/blocks/heavy_wall_top",
+			textures: "textures/scpdy/blocks/standard/heavy_wall_top",
 		},
 		"scpdy:lime_wall_bottom": {
-			textures: "textures/scpdy/blocks/lime_wall_bottom",
+			textures: "textures/scpdy/blocks/standard/lime_wall_bottom",
 		},
 		"scpdy:lime_wall_top": {
-			textures: "textures/scpdy/blocks/lime_wall_top",
+			textures: "textures/scpdy/blocks/standard/lime_wall_top",
 		},
 		"scpdy:office_ceiling_1": {
-			textures: "textures/scpdy/blocks/office_ceiling_1",
+			textures: "textures/scpdy/blocks/standard/office_ceiling_1",
 		},
 		"scpdy:office_ceiling_2": {
-			textures: "textures/scpdy/blocks/office_ceiling_2",
+			textures: "textures/scpdy/blocks/standard/office_ceiling_2",
 		},
 		"scpdy:orange_wall_bottom": {
-			textures: "textures/scpdy/blocks/orange_wall_bottom",
+			textures: "textures/scpdy/blocks/standard/orange_wall_bottom",
 		},
 		"scpdy:orange_wall_top": {
-			textures: "textures/scpdy/blocks/orange_wall_top",
+			textures: "textures/scpdy/blocks/standard/orange_wall_top",
 		},
 		"scpdy:panel_wall_blue": {
-			textures: "textures/scpdy/blocks/panel_wall_blue",
+			textures: "textures/scpdy/blocks/standard/panel_wall_blue",
 		},
 		"scpdy:panel_wall_red": {
-			textures: "textures/scpdy/blocks/panel_wall_red",
+			textures: "textures/scpdy/blocks/standard/panel_wall_red",
 		},
 		"scpdy:panel_wall_white": {
-			textures: "textures/scpdy/blocks/panel_wall_white",
+			textures: "textures/scpdy/blocks/standard/panel_wall_white",
 		},
 		"scpdy:red_wall_bottom": {
-			textures: "textures/scpdy/blocks/red_wall_bottom",
+			textures: "textures/scpdy/blocks/standard/red_wall_bottom",
 		},
 		"scpdy:red_wall_top": {
-			textures: "textures/scpdy/blocks/red_wall_top",
+			textures: "textures/scpdy/blocks/standard/red_wall_top",
 		},
 		"scpdy:storage_wall": {
-			textures: "textures/scpdy/blocks/storage_wall",
+			textures: "textures/scpdy/blocks/standard/storage_wall",
 		},
 		"scpdy:tile_floor": {
-			textures: "textures/scpdy/blocks/tile_floor",
+			textures: "textures/scpdy/blocks/standard/tile_floor",
 		},
 		"scpdy:tile_floor_black": {
-			textures: "textures/scpdy/blocks/tile_floor_black",
+			textures: "textures/scpdy/blocks/standard/tile_floor_black",
 		},
 		"scpdy:tile_floor_blue": {
-			textures: "textures/scpdy/blocks/tile_floor_blue",
+			textures: "textures/scpdy/blocks/standard/tile_floor_blue",
 		},
 		"scpdy:tile_floor_cyan": {
-			textures: "textures/scpdy/blocks/tile_floor_cyan",
+			textures: "textures/scpdy/blocks/standard/tile_floor_cyan",
 		},
 	},
 }
