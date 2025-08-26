@@ -8,6 +8,7 @@
 			}
 		},
 		"components": {
+			"minecraft:display_name": "scpdy:panel_wall_blue",
 			"minecraft:light_dampening": 15,
 			"minecraft:light_emission": 0,
 			"minecraft:map_color": "#1e2164",

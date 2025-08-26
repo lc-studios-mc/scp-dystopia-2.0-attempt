@@ -8,6 +8,7 @@
 			}
 		},
 		"components": {
+			"minecraft:display_name": "scpdy:tile_floor_blue",
 			"minecraft:light_dampening": 10,
 			"minecraft:light_emission": 0,
 			"minecraft:map_color": "#cfcfcf",
