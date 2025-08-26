@@ -35,6 +35,9 @@
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 1
 			},
+			"minecraft:movable": {
+				"movement_type": "popped"
+			},
 			"minecraft:collision_box": false,
 			"minecraft:selection_box": {
 				"origin": [-8, 0, 7],
