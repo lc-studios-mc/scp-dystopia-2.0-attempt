@@ -77,6 +77,20 @@
 							"scpdy:facility_lamp_2_off",
 						],
 					},
+
+					{
+						group_identifier: {
+							icon: "scpdy:poster_cafeteria",
+							name: "scpdy:item_group_signs_and_posters",
+						},
+						items: [
+							"scpdy:poster_cafeteria",
+							"scpdy:poster_ntf",
+							"scpdy:poster_recycle",
+							"scpdy:poster_scp",
+							"scpdy:poster_winningson",
+						],
+					},
 				],
 			},
 		],

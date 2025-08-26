@@ -1,6 +1,13 @@
 scpdy:item_group_standard_blocks_1=Standard Blocks 1 §7(SCP:DY)
 scpdy:item_group_standard_blocks_2=Standard Blocks 2 §7(SCP:DY)
 scpdy:item_group_lighting=Lighting §7(SCP:DY)
+scpdy:item_group_signs_and_posters=Signs and Posters §7(SCP:DY)
+
+tile.scpdy:poster_cafeteria.name=Poster: Cafeteria
+tile.scpdy:poster_ntf.name=Poster: MTF Epsilon-11
+tile.scpdy:poster_recycle.name=Poster: Recycle
+tile.scpdy:poster_scp.name=Poster: SCP Foundation
+tile.scpdy:poster_winningson.name=Poster: Are Ya Winning, Son?
 
 tile.scpdy:black_wall_bottom.name=Black Wall (Bottom)
 tile.scpdy:black_wall_top.name=Black Wall (Top)

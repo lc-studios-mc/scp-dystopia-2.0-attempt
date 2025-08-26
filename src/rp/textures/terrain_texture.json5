@@ -4,6 +4,22 @@
 	padding: 8,
 	num_mip_levels: 4,
 	texture_data: {
+		"scpdy:poster_cafeteria": {
+			textures: "textures/scpdy/blocks/posters/poster_cafeteria",
+		},
+		"scpdy:poster_ntf": {
+			textures: "textures/scpdy/blocks/posters/poster_ntf",
+		},
+		"scpdy:poster_recycle": {
+			textures: "textures/scpdy/blocks/posters/poster_recycle",
+		},
+		"scpdy:poster_scp": {
+			textures: "textures/scpdy/blocks/posters/poster_scp",
+		},
+		"scpdy:poster_winningson": {
+			textures: "textures/scpdy/blocks/posters/poster_winningson",
+		},
+
 		"scpdy:black_wall_bottom": {
 			textures: "textures/scpdy/blocks/black_wall_bottom",
 		},
