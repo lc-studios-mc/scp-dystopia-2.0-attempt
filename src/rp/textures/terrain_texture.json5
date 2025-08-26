@@ -97,6 +97,9 @@
 		"scpdy:red_wall_top": {
 			textures: "textures/scpdy/blocks/red_wall_top",
 		},
+		"scpdy:storage_wall": {
+			textures: "textures/scpdy/blocks/storage_wall",
+		},
 		"scpdy:tile_floor": {
 			textures: "textures/scpdy/blocks/tile_floor",
 		},

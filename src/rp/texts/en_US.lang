@@ -32,6 +32,7 @@ tile.scpdy:orange_wall_bottom.name=Orange Wall (Bottom)
 tile.scpdy:orange_wall_top.name=Orange Wall (Top)
 tile.scpdy:red_wall_bottom.name=Red Wall (Bottom)
 tile.scpdy:red_wall_top.name=Red Wall (Top)
+tile.scpdy:storage_wall.name=Storage Wall
 tile.scpdy:tile_floor.name=Tile Floor
 tile.scpdy:tile_floor_black.name=Black Checkered Tile Floor
 tile.scpdy:tile_floor_blue.name=Blue Checkered Tile Floor
