@@ -1,0 +1,38 @@
+{
+	"format_version": "1.21.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "scpdy:cushion",
+			"menu_category": {
+				"category": "construction"
+			}
+		},
+		"components": {
+			"minecraft:light_dampening": 15,
+			"minecraft:light_emission": 0,
+			"minecraft:map_color": "#cfcfcf",
+			"minecraft:geometry": {
+				"identifier": "minecraft:geometry.full_block"
+			},
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "scpdy:cushion",
+					"render_method": "opaque"
+				}
+			},
+			"minecraft:redstone_conductivity": {
+				"redstone_conductor": true
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 4
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1
+			},
+			"minecraft:flammable": {
+				"catch_chance_modifier": 7,
+				"destroy_chance_modifier": 23
+			}
+		}
+	}
+}

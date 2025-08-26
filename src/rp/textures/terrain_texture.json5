@@ -22,6 +22,9 @@
 		"scpdy:concrete_light_gray": {
 			textures: "textures/scpdy/blocks/concrete_light_gray",
 		},
+		"scpdy:cushion": {
+			textures: "textures/scpdy/blocks/cushion",
+		},
 		"scpdy:exterior_wall": {
 			textures: "textures/scpdy/blocks/exterior_wall",
 		},
