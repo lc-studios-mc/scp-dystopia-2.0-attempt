@@ -19,6 +19,7 @@ tile.scpdy:caution_block_3.name=Caution Block 3
 tile.scpdy:concrete_gray.name=Gray Concrete
 tile.scpdy:concrete_light_gray.name=Light Gray Concrete
 tile.scpdy:cushion.name=Cushion
+tile.scpdy:duct_block.name=Duct Block
 tile.scpdy:exterior_wall.name=Exterior Wall
 tile.scpdy:exterior_wall_bottom.name=Exterior Wall (Bottom)
 tile.scpdy:exterior_wall_middle_1.name=Exterior Wall (Middle 1)

@@ -63,6 +63,9 @@
 		"scpdy:cushion": {
 			textures: "textures/scpdy/blocks/standard/cushion",
 		},
+		"scpdy:duct_block": {
+			textures: "textures/scpdy/blocks/standard/duct_block",
+		},
 		"scpdy:exterior_wall": {
 			textures: "textures/scpdy/blocks/standard/exterior_wall",
 		},
