@@ -94,6 +94,19 @@
 					},
 				],
 			},
+
+			{
+				category_name: "items",
+				groups: [
+					{
+						group_identifier: {
+							icon: "scpdy:scp500_pill",
+							name: "scpdy:item_group_scp_related",
+						},
+						items: ["scpdy:scp500_pill", "scpdy:scp500_bottle"],
+					},
+				],
+			},
 		],
 	},
 }

@@ -2,6 +2,10 @@ scpdy:item_group_standard_blocks_1=Standard Blocks 1 §7(SCP:DY)
 scpdy:item_group_standard_blocks_2=Standard Blocks 2 §7(SCP:DY)
 scpdy:item_group_lighting=Lighting §7(SCP:DY)
 scpdy:item_group_signs_and_posters=Signs and Posters §7(SCP:DY)
+scpdy:item_group_scp_related=SCP-related §7(SCP:DY)
+
+scpdy:scp500_bottle=SCP-500 Bottle
+scpdy:scp500_pill=SCP-500 Pill
 
 tile.scpdy:poster_cafeteria.name=Poster: Cafeteria
 tile.scpdy:poster_ntf.name=Poster: MTF Epsilon-11

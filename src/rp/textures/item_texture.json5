@@ -1,0 +1,12 @@
+{
+	resource_pack_name: "scpdy",
+	texture_name: "atlas.items",
+	texture_data: {
+		"scpdy:scp500_bottle": {
+			textures: "textures/scpdy/items/scp/scp500_bottle",
+		},
+		"scpdy:scp500_pill": {
+			textures: "textures/scpdy/items/scp/scp500_pill",
+		},
+	},
+}
