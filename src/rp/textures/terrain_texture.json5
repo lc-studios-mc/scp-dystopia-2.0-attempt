@@ -16,6 +16,15 @@
 		"scpdy:blue_wall_top": {
 			textures: "textures/scpdy/blocks/blue_wall_top",
 		},
+		"scpdy:caution_block_1": {
+			textures: "textures/scpdy/blocks/caution_block_1",
+		},
+		"scpdy:caution_block_2": {
+			textures: "textures/scpdy/blocks/caution_block_2",
+		},
+		"scpdy:caution_block_3": {
+			textures: "textures/scpdy/blocks/caution_block_3",
+		},
 		"scpdy:concrete_gray": {
 			textures: "textures/scpdy/blocks/concrete_gray",
 		},
