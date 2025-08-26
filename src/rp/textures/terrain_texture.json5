@@ -64,6 +64,15 @@
 		"scpdy:heavy_floor": {
 			textures: "textures/scpdy/blocks/heavy_floor",
 		},
+		"scpdy:heavy_wall": {
+			textures: "textures/scpdy/blocks/heavy_wall",
+		},
+		"scpdy:heavy_wall_bottom": {
+			textures: "textures/scpdy/blocks/heavy_wall_bottom",
+		},
+		"scpdy:heavy_wall_top": {
+			textures: "textures/scpdy/blocks/heavy_wall_top",
+		},
 		"scpdy:lime_wall_bottom": {
 			textures: "textures/scpdy/blocks/lime_wall_bottom",
 		},
