@@ -12,7 +12,8 @@
 			"minecraft:light_emission": 0,
 			"minecraft:map_color": "#cfcfcf",
 			"minecraft:geometry": {
-				"identifier": "geometry.scpdy.tile_floor"
+				"identifier": "geometry.scpdy.tile_floor",
+				"culling": "scpdy:culling.tile_floor"
 			},
 			"minecraft:material_instances": {
 				"*": {

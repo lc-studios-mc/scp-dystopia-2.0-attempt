@@ -17,7 +17,8 @@
 			"minecraft:material_instances": {
 				"*": {
 					"texture": "scpdy:tile_floor_black",
-					"render_method": "opaque"
+					"render_method": "opaque",
+					"culling": "scpdy:culling.tile_floor"
 				}
 			},
 			"minecraft:redstone_conductivity": {
