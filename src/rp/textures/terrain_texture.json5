@@ -4,6 +4,19 @@
 	padding: 8,
 	num_mip_levels: 4,
 	texture_data: {
+		"scpdy:facility_lamp_1": {
+			textures: "textures/scpdy/blocks/lighting/facility_lamp_1",
+		},
+		"scpdy:facility_lamp_1_off": {
+			textures: "textures/scpdy/blocks/lighting/facility_lamp_1_off",
+		},
+		"scpdy:facility_lamp_2": {
+			textures: "textures/scpdy/blocks/lighting/facility_lamp_2",
+		},
+		"scpdy:facility_lamp_2_off": {
+			textures: "textures/scpdy/blocks/lighting/facility_lamp_2_off",
+		},
+
 		"scpdy:poster_cafeteria": {
 			textures: "textures/scpdy/blocks/posters/poster_cafeteria",
 		},
@@ -61,18 +74,6 @@
 		},
 		"scpdy:exterior_wall_middle_2": {
 			textures: "textures/scpdy/blocks/standard/exterior_wall_middle_2",
-		},
-		"scpdy:facility_lamp_1": {
-			textures: "textures/scpdy/blocks/standard/facility_lamp_1",
-		},
-		"scpdy:facility_lamp_1_off": {
-			textures: "textures/scpdy/blocks/standard/facility_lamp_1_off",
-		},
-		"scpdy:facility_lamp_2": {
-			textures: "textures/scpdy/blocks/standard/facility_lamp_2",
-		},
-		"scpdy:facility_lamp_2_off": {
-			textures: "textures/scpdy/blocks/standard/facility_lamp_2_off",
 		},
 		"scpdy:facility_wall": {
 			textures: "textures/scpdy/blocks/standard/facility_wall",
