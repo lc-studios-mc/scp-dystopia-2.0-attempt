@@ -1,6 +1,10 @@
 {
 	format_version: "1.1.0",
 	"scpdy:cushion": { sound: "cloth" },
+	"scpdy:facility_lamp_1": { sound: "glass" },
+	"scpdy:facility_lamp_1_off": { sound: "glass" },
+	"scpdy:facility_lamp_2": { sound: "glass" },
+	"scpdy:facility_lamp_2_off": { sound: "glass" },
 	"scpdy:heavy_floor": { sound: "iron" },
 	"scpdy:storage_wall": { sound: "metal" },
 }

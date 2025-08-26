@@ -46,6 +46,18 @@
 		"scpdy:exterior_wall_middle_2": {
 			textures: "textures/scpdy/blocks/exterior_wall_middle_2",
 		},
+		"scpdy:facility_lamp_1": {
+			textures: "textures/scpdy/blocks/facility_lamp_1",
+		},
+		"scpdy:facility_lamp_1_off": {
+			textures: "textures/scpdy/blocks/facility_lamp_1_off",
+		},
+		"scpdy:facility_lamp_2": {
+			textures: "textures/scpdy/blocks/facility_lamp_2",
+		},
+		"scpdy:facility_lamp_2_off": {
+			textures: "textures/scpdy/blocks/facility_lamp_2_off",
+		},
 		"scpdy:facility_wall": {
 			textures: "textures/scpdy/blocks/facility_wall",
 		},

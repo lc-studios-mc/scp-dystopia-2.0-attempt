@@ -61,6 +61,19 @@
 							"scpdy:storage_wall",
 						],
 					},
+
+					{
+						group_identifier: {
+							icon: "scpdy:facility_lamp_1",
+							name: "scpdy:item_group_lighting",
+						},
+						items: [
+							"scpdy:facility_lamp_1",
+							"scpdy:facility_lamp_1_off",
+							"scpdy:facility_lamp_2",
+							"scpdy:facility_lamp_2_off",
+						],
+					},
 				],
 			},
 		],

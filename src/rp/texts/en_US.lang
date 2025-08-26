@@ -1,5 +1,6 @@
 scpdy:item_group_standard_blocks_1=Standard Blocks 1 §7(SCP:DY)
 scpdy:item_group_standard_blocks_2=Standard Blocks 2 §7(SCP:DY)
+scpdy:item_group_lighting=Lighting §7(SCP:DY)
 
 tile.scpdy:black_wall_bottom.name=Black Wall (Bottom)
 tile.scpdy:black_wall_top.name=Black Wall (Top)
@@ -15,6 +16,10 @@ tile.scpdy:exterior_wall.name=Exterior Wall
 tile.scpdy:exterior_wall_bottom.name=Exterior Wall (Bottom)
 tile.scpdy:exterior_wall_middle_1.name=Exterior Wall (Middle 1)
 tile.scpdy:exterior_wall_middle_2.name=Exterior Wall (Middle 2)
+tile.scpdy:facility_lamp_1.name=Facility Lamp 1
+tile.scpdy:facility_lamp_1_off.name=Facility Lamp 1 (Off)
+tile.scpdy:facility_lamp_2.name=Facility Lamp 2
+tile.scpdy:facility_lamp_2_off.name=Facility Lamp 2 (Off)
 tile.scpdy:facility_wall.name=Facility Wall
 tile.scpdy:facility_wall_bottom_1.name=Facility Wall (Bottom 1)
 tile.scpdy:facility_wall_bottom_2.name=Facility Wall (Bottom 2)
