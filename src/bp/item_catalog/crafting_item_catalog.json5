@@ -8,7 +8,7 @@
 					{
 						group_identifier: {
 							icon: "scpdy:tile_floor",
-							name: "scpdy:item_group_standard_blocks",
+							name: "scpdy:item_group_standard_blocks_1",
 						},
 						items: [
 							"scpdy:tile_floor",
@@ -19,6 +19,22 @@
 							"scpdy:generic_floor_2",
 							"scpdy:concrete_gray",
 							"scpdy:concrete_light_gray",
+							"scpdy:office_ceiling_1",
+							"scpdy:office_ceiling_2",
+							"scpdy:cushion",
+						],
+					},
+
+					{
+						group_identifier: {
+							icon: "scpdy:exterior_wall",
+							name: "scpdy:item_group_standard_blocks_2",
+						},
+						items: [
+							"scpdy:exterior_wall",
+							"scpdy:exterior_wall_bottom",
+							"scpdy:exterior_wall_middle_1",
+							"scpdy:exterior_wall_middle_2",
 							"scpdy:facility_wall",
 							"scpdy:facility_wall_bottom_1",
 							"scpdy:facility_wall_bottom_2",
@@ -35,13 +51,6 @@
 							"scpdy:orange_wall_top",
 							"scpdy:red_wall_bottom",
 							"scpdy:red_wall_top",
-							"scpdy:exterior_wall",
-							"scpdy:exterior_wall_bottom",
-							"scpdy:exterior_wall_middle_1",
-							"scpdy:exterior_wall_middle_2",
-							"scpdy:office_ceiling_1",
-							"scpdy:office_ceiling_2",
-							"scpdy:cushion",
 						],
 					},
 				],
