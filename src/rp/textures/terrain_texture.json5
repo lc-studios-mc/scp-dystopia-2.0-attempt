@@ -112,6 +112,15 @@
 		"scpdy:orange_wall_top": {
 			textures: "textures/scpdy/blocks/orange_wall_top",
 		},
+		"scpdy:panel_wall_blue": {
+			textures: "textures/scpdy/blocks/panel_wall_blue",
+		},
+		"scpdy:panel_wall_red": {
+			textures: "textures/scpdy/blocks/panel_wall_red",
+		},
+		"scpdy:panel_wall_white": {
+			textures: "textures/scpdy/blocks/panel_wall_white",
+		},
 		"scpdy:red_wall_bottom": {
 			textures: "textures/scpdy/blocks/red_wall_bottom",
 		},
