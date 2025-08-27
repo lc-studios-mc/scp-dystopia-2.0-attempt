@@ -203,6 +203,9 @@ export default defineConfig((args) => {
 					entry: "src/bp/scripts/main.ts",
 					bundle: true,
 					sourceMap: true,
+					esbuildOptionOverrides: {
+						platform: "node",
+					},
 				},
 			},
 			{
