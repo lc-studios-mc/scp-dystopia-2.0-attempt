@@ -9,7 +9,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@lc-studios-mc/scripting-utils": "github:lc-studios-mc/scripting-utils#semver:^3.0.0",
 		"@minecraft/server": "2.2.0-beta.1.21.100-stable",
 		"@minecraft/server-ui": "2.1.0-beta.1.21.100-stable"
 	},
