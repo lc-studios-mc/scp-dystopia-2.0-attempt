@@ -4,6 +4,7 @@ scpdy:item_group_lighting=Lighting §7(SCP:DY)
 scpdy:item_group_signs_and_posters=Signs and Posters §7(SCP:DY)
 scpdy:item_group_scp_related=SCP-related §7(SCP:DY)
 
+scpdy:scp012=SCP-012
 scpdy:scp500_bottle=SCP-500 Bottle
 scpdy:scp500_pill=SCP-500 Pill
 
@@ -12,7 +13,6 @@ scpdy:poster_ntf=Poster: MTF Epsilon-11
 scpdy:poster_recycle=Poster: Recycle
 scpdy:poster_scp=Poster: SCP Foundation
 scpdy:poster_winningson=Poster: Are Ya Winning, Son?
-
 scpdy:black_wall_bottom=Black Wall (Bottom)
 scpdy:black_wall_top=Black Wall (Top)
 scpdy:blue_wall_bottom=Blue Wall (Bottom)

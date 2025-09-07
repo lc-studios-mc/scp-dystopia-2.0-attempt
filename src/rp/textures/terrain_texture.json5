@@ -33,6 +33,10 @@
 			textures: "textures/scpdy/blocks/posters/poster_winningson",
 		},
 
+		"scpdy:scp012": {
+			textures: "textures/scpdy/blocks/scp/scp012",
+		},
+
 		"scpdy:black_wall_bottom": {
 			textures: "textures/scpdy/blocks/standard/black_wall_bottom",
 		},
