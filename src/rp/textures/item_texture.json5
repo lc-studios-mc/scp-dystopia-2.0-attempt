@@ -2,6 +2,9 @@
 	resource_pack_name: "scpdy",
 	texture_name: "atlas.items",
 	texture_data: {
+		"scpdy:scp207": {
+			textures: "textures/scpdy/items/scp/scp207",
+		},
 		"scpdy:scp500_bottle": {
 			textures: "textures/scpdy/items/scp/scp500_bottle",
 		},

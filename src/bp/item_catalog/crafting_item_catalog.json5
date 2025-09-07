@@ -103,7 +103,7 @@
 							icon: "scpdy:scp012",
 							name: "scpdy:item_group_scp_related",
 						},
-						items: ["scpdy:scp012", "scpdy:scp500_pill", "scpdy:scp500_bottle"],
+						items: ["scpdy:scp012", "scpdy:scp207", "scpdy:scp500_pill", "scpdy:scp500_bottle"],
 					},
 				],
 			},
