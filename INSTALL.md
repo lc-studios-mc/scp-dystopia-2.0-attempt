@@ -108,6 +108,19 @@ I'm working on it, but it's not finished yet enough to merge such huge changes i
 
 So there's another branch named `restoration`, which is where I work on the v1 restoration project.
 
+You can use the `git checkout <branch>` command to move to a different branch.
+By default, you are on the main branch.
+
+If you want to go to the `restoration` branch:
+```shell
+git checkout restoration
+```
+
+If you want to go back to the `main` branch:
+```shell
+git checkout main
+```
+
 ### Fetching and pulling (retrieving) the latest state
 
 TODO
