@@ -12,6 +12,8 @@ If you want it in development state without waiting for a proper release, read t
 
 ## Build from source
 
+Follow the steps written in this section from top to bottom.
+
 ⚠️ You can only do this on Windows or Linux.
 
 ### Installing the required tools
