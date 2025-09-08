@@ -139,7 +139,10 @@ Make sure you're on the correct branch: [Choosing a branch](#choosing-a-branch)
 
 Run: 
 ```shell
-git fetch # Fetch information from remote
-git pull # Sync the branch you are currently on with the remote state (i.e. the latest state)
-pnpm i # Update internal dependencies
+# Fetch information from remote
+git fetch
+# Sync the branch you are currently on with the remote state (i.e. the latest state)
+git pull
+# Update internal dependencies
+pnpm i
 ```
