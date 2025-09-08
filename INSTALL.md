@@ -22,7 +22,7 @@ The required tools:
 - Node.js
 
 On Windows, open your terminal and run:
-```bash
+```shell
 winget install Git.Git
 winget install pnpm.pnpm
 winget install OpenJS.NodeJS.LTS
@@ -30,15 +30,26 @@ winget install OpenJS.NodeJS.LTS
 
 On Linux, I assume you can search it on your own.
 
-Verify installation of each tool:
-```bash
+Verify installation of each tool (<ins>you might have to restart your computer</ins>):
+```shell
 git --version
 pnpm --version
 node --version
 ```
 
-<ins>You might have to restart your computer.</ins>
-
 ### Clone the repository
 
-TODO
+Create a folder somewhere on your computer's drive, name it something like "minecraft_addons".
+Existing folder is also fine.
+
+Open terminal in that folder.
+On Windows, right click on the empty area inside the folder to open context menu, and left click "Open in terminal".
+
+Run:
+```shell
+git clone https://github.com/lc-studios-mc/scp-dystopia.git
+```
+
+It will create a folder named `scp-dystopia`, which is a local clone of the [lc-studios-mc/scp-dystopia](https://github.com/lc-studios-mc/scp-dystopia) repository.
+
+<ins>If you screw up something, you can always delete this folder (scp-dystopia) and clone it again.</ins>
