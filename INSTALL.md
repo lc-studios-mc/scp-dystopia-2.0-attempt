@@ -96,13 +96,13 @@ Git branch is a complex topic on its own, so I won't deep dive into it here.
 
 Branches are like a parallel timeline of a repository.
 
-There's `main`, which is *usually* up-to-date and contains the latest state of development.
+In this repository, there's `main` branch, which is *usually* up-to-date and contains the latest state of development.
 
-Why did I say "usually"? Well, let's say I post a video on YouTube showcasing a new feature,
-but that new feature may not have been uploaded to the main branch **yet**.
+Why did I say "usually"? Let's say I post a video on YouTube showcasing a new feature,
+but that new feature may not have been uploaded to the main branch *yet*.
 
-That applies to the case of the v1 restoration project
-(fixing and restoring the old features that are now broken)
+**That applies to the case of the v1 restoration project**
+(aimed to fix and restore the old features that are now broken)
 
 I'm working on it, but it's not finished yet enough to merge such huge changes into the main branch.
 
@@ -111,16 +111,33 @@ So there's another branch named `restoration`, which is where I work on the v1 r
 You can use the `git checkout <branch>` command to move to a different branch.
 By default, you are on the main branch.
 
-If you want to go to the `restoration` branch:
+**Know which branch you're on:**
+```shell
+git branch
+```
+
+**If you want to go to the `restoration` branch:**
 ```shell
 git checkout restoration
 ```
 
-If you want to go back to the `main` branch:
+**If you want to go back to the `main` branch:**
 ```shell
 git checkout main
 ```
 
+> [!CAUTION]
+> Some commands shown here may not work on certain branches, but should work on `main` and `restoration`.
+
 ### Fetching and pulling (retrieving) the latest state
 
-TODO
+<ins>Do this every time you want a new development version.</ins>
+
+Make sure you're on the correct branch: [Choosing a branch](#choosing-a-branch)
+
+Run: 
+```shell
+git fetch # Fetch information from remote
+git pull # Sync the branch you are currently on with the remote state (i.e. the latest state)
+pnpm i # Update internal dependencies
+```
