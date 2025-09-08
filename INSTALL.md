@@ -14,7 +14,7 @@ If you want it in development state without waiting for a proper release, read t
 
 ⚠️ You can only do this on Windows or Linux.
 
-### Installing the required tools
+### Install the required tools
 
 The required tools are:
 - Git
@@ -50,10 +50,30 @@ Run:
 git clone https://github.com/lc-studios-mc/scp-dystopia.git
 ```
 
-It will create a folder named `scp-dystopia`, which would be a local clone of the [lc-studios-mc/scp-dystopia](https://github.com/lc-studios-mc/scp-dystopia) repository.
+It will create a folder named "scp-dystopia", which would be a local clone of the [lc-studios-mc/scp-dystopia](https://github.com/lc-studios-mc/scp-dystopia) repository.
 
 <ins>If you screw up something, you can always delete this folder (scp-dystopia) and clone it again.</ins>
 
-### Compiling
+### Setting environment variables
 
-TODO
+Create a file named `.env` at top level of the scp-dystopia folder and open it in your text editor.
+
+Copy and paste this text:
+```env
+DEV_BP_OUTDIR="C:\Users\{USERNAME}\AppData\Local\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang\development_behavior_packs\SCPDY_BP_DEV"
+DEV_RP_OUTDIR="C:\Users\{USERNAME}\AppData\Local\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang\development_resource_packs\SCPDY_RP_DEV"
+```
+
+<ins>Replace two `{USERNAME}` in the pasted text with the actual username of yours. Look inside `C:\Users\` to know your username.</ins>
+
+#### Changing pack output locations
+
+The text `DEV_BP_OUTDIR="C:\Users\{USERNAME}\..."` <br/>
+essentially tells the system: `the path "C:\Users\{USERNAME}\..." is where the compiled/generated pack will be at.`
+
+So, if you want the packs to be generated inside `C:\SCP_Dystopia\` for example, you can change the content of .env file to:
+
+```env
+DEV_BP_OUTDIR="C:\SCP_Dystopia\SCPDY_BP_DEV"
+DEV_RP_OUTDIR="C:\SCP_Dystopia\SCPDY_RP_DEV"
+```
