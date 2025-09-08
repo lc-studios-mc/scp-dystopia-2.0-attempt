@@ -16,7 +16,7 @@ If you want it in development state without waiting for a proper release, read t
 
 ### Installing the required tools
 
-The required tools:
+The required tools are:
 - Git
 - pnpm
 - Node.js
