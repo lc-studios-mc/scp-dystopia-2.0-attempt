@@ -83,6 +83,13 @@ DEV_BP_OUTDIR="C:\SCP_Dystopia\SCPDY_BP_DEV"
 DEV_RP_OUTDIR="C:\SCP_Dystopia\SCPDY_RP_DEV"
 ```
 
+If you're a Linux user:
+
+```env
+DEV_BP_OUTDIR="/path/to/minecrafts/behavior_packs/SCPDY_BP"
+DEV_RP_OUTDIR="/path/to/minecrafts/resource_packs/SCPDY_BP"
+```
+
 ### Fetching and pulling (retrieving) the latest state
 
 TODO
