@@ -50,6 +50,10 @@ Run:
 git clone https://github.com/lc-studios-mc/scp-dystopia.git
 ```
 
-It will create a folder named `scp-dystopia`, which is a local clone of the [lc-studios-mc/scp-dystopia](https://github.com/lc-studios-mc/scp-dystopia) repository.
+It will create a folder named `scp-dystopia`, which would be a local clone of the [lc-studios-mc/scp-dystopia](https://github.com/lc-studios-mc/scp-dystopia) repository.
 
 <ins>If you screw up something, you can always delete this folder (scp-dystopia) and clone it again.</ins>
+
+### Compiling
+
+TODO
