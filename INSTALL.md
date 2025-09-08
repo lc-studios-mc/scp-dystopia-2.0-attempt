@@ -2,7 +2,7 @@
 
 This page explains how you can install the SCP: Dystopia addon on your Minecraft Bedrock.
 
-If you want it in development state without waiting for a proper release, read the [Build from source](#build-from-source) section.
+If you want it in development state without waiting for a proper release, read the [Getting the latest state](#getting-the-latest-state) section.
 
 ## Installing a normal release
 
@@ -10,7 +10,7 @@ If you want it in development state without waiting for a proper release, read t
 1. Open the file, Minecraft should automatically install it for you.
 1. Add the addon to your world and play!
 
-## Build from source
+## Getting the latest state
 
 Follow the steps written in this section from top to bottom.
 
