@@ -11,8 +11,8 @@ mc.system.beforeEvents.startup.subscribe(({ itemComponentRegistry }) => {
 				amplifier: 1,
 			});
 
-			arg.source.addEffect("jump_boost", 180 * mc.TicksPerSecond, {
-				amplifier: 1,
+			arg.source.addEffect("wither", 180 * mc.TicksPerSecond, {
+				amplifier: 0,
 			});
 		},
 	});
