@@ -2,7 +2,7 @@
 
 This page explains how you can install the SCP: Dystopia addon on your Minecraft Bedrock.
 
-If you want it in development state without waiting for a proper release, read the [Build from source](#build-from-source) section below.
+If you want it in development state without waiting for a proper release, read the [Build from source](#build-from-source).
 
 ## Installing a normal release
 
@@ -14,32 +14,31 @@ If you want it in development state without waiting for a proper release, read t
 
 ⚠️ You can only do this on Windows or Linux.
 
-### Installing required tools
+### Installing the required tools
 
-> [!NOTE]
-> For Linux, I will not be explaining how to install the required tools.
-> (I assume you can search it on your own)
-
-Summary of required tools:
+The required tools:
 - Git
 - pnpm
 - Node.js
 
-Open up your terminal. You will be typing many commands. ⌨️
-
-Windows:
+On Windows, open your terminal and run:
 ```bash
 winget install Git.Git
 winget install pnpm.pnpm
 winget install OpenJS.NodeJS.LTS
 ```
 
-Verify installation of each tool:
+On Linux, I assume you can search it on your own.
 
+Verify installation of each tool:
 ```bash
 git --version
 pnpm --version
 node --version
 ```
 
-<ins>For Node.js, you might have to restart your computer.</ins>
+<ins>You might have to restart your computer.</ins>
+
+### Clone the repository
+
+TODO
