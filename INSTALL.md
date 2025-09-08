@@ -94,6 +94,11 @@ DEV_RP_OUTDIR="/path/to/minecrafts/resource_packs/SCPDY_RP_DEV"
 
 ### Choosing a branch
 
+Quick summary:
+- `main` branch: *usually* up-to-date and contains the latest state of development that is good enough to be a part of "main".
+- `restoration` branch: contains the latest state of the v1 restoration project.
+- Use `git checkout <branch_name>` to change the branch you're on.
+
 Git branch is a complex topic on its own, so I won't deep dive into it here.
 
 Branches are like a parallel timeline of a repository.
