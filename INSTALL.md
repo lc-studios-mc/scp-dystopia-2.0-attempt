@@ -58,7 +58,7 @@ It will create a folder named "scp-dystopia", which would be a local clone of th
 
 Create a file named `.env` at top level of the scp-dystopia folder and open it in your text editor.
 
-Copy and paste this text:
+Copy and paste this text (read until the end if you use Linux):
 ```env
 DEV_BP_OUTDIR="C:\Users\{USERNAME}\AppData\Local\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang\development_behavior_packs\SCPDY_BP_DEV"
 DEV_RP_OUTDIR="C:\Users\{USERNAME}\AppData\Local\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang\development_resource_packs\SCPDY_RP_DEV"
@@ -86,8 +86,8 @@ DEV_RP_OUTDIR="C:\SCP_Dystopia\SCPDY_RP_DEV"
 If you're a Linux user:
 
 ```env
-DEV_BP_OUTDIR="/path/to/minecrafts/behavior_packs/SCPDY_BP"
-DEV_RP_OUTDIR="/path/to/minecrafts/resource_packs/SCPDY_BP"
+DEV_BP_OUTDIR="/path/to/minecrafts/behavior_packs/SCPDY_BP_DEV"
+DEV_RP_OUTDIR="/path/to/minecrafts/resource_packs/SCPDY_RP_DEV"
 ```
 
 ### Fetching and pulling (retrieving) the latest state
