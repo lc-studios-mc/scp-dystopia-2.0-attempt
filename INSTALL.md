@@ -66,6 +66,11 @@ DEV_RP_OUTDIR="C:\Users\{USERNAME}\AppData\Local\Packages\Microsoft.MinecraftUWP
 
 <ins>Replace two `{USERNAME}` in the pasted text with the actual username of yours. Look inside `C:\Users\` to know your username.</ins>
 
+> [!NOTE]
+> `C:\Users\{USERNAME}\AppData\Local\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang`
+> is the standard location on Windows systems for Minecraft Bedrock to save some data.
+> You can change it like the guide below.
+
 #### Changing pack output locations
 
 The text `DEV_BP_OUTDIR="C:\Users\{USERNAME}\..."` <br/>
@@ -77,3 +82,7 @@ So, if you want the packs to be generated inside `C:\SCP_Dystopia\` for example,
 DEV_BP_OUTDIR="C:\SCP_Dystopia\SCPDY_BP_DEV"
 DEV_RP_OUTDIR="C:\SCP_Dystopia\SCPDY_RP_DEV"
 ```
+
+### Fetching and pulling (retrieving) the latest state
+
+TODO
