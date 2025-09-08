@@ -16,7 +16,7 @@ Follow the steps written in this section from top to bottom.
 
 ⚠️ You can only do this on Windows or Linux.
 
-### Installing the required tools
+### Install the required tools
 
 The required tools are:
 - Git
@@ -39,7 +39,7 @@ pnpm --version
 node --version
 ```
 
-### Cloning the repository
+### Clone the repository
 
 Create a folder somewhere on your computer's drive, name it something like "minecraft_addons".
 Existing folder is also fine.
@@ -56,7 +56,7 @@ It will create a folder named "scp-dystopia", which would be a local clone of th
 
 <ins>If you screw up something, you can always delete this folder (scp-dystopia) and clone it again.</ins>
 
-### Setting environment variables
+### Set environment variables
 
 Create a file named `.env` at top level of the scp-dystopia folder and open it in your text editor.
 
@@ -92,7 +92,7 @@ DEV_BP_OUTDIR="/path/to/minecrafts/behavior_packs/SCPDY_BP_DEV"
 DEV_RP_OUTDIR="/path/to/minecrafts/resource_packs/SCPDY_RP_DEV"
 ```
 
-### Choosing a branch
+### Choose a branch
 
 Quick summary:
 - `main` branch: *usually* up-to-date and contains the latest state of development that is good enough to be a part of "main".
@@ -136,11 +136,11 @@ git checkout main
 > [!CAUTION]
 > Some commands shown here may not work on certain branches, but should work on `main` and `restoration`.
 
-### Fetching and pulling (retrieving) the latest state
+### Fetch and pull
 
 <ins>Do this every time you want a new development version.</ins>
 
-Make sure you're on the correct branch: [Choosing a branch](#choosing-a-branch)
+Make sure you're on the correct branch: [Choose a branch](#choose-a-branch)
 
 Run: 
 ```shell
@@ -151,3 +151,22 @@ git pull
 # Update internal dependencies
 pnpm i
 ```
+
+### Compile and install the addon
+
+**[Fetch and pull](#fetch-and-pull) first! Every single time.**
+
+Run:
+```shell
+pnpm run dev
+```
+
+It will automatically compile the addon and generate packs at the folders you specified in the [Set environment variables](#set-environment-variables) section.
+
+You may notice that this command does not stop...
+Yes, you have to manually stop it by pressing **Ctrl+c** or by closing the terminal window.
+
+### Lastly
+
+Those commands may change in the future.
+When that happens, I will update this page.
