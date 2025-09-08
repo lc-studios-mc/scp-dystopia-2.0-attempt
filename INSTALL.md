@@ -14,7 +14,7 @@ If you want it in development state without waiting for a proper release, read t
 
 ⚠️ You can only do this on Windows or Linux.
 
-### Install the required tools
+### Installing the required tools
 
 The required tools are:
 - Git
@@ -37,7 +37,7 @@ pnpm --version
 node --version
 ```
 
-### Clone the repository
+### Cloning the repository
 
 Create a folder somewhere on your computer's drive, name it something like "minecraft_addons".
 Existing folder is also fine.
@@ -89,6 +89,24 @@ If you're a Linux user:
 DEV_BP_OUTDIR="/path/to/minecrafts/behavior_packs/SCPDY_BP_DEV"
 DEV_RP_OUTDIR="/path/to/minecrafts/resource_packs/SCPDY_RP_DEV"
 ```
+
+### Choosing a branch
+
+Git branch is a complex topic on its own, so I won't deep dive into it here.
+
+Branches are like a parallel timeline of a repository.
+
+There's `main`, which is *usually* up-to-date and contains the latest state of development.
+
+Why did I say "usually"? Well, let's say I post a video on YouTube showcasing a new feature,
+but that new feature may not have been uploaded to the main branch **yet**.
+
+That applies to the case of the v1 restoration project
+(fixing and restoring the old features that are now broken)
+
+I'm working on it, but it's not finished yet enough to merge such huge changes into the main branch.
+
+So there's another branch named `restoration`, which is where I work on the v1 restoration project.
 
 ### Fetching and pulling (retrieving) the latest state
 
