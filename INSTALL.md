@@ -1,172 +1,118 @@
-# 📥 How to Install
+# 📥 Installation Guide
 
-This page explains how you can install the SCP: Dystopia addon on your Minecraft Bedrock.
+This document provides instructions for installing the SCP: Dystopia addon for Minecraft Bedrock Edition. Two installation methods are available: a standard method for official releases and an advanced method for obtaining development versions.
 
-If you want it in development state without waiting for a proper release, read the [Getting the latest state](#getting-the-latest-state) section.
+-----
 
-## Installing a normal release
+## Standard Installation (Recommended) 👍
 
-1. Download the addon file (name ends with `.mcaddon`)
-1. Open the file, Minecraft should automatically install it for you.
-1. Add the addon to your world and play!
+This method is straightforward and suitable for most users.
 
-## Getting the latest state
+1.  Download the addon file, which will have a `.mcaddon` extension, from an official release page.
+2.  Open the downloaded `.mcaddon` file. Minecraft Bedrock Edition will launch and automatically import the addon packs. A success message will appear in-game.
+3.  To use the addon, create or edit a Minecraft world. Navigate to the "Behavior Packs" and "Resource Packs" sections in the world settings and activate the SCP: Dystopia packs.
 
-Follow the steps written in this section from top to bottom.
+-----
 
-⚠️ You can only do this on Windows or Linux.
+## Advanced Installation: Development Version 🧪
 
-### Install the required tools
+This method allows users to install in-development versions of the addon directly from the source code. It is a more complex process that requires the use of command-line tools.
 
-The required tools are:
-- Git
-- pnpm
-- Node.js
+⚠️ This procedure is currently supported on **Windows only**.
+Although it is technically possible to do this on some other operating systems, I will not explain it in here.
 
-On Windows, open your terminal and run:
-```shell
-winget install Git.Git
-winget install pnpm.pnpm
-winget install OpenJS.NodeJS.LTS
-```
+### Step 1: Install Prerequisites
 
-On Linux, I assume you can search it on your own.
+Several command-line tools are required to build the addon.
 
-Verify installation of each tool (<ins>you might have to restart your computer</ins>):
-```shell
-git --version
-pnpm --version
-node --version
-```
+1.  Open Windows PowerShell with administrative privileges. To do this, open the Start Menu, type `PowerShell`, right-click the result, and select "Run as administrator".
 
-### Clone the repository
+2.  Execute the following command in PowerShell to install the required tools (Git, pnpm, and Node.js).
 
-Create a folder somewhere on your computer's drive, name it something like "minecraft_addons".
-Existing folder is also fine.
+    ```shell
+    winget install Git.Git
+    winget install pnpm.pnpm
+    winget install OpenJS.NodeJS.LTS
+    ```
 
-Open terminal in that folder.
-On Windows, right click on the empty area inside the folder to open context menu, and left click "Open in terminal".
+3.  A system restart is required after the installation is complete.
 
-Run:
-```shell
-git clone https://github.com/lc-studios-mc/scp-dystopia.git
-```
+4.  After restarting, open a new PowerShell window (administrator is not required) and execute the following commands to verify that each tool was installed correctly. Each command should return a version number.
 
-It will create a folder named "scp-dystopia", which would be a local clone of the [lc-studios-mc/scp-dystopia](https://github.com/lc-studios-mc/scp-dystopia) repository.
+    ```shell
+    git --version
+    pnpm --version
+    node --version
+    ```
 
-<ins>If you screw up something, you can always delete this folder (scp-dystopia) and clone it again.</ins>
+### Step 2: Clone the Repository
 
-### Set environment variables
+Download the addon's source files from the online repository.
 
-Create a file named `.env` at top level of the scp-dystopia folder and open it in your text editor.
+1.  Create a dedicated folder on your system (e.g., `C:\minecraft_addons`).
 
-Copy and paste this text (read until the end if you use Linux):
-```env
-DEV_BP_OUTDIR="C:\Users\{USERNAME}\AppData\Local\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang\development_behavior_packs\SCPDY_BP_DEV"
-DEV_RP_OUTDIR="C:\Users\{USERNAME}\AppData\Local\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang\development_resource_packs\SCPDY_RP_DEV"
-```
+2.  Open a terminal or PowerShell window within this new folder. A common shortcut on Windows is to right-click the empty space in the folder and select "Open in Terminal".
 
-<ins>Replace two `{USERNAME}` in the pasted text with the actual username of yours. Look inside `C:\Users\` to know your username.</ins>
+3.  Execute the following command to download the project files.
 
-> [!NOTE]
-> `C:\Users\{USERNAME}\AppData\Local\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang`
-> is the standard location on Windows systems for Minecraft Bedrock to save some data.
-> You can change it like the guide below.
+    ```shell
+    git clone https://github.com/lc-studios-mc/scp-dystopia.git
+    ```
 
-#### Changing pack output locations
+    This command downloads the project into a new subfolder named `scp-dystopia`.
 
-The text `DEV_BP_OUTDIR="C:\Users\{USERNAME}\..."` <br/>
-essentially tells the system: `the path "C:\Users\{USERNAME}\..." is where the compiled/generated pack will be at.`
+> **Note:** If an error occurs during this process, you can safely delete the `scp-dystopia` folder and re-run the `git clone` command.
 
-So, if you want the packs to be generated inside `C:\SCP_Dystopia\` for example, you can change the content of .env file to:
+### Step 3: Configure Environment Variables
 
-```env
-DEV_BP_OUTDIR="C:\SCP_Dystopia\SCPDY_BP_DEV"
-DEV_RP_OUTDIR="C:\SCP_Dystopia\SCPDY_RP_DEV"
-```
+Create a configuration file to specify the output directory for the compiled addon packs, linking them to your Minecraft development folders.
 
-If you're a Linux user:
+1.  Navigate into the newly created `scp-dystopia` folder.
 
-```env
-DEV_BP_OUTDIR="/path/to/minecrafts/behavior_packs/SCPDY_BP_DEV"
-DEV_RP_OUTDIR="/path/to/minecrafts/resource_packs/SCPDY_RP_DEV"
-```
+2.  Create a new file named exactly `.env` in this directory.
 
-### Choose a branch
+3.  Open the `.env` file with a text editor and paste the following content:
 
-Quick summary:
-- `main` branch: *usually* up-to-date and contains the latest state of development that is good enough to be a part of "main".
-- `restoration` branch: contains the latest state of the v1 restoration project.
-- Use `git checkout <branch_name>` to change the branch you're on.
+    ```env
+    DEV_BP_OUTDIR="C:\Users\{USERNAME}\AppData\Local\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang\development_behavior_packs\SCPDY_BP_DEV"
+    DEV_RP_OUTDIR="C:\Users\{USERNAME}\AppData\Local\Packages\Microsoft.MinecraftUWP_8wekyb3d8bbwe\LocalState\games\com.mojang\development_resource_packs\SCPDY_RP_DEV"
+    ```
 
-Git branch is a complex topic on its own, so I won't deep dive into it here.
+4.  **Important:** Replace `{USERNAME}` in both paths with your Windows user profile name. You can find this name by navigating to `C:\Users\` in File Explorer.
 
-Branches are like a parallel timeline of a repository.
+### Step 4: Select a Branch
 
-In this repository, there's `main` branch, which is *usually* up-to-date and contains the latest state of development.
+The repository uses branches to manage different lines of development.
 
-Why did I say "usually"? Let's say I post a video on YouTube showcasing a new feature,
-but that new feature may not have been uploaded to the main branch *yet*.
+  * `main`: The primary development branch. Contains the latest features that are generally stable. **Recommended for most users.**
+  * `restoration`: A feature-specific branch for restoring older game mechanics.
 
-**That applies to the case of the v1 restoration project**
-(aimed to fix and restore the old features that are now broken)
+To switch to the `main` branch, execute the following command from the terminal inside the `scp-dystopia` directory:
 
-I'm working on it, but it's not finished yet enough to merge such huge changes into the main branch.
-
-So there's another branch named `restoration`, which is where I work on the v1 restoration project.
-
-You can use the `git checkout <branch>` command to move to a different branch.
-By default, you are on the main branch.
-
-**Know which branch you're on:**
-```shell
-git branch
-```
-
-**If you want to go to the `restoration` branch:**
-```shell
-git checkout restoration
-```
-
-**If you want to go back to the `main` branch:**
 ```shell
 git checkout main
 ```
 
-> [!CAUTION]
-> Some commands shown here may not work on certain branches, but should work on `main` and `restoration`.
+### Step 5: Build and Deploy the Addon
 
-### Fetch and pull
+These final commands will update your local files and build the addon into the directories specified in Step 3.
 
-<ins>Do this every time you want a new development version.</ins>
+1.  Ensure your terminal is still open in the `scp-dystopia` directory. First, update your local repository and its dependencies by running these three commands:
 
-Make sure you're on the correct branch: [Choose a branch](#choose-a-branch)
+    ```shell
+    git pull
+    pnpm i
+    ```
 
-Run: 
-```shell
-# Fetch information from remote
-git fetch
-# Sync the branch you are currently on with the remote state (i.e. the latest state)
-git pull
-# Update internal dependencies
-pnpm i
-```
+2.  Next, run the development script to build and deploy the addon:
 
-### Compile and install the addon
+    ```shell
+    pnpm run dev
+    ```
 
-**[Fetch and pull](#fetch-and-pull) first! Every single time.**
+3.  This command will compile the addon and then continue running to watch for file changes. This is expected behavior. You can stop the process at any time by pressing **Ctrl+C** or by closing the terminal window.
 
-Run:
-```shell
-pnpm run dev
-```
+### Step 6: Play
 
-It will automatically compile the addon and generate packs at the folders you specified in the [Set environment variables](#set-environment-variables) section.
-
-You may notice that this command does not stop...
-Yes, you have to manually stop it by pressing **Ctrl+c** or by closing the terminal window.
-
-### Lastly
-
-Those commands may change in the future.
-When that happens, I will update this page.
+The development version of the addon is now deployed to your Minecraft development folders.
+To use it, open Minecraft, edit a world, and activate the `SCPDY_BP_DEV` (Behavior Pack) and `SCPDY_RP_DEV` (Resource Pack).
