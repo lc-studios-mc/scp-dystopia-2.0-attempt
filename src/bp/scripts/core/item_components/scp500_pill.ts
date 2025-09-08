@@ -14,16 +14,12 @@ mc.system.beforeEvents.startup.subscribe(({ itemComponentRegistry }) => {
 			arg.source.removeEffect("hunger");
 			arg.source.removeEffect("instant_damage");
 
-			arg.source.addEffect("regeneration", 30 * mc.TicksPerSecond, {
-				amplifier: 2,
+			arg.source.addEffect("regeneration", 40 * mc.TicksPerSecond, {
+				amplifier: 3,
 			});
 
-			arg.source.addEffect("absorption", 60 * mc.TicksPerSecond, {
+			arg.source.addEffect("absorption", 120 * mc.TicksPerSecond, {
 				amplifier: 2,
-			});
-
-			arg.source.addEffect("resistance", 50 * mc.TicksPerSecond, {
-				amplifier: 1,
 			});
 		},
 	});
