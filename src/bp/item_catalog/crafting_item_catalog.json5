@@ -99,11 +99,21 @@
 				category_name: "items",
 				groups: [
 					{
+						items: ["scpdy:candy_pink", "scpdy:candy_yellow", "scpdy:candy_blue"],
+					},
+
+					{
 						group_identifier: {
 							icon: "scpdy:scp012",
 							name: "scpdy:item_group_scp_related",
 						},
-						items: ["scpdy:scp012", "scpdy:scp207", "scpdy:scp500_pill", "scpdy:scp500_bottle"],
+						items: [
+							"scpdy:scp012",
+							"scpdy:scp207",
+							"scpdy:scp330",
+							"scpdy:scp500_pill",
+							"scpdy:scp500_bottle",
+						],
 					},
 				],
 			},

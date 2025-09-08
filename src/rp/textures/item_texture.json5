@@ -11,5 +11,14 @@
 		"scpdy:scp500_pill": {
 			textures: "textures/scpdy/items/scp/scp500_pill",
 		},
+		"scpdy:candy_blue": {
+			textures: "textures/scpdy/items/candy_blue",
+		},
+		"scpdy:candy_pink": {
+			textures: "textures/scpdy/items/candy_pink",
+		},
+		"scpdy:candy_yellow": {
+			textures: "textures/scpdy/items/candy_yellow",
+		},
 	},
 }
