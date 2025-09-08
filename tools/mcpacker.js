@@ -5,15 +5,33 @@ import packageData from "../package.json" with { type: "json" };
 const MIN_ENGINE_VERSION = [1, 21, 100];
 
 /**
+ * @param {number[]} arr
+ * @returns {string}
+ */
+const formatDateArray = (arr) => {
+	const [year, month, date] = arr;
+
+	// Get the last two digits of the year
+	const yearStr = String(year).slice(-2);
+
+	// Pad month and date with a leading zero if they are single digits
+	const monthStr = String(month).padStart(2, "0");
+	const dateStr = String(date).padStart(2, "0");
+
+	// Concatenate and return the formatted string
+	return `${yearStr}${monthStr}${dateStr}`;
+};
+
+/**
  * @param {import("@lc-studios-js/mcpacker").CliArgs} args
- * @returns {{ text: string; array: [number,number,number]; isSnapshot: boolean; }}
+ * @returns {{ text: string; array: [number,number,number]; isEarlyAccess: boolean; }}
  */
 const createPackVersion = (args) => {
 	if (args.dev) {
 		return {
 			text: "DEV",
 			array: [0, 0, 1],
-			isSnapshot: false,
+			isEarlyAccess: false,
 		};
 	}
 
@@ -24,9 +42,9 @@ const createPackVersion = (args) => {
 		const array = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
 
 		return {
-			text: `Snapshot-${array.join("-")}`, // yyyy-mm-dd
+			text: `EA-${formatDateArray(array)}`, // yyyy-mm-dd
 			array,
-			isSnapshot: true,
+			isEarlyAccess: true,
 		};
 	}
 
@@ -34,14 +52,14 @@ const createPackVersion = (args) => {
 		return {
 			text: `v${args.packVersion.join(".")}`,
 			array: args.packVersion,
-			isSnapshot: false,
+			isEarlyAccess: false,
 		};
 	}
 
 	return {
 		text: "UNRESOLVED",
 		array: [0, 0, 0],
-		isSnapshot: false,
+		isEarlyAccess: false,
 	};
 };
 
@@ -78,7 +96,7 @@ const createManifests = (args) => {
 
 	const description = args.dev
 		? "Development build. Do not publish this."
-		: version.isSnapshot
+		: version.isEarlyAccess
 			? "EARLY ACCESS - Not recommended to use this version in a serious project!"
 			: "SCP addon by LC Studios MC.";
 
