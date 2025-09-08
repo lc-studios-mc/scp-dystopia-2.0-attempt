@@ -1,19 +1,21 @@
-# 📥 How to Installation
+# 📥 How to Install
 
-This page explains how you can install the SCP: Dystopia addon on your Minecraft.
+This page explains how you can install the SCP: Dystopia addon on your Minecraft Bedrock.
 
-## The normie way
+If you want it in development state without waiting for a proper release, go to the [Advanced](#advanced) section.
 
-- Supported on:
-  - PC
-  - Android
-  - iOS
-  - (I don't care about consoles)
-- Very easy
-- Only via a proper release
+## Installing a normal release
 
-## The advanced way
+1. Download the addon file (name ends with `.mcaddon`)
+1. Open the file, Minecraft should automatically install it for you.
+1. Add the addon to your world and play!
 
-- Requires a Windows PC
-- Always able to get the latest state
-- **You don't have to wait for an official release**
+## Advanced
+
+### Prerequisites
+
+- Operating system:
+  - Windows
+  - Linux
+- Environment to play Minecraft Bedrock
+  - You can play it on Linux via [mcpelauncher](https://minecraft-linux.github.io/) (It's not pirating, btw!)
