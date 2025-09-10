@@ -99,7 +99,12 @@
 				category_name: "items",
 				groups: [
 					{
-						items: ["scpdy:candy_pink", "scpdy:candy_yellow", "scpdy:candy_blue"],
+						items: [
+							"scpdy:candy_pink",
+							"scpdy:candy_yellow",
+							"scpdy:candy_blue",
+							"scpdy:pizza_slice",
+						],
 					},
 
 					{
@@ -111,6 +116,7 @@
 							"scpdy:scp012",
 							"scpdy:scp207",
 							"scpdy:scp330",
+							"scpdy:scp458",
 							"scpdy:scp500_pill",
 							"scpdy:scp500_bottle",
 						],

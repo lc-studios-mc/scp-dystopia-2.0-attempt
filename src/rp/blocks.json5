@@ -6,6 +6,8 @@
 	"scpdy:facility_lamp_2": { sound: "glass" },
 	"scpdy:facility_lamp_2_off": { sound: "glass" },
 
+	"scpdy:scp458": { sound: "grass" },
+
 	"scpdy:cushion": { sound: "cloth" },
 	"scpdy:duct_block": { sound: "metal" },
 	"scpdy:heavy_floor": { sound: "iron" },

@@ -20,5 +20,8 @@
 		"scpdy:candy_yellow": {
 			textures: "textures/scpdy/items/candy_yellow",
 		},
+		"scpdy:pizza_slice": {
+			textures: "textures/scpdy/items/pizza_slice",
+		},
 	},
 }

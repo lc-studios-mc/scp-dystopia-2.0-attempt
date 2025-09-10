@@ -39,6 +39,9 @@
 		"scpdy:scp330": {
 			textures: "textures/scpdy/blocks/scp/scp330",
 		},
+		"scpdy:scp458": {
+			textures: "textures/scpdy/blocks/scp/scp458",
+		},
 
 		"scpdy:black_wall_bottom": {
 			textures: "textures/scpdy/blocks/standard/black_wall_bottom",
