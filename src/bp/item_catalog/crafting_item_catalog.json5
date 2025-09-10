@@ -96,17 +96,25 @@
 			},
 
 			{
-				category_name: "items",
+				category_name: "equipment",
 				groups: [
 					{
+						group_identifier: {
+							name: "minecraft:itemGroup.name.miscFood",
+						},
 						items: [
+							"scpdy:pizza_slice",
 							"scpdy:candy_pink",
 							"scpdy:candy_yellow",
 							"scpdy:candy_blue",
-							"scpdy:pizza_slice",
 						],
 					},
+				],
+			},
 
+			{
+				category_name: "items",
+				groups: [
 					{
 						group_identifier: {
 							icon: "scpdy:scp012",
