@@ -153,6 +153,8 @@
 				is_pushable: false,
 				is_pushable_by_piston: true,
 			},
+			"minecraft:leashable": {},
+			"minecraft:leashable_to": {},
 			"minecraft:nameable": {},
 			"minecraft:conditional_bandwidth_optimization": {},
 		},
