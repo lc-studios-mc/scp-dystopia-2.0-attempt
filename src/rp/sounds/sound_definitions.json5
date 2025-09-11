@@ -1,6 +1,33 @@
 {
 	format_version: "1.20.20",
 	sound_definitions: {
+		"scpdy.scp066.earrape": {
+			category: "hostile",
+			max_distance: 30.0,
+			min_distance: null,
+			sounds: [
+				{
+					name: "sounds/scpdy/scp/scp066/earrape",
+					volume: 0.93,
+				},
+			],
+		},
+
+		"scpdy.scp066.ambient": {
+			category: "hostile",
+			sounds: [
+				"sounds/scpdy/scp/sco066/eric_1",
+				"sounds/scpdy/scp/sco066/eric_2",
+				"sounds/scpdy/scp/sco066/eric_3",
+				"sounds/scpdy/scp/scp066/notes_1",
+				"sounds/scpdy/scp/scp066/notes_2",
+				"sounds/scpdy/scp/scp066/notes_3",
+				"sounds/scpdy/scp/scp066/notes_4",
+				"sounds/scpdy/scp/scp066/notes_5",
+				"sounds/scpdy/scp/scp066/notes_6",
+			],
+		},
+
 		"scpdy.scp457.ambient": {
 			category: "hostile",
 			sounds: [

@@ -1,0 +1,203 @@
+{
+	format_version: "1.21.100",
+	"minecraft:entity": {
+		description: {
+			identifier: "scpdy:scp066",
+			spawn_category: "monster",
+			is_spawnable: true,
+			is_summonable: true,
+			properties: {
+				"scpdy:is_earraping": {
+					type: "bool",
+					default: false,
+					client_sync: true,
+				},
+			},
+		},
+
+		components: {
+			"minecraft:is_hidden_when_invisible": {},
+			"minecraft:health": {
+				value: 36,
+				max: 36,
+			},
+			"minecraft:type_family": {
+				family: ["mob", "monster", "scp", "scp_neutral", "scp066"],
+			},
+			"minecraft:damage_sensor": {
+				triggers: [
+					{
+						cause: "fall",
+						deals_damage: "no",
+					},
+					{
+						on_damage: {
+							filters: {
+								none_of: [
+									{ test: "has_damage", value: "fatal" },
+									{ test: "has_damage", value: "fire" },
+									{ test: "has_damage", value: "fire_tick" },
+									{ test: "has_damage", value: "lava" },
+								],
+							},
+							event: "scpdy:start_earraping_if_not_already",
+						},
+						cause: "all",
+					},
+				],
+			},
+			"minecraft:entity_sensor": {
+				subsensors: [
+					{
+						event: "scpdy:start_earraping_if_not_already",
+						cooldown: 0.3,
+						range: [4.0, 2.0],
+						event_filters: {
+							any_of: [
+								{
+									all_of: [
+										{ test: "is_family", subject: "other", value: "player" },
+										{
+											test: "has_equipment",
+											subject: "other",
+											domain: "hand",
+											value: "minecraft:shears",
+										},
+									],
+								},
+							],
+						},
+					},
+				],
+			},
+			"minecraft:behavior.float": {
+				priority: 1,
+			},
+			"minecraft:movement": {
+				value: 0.2,
+			},
+			"minecraft:movement_sound_distance_offset": {
+				value: 0.3,
+			},
+			"minecraft:movement.basic": {},
+			"minecraft:jump.static": {},
+			"minecraft:can_climb": {},
+			"minecraft:navigation.walk": {
+				avoid_damage_blocks: true,
+				avoid_water: true,
+				can_pass_doors: true,
+				can_walk: true,
+			},
+			"minecraft:physics": {},
+			"minecraft:collision_box": {
+				width: 0.5,
+				height: 0.46,
+			},
+			"minecraft:pushable": {
+				is_pushable: true,
+				is_pushable_by_piston: true,
+			},
+			"minecraft:leashable": {},
+			"minecraft:leashable_to": {},
+			"minecraft:nameable": {},
+			"minecraft:ambient_sound_interval": {
+				range: 12.0,
+				value: 6.0,
+			},
+			"minecraft:conditional_bandwidth_optimization": {},
+		},
+
+		component_groups: {
+			normal: {
+				"minecraft:behavior.random_look_around": {
+					priority: 15,
+				},
+				"minecraft:behavior.look_at_player": {
+					priority: 12,
+					look_distance: 5.0,
+				},
+				"minecraft:behavior.look_at_entity": {
+					priority: 12,
+					look_distance: 5.0,
+					filters: {
+						any_of: [
+							{ test: "is_family", subject: "other", value: "villager" },
+							{ test: "is_family", subject: "other", value: "illager" },
+							{ test: "is_family", subject: "other", value: "piglin" },
+						],
+					},
+				},
+				"minecraft:behavior.random_stroll": {
+					priority: 13,
+					xz_dist: 6,
+				},
+			},
+
+			earraping: {
+				"minecraft:timer": {
+					looping: false,
+					randomInterval: false,
+					time: 5.0,
+					time_down_event: {
+						event: "scpdy:stop_earraping",
+						target: "self",
+					},
+				},
+			},
+		},
+
+		events: {
+			"minecraft:entity_spawned": {
+				add: {
+					component_groups: ["normal"],
+				},
+			},
+
+			"scpdy:start_earraping_if_not_already": {
+				sequence: [
+					{
+						filters: {
+							test: "bool_property",
+							domain: "scpdy:is_earraping",
+							value: false,
+						},
+						trigger: "scpdy:start_earraping",
+					},
+				],
+			},
+
+			"scpdy:start_earraping": {
+				add: {
+					component_groups: ["earraping"],
+				},
+				remove: {
+					component_groups: ["normal"],
+				},
+				set_property: {
+					"scpdy:is_earraping": true,
+				},
+				queue_command: {
+					command: [
+						"playsound scpdy.scp066.earrape @a[r=30] ~~~ 15",
+						"camerashake add @a[r=15] 0.22 3.0 rotational",
+						"damage @e[type=!scpdy:scp066,r=5] 9 override entity @s",
+						"effect @e[type=!scpdy:scp066,r=8] fatal_poison 30 1",
+						"event entity @e[type=scpdy:scp066,r=10] scpdy:start_earraping_if_not_already", // Chain reaction!!!
+					],
+				},
+			},
+
+			"scpdy:stop_earraping": {
+				add: {
+					component_groups: ["normal"],
+				},
+				remove: {
+					component_groups: ["earraping"],
+				},
+				set_property: {
+					"scpdy:is_earraping": false,
+				},
+			},
+		},
+	},
+}

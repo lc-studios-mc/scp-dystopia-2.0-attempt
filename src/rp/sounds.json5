@@ -1,6 +1,17 @@
 {
 	entity_sounds: {
 		entities: {
+			"scpdy:scp066": {
+				events: {
+					ambient: "scpdy.scp066.ambient",
+					hurt: "scpdy.scp066.ambient",
+					death: "scpdy.scp066.ambient",
+					step: "land.cloth",
+				},
+				pitch: [0.9, 1.1],
+				volume: 1.1,
+			},
+
 			"scpdy:scp457": {
 				events: {
 					ambient: "scpdy.scp457.ambient",

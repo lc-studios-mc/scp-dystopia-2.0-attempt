@@ -1,0 +1,27 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.scpdy.scp066.earrape": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"earraping": "v.is_earraping"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"earraping": {
+					"animations": ["anim.earrape"],
+					"transitions": [
+						{
+							"default": "!v.is_earraping"
+						}
+					],
+					"blend_transition": 0.4
+				}
+			}
+		}
+	}
+}

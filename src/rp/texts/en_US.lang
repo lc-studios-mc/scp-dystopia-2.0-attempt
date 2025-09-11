@@ -5,6 +5,9 @@ scpdy:item_group_signs_and_posters=Signs and Posters §7(SCP:DY)
 scpdy:item_group_scp_related=SCP(-related) §7(SCP:DY)
 
 scpdy:scp012=SCP-012
+scpdy:scp066=SCP-066
+entity.scpdy:scp066.name=SCP-066
+item.spawn_egg.entity.scpdy:scp066.name=SCP-066 Spawn Egg
 scpdy:scp207=SCP-207
 scpdy:scp330=SCP-330
 scpdy:scp458=SCP-458
