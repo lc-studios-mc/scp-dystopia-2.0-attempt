@@ -1,0 +1,98 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.scpdy.scp457",
+				"texture_width": 48,
+				"texture_height": 48,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [0, 1.25, 0]
+			},
+			"bones": [
+				{
+					"name": "scp457",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "body",
+					"parent": "scp457",
+					"pivot": [0, 24, 0],
+					"cubes": [
+						{"origin": [-4, 12, -2], "size": [8, 12, 4], "uv": [0, 16]}
+					],
+					"locators": {
+						"flame_locator": [0, 18, 0]
+					}
+				},
+				{
+					"name": "bodyflame1",
+					"parent": "body",
+					"pivot": [0, 12, 0],
+					"cubes": [
+						{"origin": [-4, 0, -2], "size": [8, 12, 4], "uv": [24, 16]}
+					]
+				},
+				{
+					"name": "arm1",
+					"parent": "scp457",
+					"pivot": [5, 22, 0],
+					"cubes": [
+						{"origin": [4, 12, -2], "size": [4, 12, 4], "uv": [4, 16]}
+					]
+				},
+				{
+					"name": "bodyflame2",
+					"parent": "arm1",
+					"pivot": [6, 24, 0],
+					"cubes": [
+						{"origin": [4, 24, -2], "size": [4, 2, 4], "uv": [32, 42]}
+					]
+				},
+				{
+					"name": "bodyflame5",
+					"parent": "arm1",
+					"pivot": [6, 12, 0],
+					"rotation": [180, 0, 0],
+					"cubes": [
+						{"origin": [4, 12, -2], "size": [4, 2, 4], "uv": [32, 42]}
+					]
+				},
+				{
+					"name": "arm2",
+					"parent": "scp457",
+					"pivot": [-5, 22, 0],
+					"cubes": [
+						{"origin": [-8, 12, -2], "size": [4, 12, 4], "uv": [4, 16]}
+					]
+				},
+				{
+					"name": "bodyflame3",
+					"parent": "arm2",
+					"pivot": [-6, 24, 0],
+					"cubes": [
+						{"origin": [-8, 24, -2], "size": [4, 2, 4], "uv": [32, 42]}
+					]
+				},
+				{
+					"name": "bodyflame4",
+					"parent": "arm2",
+					"pivot": [-6, 12, 0],
+					"rotation": [180, 0, 0],
+					"cubes": [
+						{"origin": [-8, 12, -2], "size": [4, 2, 4], "uv": [32, 42]}
+					]
+				},
+				{
+					"name": "head",
+					"parent": "scp457",
+					"pivot": [0, 24, 0],
+					"cubes": [
+						{"origin": [-4, 24, -4], "size": [8, 8, 8], "uv": [0, 0]}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,18 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.scpdy.scp457": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": ["anim.general", "anim.look_at_target"],
+					"particle_effects": [
+						{
+							"effect": "flames"
+						}
+					]
+				}
+			}
+		}
+	}
+}

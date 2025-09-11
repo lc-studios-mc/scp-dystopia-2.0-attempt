@@ -1,0 +1,164 @@
+{
+	format_version: "1.21.100",
+	"minecraft:entity": {
+		description: {
+			identifier: "scpdy:scp457",
+			spawn_category: "monster",
+			is_spawnable: true,
+			is_summonable: true,
+		},
+
+		components: {
+			"minecraft:is_hidden_when_invisible": {},
+			"minecraft:knockback_resistance": {
+				value: 1,
+			},
+			"minecraft:health": {
+				value: 50,
+				max: 50,
+			},
+			"minecraft:type_family": {
+				family: ["mob", "monster", "scp", "scp_hostile", "scp457"],
+			},
+			"minecraft:fire_immune": {},
+			"minecraft:hurt_on_condition": {
+				damage_conditions: [
+					{
+						filters: {
+							test: "in_contact_with_water",
+						},
+						cause: "drowning",
+						damage_per_tick: 2,
+					},
+				],
+			},
+			"minecraft:damage_sensor": {
+				triggers: [
+					{
+						cause: "fall",
+						deals_damage: "no",
+					},
+					{
+						cause: "all",
+						damage_multiplier: 0.7,
+						deals_damage: "yes",
+					},
+				],
+			},
+			"minecraft:follow_range": {
+				value: 32,
+				max: 32,
+			},
+			"minecraft:attack": {
+				damage: 6,
+			},
+			"minecraft:area_attack": {
+				cause: "fire",
+				damage_per_tick: 2,
+				damage_range: 0.5,
+				entity_filter: {
+					test: "is_family",
+					subject: "other",
+					operator: "not",
+					value: "scp457",
+				},
+			},
+			"minecraft:behavior.melee_box_attack": {
+				priority: 1,
+				can_spread_on_fire: true,
+				cooldown_time: 0.8,
+				speed_multiplier: 1.1,
+			},
+			"minecraft:behavior.nearest_attackable_target": {
+				priority: 2,
+				must_see: true,
+				must_see_forget_duration: 7.0,
+				entity_types: [
+					{
+						filters: {
+							any_of: [
+								{ test: "is_family", subject: "other", value: "player" },
+								{ test: "is_family", subject: "other", value: "villager" },
+								{ test: "is_family", subject: "other", value: "irongolem" },
+								{ test: "is_family", subject: "other", value: "snowgolem" },
+								{ test: "is_family", subject: "other", value: "ravager" },
+							],
+						},
+						max_dist: 20.0,
+					},
+				],
+			},
+			"minecraft:behavior.hurt_by_target": {
+				priority: 2,
+				entity_types: [
+					{
+						filters: {
+							test: "is_family",
+							subject: "other",
+							operator: "not",
+							value: "scp457",
+						},
+						max_dist: 32.0,
+					},
+				],
+			},
+			"minecraft:behavior.random_look_around": {
+				priority: 12,
+			},
+			"minecraft:behavior.random_stroll": {
+				priority: 11,
+				xz_dist: 6,
+				speed_multiplier: 0.7,
+			},
+			"minecraft:trail": {
+				block_type: "minecraft:fire",
+				spawn_filter: {
+					test: "is_game_rule",
+					domain: "dofiretick",
+				},
+			},
+			"minecraft:friction_modifier": {
+				value: 1.02,
+			},
+			"minecraft:movement": {
+				value: 0.25,
+			},
+			"minecraft:movement.basic": {},
+			"minecraft:jump.static": {},
+			"minecraft:can_climb": {},
+			"minecraft:navigation.walk": {
+				avoid_damage_blocks: false,
+				avoid_water: true,
+				can_pass_doors: true,
+				can_path_over_lava: true,
+				can_path_over_water: true,
+				can_walk: true,
+				can_walk_in_lava: true,
+				can_break_doors: true,
+			},
+			"minecraft:annotation.break_door": {
+				break_time: 4.0,
+				min_difficulty: "normal",
+			},
+			"minecraft:variable_max_auto_step": {
+				base_value: 1.0625, // 1 block + 1 pixel
+				jump_prevented_value: 0.5625, // 0.5 blocks + 1 pixel
+			},
+			"minecraft:physics": {},
+			"minecraft:collision_box": {
+				width: 0.6,
+				height: 1.9,
+			},
+			"minecraft:pushable": {
+				is_pushable: false,
+				is_pushable_by_piston: true,
+			},
+			"minecraft:nameable": {},
+			"minecraft:conditional_bandwidth_optimization": {},
+		},
+
+		component_groups: {},
+
+		events: {},
+	},
+}

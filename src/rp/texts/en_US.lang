@@ -8,6 +8,9 @@ scpdy:scp012=SCP-012
 scpdy:scp207=SCP-207
 scpdy:scp330=SCP-330
 scpdy:scp458=SCP-458
+scpdy:scp457=SCP-457
+entity.scpdy:scp457.name=SCP-457
+item.spawn_egg.entity.scpdy:scp457.name=SCP-457 Spawn Egg
 scpdy:scp500_bottle=SCP-500 Bottle
 scpdy:scp500_pill=SCP-500 Pill
 

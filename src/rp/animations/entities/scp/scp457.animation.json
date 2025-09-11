@@ -1,0 +1,50 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.scpdy.scp457.look_at_target": {
+			"loop": true,
+			"bones": {
+				"head": {
+					"rotation": ["q.target_x_rotation - this", "q.target_y_rotation - this", 0]
+				}
+			}
+		},
+		"animation.scpdy.scp457.general": {
+			"loop": true,
+			"bones": {
+				"scp457": {
+					"rotation": ["math.sin(query.life_time * 80) * 0.7", 0, 0],
+					"position": [0, "math.sin(query.life_time * 70) * 0.6", 0]
+				},
+				"body": {
+					"rotation": [2.5, 0, 0]
+				},
+				"arm1": {
+					"rotation": [-17.5, -20, "-10+math.sin(query.life_time * -80) * 1.6"]
+				},
+				"arm2": {
+					"rotation": [-17.5, 20, "10+math.sin(query.life_time * 80) * 1.6"]
+				},
+				"head": {
+					"rotation": [0, "math.sin(query.life_time * 80) * 2.3", "math.sin(query.life_time * 40) * 2.3"],
+					"scale": [1, "1+math.sin(query.life_time * 1100) * 0.02", 1]
+				},
+				"bodyflame1": {
+					"scale": [1, "1+math.sin(query.life_time * 1100) * 0.05", 1]
+				},
+				"bodyflame2": {
+					"scale": [1, "1+math.sin(query.life_time * 1400) * 0.1", 1]
+				},
+				"bodyflame3": {
+					"scale": [1, "1+math.sin(query.life_time * 1400) * 0.1", 1]
+				},
+				"bodyflame4": {
+					"scale": [1, "1+math.sin(query.life_time * 1400) * 0.1", 1]
+				},
+				"bodyflame5": {
+					"scale": [1, "1+math.sin(query.life_time * 1400) * 0.1", 1]
+				}
+			}
+		}
+	}
+}

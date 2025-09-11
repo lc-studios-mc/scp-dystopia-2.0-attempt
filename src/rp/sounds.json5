@@ -1,0 +1,19 @@
+{
+	entity_sounds: {
+		entities: {
+			"scpdy:scp457": {
+				events: {
+					ambient: "scpdy.scp457.ambient",
+					hurt: {
+						sound: "mob.blaze.hit",
+						pitch: 0.4,
+						volume: 1.0,
+					},
+					death: "scpdy.scp457.death",
+				},
+				pitch: [0.9, 1.1],
+				volume: 1.1,
+			},
+		},
+	},
+}

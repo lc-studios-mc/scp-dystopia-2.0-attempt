@@ -1,0 +1,33 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "scpdy:scp457",
+			"materials": {
+				"default": "npc"
+			},
+			"textures": {
+				"default": "textures/scpdy/entities/scp/scp457"
+			},
+			"geometry": {
+				"default": "geometry.scpdy.scp457"
+			},
+			"animations": {
+				"ctrl.main": "controller.animation.scpdy.scp457",
+				"anim.general": "animation.scpdy.scp457.general",
+				"anim.look_at_target": "animation.scpdy.scp457.look_at_target"
+			},
+			"scripts": {
+				"animate": ["ctrl.main"]
+			},
+			"particle_effects": {
+				"flames": "scpdy:scp457_flame_emitter"
+			},
+			"render_controllers": ["controller.render.scpdy.scp457"],
+			"spawn_egg": {
+				"base_color": "#F57239",
+				"overlay_color": "#F4280F"
+			}
+		}
+	}
+}

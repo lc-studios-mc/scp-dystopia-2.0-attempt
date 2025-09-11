@@ -1,0 +1,26 @@
+{
+	format_version: "1.20.20",
+	sound_definitions: {
+		"scpdy.scp457.ambient": {
+			category: "hostile",
+			sounds: [
+				"sounds/scpdy/scp/scp457/flame",
+				{
+					name: "sounds/scpdy/scp/scp457/sighting",
+					volume: 0.7,
+				},
+			],
+		},
+
+		"scpdy.scp457.death": {
+			category: "hostile",
+			sounds: [
+				{
+					name: "sounds/scpdy/scp/scp457/sighting",
+					volume: 1.0,
+					pitch: 0.86,
+				},
+			],
+		},
+	},
+}
