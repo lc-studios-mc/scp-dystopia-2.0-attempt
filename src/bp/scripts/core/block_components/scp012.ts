@@ -10,21 +10,28 @@ mc.system.beforeEvents.startup.subscribe(({ blockComponentRegistry }) => {
 		onTick(arg) {
 			const center = arg.block.center();
 
-			const nearbyPlayers = arg.dimension.getPlayers({
+			const targetCandidates = arg.dimension.getEntities({
 				location: center,
 				maxDistance: LURE_DISTANCE,
-				excludeGameModes: [mc.GameMode.Creative, mc.GameMode.Spectator],
+				excludeFamilies: ["inanimate", "gate_guardian"],
+				excludeTypes: ["minecraft:ender_dragon"],
 			});
 
-			for (const player of nearbyPlayers) {
+			for (const target of targetCandidates) {
+				const isPlayerAndCreativeOrSpectator =
+					target instanceof mc.Player &&
+					[mc.GameMode.Creative, mc.GameMode.Spectator].includes(target.getGameMode());
+
+				if (isPlayerAndCreativeOrSpectator) continue;
+
 				const dirToPlayerVec = vec3.sub(
 					vec3.create(),
-					toVec3(player.getHeadLocation()),
+					toVec3(target.getHeadLocation()),
 					toVec3(center),
 				);
 				vec3.normalize(dirToPlayerVec, dirToPlayerVec);
 
-				const isBlocked =
+				const isRayBlocked =
 					arg.dimension.getBlockFromRay(center, fromVec3(dirToPlayerVec), {
 						includeLiquidBlocks: false,
 						includePassableBlocks: false,
@@ -32,7 +39,7 @@ mc.system.beforeEvents.startup.subscribe(({ blockComponentRegistry }) => {
 						maxDistance: LURE_DISTANCE,
 					}) !== undefined;
 
-				if (isBlocked) return;
+				if (isRayBlocked) return;
 
 				const facingLocationVec = vec3.add(
 					vec3.create(),
@@ -40,22 +47,22 @@ mc.system.beforeEvents.startup.subscribe(({ blockComponentRegistry }) => {
 					vec3.fromValues(0, -1, 0),
 				);
 
-				player.teleport(player.location, {
+				target.teleport(target.location, {
 					facingLocation: fromVec3(facingLocationVec),
 				});
 
-				player.addEffect("blindness", 80);
+				target.addEffect("blindness", 80);
 
-				const distBetweenCenter = vec3.dist(toVec3(player.location), toVec3(center));
+				const distBetweenCenter = vec3.dist(toVec3(target.location), toVec3(center));
 
 				if (distBetweenCenter < PAIN_DISTANCE) {
-					player.addEffect("wither", 40, { amplifier: 1 });
+					target.addEffect("wither", 40, { amplifier: 1 });
 				}
 
-				if (distBetweenCenter > PAIN_DISTANCE - 0.2) {
+				if (distBetweenCenter > PAIN_DISTANCE - 1) {
 					mc.system.runTimeout(() => {
-						const impulseVec = vec3.scale(vec3.create(), dirToPlayerVec, -0.3);
-						player.applyImpulse(fromVec3(impulseVec));
+						const impulseVec = vec3.scale(vec3.create(), dirToPlayerVec, -0.4);
+						target.applyImpulse(fromVec3(impulseVec));
 					}, 1);
 				}
 			}
