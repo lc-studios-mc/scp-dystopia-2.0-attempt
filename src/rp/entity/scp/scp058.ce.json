@@ -1,0 +1,39 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "scpdy:scp058",
+			"materials": {
+				"default": "entity"
+			},
+			"textures": {
+				"default": "textures/scpdy/entities/scp/scp058"
+			},
+			"geometry": {
+				"default": "geometry.scpdy.scp058"
+			},
+			"animations": {
+				"ctrl.main": "controller.animation.scpdy.scp058",
+				"anim.general": "animation.scpdy.scp058.general",
+				"anim.move": "animation.scpdy.scp058.move",
+				"anim.shake": "animation.scpdy.scp058.shake",
+				"anim.attack": "animation.scpdy.scp058.attack"
+			},
+			"scripts": {
+				"scale": "0.72",
+				"animate": [
+					"ctrl.main",
+					{
+						"anim.shake": "q.has_target"
+					}
+				],
+				"pre_animation": ["v.move_anim_time = q.modified_distance_moved * 0.22;"]
+			},
+			"render_controllers": ["controller.render.scpdy.scp058"],
+			"spawn_egg": {
+				"base_color": "#881E1E",
+				"overlay_color": "#7C2812"
+			}
+		}
+	}
+}

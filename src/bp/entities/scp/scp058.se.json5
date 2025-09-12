@@ -1,0 +1,195 @@
+{
+	format_version: "1.21.100",
+	"minecraft:entity": {
+		description: {
+			identifier: "scpdy:scp058",
+			spawn_category: "monster",
+			is_spawnable: true,
+			is_summonable: true,
+		},
+
+		components: {
+			"minecraft:is_hidden_when_invisible": {},
+			"minecraft:experience_reward": {
+				on_death: "q.last_hit_by_player ? 8 : 0",
+			},
+			"minecraft:knockback_resistance": {
+				value: 0.5,
+			},
+			"minecraft:type_family": {
+				family: ["mob", "monster", "scp", "scp_hostile", "scp058"],
+			},
+			"minecraft:health": {
+				value: 63,
+				max: 63,
+			},
+			"minecraft:breathable": {
+				total_supply: 15,
+				suffocate_time: 0,
+			},
+			"minecraft:damage_sensor": {
+				triggers: [
+					{
+						cause: "fall",
+						deals_damage: "no",
+					},
+					{
+						cause: "fire",
+						damage_multiplier: 1.0,
+					},
+					{
+						cause: "lava",
+						damage_multiplier: 1.0,
+					},
+					{
+						cause: "all",
+						damage_multiplier: 0.5,
+					},
+				],
+			},
+			"minecraft:hurt_on_condition": {
+				damage_conditions: [
+					{
+						filters: {
+							test: "in_lava",
+						},
+						cause: "lava",
+						damage_per_tick: 4,
+					},
+				],
+			},
+			"minecraft:mob_effect_immunity": {
+				mob_effects: ["poison", "fatal_poison"],
+			},
+			"minecraft:follow_range": {
+				value: 64,
+				max: 64,
+			},
+			"minecraft:attack": {
+				damage: 7,
+				effect_name: "poison",
+				effect_duration: 6.0,
+			},
+			"minecraft:behavior.melee_box_attack": {
+				priority: 1,
+				cooldown_time: 0.62,
+				speed_multiplier: 1.5,
+			},
+			"minecraft:behavior.leap_at_target": {
+				priority: 4,
+				yd: 0.4,
+				must_be_on_ground: false,
+			},
+			"minecraft:behavior.nearest_attackable_target": {
+				priority: 2,
+				must_see: true,
+				must_see_forget_duration: 30.0,
+				entity_types: [
+					{
+						filters: {
+							any_of: [
+								{ test: "is_family", subject: "other", value: "player" },
+								{ test: "is_family", subject: "other", value: "villager" },
+								{ test: "is_family", subject: "other", value: "illager" },
+								{ test: "is_family", subject: "other", value: "irongolem" },
+								{ test: "is_family", subject: "other", value: "snowgolem" },
+								{ test: "is_family", subject: "other", value: "human" },
+								{ test: "is_family", subject: "other", value: "animal" },
+								{ test: "is_family", subject: "other", value: "cow" },
+								{ test: "is_family", subject: "other", value: "wolf" },
+								{ test: "is_family", subject: "other", value: "cat" },
+								{ test: "is_family", subject: "other", value: "horse" },
+								{ test: "is_family", subject: "other", value: "warden" },
+								{ test: "is_family", subject: "other", value: "piglin" },
+								{ test: "is_family", subject: "other", value: "scp066" },
+								{ test: "is_family", subject: "other", value: "scp457" },
+							],
+						},
+						max_dist: 16.0,
+					},
+				],
+			},
+			"minecraft:behavior.hurt_by_target": {
+				priority: 2,
+				entity_types: [
+					{
+						filters: {
+							test: "is_family",
+							subject: "other",
+							operator: "not",
+							value: "scp058",
+						},
+						max_dist: 40.0,
+					},
+				],
+			},
+			"minecraft:behavior.random_look_around": {
+				priority: 12,
+			},
+			"minecraft:behavior.random_stroll": {
+				priority: 11,
+				xz_dist: 8,
+				y_dist: 8,
+				speed_multiplier: 1.0,
+			},
+			"minecraft:friction_modifier": {
+				value: 0.9,
+			},
+			"minecraft:movement": {
+				value: 0.33,
+			},
+			"minecraft:water_movement": {
+				drag_factor: 0.9,
+			},
+			"minecraft:movement.basic": {},
+			"minecraft:jump.dynamic": {},
+			"minecraft:can_climb": {},
+			"minecraft:preferred_path": {
+				max_fall_blocks: 10,
+			},
+			"minecraft:navigation.climb": {
+				avoid_damage_blocks: true,
+				can_pass_doors: true,
+				can_path_over_water: true,
+				can_walk: true,
+				can_break_doors: true,
+				can_swim: true,
+				is_amphibious: true,
+			},
+			"minecraft:annotation.break_door": {
+				break_time: 7.0,
+				min_difficulty: "normal",
+			},
+			"minecraft:variable_max_auto_step": {
+				base_value: 1.0625, // 1 block + 1 pixel
+				jump_prevented_value: 0.5625, // 0.5 blocks + 1 pixel
+			},
+			"minecraft:physics": {},
+			"minecraft:collision_box": {
+				width: 0.6,
+				height: 0.8,
+			},
+			"minecraft:custom_hit_test": {
+				hitboxes: [
+					{
+						width: 0.6,
+						height: 1.0,
+						pivot: [0, 0.65, 0],
+					},
+				],
+			},
+			"minecraft:pushable": {
+				is_pushable: false,
+				is_pushable_by_piston: true,
+			},
+			"minecraft:leashable": {},
+			"minecraft:leashable_to": {},
+			"minecraft:nameable": {},
+			"minecraft:conditional_bandwidth_optimization": {},
+		},
+
+		component_groups: {},
+
+		events: {},
+	},
+}

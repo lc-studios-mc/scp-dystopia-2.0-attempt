@@ -1,6 +1,22 @@
 {
 	entity_sounds: {
 		entities: {
+			"scpdy:scp058": {
+				events: {
+					step: {
+						pitch: 0.9,
+						sound: "mob.zombie.step",
+						volume: 1.24,
+					},
+					death: "mob.zombie.death",
+					ambient: "mob.zombie.say",
+					attack: "mob.zombie.hurt",
+					hurt: "mob.zombie.hurt",
+				},
+				pitch: [0.31, 0.37],
+				volume: 1.13,
+			},
+
 			"scpdy:scp066": {
 				events: {
 					ambient: "scpdy.scp066.ambient",

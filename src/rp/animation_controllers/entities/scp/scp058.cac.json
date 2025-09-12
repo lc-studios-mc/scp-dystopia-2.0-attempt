@@ -1,0 +1,28 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.scpdy.scp058": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": ["anim.general", "anim.move"],
+					"transitions": [
+						{
+							"attacking": "v.attack_time"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"attacking": {
+					"animations": ["anim.general", "anim.move", "anim.attack"],
+					"transitions": [
+						{
+							"default": "!v.attack_time"
+						}
+					],
+					"blend_transition": 0.1
+				}
+			}
+		}
+	}
+}
