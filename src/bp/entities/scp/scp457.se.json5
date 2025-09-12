@@ -14,8 +14,8 @@
 				value: 1,
 			},
 			"minecraft:health": {
-				value: 50,
-				max: 50,
+				value: 80,
+				max: 80,
 			},
 			"minecraft:type_family": {
 				family: ["mob", "monster", "scp", "scp_hostile", "scp457"],
