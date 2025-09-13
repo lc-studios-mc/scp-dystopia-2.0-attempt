@@ -3,8 +3,7 @@
 		"moduleDetection": "force",
 		"verbatimModuleSyntax": true,
 		"isolatedModules": true,
-		// TODO: Resolve invalid side effect imports and be able to set the flag below to true
-		// "noUncheckedSideEffectImports": true,
+		"noUncheckedSideEffectImports": true,
 		"skipLibCheck": true,
 		"noEmit": true,
 		"strict": true,
