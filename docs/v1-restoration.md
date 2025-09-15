@@ -46,8 +46,8 @@ And I want to recreate the once-worked SCP: Dystopia.
 You might already know that I said similar things before and I couldn't do it for once. 😅
 
 That was because I didn't really focus on restoring v1,
-and I leaned too much into adding and maintaining new features.
-(Which stagnated the project)
+and I leaned too much into adding and maintaining new features (that aren't even complete).
+Which definitely stagnated the project.
 
 But this time, by deferring the development of new features, I'm able to focus
 on restoration.
@@ -72,6 +72,6 @@ The "v2 alpha", which was underway from February 2024 to August 2025, **will be 
 So, [2.0.0 Alpha 5](https://github.com/lc-studios-mc/scp-dystopia/releases/tag/v2.0.0-alpha-5)
 will probably be the last "v2 alpha" version.
 
-I will be careful not to add new features while doing restoration this time.
+I will be careful to never lose focus on restoration this time.
 
 And don't worry, I will bring back popular ideas like Lockdown System and CCTV once the restoration part is done.
