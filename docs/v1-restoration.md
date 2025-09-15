@@ -43,14 +43,13 @@ And I want to recreate the once-worked SCP: Dystopia.
 
 ## Why I struggled in the past
 
-You might already know that I said similar things before and I couldn't do it for once. 😅
+You might already know that I said similar things in the past, and I couldn't do it. 😅
 
 That was because I didn't really focus on restoring v1,
 and I leaned too much into adding and maintaining new features (that aren't even complete).
 Which definitely stagnated the project.
 
-But this time, by deferring the development of new features, I'm able to focus
-on restoration.
+But this time, by deferring the development of new features, I'm able to focus on restoration.
 
 Think of it like a house: a solid, cleanly restored v1 is the foundation,
 and the new features are built on top of that.
@@ -74,4 +73,4 @@ will be the last "v2 alpha" version.
 
 I will be careful to never lose focus on restoration this time.
 
-But don't worry, I will bring back popular ideas like Lockdown System and CCTV once the restoration part is done.
+But don't worry, I will re-add popular ideas like Lockdown System and CCTV once the restoration part is done.
