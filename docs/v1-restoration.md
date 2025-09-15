@@ -1,5 +1,9 @@
 # SCP: Dystopia - v1 Restoration
 
+> [!NOTE]
+> I wrote this page when I was working on restoration.
+> It might be irrelevant by the time you are reading this.
+
 Progress (click to see details):
 
 [![GitHub milestone details](https://img.shields.io/github/milestones/progress-percent/lc-studios-mc/scp-dystopia/2)](https://github.com/lc-studios-mc/scp-dystopia/milestone/2)
