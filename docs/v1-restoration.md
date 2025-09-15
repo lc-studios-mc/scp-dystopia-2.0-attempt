@@ -68,9 +68,9 @@ So, **you shouldn't use it in a serious project**.
 
 *Maintenance cost of incomplete new features has stagnated the project...*
 
-The "v2 alpha", which was underway from February 2024 to August 2025, **will be discontinued**.
+The "v2 alpha", which was underway from February 2024 to August 2025, **is discontinued**.
 So, [2.0.0 Alpha 5](https://github.com/lc-studios-mc/scp-dystopia/releases/tag/v2.0.0-alpha-5)
-will probably be the last "v2 alpha" version.
+will be the last "v2 alpha" version.
 
 I will be careful to never lose focus on restoration this time.
 
