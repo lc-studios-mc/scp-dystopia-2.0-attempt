@@ -14,11 +14,13 @@ v2 alpha is discontinued. ([Details](#about-v2-alpha))
 
 I'm restoring/recreating v1(.8) from scratch.
 
-I'll re-add "new" features from v2 alpha.
+Then, I'll re-add "new" features from v2 alpha.
 
-And when all of that is done, v2 is complete.
+I plan to release early access versions more frequently than before.
 
-## The Goal
+When all of that is done, v2 is complete.
+
+## Goal
 
 **The goal is to recreate the state where the SCP: Dystopia addon was working fine.** 🛠️
 
@@ -51,10 +53,21 @@ and the new features are built on top of that.
 
 I'm taking it easy btw. 😌
 
+## Early accesses
+
+I plan to release early access versions more frequently than before. 🍃
+
+Each early access version will be less important and more experimental.
+So, **you shouldn't use it in a serious project**.
+
 ## About v2 alpha
+
+*Maintenance cost of incomplete new features has stagnated the project...*
 
 The "v2 alpha", which was underway from February 2024 to August 2025, **will be discontinued**.
 So, [2.0.0 Alpha 5](https://github.com/lc-studios-mc/scp-dystopia/releases/tag/v2.0.0-alpha-5)
 will probably be the last "v2 alpha" version.
 
-However, I plan to bring back popular new ideas like Lockdown System once the restoration part is done.
+I will be careful not to add new features while doing restoration this time.
+
+And don't worry, I will bring back popular ideas like Lockdown System and CCTV once the restoration part is done.
