@@ -37,9 +37,9 @@ with so many incomplete new features, therefore I'm doing it from ground up. �
 ## Why restore v1
 
 For those who don't know: SCP: Dystopia used to be a relatively big addon with many features.
-**But the core parts of it has been destroyed by Minecraft updates.**
+**But the core parts of it have been destroyed by Minecraft updates.**
 
-And I want to recreate the once-worked SCP: Dystopia.
+And I want to recreate the once-working SCP: Dystopia.
 
 ## Why I struggled in the past
 
@@ -60,7 +60,7 @@ I'm taking it easy btw. 😌
 
 I plan to release early access versions more frequently than before. 🍃
 
-Each early access version will be less important and more experimental.
+Each early access version will represent a smaller, more experimental step.
 So, **you shouldn't use it in a serious project**.
 
 ## About v2 alpha
