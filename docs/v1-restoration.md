@@ -74,4 +74,4 @@ will be the last "v2 alpha" version.
 
 I will be careful to never lose focus on restoration this time.
 
-And don't worry, I will bring back popular ideas like Lockdown System and CCTV once the restoration part is done.
+But don't worry, I will bring back popular ideas like Lockdown System and CCTV once the restoration part is done.
