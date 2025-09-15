@@ -2,7 +2,7 @@
 > We're currently working on version 2.0, which is a complete rewrite. It's not yet in a stable development stage and **will introduce breaking changes.**
 > You should not use it in a serious project for now!
 >
-> We're doing it in a separate branch: https://github.com/lc-studios-mc/scp-dystopia/tree/restoration
+> [Read more](./docs/v1-restoration.md)
 
 <hr/>
 
