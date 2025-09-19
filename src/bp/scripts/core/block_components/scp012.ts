@@ -31,15 +31,17 @@ mc.system.beforeEvents.startup.subscribe(({ blockComponentRegistry }) => {
 				);
 				vec3.normalize(dirToPlayerVec, dirToPlayerVec);
 
-				const isRayBlocked =
-					arg.dimension.getBlockFromRay(center, fromVec3(dirToPlayerVec), {
-						includeLiquidBlocks: false,
-						includePassableBlocks: false,
-						excludeTypes: [arg.block.typeId],
-						maxDistance: LURE_DISTANCE,
-					}) !== undefined;
+				const distance = vec3.distance(toVec3(target.getHeadLocation()), toVec3(center));
 
-				if (isRayBlocked) return;
+				const raycastHit = arg.dimension.getBlockFromRay(center, fromVec3(dirToPlayerVec), {
+					includeLiquidBlocks: false,
+					includePassableBlocks: false,
+					excludeTypes: [arg.block.typeId],
+					maxDistance: distance,
+				});
+				const isBlocked = raycastHit !== undefined;
+
+				if (isBlocked) return;
 
 				const facingLocationVec = vec3.add(
 					vec3.create(),
@@ -53,13 +55,11 @@ mc.system.beforeEvents.startup.subscribe(({ blockComponentRegistry }) => {
 
 				target.addEffect("blindness", 80);
 
-				const distBetweenCenter = vec3.dist(toVec3(target.location), toVec3(center));
-
-				if (distBetweenCenter < PAIN_DISTANCE) {
+				if (distance < PAIN_DISTANCE) {
 					target.addEffect("wither", 40, { amplifier: 1 });
 				}
 
-				if (distBetweenCenter > PAIN_DISTANCE - 1) {
+				if (distance > PAIN_DISTANCE - 1) {
 					mc.system.runTimeout(() => {
 						const impulseVec = vec3.scale(vec3.create(), dirToPlayerVec, -0.4);
 						target.applyImpulse(fromVec3(impulseVec));
