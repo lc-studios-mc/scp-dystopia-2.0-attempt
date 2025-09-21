@@ -23,6 +23,7 @@ const onDeadlyInteraction = (player: mc.Player): void => {
 	});
 
 	player.addEffect("wither", 60 * mc.TicksPerSecond, { amplifier: 2 });
+	player.addEffect("mining_fatigue", 120 * mc.TicksPerSecond, { amplifier: 2 });
 
 	player.applyDamage(8, {
 		cause: mc.EntityDamageCause.override,
