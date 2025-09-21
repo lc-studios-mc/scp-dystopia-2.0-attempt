@@ -43,7 +43,7 @@ const createPackVersion = (args) => {
 
 		return {
 			text: `EA-${formatDateArray(array)}`, // yyyy-mm-dd
-			array,
+			array: [0, 0, +array.join("")],
 			isEarlyAccess: true,
 		};
 	}
