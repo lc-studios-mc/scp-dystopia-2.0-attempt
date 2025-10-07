@@ -1,4 +1,4 @@
-import { defineConfig } from "@lc-studios-js/mcpacker";
+import { defineConfig } from "mcpacker";
 import path from "node:path";
 import packageData from "../package.json" with { type: "json" };
 
@@ -23,7 +23,7 @@ const formatDateArray = (arr) => {
 };
 
 /**
- * @param {import("@lc-studios-js/mcpacker").CliArgs} args
+ * @param {import("mcpacker").CliArgs} args
  * @returns {{ text: string; array: [number,number,number]; isEarlyAccess: boolean; }}
  */
 const createPackVersion = (args) => {
@@ -88,7 +88,7 @@ const getScriptinApiVersion = () => {
 };
 
 /**
- * @param {import("@lc-studios-js/mcpacker").CliArgs} args
+ * @param {import("mcpacker").CliArgs} args
  * @returns {{ bpManifest: any; rpManifest: any; }}
  */
 const createManifests = (args) => {
@@ -182,7 +182,7 @@ const getDevOutDir = (type) => {
 };
 
 /**
- * @param {import("@lc-studios-js/mcpacker").CliArgs} args
+ * @param {import("mcpacker").CliArgs} args
  * @returns {{ bpOutDir: string; rpOutDir: string; }}
  */
 const getOutDir = (args) => {
@@ -206,7 +206,7 @@ export default defineConfig((args) => {
 	const { bpManifest, rpManifest } = createManifests(args);
 	const { bpOutDir, rpOutDir } = getOutDir(args);
 
-	/** @type {import("@lc-studios-js/mcpacker").BuildConfig} */
+	/** @type {import("mcpacker").BuildConfig} */
 	const config = {
 		packs: [
 			{
