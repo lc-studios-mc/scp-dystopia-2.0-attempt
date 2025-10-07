@@ -83,7 +83,6 @@ async function showCreationForm(previewEntity: mc.Entity, player: mc.Player): Pr
 
 	formData1.submitButton({ translate: "scpdy.form.blastDoorCreation.submitButton" });
 
-	// @ts-expect-error
 	const response1 = await formData1.show(player);
 
 	if (response1.canceled) return;
@@ -119,7 +118,6 @@ async function showCreationForm(previewEntity: mc.Entity, player: mc.Player): Pr
 
 		formData2.submitButton({ translate: "scpdy.form.blastDoorCreation.setZone.submitButton" });
 
-		// @ts-expect-error
 		const response2 = await formData2.show(player);
 
 		if (response2.canceled) return;

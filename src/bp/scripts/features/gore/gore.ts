@@ -99,9 +99,7 @@ export function spawnGoreExplosion(opts: SpawnGoreOpts): void {
 
 		if (!raycastHit) continue;
 
-		const hitLoc = raycastHit.block.isSolid
-			? getBlockRaycastHitLocation(raycastHit)
-			: vec3.add(raycastHit.block.location, raycastHit.faceLocation);
+		const hitLoc = vec3.add(raycastHit.block.location, raycastHit.faceLocation);
 
 		mc.system.runTimeout(
 			() => {
@@ -191,8 +189,8 @@ mc.system.beforeEvents.startup.subscribe((e) => {
 			],
 		},
 		(origin, locationParam) => {
-			const location = locationParam ?? origin.sourceEntity?.getHeadLocation()
-				?? origin.sourceBlock?.center();
+			const location =
+				locationParam ?? origin.sourceEntity?.getHeadLocation() ?? origin.sourceBlock?.center();
 
 			if (!isVector3(location)) return;
 
@@ -222,16 +220,18 @@ mc.world.afterEvents.entityHurt.subscribe((e) => {
 	if (!health) return;
 	if (health.currentValue > 0) return;
 
-	const doesDamageCausePreventGib = e.damageSource.cause === mc.EntityDamageCause.selfDestruct
-		|| e.damageSource.cause === mc.EntityDamageCause.void
-		|| e.damageSource.cause === mc.EntityDamageCause.fire
-		|| e.damageSource.cause === mc.EntityDamageCause.fireTick
-		|| e.damageSource.cause === mc.EntityDamageCause.campfire;
+	const doesDamageCausePreventGib =
+		e.damageSource.cause === mc.EntityDamageCause.selfDestruct ||
+		e.damageSource.cause === mc.EntityDamageCause.void ||
+		e.damageSource.cause === mc.EntityDamageCause.fire ||
+		e.damageSource.cause === mc.EntityDamageCause.fireTick ||
+		e.damageSource.cause === mc.EntityDamageCause.campfire;
 
 	if (doesDamageCausePreventGib) return;
 
-	const isExplosionDamage = e.damageSource.cause === mc.EntityDamageCause.blockExplosion
-		|| e.damageSource.cause === mc.EntityDamageCause.entityExplosion;
+	const isExplosionDamage =
+		e.damageSource.cause === mc.EntityDamageCause.blockExplosion ||
+		e.damageSource.cause === mc.EntityDamageCause.entityExplosion;
 
 	const instantGib = e.hurtEntity.matches({ families: ["instant_gib_on_death"] });
 

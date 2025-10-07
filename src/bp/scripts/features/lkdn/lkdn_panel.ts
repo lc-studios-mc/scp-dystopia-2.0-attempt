@@ -111,7 +111,6 @@ async function showPlacementForm(
 	formData1.body({ translate: "scpdy.fnetManager.selectFnet" });
 	fnets.forEach((fnet) => formData1.button(fnet.name));
 
-	// @ts-expect-error
 	const response1 = await formData1.show(player);
 
 	if (!player.isValid) return;
@@ -127,7 +126,6 @@ async function showPlacementForm(
 	formData2.body({ translate: "scpdy.fnetManager.selectFzone" });
 	zones.forEach((zone) => formData2.button(zone.name));
 
-	// @ts-expect-error
 	const response2 = await formData2.show(player);
 
 	if (!player.isValid) return;
@@ -139,11 +137,12 @@ async function showPlacementForm(
 	if (!e.block.isValid) return;
 	if (!e.block.isAir && !e.block.isLiquid) return;
 
-	const shouldAbort = !isCreativeOrSpectator(player)
-		&& consumeHandItem(player, {
-				filter: (itemStack) => itemStack.typeId === e.permutationToPlace.getItemStack()?.typeId,
-				max: 1,
-			}) <= 0;
+	const shouldAbort =
+		!isCreativeOrSpectator(player) &&
+		consumeHandItem(player, {
+			filter: (itemStack) => itemStack.typeId === e.permutationToPlace.getItemStack()?.typeId,
+			max: 1,
+		}) <= 0;
 
 	if (shouldAbort) return;
 
@@ -211,7 +210,6 @@ async function showStartLkdnForm(player: mc.Player, panelBlock: mc.Block): Promi
 		},
 	);
 
-	// @ts-expect-error
 	const response = await formData.show(player);
 
 	if (!player.isValid) return;
@@ -248,7 +246,6 @@ async function showCancelLkdnScheduleForm(player: mc.Player, panelBlock: mc.Bloc
 	formData.button({ translate: "scpdy.misc.text.yes" });
 	formData.button({ translate: "scpdy.misc.text.no" });
 
-	// @ts-expect-error
 	const response = await formData.show(player);
 
 	if (!player.isValid) return;
@@ -283,7 +280,6 @@ async function showStopLkdnForm(player: mc.Player, panelBlock: mc.Block): Promis
 	formData.button({ translate: "scpdy.misc.text.yes" });
 	formData.button({ translate: "scpdy.misc.text.no" });
 
-	// @ts-expect-error
 	const response = await formData.show(player);
 
 	if (!player.isValid) return;

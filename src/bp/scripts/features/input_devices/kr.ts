@@ -63,7 +63,6 @@ const COMPONENT: mc.BlockCustomComponent = {
 				tooltip: "scpdy.machinery.input.rbLifespan.tooltip",
 			});
 
-			// @ts-expect-error
 			const response = await formData.show(arg.player);
 
 			if (response.canceled) return;
@@ -81,12 +80,12 @@ const COMPONENT: mc.BlockCustomComponent = {
 
 			if (!arg.block.isAir && !arg.block.isLiquid) return;
 
-			const abort = !isCreativeOrSpectator(arg.player)
-				&& consumeHandItem(arg.player, {
-						filter: (itemStack) =>
-							itemStack.typeId === arg.permutationToPlace.getItemStack()?.typeId,
-						max: 1,
-					}) <= 0;
+			const abort =
+				!isCreativeOrSpectator(arg.player) &&
+				consumeHandItem(arg.player, {
+					filter: (itemStack) => itemStack.typeId === arg.permutationToPlace.getItemStack()?.typeId,
+					max: 1,
+				}) <= 0;
 
 			if (abort) return;
 

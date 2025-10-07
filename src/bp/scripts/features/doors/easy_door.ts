@@ -100,8 +100,8 @@ const COMPONENT: mc.BlockCustomComponent = {
 
 		const newNextAction: NextAction =
 			// idk wtf is going on
-			mc.system.currentTick % 2 === 0
-				&& (newStepIndex <= MIN_STEP_INDEX || newStepIndex >= MAX_STEP_INDEX)
+			mc.system.currentTick % 2 === 0 &&
+			(newStepIndex <= MIN_STEP_INDEX || newStepIndex >= MAX_STEP_INDEX)
 				? "none"
 				: nextAction;
 
@@ -186,7 +186,6 @@ async function showPlacementForm(
 		},
 	);
 
-	// @ts-expect-error
 	const response = await formData.show(player);
 
 	if (response.canceled) return;
@@ -201,11 +200,12 @@ async function showPlacementForm(
 	if (!e.block.isValid) return;
 	if (!e.block.isAir && !e.block.isLiquid) return;
 
-	const shouldAbort = !isCreativeOrSpectator(player)
-		&& consumeHandItem(player, {
-				filter: (itemStack) => itemStack.typeId === e.permutationToPlace.getItemStack()?.typeId,
-				max: 1,
-			}) <= 0;
+	const shouldAbort =
+		!isCreativeOrSpectator(player) &&
+		consumeHandItem(player, {
+			filter: (itemStack) => itemStack.typeId === e.permutationToPlace.getItemStack()?.typeId,
+			max: 1,
+		}) <= 0;
 
 	if (shouldAbort) return;
 
@@ -269,7 +269,7 @@ function getAppropriateNextActionForControl(
 			return currentStepIndex < MAX_STEP_INDEX || currentNextAction === "close"
 				? "open"
 				: currentStepIndex > MIN_STEP_INDEX || currentNextAction === "open"
-				? "close"
-				: "none";
+					? "close"
+					: "none";
 	}
 }

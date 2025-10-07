@@ -54,9 +54,9 @@ async function showCameraList(
 	cctvServer: mc.Entity,
 	cctvTabletItem: mc.ItemStack,
 ): Promise<void> {
-	const mainhandSlot = player.getComponent("equippable")!.getEquipmentSlot(
-		mc.EquipmentSlot.Mainhand,
-	);
+	const mainhandSlot = player
+		.getComponent("equippable")!
+		.getEquipmentSlot(mc.EquipmentSlot.Mainhand);
 
 	if (mainhandSlot.typeId !== TABLET_ITEM_TYPE) return;
 
@@ -128,7 +128,6 @@ async function showCameraList(
 		cameraListForm.button(button.label);
 	}
 
-	// @ts-expect-error
 	const response = await cameraListForm.show(player);
 
 	if (response.canceled || response.selection === undefined) {
@@ -139,9 +138,9 @@ async function showCameraList(
 }
 
 function onUseCctvTablet(player: mc.Player, itemStack: mc.ItemStack): void {
-	const mainhandSlot = player.getComponent("equippable")!.getEquipmentSlot(
-		mc.EquipmentSlot.Mainhand,
-	);
+	const mainhandSlot = player
+		.getComponent("equippable")!
+		.getEquipmentSlot(mc.EquipmentSlot.Mainhand);
 
 	if (mainhandSlot.typeId !== TABLET_ITEM_TYPE) return;
 
@@ -152,7 +151,7 @@ function onUseCctvTablet(player: mc.Player, itemStack: mc.ItemStack): void {
 			.title({ translate: "scpdy.form.cctvTablet.notLinkedToServer.title" })
 			.body({ translate: "scpdy.form.cctvTablet.notLinkedToServer.body" })
 			.button({ translate: "scpdy.form.misc.close" })
-			// @ts-expect-error
+
 			.show(player);
 
 		return;
@@ -165,7 +164,7 @@ function onUseCctvTablet(player: mc.Player, itemStack: mc.ItemStack): void {
 			.title({ translate: "scpdy.form.cctvTablet.failedToGetServer.title" })
 			.body({ translate: "scpdy.form.cctvTablet.failedToGetServer.body" })
 			.button({ translate: "scpdy.form.cctvTablet.failedToGetServer.removeLinkButton" })
-			// @ts-expect-error
+
 			.show(player)
 			.then((response) => {
 				if (mainhandSlot.typeId !== TABLET_ITEM_TYPE) return;
@@ -191,9 +190,9 @@ function onInteractCctvServerAuthorized(
 	cctvServer: mc.Entity,
 	itemStack: mc.ItemStack,
 ): void {
-	const mainhandSlot = player.getComponent("equippable")!.getEquipmentSlot(
-		mc.EquipmentSlot.Mainhand,
-	);
+	const mainhandSlot = player
+		.getComponent("equippable")!
+		.getEquipmentSlot(mc.EquipmentSlot.Mainhand);
 
 	if (mainhandSlot.typeId !== TABLET_ITEM_TYPE) return;
 

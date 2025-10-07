@@ -78,7 +78,6 @@ async function beforeOnPlayerPlaceAsync(e: mc.BlockComponentPlayerPlaceBeforeEve
 	formData1.body({ translate: "scpdy.fnetManager.selectFnet" });
 	fnets.forEach((fnet) => formData1.button(fnet.name));
 
-	// @ts-expect-error
 	const response1 = await formData1.show(e.player);
 
 	if (!e.player.isValid) return;
@@ -94,7 +93,6 @@ async function beforeOnPlayerPlaceAsync(e: mc.BlockComponentPlayerPlaceBeforeEve
 	formData2.body({ translate: "scpdy.fnetManager.selectFzone" });
 	zones.forEach((zone) => formData2.button(zone.name));
 
-	// @ts-expect-error
 	const response2 = await formData2.show(e.player);
 
 	if (!e.player.isValid) return;
@@ -106,11 +104,12 @@ async function beforeOnPlayerPlaceAsync(e: mc.BlockComponentPlayerPlaceBeforeEve
 	if (!e.block.isValid) return;
 	if (!e.block.isAir && !e.block.isLiquid) return;
 
-	const shouldAbort = !isCreativeOrSpectator(e.player)
-		&& consumeHandItem(e.player, {
-				filter: (itemStack) => itemStack.typeId === e.permutationToPlace.getItemStack()?.typeId,
-				max: 1,
-			}) <= 0;
+	const shouldAbort =
+		!isCreativeOrSpectator(e.player) &&
+		consumeHandItem(e.player, {
+			filter: (itemStack) => itemStack.typeId === e.permutationToPlace.getItemStack()?.typeId,
+			max: 1,
+		}) <= 0;
 
 	if (shouldAbort) return;
 

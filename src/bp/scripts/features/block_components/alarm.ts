@@ -70,7 +70,6 @@ const beforeOnPlayerPlaceAsync = async (
 		tooltip: { translate: "scpdy.machinery.alarm.redstoneDetectionExtent.tip" },
 	});
 
-	// @ts-expect-error
 	const response = await formData.show(e.player);
 
 	if (!e.player.isValid) return;
@@ -83,11 +82,12 @@ const beforeOnPlayerPlaceAsync = async (
 
 	if (!e.block.isAir && !e.block.isLiquid) return;
 
-	const abort = !isCreativeOrSpectator(e.player)
-		&& consumeHandItem(e.player, {
-				filter: (itemStack) => itemStack.typeId === e.permutationToPlace.getItemStack()?.typeId,
-				max: 1,
-			}) <= 0;
+	const abort =
+		!isCreativeOrSpectator(e.player) &&
+		consumeHandItem(e.player, {
+			filter: (itemStack) => itemStack.typeId === e.permutationToPlace.getItemStack()?.typeId,
+			max: 1,
+		}) <= 0;
 
 	if (abort) return;
 

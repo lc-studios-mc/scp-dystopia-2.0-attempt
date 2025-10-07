@@ -41,9 +41,12 @@ async function processPlacementAsync(
 			{ translate: "scpdy.form.keypad.placementOpts.hintField.label" },
 			{ translate: "scpdy.form.keypad.placementOpts.hintField.placeholder" },
 		)
-		.toggle({ translate: "scpdy.form.keypad.placementOpts.loudIncorrectBuzzerToggle.label" }, {
-			defaultValue: false,
-		})
+		.toggle(
+			{ translate: "scpdy.form.keypad.placementOpts.loudIncorrectBuzzerToggle.label" },
+			{
+				defaultValue: false,
+			},
+		)
 		.divider()
 		.dropdown(
 			{ translate: "scpdy.form.controlDevice.modeDropdown.label" },
@@ -58,7 +61,6 @@ async function processPlacementAsync(
 		.toggle({ translate: "scpdy.form.keypad.placementOpts.O5ClearanceToggle.label" })
 		.submitButton({ translate: "scpdy.form.keypad.placementOpts.submitButton" });
 
-	// @ts-expect-error
 	const response = await formData.show(player);
 
 	if (response.canceled) return;

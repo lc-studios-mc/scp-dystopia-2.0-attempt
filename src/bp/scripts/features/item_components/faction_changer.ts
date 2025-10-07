@@ -13,7 +13,6 @@ const onUse = async ({ source: player }: mc.ItemComponentUseEvent): Promise<void
 		.toggle({ translate: "scpdy.faction_changer.joinCi" }, { defaultValue: isCi })
 		.toggle({ translate: "scpdy.faction_changer.joinScpf" }, { defaultValue: isScpf });
 
-	// @ts-expect-error
 	const response = await formData.show(player);
 
 	if (response.canceled) return;

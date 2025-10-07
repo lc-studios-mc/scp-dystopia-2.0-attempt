@@ -50,9 +50,9 @@ const hasAttachmentItemInInventory = (
 	itemType: string,
 ): boolean => {
 	return (
-		container?.isValid
-		&& findItemStack(container, (x) => x.typeId === itemType) !== undefined
-	) === true;
+		(container?.isValid && findItemStack(container, (x) => x.typeId === itemType) !== undefined) ===
+		true
+	);
 };
 
 const isAttachmentAvailable = (
@@ -111,7 +111,9 @@ const createAttachmentElement = (
 	return element;
 };
 
-const createAttachmentEditorConfig = (options: EditorOptions): AttachmentEditorConfig | undefined => {
+const createAttachmentEditorConfig = (
+	options: EditorOptions,
+): AttachmentEditorConfig | undefined => {
 	const supportedAtts = getSupportedAttachments(options.itemStack);
 
 	if (!supportedAtts) {
@@ -134,8 +136,10 @@ const createAttachmentEditorConfig = (options: EditorOptions): AttachmentEditorC
 };
 
 // Form creation helpers
-const createDropdownItems = (attachments: AttachmentEditorElement["attachments"]): mc.RawMessage[] => {
-	const items: mc.RawMessage[] = attachments.map(att => ({
+const createDropdownItems = (
+	attachments: AttachmentEditorElement["attachments"],
+): mc.RawMessage[] => {
+	const items: mc.RawMessage[] = attachments.map((att) => ({
 		rawtext: [
 			{ text: att.isAvailable ? "" : "§c" },
 			{ translate: att.attachmentConfig.localizationKey },
@@ -156,18 +160,20 @@ const buildForm = (config: AttachmentEditorConfig): ModalFormData => {
 	for (const [slotType, element] of config.elementsBySlotType) {
 		const dropdownItems = createDropdownItems(element.attachments);
 
-		formData.dropdown(
-			{ translate: `scpdy.gun.att.slot.${slotType}` },
-			dropdownItems,
-			{ defaultValueIndex: element.defaultIndex + 1 },
-		);
+		formData.dropdown({ translate: `scpdy.gun.att.slot.${slotType}` }, dropdownItems, {
+			defaultValueIndex: element.defaultIndex + 1,
+		});
 	}
 
 	return formData;
 };
 
 // Item handling
-const giveOrDropItemStack = (player: mc.Player, itemStack: mc.ItemStack, mainhandSlot: mc.ContainerSlot): void => {
+const giveOrDropItemStack = (
+	player: mc.Player,
+	itemStack: mc.ItemStack,
+	mainhandSlot: mc.ContainerSlot,
+): void => {
 	if (mainhandSlot.hasItem()) {
 		player.dimension.spawnItem(itemStack, player.getHeadLocation());
 	} else {
@@ -250,7 +256,15 @@ const processFormResponse = (
 		for (let i = 0; i < slicedFormValues.length; i++) {
 			const selectedIndex = Number(slicedFormValues[i]) - 1;
 			const [slotType, element] = elementsArray[i]!;
-			processAttachmentChange(player, slotType, element, selectedIndex, config, isCreativeMode, inventoryContainer);
+			processAttachmentChange(
+				player,
+				slotType,
+				element,
+				selectedIndex,
+				config,
+				isCreativeMode,
+				inventoryContainer,
+			);
 		}
 
 		const modifiedItemStack = originalItemStack.clone();
@@ -317,8 +331,15 @@ export const showAttachmentEditor = async (player: mc.Player): Promise<void> => 
 	// Clear mainhand to avoid conflicts
 	equippable.setEquipment(mc.EquipmentSlot.Mainhand, undefined);
 
-	// @ts-expect-error - Known API limitation
 	const response = await formData.show(player);
 
-	processFormResponse(player, response, config, itemStack!, mainhandSlot, isCreativeMode, inventory.container);
+	processFormResponse(
+		player,
+		response,
+		config,
+		itemStack!,
+		mainhandSlot,
+		isCreativeMode,
+		inventory.container,
+	);
 };

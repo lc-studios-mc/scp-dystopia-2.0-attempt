@@ -21,34 +21,26 @@ const onUse = ({ source, itemStack }: mc.ItemComponentUseEvent): void => {
 	if (!equippable) throw new Error("Failed to get player equippable component");
 
 	const currentDamage = Number(itemStack.getDynamicProperty("damage") ?? DEFAULT_DAMAGE);
-	const currentMultiplier = Number(itemStack.getDynamicProperty("multiplier") ?? DEFAULT_MULTIPLIER);
+	const currentMultiplier = Number(
+		itemStack.getDynamicProperty("multiplier") ?? DEFAULT_MULTIPLIER,
+	);
 
 	const form = new ModalFormData()
 		.title({ translate: "scpdy.entity_damager.configuration_form_title" })
 		.label({ translate: "scpdy.entity_damager.form_label" })
-		.slider(
-			{ translate: "scpdy.entity_damager.damage_slider_label" },
-			1,
-			9999,
-			{
-				defaultValue: currentDamage,
-				valueStep: 1,
-			},
-		)
-		.slider(
-			{ translate: "scpdy.entity_damager.multiplier_slider_label" },
-			1,
-			9999,
-			{
-				defaultValue: currentMultiplier,
-			},
-		);
+		.slider({ translate: "scpdy.entity_damager.damage_slider_label" }, 1, 9999, {
+			defaultValue: currentDamage,
+			valueStep: 1,
+		})
+		.slider({ translate: "scpdy.entity_damager.multiplier_slider_label" }, 1, 9999, {
+			defaultValue: currentMultiplier,
+		});
 
 	equippable.setEquipment(mc.EquipmentSlot.Mainhand, undefined);
 
-	// @ts-expect-error
-	form.show(source)
-		.then(response => {
+	form
+		.show(source)
+		.then((response) => {
 			if (response.canceled || !response.formValues) return;
 
 			const newDamage = Number(response.formValues[1]);
@@ -57,17 +49,18 @@ const onUse = ({ source, itemStack }: mc.ItemComponentUseEvent): void => {
 			itemStack.setDynamicProperty("damage", newDamage);
 			itemStack.setDynamicProperty("multiplier", newMultiplier);
 
-			itemStack.setLore([
-				`DAMAGE: ${newDamage}`,
-				`MULTIPLIER: ${newMultiplier}`,
-			]);
+			itemStack.setLore([`DAMAGE: ${newDamage}`, `MULTIPLIER: ${newMultiplier}`]);
 		})
 		.finally(() => {
 			source.dimension.spawnItem(itemStack, source.getHeadLocation());
 		});
 };
 
-const onHitEntity = ({ itemStack, attackingEntity, hitEntity }: mc.ItemComponentHitEntityEvent): void => {
+const onHitEntity = ({
+	itemStack,
+	attackingEntity,
+	hitEntity,
+}: mc.ItemComponentHitEntityEvent): void => {
 	if (!itemStack) return;
 
 	const source = attackingEntity;
@@ -90,7 +83,9 @@ const onHitEntity = ({ itemStack, attackingEntity, hitEntity }: mc.ItemComponent
 				with: [`${finalDamage}`],
 			});
 		} else {
-			source.onScreenDisplay.setActionBar({ translate: "scpdy.entity_damager.could_not_apply_damage" });
+			source.onScreenDisplay.setActionBar({
+				translate: "scpdy.entity_damager.could_not_apply_damage",
+			});
 		}
 	} catch (error) {
 		source.onScreenDisplay.setActionBar(`§c${error}`);
