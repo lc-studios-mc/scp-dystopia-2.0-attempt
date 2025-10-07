@@ -1,3 +1,5 @@
+import "./ephemeral_warning";
+
 // Import legacy modules
 import "./logic/advancedItem";
 import "./logic/ammo";
