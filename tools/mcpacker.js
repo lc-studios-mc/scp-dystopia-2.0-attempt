@@ -4,47 +4,6 @@ import packageData from "../package.json" with { type: "json" };
 
 const MIN_ENGINE_VERSION = [1, 21, 100];
 
-/**
- * @param {import("mcpacker").CliArgs} args
- * @returns {{ text: string; array: [number,number,number]; isSnapshot: boolean; }}
- */
-const createPackVersion = (args) => {
-	if (args.dev) {
-		return {
-			text: "DEV",
-			array: [0, 0, 1],
-			isSnapshot: false,
-		};
-	}
-
-	if (!args.dev && !args.packVersion) {
-		const date = new Date();
-
-		/** @type {[number,number,number]} */
-		const array = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
-
-		return {
-			text: `Snapshot-${array.join("-")}`, // yyyy-mm-dd
-			array,
-			isSnapshot: true,
-		};
-	}
-
-	if (args.packVersion) {
-		return {
-			text: `v${args.packVersion.join(".")}`,
-			array: args.packVersion,
-			isSnapshot: false,
-		};
-	}
-
-	return {
-		text: "UNRESOLVED",
-		array: [0, 0, 0],
-		isSnapshot: false,
-	};
-};
-
 /** @returns {{ "@minecraft/server": string; "@minecraft/server-ui": string; }} */
 const getScriptinApiVersion = () => {
 	/**
@@ -74,21 +33,13 @@ const getScriptinApiVersion = () => {
  * @returns {{ bpManifest: any; rpManifest: any; }}
  */
 const createManifests = (args) => {
-	const version = createPackVersion(args);
+	const description = `This version will immediately stop working on next Minecraft content drop.
+Consider using "Distilled" version which is not experimental.
+Please do not ask for updates.`;
 
-	const description = args.dev
-		? "Development build. Do not publish this."
-		: version.isSnapshot
-			? "EARLY ACCESS - Not recommended to use this version in a serious project!"
-			: "SCP addon by LC Studios MC.";
+	const bpHeaderUuid = "bc68b824-f338-472d-8b8e-942d2b34ca0d";
 
-	const bpHeaderUuid = args.dev
-		? "bc68b824-f338-472d-8b8e-942d2b34ca0d"
-		: "b5822a30-5be0-4699-a298-315ab9a21042";
-
-	const rpHeaderUuid = args.dev
-		? "717e0c75-1e5c-4bc8-a543-baeaa203a5e1"
-		: "fbc36a82-3f2d-423f-974d-99c9e63b9c2e";
+	const rpHeaderUuid = "717e0c75-1e5c-4bc8-a543-baeaa203a5e1";
 
 	const scriptingApiVersion = getScriptinApiVersion();
 
@@ -96,9 +47,9 @@ const createManifests = (args) => {
 		format_version: 2,
 		header: {
 			description,
-			name: `SCP: Dystopia §7${version.text}`,
+			name: `SCP:DY 2.0 Alpha EPHEMERAL (1.21.111 only)`,
 			uuid: bpHeaderUuid,
-			version: version.array,
+			version: [69, 69, 69],
 			min_engine_version: MIN_ENGINE_VERSION,
 		},
 		modules: [
@@ -119,7 +70,7 @@ const createManifests = (args) => {
 			{
 				// Resource pack
 				uuid: rpHeaderUuid,
-				version: version.array,
+				version: [69, 69, 69],
 			},
 			{
 				module_name: "@minecraft/server",
@@ -136,9 +87,9 @@ const createManifests = (args) => {
 		format_version: 2,
 		header: {
 			description: `(Resource Pack) ${description}`,
-			name: `SCP: Dystopia §7${version.text} [RP]`,
+			name: `SCP:DY 2.0 Alpha EPHEMERAL (1.21.111 only)`,
 			uuid: rpHeaderUuid,
-			version: version.array,
+			version: [69, 69, 69],
 			min_engine_version: MIN_ENGINE_VERSION,
 		},
 		modules: [
@@ -176,11 +127,9 @@ const getOutDir = (args) => {
 		};
 	}
 
-	const version = createPackVersion(args);
-
 	return {
-		bpOutDir: path.join("dist", version.text.replaceAll(" ", "_"), "SCPDY_BP"),
-		rpOutDir: path.join("dist", version.text.replaceAll(" ", "_"), "SCPDY_RP"),
+		bpOutDir: path.join("dist", "SCPDY_2.0_Alpha_Ephemeral", "SCPDY_BP"),
+		rpOutDir: path.join("dist", "SCPDY_2.0_Alpha_Ephemeral", "SCPDY_RP"),
 	};
 };
 
