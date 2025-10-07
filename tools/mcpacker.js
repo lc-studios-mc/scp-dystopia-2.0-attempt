@@ -2,7 +2,7 @@ import { defineConfig } from "mcpacker";
 import path from "node:path";
 import packageData from "../package.json" with { type: "json" };
 
-const MIN_ENGINE_VERSION = [1, 21, 110];
+const MIN_ENGINE_VERSION = [1, 21, 111];
 
 /** @returns {{ "@minecraft/server": string; "@minecraft/server-ui": string; }} */
 const getScriptinApiVersion = () => {
