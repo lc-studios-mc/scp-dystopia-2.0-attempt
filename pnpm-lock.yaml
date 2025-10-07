@@ -10,13 +10,13 @@ importers:
     dependencies:
       '@lc-studios-mc/scripting-utils':
         specifier: github:lc-studios-mc/scripting-utils#semver:^3.0.0
-        version: https://codeload.github.com/lc-studios-mc/scripting-utils/tar.gz/4764494ba593a02ac5f4d8ac0613f470c5f763a4(@minecraft/server@2.2.0-beta.1.21.100-stable(@minecraft/vanilla-data@1.21.81))
+        version: https://codeload.github.com/lc-studios-mc/scripting-utils/tar.gz/4764494ba593a02ac5f4d8ac0613f470c5f763a4(@minecraft/server@2.3.0-beta.1.21.111-stable(@minecraft/common@1.2.0)(@minecraft/vanilla-data@1.21.81))
       '@minecraft/server':
-        specifier: 2.2.0-beta.1.21.100-stable
-        version: 2.2.0-beta.1.21.100-stable(@minecraft/vanilla-data@1.21.81)
+        specifier: 2.3.0-beta.1.21.111-stable
+        version: 2.3.0-beta.1.21.111-stable(@minecraft/common@1.2.0)(@minecraft/vanilla-data@1.21.81)
       '@minecraft/server-ui':
-        specifier: 2.1.0-beta.1.21.100-stable
-        version: 2.1.0-beta.1.21.100-stable(@minecraft/vanilla-data@1.21.81)
+        specifier: 2.1.0-beta.1.21.111-stable
+        version: 2.1.0-beta.1.21.111-stable(@minecraft/common@1.2.0)(@minecraft/server@2.3.0-beta.1.21.111-stable(@minecraft/common@1.2.0)(@minecraft/vanilla-data@1.21.81))
     devDependencies:
       '@types/node':
         specifier: ^22.17.2
@@ -216,17 +216,16 @@ packages:
   '@minecraft/common@1.2.0':
     resolution: {integrity: sha512-JdmEq4P3Z/FtoBzhLijFgMSVFnFRrUoLwY8DHHrgtFo0mfLTOLTB1RErYjLMsA6b7BGVNxkX/pfFRiH7QZ0XwQ==}
 
-  '@minecraft/server-ui@2.1.0-beta.1.21.100-stable':
-    resolution: {integrity: sha512-LbaWONltzTY6YlNg512bXss1FdIn6VeNaQLfWl//OQX19dgJiVjlXZ3geJM3PHgIcjLfMxn9pH31i+EyWGLZsg==}
-
-  '@minecraft/server@2.0.0':
-    resolution: {integrity: sha512-X2LmT82eO0oCjOFaFgg6zoGenAUSyrG+YvIbe7/FSPj9hpMt4BtOIs7axoQUUvMx2NNbq8uEsnQadMMrDDBmUA==}
+  '@minecraft/server-ui@2.1.0-beta.1.21.111-stable':
+    resolution: {integrity: sha512-y6kY3Re60zdGne4YCaWoSs27l3cxTVd/eHQyDkrr9xQWbkzgHzkivTc+RD1gkUUYW7lekUopFY8VRXo1UPRbYQ==}
     peerDependencies:
-      '@minecraft/vanilla-data': '>=1.20.70'
+      '@minecraft/common': ^1.0.0
+      '@minecraft/server': ^2.0.0
 
-  '@minecraft/server@2.2.0-beta.1.21.100-stable':
-    resolution: {integrity: sha512-X6W841dcMqIPK6xar+GowUyXDwCUPnJpVRrwT3+Vwt/VylVZqOhk7Xr0rnViGKKxCO49YvN1NF4pmK2ISE57oQ==}
+  '@minecraft/server@2.3.0-beta.1.21.111-stable':
+    resolution: {integrity: sha512-to7c9cgaMOUqEpNNq/ALJ5BrQ85yUYdnkIfqs5DubWnizBVmJlIuEAjT5bLghiea0+bkLN1u+Ha5w50fKP7yhQ==}
     peerDependencies:
+      '@minecraft/common': ^1.2.0
       '@minecraft/vanilla-data': '>=1.20.70'
 
   '@minecraft/vanilla-data@1.21.81':
@@ -703,25 +702,18 @@ snapshots:
       wrap-ansi: 8.1.0
       wrap-ansi-cjs: wrap-ansi@7.0.0
 
-  '@lc-studios-mc/scripting-utils@https://codeload.github.com/lc-studios-mc/scripting-utils/tar.gz/4764494ba593a02ac5f4d8ac0613f470c5f763a4(@minecraft/server@2.2.0-beta.1.21.100-stable(@minecraft/vanilla-data@1.21.81))':
+  '@lc-studios-mc/scripting-utils@https://codeload.github.com/lc-studios-mc/scripting-utils/tar.gz/4764494ba593a02ac5f4d8ac0613f470c5f763a4(@minecraft/server@2.3.0-beta.1.21.111-stable(@minecraft/common@1.2.0)(@minecraft/vanilla-data@1.21.81))':
     dependencies:
-      '@minecraft/server': 2.2.0-beta.1.21.100-stable(@minecraft/vanilla-data@1.21.81)
+      '@minecraft/server': 2.3.0-beta.1.21.111-stable(@minecraft/common@1.2.0)(@minecraft/vanilla-data@1.21.81)
 
   '@minecraft/common@1.2.0': {}
 
-  '@minecraft/server-ui@2.1.0-beta.1.21.100-stable(@minecraft/vanilla-data@1.21.81)':
+  '@minecraft/server-ui@2.1.0-beta.1.21.111-stable(@minecraft/common@1.2.0)(@minecraft/server@2.3.0-beta.1.21.111-stable(@minecraft/common@1.2.0)(@minecraft/vanilla-data@1.21.81))':
     dependencies:
       '@minecraft/common': 1.2.0
-      '@minecraft/server': 2.0.0(@minecraft/vanilla-data@1.21.81)
-    transitivePeerDependencies:
-      - '@minecraft/vanilla-data'
+      '@minecraft/server': 2.3.0-beta.1.21.111-stable(@minecraft/common@1.2.0)(@minecraft/vanilla-data@1.21.81)
 
-  '@minecraft/server@2.0.0(@minecraft/vanilla-data@1.21.81)':
-    dependencies:
-      '@minecraft/common': 1.2.0
-      '@minecraft/vanilla-data': 1.21.81
-
-  '@minecraft/server@2.2.0-beta.1.21.100-stable(@minecraft/vanilla-data@1.21.81)':
+  '@minecraft/server@2.3.0-beta.1.21.111-stable(@minecraft/common@1.2.0)(@minecraft/vanilla-data@1.21.81)':
     dependencies:
       '@minecraft/common': 1.2.0
       '@minecraft/vanilla-data': 1.21.81
