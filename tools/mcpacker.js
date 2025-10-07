@@ -2,48 +2,7 @@ import { defineConfig } from "mcpacker";
 import path from "node:path";
 import packageData from "../package.json" with { type: "json" };
 
-const MIN_ENGINE_VERSION = [1, 21, 100];
-
-/**
- * @param {import("mcpacker").CliArgs} args
- * @returns {{ text: string; array: [number,number,number]; isSnapshot: boolean; }}
- */
-const createPackVersion = (args) => {
-	if (args.dev) {
-		return {
-			text: "DEV",
-			array: [0, 0, 1],
-			isSnapshot: false,
-		};
-	}
-
-	if (!args.dev && !args.packVersion) {
-		const date = new Date();
-
-		/** @type {[number,number,number]} */
-		const array = [date.getFullYear(), date.getMonth() + 1, date.getDate()];
-
-		return {
-			text: `Snapshot-${array.join("-")}`, // yyyy-mm-dd
-			array,
-			isSnapshot: true,
-		};
-	}
-
-	if (args.packVersion) {
-		return {
-			text: `v${args.packVersion.join(".")}`,
-			array: args.packVersion,
-			isSnapshot: false,
-		};
-	}
-
-	return {
-		text: "UNRESOLVED",
-		array: [0, 0, 0],
-		isSnapshot: false,
-	};
-};
+const MIN_ENGINE_VERSION = [1, 21, 110];
 
 /** @returns {{ "@minecraft/server": string; "@minecraft/server-ui": string; }} */
 const getScriptinApiVersion = () => {
@@ -74,21 +33,12 @@ const getScriptinApiVersion = () => {
  * @returns {{ bpManifest: any; rpManifest: any; }}
  */
 const createManifests = (args) => {
-	const version = createPackVersion(args);
+	const description = `This version is very buggy, but it probably won't be obliterated by a future Minecraft update.
+Please do not ask for updates.`;
 
-	const description = args.dev
-		? "Development build. Do not publish this."
-		: version.isSnapshot
-			? "EARLY ACCESS - Not recommended to use this version in a serious project!"
-			: "SCP addon by LC Studios MC.";
+	const bpHeaderUuid = "b5822a30-5be0-4699-a298-315ab9a21042";
 
-	const bpHeaderUuid = args.dev
-		? "bc68b824-f338-472d-8b8e-942d2b34ca0d"
-		: "b5822a30-5be0-4699-a298-315ab9a21042";
-
-	const rpHeaderUuid = args.dev
-		? "717e0c75-1e5c-4bc8-a543-baeaa203a5e1"
-		: "fbc36a82-3f2d-423f-974d-99c9e63b9c2e";
+	const rpHeaderUuid = "fbc36a82-3f2d-423f-974d-99c9e63b9c2e";
 
 	const scriptingApiVersion = getScriptinApiVersion();
 
@@ -96,9 +46,9 @@ const createManifests = (args) => {
 		format_version: 2,
 		header: {
 			description,
-			name: `SCP: Dystopia §7${version.text}`,
+			name: `SCP:DY 2.0 Alpha DISTILLED`,
 			uuid: bpHeaderUuid,
-			version: version.array,
+			version: [810, 45, 19],
 			min_engine_version: MIN_ENGINE_VERSION,
 		},
 		modules: [
@@ -119,7 +69,7 @@ const createManifests = (args) => {
 			{
 				// Resource pack
 				uuid: rpHeaderUuid,
-				version: version.array,
+				version: [810, 45, 19],
 			},
 			{
 				module_name: "@minecraft/server",
@@ -136,9 +86,9 @@ const createManifests = (args) => {
 		format_version: 2,
 		header: {
 			description: `(Resource Pack) ${description}`,
-			name: `SCP: Dystopia §7${version.text} [RP]`,
+			name: `SCP:DY 2.0 Alpha DISTILLED`,
 			uuid: rpHeaderUuid,
-			version: version.array,
+			version: [810, 45, 19],
 			min_engine_version: MIN_ENGINE_VERSION,
 		},
 		modules: [
@@ -176,11 +126,9 @@ const getOutDir = (args) => {
 		};
 	}
 
-	const version = createPackVersion(args);
-
 	return {
-		bpOutDir: path.join("dist", version.text.replaceAll(" ", "_"), "SCPDY_BP"),
-		rpOutDir: path.join("dist", version.text.replaceAll(" ", "_"), "SCPDY_RP"),
+		bpOutDir: path.join("dist", "SCPDY_2.0_Alpha_Distilled", "SCPDY_BP"),
+		rpOutDir: path.join("dist", "SCPDY_2.0_Alpha_Distilled", "SCPDY_RP"),
 	};
 };
 
