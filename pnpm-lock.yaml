@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       '@minecraft/server':
-        specifier: 2.2.0-beta.1.21.100-stable
-        version: 2.2.0-beta.1.21.100-stable(@minecraft/vanilla-data@1.21.81)
+        specifier: 2.2.0
+        version: 2.2.0(@minecraft/common@1.2.0)(@minecraft/vanilla-data@1.21.81)
       '@minecraft/server-ui':
-        specifier: 2.1.0-beta.1.21.100-stable
-        version: 2.1.0-beta.1.21.100-stable(@minecraft/vanilla-data@1.21.81)
+        specifier: 2.0.0
+        version: 2.0.0(@minecraft/vanilla-data@1.21.81)
       gl-matrix:
         specifier: ^3.4.4
         version: 3.4.4
@@ -210,17 +210,13 @@ packages:
   '@minecraft/common@1.2.0':
     resolution: {integrity: sha512-JdmEq4P3Z/FtoBzhLijFgMSVFnFRrUoLwY8DHHrgtFo0mfLTOLTB1RErYjLMsA6b7BGVNxkX/pfFRiH7QZ0XwQ==}
 
-  '@minecraft/server-ui@2.1.0-beta.1.21.100-stable':
-    resolution: {integrity: sha512-LbaWONltzTY6YlNg512bXss1FdIn6VeNaQLfWl//OQX19dgJiVjlXZ3geJM3PHgIcjLfMxn9pH31i+EyWGLZsg==}
+  '@minecraft/server-ui@2.0.0':
+    resolution: {integrity: sha512-K1xFK1OEJSNfIgyRElaoxDTW/nbEqjBp1YnUdyPCs4kGDglwoXNyFz3wzMOkvT04CJXSifZGcTJeWda4C6OkXw==}
 
-  '@minecraft/server@2.0.0':
-    resolution: {integrity: sha512-X2LmT82eO0oCjOFaFgg6zoGenAUSyrG+YvIbe7/FSPj9hpMt4BtOIs7axoQUUvMx2NNbq8uEsnQadMMrDDBmUA==}
+  '@minecraft/server@2.2.0':
+    resolution: {integrity: sha512-Tn+Sr7IK71LptVOumTSWWXpjYgCqgCCwB8BosnU1fUltJV3JsNTnRtQMHlzQwSDGwTF0P0HJFhDALoOMlG/j2Q==}
     peerDependencies:
-      '@minecraft/vanilla-data': '>=1.20.70'
-
-  '@minecraft/server@2.2.0-beta.1.21.100-stable':
-    resolution: {integrity: sha512-X6W841dcMqIPK6xar+GowUyXDwCUPnJpVRrwT3+Vwt/VylVZqOhk7Xr0rnViGKKxCO49YvN1NF4pmK2ISE57oQ==}
-    peerDependencies:
+      '@minecraft/common': ^1.2.0
       '@minecraft/vanilla-data': '>=1.20.70'
 
   '@minecraft/vanilla-data@1.21.81':
@@ -702,19 +698,14 @@ snapshots:
 
   '@minecraft/common@1.2.0': {}
 
-  '@minecraft/server-ui@2.1.0-beta.1.21.100-stable(@minecraft/vanilla-data@1.21.81)':
+  '@minecraft/server-ui@2.0.0(@minecraft/vanilla-data@1.21.81)':
     dependencies:
       '@minecraft/common': 1.2.0
-      '@minecraft/server': 2.0.0(@minecraft/vanilla-data@1.21.81)
+      '@minecraft/server': 2.2.0(@minecraft/common@1.2.0)(@minecraft/vanilla-data@1.21.81)
     transitivePeerDependencies:
       - '@minecraft/vanilla-data'
 
-  '@minecraft/server@2.0.0(@minecraft/vanilla-data@1.21.81)':
-    dependencies:
-      '@minecraft/common': 1.2.0
-      '@minecraft/vanilla-data': 1.21.81
-
-  '@minecraft/server@2.2.0-beta.1.21.100-stable(@minecraft/vanilla-data@1.21.81)':
+  '@minecraft/server@2.2.0(@minecraft/common@1.2.0)(@minecraft/vanilla-data@1.21.81)':
     dependencies:
       '@minecraft/common': 1.2.0
       '@minecraft/vanilla-data': 1.21.81
