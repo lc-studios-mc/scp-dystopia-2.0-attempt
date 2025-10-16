@@ -1,11 +1,10 @@
 {
 	"extends": "../tsconfig.base.json",
 	"compilerOptions": {
+		"target": "es2023",
 		"lib": ["es2023"],
 		"types": ["node"],
-		"module": "nodenext",
-		"moduleResolution": "nodenext",
-		"allowJs": true,
-		"checkJs": true
+		"module": "preserve",
+		"moduleResolution": "bundler"
 	}
 }
