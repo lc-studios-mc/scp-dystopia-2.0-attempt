@@ -28,7 +28,7 @@ When all of that is done, v2 is complete.
 
 **The goal is to recreate the state where the SCP: Dystopia addon was working fine.** 🛠️
 
-To achieve that, I learned that I have to *pause* development of new features,
+To achieve that, I learned that I have to _pause_ development of new features,
 and focus on restoration part first.
 
 I decided that it would be too difficult to carry out this restoration work
@@ -65,7 +65,7 @@ So, **you shouldn't use it in a serious project**.
 
 ## About v2 alpha
 
-*Maintenance cost of incomplete new features has stagnated the project...*
+_Maintenance cost of incomplete new features has stagnated the project..._
 
 The "v2 alpha", which was underway from February 2024 to August 2025, **is discontinued**.
 So, [2.0.0 Alpha 5](https://github.com/lc-studios-mc/scp-dystopia/releases/tag/v2.0.0-alpha-5)

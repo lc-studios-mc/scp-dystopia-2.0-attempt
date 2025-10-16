@@ -2,7 +2,7 @@
 
 This document provides instructions for installing the SCP: Dystopia addon for Minecraft Bedrock Edition. Two installation methods are available: a standard method for official releases and an advanced method for obtaining development versions.
 
------
+---
 
 ## Standard Installation (Recommended) 👍
 
@@ -12,7 +12,7 @@ This method is straightforward and suitable for most users.
 2.  Open the downloaded `.mcaddon` file. Minecraft Bedrock Edition will launch and automatically import the addon packs. A success message will appear in-game.
 3.  To use the addon, create or edit a Minecraft world. Navigate to the "Behavior Packs" and "Resource Packs" sections in the world settings and activate the SCP: Dystopia packs.
 
------
+---
 
 ## Advanced Installation: Development Version 🧪
 
@@ -84,8 +84,8 @@ Create a configuration file to specify the output directory for the compiled add
 
 The repository uses branches to manage different lines of development.
 
-  * `main`: The primary development branch. Contains the latest features that are generally stable. **Recommended for most users.**
-  * `restoration`: A feature-specific branch for restoring older game mechanics.
+- `main`: The primary development branch. Contains the latest features that are generally stable. **Recommended for most users.**
+- `restoration`: A feature-specific branch for restoring older game mechanics.
 
 To switch to the `main` branch, execute the following command from the terminal inside the `scp-dystopia` directory:
 
