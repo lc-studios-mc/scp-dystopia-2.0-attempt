@@ -19,6 +19,9 @@ entity.scpdy:scp457.name=SCP-457
 item.spawn_egg.entity.scpdy:scp457.name=SCP-457 Spawn Egg
 scpdy:scp500_bottle=SCP-500 Bottle
 scpdy:scp500_pill=SCP-500 Pill
+scpdy:scp999=SCP-999
+entity.scpdy:scp999.name=SCP-999
+item.spawn_egg.entity.scpdy:scp999.name=SCP-999 Spawn Egg
 scpdy:scp1023_arc=SCP-1023-ARC
 
 scpdy:candy_blue=Blue Candy

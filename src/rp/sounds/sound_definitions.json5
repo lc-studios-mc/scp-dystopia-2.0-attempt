@@ -49,5 +49,16 @@
 				},
 			],
 		},
+
+		"scpdy.scp999.cooing": {
+			category: "neutral",
+			sounds: [
+				"sounds/scpdy/scp/scp999/cooing_1",
+				"sounds/scpdy/scp/scp999/cooing_2",
+				"sounds/scpdy/scp/scp999/cooing_3",
+				"sounds/scpdy/scp/scp999/cooing_4",
+				"sounds/scpdy/scp/scp999/cooing_5",
+			],
+		},
 	},
 }

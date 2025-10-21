@@ -1,0 +1,56 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.scpdy.scp999.squishy": {
+			"loop": true,
+			"animation_length": 3,
+			"anim_time_update": "v.squishy_anim_time ?? q.life_time",
+			"bones": {
+				"bottom": {
+					"scale": {
+						"0.0": [1, 1, 1],
+						"0.75": {
+							"pre": [0.95, 1.3, 0.95],
+							"post": [0.95, 1.3, 0.95],
+							"lerp_mode": "catmullrom"
+						},
+						"2.0": {
+							"post": [1.1, 0.9, 1.1],
+							"lerp_mode": "catmullrom"
+						},
+						"3.0": [1, 1, 1]
+					}
+				},
+				"head": {
+					"scale": {
+						"0.0": [1, 1, 1],
+						"0.75": {
+							"pre": [0.9, 1.03, 1.03],
+							"post": [0.9, 1.03, 1.03],
+							"lerp_mode": "catmullrom"
+						},
+						"2.0": {
+							"post": [0.98, 0.9, 0.95],
+							"lerp_mode": "catmullrom"
+						},
+						"3.0": [1, 1, 1]
+					}
+				}
+			}
+		},
+		"animation.scpdy.scp999.sway": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"head": {
+					"rotation": ["-math.sin(query.anim_time * 40) * 2", 0, "math.sin(query.anim_time * 80) * 3"]
+				},
+				"rightArm": {
+					"rotation": ["-math.sin(query.anim_time * -45) * 3", 0, "math.sin(query.anim_time * 60) * 7.5"]
+				},
+				"leftArm": {
+					"rotation": ["-math.sin(query.anim_time * 50) * 3", 0, "math.sin(query.anim_time * -70) * 7.5"]
+				}
+			}
+		}
+	}
+}

@@ -41,6 +41,28 @@
 				pitch: [0.9, 1.1],
 				volume: 1.1,
 			},
+
+			"scpdy:scp999": {
+				events: {
+					ambient: "scpdy.scp999.cooing",
+					step: {
+						pitch: [0.9, 1.1],
+						sound: "mob.slime.big",
+					},
+					hurt: {
+						sound: "scpdy.scp999.cooing",
+						pitch: 1.2,
+						volume: 1.0,
+					},
+					death: {
+						sound: "scpdy.scp999.cooing",
+						pitch: 0.6,
+						volume: 1.3,
+					},
+				},
+				pitch: 1.0,
+				volume: 1.0,
+			},
 		},
 	},
 }
