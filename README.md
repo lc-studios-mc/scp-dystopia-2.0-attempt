@@ -1,8 +1,12 @@
-> [!CAUTION]
-> We're currently working on version 2.0, which is a complete rewrite. It's not yet in a stable development stage and **will introduce breaking changes.**
-> You should not use it in a serious project for now!
+> [!IMPORTANT]
+> **Development of 2.0 (full rewrite) is canceled.**
+> There have been multiple failed attempts over the past three years (this repository is one example).
+> We decided that rebuilding the whole add-on from scratch would be too difficult and time-consuming.
 >
-> [Read more](./docs/v1-restoration.md)
+> Currently, pure bug fixes for v1.8, rather than a complete rewrite, are being done in
+> [scp-dystopia-addon](https://github.com/lc-studios-mc/scp-dystopia-addon),
+>
+> <ins>This repository (you are currently viewing) will eventually be archived.</ins>
 
 <hr/>
 
@@ -22,14 +26,8 @@
 
 </div>
 
-## :computer: How to Install
+<hr/>
 
-See [Installation Guide](./INSTALL.md).
+[Credits](./docs/credits.md)
 
-## :memo: Other Information
-
-- [Credits](./docs/credits.md)
-- [Third-party attributions](./docs/attributions.md)
-- Bug reports and suggestions: [Submit a new issue](https://github.com/lc-studios-mc/scp-dystopia/issues)
-- Questions and general conversation: [Discord](https://discord.gg/K2mxsJ2trE)
-- Email: info@lc-studios.net
+[Third-party attributions](./docs/attributions.md)
